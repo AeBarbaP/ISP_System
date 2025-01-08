@@ -10557,12 +10557,13 @@ html.boxed body {
 	display: inline-block;
 	overflow: hidden;
 	/* font-size: 320px; */
-	/* line-height: 50%; */
+	line-height: 70%;
 	font-weight: 600;
 	font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 	color: #151515;
 	letter-spacing: -.09em;
-	padding-right: 0px;
+	/* padding-right: 0px; */
+	padding: 10px;
 	/* height: 270px; */
 }
 
