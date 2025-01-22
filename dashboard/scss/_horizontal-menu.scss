@@ -387,6 +387,18 @@
 							margin-left: 10px;
 						}
 					}
+					.menu-icon2 {
+						
+						font-size: $horizontal-menu-icon-font-size;
+						color: $horizontal-bottom-menu-item-icon-color;
+						font-weight: 400;
+						display: block;
+						margin-bottom: 0.625rem;
+						.rtl & {
+							margin-right: 0;
+							margin-left: 10px;
+						}
+					}
 					.menu-arrow {
 						margin-top: 5px;
 						display: inline-block;
