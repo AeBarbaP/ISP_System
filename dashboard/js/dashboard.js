@@ -77,29 +77,29 @@
 		}
 		var bestSellersData = {
 			datasets: [{
-				data: [20, 15, 20, 35, 10],
+				data: [15, 58, 27],
 				backgroundColor: [
-					'#ee5b5b',
-					'#fcd53b',
-					'#0bdbb8',
-					'#464dee',
-					'#0ad7f7'
+					'#ee5b5b',/* ROJO automotive 20*/
+					'#0bdbb8',/*aqua software 20*/
+					'#fcd53b',/*AMARILLO books 15*/
+					'#464dee',/* azul toys 35*/
+					'#0ad7f7'/* azul cielo videojuegos 10*/
 				],
 				borderColor: [
 					'#ee5b5b',
-					'#fcd53b',
 					'#0bdbb8',
+					'#fcd53b',
 					'#464dee',
 					'#0ad7f7'
 				],
 			}],
 			// These labels appear in the legend and in the tooltips when hovering different arcs
 			labels: [
-				'Automotive',
-				'Books',
-				'Software',
-				'Toys',
-				'Video games'
+				'Cortes/Cancelaciones',
+				/* 'Books', */
+				'Pagos Registrados',
+				/* 'Toys', */
+				'Clientes Nuevos'
 			]
 		};
 		var bestSellersOptions = {
