@@ -19,4 +19,23 @@ function hideInput(val){
 
 function mostrardatos(){
     document.getElementById('datoscliente').hidden = false;
+    document.getElementById('NuevaSolicitud').hidden = false;
+    document.getElementById('pagodiv').hidden = false;
+}
+
+function swalpago(){
+    Swal.fire({
+		position: "top-end",
+		icon: "success",
+		title: "Pago Exitoso",
+		showConfirmButton: false,
+		timer: 1500
+	});
+    document.getElementById('printticket').hidden = false;
+    document.getElementById('pagoreg').hidden = true;
+}
+
+function cerrarpago(){
+    document.getElementById('printticket').hidden = true;
+    document.getElementById('cerrarpago1').hidden = false;
 }

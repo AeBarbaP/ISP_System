@@ -153,7 +153,7 @@
               </li>	
             </ul>
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.html"><img src="../images/logo_conectwi_wide-removebg-preview.png" alt="logo"/></a>
+                <a class="navbar-brand brand-logo" href="index.html"><img src="../images/logo_conectwi_wide-removebg-preview.png" height="30px" alt="logo"/></a>
                 <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
             </div>
             <ul class="navbar-nav navbar-nav-right">
@@ -1243,7 +1243,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Cancelar</button>
                     <button type="button" class="btn btn-primary" id="guardarbtn" onclick="" >Guardar</button> <!-- Guarda registro de cliente nuevo y manda a modal de pago automáticamente -->
-                    <button type="button" class="btn btn-success" id="imprimircbtn" onclick="" >Imprimir Contrato</button>
+                    <button type="button" class="btn btn-success" id="imprimircbtn" data-bs-toggle="modal" data-bs-target="#pago" >Imprimir Contrato</button>
                 </div>
             </div>
         </div>
@@ -1274,12 +1274,6 @@
                         <label for="datos_usr" class="form-label"><i class="bi bi-person"></i> Fecha:</label>
                         <input type="date" class="form-control" id="fechaSolicitud" name="datos_usr" placeholder="" disabled>
                     </div>
-                    <!-- <div class="col-lg-6">
-						<label for="contratofolio" class="form-label">Cliente:</label>
-						<input type="text" class="form-control" id="contratofolio" name="contratofolio" placeholder="">
-						
-                    </div> -->
-                    
                     <div class="col-lg-6" id="foliosearch">
 						<label for="buscafolio" class="form-label">Buscar Folio</label>
 						<input class="form-control" list="datalistOptions" id="buscafolio" onchange="mostrardatos()"placeholder="Type to search...">
@@ -1333,120 +1327,73 @@
 							</label>
 						</div>
                     </div>
-					
-                    <!-- <div class="col-sm-6" id="descripcionFuncional" style="display: none;">
-                        <label for="datos_usr" class="form-label"><i class="bi bi-person"></i> Especifica:</label>
-                        <select class="form-select" id="articuloSolicitud" onchange="limpiaInputsFunc()" aria-label="Default select example" required>
-                            <option selected>Selecciona...</option>
-                        </select>
-                        <div class="form-text" id="divTag" hidden><span id="disponible1"> Piezas disponibles </span><strong><span id="disponible"></span></strong></div>
-                            <div class="invalid-feedback">
-                                * Campo requerido.
-                            </div>
-                        </div>
-                        <div class="col-sm-2" id="cantidadFuncional" style="display: none;">
-                            <label for="datos_usr" class="form-label"><i class="bi bi-person"></i> Cantidad:</label>
-                            <input type="text" class="form-control" onkeypress="ValidaSoloNumeros()" oninput="queryCosto(this.value)" id="cantidadArt" name="folio" placeholder="">
-                            <input type="text" id="inputUnitario" hidden>
-                        </div>
-                        <div class="col-sm-3" id="costoFuncional" style="display: none;">
-                            <label for="datos_usr" class="form-label"><i class="bi bi-person"></i> Costo:</label>
-                            <div class="input-group">
-                                <span class="input-group-text">$</span>
-                                <input type="text" class="form-control" id="costoSolicitud" aria-label="Amount (to the nearest dollar)" readonly>
-                                <span class="input-group-text">.00</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-1" id="btnFuncK" style="display: none;">
-                            <label for="datos_usr" class="form-label text-light">.</label>
-                            <div class="input-group">
-                                <button class="btn btn-primary" type="button" onclick="guardarSolicitud()" id="agregarItemFunc"><i class="bi bi-plus-circle"></i></button>
-                            </div>
-                        </div>
-                        <div class="col-sm-8" id="descripcionExtra" style="display: none;">
-                            <label for="datos_usr" class="form-label"><i class="bi bi-person"></i> Especifica:</label>
-                            <select class="form-select" id="extraSolicitud" aria-label="Default select example" required>
-                                <option selected>Selecciona...</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                * Campo requerido.
-                            </div>
-                        </div>
-                        <div class="col-sm-3" id="costoExtra" style="display: none;">
-                            <label for="datos_usr" class="form-label"><i class="bi bi-person"></i> Monto solicitado:</label>
-                            <div class="input-group">
-                                <span class="input-group-text">$</span>
-                                <input type="text" class="form-control" id="costoSolicitudExtra" onkeypress="ValidaSoloNumeros()" aria-label="Amount (to the nearest dollar)">
-                                <span class="input-group-text">.00</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-1" id="btnExtra" style="display: none;">
-                            <label for="datos_usr" class="form-label text-light">.</label>
-                            <div class="input-group">
-                                <button class="btn btn-primary" type="button" id="agregarItemExtra" onclick="guardarSolicitudExtra()"><i class="bi bi-plus-circle"></i></button>
-                            </div>
-                        </div>
-                        <div class="col-sm-8" id="descripcionOtro" style="display: none;">
-                            <label for="datos_usr" class="form-label"><i class="bi bi-person"></i> Especifica:</label>
-                            <select class="form-select" id="otroSolicitud" onchange="limpiaInputsOtro()" aria-label="Default select example" required>
-                                <option selected>Selecciona...</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                * Campo requerido.
-                            </div>
-                        </div>
-                        <div class="col-sm-3" id="montoOtro" style="display: none;">
-                            <label for="datos_usr" class="form-label"><i class="bi bi-person"></i> Monto Solicitado:</label>
-                            <div class="input-group">
-                                <span class="input-group-text">$</span>
-                                <input type="text" class="form-control" id="costoSolicitudOtro" onkeypress="ValidaSoloNumeros()" aria-label="Amount (to the nearest dollar)">
-                                <span class="input-group-text">.00</span>
-                            </div>
-                        </div>
-                        </form>
-                        <div class="col-sm-1" id="btnOtro" style="display: none;">
-                            <label for="datos_usr" class="form-label text-light">.</label>
-                            <div class="input-group">
-                                <button class="btn btn-primary" type="button" id="agregarItemOtro" onclick="guardarSolicitudOtros()"><i class="bi bi-plus-circle"></i></button>
-                            </div>
-                        </div> -->
-						<div class="col-lg-12" id="datoscliente" hidden>
-							<div>
-								<h3>Mariano González</h3>
-								<span>Folio Contrato: C-0659</span>
-								<span>Domicilio: Primavera 300, Centro, Zacatecas, Zac.</span>
-								<span>Teléfono: (222) 333-4444</span>
-								<h4>Saldo a pagar:</h4>
-								<span>$ 350.00</span>
-								<h4>Periodo a pagar</h4>
-								<span>20 Enero - 20 Febrero 2025</span>
-							</div>
+					<div class="col-lg-12" id="datoscliente" hidden>
+						<div>
+							<h3>Mariano González</h3>
+							<span>Folio Contrato: C-0659</span>
+							<br>
+							<span>Domicilio: Primavera 300, Centro, Zacatecas, Zac.</span>
+							<br>
+							<span>Teléfono: (222) 333-4444</span>
+							<br>
+							<!-- <h4>Saldo a pagar:</h4>
+							<h3>$ 350.00</h3>
+							<h4>Periodo a pagar</h4>
+							<span>20 Enero - 20 Febrero 2025</span> -->
 						</div>
-                        <div class="col-sm-12">
-                            <label for="datos_usr" class="form-label"><i class="bi bi-person"></i> Descripción:</label>
-                            <!-- <div id="NuevaSolicitud"></div> -->
-                            <div class="table-responsive" id="tablaSolicitud">
-                                <table class="table table-striped table-hover text-center" id="tablaPre">
-                                    <thead>
-                                        <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Cantidad</th>
-                                        <th scope="col">Descripción</th>
-                                        <th scope="col">Costo Unitario</th>
-                                        <th scope="col">Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="NuevaSolicitud">
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+					</div>
+					<div class="col-sm-12">
+						<label for="datos_usr" class="form-label"><i class="bi bi-person"></i> Descripción:</label>
+						<!-- <div id="NuevaSolicitud"></div> -->
+						<div class="table-responsive" id="tablaSolicitud">
+							<table class="table table-striped table-hover text-center" id="tablaPre">
+								<thead>
+									<tr>
+									<th scope="col">#</th>
+									<th scope="col">Contrato</th>
+									<th scope="col">Descripción</th>
+									<th scope="col">Periodo de Pago</th>
+									<th scope="col">Monto</th>
+									<!-- <th scope="col">Total</th> -->
+									</tr>
+								</thead>
+								<tbody id="NuevaSolicitud" hidden>
+									<tr>
+										<td>1</td>
+										<td>C-0659</td>
+										<td>Pago Mensualidad</td>
+										<td>20-Ero a 20 Feb 2025</td>
+										<td>$350.00</td>
+										<!-- <td></td> -->
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td>Total</td>
+										<td>$350.00</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="col-lg-6" id="pagodiv" hidden>
+						<label for="tipopago" class="form-label">Tipo de Pago:</label>
+						<select class="form-select" id="tipopago" aria-label="Default select example" required>
+							
+							<option value="1" selected>Efectivo</option>
+							<option value="2">Tarjeta Débito</option>
+							<option value="3">Tarjeta Crédito</option>
+							<option value="4">Transferencia</option>
+						</select>
+					</div>
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="btnlistaEspera" onclick="" >Guardar Pago</button>
-                    <!-- <button type="button" class="btn btn-success" id="btnEntregaApoyo" onclick="" disabled>Entregar</button> -->
+                    <button type="button" class="btn btn-primary" id="pagoreg" onclick="swalpago()">Pagar</button>
+                    <button type="button" class="btn btn-success" id="printticket" onclick="cerrarpago()" hidden >Imprimir Ticket</button>
+                    <button type="button" class="btn btn-success" id="cerrarpago1" data-bs-dismiss="modal" hidden >Cerrar</button>
                 </div>
             </div>
         </div>
@@ -1454,3 +1401,4 @@
 </div>
 
 <!-- Termina Modal para agregar solicitud -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
