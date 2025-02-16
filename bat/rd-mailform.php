@@ -35,16 +35,16 @@ try {
     if (isset($_POST['form-type'])) {
         switch ($_POST['form-type']){
             case 'contact':
-                $subject = 'A message from your site visitor';
+                $subject = 'Mensaje de un visitante de tu sitio web';
                 break;
             case 'subscribe':
-                $subject = 'Subscribe request';
+                $subject = 'Solicitud de suscrpición';
                 break;
             case 'order':
-                $subject = 'Order request';
+                $subject = 'Orden de servicio';
                 break;
             default:
-                $subject = 'A message from your site visitor';
+                $subject = 'Mensaje de un visitante de tu sitio web';
                 break;
         }
     }else{
