@@ -529,12 +529,13 @@
 						</div>
 						<div class="col-lg-4 mb-3 mb-lg-0">
 							<div class="card congratulation-bg text-center">
+								<h4 class="card-title">Promo del Mes</h4>
 								<div class="card-body pb-0">
-									<img src="images/dashboard/face29.png" alt="">  
-									<h2 class="mt-3 text-white mb-3 font-weight-bold">Felicidades
+									<img src="../images/promos/PromoMes.jpg" height="50%" alt="">  
+									<!-- <h2 class="mt-3 text-white mb-3 font-weight-bold">Felicidades
 										Sergio
 									</h2>
-									<p>Haz completado tus actividades asignadas.</p>
+									<p>Haz completado tus actividades asignadas.</p> -->
 								</div>
 							</div>
 						</div>
@@ -1281,11 +1282,15 @@
                         <label for="cp" class="form-label">C.P.:</label>
                         <input type="text" class="form-control" id="cp" name="cp" placeholder="">
                     </div>
+                    <div class="col-sm-4">
+                        <label for="telefono" class="form-label">Teléfono:</label>
+                        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="">
+                    </div>
                     <div class="col-sm-12">
                         <label for="referencias" class="form-label">Referencias de la vivienda:</label>
                         <textarea type="text" class="form-control" rows="2" id="referencias" name="referencias" placeholder=""></textarea>
                     </div>
-                    <div class="col-sm-12">
+                    <!-- <div class="col-sm-12">
                         <label for="horario" class="form-label">Horario de Instalación:</label>
                         <select class="form-select" id="horario" aria-label="horario" required>
 							<option selected>Selecciona...</option>
@@ -1293,7 +1298,7 @@
 							<option value="2">13:00 - 15:00 hr</option>
 							<option value="3">16:00 - 18:00 hr</option>
 						</select>
-                    </div>
+                    </div> -->
                     <div class="col-sm-6">
 						<label for="comprobante" class="form-label">Identificación:</label>
 						<select class="form-select" id="identificacion" aria-label="comprobante" required>
@@ -1303,10 +1308,10 @@
 							<option value="Licencia">Licencia de Manejo</option>
 						</select>
                     </div>
-                    <div class="col-sm-6">
+                    <!-- <div class="col-sm-6">
 						<label for="folioid" class="form-label">Folio de Identificación:</label>
                         <input type="text" class="form-control" id="folioid" name="folioid" placeholder="">
-                    </div>
+                    </div> -->
 					<div class="col-sm-6">
 						<label for="comprobante" class="form-label">Comprobante de Domicilio:</label>
 						<select class="form-select" id="comprobante" aria-label="Default select example" required>
@@ -1317,23 +1322,31 @@
 							<option value="telefono">Teléfono fijo</option>
 						</select>
                     </div>
-					<div class="col-sm-6">
+					<!-- <div class="col-sm-6">
 						<label for="folio_comprobante" class="form-label">Folio Comprobante:</label>
                         <input type="text" class="form-control" id="folio_comprobante" name="folio_comprobante" placeholder="">
-                    </div>
+                    </div> -->
 					<h3>Servicio Contratado</h3>
 					<div class="col-sm-8">
 						<label for="velocidad" class="form-label">Velocidad de Internet:</label>
 						<select class="form-select" id="velocidad" aria-label="velocidad" required>
 							<option selected>Selecciona...</option>
-							<option value="80">80 GB</option>
-							<option value="160">160 GB</option>
-							<option value="320">320 GB</option>
+							<option value="7">7 GB</option>
+							<option value="12">12 GB</option>
+							<option value="18">18 GB</option>
 						</select>
                     </div>
 					<div class="col-sm-4">
 						<label for="equipos" class="form-label">Número de equipos:</label>
                         <input type="number" class="form-control" id="equipos" name="equipos" placeholder="">
+                    </div>
+					<div class="col-sm-6">
+						<label for="antena" class="form-label">MAC Antena:</label>
+                        <input type="number" class="form-control" id="antena" name="antena" placeholder="">
+                    </div>
+					<div class="col-sm-6">
+						<label for="ipAddress" class="form-label">IP asignada:</label>
+                        <input type="number" class="form-control" id="ipAddress" name="ipAddress" placeholder="">
                     </div>
 					<div class="col-lg-12">
 						<h2>Cuota Mensual</h2>

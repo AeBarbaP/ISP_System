@@ -7,7 +7,7 @@
   -ms-box-shadow: $card-box-shadow;
   border-radius: $card-border-radius;
   border: none;
-  &.congratulation-bg {
+  /* &.congratulation-bg {
     box-shadow: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -22,7 +22,7 @@
       font-size: 0.937rem;
       color: $white;
     }
-  }
+  } */
   .card-body {
     padding: $card-padding-y $card-padding-x;
     @media (max-width: 991px) {

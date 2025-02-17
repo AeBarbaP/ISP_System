@@ -21465,8 +21465,8 @@ code {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   -ms-box-shadow: none;
-  border-radius: 6px 6px 18px 16px;
-  background: url(../images/dashboard/bg.png);
+  border-radius: 6px 6px 6px,6px;
+  /* background: url(../images/dashboard/bg.png); */
   background-size: cover;
   border: 0;
   box-shadow: none;
@@ -23144,8 +23144,10 @@ dl li {
 /* === Landing screens === */
 /* Auth */
 .auth .login-half-bg {
-  background: url("../images/auth/login-bg.jpg");
+  background: url("../images/auth/AdobeStock_85333795-scaled.jpeg");
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .auth .register-half-bg {
