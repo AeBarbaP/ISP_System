@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-02-2025 a las 05:25:37
+-- Tiempo de generación: 20-02-2025 a las 05:55:34
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -30,6 +30,18 @@ SET time_zone = "+00:00";
 CREATE TABLE `acciones` (
   `id` int(11) NOT NULL,
   `accion` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `antenas`
+--
+
+CREATE TABLE `antenas` (
+  `id` int(11) NOT NULL,
+  `marca` varchar(15) NOT NULL,
+  `MAC` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -114,7 +126,8 @@ CREATE TABLE `incidencias` (
   `tecnico` int(11) NOT NULL,
   `estatus` int(11) NOT NULL,
   `fecha_reporte` datetime NOT NULL,
-  `fecha_resolucion` datetime NOT NULL
+  `fecha_resolucion` datetime NOT NULL,
+  `comentario_tecnico` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -161,6 +174,19 @@ CREATE TABLE `pagos` (
   `tipo_pago` int(11) NOT NULL,
   `descuento` varchar(7) NOT NULL,
   `total` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `promociones`
+--
+
+CREATE TABLE `promociones` (
+  `id` int(11) NOT NULL,
+  `promo` varchar(15) NOT NULL,
+  `fecha` date NOT NULL,
+  `descripcion` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -222,6 +248,12 @@ CREATE TABLE `users` (
 -- Indices de la tabla `acciones`
 --
 ALTER TABLE `acciones`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `antenas`
+--
+ALTER TABLE `antenas`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -304,6 +336,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `acciones`
 --
 ALTER TABLE `acciones`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `antenas`
+--
+ALTER TABLE `antenas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
