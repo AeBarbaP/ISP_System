@@ -11,7 +11,7 @@ require 'email/SMTP.php';
     $email = $_POST['emailT'];
     $mensaje = $_POST['mensaje'];
 
-    $miCorreo = "contacto@borje.mx";
+    $miCorreo = "contacto@conectwi.com";
 
     $mail = new PHPMailer(true);
 
@@ -20,15 +20,15 @@ require 'email/SMTP.php';
         $mail->SMTPDebug = 0;                                       // Enable verbose debug output
         $mail->isSMTP();                                            // Set mailer to use SMTP
         //$mail->Host       = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-        $mail->Host       = 'mail.borje.mx ';  // Specify main and backup SMTP servers
+        $mail->Host       = 'mail.conectwi.com';  // Specify main and backup SMTP servers
         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-        $mail->Username   = 'contacto@borje.mx';                     // SMTP username
-        $mail->Password   = '';                               // SMTP password
+        $mail->Username   = 'contacto@conectwi.com';                     // SMTP username
+        $mail->Password   = 'Con74ct0.25';                               // SMTP password
         $mail->SMTPSecure = 'TLS';                                  // Enable TLS encryption, `ssl` also accepted
         $mail->Port       = 587;                                    // TCP port to connect to 587
 
         //Recipients
-        $mail->setFrom('contacto@borje.mx', 'MENSAJE DE USUARIO');
+        $mail->setFrom('contacto@conectwi.com', 'MENSAJE DE USUARIO');
         $mail->addAddress($miCorreo, $nombre);     // Add a recipient
 
         // Content

@@ -1,7 +1,7 @@
 function email2(){
-    var nombre = $("#name").val();
-    var emailT = $("#email").val();
-    var mensaje = $("#message").val();
+    var nombre = $("#nameEmail").val();
+    var emailT = $("#emailEmail").val();
+    var mensaje = $("#messageEmail").val();
 
     if(nombre == "" || emailT == "" || mensaje == ""){
         alert("Faltan campos por llenar");
