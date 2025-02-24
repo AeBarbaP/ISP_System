@@ -43,7 +43,7 @@
           <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
             <ul class="navbar-nav navbar-nav-left">
               <li class="nav-item ms-0 me-3 d-lg-flex d-none">
-                <a href="#" class="nav-link horizontal-nav-left-menu"><i class="mdi mdi-format-list-bulleted"></i></a>
+                <a href="#" class="nav-link horizontal-nav-left-menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class="mdi mdi-format-list-bulleted"></i></a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
@@ -1530,41 +1530,92 @@
 
 <nav class="navbar bg-body-tertiary fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Offcanvas navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+			<a class="navbar-brand brand-logo" href="index.html"><img src="../images/logo_conectwi_wide-removebg-preview.png" height="30px" alt="logo"/></a>
+		</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Usuarios
+				</a>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="#">Crear nuevo Usuario</a></li>
+					<li><a class="dropdown-item" href="#">Editar Usuarios</a></li>
+				</ul>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Técnicos
+				</a>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="#">Agregar Técnico</a></li>
+					<li><a class="dropdown-item" href="#">Editar Técnicos</a></li>
+				</ul>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Servicios
+				</a>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="#">Agregar Servicio</a></li>
+					<li><a class="dropdown-item" href="#">Editar Servicios</a></li>
+				</ul>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Promociones
+				</a>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="#">Agregar Promoción</a></li>
+					<li><a class="dropdown-item" href="#">Editar Promociones</a></li>
+				</ul>
+			</li>
+			<li>
+				<hr>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					Inventario de Antenas
+				</a>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="#">Agregar Antena</a></li>
+					<li><a class="dropdown-item" href="#">Editar Antenas</a></li>
+				</ul>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					Incidencias
+				</a>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="#">Agregar Incidencia</a></li>
+					<li><a class="dropdown-item" href="#">Editar Incidencia</a></li>
+					<li><a class="dropdown-item" href="#">Estatus Incidencias</a></li>
+				</ul>
+			</li>
+			<li class="nav-item dropdown">
+				<hr>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					Mi Cuenta
+				</a>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="#">Editar mis datos</a></li>
+					<li><a class="dropdown-item" href="#">Cambiar contraseña</a></li>
+				</ul>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" aria-expanded="false">
+					Cerrar Sesión
+				</a>
+			</li>
         </ul>
-        <form class="d-flex mt-3" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </div>
