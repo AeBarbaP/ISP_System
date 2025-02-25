@@ -1,7 +1,7 @@
 <?php
 
     $servername="localhost";
-    $database="isp_config"; //solo se quitó para conexión remota
+    $database="conectwi"; //solo se quitó para conexión remota
     $username="root";
     $password="";
 

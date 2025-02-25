@@ -4,7 +4,7 @@ function contratoNew() {
     // Obtener los elementos input
     const inputSiguienteMes = document.getElementById('siguienteMesInput');
     const inputMesMasCincoDias = document.getElementById('mesMasCincoDiasInput');
-
+    const inputFechaActual = document.getElementById('dateContratoNew');
     // Obtener la fecha actual
     const fechaActual = new Date();
 
@@ -28,8 +28,10 @@ function contratoNew() {
     // Formatear las fechas
     const siguienteMesFormateado = formatearFecha(siguienteMes);
     const mesMasCincoDiasFormateado = formatearFecha(mesMasCincoDias);
+    const fechaActualFormateada = formatearFecha(fechaActual);
 
     // Asignar las fechas a los inputs
+    inputFechaActual.value = fechaActualFormateada;
     inputSiguienteMes.value = siguienteMesFormateado;
     inputMesMasCincoDias.value = mesMasCincoDiasFormateado;
 
@@ -47,7 +49,7 @@ function comunidad(){
         success: function(data){
             $('#catalogoComunidades').html(data);  
         }
-      });
+    });
 }
 function municipio(){
     $.ajax({
@@ -57,7 +59,7 @@ function municipio(){
         success: function(data){
             $('#catalogoMunicipios').html(data);  
         }
-      });
+    });
 }
 function estado(){
     $.ajax({
@@ -67,7 +69,7 @@ function estado(){
         success: function(data){
             $('#catalogoEstados').html(data);  
         }
-      });
+    });
 }
 function catalogoPaquetes(){
     $.ajax({
@@ -77,7 +79,7 @@ function catalogoPaquetes(){
         success: function(data){
             $('#catalogoPaquetes').html(data);  
         }
-      });
+    });
 }
 
 function cuotaMensual(select){
@@ -123,39 +125,39 @@ function guardarContrato(){
         type: "POST",
         url: "prcd/guardarContrato.php",
         data:{
-          fechaContrato:fechaContrato,
-          nombreCompleto:nombreCompleto,
-          domicilioContrato:domicilioContrato,
-          catalogoComunidades:catalogoComunidades,
-          catalogoMunicipios:catalogoMunicipios,
-          catalogoEstados:catalogoEstados,
-          cpContrato:cpContrato,
-          telefonoContrato:telefonoContrato,
-          referenciasContrato:referenciasContrato,
-          identificacionContrato:identificacionContrato,
-          comprobanteContrato:comprobanteContrato,
-          catalogoPaquetes:catalogoPaquetes,
-          antenaContrato:antenaContrato,
-          ipAddressContrato:ipAddressContrato,
-          inputCosto:inputCosto,
-          siguienteMesInput:siguienteMesInput,
-          mesMasCincoDiasInput:mesMasCincoDiasInput
+            fechaContrato:fechaContrato,
+            nombreCompleto:nombreCompleto,
+            domicilioContrato:domicilioContrato,
+            catalogoComunidades:catalogoComunidades,
+            catalogoMunicipios:catalogoMunicipios,
+            catalogoEstados:catalogoEstados,
+            cpContrato:cpContrato,
+            telefonoContrato:telefonoContrato,
+            referenciasContrato:referenciasContrato,
+            identificacionContrato:identificacionContrato,
+            comprobanteContrato:comprobanteContrato,
+            catalogoPaquetes:catalogoPaquetes,
+            antenaContrato:antenaContrato,
+            ipAddressContrato:ipAddressContrato,
+            inputCosto:inputCosto,
+            siguienteMesInput:siguienteMesInput,
+            mesMasCincoDiasInput:mesMasCincoDiasInput
         },
         dataType: "json",
         success: function(data){
-          var datos = JSON.parse(JSON.stringify(data));
-  
-          var success = datos.success;
-  
-          if(success == 1){
-            alert("Contrato guardado");
-            $('#contrato').modal('hide');
-            // limpiarCampos2();
-          }
-          else{
-            alert("No se guardó");
-            console.log(datos.error)
-          }
+            var datos = JSON.parse(JSON.stringify(data));
+    
+            var success = datos.success;
+    
+            if(success == 1){
+                alert("Contrato guardado");
+                $('#contrato').modal('hide');
+                // limpiarCampos2();
+            }
+            else{
+                alert("No se guardó");
+                console.log(datos.error)
+            }
         }
-      });
+    });
 }
