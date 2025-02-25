@@ -1510,115 +1510,114 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <nav class="navbar bg-body-tertiary fixed-top">
-  <div class="container-fluid">
-    
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-			<a class="navbar-brand brand-logo" href="index.html"><img src="../images/logo_conectwi_wide-removebg-preview.png" height="30px" alt="logo"/></a>
-		</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				  Usuarios
-				</a>
-				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">Crear nuevo Usuario</a></li>
-					<li><a class="dropdown-item" href="#">Editar Usuarios</a></li>
+	<div class="container-fluid">
+		<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+			<div class="offcanvas-header">
+				<h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+					<a class="navbar-brand brand-logo" href="index.html"><img src="../images/logo_conectwi_wide-removebg-preview.png" height="30px" alt="logo"/></a>
+				</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body">
+				<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Usuarios
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Crear nuevo Usuario</a></li>
+							<li><a class="dropdown-item" href="#">Editar Usuarios</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Técnicos
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Agregar Técnico</a></li>
+							<li><a class="dropdown-item" href="#">Editar Técnicos</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Paquetes
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Agregar Paquete</a></li>
+							<li><a class="dropdown-item" href="#">Editar Paquetes</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Promociones
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Agregar Promoción</a></li>
+							<li><a class="dropdown-item" href="#">Editar Promociones</a></li>
+						</ul>
+					</li>
+					<li>
+						<hr>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Catálogo de Municipios
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Agregar Municipio</a></li>
+							<li><a class="dropdown-item" href="#">Editar Municipios</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Catálogo de Comunidades
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Agregar Comunidad</a></li>
+							<li><a class="dropdown-item" href="#">Editar Comunidades</a></li>
+						</ul>
+					</li>
+					<li>
+						<hr>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Inventario de Antenas
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Agregar Antena</a></li>
+							<li><a class="dropdown-item" href="#">Editar Antenas</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Incidencias
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Agregar Incidencia</a></li>
+							<li><a class="dropdown-item" href="#">Editar Incidencia</a></li>
+							<li><a class="dropdown-item" href="#">Estatus Incidencias</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<hr>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Mi Cuenta
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Editar mis datos</a></li>
+							<li><a class="dropdown-item" href="#">Cambiar contraseña</a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" aria-expanded="false">
+							Cerrar Sesión
+						</a>
+					</li>
 				</ul>
-			</li>
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				  Técnicos
-				</a>
-				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">Agregar Técnico</a></li>
-					<li><a class="dropdown-item" href="#">Editar Técnicos</a></li>
-				</ul>
-			</li>
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				Paquetes
-				</a>
-				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">Agregar Paquete</a></li>
-					<li><a class="dropdown-item" href="#">Editar Paquetes</a></li>
-				</ul>
-			</li>
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				Promociones
-				</a>
-				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">Agregar Promoción</a></li>
-					<li><a class="dropdown-item" href="#">Editar Promociones</a></li>
-				</ul>
-			</li>
-			<li>
-				<hr>
-			</li>
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				Catálogo de Municipios
-				</a>
-				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">Agregar Municipio</a></li>
-					<li><a class="dropdown-item" href="#">Editar Municipios</a></li>
-				</ul>
-			</li>
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				Catálogo de Comunidades
-				</a>
-				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">Agregar Comunidad</a></li>
-					<li><a class="dropdown-item" href="#">Editar Comunidades</a></li>
-				</ul>
-			</li>
-			<li>
-				<hr>
-			</li>
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					Inventario de Antenas
-				</a>
-				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">Agregar Antena</a></li>
-					<li><a class="dropdown-item" href="#">Editar Antenas</a></li>
-				</ul>
-			</li>
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					Incidencias
-				</a>
-				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">Agregar Incidencia</a></li>
-					<li><a class="dropdown-item" href="#">Editar Incidencia</a></li>
-					<li><a class="dropdown-item" href="#">Estatus Incidencias</a></li>
-				</ul>
-			</li>
-			<li class="nav-item dropdown">
-				<hr>
-			</li>
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					Mi Cuenta
-				</a>
-				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">Editar mis datos</a></li>
-					<li><a class="dropdown-item" href="#">Cambiar contraseña</a></li>
-				</ul>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" aria-expanded="false">
-					Cerrar Sesión
-				</a>
-			</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+			</div>
+		</div>
+	</div>
 </nav>
