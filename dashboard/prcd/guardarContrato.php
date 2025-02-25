@@ -29,11 +29,12 @@ $inputCosto = $_POST['inputCosto'];
 $siguienteMesInput = $_POST['siguienteMesInput'];
 $mesMasCincoDiasInput = $_POST['mesMasCincoDiasInput'];
 
+$estatus = 1;
+
 $query = "INSERT INTO clientes (
         folio, 
         nombre, 
-        calle,
-        colonia,
+        domicilio,
         comunidad,
         municipio,
         estado,
@@ -51,10 +52,39 @@ $query = "INSERT INTO clientes (
         cuota,
         estatus
         ) VALUES (
-        '$productId', 
-        '$quantity', 
-        '$total',
-        '$identificador'
+        '$identificadorUnico', 
+        '$nombreCompleto', 
+        '$domicilioContrato',
+        '$catalogoComunidades',
+        '$catalogoMunicipios',
+        '$catalogoEstados',
+        '$cpContrato',
+        '$telefonoContrato',
+        '$referenciasContrato',
+        '$identificacionContrato',
+        '$comprobanteContrato',
+        '$catalogoPaquetes',
+        '$catalogoPaquetes',
+        '$antenaContrato',
+        '$ipAddressContrato',
+        '$fechaActual',
+        '$siguienteMesInput',
+        '$mesMasCincoDiasInput',
+        '$inputCosto',
+        '$estatus',
         )";
+
+    $resultado = $conn->query($sql);
+
+    if($resultado){
+        echo json_encode(array(
+            'success'=>1
+        ));
+    }
+    else{
+        echo json_encode(array(
+            'success'=>0
+        ));
+    }
 
 ?>
