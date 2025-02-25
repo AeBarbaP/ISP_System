@@ -64,17 +64,16 @@ $query = "INSERT INTO clientes (
         '$identificacionContrato',
         '$comprobanteContrato',
         '$catalogoPaquetes',
-        '$catalogoPaquetes',
         '$antenaContrato',
         '$ipAddressContrato',
         '$fechaActual',
         '$siguienteMesInput',
         '$mesMasCincoDiasInput',
         '$inputCosto',
-        '$estatus',
+        '$estatus'
         )";
 
-    $resultado = $conn->query($sql);
+    $resultado = $conn->query($query);
 
     if($resultado){
         echo json_encode(array(
@@ -82,8 +81,10 @@ $query = "INSERT INTO clientes (
         ));
     }
     else{
+        $error = $conn->error;
         echo json_encode(array(
-            'success'=>0
+            'success'=>0,
+            'error' => $error
         ));
     }
 
