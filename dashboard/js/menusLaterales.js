@@ -219,6 +219,18 @@ function gestionUsuarios(){
   });
 }
 
+function queryTablaUsuario() {
+  $.ajax({
+    url: 'query/queryTabla.php',
+    type: 'POST',
+    dataType: 'HTML',
+    success: function(response) {
+      $('#tablaUsuariosG').html(response);
+    }
+  });
+}
+
+
 function nuevoTecnico() {
 
   let titulo = "Nuevo Técnico";
@@ -423,3 +435,4 @@ function editarTecnico() {
     modal.remove();
   });
 }
+
