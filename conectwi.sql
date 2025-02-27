@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 20-02-2025 a las 05:55:34
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Host: 127.0.0.1
+-- Generation Time: Feb 27, 2025 at 09:30 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `conectwi`
+-- Database: `conectwi`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `acciones`
+-- Table structure for table `acciones`
 --
 
 CREATE TABLE `acciones` (
@@ -35,7 +35,7 @@ CREATE TABLE `acciones` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `antenas`
+-- Table structure for table `antenas`
 --
 
 CREATE TABLE `antenas` (
@@ -47,7 +47,84 @@ CREATE TABLE `antenas` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cat_pagos`
+-- Table structure for table `catalogo_comunidades`
+--
+
+CREATE TABLE `catalogo_comunidades` (
+  `id` int(11) NOT NULL,
+  `comunidad` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `catalogo_comunidades`
+--
+
+INSERT INTO `catalogo_comunidades` (`id`, `comunidad`) VALUES
+(1, 'Comunidad 1'),
+(2, 'Comunidad 2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `catalogo_estado`
+--
+
+CREATE TABLE `catalogo_estado` (
+  `id` int(11) NOT NULL,
+  `estado` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `catalogo_estado`
+--
+
+INSERT INTO `catalogo_estado` (`id`, `estado`) VALUES
+(1, 'Zacatecas');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `catalogo_municipio`
+--
+
+CREATE TABLE `catalogo_municipio` (
+  `id` int(11) NOT NULL,
+  `municipio` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `catalogo_municipio`
+--
+
+INSERT INTO `catalogo_municipio` (`id`, `municipio`) VALUES
+(1, 'Genaro Codina');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `catalogo_paquetes`
+--
+
+CREATE TABLE `catalogo_paquetes` (
+  `id` int(11) NOT NULL,
+  `paquetes` varchar(100) NOT NULL,
+  `velocidad` int(11) NOT NULL,
+  `costo` decimal(5,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `catalogo_paquetes`
+--
+
+INSERT INTO `catalogo_paquetes` (`id`, `paquetes`, `velocidad`, `costo`) VALUES
+(1, 'Básico', 7, '10.50'),
+(2, 'Intermedio', 12, '12.12'),
+(3, 'Avanzado', 18, '18.09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cat_pagos`
 --
 
 CREATE TABLE `cat_pagos` (
@@ -58,15 +135,16 @@ CREATE TABLE `cat_pagos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `clientes`
+-- Table structure for table `clientes`
 --
 
 CREATE TABLE `clientes` (
   `id` int(11) NOT NULL,
   `folio` varchar(35) NOT NULL,
   `nombre` varchar(150) NOT NULL,
-  `calle` varchar(30) NOT NULL,
-  `colonia` varchar(30) NOT NULL,
+  `domicilio` varchar(150) NOT NULL,
+  `calle` varchar(30) DEFAULT NULL,
+  `colonia` varchar(30) DEFAULT NULL,
   `comunidad` varchar(30) NOT NULL,
   `municipio` varchar(30) NOT NULL,
   `estado` varchar(10) NOT NULL,
@@ -79,16 +157,23 @@ CREATE TABLE `clientes` (
   `antena` varchar(25) NOT NULL,
   `direccionip` varchar(12) NOT NULL,
   `fecha_contrato` date NOT NULL,
-  `feha_limite` date NOT NULL,
+  `fecha_limite` date NOT NULL,
   `fecha_corte` date NOT NULL,
   `cuota` varchar(6) NOT NULL,
   `estatus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `clientes`
+--
+
+INSERT INTO `clientes` (`id`, `folio`, `nombre`, `domicilio`, `calle`, `colonia`, `comunidad`, `municipio`, `estado`, `cp`, `telefono`, `referencias`, `identificacion`, `comprobante`, `servicio`, `antena`, `direccionip`, `fecha_contrato`, `fecha_limite`, `fecha_corte`, `cuota`, `estatus`) VALUES
+(1, '202502242354403E354EAA', 'JesusRLV', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2025-02-24', '2025-03-24', '2025-03-29', '12.12', 1);
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `conceptos`
+-- Table structure for table `conceptos`
 --
 
 CREATE TABLE `conceptos` (
@@ -99,7 +184,7 @@ CREATE TABLE `conceptos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cortes`
+-- Table structure for table `cortes`
 --
 
 CREATE TABLE `cortes` (
@@ -115,7 +200,7 @@ CREATE TABLE `cortes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `incidencias`
+-- Table structure for table `incidencias`
 --
 
 CREATE TABLE `incidencias` (
@@ -133,7 +218,7 @@ CREATE TABLE `incidencias` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `logs_login`
+-- Table structure for table `logs_login`
 --
 
 CREATE TABLE `logs_login` (
@@ -147,7 +232,7 @@ CREATE TABLE `logs_login` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `logs_users`
+-- Table structure for table `logs_users`
 --
 
 CREATE TABLE `logs_users` (
@@ -161,7 +246,7 @@ CREATE TABLE `logs_users` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pagos`
+-- Table structure for table `pagos`
 --
 
 CREATE TABLE `pagos` (
@@ -179,7 +264,7 @@ CREATE TABLE `pagos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `promociones`
+-- Table structure for table `promociones`
 --
 
 CREATE TABLE `promociones` (
@@ -192,32 +277,21 @@ CREATE TABLE `promociones` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `servicios`
---
-
-CREATE TABLE `servicios` (
-  `id` int(11) NOT NULL,
-  `servicio` varchar(15) NOT NULL,
-  `velocidad` varchar(5) NOT NULL,
-  `cuota` varchar(7) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tecnicos`
+-- Table structure for table `tecnicos`
 --
 
 CREATE TABLE `tecnicos` (
   `id` int(11) NOT NULL,
   `nombre` varchar(150) NOT NULL,
-  `estatus` int(11) NOT NULL
+  `estatus` int(11) NOT NULL,
+  `fecha_creacion` date NOT NULL,
+  `fecha_actualizacion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipo_pago`
+-- Table structure for table `tipo_pago`
 --
 
 CREATE TABLE `tipo_pago` (
@@ -228,7 +302,7 @@ CREATE TABLE `tipo_pago` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -241,180 +315,223 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Índices para tablas volcadas
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `pwd`, `nombre`, `tipo_usr`, `estatus`) VALUES
+(1, 'aebarba', '123456789', 'Ana Elisa B', 1, 1);
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `acciones`
+-- Indexes for table `acciones`
 --
 ALTER TABLE `acciones`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `antenas`
+-- Indexes for table `antenas`
 --
 ALTER TABLE `antenas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `cat_pagos`
+-- Indexes for table `catalogo_comunidades`
+--
+ALTER TABLE `catalogo_comunidades`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `catalogo_estado`
+--
+ALTER TABLE `catalogo_estado`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `catalogo_municipio`
+--
+ALTER TABLE `catalogo_municipio`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `catalogo_paquetes`
+--
+ALTER TABLE `catalogo_paquetes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cat_pagos`
 --
 ALTER TABLE `cat_pagos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `clientes`
+-- Indexes for table `clientes`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `conceptos`
+-- Indexes for table `conceptos`
 --
 ALTER TABLE `conceptos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `cortes`
+-- Indexes for table `cortes`
 --
 ALTER TABLE `cortes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `incidencias`
+-- Indexes for table `incidencias`
 --
 ALTER TABLE `incidencias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `logs_login`
+-- Indexes for table `logs_login`
 --
 ALTER TABLE `logs_login`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `logs_users`
+-- Indexes for table `logs_users`
 --
 ALTER TABLE `logs_users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `pagos`
+-- Indexes for table `pagos`
 --
 ALTER TABLE `pagos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `servicios`
---
-ALTER TABLE `servicios`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `tecnicos`
+-- Indexes for table `tecnicos`
 --
 ALTER TABLE `tecnicos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `tipo_pago`
+-- Indexes for table `tipo_pago`
 --
 ALTER TABLE `tipo_pago`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `acciones`
+-- AUTO_INCREMENT for table `acciones`
 --
 ALTER TABLE `acciones`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `antenas`
+-- AUTO_INCREMENT for table `antenas`
 --
 ALTER TABLE `antenas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `cat_pagos`
+-- AUTO_INCREMENT for table `catalogo_comunidades`
+--
+ALTER TABLE `catalogo_comunidades`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `catalogo_estado`
+--
+ALTER TABLE `catalogo_estado`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `catalogo_municipio`
+--
+ALTER TABLE `catalogo_municipio`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `catalogo_paquetes`
+--
+ALTER TABLE `catalogo_paquetes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `cat_pagos`
 --
 ALTER TABLE `cat_pagos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `clientes`
+-- AUTO_INCREMENT for table `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `conceptos`
+-- AUTO_INCREMENT for table `conceptos`
 --
 ALTER TABLE `conceptos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `cortes`
+-- AUTO_INCREMENT for table `cortes`
 --
 ALTER TABLE `cortes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `incidencias`
+-- AUTO_INCREMENT for table `incidencias`
 --
 ALTER TABLE `incidencias`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `logs_login`
+-- AUTO_INCREMENT for table `logs_login`
 --
 ALTER TABLE `logs_login`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `logs_users`
+-- AUTO_INCREMENT for table `logs_users`
 --
 ALTER TABLE `logs_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `pagos`
+-- AUTO_INCREMENT for table `pagos`
 --
 ALTER TABLE `pagos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `servicios`
---
-ALTER TABLE `servicios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `tecnicos`
+-- AUTO_INCREMENT for table `tecnicos`
 --
 ALTER TABLE `tecnicos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `tipo_pago`
+-- AUTO_INCREMENT for table `tipo_pago`
 --
 ALTER TABLE `tipo_pago`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
