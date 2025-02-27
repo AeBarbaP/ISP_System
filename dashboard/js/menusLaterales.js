@@ -1,3 +1,16 @@
+// ---------------- buscadores de datos -------------
+
+// $(document).ready(function () {
+//   $("#buscarNameUser").on("keyup", function () {
+//       var value = $(this).val().toLowerCase();
+//       $("#tablaUsuariosG tr").filter(function () {
+//           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+//       });
+//   });
+// });
+
+// ---------------- función _(el) -------------
+
 function _(el){
   return document.getElementById(el);
 }
@@ -113,7 +126,22 @@ function guardarUsr(){
   });
 
 }
+
 // ----------------------------------------------
+
+function queryGestionUsr(){
+  $.ajax({
+    type: "POST",
+    url: "query/gestionUsr.php",
+    dataType: "html",
+    success: function(data){
+        $('#tablaUsuariosG').html(data);  
+    }
+});
+}
+
+// ----------------------------------------------
+
 
 function editarUsuario() {
     let titulo = "Editar usuario";
@@ -202,16 +230,17 @@ function gestionUsuarios(){
                     <div class="col-md-6">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                            <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscar" name="buscar">
+                            <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscarNameUser">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1" for="inputGroupSelect01">Perfil</span>
-                            <select class="form-select" id="inputGroupSelect01" value="" selected="selected" name="perfilselect">
-                                <option value="1">Administrador</option>
-                                <option value="2">Usuario A</option>
-                                <option value="3">Usuario B</option>
+                            <select class="form-select" id="buscarPerfilUser" value="" selected="selected" name="perfilselect">
+                            <option value="" selected>Selecciona el perfil ...</option>
+                                <option value="Administrador">Administrador</option>
+                                <option value="Usuario A">Usuario A</option>
+                                <option value="Usuario B">Usuario B</option>
                             </select>
                             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                                 <input type="radio" class="btn-check" value="1" name="btnradio" id="btnradio1">
@@ -227,7 +256,7 @@ function gestionUsuarios(){
                 <div class="table-responsive mt-3">
                     <table class="table p-1">
                         <thead>
-                            <tr>
+                            <tr class="text-center">
                                 <th scope="col"></th>
                                 <th scope="col">Perfil</th>
                                 <th scope="col">Fecha de creación</th>
@@ -235,7 +264,7 @@ function gestionUsuarios(){
                                 <th scope="col">Estatus</th>
                                 <th scope="col">Nombre completo</th>
                                 <th scope="col">Usuario</th>
-                                <th scope="col" class="text-end"><i class="bi bi-people"></i></th>
+                                <th scope="col" class=""><i class="bi bi-people"></i></th>
                             </tr>
                         </thead>
                         <tbody id="tablaUsuariosG">
@@ -259,6 +288,21 @@ function gestionUsuarios(){
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
+  queryGestionUsr();
+
+  $("#buscarNameUser").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#tablaUsuariosG tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+
+  $("#buscarPerfilUser").on("change", function () {
+    var value = $(this).val().toLowerCase();
+    $("#tablaUsuariosG tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
