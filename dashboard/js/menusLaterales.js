@@ -1,11 +1,17 @@
+function _(el){
+  return document.getElementById(el);
+}
+
 // Función para abrir el modal dinámicamente
 function nuevoUsuario() {
 
   let titulo = "Nuevo usuario";
+  let id = "modalNewUsr";
   // Crear el elemento del modal
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', id); // Agregar el atributo id
   modal.innerHTML = `
     <div class="modal-dialog">
       <div class="modal-content">
@@ -17,19 +23,19 @@ function nuevoUsuario() {
           <p>
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-            <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" id="usrNew">
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-regex"></i></span>
-            <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+            <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" id="pwdNew">
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" id="nombreNew">
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example" id="tipoUsrNew">
                 <option selected>Tipo de usuario ...</option>
                 <option value="3">Usuario A</option>
                 <option value="2">Usuario B</option>
@@ -38,7 +44,7 @@ function nuevoUsuario() {
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example" id="estatusNew">
                 <option value="" selected>Estatus de usuario ...</option>
                 <option value="1">Activo</option>
                 <option value="0">Inactivo</option>
@@ -49,7 +55,7 @@ function nuevoUsuario() {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-primary" onclick="guardarUsr(`+id+`)">Guardar</button>
         </div>
       </div>
     </div>
@@ -67,6 +73,47 @@ function nuevoUsuario() {
     modal.remove();
   });
 }
+
+function guardarUsr(){
+  let usrNew = _("usrNew").value;
+  let pwdNew = _("pwdNew").value;
+  let nombreNew = _("nombreNew").value;
+  let tipoUsrNew = _("tipoUsrNew").value;
+  let estatusNew = _("estatusNew").value;
+
+  $.ajax({
+    url: 'prcd/guardarUsr.php',
+    type: 'POST',
+    data:{
+      usrNew:usrNew,
+      pwdNew:pwdNew,
+      nombreNew,nombreNew,
+      tipoUsrNew:tipoUsrNew,
+      estatusNew:estatusNew
+    },
+    dataType: 'json',
+    success: function(data) {
+      var datos = JSON.parse(JSON.stringify(data));
+    
+            var success = datos.success;
+    
+            if (success == 1) {
+              alert("Usuario guardado");
+              $("#modalNewUsr").modal("hide");
+              // Cerrar el modal usando la instancia guardada
+              $("#modalNewUsr").on("hidden.bs.modal", function () {
+                $(this).remove(); // Elimina el modal del DOM
+              });
+            }
+            else{
+                alert("No se guardó");
+                console.log(datos.error)
+            }
+    }
+  });
+
+}
+// ----------------------------------------------
 
 function editarUsuario() {
     let titulo = "Editar usuario";
