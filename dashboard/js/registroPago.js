@@ -1,5 +1,6 @@
 function pagoNew() {
     $("#pago").modal("show");
+    generarFolio2();
 
     // Obtener los elementos input
     const inputFechaActual = document.getElementById('fechaSolicitud');

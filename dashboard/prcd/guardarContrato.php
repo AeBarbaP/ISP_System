@@ -9,7 +9,7 @@ setlocale(LC_TIME, 'es_MX.UTF-8');
 
 // Generar un identificador único
 $fechaActual = date("YmdHis"); // Formato: AñoMesDíaHoraMinutoSegundo
-$identificadorUnico = $fechaActual . strtoupper(bin2hex(random_bytes(4))); // Cadena única alfanumérica FOLIO
+$identificadorUnico = $_POST['folio'];
 
 $fechaContrato = $_POST['fechaContrato'];
 $nombreCompleto = $_POST['nombreCompleto'];

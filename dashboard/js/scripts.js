@@ -39,12 +39,9 @@ function contratoNew() {
     municipio();
     estado();
     catalogoPaquetes();
+    generarFolio();
 }
 
-function folioContrato(){
-    $identificadorUnico = $fechaActual . strtoupper(bin2hex(random_bytes(4))); // Cadena única alfanumérica FOLIO
-    _("folioLabelContrato").innerHTML = $identificadorUnico;
-}
 function comunidad(){
     $.ajax({
         type: "POST",
@@ -109,6 +106,7 @@ function _(el){
 function guardarContrato(){ 
     //Falta el folio
     let fechaContrato = _("dateContratoNew").value;
+    let folio = _("folioLabelContrato").value;
     let nombreCompleto = _("nombreCompleto").value;
     let domicilioContrato = _("domicilioContrato").value;
     let catalogoComunidades = _("catalogoComunidades").value;
@@ -131,6 +129,7 @@ function guardarContrato(){
         url: "prcd/guardarContrato.php",
         data:{
             fechaContrato:fechaContrato,
+            folio: folio,
             nombreCompleto:nombreCompleto,
             domicilioContrato:domicilioContrato,
             catalogoComunidades:catalogoComunidades,
@@ -182,4 +181,41 @@ function mostrarPwd2(){
     }else{
         _("pwdNewUsr").type = "password";
     }
+}
+
+function generarFolio(){
+    // Llamar a la función que genera el folio
+    $.ajax({
+        type: "POST",
+        url: "prcd/generarFolio.php",
+        dataType: "json",
+        success: function(data){
+            var datos = JSON.parse(JSON.stringify(data));
+            var success = datos.success;
+            if(success == 1) {
+                _("folioLabelContrato").value = datos.folio;
+            } else {
+                alert("No se pudo generar el folio");
+            }
+        }
+    });
+    // y poner el resultado en el label con id "folioLabelContrato"
+}
+function generarFolio2(){
+    // Llamar a la función que genera el folio
+    $.ajax({
+        type: "POST",
+        url: "prcd/generarFolioPago.php",
+        dataType: "json",
+        success: function(data){
+            var datos = JSON.parse(JSON.stringify(data));
+            var success = datos.success;
+            if(success == 1) {
+                _("folioLabelpago").value = datos.folio;
+            } else {
+                alert("No se pudo generar el folio");
+            }
+        }
+    });
+    // y poner el resultado en el label con id "folioLabelContrato"
 }
