@@ -41,7 +41,7 @@ while($row = $resultado->fetch_assoc()){
     echo'
         <td>'.$row['nombre'].'</td>
         <td>'.$row['username'].'</td>
-        <td><i class="bi bi-pencil-square"></i></td>
+        <td><a type="button" style="decoration:none;" onclick="editarUsuario()"><i class="bi bi-pencil-square"></i></a></td>
     </tr>
     ';
 }

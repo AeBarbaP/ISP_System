@@ -34,36 +34,41 @@ function nuevoUsuario() {
         </div>
         <div class="modal-body">
           <p>
+          <div class="input-group mb-4">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
+            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" id="nombreNew" placeholder="Nombre Completo">
+          </div>
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
             <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" id="usrNew">
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-regex"></i></span>
-            <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" id="pwdNew">
+            <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" id="pwdNew1">
           </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" id="nombreNew">
+          <div class="input-group mb-3 justify-content-end">
+            <input class="form-check-input" type="checkbox" role="switch" id="mostrarPwd1" onchange="mostrarPwd1()">
+            <span class="input-group-btn ms-2">Mostrar password</i></span>
           </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-            <select class="form-select" aria-label="Default select example" id="tipoUsrNew">
-                <option selected>Tipo de usuario ...</option>
-                <option value="3">Usuario A</option>
-                <option value="2">Usuario B</option>
-                <option value="1">Administrador</option>
-            </select>
+          <div class="row">
+            <div class="input-group col-6 mb-3">
+              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
+              <select class="form-select" aria-label="Default select example" id="tipoUsrNew">
+                  <option selected>Tipo de usuario ...</option>
+                  <option value="3">Usuario A</option>
+                  <option value="2">Usuario B</option>
+                  <option value="1">Administrador</option>
+              </select>
+            </div>
+            <div class="input-group col-6 mb-3">
+              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
+              <select class="form-select" aria-label="Default select example" id="estatusNew">
+                  <option value="" selected>Estatus de usuario ...</option>
+                  <option value="1">Activo</option>
+                  <option value="0">Inactivo</option>
+              </select>
+            </div>
           </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-            <select class="form-select" aria-label="Default select example" id="estatusNew">
-                <option value="" selected>Estatus de usuario ...</option>
-                <option value="1">Activo</option>
-                <option value="0">Inactivo</option>
-            </select>
-          </div>
-
           </p>
         </div>
         <div class="modal-footer">
@@ -160,31 +165,36 @@ function editarUsuario() {
             <p>
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-              <input type="text" class="form-control border-secondary" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-regex"></i></span>
-              <input type="password" class="form-control border-secondary" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
               <input type="text" class="form-control border-secondary" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
+              <input type="text" class="form-control border-secondary" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1"><i class="bi bi-regex"></i></span>
+              <input type="password" class="form-control border-secondary" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" id="pwdNewUsr">
+            </div>
+            <div class="input-group mb-3 justify-content-end">
+              <input class="form-check-input" type="checkbox" role="switch" id="mostrarPwd" onchange="mostrarPwd2()">
+              <span class="input-group-btn ms-2">Mostrar password</i></span>
+            </div>
+            
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
               <select class="form-select" aria-label="Default select example">
-                  <option selected>Tipo de usuario ...</option>
-                  <option value="1">Usuario 1</option>
-                  <option value="2">Usuario 2</option>
-                  <option value="3">Usuario 3</option>
+                <option selected>Tipo de usuario ...</option>
+                <option value="3">Usuario A</option>
+                <option value="2">Usuario B</option>
+                <option value="1">Administrador</option>
               </select>
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
               <select class="form-select" aria-label="Default select example">
-                  <option value="" selected>Estatus de usuario ...</option>
-                  <option value="1">Activo</option>
-                  <option value="0">Inactivo</option>
+                <option value="" selected>Estatus de usuario ...</option>
+                <option value="1">Activo</option>
+                <option value="0">Inactivo</option>
               </select>
             </div>
 
@@ -252,9 +262,9 @@ function gestionUsuarios(){
                         </div>
                     </div>
                 
-                <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button>
+                <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
                 <div class="table-responsive mt-3">
-                    <table class="table p-1">
+                    <table class="table table-hover p-1">
                         <thead>
                             <tr class="text-center">
                                 <th scope="col"></th>
@@ -275,7 +285,7 @@ function gestionUsuarios(){
                 <!-- <input type="checkbox" > Mostrar Password  -->
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+                <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
                 <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
             </div>
         </div>
@@ -349,7 +359,7 @@ function nuevoTecnico() {
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
             <select class="form-select" aria-label="Default select example" id="estatus_tecnico">
-                <option value="" selected>Estatus de usuario ...</option>
+                <option value="" selected>Estatus...</option>
                 <option value="1">Activo</option>
                 <option value="0">Inactivo</option>
             </select>
@@ -451,7 +461,7 @@ function gestionTecnicos() {
               </div>
           </div>
           <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
               <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
           </div>
       </div>
@@ -498,7 +508,7 @@ function editarTecnico() {
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
             <select class="form-select" aria-label="Default select example" id="estatus_tecnico_editar">
-                <option value="" selected>Estatus de usuario ...</option>
+                <option value="" selected>Estatus...</option>
                 <option value="1">Activo</option>
                 <option value="0">Inactivo</option>
             </select>

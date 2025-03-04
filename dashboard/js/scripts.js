@@ -41,6 +41,10 @@ function contratoNew() {
     catalogoPaquetes();
 }
 
+function folioContrato(){
+    $identificadorUnico = $fechaActual . strtoupper(bin2hex(random_bytes(4))); // Cadena única alfanumérica FOLIO
+    _("folioLabelContrato").innerHTML = $identificadorUnico;
+}
 function comunidad(){
     $.ajax({
         type: "POST",
@@ -102,7 +106,8 @@ function cuotaMensual(select){
 function _(el){
     return document.getElementById(el);
 }
-function guardarContrato(){
+function guardarContrato(){ 
+    //Falta el folio
     let fechaContrato = _("dateContratoNew").value;
     let nombreCompleto = _("nombreCompleto").value;
     let domicilioContrato = _("domicilioContrato").value;
@@ -160,4 +165,21 @@ function guardarContrato(){
             }
         }
     });
+}
+
+function mostrarPwd1(){
+    var valorCheck = _("mostrarPwd1");
+    if(valorCheck.checked){
+        _("pwdNew1").type = "text";
+    }else{
+        _("pwdNew1").type = "password";
+    }
+}
+function mostrarPwd2(){
+    var valorCheck = _("mostrarPwd");
+    if(valorCheck.checked){
+        _("pwdNewUsr").type = "text";
+    }else{
+        _("pwdNewUsr").type = "password";
+    }
 }
