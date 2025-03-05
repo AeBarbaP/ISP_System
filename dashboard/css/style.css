@@ -21460,17 +21460,24 @@ code {
   border: none;
 }
 
+.card.random-card {
+  height: 20vh;
+  width: auto;
+}
+
 .card.congratulation-bg {
   box-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   -ms-box-shadow: none;
   border-radius: 6px 6px 6px,6px;
-  /* background: url(../images/dashboard/bg.png); */
-  background-size: cover;
+  /* background: url(../../images/promos/PromoMes.jpg); */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   border: 0;
   box-shadow: none;
-  padding: 2.112rem 3.25rem;
+  padding: 10rem 3.25rem;
 }
 
 .card.congratulation-bg p {
