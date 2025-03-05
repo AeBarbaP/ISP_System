@@ -82,7 +82,7 @@ function generarTablaPagos(folio) {
             meses.forEach((mes, index) => {
                 const pago = data.find(p => p.mes == (index + 1)); // Buscar pago para el mes actual
                 tablaPagos += `
-                    <tr>
+                    <tr class=${pago ? "bg-primary" : "bg-warning"}>
                         <td>${mes}</td>
                         <td>${pago ? pago.folio_contrato : ''}</td>
                         <td>${pago ? pago.concepto : ''}</td>
