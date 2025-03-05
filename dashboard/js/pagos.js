@@ -85,7 +85,7 @@ function generarTablaPagos(folio) {
                     <tr class=${pago ? "bg-primary" : "bg-warning"}>
                         <td>${mes}</td>
                         <td>${pago ? pago.folio_contrato : ''}</td>
-                        <td>${pago ? pago.concepto : ''}</td>
+                        <td>${pago ? pago.concepto : '<span class="badge bg-primary text-light">Pagar</span>'}</td>
                         <td>${pago ? pago.periodo : ''}</td>
                         <td>${pago ? pago.monto : ''}</td>
                     </tr>
@@ -102,3 +102,18 @@ function generarTablaPagos(folio) {
         }
     });
 }
+
+//------------- Pagos dashboard --------------------------------
+
+function queryDashboard1() {
+    $.ajax({
+        type: "POST",
+        url: "query/dashboard1.php",
+        dataType: "HTML",
+        success: function(data) {
+            $('#dashboard1').html(data);
+        }
+    });
+}
+
+queryDashboard1();
