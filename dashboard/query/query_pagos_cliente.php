@@ -17,7 +17,7 @@ while ($row = $resultado->fetch_assoc()) {
         'folio_contrato' => $row['folio_contrato'],
         'concepto' => $row['concepto'],
         'periodo' => $row['periodo'], // Mes del pago (1 = Enero, 2 = Febrero, etc.)
-        'mes' => $row['mes'],
+        'mes' => $row['periodo'],
         'monto' => $row['total']
     );
 }

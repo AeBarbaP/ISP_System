@@ -72,6 +72,8 @@ function generarTablaPagos(folio) {
         },
         dataType: "json",
         success: function(data) {
+            let nuevoFolio = folio;
+            let folioPago = _("folioLabelpago").value;
             let tablaPagos = '';
             const meses = [
                 "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
@@ -81,11 +83,13 @@ function generarTablaPagos(folio) {
             // Recorrer los meses y buscar los pagos correspondientes
             meses.forEach((mes, index) => {
                 const pago = data.find(p => p.mes == (index + 1)); // Buscar pago para el mes actual
+                const mesNumero = index + 1; // Número del mes (1 = Enero, 2 = Febrero, etc.)
+            
                 tablaPagos += `
-                    <tr class=${pago ? "bg-primary" : "bg-warning"}>
+                    <tr class="${pago ? 'bg-primary' : 'bg-warning'}">
                         <td>${mes}</td>
                         <td>${pago ? pago.folio_contrato : ''}</td>
-                        <td>${pago ? pago.concepto : '<span class="badge bg-primary text-light">Pagar</span>'}</td>
+                        <td>${pago ? pago.concepto : `<span class="badge bg-primary text-light" style="cursor: pointer;" onclick="registrarPago('${folioPago}','${nuevoFolio}', ${mesNumero})">Pagar</span>`}</td>
                         <td>${pago ? pago.periodo : ''}</td>
                         <td>${pago ? pago.monto : ''}</td>
                     </tr>
@@ -103,6 +107,33 @@ function generarTablaPagos(folio) {
     });
 }
 
+//------------- Registrar pago --------------------------------
+function registrarPago(folioPago, folio, mes) {
+    if (confirm("¿Estás seguro de registrar el pago para este mes?")) {
+        $.ajax({
+            type: "POST",
+            url: "query/registrar_pago.php", // Archivo PHP que registrará el pago
+            data: { 
+                folioPago: folioPago,
+                folio: folio,
+                mes: mes
+            },
+            dataType: "json",
+            success: function(response) {
+                if (response.success) {
+                    alert("Pago registrado correctamente.");
+                    generarTablaPagos(folio); // Recargar la tabla de pagos
+                } else {
+                    alert("Error al registrar el pago: " + response.message);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error("Error en la solicitud AJAX: ", textStatus, errorThrown);
+                alert("Error al registrar el pago.");
+            }
+        });
+    }
+}
 //------------- Pagos dashboard --------------------------------
 
 function queryDashboard1() {
