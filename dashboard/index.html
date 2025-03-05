@@ -22,6 +22,7 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
 	 <script src="js/scripts.js"></script>
+	 <script src="js/pagos.js"></script>
 	 <script src="js/registroPago.js"></script>
 	 <script src="js/menusLaterales.js"></script>
 	<!-- área de scripts -->
@@ -1401,13 +1402,9 @@
                     </div>
                     <div class="col-lg-6" id="nombresearch" hidden>
 						<label for="buscanombre" class="form-label">Buscar Nombre</label>
-						<input class="form-control" list="nombres" id="buscanombre" onchange="mostrardatos()" placeholder="Type to search...">
-						<datalist id="nombres">
-							<option value="Mariano González">
-							<option value="José Antonio Vázquez">
-							<option value="Leopoldina Gutiérrez">
-							<option value="Ana María Cortés">
-							<option value="Rogelio Sánchez">
+						<input class="form-control" list="nombresClientes" id="buscanombre" oninput="queryClientes(this.value)" placeholder="Type to search...">
+						<datalist id="nombresClientes"> 
+
 						</datalist>
                     </div>
                     <div class="col-lg-6" id="domiciliosearch" hidden>
@@ -1442,14 +1439,15 @@
 						</div>
                     </div>
 					<div class="col-lg-12" id="datoscliente" hidden>
-						<div>
-							<h3>Mariano González</h3>
+						<div id="datosGenerales">
+							<!-- <h3>Mariano González</h3>
 							<span>Folio Contrato: C-0659</span>
 							<br>
 							<span>Domicilio: Primavera 300, Centro, Zacatecas, Zac.</span>
 							<br>
 							<span>Teléfono: (222) 333-4444</span>
-							<br>
+							<br> -->
+
 							<!-- <h4>Saldo a pagar:</h4>
 							<h3>$ 350.00</h3>
 							<h4>Periodo a pagar</h4>
@@ -1463,12 +1461,11 @@
 							<table class="table table-striped table-hover text-center" id="tablaPre">
 								<thead>
 									<tr>
-									<th scope="col">#</th>
-									<th scope="col">Contrato</th>
-									<th scope="col">Descripción</th>
-									<th scope="col">Periodo de Pago</th>
-									<th scope="col">Monto</th>
-									<!-- <th scope="col">Total</th> -->
+										<th>Mes</th>
+										<th>Folio Contrato</th>
+										<th>Concepto</th>
+										<th>Periodo</th>
+										<th>Monto</th>
 									</tr>
 								</thead>
 								<tbody id="NuevaSolicitud" hidden>
