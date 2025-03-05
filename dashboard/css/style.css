@@ -21460,10 +21460,10 @@ code {
   border: none;
 }
 
-.card.random-card {
-  height: 20vh;
+/* .card.random-card {
+  height: 40vh;
   width: auto;
-}
+} */
 
 .card.congratulation-bg {
   box-shadow: none;
@@ -21471,13 +21471,15 @@ code {
   -moz-box-shadow: none;
   -ms-box-shadow: none;
   border-radius: 6px 6px 6px,6px;
-  /* background: url(../../images/promos/PromoMes.jpg); */
-  background-size: contain;
+  background: url(../../images/promos/PromoMes.jpg);
+  /* background-size: 100% 100%; */
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: left;
   border: 0;
   box-shadow: none;
   padding: 10rem 3.25rem;
+  height: 100vh;
 }
 
 .card.congratulation-bg p {
@@ -21487,6 +21489,7 @@ code {
 
 .card .card-body {
   padding: 1.875rem 1.875rem;
+  height: 100vh;
 }
 
 @media (max-width: 991px) {
