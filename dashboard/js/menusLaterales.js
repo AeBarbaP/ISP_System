@@ -390,7 +390,7 @@ function nuevoTecnico() {
 
 function fechaTecnico(){
   // Obtener los elementos input
-  const inputFechaActual = document.getElementById('');
+  const inputFechaActual = document.getElementById('fecha_creacion_tecnico');
   // Obtener la fecha actual
   const fechaActual = new Date();
 
@@ -407,6 +407,26 @@ function fechaTecnico(){
 
   // Asignar las fechas a los inputs
   inputFechaActual.value = fechaActualFormateada;
+}
+
+function guardarTecnico(){
+  let fecha = document.getElementById('fecha_creacion_tecnico').value;
+  let nombre = document.getElementById('nombre_tecnico').value;
+  let estatus_tecnico = document.getElementById('estatus_tecnico').value;
+
+  $.ajax({
+    url: 'prcd/guardarTecnico.php',
+    type: 'POST',
+    data:{
+      fecha:fecha,
+      nombre:nombre,
+      estatus_tecnico,estatus_tecnico
+    },
+    dataType: 'json',
+    success: function(response) {
+      $('#tablaUsuariosG').html(response);
+    }
+  })
 }
 
 function gestionTecnicos() {
