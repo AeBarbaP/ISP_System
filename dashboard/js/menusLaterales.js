@@ -368,7 +368,7 @@ function nuevoTecnico() {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-primary" onclick="guardarTecnico()">Guardar</button>
         </div>
       </div>
     </div>
@@ -423,8 +423,18 @@ function guardarTecnico(){
       estatus_tecnico,estatus_tecnico
     },
     dataType: 'json',
-    success: function(response) {
-      $('#tablaUsuariosG').html(response);
+    success: function(data) {
+      var datos = JSON.parse(JSON.stringify(data));
+      var success = datos.success;
+
+      if (success == 1) {
+        alert("Técnico creado");
+        
+      }
+      else{
+          alert("No se guardó");
+          console.log(datos.error)
+      }
     }
   })
 }
