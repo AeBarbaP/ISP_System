@@ -567,3 +567,87 @@ function editarTecnico() {
   });
 }
 
+//Inicia Gestión de Paquetes
+
+function nuevoPaquete() {
+
+  let titulo = "Nuevo Paquete";
+  // Crear el elemento del modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.setAttribute('tabindex', '-1');
+  modal.innerHTML = `
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+            <input type="text" class="form-control" placeholder="Nombre del paquete" aria-label="nombre paquete" id="nombre_paquete" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-speedometer2"></i></span>
+            <input type="number" class="form-control" placeholder="Velocidad" aria-label="velocidad" id="velocidad_paquete" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-cash-coin"></i></span>
+            <input type="text" class="form-control" placeholder="Precio mensual" aria-label="precio" id="precio_paquete" aria-describedby="basic-addon1">
+            <span class="input-group-text" id="basic-addon1">.00</span>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-toggles"></i></span>
+            <select class="form-select" aria-label="Default select example" id="estatus_paquete">
+                <option value="" selected>Estatus...</option>
+                <option value="1">Activo</option>
+                <option value="0">Inactivo</option>
+            </select>
+          </div>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="guardarPaquete()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
+
+  // Mostrar el modal usando Bootstrap's JavaScript API
+  const bootstrapModal = new bootstrap.Modal(modal);
+  bootstrapModal.show();
+  fechaTecnico();
+
+  // Eliminar el modal del DOM cuando se cierre
+  modal.addEventListener('hidden.bs.modal', () => {
+    modal.remove();
+  });
+}
+
+function fechaTecnico(){
+  // Obtener los elementos input
+  const inputFechaActual = document.getElementById('fecha_creacion_tecnico');
+  // Obtener la fecha actual
+  const fechaActual = new Date();
+
+  // Función para formatear la fecha en YYYY-MM-DD
+  function formatearFecha(fecha) {
+      const año = fecha.getFullYear();
+      const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Meses van de 0 a 11
+      const dia = String(fecha.getDate()).padStart(2, '0');
+      return `${año}-${mes}-${dia}`;
+  }
+
+  // Formatear las fechas
+  const fechaActualFormateada = formatearFecha(fechaActual);
+
+  // Asignar las fechas a los inputs
+  inputFechaActual.value = fechaActualFormateada;
+}
