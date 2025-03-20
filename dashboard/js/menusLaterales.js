@@ -472,7 +472,6 @@ function gestionTecnicos() {
                         </div>
                     </div>
                 </div>
-              <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button>
               <div class="table-responsive mt-3">
                   <table class="table p-1">
                       <thead>
@@ -642,22 +641,28 @@ function editarPaquete() {
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">${titulo}</h5>
+          <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <p>
+          
           <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-            <input type="date" class="form-control" placeholder="" aria-label="Fecha de creacion" id="fecha_creacion_tecnicoEditar" aria-describedby="basic-addon1" disabled>
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+            <input type="text" class="form-control" placeholder="Nombre del paquete" aria-label="nombre paquete" id="nombre_paquete" aria-describedby="basic-addon1">
           </div>
           <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_tecnico_editar" aria-describedby="basic-addon1">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-speedometer2"></i></span>
+            <input type="number" class="form-control" placeholder="Velocidad" aria-label="velocidad" id="velocidad_paquete" aria-describedby="basic-addon1">
           </div>
           <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-            <select class="form-select" aria-label="Default select example" id="estatus_tecnico_editar">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-cash-coin"></i></span>
+            <input type="text" class="form-control" placeholder="Precio mensual" aria-label="precio" id="precio_paquete" aria-describedby="basic-addon1">
+            <span class="input-group-text" id="basic-addon1">.00</span>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-toggles"></i></span>
+            <select class="form-select" aria-label="Default select example" id="estatus_paquete">
                 <option value="" selected>Estatus...</option>
                 <option value="1">Activo</option>
                 <option value="0">Inactivo</option>
@@ -667,7 +672,7 @@ function editarPaquete() {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-primary" onclick="guardarPaquete()">Guardar</button>
         </div>
       </div>
     </div>
@@ -679,7 +684,274 @@ function editarPaquete() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
-  fechaTecnico();
+
+  // Eliminar el modal del DOM cuando se cierre
+  modal.addEventListener('hidden.bs.modal', () => {
+    modal.remove();
+  });
+}
+
+function gestionPaquetes() {
+  let titulo = "Gestión de Paquetes";
+  // Crear el elemento del modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.setAttribute('tabindex', '-1');
+  modal.innerHTML = `
+    <div class="modal-dialog modal-xl">>
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title">${titulo}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <input name="id" id="idHiddenPaq" value="" hidden>
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscar" name="buscar">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" value="1" name="btnradio" id="btnradio_paqA">
+                            <label class="btn btn-outline-success" for="btnradio1"><i class="bi bi-check-lg"></i> Activo</label>
+                        
+                            <input type="radio" class="btn-check" value="0" name="btnradio" id="btnradio_paqI">
+                            <label class="btn btn-outline-danger" for="btnradio2"><i class="bi bi-x-lg"></i> Inactivo</label>
+                        </div>
+                    </div>
+                </div>
+              <div class="table-responsive mt-3">
+                  <table class="table p-1">
+                      <thead>
+                          <tr>
+                              <th scope="col">Id</th>
+                              <th scope="col">Nombre Paquete</th>
+                              <th scope="col">Velocidad</th>
+                              <th scope="col">Mensualidad</th>
+                              <th scope="col">Estatus</th>
+                              <th scope="col" class="text-end"><i class="bi bi-people"></i></th>
+                          </tr>
+                      </thead>
+                      <tbody id="tablaPaquetes">
+                          
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+              <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
+          </div>
+      </div>
+    </div>
+  `;
+
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
+
+  // Mostrar el modal usando Bootstrap's JavaScript API
+  const bootstrapModal = new bootstrap.Modal(modal);
+  bootstrapModal.show();
+
+  // Eliminar el modal del DOM cuando se cierre
+  modal.addEventListener('hidden.bs.modal', () => {
+    modal.remove();
+  });
+}
+// Termina gestión de paquetes
+
+function nuevaPromo() {
+
+  let titulo = "Nueva Promoción";
+  // Crear el elemento del modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.setAttribute('tabindex', '-1');
+  modal.innerHTML = `
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+            <input type="text" class="form-control" placeholder="Nombre del paquete" aria-label="nombre paquete" id="nombre_paquete" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-speedometer2"></i></span>
+            <input type="number" class="form-control" placeholder="Velocidad" aria-label="velocidad" id="velocidad_paquete" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-cash-coin"></i></span>
+            <input type="text" class="form-control" placeholder="Precio mensual" aria-label="precio" id="precio_paquete" aria-describedby="basic-addon1">
+            <span class="input-group-text" id="basic-addon1">.00</span>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-toggles"></i></span>
+            <select class="form-select" aria-label="Default select example" id="estatus_paquete">
+                <option value="" selected>Estatus...</option>
+                <option value="1">Activo</option>
+                <option value="0">Inactivo</option>
+            </select>
+          </div>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="guardarPaquete()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
+
+  // Mostrar el modal usando Bootstrap's JavaScript API
+  const bootstrapModal = new bootstrap.Modal(modal);
+  bootstrapModal.show();
+
+  // Eliminar el modal del DOM cuando se cierre
+  modal.addEventListener('hidden.bs.modal', () => {
+    modal.remove();
+  });
+}
+
+
+function editarPaquete() {
+
+  let titulo = "Editar Paquete";
+  // Crear el elemento del modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.setAttribute('tabindex', '-1');
+  modal.innerHTML = `
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+            <input type="text" class="form-control" placeholder="Nombre del paquete" aria-label="nombre paquete" id="nombre_paquete" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-speedometer2"></i></span>
+            <input type="number" class="form-control" placeholder="Velocidad" aria-label="velocidad" id="velocidad_paquete" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-cash-coin"></i></span>
+            <input type="text" class="form-control" placeholder="Precio mensual" aria-label="precio" id="precio_paquete" aria-describedby="basic-addon1">
+            <span class="input-group-text" id="basic-addon1">.00</span>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-toggles"></i></span>
+            <select class="form-select" aria-label="Default select example" id="estatus_paquete">
+                <option value="" selected>Estatus...</option>
+                <option value="1">Activo</option>
+                <option value="0">Inactivo</option>
+            </select>
+          </div>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="guardarPaquete()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
+
+  // Mostrar el modal usando Bootstrap's JavaScript API
+  const bootstrapModal = new bootstrap.Modal(modal);
+  bootstrapModal.show();
+
+  // Eliminar el modal del DOM cuando se cierre
+  modal.addEventListener('hidden.bs.modal', () => {
+    modal.remove();
+  });
+}
+
+function gestionPaquetes() {
+  let titulo = "Gestión de Paquetes";
+  // Crear el elemento del modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.setAttribute('tabindex', '-1');
+  modal.innerHTML = `
+    <div class="modal-dialog modal-xl">>
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title">${titulo}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <input name="id" id="idHiddenPaq" value="" hidden>
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscar" name="buscar">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" value="1" name="btnradio" id="btnradio_paqA">
+                            <label class="btn btn-outline-success" for="btnradio1"><i class="bi bi-check-lg"></i> Activo</label>
+                        
+                            <input type="radio" class="btn-check" value="0" name="btnradio" id="btnradio_paqI">
+                            <label class="btn btn-outline-danger" for="btnradio2"><i class="bi bi-x-lg"></i> Inactivo</label>
+                        </div>
+                    </div>
+                </div>
+              <div class="table-responsive mt-3">
+                  <table class="table p-1">
+                      <thead>
+                          <tr>
+                              <th scope="col">Id</th>
+                              <th scope="col">Nombre Paquete</th>
+                              <th scope="col">Velocidad</th>
+                              <th scope="col">Mensualidad</th>
+                              <th scope="col">Estatus</th>
+                              <th scope="col" class="text-end"><i class="bi bi-people"></i></th>
+                          </tr>
+                      </thead>
+                      <tbody id="tablaPaquetes">
+                          
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+              <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
+          </div>
+      </div>
+    </div>
+  `;
+
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
+
+  // Mostrar el modal usando Bootstrap's JavaScript API
+  const bootstrapModal = new bootstrap.Modal(modal);
+  bootstrapModal.show();
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
