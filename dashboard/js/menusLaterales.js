@@ -474,16 +474,16 @@ function gestionTecnicos() {
                 </div>
               <div class="table-responsive mt-3">
                   <table class="table p-1">
-                      <thead>
+                      <thead class="bg-secondary text-light  text-center">
                           <tr>
-                              <th scope="col">Id</th>
+                              <th scope="col">#</th>
                               <th scope="col">Fecha de creación</th>
                               <th scope="col">Nombre completo</th>
                               <th scope="col">Estatus</th>
-                              <th scope="col" class="text-end"><i class="bi bi-people"></i></th>
+                              <th scope="col"><i class="bi bi-people"></i></th>
                           </tr>
                       </thead>
-                      <tbody id="tablaTecnicos">
+                      <tbody id="tablaTecnicos" class="text-center">
                           
                       </tbody>
                   </table>
@@ -504,10 +504,51 @@ function gestionTecnicos() {
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
 
+  queryTecnicos();
+
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+}
+
+function queryTecnicos(){
+  $.ajax({
+    url: 'query/queryTecnicos.php',
+    type: 'POST',
+    dataType: 'html',
+    success: function(data) {
+      $('#tablaTecnicos').html(data);
+    }
+  })
+}
+
+function cambioEstatus(i,id){
+  if (confirm("¿Desea cambiar el estatus?")){
+    $.ajax({
+      url: 'prcd/cambioEstatus.php',
+      type: 'POST',
+      data:{
+        i:i,
+        id:id
+      },
+      dataType: 'json',
+      success: function(data) {
+        var datos = JSON.parse(JSON.stringify(data));
+        var success = datos.success;
+
+        if (success == 1) {
+          alert("Estatus modificado");
+          queryTecnicos();
+          
+        }
+        else{
+            alert("No se modificó");
+            console.log(datos.error)
+        }
+      }
+    })
+  }
 }
 
 function editarTecnico() {
