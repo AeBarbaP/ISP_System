@@ -607,7 +607,7 @@ function editarTecnico(id) {
 
 function datosTecnico(id){
   $.ajax({
-    url: 'query/datosTecnicos2.php',
+    url: 'query/queryTecnicos2.php',
     type: 'POST',
     data:{
       id:id
@@ -624,16 +624,12 @@ function datosTecnico(id){
       else{
           console.log(datos.error)
       }
-      queryTecnicos();
     }
   });
-  queryTecnicos();
+  // queryTecnicos();
 
 
 }
-
-
-
 
 //Inicia Gestión de Paquetes
 
