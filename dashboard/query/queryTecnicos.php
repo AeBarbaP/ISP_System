@@ -24,10 +24,9 @@ while($row = $resultado->fetch_assoc()){
             ';
         }
         echo'
-        <td>'.$row['id'].'</td>
+            <td><a href="#" onclick="editarTecnico('.$row['id'].')"><i class="bi bi-pencil-square"></i></a></td>
     </tr>
     ';
 }
 
-echo json_encode($clientes);
 ?>

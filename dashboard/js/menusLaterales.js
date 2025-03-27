@@ -390,7 +390,7 @@ function nuevoTecnico() {
 
 function fechaTecnico(){
   // Obtener los elementos input
-  const inputFechaActual = document.getElementById('fecha_creacion_tecnico');
+  const inputFechaActual = document.getElementById('fecha_creacion_tecnicoEditar');
   // Obtener la fecha actual
   const fechaActual = new Date();
 
@@ -407,6 +407,8 @@ function fechaTecnico(){
 
   // Asignar las fechas a los inputs
   inputFechaActual.value = fechaActualFormateada;
+
+
 }
 
 function guardarTecnico(){
@@ -551,7 +553,7 @@ function cambioEstatus(i,id){
   }
 }
 
-function editarTecnico() {
+function editarTecnico(id) {
 
   let titulo = "Editar Técnico";
   // Crear el elemento del modal
@@ -575,14 +577,7 @@ function editarTecnico() {
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
             <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_tecnico_editar" aria-describedby="basic-addon1">
           </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-            <select class="form-select" aria-label="Default select example" id="estatus_tecnico_editar">
-                <option value="" selected>Estatus...</option>
-                <option value="1">Activo</option>
-                <option value="0">Inactivo</option>
-            </select>
-          </div>
+          
           </p>
         </div>
         <div class="modal-footer">
@@ -600,12 +595,45 @@ function editarTecnico() {
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
   fechaTecnico();
+  datosTecnico(id);
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
 }
+
+// datos para editar técnico
+
+function datosTecnico(id){
+  $.ajax({
+    url: 'query/datosTecnicos2.php',
+    type: 'POST',
+    data:{
+      id:id
+    },
+    dataType: 'json',
+    success: function(data) {
+      var datos = JSON.parse(JSON.stringify(data));
+      var success = datos.success;
+
+      if (success == 1) {
+        _("nombre_tecnico_editar").value = datos.nombre;
+        // _("estatus_tecnico_editar").value = datos.estatus;
+      }
+      else{
+          console.log(datos.error)
+      }
+      queryTecnicos();
+    }
+  });
+  queryTecnicos();
+
+
+}
+
+
+
 
 //Inicia Gestión de Paquetes
 
