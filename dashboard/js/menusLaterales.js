@@ -1,4 +1,4 @@
-// ---------------- buscadores de datos -------------
+d// ---------------- buscadores de datos -------------
 
 // $(document).ready(function () {
 //   $("#buscarNameUser").on("keyup", function () {
@@ -1365,7 +1365,7 @@ function gestionComunidades() {
 
 function altaIncidencia() {
 
-  let titulo = "Nueva Reporte de Incidencia";
+  let titulo = "Nuevo Reporte de Incidencia";
   // Crear el elemento del modal
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
@@ -1379,37 +1379,35 @@ function altaIncidencia() {
         </div>
         <div class="modal-body">
           <p>
-            <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-12 input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-                <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidencia" aria-describedby="basic-addon1" disabled>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1">Fecha</label>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidencia" aria-describedby="basic-addon1" disabled>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1">Folio Incidencia</label>
+              <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_incidencia" aria-describedby="basic-addon1" disabled>
+            </div>
+            <label for="buscanombre" class="form-label">Cliente:</label>
+            <div class="input-group mb-3" id="nombresearch">
+              <input class="form-control" list="nombresClientes" id="buscanombre" oninput="queryClientes(this.value)" placeholder="Type to search...">
+              <datalist id="nombresClientes"> 
+
+              </datalist>
+            </div>
+            <div class="col-lg-12" id="datoscliente" hidden>
+              <div id="datosGenerales">
+                
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-12 input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-                <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_incidencia" aria-describedby="basic-addon1" disabled>
-              </div>
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
-              <input type="text" class="form-control" placeholder="Marca" aria-label="marca" id="marca" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
-              <input type="text" class="form-control" placeholder="Modelo" aria-label="modelo" id="modelo" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
-              <input type="text" class="form-control" placeholder="Num. Serie" aria-label="numero de serie" id="numSerie" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
-              <input type="text" class="form-control" placeholder="MAC Address" aria-label="MAC" id="macAdd" aria-describedby="basic-addon1">
+            <div class="mb-3">
+              <label for="descripcion_incidencia" class="form-label">Describe la incidencia:</label>
+              <textarea class="form-control" rows="5" aria-label="descripcion incidencia" id="descripcion_incidencia"></textarea>
             </div>
           </p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" onclick="guardarAntena()">Guardar</button>
+          <button type="button" class="btn btn-primary" onclick="guardarIncidencia()">Guardar</button>
         </div>
       </div>
     </div>
@@ -1421,7 +1419,7 @@ function altaIncidencia() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
-  fechaRegistroAntena()
+  fechaRegistroIncidencia()
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
@@ -1429,9 +1427,9 @@ function altaIncidencia() {
   });
 }
 
-function fechaRegistroAntena(){
+function fechaRegistroIncidencia(){
   // Obtener los elementos input
-  const inputFechaActual = document.getElementById('fecha_alta');
+  const inputFechaActual = document.getElementById('fecha_incidencia');
   // Obtener la fecha actual
   const fechaActual = new Date();
 
