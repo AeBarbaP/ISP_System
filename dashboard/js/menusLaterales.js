@@ -61,13 +61,13 @@ function nuevoUsuario() {
               </select>
             </div>
             <div class="col-6 mb-3"> 
-            <label class="form-label" id="basic-addon1">Estatus:</label>
-            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-              <input type="radio" class="btn-check" value="1" name="btnradio" id="estatus1">
-              <label class="btn btn-outline-success" for="estatus1"><i class="bi bi-check-lg"></i> Activo</label>
-              <input type="radio" class="btn-check" value="2" name="btnradio" id="estatus2">
-              <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
-            </div>
+              <label class="form-label" id="basic-addon1">Estatus:</label>
+              <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" value="1" name="btnradio" id="estatus1">
+                <label class="btn btn-outline-success" for="estatus1"><i class="bi bi-check-lg"></i> Activo</label>
+                <input type="radio" class="btn-check" value="2" name="btnradio" id="estatus2">
+                <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
+              </div>
             </div>
             <!-- <div class="col-6 mb-3">
               <label class="form-label" id="basic-addon1">Estatus:</label>
@@ -172,40 +172,50 @@ function editarUsuario() {
           </div>
           <div class="modal-body">
             <p>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-              <input type="text" class="form-control border-secondary" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-              <input type="text" class="form-control border-secondary" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-regex"></i></span>
-              <input type="password" class="form-control border-secondary" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" id="pwdNewUsr">
-            </div>
-            <div class="input-group mb-3 justify-content-end">
-              <input class="form-check-input" type="checkbox" role="switch" id="mostrarPwd" onchange="mostrarPwd2()">
-              <span class="input-group-btn ms-2">Mostrar password</i></span>
-            </div>
-            
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Tipo de usuario ...</option>
-                <option value="3">Usuario A</option>
-                <option value="2">Usuario B</option>
-                <option value="1">Administrador</option>
-              </select>
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-              <select class="form-select" aria-label="Default select example">
-                <option value="" selected>Estatus de usuario ...</option>
-                <option value="1">Activo</option>
-                <option value="0">Inactivo</option>
-              </select>
-            </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1">Usuario:</label>
+                <input type="text" class="form-control border-secondary" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" disabled>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1">Nombre Completo:</label>
+                <input type="text" class="form-control border-secondary" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1">Contraseña:</label>
+                <input type="password" class="form-control border-secondary" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" id="pwdNewUsr">
+              </div>
+              <div class="input-group mb-3 justify-content-end">
+                <input class="form-check-input" type="checkbox" role="switch" id="mostrarPwd" onchange="mostrarPwd2()">
+                <span class="input-group-btn ms-2">Mostrar password</i></span>
+              </div>
+              <div class="row">
+                <div class="col-6 mb-3">
+                  <label class="form-label" id="basic-addon1">Tipo de Usuario:</label>
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Tipo de usuario ...</option>
+                    <option value="3">Usuario A</option>
+                    <option value="2">Usuario B</option>
+                    <option value="1">Administrador</option>
+                  </select>
+                </div>
+                <div class="col-6 mb-3"> 
+                  <label class="form-label" id="basic-addon1">Estatus:</label>
+                  <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" value="1" name="btnradio" id="estatus1">
+                    <label class="btn btn-outline-success" for="estatus1"><i class="bi bi-check-lg"></i> Activo</label>
+                    <input type="radio" class="btn-check" value="2" name="btnradio" id="estatus2">
+                    <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
+                <select class="form-select" aria-label="Default select example">
+                  <option value="" selected>Estatus de usuario ...</option>
+                  <option value="1">Activo</option>
+                  <option value="0">Inactivo</option>
+                </select>
+              </div> -->
 
             </p>
           </div>
@@ -252,7 +262,7 @@ function gestionUsuarios(){
                             <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscarNameUser">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mt-1">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1" for="inputGroupSelect01">Perfil</span>
                             <select class="form-select" id="buscarPerfilUser" value="" selected="selected" name="perfilselect">
@@ -352,27 +362,37 @@ function nuevoTecnico() {
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">${titulo}</h5>
+          <h5 class="modal-title"><i class="bi bi-person-fill-add"> </i>${titulo}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <p>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
+          <div class="mb-3">
+            <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-plus me-2"></i> Fecha:</label>
             <input type="date" class="form-control" placeholder="" aria-label="Fecha de creacion" id="fecha_creacion_tecnico" aria-describedby="basic-addon1" disabled>
           </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
+          <div class="mb-3">
+            <label class="form-label" id="basic-addon1"><i class="bi bi-person-fill-add me-2"></i>Nombre completo:</label>
             <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_tecnico" aria-describedby="basic-addon1">
           </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
+          <div class="mb-3"> 
+            <label class="form-label" id="basic-addon1">Estatus:</label>
+            <br>
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" value="1" name="btnradio" id="estatus1">
+              <label class="btn btn-outline-success" for="estatus1"><i class="bi bi-check-lg"></i> Activo</label>
+              <input type="radio" class="btn-check" value="2" name="btnradio" id="estatus2">
+              <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
+            </div>
+          </div>
+          <!-- <div class="mb-3">
+            <label class="form-label" id="basic-addon1"></label>
             <select class="form-select" aria-label="Default select example" id="estatus_tecnico">
                 <option value="" selected>Estatus...</option>
                 <option value="1">Activo</option>
                 <option value="0">Inactivo</option>
             </select>
-          </div>
+          </div> -->
           </p>
         </div>
         <div class="modal-footer">
@@ -398,6 +418,28 @@ function nuevoTecnico() {
 }
 
 function fechaTecnico(){
+  // Obtener los elementos input
+  const inputFechaActual = document.getElementById('fecha_creacion_tecnico');
+  // Obtener la fecha actual
+  const fechaActual = new Date();
+
+  // Función para formatear la fecha en YYYY-MM-DD
+  function formatearFecha(fecha) {
+      const año = fecha.getFullYear();
+      const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Meses van de 0 a 11
+      const dia = String(fecha.getDate()).padStart(2, '0');
+      return `${año}-${mes}-${dia}`;
+  }
+
+  // Formatear las fechas
+  const fechaActualFormateada = formatearFecha(fechaActual);
+
+  // Asignar las fechas a los inputs
+  inputFechaActual.value = fechaActualFormateada;
+
+
+}
+function fechaTecnicoE(){
   // Obtener los elementos input
   const inputFechaActual = document.getElementById('fecha_creacion_tecnicoEditar');
   // Obtener la fecha actual
@@ -484,8 +526,8 @@ function gestionTecnicos() {
                     </div>
                 </div>
               <div class="table-responsive mt-3">
-                  <table class="table p-1">
-                      <thead class="bg-secondary text-light  text-center">
+                  <table class="table table-hover p-1">
+                      <thead class="text-center">
                           <tr>
                               <th scope="col">#</th>
                               <th scope="col">Fecha de creación</th>
