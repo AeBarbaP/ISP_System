@@ -34,16 +34,16 @@ function nuevoUsuario() {
         </div>
         <div class="modal-body">
           <p>
-          <div class="input-group mb-4">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
+          <div class="mb-4">
+            <label class="form-label" id="basic-addon1">Nombre completo:</label>
             <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" id="nombreNew" placeholder="Nombre Completo">
           </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
+          <div class="mb-3">
+            <label class="form-label" id="basic-addon1">Usuario:</label>
             <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" id="usrNew">
           </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-regex"></i></span>
+          <div class="mb-3">
+            <label class="form-label" id="basic-addon1">Contraseña:</label>
             <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" id="pwdNew1">
           </div>
           <div class="input-group mb-3 justify-content-end">
@@ -51,8 +51,8 @@ function nuevoUsuario() {
             <span class="input-group-btn ms-2">Mostrar password</i></span>
           </div>
           <div class="row">
-            <div class="input-group col-6 mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
+            <div class="col-6 mb-3">
+              <label class="form-label" id="basic-addon1">Tipo de Usuario:</label>
               <select class="form-select" aria-label="Default select example" id="tipoUsrNew">
                   <option selected>Tipo de usuario ...</option>
                   <option value="3">Usuario A</option>
@@ -60,14 +60,23 @@ function nuevoUsuario() {
                   <option value="1">Administrador</option>
               </select>
             </div>
-            <div class="input-group col-6 mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
+            <div class="col-6 mb-3"> 
+            <label class="form-label" id="basic-addon1">Estatus:</label>
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" value="1" name="btnradio" id="estatus1">
+              <label class="btn btn-outline-success" for="estatus1"><i class="bi bi-check-lg"></i> Activo</label>
+              <input type="radio" class="btn-check" value="2" name="btnradio" id="estatus2">
+              <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
+            </div>
+            </div>
+            <!-- <div class="col-6 mb-3">
+              <label class="form-label" id="basic-addon1">Estatus:</label>
               <select class="form-select" aria-label="Default select example" id="estatusNew">
                   <option value="" selected>Estatus de usuario ...</option>
                   <option value="1">Activo</option>
                   <option value="0">Inactivo</option>
               </select>
-            </div>
+            </div> -->
           </div>
           </p>
         </div>
