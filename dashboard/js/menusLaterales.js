@@ -1185,17 +1185,17 @@ function nuevoMunicipio() {
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
+          <h5 class="modal-title"><i class="bi bi-plus-circle me-2"></i> ${titulo}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <p>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Municipio:</label>
               <input type="text" class="form-control" placeholder="Nombre del Municipio" aria-label="nombre municipio" id="nombre_municipio" aria-describedby="basic-addon1">
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-checklist"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-card-checklist me-2"></i>Estado</label>
               <select class="form-select" aria-label="estado" id="estado">
                   <option value="" selected>Selecciona...</option>
                   <option value="Zacatecas">Zacatecas</option>
@@ -1243,12 +1243,12 @@ function editarMunicipio() {
         </div>
         <div class="modal-body">
           <p>
-          <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+          <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i></label>
               <input type="text" class="form-control" placeholder="Nombre del Municipio" aria-label="nombre municipio" id="nombre_municipio" aria-describedby="basic-addon1">
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-checklist"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-card-checklist me-2"></i></label>
               <select class="form-select" aria-label="estado" id="estado">
                   <option value="" selected>Selecciona...</option>
                   <option value="Zacatecas">Zacatecas</option>
@@ -1353,24 +1353,24 @@ function nuevaComunidad() {
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
+          <h5 class="modal-title"><i class="bi bi-plus-circle me-2"></i> ${titulo}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <p>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Comunidad:</label>
               <input type="text" class="form-control" placeholder="Nombre de la Comunidad" aria-label="nombre comunidad" id="nombre_comunidad" aria-describedby="basic-addon1">
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-geo-alt me-2"></i>Municipio</label>
               <select class="form-select" aria-label="municipio" id="municipio">
                   <option value="" selected>Selecciona Municipio...</option>
                   <!-- aquí se llena con la tabla de municipios -->
               </select>
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-map"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-map me-2"></i>Estado:</label>
               <select class="form-select" aria-label="estado" id="estado">
                   <option value="" selected>Selecciona Estado...</option>
                   <option value="Zacatecas">Zacatecas</option>
@@ -1413,24 +1413,24 @@ function editarComunidad() {
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
+          <h5 class="modal-title"><i class="bi bi-plus-circle me-2"></i> ${titulo}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <p>
-          <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+          <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Comunidad:</label>
               <input type="text" class="form-control" placeholder="Nombre de la Comunidad" aria-label="nombre comunidad" id="nombre_comunidad" aria-describedby="basic-addon1">
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-geo-alt me-2"></i>Municipio:</label>
               <select class="form-select" aria-label="municipio" id="municipio">
                   <option value="" selected>Selecciona Municipio...</option>
                   <!-- aquí se llena con la tabla de municipios -->
               </select>
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-map"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-map me-2"></i>Estado:</label>
               <select class="form-select" aria-label="estado" id="estado">
                   <option value="" selected>Selecciona Estado...</option>
                   <option value="Zacatecas">Zacatecas</option>
@@ -1471,7 +1471,7 @@ function gestionComunidades() {
     <div class="modal-dialog modal-xl">>
       <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title">${titulo}</h5>
+              <h5 class="modal-title"><i class="bi bi-card-list me-2"></i>${titulo}</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -1542,14 +1542,14 @@ function altaIncidencia() {
         <div class="modal-body">
           <p>
             <div class="mb-3">
-              <label class="form-label" id="basic-addon1">Fecha</label>
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha</label>
               <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidencia" aria-describedby="basic-addon1" disabled>
             </div>
             <div class="mb-3">
-              <label class="form-label" id="basic-addon1">Folio Incidencia</label>
+              <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
               <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_incidencia" aria-describedby="basic-addon1" disabled>
             </div>
-            <label for="buscanombre" class="form-label">Cliente:</label>
+            <label for="buscanombre" class="form-label"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
             <div class="input-group mb-3" id="nombresearch">
               <input class="form-control" list="nombresClientes" id="buscanombre" oninput="queryClientes(this.value)" placeholder="Type to search...">
               <datalist id="nombresClientes"> 
@@ -1562,7 +1562,7 @@ function altaIncidencia() {
               </div>
             </div>
             <div class="mb-3">
-              <label for="descripcion_incidencia" class="form-label">Describe la incidencia:</label>
+              <label for="descripcion_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Describe la incidencia:</label>
               <textarea class="form-control" rows="5" aria-label="descripcion incidencia" id="descripcion_incidencia"></textarea>
             </div>
           </p>
@@ -1609,6 +1609,155 @@ function fechaRegistroIncidencia(){
   // Asignar las fechas a los inputs
   inputFechaActual.value = fechaActualFormateada;
 }
+
+function editarIncidencia() {
+
+  let titulo = "Nuevo Reporte de Incidencia";
+  // Crear el elemento del modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.setAttribute('tabindex', '-1');
+  modal.innerHTML = `
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Alta</label>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaU" aria-describedby="basic-addon1" disabled>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
+              <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_incidenciaU" aria-describedby="basic-addon1" disabled>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
+              <input type="text" class="form-control" placeholder="" aria-label="cliente" id="cliente_incidenciaU" aria-describedby="basic-addon1">
+            </div>
+            <div class="mb-3">
+              <label for="descripcion_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Descripción de la incidencia:</label>
+              <textarea class="form-control" rows="5" aria-label="descripcion incidencia" id="descripcion_incidenciaU"></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
+              <select class="form-select" aria-label="tecnico asignado" id="tecnico_incidencia">
+                  <option value="" selected>Selecciona Técnico...</option>
+                  <!-- aquí se llena con la tabla de Técnicos -->
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Asignación:</label>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaAsignacion" aria-describedby="basic-addon1">
+            </div>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="updateIncidencia()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
+
+  // Mostrar el modal usando Bootstrap's JavaScript API
+  const bootstrapModal = new bootstrap.Modal(modal);
+  bootstrapModal.show();
+  fechaRegistroIncidencia()
+
+  // Eliminar el modal del DOM cuando se cierre
+  modal.addEventListener('hidden.bs.modal', () => {
+    modal.remove();
+  });
+}
+
+function gestionIncidencias() {
+  let titulo = "Gestión de Incidencias";
+  // Crear el elemento del modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.setAttribute('tabindex', '-1');
+  modal.innerHTML = `
+    <div class="modal-dialog modal-xl">>
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title"><i class="bi bi-card-list me-2"></i>${titulo}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <input name="id" id="idHiddenInc" value="" hidden>
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscar" name="buscar">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" value="1" name="btnradio" id="btnradio_paqA">
+                            <label class="btn btn-outline-primary" for="btnradio1"><i class="bi bi-check-lg me-2"></i> Asignadas</label>
+                            <input type="radio" class="btn-check" value="0" name="btnradio" id="btnradio_paqI">
+                            <label class="btn btn-outline-secondary" for="btnradio2"><i class="bi bi-x-lg me-2"></i>No Asignadas</label>
+                            <input type="radio" class="btn-check" value="1" name="btnradio" id="btnradio_paqP">
+                            <label class="btn btn-outline-warning" for="btnradio1"><i class="bi bi-check-lg me-2"></i> En Proceso</label>
+                            <input type="radio" class="btn-check" value="1" name="btnradio" id="btnradio_paqAt">
+                            <label class="btn btn-outline-success" for="btnradio1"><i class="bi bi-check-lg me-2"></i> Atendidas</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive mt-3">
+                  <table class="table p-1">
+                      <thead>
+                          <tr>
+                              <th scope="col">Id</th>
+                              <th scope="col">Folio</th>
+                              <th scope="col">Fecha Alta</th>
+                              <th scope="col">Cliente</th>
+                              <th scope="col">Técnico Asignado</th>
+                              <th scope="col">Estatus</th>
+                              <th scope="col" class="text-end"><i class="bi bi-people"></i></th>
+                          </tr>
+                      </thead>
+                      <tbody id="tablaIncidencias">
+                          
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+              <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
+          </div>
+      </div>
+    </div>
+  `;
+
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
+
+  // Mostrar el modal usando Bootstrap's JavaScript API
+  const bootstrapModal = new bootstrap.Modal(modal);
+  bootstrapModal.show();
+
+  // Eliminar el modal del DOM cuando se cierre
+  modal.addEventListener('hidden.bs.modal', () => {
+    modal.remove();
+  });
+}
+
+
+//Termina gestión de Incidencias
+
+
+// Inicia gestion de inventario de antenas
 
 function editarAntena() {
 
