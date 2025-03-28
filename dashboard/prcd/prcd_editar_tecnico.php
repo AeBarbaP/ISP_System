@@ -7,12 +7,16 @@ setlocale(LC_TIME, 'es_MX.UTF-8');
 
 $fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
 
-$estatus = $_POST['i'];
 $id = $_POST['id'];
+$fecha = $_POST['fecha'];
+$nombre = $_POST['nombre'];
+$estatus = $_POST['estatus'];
 
 $query = "UPDATE tecnicos SET 
         estatus = '$estatus',
-        fecha_actualizacion = '$fechaHoy'
+        fecha_actualizacion = '$fecha',
+        nombre = '$nombre',
+        estatus = '$estatus'
         WHERE
         id = '$id'
 ";

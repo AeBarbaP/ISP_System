@@ -1,4 +1,4 @@
-d// ---------------- buscadores de datos -------------
+// ---------------- buscadores de datos -------------
 
 // $(document).ready(function () {
 //   $("#buscarNameUser").on("keyup", function () {
@@ -437,8 +437,8 @@ function fechaTecnico(){
   // Asignar las fechas a los inputs
   inputFechaActual.value = fechaActualFormateada;
 
-
 }
+
 function fechaTecnicoE(){
   // Obtener los elementos input
   const inputFechaActual = document.getElementById('fecha_creacion_tecnicoEditar');
@@ -458,7 +458,6 @@ function fechaTecnicoE(){
 
   // Asignar las fechas a los inputs
   inputFechaActual.value = fechaActualFormateada;
-
 
 }
 
@@ -527,13 +526,13 @@ function gestionTecnicos() {
                 </div>
               <div class="table-responsive mt-3">
                   <table class="table table-hover p-1">
-                      <thead class="text-center">
+                      <thead class="text-center bg-dark text-light">
                           <tr>
                               <th scope="col">#</th>
                               <th scope="col">Fecha de creación</th>
                               <th scope="col">Nombre completo</th>
                               <th scope="col">Estatus</th>
-                              <th scope="col"><i class="bi bi-people"></i></th>
+                              <th scope="col">Editar</th>
                           </tr>
                       </thead>
                       <tbody id="tablaTecnicos" class="text-center">
@@ -611,6 +610,7 @@ function editarTecnico(id) {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'modalEditarTecnico');
   modal.innerHTML = `
     <div class="modal-dialog">
       <div class="modal-content">
@@ -619,6 +619,7 @@ function editarTecnico(id) {
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+        <input id="idEditarTecnico" value="${id}" hidden>
           <p>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha</label>
@@ -632,17 +633,17 @@ function editarTecnico(id) {
               <label class="form-label" id="basic-addon1">Estatus:</label>
               <br>
               <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" value="1" name="btnradio" id="estatus1">
-                <label class="btn btn-outline-success" for="estatus1"><i class="bi bi-check-lg"></i> Activo</label>
-                <input type="radio" class="btn-check" value="2" name="btnradio" id="estatus2">
-                <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
+                <input type="radio" class="btn-check" value="1" name="btnradioEditarTecnico" id="estatusEditarTecnico1">
+                <label class="btn btn-outline-success" for="estatusEditarTecnico1"><i class="bi bi-check-lg"></i> Activo</label>
+                <input type="radio" class="btn-check" value="0" name="btnradioEditarTecnico" id="estatusEditarTecnico2">
+                <label class="btn btn-outline-danger" for="estatusEditarTecnico2"><i class="bi bi-x-lg"></i> Inactivo</label>
               </div>
             </div>
           </p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-primary" onclick="editarDatosTecnico()"><i class="bi bi-pencil-square"></i> Editar</button>
         </div>
       </div>
     </div>
@@ -654,7 +655,7 @@ function editarTecnico(id) {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
-  fechaTecnico();
+  fechaTecnicoE();
   datosTecnico(id);
 
   // Eliminar el modal del DOM cuando se cierre
@@ -676,18 +677,69 @@ function datosTecnico(id){
     success: function(data) {
       var datos = JSON.parse(JSON.stringify(data));
       var success = datos.success;
+      var estatus = datos.estatus;
 
       if (success == 1) {
         _("nombre_tecnico_editar").value = datos.nombre;
         // _("estatus_tecnico_editar").value = datos.estatus;
+        if(estatus == 1){
+          _('estatusEditarTecnico1').checked = true;
+        }
+        else{
+          _('estatusEditarTecnico2').checked = true;
+
+        }
       }
       else{
           console.log(datos.error)
       }
     }
   });
-  // queryTecnicos();
+}
 
+function editarDatosTecnico(){
+  let id = _('idEditarTecnico').value;
+  let fecha = _('fecha_creacion_tecnicoEditar').value;
+  let nombre = _('nombre_tecnico_editar').value;
+  let estatus;
+  
+  const radioSeleccionado = document.querySelector('input[name="btnradioEditarTecnico"]:checked');
+
+  if (radioSeleccionado) {
+    estatus = radioSeleccionado.value; // "1" (Activo) o "0" (Inactivo)
+    console.log("Valor seleccionado:", estatus);
+  } else {
+      console.log("Ningún radio button seleccionado");
+  }
+
+  if(nombre == "" || estatus ==""){
+    alert("Debes llenar todos los campos");
+    return;
+  }
+  $.ajax({
+    url: 'prcd/prcd_editar_tecnico.php',
+    type: 'POST',
+    data:{
+      id:id,
+      fecha:fecha,
+      nombre:nombre,
+      estatus:estatus
+    },
+    dataType: 'json',
+    success: function(data) {
+      var datos = JSON.parse(JSON.stringify(data));
+      var success = datos.success;
+
+      if (success == 1) {
+       alert('Datos editados correctamente');
+       queryTecnicos();
+       $('#modalEditarTecnico').modal('hide');
+      }
+      else{
+          console.log(datos.error)
+      }
+    }
+  });
 
 }
 
