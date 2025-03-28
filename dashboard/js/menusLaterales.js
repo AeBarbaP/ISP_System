@@ -615,20 +615,29 @@ function editarTecnico(id) {
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">${titulo}</h5>
+          <h5 class="modal-title"><i class="bi bi-pencil-square me-2"></i>${titulo}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <p>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-            <input type="date" class="form-control" placeholder="" aria-label="Fecha de creacion" id="fecha_creacion_tecnicoEditar" aria-describedby="basic-addon1" disabled>
-          </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_tecnico_editar" aria-describedby="basic-addon1">
-          </div>
-          
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha</label>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha de creacion" id="fecha_creacion_tecnicoEditar" aria-describedby="basic-addon1" disabled>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-person-circle me-2"></i>Nombre Completo</label>
+              <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_tecnico_editar" aria-describedby="basic-addon1">
+            </div>
+            <div class="mb-3"> 
+              <label class="form-label" id="basic-addon1">Estatus:</label>
+              <br>
+              <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" value="1" name="btnradio" id="estatus1">
+                <label class="btn btn-outline-success" for="estatus1"><i class="bi bi-check-lg"></i> Activo</label>
+                <input type="radio" class="btn-check" value="2" name="btnradio" id="estatus2">
+                <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
+              </div>
+            </div>
           </p>
         </div>
         <div class="modal-footer">
@@ -695,33 +704,45 @@ function nuevoPaquete() {
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
+          <h5 class="modal-title"><i class="bi bi-box-seam me-2"></i> ${titulo}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <p>
           
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+          <div class="mb-3">
+            <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Nombe del Paquete</label>
             <input type="text" class="form-control" placeholder="Nombre del paquete" aria-label="nombre paquete" id="nombre_paquete" aria-describedby="basic-addon1">
           </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-speedometer2"></i></span>
+          <div class="mb-3">
+            <label class="form-label" id="basic-addon1"><i class="bi bi-speedometer2 me-2"></i>Velocidad</label>
             <input type="number" class="form-control" placeholder="Velocidad" aria-label="velocidad" id="velocidad_paquete" aria-describedby="basic-addon1">
           </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-cash-coin"></i></span>
+          <div class="mb-3">
+            <label class="form-label" id="basic-addon1"><i class="bi bi-cash-coin me-2"></i>Precio mensual</label>
+            <div class="input-group">
             <input type="text" class="form-control" placeholder="Precio mensual" aria-label="precio" id="precio_paquete" aria-describedby="basic-addon1">
             <span class="input-group-text" id="basic-addon1">.00</span>
+            </div>
           </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-toggles"></i></span>
+          <div class="mb-3"> 
+            <label class="form-label" id="basic-addon1">Estatus:</label>
+            <br>
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" value="1" name="btnradio" id="estatus1">
+              <label class="btn btn-outline-success" for="estatus1"><i class="bi bi-check-lg"></i> Activo</label>
+              <input type="radio" class="btn-check" value="2" name="btnradio" id="estatus2">
+              <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
+            </div>
+          </div>
+          <!-- <div class="mb-3">
+            <label class="form-label" id="basic-addon1"><i class="bi bi-toggles me-2"></i>Estatus</label>
             <select class="form-select" aria-label="Default select example" id="estatus_paquete">
                 <option value="" selected>Estatus...</option>
                 <option value="1">Activo</option>
                 <option value="0">Inactivo</option>
             </select>
-          </div>
+          </div> -->
           </p>
         </div>
         <div class="modal-footer">
@@ -764,26 +785,36 @@ function editarPaquete() {
           <p>
           
           <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+            <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i></label>
             <input type="text" class="form-control" placeholder="Nombre del paquete" aria-label="nombre paquete" id="nombre_paquete" aria-describedby="basic-addon1">
           </div>
           <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-speedometer2"></i></span>
+            <label class="form-label" id="basic-addon1"><i class="bi bi-speedometer2 me-2"></i></label>
             <input type="number" class="form-control" placeholder="Velocidad" aria-label="velocidad" id="velocidad_paquete" aria-describedby="basic-addon1">
           </div>
           <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-cash-coin"></i></span>
+            <label class="form-label" id="basic-addon1"><i class="bi bi-cash-coin me-2"></i></label>
             <input type="text" class="form-control" placeholder="Precio mensual" aria-label="precio" id="precio_paquete" aria-describedby="basic-addon1">
             <span class="input-group-text" id="basic-addon1">.00</span>
           </div>
-          <div class="input-group mb-3">
+          <div class="mb-3"> 
+            <label class="form-label" id="basic-addon1">Estatus:</label>
+            <br>
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" value="1" name="btnradio" id="estatus1">
+              <label class="btn btn-outline-success" for="estatus1"><i class="bi bi-check-lg"></i> Activo</label>
+              <input type="radio" class="btn-check" value="2" name="btnradio" id="estatus2">
+              <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
+            </div>
+          </div>
+          <!-- <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-toggles"></i></span>
             <select class="form-select" aria-label="Default select example" id="estatus_paquete">
                 <option value="" selected>Estatus...</option>
                 <option value="1">Activo</option>
                 <option value="0">Inactivo</option>
             </select>
-          </div>
+          </div> -->
           </p>
         </div>
         <div class="modal-footer">
@@ -893,34 +924,37 @@ function nuevaPromo() {
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
+          <h5 class="modal-title"><i class="bi bi-box-seam me-2"></i> ${titulo}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <p>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar2-week"></i></span>
-              <input type="datetime-local" class="form-control" placeholder="" aria-label="Fecha de inicio" id="fecha_inicio" aria-describedby="basic-addon1">
+            <div class="row">
+              <div class="col-6 mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-week me-2"></i>Fecha Inicio</label>
+                <input type="datetime-local" class="form-control" placeholder="" aria-label="Fecha de inicio" id="fecha_inicio" aria-describedby="basic-addon1">
+              </div>
+              <div class="col-6 mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-week me-2"></i>Fecha Final</label>
+                <input type="datetime-local" class="form-control" placeholder="" aria-label="Fecha de fin" id="fecha_fin" aria-describedby="basic-addon1">
+              </div>
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar2-week"></i></span>
-              <input type="datetime-local" class="form-control" placeholder="" aria-label="Fecha de fin" id="fecha_fin" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Nombre de Promoción</label>
               <input type="text" class="form-control" placeholder="Nombre de la promoción" aria-label="nombre promocion" id="nombre_promocion" aria-describedby="basic-addon1">
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-checklist"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-card-checklist me-2"></i>Tipo</label>
               <select class="form-select" aria-label="Default select example" id="tipo_promo">
                   <option value="" selected>Promoción en...</option>
                   <option value="Mensualidad">Mensualidad</option>
                   <option value="Instalación">Instalación</option>
+                  <option value="Recargos">Recargos</option>
               </select>
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-piggy-bank"></i></span>
-              <input type="number" class="form-control" placeholder="Descuento" aria-label="descuento" id="descuento_promo" aria-describedby="basic-addon1">
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-piggy-bank me-2"></i>Descuento</label>
+              <input type="text" class="form-control" placeholder="Descuento" aria-label="descuento" id="descuento_promo" aria-describedby="basic-addon1">
             </div>
           </p>
         </div>
@@ -963,27 +997,28 @@ function editarPromo() {
         <div class="modal-body">
           <p>
           <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar2-week"></i></span>
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-week me-2"></i>Fecha Inicio:</label>
               <input type="datetime-local" class="form-control" placeholder="" aria-label="Fecha de inicio" id="fecha_inicio" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar2-week"></i></span>
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-week me-2"></i>Fecha Final:</label>
               <input type="datetime-local" class="form-control" placeholder="" aria-label="Fecha de fin" id="fecha_fin" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+              <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Nombre de la promoción:</label>
               <input type="text" class="form-control" placeholder="Nombre de la promoción" aria-label="nombre promocion" id="nombre_promocion" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-checklist"></i></span>
+              <label class="form-label" id="basic-addon1"><i class="bi bi-card-checklist me-2"></i>Tipo</label>
               <select class="form-select" aria-label="Default select example" id="tipo_promo">
                   <option value="" selected>Promoción en...</option>
                   <option value="Mensualidad">Mensualidad</option>
                   <option value="Instalación">Instalación</option>
+                  <option value="Recargos">Recargos</option>
               </select>
             </div>
             <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-piggy-bank"></i></span>
+              <label class="form-label" id="basic-addon1"><i class="bi bi-piggy-bank me-2"></i>Descuento:</label>
               <input type="number" class="form-control" placeholder="Descuento" aria-label="descuento" id="descuento_promo" aria-describedby="basic-addon1">
             </div>
           </p>
@@ -1031,7 +1066,7 @@ function gestionPromos() {
                         <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscar" name="buscar">
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mt-1">
                     <div class="input-group mb-3">
                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                             <input type="radio" class="btn-check" value="1" name="btnradio" id="btnradio_promoA">
@@ -1053,7 +1088,7 @@ function gestionPromos() {
                               <th scope="col">Inicio</th>
                               <th scope="col">Final</th>
                               <th scope="col">Estatus</th>
-                              <th scope="col" class="text-end"><i class="bi bi-people"></i></th>
+                              <th scope="col" class="text-end"><i class="bi bi-pencil-square"></i></th>
                           </tr>
                       </thead>
                       <tbody id="tablaPromos">
