@@ -1523,7 +1523,7 @@ function gestionComunidades() {
 
 //Termina gestión de comunidades
 
-//Inicia gestión de antenas
+//Inicia gestión de Incidencias
 
 function altaIncidencia() {
 
@@ -1677,6 +1677,80 @@ function editarIncidencia() {
   });
 }
 
+function resolverIncidencia() {
+
+  let titulo = "Reporte Técnico de Incidencia";
+  // Crear el elemento del modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.setAttribute('tabindex', '-1');
+  modal.innerHTML = `
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Alta</label>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaU" aria-describedby="basic-addon1" disabled>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
+              <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_incidenciaU" aria-describedby="basic-addon1" disabled>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
+              <input type="text" class="form-control" placeholder="" aria-label="cliente" id="cliente_incidenciaU" aria-describedby="basic-addon1" disabled>
+            </div>
+            <div class="mb-3">
+              <label for="descripcion_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Descripción de la incidencia:</label>
+              <textarea class="form-control" rows="5" aria-label="descripcion incidencia" id="descripcion_incidenciaU" disabled></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-exclamation-circle me-2"></i>Estatus</label>
+              <select class="form-select" aria-label="estatus incidencia" id="estatus_incidenciaR">
+                  <option value="" selected>Selecciona...</option>
+                  <option value="En proceso" >En proceso</option>
+                  <option value="Resuelta" >Resuelta</option>
+                  <option value="Cancelada" >Cancelada</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha Atención:</label>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaRT" aria-describedby="basic-addon1">
+            </div>
+            <div class="mb-3">
+              <label for="comentario_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Comentario Técnico:</label>
+              <textarea class="form-control" rows="5" aria-label="comentario incidencia" id="comentario_incidenciaU"></textarea>
+            </div>
+            
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="updateIncidencia()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
+
+  // Mostrar el modal usando Bootstrap's JavaScript API
+  const bootstrapModal = new bootstrap.Modal(modal);
+  bootstrapModal.show();
+  fechaRegistroIncidencia()
+
+  // Eliminar el modal del DOM cuando se cierre
+  modal.addEventListener('hidden.bs.modal', () => {
+    modal.remove();
+  });
+}
+
 function gestionIncidencias() {
   let titulo = "Gestión de Incidencias";
   // Crear el elemento del modal
@@ -1759,146 +1833,9 @@ function gestionIncidencias() {
 
 // Inicia gestion de inventario de antenas
 
-function editarAntena() {
-
-  let titulo = "Editar Antena";
-  // Crear el elemento del modal
-  const modal = document.createElement('div');
-  modal.classList.add('modal', 'fade');
-  modal.setAttribute('tabindex', '-1');
-  modal.innerHTML = `
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>
-          <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-              <input type="date" class="form-control" placeholder="" aria-label="Fecha de registro" id="fecha_altaU" aria-describedby="basic-addon1" disabled>
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
-              <input type="text" class="form-control" placeholder="Marca" aria-label="marca" id="marca" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
-              <input type="text" class="form-control" placeholder="Modelo" aria-label="modelo" id="modelo" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
-              <input type="text" class="form-control" placeholder="Num. Serie" aria-label="numero de serie" id="numSerie" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
-              <input type="text" class="form-control" placeholder="MAC Address" aria-label="MAC" id="macAdd" aria-describedby="basic-addon1">
-            </div>
-          </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" onclick="updateAntena()">Guardar</button>
-        </div>
-      </div>
-    </div>
-  `;
-
-  // Agregar el modal al body del documento
-  document.body.appendChild(modal);
-
-  // Mostrar el modal usando Bootstrap's JavaScript API
-  const bootstrapModal = new bootstrap.Modal(modal);
-  bootstrapModal.show();
-
-  // Eliminar el modal del DOM cuando se cierre
-  modal.addEventListener('hidden.bs.modal', () => {
-    modal.remove();
-  });
-}
-
-function gestionAntenas() {
-  let titulo = "Gestión de Antenas";
-  // Crear el elemento del modal
-  const modal = document.createElement('div');
-  modal.classList.add('modal', 'fade');
-  modal.setAttribute('tabindex', '-1');
-  modal.innerHTML = `
-    <div class="modal-dialog modal-xl">>
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title">${titulo}</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-              <input name="id" id="idHiddenAntenas" value="" hidden>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                      <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscar" name="buscar">
-                  </div>
-                  <div class="col-md-6">
-                    <div class="input-group mb-3">
-                      <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                          <input type="radio" class="btn-check" value="1" name="btnradio" id="btnradio_antenaA">
-                          <label class="btn btn-outline-success" for="btnradio1"><i class="bi bi-check-lg"></i> Disponibles</label>
-                      
-                          <input type="radio" class="btn-check" value="0" name="btnradio" id="btnradio_antenaD">
-                          <label class="btn btn-outline-danger" for="btnradio2"><i class="bi bi-x-lg"></i> Asignadas</label>
-                      </div>
-                  </div>
-                </div>
-                </div>
-                <div class="table-responsive mt-3">
-                  <table class="table p-1">
-                      <thead>
-                          <tr>
-                              <th scope="col">Id</th>
-                              <th scope="col">Marca</th>
-                              <th scope="col">Modelo</th>
-                              <th scope="col">Num. Serie</th>
-                              <th scope="col">MAC Address</th>
-                              <th scope="col">Fecha Registro</th>
-                              <th scope="col">Estatus</th>
-                              <th scope="col" class="text-end"><i class="bi bi-people"></i></th>
-                          </tr>
-                      </thead>
-                      <tbody id="tablaAntenas">
-                          
-                      </tbody>
-                  </table>
-              </div>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
-              <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
-          </div>
-      </div>
-    </div>
-  `;
-
-  // Agregar el modal al body del documento
-  document.body.appendChild(modal);
-
-  // Mostrar el modal usando Bootstrap's JavaScript API
-  const bootstrapModal = new bootstrap.Modal(modal);
-  bootstrapModal.show();
-
-  // Eliminar el modal del DOM cuando se cierre
-  modal.addEventListener('hidden.bs.modal', () => {
-    modal.remove();
-  });
-}
-
-//Termina gestión de antenas
-
-// Inicia gestión de incidencias
-
 function altaAntena() {
 
-  let titulo = "Nueva Comunidad";
+  let titulo = "Agregar Antena";
   // Crear el elemento del modal
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
@@ -1907,29 +1844,29 @@ function altaAntena() {
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
+          <h5 class="modal-title"><i class="bi bi-broadcast-pin me-2"></i> ${titulo}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <p>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-check me-2"></i>Fecha</label>
               <input type="date" class="form-control" placeholder="" aria-label="Fecha de registro" id="fecha_alta" aria-describedby="basic-addon1" disabled>
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-info-lg me-2"></i>Marca:</label>
               <input type="text" class="form-control" placeholder="Marca" aria-label="marca" id="marca" aria-describedby="basic-addon1">
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Modelo:</label>
               <input type="text" class="form-control" placeholder="Modelo" aria-label="modelo" id="modelo" aria-describedby="basic-addon1">
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-upc me-2"></i>Número de Serie</label>
               <input type="text" class="form-control" placeholder="Num. Serie" aria-label="numero de serie" id="numSerie" aria-describedby="basic-addon1">
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-code-square me-2"></i>MAC Addres</label>
               <input type="text" class="form-control" placeholder="MAC Address" aria-label="MAC" id="macAdd" aria-describedby="basic-addon1">
             </div>
           </p>
@@ -1988,29 +1925,29 @@ function editarAntena() {
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
+          <h5 class="modal-title"><i class="bi bi-broadcast-pin me-2"></i> ${titulo}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <p>
-          <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
+          <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-check me-2"></i>Fecha</label>
               <input type="date" class="form-control" placeholder="" aria-label="Fecha de registro" id="fecha_altaU" aria-describedby="basic-addon1" disabled>
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-info-lg me-2"></i>Marca:</label>
               <input type="text" class="form-control" placeholder="Marca" aria-label="marca" id="marca" aria-describedby="basic-addon1">
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Modelo:</label>
               <input type="text" class="form-control" placeholder="Modelo" aria-label="modelo" id="modelo" aria-describedby="basic-addon1">
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-upc me-2"></i>Número de Serie</label>
               <input type="text" class="form-control" placeholder="Num. Serie" aria-label="numero de serie" id="numSerie" aria-describedby="basic-addon1">
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-cursor-text"></i></span>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-code-square me-2"></i>MAC Addres</label>
               <input type="text" class="form-control" placeholder="MAC Address" aria-label="MAC" id="macAdd" aria-describedby="basic-addon1">
             </div>
           </p>
@@ -2052,24 +1989,23 @@ function gestionAntenas() {
           <div class="modal-body">
               <input name="id" id="idHiddenAntenas" value="" hidden>
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-6">
                   <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
                       <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscar" name="buscar">
                   </div>
-                  <div class="col-md-6">
-                    <div class="input-group mb-3">
-                      <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                          <input type="radio" class="btn-check" value="1" name="btnradio" id="btnradio_antenaA">
-                          <label class="btn btn-outline-success" for="btnradio1"><i class="bi bi-check-lg"></i> Disponibles</label>
-                      
-                          <input type="radio" class="btn-check" value="0" name="btnradio" id="btnradio_antenaD">
-                          <label class="btn btn-outline-danger" for="btnradio2"><i class="bi bi-x-lg"></i> Asignadas</label>
-                      </div>
+                  <div class="col-6">
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                      <input type="radio" class="btn-check" value="1" name="btnradio" id="btnradio_antenaA">
+                      <label class="btn btn-outline-success" for="btnradio1"><i class="bi bi-check-lg"></i> Disponibles</label>
+                  
+                      <input type="radio" class="btn-check" value="0" name="btnradio" id="btnradio_antenaD">
+                      <label class="btn btn-outline-danger" for="btnradio2"><i class="bi bi-x-lg"></i> Asignadas</label>
+                    </div>
                   </div>
                 </div>
-                </div>
-                <div class="table-responsive mt-3">
+              </div>
+              <div class="table-responsive mt-3">
                   <table class="table p-1">
                       <thead>
                           <tr>
@@ -2110,4 +2046,4 @@ function gestionAntenas() {
   });
 }
 
-//Termina gestión de incidencias
+//Termina gestión de Antenas
