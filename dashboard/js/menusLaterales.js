@@ -2058,3 +2058,88 @@ function gestionAntenas() {
 }
 
 //Termina gestión de Antenas
+
+//Inicia gestión de ordenes de corte
+
+function altaAntena() {
+
+  let titulo = "Nueva Órden de Corte";
+  // Crear el elemento del modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.setAttribute('tabindex', '-1');
+  modal.innerHTML = `
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="bi bi-wifi-off me-2"></i> ${titulo}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-check me-2"></i>Fecha</label>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha de registro" id="fecha_alta" aria-describedby="basic-addon1" disabled>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-info-lg me-2"></i>Marca:</label>
+              <input type="text" class="form-control" placeholder="Marca" aria-label="marca" id="marca" aria-describedby="basic-addon1">
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Modelo:</label>
+              <input type="text" class="form-control" placeholder="Modelo" aria-label="modelo" id="modelo" aria-describedby="basic-addon1">
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-upc me-2"></i>Número de Serie</label>
+              <input type="text" class="form-control" placeholder="Num. Serie" aria-label="numero de serie" id="numSerie" aria-describedby="basic-addon1">
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-code-square me-2"></i>MAC Addres</label>
+              <input type="text" class="form-control" placeholder="MAC Address" aria-label="MAC" id="macAdd" aria-describedby="basic-addon1">
+            </div>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="guardarAntena()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
+
+  // Mostrar el modal usando Bootstrap's JavaScript API
+  const bootstrapModal = new bootstrap.Modal(modal);
+  bootstrapModal.show();
+  fechaRegistroAntena()
+
+  // Eliminar el modal del DOM cuando se cierre
+  modal.addEventListener('hidden.bs.modal', () => {
+    modal.remove();
+  });
+}
+
+function fechaRegistroAntena(){
+  // Obtener los elementos input
+  const inputFechaActual = document.getElementById('fecha_alta');
+  // Obtener la fecha actual
+  const fechaActual = new Date();
+
+  // Función para formatear la fecha en YYYY-MM-DD
+  function formatearFecha(fecha) {
+      const año = fecha.getFullYear();
+      const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Meses van de 0 a 11
+      const dia = String(fecha.getDate()).padStart(2, '0');
+      return `${año}-${mes}-${dia}`;
+  }
+
+  // Formatear las fechas
+  const fechaActualFormateada = formatearFecha(fechaActual);
+
+  // Asignar las fechas a los inputs
+  inputFechaActual.value = fechaActualFormateada;
+}
+
+// Termina gestión de ordenes de corte
