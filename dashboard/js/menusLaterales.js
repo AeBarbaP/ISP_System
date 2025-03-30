@@ -1565,6 +1565,17 @@ function altaIncidencia() {
               <label for="descripcion_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Describe la incidencia:</label>
               <textarea class="form-control" rows="5" aria-label="descripcion incidencia" id="descripcion_incidencia"></textarea>
             </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
+              <select class="form-select" aria-label="tecnico asignado" id="tecnico_incidencia">
+                  <option value="" selected>Selecciona Técnico...</option>
+                  <!-- aquí se llena con la tabla de Técnicos -->
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Atención:</label>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaAsignacion" aria-describedby="basic-addon1">
+            </div>
           </p>
         </div>
         <div class="modal-footer">
