@@ -218,32 +218,31 @@
 		  <div class="container">
 			<script src="https://cdn.lordicon.com/lordicon.js"></script>
             <ul class="nav page-navigation">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                  <!-- <i class="mdi mdi-file-document-box menu-icon"></i> -->
-				  <lord-icon
-					  src="https://cdn.lordicon.com/cnpvyndp.json"
-					  trigger="hover"
-					  colors="primary:#0ddbb9"
-					  style="width:40px;height:40px"
-					  class="menu-icon">
-				  </lord-icon>
-                  <span class="menu-title">Inicio</span>
-                </a>
-              </li>
-              <!-- <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="mdi mdi-cube-outline menu-icon"></i>
-                    <span class="menu-title">Contrato Nuevo</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-                  <div class="submenu">
-                      <ul>
-                          <li class="nav-item"><a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                          <li class="nav-item"><a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-                      </ul>
-                  </div>
-              </li> -->
+              	<li class="nav-item">
+					<a class="nav-link" href="index.html">
+					<!-- <i class="mdi mdi-file-document-box menu-icon"></i> -->
+					<lord-icon
+						src="https://cdn.lordicon.com/cnpvyndp.json"
+						trigger="hover"
+						colors="primary:#0ddbb9"
+						style="width:40px;height:40px"
+						class="menu-icon">
+					</lord-icon>
+					<span class="menu-title">Inicio</span>
+					</a>
+              	</li>
+			  	<li class="nav-item">
+					<a onclick="contratoNew()" class="nav-link">
+						<!-- <i class="mdi mdi-file-document-box-outline menu-icon"></i> -->
+						<lord-icon
+						src="https://cdn.lordicon.com/rbbnmpcf.json"
+						trigger="hover"
+						colors="primary:#0ddbb9"
+						style="width:40px;height:40px"
+						class="menu-icon2 mb-2">
+					</lord-icon>
+					<span class="menu-title">Contrato Nuevo</span></a>
+				</li>
 				<li class="nav-item">
 					<a onclick="pagoNew()" class="nav-link">
 					<!-- <i class="mdi mdi-square-inc-cash menu-icon"></i> -->
@@ -295,18 +294,7 @@
 						</ul>
 					</div>
 				</li> -->
-				<li class="nav-item">
-					<a onclick="contratoNew()" class="nav-link">
-						<!-- <i class="mdi mdi-file-document-box-outline menu-icon"></i> -->
-						<lord-icon
-						src="https://cdn.lordicon.com/rbbnmpcf.json"
-						trigger="hover"
-						colors="primary:#0ddbb9"
-						style="width:40px;height:40px"
-						class="menu-icon2 mb-2">
-					</lord-icon>
-					<span class="menu-title">Contrato Nuevo</span></a>
-				</li>
+				
 				<li class="nav-item">
 					<a href="pages/tables/basic-table.html" class="nav-link">
 						<lord-icon
@@ -1401,6 +1389,15 @@
 							<li><a class="dropdown-item" href="#" onclick="gestionPromos()">Editar Promociones</a></li>
 						</ul>
 					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Inventario de Antenas
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#" onclick="altaAntena()">Agregar Antena</a></li>
+							<li><a class="dropdown-item" href="#" onclick="gestionAntenas()">Editar Antenas</a></li>
+						</ul>
+					</li>
 					<li>
 						<hr>
 					</li>
@@ -1425,15 +1422,7 @@
 					<li>
 						<hr>
 					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Inventario de Antenas
-						</a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#" onclick="altaAntena()">Agregar Antena</a></li>
-							<li><a class="dropdown-item" href="#" onclick="gestionAntenas()">Editar Antenas</a></li>
-						</ul>
-					</li>
+					
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							Reportes de Fallas
