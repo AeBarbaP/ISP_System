@@ -5,8 +5,21 @@ require('../prcd/conn.php');
 $sql = "SELECT * FROM users ORDER BY id ASC";
 $resultado = $conn->query($sql);
 while($row = $resultado->fetch_assoc()){
+    $id = $row['id'];
     $tipoUser = $row['tipo_usr'];
     $estatus = $row['estatus'];
+    $fechaRegistro = $row['fecha_creacion'];
+
+    $sqlLogin = "SELECT * FROM logs_login WHERE id_ext = '$id' ORDER BY id DESC LIMIT 1";
+    $resultadoLogin = $conn->query($sqlLogin);
+    $rowLogin = $resultadoLogin->fetch_assoc();
+
+    if($rowLogin['inicio'] == "" || IS_NULL($rowLogin['inicio'])){ 
+        $acceso = $rowLogin['fin'];
+    } else {
+        $acceso = $rowLogin['inicio'];
+    }
+
     echo'
     <tr class="text-center">
         <td></td>';
@@ -27,7 +40,7 @@ while($row = $resultado->fetch_assoc()){
         }
     echo'
         <td>'.$row['fecha_creacion'].'</td>
-        <td>Último login</td>';
+        <td>'.$acceso.'</td>';
         if($estatus == 0){
             echo'
             <td>Inactivo</td>
