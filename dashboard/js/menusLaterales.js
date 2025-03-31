@@ -103,10 +103,12 @@ function nuevoUsuario() {
 
 function guardarUsr(){
   let usrNew = _("usrNew").value;
-  let pwdNew = _("pwdNew").value;
+  let pwdNew = _("pwdNew1").value;
   let nombreNew = _("nombreNew").value;
   let tipoUsrNew = _("tipoUsrNew").value;
-  let estatusNew = _("estatusNew").value;
+  // let estatusNew = _("estatusNew").value;
+  let radioSeleccionado = document.querySelector('input[name="btnradio"]:checked');
+  let estatusNew = radioSeleccionado.value;
 
   $.ajax({
     url: 'prcd/guardarUsr.php',
@@ -157,7 +159,7 @@ function queryGestionUsr(){
 // ----------------------------------------------
 
 
-function editarUsuario() {
+function editarUsuario(id) {
     let titulo = "Editar usuario";
     // Crear el elemento del modal
     const modal = document.createElement('div');
@@ -174,15 +176,16 @@ function editarUsuario() {
             <p>
               <div class="mb-3">
                 <label class="form-label" id="basic-addon1">Usuario:</label>
-                <input type="text" class="form-control border-secondary" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" disabled>
+                <input type="text" class="form-control border-secondary" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" id="editarUsr" disabled>
               </div>
               <div class="mb-3">
                 <label class="form-label" id="basic-addon1">Nombre Completo:</label>
-                <input type="text" class="form-control border-secondary" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+                <input type="text" class="form-control border-secondary" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1"
+                id="editarnombreUsr">
               </div>
               <div class="mb-3">
                 <label class="form-label" id="basic-addon1">Contraseña:</label>
-                <input type="password" class="form-control border-secondary" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" id="pwdNewUsr">
+                <input type="password" class="form-control border-secondary" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" id="editarcontraseniaUsr">
               </div>
               <div class="input-group mb-3 justify-content-end">
                 <input class="form-check-input" type="checkbox" role="switch" id="mostrarPwd" onchange="mostrarPwd2()">
@@ -191,7 +194,7 @@ function editarUsuario() {
               <div class="row">
                 <div class="col-6 mb-3">
                   <label class="form-label" id="basic-addon1">Tipo de Usuario:</label>
-                  <select class="form-select" aria-label="Default select example">
+                  <select class="form-select" aria-label="Default select example" id="tipoUsrEditar">
                     <option selected>Tipo de usuario ...</option>
                     <option value="3">Usuario A</option>
                     <option value="2">Usuario B</option>
@@ -201,9 +204,9 @@ function editarUsuario() {
                 <div class="col-6 mb-3"> 
                   <label class="form-label" id="basic-addon1">Estatus:</label>
                   <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" value="1" name="btnradio" id="estatus1">
+                    <input type="radio" class="btn-check" value="1" name="btnradio" id="estatusEditarUsr1">
                     <label class="btn btn-outline-success" for="estatus1"><i class="bi bi-check-lg"></i> Activo</label>
-                    <input type="radio" class="btn-check" value="2" name="btnradio" id="estatus2">
+                    <input type="radio" class="btn-check" value="2" name="btnradio" id="estatusEditarUsr2">
                     <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
                   </div>
                 </div>
@@ -233,6 +236,8 @@ function editarUsuario() {
     // Mostrar el modal usando Bootstrap's JavaScript API
     const bootstrapModal = new bootstrap.Modal(modal);
     bootstrapModal.show();
+    // Llamar a la función para llenar los datos del usuario
+    datosEdicionUsr(id);
 
     // Eliminar el modal del DOM cuando se cierre
     modal.addEventListener('hidden.bs.modal', () => {
@@ -284,7 +289,7 @@ function gestionUsuarios(){
                 <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
                 <div class="table-responsive mt-3">
                     <table class="table table-hover p-1">
-                        <thead>
+                        <thead class="text-center bg-dark text-light">
                             <tr class="text-center">
                                 <th scope="col"></th>
                                 <th scope="col">Perfil</th>
@@ -346,6 +351,36 @@ function queryTablaUsuario() {
     dataType: 'HTML',
     success: function(response) {
       $('#tablaUsuariosG').html(response);
+    }
+  });
+}
+
+function datosEdicionUsr(id) {
+  $.ajax({
+    url: 'query/queryEdicionUsuario.php',
+    type: 'POST',
+    data: {
+      id: id
+    },
+    dataType: 'JSON',
+    success: function(response) {
+      // Llenar los campos del formulario con los datos del usuario
+      let datos = JSON.parse(JSON.stringify(response));
+      let success = datos.success;
+      if (success == 1) {
+        _("editarUsr").value = datos.username;
+        _("editarnombreUsr").value = datos.nombre;
+        _("editarcontraseniaUsr").value = datos.pwd;
+        _("tipoUsrEditar").value = datos.tipo_usr;
+
+        if(datos.estatus == 1){
+          _('estatusEditarUsr1').checked = true;
+        }
+        else{
+          _('estatusEditarUsr2').checked = true;
+        }
+
+      }
     }
   });
 }
