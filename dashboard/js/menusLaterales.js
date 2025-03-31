@@ -2061,9 +2061,9 @@ function gestionAntenas() {
 
 //Inicia gestión de ordenes de corte
 
-function altaAntena() {
+function altaCorte() {
 
-  let titulo = "Nueva Órden de Corte";
+  let titulo = "Editar Órden de Corte";
   // Crear el elemento del modal
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
@@ -2079,29 +2079,40 @@ function altaAntena() {
           <p>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-check me-2"></i>Fecha</label>
-              <input type="date" class="form-control" placeholder="" aria-label="Fecha de registro" id="fecha_alta" aria-describedby="basic-addon1" disabled>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha de orden" id="fecha_orden" aria-describedby="basic-addon1" disabled>
             </div>
             <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-info-lg me-2"></i>Marca:</label>
-              <input type="text" class="form-control" placeholder="Marca" aria-label="marca" id="marca" aria-describedby="basic-addon1">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio:</label>
+              <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_corte" aria-describedby="basic-addon1" disabled>
             </div>
             <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Modelo:</label>
-              <input type="text" class="form-control" placeholder="Modelo" aria-label="modelo" id="modelo" aria-describedby="basic-addon1">
+              <select class="form-select" id="clientes_corte" size="4" aria-label="clientes para corte">
+                <option selected>Selecciona...</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option> <!-- Muestra los clientes que están en proceso de corte y al seleccionar muestra la info del domicilio como en el pago -->
+              </select>
+            </div>
+            <div class="mb-3" id="datosDomicilio">
+							<p> Aqui se imprime el domicilio del cliente <br>que se va a hacer el corte</p>
+						</div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
+              <select class="form-select" aria-label="tecnico asignado" id="tecnico_corte">
+                  <option value="" selected>Selecciona Técnico...</option>
+                  <!-- aquí se llena con la tabla de Técnicos -->
+              </select>
             </div>
             <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-upc me-2"></i>Número de Serie</label>
-              <input type="text" class="form-control" placeholder="Num. Serie" aria-label="numero de serie" id="numSerie" aria-describedby="basic-addon1">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Corte:</label>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_corteAsignacion" aria-describedby="basic-addon1">
             </div>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-code-square me-2"></i>MAC Addres</label>
-              <input type="text" class="form-control" placeholder="MAC Address" aria-label="MAC" id="macAdd" aria-describedby="basic-addon1">
-            </div>
+            
           </p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" onclick="guardarAntena()">Guardar</button>
+          <button type="button" class="btn btn-primary" onclick="guardarCorte()">Guardar</button>
         </div>
       </div>
     </div>
@@ -2113,7 +2124,7 @@ function altaAntena() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
-  fechaRegistroAntena()
+  fechaRegistroCorte()
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
@@ -2121,9 +2132,257 @@ function altaAntena() {
   });
 }
 
-function fechaRegistroAntena(){
+function fechaRegistroCorte(){
   // Obtener los elementos input
-  const inputFechaActual = document.getElementById('fecha_alta');
+  const inputFechaActual = document.getElementById('fecha_orden');
+  // Obtener la fecha actual
+  const fechaActual = new Date();
+
+  // Función para formatear la fecha en YYYY-MM-DD
+  function formatearFecha(fecha) {
+      const año = fecha.getFullYear();
+      const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Meses van de 0 a 11
+      const dia = String(fecha.getDate()).padStart(2, '0');
+      return `${año}-${mes}-${dia}`;
+  }
+
+  // Formatear las fechas
+  const fechaActualFormateada = formatearFecha(fechaActual);
+
+  // Asignar las fechas a los inputs
+  inputFechaActual.value = fechaActualFormateada;
+}
+
+function editarCorte() {
+
+  let titulo = "Editar Órden de Corte";
+  // Crear el elemento del modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.setAttribute('tabindex', '-1');
+  modal.innerHTML = `
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="bi bi-wifi-off me-2"></i> ${titulo}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-check me-2"></i>Fecha</label>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha de orden" id="fecha_orden_editar" aria-describedby="basic-addon1" disabled>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-list-ol me-2"></i>Folio de Corte:</label>
+              <select class="form-select" id="folio_corte_editar" size="4" aria-label="folio corte">
+                <option selected>Selecciona...</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option> <!-- Muestra los folios de las ordenes de corte que aún no han sido resueltas para cambiar los datos -->
+              </select>
+            </div>
+            <div class="mb-3" id="datosClienteyDomicilio">
+							<p> Aqui se imprime la info de la orden de corte, <br>el domicilio y nombre del cliente <br>que se va a hacer el corte</p>
+						</div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
+              <select class="form-select" aria-label="tecnico asignado" id="tecnico_corte_editar">
+                  <option value="" selected>Selecciona Técnico...</option>
+                  <!-- aquí se llena con la tabla de Técnicos y el selected es el que está asignado -->
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Corte:</label>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_corteAsignacion_editar" aria-describedby="basic-addon1">
+            </div>
+            
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="editarCorte()">Actualizar</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
+
+  // Mostrar el modal usando Bootstrap's JavaScript API
+  const bootstrapModal = new bootstrap.Modal(modal);
+  bootstrapModal.show();
+  fechaRegistroCorteEditar()
+
+  // Eliminar el modal del DOM cuando se cierre
+  modal.addEventListener('hidden.bs.modal', () => {
+    modal.remove();
+  });
+}
+
+function fechaRegistroCorteEditar(){
+  // Obtener los elementos input
+  const inputFechaActual = document.getElementById('fecha_orden_editar');
+  // Obtener la fecha actual
+  const fechaActual = new Date();
+
+  // Función para formatear la fecha en YYYY-MM-DD
+  function formatearFecha(fecha) {
+      const año = fecha.getFullYear();
+      const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Meses van de 0 a 11
+      const dia = String(fecha.getDate()).padStart(2, '0');
+      return `${año}-${mes}-${dia}`;
+  }
+
+  // Formatear las fechas
+  const fechaActualFormateada = formatearFecha(fechaActual);
+
+  // Asignar las fechas a los inputs
+  inputFechaActual.value = fechaActualFormateada;
+}
+
+function gestionCortes() {
+  let titulo = "Consulta de Cortes";
+  // Crear el elemento del modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.setAttribute('tabindex', '-1');
+  modal.innerHTML = `
+    <div class="modal-dialog modal-xl">>
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title"><i class="bi bi-wifi-off me-2"></i>${titulo}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <input name="id" id="idHiddenCortes" value="" hidden>
+              <div class="row">
+                <div class="col-6">
+                  <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+                      <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscarCortes" name="buscar">
+                  </div>
+                </div>
+              </div>
+              <div class="table-responsive mt-3">
+                  <table class="table table-hover p-1">
+                      <thead>
+                          <tr>
+                              <th scope="col">Id</th>
+                              <th scope="col">Folio Corte</th>
+                              <th scope="col">Cliente</th>
+                              <th scope="col">Domicilio</th>
+                              <th scope="col">Técnico Asignado</th>
+                              <th scope="col">Fecha Registro</th>
+                              <th scope="col">Estatus</th>
+                              <th scope="col" class="text-end"><i class="bi bi-pencil-square me-2"></i><i class="bi bi-trash"></i> </th>
+                          </tr>
+                      </thead>
+                      <tbody id="tablaCortes">
+                          
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+              <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
+          </div>
+      </div>
+    </div>
+  `;
+
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
+
+  // Mostrar el modal usando Bootstrap's JavaScript API
+  const bootstrapModal = new bootstrap.Modal(modal);
+  bootstrapModal.show();
+
+  // Eliminar el modal del DOM cuando se cierre
+  modal.addEventListener('hidden.bs.modal', () => {
+    modal.remove();
+  });
+}
+
+function resolverCorte() {
+
+  let titulo = "Órden de Corte - Reporte técnico";
+  // Crear el elemento del modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.setAttribute('tabindex', '-1');
+  modal.innerHTML = `
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="bi bi-wifi-off me-2"></i> ${titulo}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-check me-2"></i>Fecha</label>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha de orden" id="fecha_orden_tecnico" aria-describedby="basic-addon1" disabled>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-list-ol me-2"></i>Folio de Corte:</label>
+              <select class="form-select" id="folio_corte_tecnico" size="4" aria-label="folio corte">
+                <option selected>Selecciona...</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option> <!-- Muestra los folios de las ordenes de corte que aún no han sido resueltas para cambiar los datos -->
+              </select>
+            </div>
+            <div class="mb-3" id="datosClienteyDomicilio">
+							<p> Aqui se imprime la info de la orden de corte, <br>el domicilio y nombre del cliente <br>que se va a hacer el corte</p>
+						</div>
+            <div class="mb-3">
+              <label for="descripcion_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Comentario Técnico:</label>
+              <textarea class="form-control" rows="5" aria-label="comentario tecnico corte" id="comentario_corte"></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-exclamation-circle me-2"></i>Estatus</label>
+              <select class="form-select" aria-label="estatus corte" id="estatus_corteR">
+                  <option value="" selected>Selecciona...</option>
+                  <option value="En proceso" >En proceso</option>
+                  <option value="Resuelta" >Resuelta</option>
+                  <option value="Cancelada" >Cancelada</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Corte:</label>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_corte_tecnico" aria-describedby="basic-addon1">
+            </div>
+            
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="editarCorte()">Actualizar</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
+
+  // Mostrar el modal usando Bootstrap's JavaScript API
+  const bootstrapModal = new bootstrap.Modal(modal);
+  bootstrapModal.show();
+  fechaRegistroCorteEditar()
+
+  // Eliminar el modal del DOM cuando se cierre
+  modal.addEventListener('hidden.bs.modal', () => {
+    modal.remove();
+  });
+}
+
+function fechaRegistroCorteEditar(){
+  // Obtener los elementos input
+  const inputFechaActual = document.getElementById('fecha_orden_editar');
   // Obtener la fecha actual
   const fechaActual = new Date();
 
@@ -2143,3 +2402,76 @@ function fechaRegistroAntena(){
 }
 
 // Termina gestión de ordenes de corte
+
+// Inicia configuración de cuenta usr activo
+
+function editarDatosUsr(){
+  let titulo = "Editar Mis Datos";
+  // Crear el elemento del modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.setAttribute('tabindex', '-1');
+  modal.innerHTML = `
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="bi bi-person-circle me-2"></i> ${titulo}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input name="id" value="'.$id.'" hidden>
+          <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
+              <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" value="" aria-describedby="basic-addon1" name="nombre" required>
+          </div>
+          <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-workspace"></i></span>
+              <input type="text" class="form-control" placeholder="Usuario" aria-label="usuario" value="" aria-describedby="basic-addon1" readonly>
+          </div>
+          <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1" for="inputGroupSelect01" readonly>Perfil</span>
+              <select class="form-select" id="inputGroupSelect01" value="" selected="selected" disabled>
+                  <option value="" selected>Usuario A</option>
+                  <option value="" >Usuario B</option>
+                  <option value="" >Administrador</option>
+              </select>
+
+              <div class="btn-group" role="group" aria-label="Basic radio toggle button group" disabled>
+                  <input type="radio" class="btn-check" value="1" id="btnradio1"
+                  disabled>
+                  <label class="btn btn-outline-success" for="btnradio1"><i class="bi bi-check-lg me-2"></i> Activo</label>
+                  <input type="radio" class="btn-check" value="2" id="btnradio2" disabled>
+                  <label class="btn btn-outline-danger" for="btnradio2"><i class="bi bi-x-lg me-2"></i> Inactivo</label>
+                  
+              </div>
+          </div>
+          <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1"><i class="bi bi-shield-lock-fill"></i></span>
+              <input type="password" class="form-control" placeholder="Contraseña" aria-label="contraseña" value="" aria-describedby="basic-addon1" name="pwd" id="passW">
+          </div>
+          <input type="checkbox" onclick="myFunction()"> Mostrar Password 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="updateUser()">Actualizar</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
+
+  // Mostrar el modal usando Bootstrap's JavaScript API
+  const bootstrapModal = new bootstrap.Modal(modal);
+  bootstrapModal.show();
+  fechaRegistroCorteEditar()
+
+  // Eliminar el modal del DOM cuando se cierre
+  modal.addEventListener('hidden.bs.modal', () => {
+    modal.remove();
+  });
+}
+
+
+// Termina configuración de cuenta usr activo
