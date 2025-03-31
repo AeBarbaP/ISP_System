@@ -84,14 +84,16 @@ function generarTablaPagos(folio) {
             meses.forEach((mes, index) => {
                 const pago = data.find(p => p.mes == (index + 1)); // Buscar pago para el mes actual
                 const mesNumero = index + 1; // Número del mes (1 = Enero, 2 = Febrero, etc.)
+                const descripcion = 'Mensualidad';
             
                 tablaPagos += `
-                    <tr class="${pago ? 'bg-primary' : 'bg-warning'}">
+                    <tr class="${pago ? 'bg-secondary' : 'bg-ligth'}">
+                        <td>${index+1}</td>
                         <td>${mes}</td>
-                        <td>${pago ? pago.folio_contrato : ''}</td>
-                        <td>${pago ? pago.concepto : `<span class="badge bg-primary text-light" style="cursor: pointer;" onclick="registrarPago('${folioPago}','${nuevoFolio}', ${mesNumero})">Pagar</span>`}</td>
-                        <td>${pago ? pago.periodo : ''}</td>
+                        <td>${descripcion}</td>
+                        <td>${pago ? pago.periodo : mes}</td>
                         <td>${pago ? pago.monto : ''}</td>
+                        <td>${pago ? pago.concepto : `<span class="badge bg-primary text-light" style="cursor: pointer;" onclick="registrarPago('${folioPago}','${nuevoFolio}', ${mesNumero})">Pagar</span>`}</td>
                     </tr>
                 `;
             });
