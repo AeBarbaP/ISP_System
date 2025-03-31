@@ -10,6 +10,7 @@ $row = $resultado->fetch_assoc();
 
 echo json_encode(array(
     'success' => 1,
+    'id' => $row['id'],
     'username' => $row['username'],
     'nombre' => $row['nombre'],
     'pwd' => $row['pwd'],

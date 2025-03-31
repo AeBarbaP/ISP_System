@@ -165,6 +165,7 @@ function editarUsuario(id) {
     const modal = document.createElement('div');
     modal.classList.add('modal', 'fade');
     modal.setAttribute('tabindex', '-1');
+    modal.setAttribute('id', 'modalEditarUsr');
     modal.innerHTML = `
       <div class="modal-dialog">
         <div class="modal-content">
@@ -173,6 +174,7 @@ function editarUsuario(id) {
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+          <input id="editarId" hidden>
             <p>
               <div class="mb-3">
                 <label class="form-label" id="basic-addon1">Usuario:</label>
@@ -205,9 +207,9 @@ function editarUsuario(id) {
                   <label class="form-label" id="basic-addon1">Estatus:</label>
                   <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                     <input type="radio" class="btn-check" value="1" name="btnradio" id="estatusEditarUsr1">
-                    <label class="btn btn-outline-success" for="estatus1"><i class="bi bi-check-lg"></i> Activo</label>
+                    <label class="btn btn-outline-success" for="estatusEditarUsr1"><i class="bi bi-check-lg"></i> Activo</label>
                     <input type="radio" class="btn-check" value="2" name="btnradio" id="estatusEditarUsr2">
-                    <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
+                    <label class="btn btn-outline-danger" for="estatusEditarUsr2"><i class="bi bi-x-lg"></i> Inactivo</label>
                   </div>
                 </div>
               </div>
@@ -224,7 +226,7 @@ function editarUsuario(id) {
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary">Editar</button>
+            <button type="button" class="btn btn-primary" onclick="editarUsuarioFinal()">Editar</button>
           </div>
         </div>
       </div>
@@ -368,6 +370,7 @@ function datosEdicionUsr(id) {
       let datos = JSON.parse(JSON.stringify(response));
       let success = datos.success;
       if (success == 1) {
+        _("editarId").value = datos.id;
         _("editarUsr").value = datos.username;
         _("editarnombreUsr").value = datos.nombre;
         _("editarcontraseniaUsr").value = datos.pwd;
@@ -385,6 +388,46 @@ function datosEdicionUsr(id) {
   });
 }
 
+function editarUsuarioFinal(){
+  let id = _("editarId").value;
+  let username = _("editarUsr").value;
+  let nombre = _("editarnombreUsr").value;
+  let pwd = _("editarcontraseniaUsr").value;
+  let tipo_usr = _("tipoUsrEditar").value;
+  
+  let estatus;
+  if(_('estatusEditarUsr1').checked){
+    estatus = 1;
+  }
+  else{
+    estatus = 2;
+  }
+  $.ajax({
+    url: 'prcd/prcd_editar_usuario.php',
+    type: 'POST',
+    data: {
+      id: id,
+      username: username,
+      nombre: nombre,
+      pwd: pwd,
+      tipo_usr: tipo_usr,
+      estatus: estatus
+      },
+    dataType: 'JSON',
+    success: function(response) {
+      let datos = JSON.parse(JSON.stringify(response));
+      let success = datos.success;
+      if (success == 1) {
+        alert('Usuario editado correctamente');
+        // Cerrar el modal usando la instancia guardada
+        $("#modalEditarUsr").modal('hide');
+        queryGestionUsr();
+      } 
+    }
+  });
+  // Cerrar el modal
+  $('#modalEditar').modal('hide');
+}
 
 function nuevoTecnico() {
 
