@@ -103,10 +103,12 @@ function nuevoUsuario() {
 
 function guardarUsr(){
   let usrNew = _("usrNew").value;
-  let pwdNew = _("pwdNew").value;
+  let pwdNew = _("pwdNew1").value;
   let nombreNew = _("nombreNew").value;
   let tipoUsrNew = _("tipoUsrNew").value;
-  let estatusNew = _("estatusNew").value;
+  // let estatusNew = _("estatusNew").value;
+  let radioSeleccionado = document.querySelector('input[name="btnradio"]:checked');
+  let estatusNew = radioSeleccionado.value;
 
   $.ajax({
     url: 'prcd/guardarUsr.php',
