@@ -1721,6 +1721,15 @@ function editarIncidencia() {
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
+              <select class="form-select" id="folio_incidencia_editar" size="4" aria-label="folio incidencia">
+                <option selected>Selecciona...</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option> <!-- Muestra los folios de las incidencias que aún no han sido resueltas para cambiar los datos -->
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
               <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_incidenciaU" aria-describedby="basic-addon1" disabled>
             </div>
             <div class="mb-3">
@@ -2417,7 +2426,7 @@ function resolverCorte() {
 							<p> Aqui se imprime la info de la orden de corte, <br>el domicilio y nombre del cliente <br>que se va a hacer el corte</p>
 						</div>
             <div class="mb-3">
-              <label for="descripcion_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Comentario Técnico:</label>
+              <label for="comentario_corte" class="form-label"><i class="bi bi-cursor-text me-2"></i>Comentario Técnico:</label>
               <textarea class="form-control" rows="5" aria-label="comentario tecnico corte" id="comentario_corte"></textarea>
             </div>
             <div class="mb-3">
