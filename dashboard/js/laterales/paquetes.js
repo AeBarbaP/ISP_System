@@ -7,6 +7,7 @@ function nuevoPaquete() {
     const modal = document.createElement('div');
     modal.classList.add('modal', 'fade');
     modal.setAttribute('tabindex', '-1');
+    modal.setAttribute('id', 'nuevoPaquete');
     modal.innerHTML = `
       <div class="modal-dialog">
         <div class="modal-content">
@@ -38,7 +39,7 @@ function nuevoPaquete() {
               <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                 <input type="radio" class="btn-check" value="1" name="btnradio" id="estatus1">
                 <label class="btn btn-outline-success" for="estatus1"><i class="bi bi-check-lg"></i> Activo</label>
-                <input type="radio" class="btn-check" value="2" name="btnradio" id="estatus2">
+                <input type="radio" class="btn-check" value="0" name="btnradio" id="estatus2">
                 <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
               </div>
             </div>
@@ -74,13 +75,14 @@ function nuevoPaquete() {
   }
   
   
-  function editarPaquete() {
+  function editarPaquete(id) {
   
     let titulo = "Editar Paquete";
     // Crear el elemento del modal
     const modal = document.createElement('div');
     modal.classList.add('modal', 'fade');
     modal.setAttribute('tabindex', '-1');
+    modal.setAttribute('id', 'editarPaquete');
     modal.innerHTML = `
       <div class="modal-dialog">
         <div class="modal-content">
@@ -93,25 +95,25 @@ function nuevoPaquete() {
             
             <div class="input-group mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i></label>
-              <input type="text" class="form-control" placeholder="Nombre del paquete" aria-label="nombre paquete" id="nombre_paquete" aria-describedby="basic-addon1">
+              <input type="text" class="form-control" placeholder="Nombre del paquete" aria-label="nombre paquete" id="nombre_paqueteEditar" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-speedometer2 me-2"></i></label>
-              <input type="number" class="form-control" placeholder="Velocidad" aria-label="velocidad" id="velocidad_paquete" aria-describedby="basic-addon1">
+              <input type="number" class="form-control" placeholder="Velocidad" aria-label="velocidad" id="velocidad_paqueteEditar" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-cash-coin me-2"></i></label>
-              <input type="text" class="form-control" placeholder="Precio mensual" aria-label="precio" id="precio_paquete" aria-describedby="basic-addon1">
+              <input type="text" class="form-control" placeholder="Precio mensual" aria-label="precio" id="precio_paqueteEditar" aria-describedby="basic-addon1">
               <span class="input-group-text" id="basic-addon1">.00</span>
             </div>
             <div class="mb-3"> 
               <label class="form-label" id="basic-addon1">Estatus:</label>
               <br>
               <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" value="1" name="btnradio" id="estatus1">
-                <label class="btn btn-outline-success" for="estatus1"><i class="bi bi-check-lg"></i> Activo</label>
-                <input type="radio" class="btn-check" value="2" name="btnradio" id="estatus2">
-                <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
+                <input type="radio" class="btn-check" value="1" name="btnradio" id="estatusEditarPaquete1">
+                <label class="btn btn-outline-success" for="estatusEditarPaquete1"><i class="bi bi-check-lg"></i> Activo</label>
+                <input type="radio" class="btn-check" value="0" name="btnradio" id="estatusEditarPaquete2">
+                <label class="btn btn-outline-danger" for="estatusEditarPaquete2"><i class="bi bi-x-lg"></i> Inactivo</label>
               </div>
             </div>
             <!-- <div class="input-group mb-3">
@@ -126,7 +128,7 @@ function nuevoPaquete() {
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" onclick="guardarPaquete()">Guardar</button>
+            <button type="button" class="btn btn-primary" onclick="editarDatosPaquete(${id})">Guardar</button>
           </div>
         </div>
       </div>
@@ -138,6 +140,7 @@ function nuevoPaquete() {
     // Mostrar el modal usando Bootstrap's JavaScript API
     const bootstrapModal = new bootstrap.Modal(modal);
     bootstrapModal.show();
+    datosPaquete(id);
   
     // Eliminar el modal del DOM cuando se cierre
     modal.addEventListener('hidden.bs.modal', () => {
@@ -179,10 +182,10 @@ function nuevoPaquete() {
                       </div>
                   </div>
                 <div class="table-responsive mt-3">
-                    <table class="table p-1 table-hover table-striped table-bordered">
+                    <table class="table p-1 table-hover table-striped table-bordered text-center">
                         <thead class="table-dark text-light">
                             <tr>
-                                <th scope="col">Id</th>
+                                <th scope="col">#</th>
                                 <th scope="col">Nombre Paquete</th>
                                 <th scope="col">Velocidad</th>
                                 <th scope="col">Mensualidad</th>
@@ -242,9 +245,10 @@ function guardarPaquete() {
         },
         success: function (response) {
             let data = JSON.parse(JSON.stringify(response));
-            let success = data.success;
-            if (success == 1) {
+            var success = data.success;
+            if (success = 1) {
                 alert("Paquete guardado con éxito");
+                $('#nuevoPaquete').modal('hide');
                 // Recargar la tabla de paquetes
                 cargarPaquetes();
             }
@@ -271,6 +275,87 @@ function cargarPaquetes() {
     });
 }
 
+// datos para editar técnico
 
+function datosPaquete(id){
+    $.ajax({
+      url: 'query/queryPaquete.php',
+      type: 'POST',
+      data:{
+        id:id
+      },
+      dataType: 'json',
+      success: function(data) {
+        var datos = JSON.parse(JSON.stringify(data));
+        var success = datos.success;
+        var estatus = datos.estatus;
+  
+        if (success == 1) {
+          _("nombre_paqueteEditar").value = datos.nombre;
+          _("velocidad_paqueteEditar").value = datos.velocidad;
+          _("precio_paqueteEditar").value = datos.costo;
+          // _("estatus_tecnico_editar").value = datos.estatus;
+          if(estatus == 1){
+            _('estatusEditarPaquete1').checked = true;
+          }
+          else{
+            _('estatusEditarPaquete2').checked = true;
+  
+          }
+        }
+        else{
+            console.log(datos.error)
+        }
+      }
+    });
+  }
+  
+  function editarDatosPaquete(id){
+    // let id = _('idEditarTecnico').value;
+    let nombre = _('nombre_paqueteEditar').value;
+    let velocidad = _('velocidad_paqueteEditar').value;
+    let precio = _('precio_paqueteEditar').value;
+    let estatus;
+    
+    const radioSeleccionado = document.querySelector('input[name="btnradioEditarTecnico"]:checked');
+  
+    if (radioSeleccionado) {
+      estatus = radioSeleccionado.value; // "1" (Activo) o "0" (Inactivo)
+      console.log("Valor seleccionado:", estatus);
+    } else {
+        console.log("Ningún radio button seleccionado");
+    }
+  
+    if(nombre == "" || estatus ==""){
+      alert("Debes llenar todos los campos");
+      return;
+    }
+    $.ajax({
+      url: 'prcd/prcd_editar_tecnico.php',
+      type: 'POST',
+      data:{
+        id:id,
+        nombre:nombre,
+        velocidad:velocidad,
+        precio:precio,
+        estatus:estatus
+      },
+      dataType: 'json',
+      success: function(data) {
+        var datos = JSON.parse(JSON.stringify(data));
+        var success = datos.success;
+  
+        if (success == 1) {
+         alert('Datos editados correctamente');
+         cargarPaquetes();
+         $('#editarPaquete').modal('hide');
+        }
+        else{
+            console.log(datos.error)
+        }
+      }
+    });
+  
+  }
 
   // Termina gestión de paquetes
