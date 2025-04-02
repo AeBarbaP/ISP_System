@@ -110,9 +110,9 @@ function nuevoPaquete() {
               <label class="form-label" id="basic-addon1">Estatus:</label>
               <br>
               <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" value="1" name="btnradio" id="estatusEditarPaquete1">
+                <input type="radio" class="btn-check" value="1" name="btnradioEditarPaquete" id="estatusEditarPaquete1">
                 <label class="btn btn-outline-success" for="estatusEditarPaquete1"><i class="bi bi-check-lg"></i> Activo</label>
-                <input type="radio" class="btn-check" value="0" name="btnradio" id="estatusEditarPaquete2">
+                <input type="radio" class="btn-check" value="0" name="btnradioEditarPaquete" id="estatusEditarPaquete2">
                 <label class="btn btn-outline-danger" for="estatusEditarPaquete2"><i class="bi bi-x-lg"></i> Inactivo</label>
               </div>
             </div>
@@ -167,17 +167,18 @@ function nuevoPaquete() {
                   <div class="col-md-6">
                       <div class="input-group mb-3">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                          <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscar" name="buscar">
+                          <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscarPaqueteEditar" name="buscar">
                       </div>
                   </div>
                   <div class="col-md-6">
                       <div class="input-group mb-3">
                           <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                              <input type="radio" class="btn-check" value="1" name="btnradio" id="btnradio_paqA">
-                              <label class="btn btn-outline-success" for="btnradio1"><i class="bi bi-check-lg"></i> Activo</label>
+                              <input type="radio" class="btn-check" value="
+                              Activo" name="btnradioPaquetes" id="btnradio_paqA">
+                              <label class="btn btn-outline-success" for="btnradio_paqA"><i class="bi bi-check-lg"></i> Activo</label>
                           
-                              <input type="radio" class="btn-check" value="0" name="btnradio" id="btnradio_paqI">
-                              <label class="btn btn-outline-danger" for="btnradio2"><i class="bi bi-x-lg"></i> Inactivo</label>
+                              <input type="radio" class="btn-check" value="Inactivo" name="btnradioPaquetes" id="btnradio_paqI">
+                              <label class="btn btn-outline-danger" for="btnradio_paqI"><i class="bi bi-x-lg"></i> Inactivo</label>
                           </div>
                       </div>
                   </div>
@@ -214,6 +215,21 @@ function nuevoPaquete() {
     const bootstrapModal = new bootstrap.Modal(modal);
     bootstrapModal.show();
     cargarPaquetes();
+
+    $("#buscarPaqueteEditar").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#tablaPaquetes tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+
+    // var buscarPaqueteEditar = $('input[name="btnradioPaquetes"]:checked').val() || "";
+    // buscarPaqueteEditar.on("change", function () {
+    //     // var value = $(this).val().toLowerCase();
+    //     $("#tablaPaquetes tr").filter(function () {
+    //         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    //     });
+    // });
   
     // Eliminar el modal del DOM cuando se cierre
     modal.addEventListener('hidden.bs.modal', () => {
@@ -315,9 +331,9 @@ function datosPaquete(id){
     let nombre = _('nombre_paqueteEditar').value;
     let velocidad = _('velocidad_paqueteEditar').value;
     let precio = _('precio_paqueteEditar').value;
-    let estatus;
+    var estatus;
     
-    const radioSeleccionado = document.querySelector('input[name="btnradioEditarTecnico"]:checked');
+    let radioSeleccionado = document.querySelector('input[name="btnradioEditarPaquete"]:checked');
   
     if (radioSeleccionado) {
       estatus = radioSeleccionado.value; // "1" (Activo) o "0" (Inactivo)
@@ -331,7 +347,7 @@ function datosPaquete(id){
       return;
     }
     $.ajax({
-      url: 'prcd/prcd_editar_tecnico.php',
+      url: 'prcd/prcd_editar_paquete.php',
       type: 'POST',
       data:{
         id:id,
@@ -357,5 +373,6 @@ function datosPaquete(id){
     });
   
   }
+
 
   // Termina gestión de paquetes
