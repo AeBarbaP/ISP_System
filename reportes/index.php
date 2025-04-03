@@ -172,7 +172,7 @@ else {
         <link href="navbars-offcanvas.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     </head>
-    <body class="bg-body-secondary" onload="usuariosQueryLogs(); usuariosQuery(); conteoGeneral(); conteoGeneralCards()">
+    <body class="bg-body-secondary" onload="">
         <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
             <symbol id="check2" viewBox="0 0 16 16">
                 <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -316,21 +316,21 @@ else {
                 <!-- <a class="navbar-brand" href="#">Light offcanvas navbar</a> -->
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle  ms-3 me-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Beneficiarios 
+                        Clientes 
                         <i class="bi bi-person-rolodex ms-2" style="font-size: 25px;"></i>
                     </a>
                     <ul class="dropdown-menu text-end">
-                        <li><a class="dropdown-item" href="#">Reportes de Beneficiarios <i class="bi bi-folder2-open ms-2" style="font-size: 25px;"></i></a></li>
-                        <li><a class="dropdown-item" href="#">Reportes de Apoyos <i class="bi bi-clipboard2-check ms-2" style="font-size: 25px;"></i></a></li>
+                        <li><a class="dropdown-item" href="#">Reportes de Clientes <i class="bi bi-folder2-open ms-2" style="font-size: 25px;"></i></a></li>
+                        <li><a class="dropdown-item" href="#">Reportes de Pagos<i class="bi bi-clipboard2-check ms-2" style="font-size: 25px;"></i></a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Reporte de Tarjetones <i class="bi bi-person-badge ms-2" style="font-size: 25px;"></i></a></li>
-                        <li><a class="dropdown-item" href="#">Reporte de Credenciales <i class="bi bi-person-vcard ms-2" style="font-size: 25px;"></i></a></li>
-                        <li>
+                        <li><a class="dropdown-item" href="#">Reporte de Contratos <i class="bi bi-person-badge ms-2" style="font-size: 25px;"></i></a></li>
+                        <!-- <li><a class="dropdown-item" href="#">Reporte de  <i class="bi bi-person-vcard ms-2" style="font-size: 25px;"></i></a></li> -->
+                        <!-- <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Gráficas <i class="bi bi-graph-up-arrow ms-2" style="font-size: 20px;"></i></a></li>
+                        <li><a class="dropdown-item" href="#">Gráficas <i class="bi bi-graph-up-arrow ms-2" style="font-size: 20px;"></i></a></li> -->
                     </ul>
                 </div>
                 <div class="nav-item dropdown">
@@ -347,6 +347,22 @@ else {
                         </li>
                         <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregar" href="">Agregar Usuario<i class="bi bi-person-plus ms-2" style="font-size: 30px;"></i></a></li>
                         <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionUsuarios" onclick="usuariosQueryG()" href="#">Gestión de Usuarios <i class="bi bi-person-gear ms-2" style="font-size: 30px;"></i></a></li>
+                    </ul>
+                </div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle ms-2 me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Técnicos
+                        <i class="bi bi-person-raised-hand ms-2" style="font-size: 25px;"></i>
+                    </a>
+                    <ul class="dropdown-menu text-end">
+                        <li><a class="dropdown-item" href="#">Reporte Individual <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""></a></li>
+                        <li><a class="dropdown-item" href="#">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregar" href="">Agregar Técnico<i class="bi bi-person-plus ms-2" style="font-size: 30px;"></i></a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionTecnicos" onclick="usuariosQueryG()" href="#">Gestión de Técnicos <i class="bi bi-person-gear ms-2" style="font-size: 30px;"></i></a></li>
                     </ul>
                 </div>
                 
