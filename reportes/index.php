@@ -218,7 +218,7 @@ else {
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="container">
-                        <h5 class="offcanvas-title mt-3" id="offcanvasNavbarLightLabel">Administrador</h5>
+                        <h5 class="offcanvas-title mt-3" id="offcanvasNavbarLightLabel">Reportes</h5>
                     </div>
 
                     <div class="offcanvas-body">
@@ -368,7 +368,7 @@ else {
                 
 
                 <span class="navbar-text ms-auto">
-                <h4 class="mt-1 me-1">Administrador</h4>  
+                <h4 class="mt-1 me-1">Reportes</h4>  
                 </span>
                 <!-- esto no sera el fin apenas es el inicio -->
                 <!-- <form class="d-flex justify-content-end align-items-end" style="justify-content: end;" role="search">
@@ -382,14 +382,14 @@ else {
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-end">
                     <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Administrador</li>
+                    <li class="breadcrumb-item active" aria-current="page">Reportes</li>
                 </ol>
             </nav>
             <div class="row">
                 <div class="col-8">
                     <div class="card mb-3" style="width: 100%; height: 100%;">
                         <div class="card-body">
-                            <h5 class="card-title">Avance de capturas de expedientes</h5>
+                            <h5 class="card-title">Pagos Registrados</h5>
                             <p class="text-muted small text-secondary mt-0">Junio 1 de 2024 - Diciembre 31 de 2024</p>
                             <!-- gráfico -->
                             <canvas id="myChart" style="width:100%;"></canvas>
@@ -402,8 +402,8 @@ else {
                         <div class="col-12 mb-4">
                             <div class="card mb-3" style="width: 100%; height: 100%;">
                                 <div class="card-body mt-3">
-                                    <h5 class="card-title strong">Captura de expedientes</h5>
-                                    <p class="card-text text-muted">Expedientes capturados durante la semana</p>
+                                    <h5 class="card-title strong">Contratos Nuevos</h5>
+                                    <p class="card-text text-muted">Contratos nuevos durante la semana</p>
                                     <div class="row">
                                         <div class="col-6">
                                             <h1 class="text-start p-3">
@@ -475,7 +475,7 @@ else {
                         </div>
                         <div class="col-12">
                             <div class="card" style="max-width: 20rem; background-color: rgba(225, 85, 127);">
-                                <div class="card-header text-white">Header</div>
+                                <div class="card-header text-white"></div>
                                 <div class="card-body">
                                     <h5 class="card-title text-white">Danger card title</h5>
                                     <p class="card-text text-white">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
