@@ -320,7 +320,7 @@ else {
                         <i class="bi bi-person-rolodex ms-2" style="font-size: 25px;"></i>
                     </a>
                     <ul class="dropdown-menu text-end">
-                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#reporteClientes" href="#">Reportes de Clientes <i class="bi bi-folder2-open ms-2" style="font-size: 25px;"></i></a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#reporteClientes">Reportes de Clientes <i class="bi bi-folder2-open ms-2" style="font-size: 25px;"></i></a></li>
                         <li><a class="dropdown-item" href="#">Reportes de Contratos<i class="bi bi-clipboard2-check ms-2" style="font-size: 25px;"></i></a></li>
                         <li>
                             <hr class="dropdown-divider">
