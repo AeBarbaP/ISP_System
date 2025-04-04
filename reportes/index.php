@@ -27,7 +27,7 @@ else {
 <html lang="es" data-bs-theme="auto">
     <head>
         <script src="assets/js/color-modes.js"></script>
-        <link rel="icon" type="image/png" href="assets/img/inclusion.ico"/>
+        <link rel="icon" type="image/png" href="../images/logoantenaISP.ico"/>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -224,7 +224,7 @@ else {
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="">CONECTWI - Inicio</a>
+                                <a class="nav-link" aria-current="page" href="../dashboard/index.html">CONECTWI - Inicio</a>
                             </li>
                             <!-- <li class="nav-item">
                                 <a class="nav-link" href="">CONECTWi - Reportes</a>
@@ -390,7 +390,7 @@ else {
                     <div class="card mb-3" style="width: 100%; height: 100%;">
                         <div class="card-body">
                             <h5 class="card-title">Pagos Registrados</h5>
-                            <p class="text-muted small text-secondary mt-0">Junio 1 de 2024 - Diciembre 31 de 2024</p>
+                            <p class="text-muted small text-secondary mt-0">Mes en curso</p>
                             <!-- gráfico -->
                             <canvas id="myChart" style="width:100%;"></canvas>
                             <!-- gráfico -->
@@ -403,7 +403,7 @@ else {
                             <div class="card mb-3" style="width: 100%; height: 100%;">
                                 <div class="card-body mt-3">
                                     <h5 class="card-title strong">Contratos Nuevos</h5>
-                                    <p class="card-text text-muted">Contratos nuevos del mes</p>
+                                    <p class="card-text text-muted">Última quincena</p>
                                     <div class="row">
                                         <div class="col-6">
                                             <h1 class="text-start p-3">
