@@ -49,11 +49,13 @@ function ejecutarFuncionConFolio(folio) {
             document.getElementById("datoscliente").hidden = false;
             let datosGenerales = '';
             data.forEach(function(item) {
-                datosGenerales += `<h3>"${item.nombre}"</h3><span>Folio Contrato: "${item.folio}"</span><br>
-                <span>Domicilio:"${item.domicilio}"</span>
+                datosGenerales += `
+                <div class="alert alert-info mb-2" role="alert">
+                <h3>${item.nombre}</h3><span>Folio Contrato: ${item.folio}</span><br>
+                <span>Domicilio:${item.domicilio}</span>
                 <br>
-                <span>Teléfono: "${item.telefono}"</span>
-                <br>`;
+                <span>Teléfono: ${item.telefono}</span>
+                </div>`;
             });
             $('#datosGenerales').html(datosGenerales);
 
