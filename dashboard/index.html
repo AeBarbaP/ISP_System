@@ -737,8 +737,8 @@
 <div class="modal fade" id="contrato" data-bs-backdrop="static" data-bs-keyboard="false"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-plus-lg"></i>Contrato Nuevo</h1>
+            <div class="modal-header bg-secondary text-light">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-plus-circle-dotted"></i> Contrato nuevo</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -864,7 +864,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-secondary text-light">
-                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-credit-card"></i> Registro de Pago</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-credit-card"></i> Registro de pago</h1>
                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -926,6 +926,21 @@
 							
 						</div>
 					</div>
+					<hr>
+					<div class="container">
+						<div class="input-group mb-1">
+							<span class="input-group-text" id="basic-addon1"><i class="bi bi-bookmarks"></i></span>
+							<select class="form-select" aria-label="Default select example">
+								<option selected>Seleccionar concepto ...</option>
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+							</select>
+							<button class="btn btn-primary"><i class="bi bi-plus-circle"></i></button>
+						</div>
+						<div class="form-text" id="basic-addon4">Selecciona el concepto.</div>
+					</div>
+					<hr>
 					<div class="col-sm-12">
 						<label for="datos_usr" class="form-label"><i class="bi bi-person"></i> Descripción:</label>
 						<!-- <div id="NuevaSolicitud"></div> -->
@@ -947,7 +962,7 @@
 							</table>
 						</div>
 					</div>
-					<div class="col-lg-6" id="pagodiv" hidden>
+					<div class="col-lg-6 mb-2" id="pagodiv" >
 						<label for="tipopago" class="form-label">Tipo de Pago:</label>
 						<select class="form-select" id="tipopago" aria-label="Default select example" required>
 							
