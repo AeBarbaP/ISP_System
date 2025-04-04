@@ -34,7 +34,7 @@ else {
         <meta name="description" content="">
         <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
         <meta name="generator" content="Hugo 0.122.0">
-        <title>Dashboard SUIDEV · Inc v1.2</title>
+        <title>CONECTWI - Reportes</title>
 
         <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbars-offcanvas/">
 
@@ -214,7 +214,7 @@ else {
                 <div class="vr"></div>
                 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbarLight" aria-labelledby="offcanvasNavbarLightLabel">
                     <div class="offcanvas-header">
-                        <img src="assets/img/LogoIncBio.png" class="ms-2" style="height: 4rem;" alt="">
+                        <img src="../images/logo_conectwi_wide-removebg-preview.png" class="ms-2" style="height: 4rem;" alt="">
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="container">
@@ -224,11 +224,11 @@ else {
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="">Inicio</a>
+                                <a class="nav-link" aria-current="page" href="">CONECTWI - Inicio</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="">SUIDEV - Padrón PCD</a>
-                            </li>
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="">CONECTWi - Reportes</a>
+                            </li> -->
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Últimas Actividades registradas
@@ -288,7 +288,7 @@ else {
                         <svg class="bi my-1 theme-icon-active text-dark" width="1em" height="1em"><use href="#circle-half"></use></svg>
                         <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-start shadow" aria-labelledby="bd-theme-text">
+                    <!-- <ul class="dropdown-menu dropdown-menu-start shadow" aria-labelledby="bd-theme-text">
                         <li>
                             <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
                             <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
@@ -310,7 +310,7 @@ else {
                             <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
                             </button>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
                 <div class="vr"></div>
                 <!-- <a class="navbar-brand" href="#">Light offcanvas navbar</a> -->
@@ -321,11 +321,11 @@ else {
                     </a>
                     <ul class="dropdown-menu text-end">
                         <li><a class="dropdown-item" href="#">Reportes de Clientes <i class="bi bi-folder2-open ms-2" style="font-size: 25px;"></i></a></li>
-                        <li><a class="dropdown-item" href="#">Reportes de Pagos<i class="bi bi-clipboard2-check ms-2" style="font-size: 25px;"></i></a></li>
+                        <li><a class="dropdown-item" href="#">Reportes de Contratos<i class="bi bi-clipboard2-check ms-2" style="font-size: 25px;"></i></a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Reporte de Contratos <i class="bi bi-person-badge ms-2" style="font-size: 25px;"></i></a></li>
+                        <li><a class="dropdown-item" href="#">Reporte de Pagos <i class="bi bi-person-badge ms-2" style="font-size: 25px;"></i></a></li>
                         <!-- <li><a class="dropdown-item" href="#">Reporte de  <i class="bi bi-person-vcard ms-2" style="font-size: 25px;"></i></a></li> -->
                         <!-- <li>
                             <hr class="dropdown-divider">
@@ -403,7 +403,7 @@ else {
                             <div class="card mb-3" style="width: 100%; height: 100%;">
                                 <div class="card-body mt-3">
                                     <h5 class="card-title strong">Contratos Nuevos</h5>
-                                    <p class="card-text text-muted">Contratos nuevos durante la semana</p>
+                                    <p class="card-text text-muted">Contratos nuevos del mes</p>
                                     <div class="row">
                                         <div class="col-6">
                                             <h1 class="text-start p-3">
@@ -421,12 +421,12 @@ else {
                         <div class="col-6">
                             <div class="card mb-2" style="width: 100%; height: 100%;">
                                 <div class="card-body mt-2">
-                                    <h5 class="card-title">Tarjetones entregados</h5>
+                                    <h5 class="card-title">Cortes</h5>
                                     <div class="row mt-5">
                                         <div class="col-6 text-start h1"><i class="bi bi-person-badge border p-2 rounded" style="background-color: #cbe5ff; color: #4ea0f2;"></i></div>
                                         <div class="col-6">
                                             <p class="card-text h3 pe-2" style="color: #4ea0f2;"><span id="filasTar"></span></p>
-                                            <p class=""><small class="text-success">(<i class="bi bi-arrow-up"></i> 33.3%)</small></p>
+                                            <p class=""><small class="text-warning">(<i class="bi bi-arrow-up"></i> 33.3%)</small></p>
                                         </div>
                                     </div>
                                 </div>
@@ -435,16 +435,16 @@ else {
                         <div class="col-6">
                             <div class="card mb-2" style="width: 100%; height: 100%;">
                                 <div class="card-body mt-2">
-                                    <h5 class="card-title">Credenciales entregadas</h5>
+                                    <h5 class="card-title">Cancelaciones</h5>
                                     <div class="row mt-5">
                                         <div class="col-6 text-start h1"><i class="bi bi-credit-card-2-front-fill border p-2 rounded" style="background-color: #cbe5ff; color: #4ea0f2;"></i></div>
                                         <div class="col-6">
                                             <p class="card-text h3 pe-2" style="color: #4ea0f2;"><span id="credEnt"></span></p>
-                                            <p class=""><small class="text-success">(<i class="bi bi-arrow-up"></i> 54.3%)</small></p>
+                                            <p class=""><small class="text-danger">(<i class="bi bi-arrow-up"></i> 54.3%)</small></p>
                                         </div>
-                                        <div class="col-12 justify-content-center">
+                                        <!-- <div class="col-12 justify-content-center">
                                             <p class=""><small class="text-secondary"><i class="bi bi-list-columns-reverse me-2"></i> Reportes</small></p>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -457,28 +457,28 @@ else {
                     <div class="row">
                         <div class="col-12">
                             <div class="card mb-3" style="max-width: 20rem; background-color: rgba(78, 160, 242);">
-                                <!-- <div class="card-header text-white" style="font-size: larger;"><strong>TITULO</strong></div> -->
+                                <div class="card-header text-white" style="font-size: larger;"><strong>Servicios Pagados</strong></div>
                                 <div class="card-body">
-                                    <h5 class="card-title text-white">Empleado más Eficiente</h5>
-                                    <p class="card-text text-white">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <h3 class="card-title text-white">#</h3>
+                                    <p class="card-text text-white">Clientes que tienen sus servicio pagado al día.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="card mb-3" style="max-width: 20rem; background-color: rgba(245, 205, 45);">
-                                <div class="card-header text-white" style="font-size: larger;"><strong>HEADER</strong></div>
+                                <div class="card-header text-white" style="font-size: larger;"><strong>Servicios Vencidos</strong></div>
                                 <div class="card-body">
-                                    <h5 class="card-title text-white">Warning card title</h5>
-                                    <p class="card-text text-white">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <h3 class="card-title text-white">#</h3>
+                                    <p class="card-text text-white">Clientes que tienen su servicio vencido.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="card" style="max-width: 20rem; background-color: rgba(225, 85, 127);">
-                                <div class="card-header text-white"></div>
+                                <div class="card-header text-white">Servicios Cortados</div>
                                 <div class="card-body">
-                                    <h5 class="card-title text-white">Danger card title</h5>
-                                    <p class="card-text text-white">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <h3 class="card-title text-white">#</h3>
+                                    <p class="card-text text-white">Clientes que tienen su servicio cortado.</p>
                                 </div>
                             </div>
                         </div>
