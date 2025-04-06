@@ -172,6 +172,11 @@ else {
         <link href="navbars-offcanvas.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     </head>
+
+    <script src="../dashboard/js/menusLaterales.js"></script>
+    <script src="../dashboard/js/laterales/promociones.js"></script>
+    <script src="../dashboard/js/laterales/paquetes.js"></script>
+
     <body class="bg-body-secondary" onload="">
         <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
             <symbol id="check2" viewBox="0 0 16 16">
@@ -204,7 +209,7 @@ else {
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="assets/img/avatar.jpg" alt="" width="35" height="35" class="rounded-circle me-2">
                     </a>
-                    <ul class="dropdown-menu dropdown-menu text-small shadow text-end">
+                    <ul class="dropdown-menu dropdown-menu text-small shadow text-end mt-2">
                         <li><a class="dropdown-item" href="#">Editar mi perfil <i class="bi bi-gear ms-2" style="font-size: 25px;"></i></a></li>
                         <!-- <li><a class="dropdown-item" href="#">Profile</a></li> -->
                         <li><hr class="dropdown-divider"></li>
@@ -214,71 +219,153 @@ else {
                 <div class="vr"></div>
                 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbarLight" aria-labelledby="offcanvasNavbarLightLabel">
                     <div class="offcanvas-header">
-                        <img src="../images/logo_conectwi_wide-removebg-preview.png" class="ms-2" style="height: 4rem;" alt="">
+                        <a href="../dashboard/index.html">
+                            <img src="../images/logo_conectwi_wide-removebg-preview.png" class="ms-2" style="height: 2.7rem;" alt="Logotipo ConectWi">
+                        </a>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
-                    <div class="container">
-                        <h5 class="offcanvas-title mt-3" id="offcanvasNavbarLightLabel">Reportes</h5>
-                    </div>
+                    <!-- <div class="container">
+                        <h5 class="offcanvas-title mt-3" id="offcanvasNavbarLightLabel">Menú</h5>
+                    </div> -->
 
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="../dashboard/index.html">CONECTWI - Inicio</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" aria-current="page" href="../dashboard/index.html"><i class="bi bi-house-door me-3"  style="font-size: 22px"></i>CONECTWI - Inicio</a>
                             </li>
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" href="">CONECTWi - Reportes</a>
-                            </li> -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-people me-2" style="font-size: 22px"></i>
+                                    Usuarios
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" onclick="nuevoUsuario()">Crear nuevo Usuario</a></li>
+                                    <!-- <li><a class="dropdown-item" href="#" onclick="editarUsuario()">Editar Usuario</a></li> -->
+                                    <li><a class="dropdown-item" href="#" onclick="gestionUsuarios()">Gestionar Usuarios</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-raised-hand me-2" style="font-size: 22px"></i>
+                                    Técnicos
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" onclick="nuevoTecnico()">Agregar Técnico</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="gestionTecnicos()">Editar Técnicos</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-columns-gap me-2" style="font-size: 22px"></i>
+                                    Paquetes
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" onclick="nuevoPaquete()">Agregar Paquete</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="gestionPaquetes()">Editar Paquetes</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-tag me-2" style="font-size: 22px"></i>
+                                    Promociones
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" onclick="nuevaPromo()">Agregar Promoción</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="gestionPromos()">Editar Promociones</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <hr>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-broadcast-pin me-2" style="font-size: 22px"></i>
+                                    Inventario de Antenas
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" onclick="altaAntena()">Agregar Antena</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="gestionAntenas()">Editar Antenas</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <hr>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-geo-alt me-2" style="font-size: 22px"></i>
+                                Catálogo de Municipios
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" onclick="nuevoMunicipio()">Agregar Municipio</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="gestionMunicipios()">Editar Municipios</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-geo-fill me-2" style="font-size: 22px"></i>
+                                    Catálogo de Comunidades
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" onclick="nuevaComunidad()">Agregar Comunidad</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="gestionComunidades()">Editar Comunidades</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <hr>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-clock-history me-2" style="font-size: 22px"></i>
                                     Últimas Actividades registradas
                                 </a>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="timeline p-4 blockt mb-4">
-                                            <div class="tl-item active">
-                                                <div class="tl-dot b-warning"></div>
-                                                <div class="tl-content">
-                                                    <div class="">@twitter thanks for you appreciation and @google thanks for you appreciation</div>
-                                                    <div class="tl-date text-muted mt-1">13 june 18</div>
+                                <ul class="dropdown-menu">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="timeline p-4 blockt mb-4">
+                                                <div class="tl-item active">
+                                                    <div class="tl-dot b-warning"></div>
+                                                    <div class="tl-content">
+                                                        <div class="">@twitter thanks for you appreciation and @google thanks for you appreciation</div>
+                                                        <div class="tl-date text-muted mt-1">13 june 18</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="tl-item">
-                                                <div class="tl-dot b-primary"></div>
-                                                <div class="tl-content">
-                                                    <div class="">Do you know how Google search works.</div>
-                                                    <div class="tl-date text-muted mt-1">45 minutes ago</div>
+                                                <div class="tl-item">
+                                                    <div class="tl-dot b-primary"></div>
+                                                    <div class="tl-content">
+                                                        <div class="">Do you know how Google search works.</div>
+                                                        <div class="tl-date text-muted mt-1">45 minutes ago</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="tl-item">
-                                                <div class="tl-dot b-danger"></div>
-                                                <div class="tl-content">
-                                                    <div class="">Thanks to <a href="#" data-abc="true">@apple</a>, for iphone 7</div>
-                                                    <div class="tl-date text-muted mt-1">1 day ago</div>
+                                                <div class="tl-item">
+                                                    <div class="tl-dot b-danger"></div>
+                                                    <div class="tl-content">
+                                                        <div class="">Thanks to <a href="#" data-abc="true">@apple</a>, for iphone 7</div>
+                                                        <div class="tl-date text-muted mt-1">1 day ago</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="tl-item">
-                                                <div class="tl-dot b-danger"></div>
-                                                <div class="tl-content">
-                                                    <div class="">Order placed <a href="#" data-abc="true">@eBay</a> you will get your products</div>
-                                                    <div class="tl-date text-muted mt-1">1 Week ago</div>
+                                                <div class="tl-item">
+                                                    <div class="tl-dot b-danger"></div>
+                                                    <div class="tl-content">
+                                                        <div class="">Order placed <a href="#" data-abc="true">@eBay</a> you will get your products</div>
+                                                        <div class="tl-date text-muted mt-1">1 Week ago</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="tl-item">
-                                                <div class="tl-dot b-warning"></div>
-                                                <div class="tl-content">
-                                                    <div class="">Learn how to use <a href="#" data-abc="true">Google Analytics</a> to discover vital information about your readers.</div>
-                                                    <div class="tl-date text-muted mt-1">3 days ago</div>
+                                                <div class="tl-item">
+                                                    <div class="tl-dot b-warning"></div>
+                                                    <div class="tl-content">
+                                                        <div class="">Learn how to use <a href="#" data-abc="true">Google Analytics</a> to discover vital information about your readers.</div>
+                                                        <div class="tl-date text-muted mt-1">3 days ago</div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </ul>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="dropdown bottom-0 end-0 ">
+                <!-- <div class="dropdown bottom-0 end-0 ">
                     <button class="btn btn-bd-primary dropdown-toggle d-flex align-items-center"
                             id="bd-theme"
                             type="button"
@@ -287,7 +374,7 @@ else {
                             aria-label="Toggle theme (auto)">
                         <svg class="bi my-1 theme-icon-active text-dark" width="1em" height="1em"><use href="#circle-half"></use></svg>
                         <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-                    </button>
+                    </button> -->
                     <!-- <ul class="dropdown-menu dropdown-menu-start shadow" aria-labelledby="bd-theme-text">
                         <li>
                             <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
@@ -311,34 +398,38 @@ else {
                             </button>
                         </li>
                     </ul> -->
-                </div>
-                <div class="vr"></div>
+                <!-- </div>
+                <div class="vr"></div> -->
                 <!-- <a class="navbar-brand" href="#">Light offcanvas navbar</a> -->
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle  ms-3 me-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Clientes 
                         <i class="bi bi-person-rolodex ms-2" style="font-size: 25px;"></i>
                     </a>
-                    <ul class="dropdown-menu text-end">
+                    <ul class="dropdown-menu text-end mt-2">
                         <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#reporteClientes">Reportes de Clientes <i class="bi bi-folder2-open ms-2" style="font-size: 25px;"></i></a></li>
                         <li><a class="dropdown-item" href="#">Reportes de Contratos<i class="bi bi-clipboard2-check ms-2" style="font-size: 25px;"></i></a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Reporte de Pagos <i class="bi bi-person-badge ms-2" style="font-size: 25px;"></i></a></li>
-                        <!-- <li><a class="dropdown-item" href="#">Reporte de  <i class="bi bi-person-vcard ms-2" style="font-size: 25px;"></i></a></li> -->
+                        <li><a class="dropdown-item" href="#">Reporte de Pagos <i class="bi bi-cash-coin ms-2" style="font-size: 25px;"></i></a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionUsuarios" onclick="usuariosQueryG()" href="#">Gestión de Clientes <i class="bi bi-person-gear ms-2" style="font-size: 30px;"></i></a></li>
                         <!-- <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item" href="#">Gráficas <i class="bi bi-graph-up-arrow ms-2" style="font-size: 20px;"></i></a></li> -->
                     </ul>
                 </div>
+                <div class="vr"></div>
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle ms-2 me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Usuarios
                         <i class="bi bi-people-fill ms-2" style="font-size: 25px;"></i>
                     </a>
-                    <ul class="dropdown-menu text-end">
+                    <ul class="dropdown-menu text-end mt-2">
                         <li><a class="dropdown-item" href="#">Reporte Individual <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""></a></li>
                         <li><a class="dropdown-item" href="#">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
                         </li>
@@ -349,12 +440,13 @@ else {
                         <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionUsuarios" onclick="usuariosQueryG()" href="#">Gestión de Usuarios <i class="bi bi-person-gear ms-2" style="font-size: 30px;"></i></a></li>
                     </ul>
                 </div>
+                <div class="vr"></div>
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle ms-2 me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Técnicos
                         <i class="bi bi-person-raised-hand ms-2" style="font-size: 25px;"></i>
                     </a>
-                    <ul class="dropdown-menu text-end">
+                    <ul class="dropdown-menu text-end mt-2">
                         <li><a class="dropdown-item" href="#">Reporte Individual <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""></a></li>
                         <li><a class="dropdown-item" href="#">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
                         </li>
@@ -365,10 +457,44 @@ else {
                         <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionTecnicos" onclick="usuariosQueryG()" href="#">Gestión de Técnicos <i class="bi bi-person-gear ms-2" style="font-size: 30px;"></i></a></li>
                     </ul>
                 </div>
+                <div class="vr"></div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle ms-2 me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Fallas
+                        <i class="bi bi-exclamation-diamond-fill ms-2" style="font-size: 25px; color:"></i>
+                    </a>
+                    <ul class="dropdown-menu text-end mt-2">
+                        <li><a class="dropdown-item" href="#">Reporte Individual <!-- <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""> --><i class="bi bi-exclamation-triangle ms-2" style="font-size: 2em; "></i></a></li>
+                        <li><a class="dropdown-item" href="#">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <!-- <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregar" href="">Agregar Técnico<i class="bi bi-person-plus ms-2" style="font-size: 30px;"></i></a></li> -->
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionTecnicos" onclick="usuariosQueryG()" href="#">Gestión de Fallas <i class="bi bi-exclamation-octagon ms-2" style="font-size: 30px;"></i></a></li>
+                    </ul>
+                </div>
+                <div class="vr"></div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle ms-2 me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Cortes de Servicio
+                        <i class="bi bi-wifi-off ms-2" style="font-size: 25px; font"></i>
+                    </a>
+                    <ul class="dropdown-menu text-end mt-2">
+                        <li><a class="dropdown-item" href="#">Reporte Individual <!-- <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""> --><i class="bi bi-clipboard2-x ms-2" style="font-size: 2em; "></i></a></li>
+                        <li><a class="dropdown-item" href="#">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <!-- <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregar" href="">Agregar Técnico<i class="bi bi-person-plus ms-2" style="font-size: 30px;"></i></a></li> -->
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionTecnicos" onclick="usuariosQueryG()" href="#">Gestión de Cortes <i class="bi bi-window-x ms-2" style="font-size: 30px;"></i></a></li>
+                    </ul>
+                </div>
                 
 
                 <span class="navbar-text ms-auto">
-                <h4 class="mt-1 me-1">Reportes</h4>  
+                <img class="me-3" src="../images/logo_conectwi_wide-removebg-preview.png" style="height: 2.7rem;" alt="Logotipo ConectWi">
                 </span>
                 <!-- esto no sera el fin apenas es el inicio -->
                 <!-- <form class="d-flex justify-content-end align-items-end" style="justify-content: end;" role="search">
@@ -381,7 +507,7 @@ else {
         <div class="container text-end align-items-end justify-content-end"><!-- inicio container principal-->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-end">
-                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="../dashboard/index.html">Inicio</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Reportes</li>
                 </ol>
             </nav>
@@ -421,7 +547,7 @@ else {
                         <div class="col-6">
                             <div class="card mb-2" style="width: 100%; height: 100%;">
                                 <div class="card-body mt-2">
-                                    <h5 class="card-title">Cortes</h5>
+                                    <h5 class="card-title">Fallas</h5>
                                     <div class="row mt-5">
                                         <div class="col-6 text-start h1"><i class="bi bi-person-badge border p-2 rounded" style="background-color: #cbe5ff; color: #4ea0f2;"></i></div>
                                         <div class="col-6">
@@ -435,7 +561,7 @@ else {
                         <div class="col-6">
                             <div class="card mb-2" style="width: 100%; height: 100%;">
                                 <div class="card-body mt-2">
-                                    <h5 class="card-title">Cancelaciones</h5>
+                                    <h5 class="card-title">Cortes</h5>
                                     <div class="row mt-5">
                                         <div class="col-6 text-start h1"><i class="bi bi-credit-card-2-front-fill border p-2 rounded" style="background-color: #cbe5ff; color: #4ea0f2;"></i></div>
                                         <div class="col-6">

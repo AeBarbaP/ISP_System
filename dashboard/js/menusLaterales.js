@@ -69,6 +69,13 @@ function nuevoUsuario() {
                 <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
               </div>
             </div>
+            <div class="mb-2"> 
+              <label class="form-label" id="basic-addon1">Asignar Color:</label>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette"></i></span>
+                <input type="color" class="form-control form-control-color" placeholder="Asignar color" aria-describedby="basic-addon1"  name="color" id="colorUser" required>
+              </div>
+            </div>
             <!-- <div class="col-6 mb-3">
               <label class="form-label" id="basic-addon1">Estatus:</label>
               <select class="form-select" aria-label="Default select example" id="estatusNew">
