@@ -846,7 +846,7 @@
 						<!-- Carga los datos de la cuota mensual -->
 					</div>
                 </div>
-                <div class="modal-footer mt-3">
+                <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Cancelar</button>
                     <button type="button" class="btn btn-primary" id="guardarbtn" onclick="guardarContrato()" >Guardar</button> <!-- Guarda registro de cliente nuevo y manda a modal de pago automáticamente -->
                     <button type="button" class="btn btn-success" id="imprimircbtn" data-bs-toggle="modal" data-bs-target="#pago" >Imprimir Contrato</button>
@@ -877,12 +877,12 @@
                     <div class="col-lg-4">
                     </div>
                     <div class="col-lg-4">
-                        <label for="datos_usr" class="form-label">Fecha:</label>
+                        <label for="datos_usr" class="form-label"><i class="bi bi-person"></i> Fecha:</label>
                         <input type="date" class="form-control" id="fechaSolicitud" name="datos_usr" placeholder="" disabled>
                     </div>
                     <div class="col-lg-6" id="foliosearch">
 						<label for="buscafolio" class="form-label">Buscar Folio</label>
-						<input class="form-control" list="datalistOptions" id="buscafolio" oninput="" placeholder="Type to search...">
+						<input class="form-control" list="datalistOptions" id="buscafolio" oninput=""placeholder="Type to search...">
 						<datalist id="datalistOptions">
 							<!-- falta función para consulta de folios de clientes para llenar este datalist -->
 						</datalist>
@@ -942,7 +942,7 @@
 					</div>
 					<hr>
 					<div class="col-sm-12">
-						<label for="datos_usr" class="form-label">Descripción:</label>
+						<label for="datos_usr" class="form-label"><i class="bi bi-person"></i> Descripción:</label>
 						<!-- <div id="NuevaSolicitud"></div> -->
 						<div class="table-responsive" id="tablaSolicitud">
 							<table class="table table-hover text-center" id="tablaPre">
@@ -971,10 +971,6 @@
 							<option value="3">Tarjeta Crédito</option>
 							<option value="4">Transferencia</option>
 						</select>
-					</div>
-					<div class="col-lg-3 mb-2">
-						<label for="ticketNum" class="form-label"><i class="bi bi-hash me-1"></i> Ticket:</label>
-						<input type="text" class="form-control form-control-sm" placeholder="Número de Ticket" disabled><!-- solo se habilita cuando es pago por transferencia o tarjeta -->
 					</div>
                     
                 </div>
