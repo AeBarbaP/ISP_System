@@ -16,19 +16,24 @@ $pwdNew = $_POST['pwdNew'];
 $nombreNew = $_POST['nombreNew'];
 $tipoUsrNew = $_POST['tipoUsrNew'];
 $estatusNew = $_POST['estatusNew'];
+$color = $_POST['colorUser'];
 
 $query = "INSERT INTO users (
         username, 
         pwd, 
         nombre,
         tipo_usr,
-        estatus
+        estatus,
+        color,
+        fecha_creacion
         ) VALUES (
         '$usrNew', 
         '$pwdNew', 
         '$nombreNew',
         '$tipoUsrNew',
-        '$estatusNew'
+        '$estatusNew',
+        '$color',
+        '$fechaActual'
         )";
 
     $resultado = $conn->query($query);

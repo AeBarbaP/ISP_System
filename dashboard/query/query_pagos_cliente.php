@@ -2,24 +2,36 @@
 require('../prcd/conn.php'); // Asegúrate de incluir la conexión a la base de datos
 
 $folio = $_POST['folio'];
+$hoy = new DateTime();
 $yearActual = date("Y"); // Obtener el año actual
+$mes = 0;
+
+// se va a buscar los meses que se adeudan en la db
+$sqlCorte = "SELECT * FROM clientes WHERE folio = '$folio'";
+$resultadoCorte = $conn->query($sqlCorte);
+$corte = $resultadoCorte->fetch_assoc();
+$fechaCorte = $corte['fecha_corte'];
+// $fechaCorte = new DateTime($fechaCorte1['fecha_corte']);
 
 // Consulta para obtener los pagos del cliente en el año actual
-$sql = "SELECT folio_contrato, concepto, periodo, MONTH(fecha_pago) as mes, total 
-        FROM pagos 
-        WHERE folio_contrato = '$folio' AND YEAR(fecha_pago) = '$yearActual'";
+$sql = "SELECT * FROM pagos WHERE folio_contrato = '$folio'";
 $resultado = $conn->query($sql);
 
 $pagos = array();
 
-while ($row = $resultado->fetch_assoc()) {
-    $pagos[] = array(
-        'folio_contrato' => $row['folio_contrato'],
-        'concepto' => $row['concepto'],
-        'periodo' => $row['periodo'], // Mes del pago (1 = Enero, 2 = Febrero, etc.)
-        'mes' => $row['periodo'],
-        'monto' => $row['total']
-    );
+    while ($row = $resultado->fetch_assoc()) {
+        if($hoy > $fechaCorte){
+            
+        // $mes++;
+        $pagos[] = array(
+            'folio_contrato' => $row['folio_contrato'],
+            'concepto' => $row['concepto'],
+            'periodo' => $row['periodo'], // Mes del pago (1 = Enero, 2 = Febrero, etc.)
+            'mes' => $row['periodo'],
+            'monto' => $row['total']
+        );
+    }
+
 }
 
 echo json_encode($pagos);

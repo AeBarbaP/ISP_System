@@ -13,13 +13,16 @@ $nombre = $_POST['nombre'];
 $pwd = $_POST['pwd'];
 $tipo_usr = $_POST['tipo_usr'];
 $estatus = $_POST['estatus'];
+$color = $_POST['colorUserEdit'];
 
 $query = "UPDATE users SET 
         username = '$username',
         nombre = '$nombre',
         pwd = '$pwd',
         tipo_usr = '$tipo_usr',
-        estatus = '$estatus'
+        estatus = '$estatus',
+        color = '$color',
+        fecha_editar = '$fechaHoy'
         WHERE
         id = '$id'
 ";

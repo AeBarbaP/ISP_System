@@ -116,6 +116,7 @@ function guardarUsr(){
   // let estatusNew = _("estatusNew").value;
   let radioSeleccionado = document.querySelector('input[name="btnradio"]:checked');
   let estatusNew = radioSeleccionado.value;
+  let colorUser = _("colorUser").value;
 
   $.ajax({
     url: 'prcd/guardarUsr.php',
@@ -125,7 +126,8 @@ function guardarUsr(){
       pwdNew:pwdNew,
       nombreNew,nombreNew,
       tipoUsrNew:tipoUsrNew,
-      estatusNew:estatusNew
+      estatusNew:estatusNew,
+      colorUser:colorUser
     },
     dataType: 'json',
     success: function(data) {
@@ -220,15 +222,13 @@ function editarUsuario(id) {
                   </div>
                 </div>
               </div>
-              <!-- <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-add"></i></span>
-                <select class="form-select" aria-label="Default select example">
-                  <option value="" selected>Estatus de usuario ...</option>
-                  <option value="1">Activo</option>
-                  <option value="0">Inactivo</option>
-                </select>
-              </div> -->
-
+              <div class="mb-2"> 
+                <label class="form-label" id="basic-addon1">Asignar Color:</label>
+                <div class="input-group">
+                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette"></i></span>
+                  <input type="color" class="form-control form-control-color" placeholder="Asignar color" aria-describedby="basic-addon1"  name="color" id="colorUserEdit" required>
+                </div>
+              </div>
             </p>
           </div>
           <div class="modal-footer">
@@ -401,6 +401,7 @@ function editarUsuarioFinal(){
   let nombre = _("editarnombreUsr").value;
   let pwd = _("editarcontraseniaUsr").value;
   let tipo_usr = _("tipoUsrEditar").value;
+  let colorUser = _("colorUserEdit").value;
   
   let estatus;
   if(_('estatusEditarUsr1').checked){
@@ -418,7 +419,8 @@ function editarUsuarioFinal(){
       nombre: nombre,
       pwd: pwd,
       tipo_usr: tipo_usr,
-      estatus: estatus
+      estatus: estatus,
+      colorUser: colorUser
       },
     dataType: 'JSON',
     success: function(response) {

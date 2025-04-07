@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 01-04-2025 a las 00:44:45
+-- Tiempo de generación: 07-04-2025 a las 23:23:13
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.28
 
@@ -122,9 +122,12 @@ CREATE TABLE `catalogo_paquetes` (
 --
 
 INSERT INTO `catalogo_paquetes` (`id`, `paquetes`, `velocidad`, `costo`, `estatus`) VALUES
-(1, 'Básico', 7, '10.50', 0),
+(1, 'Básico', 7, '10.50', 1),
 (2, 'Intermedio', 12, '12.12', 0),
-(3, 'Avanzado', 18, '18.09', 0);
+(3, 'Avanzado', 18, '18.09', 1),
+(4, 'e', 1, '1.00', 2),
+(5, 'f', 2, '2.00', 1),
+(6, 'g1', 11, '11.00', 1);
 
 -- --------------------------------------------------------
 
@@ -186,7 +189,8 @@ INSERT INTO `clientes` (`id`, `folio`, `nombre`, `domicilio`, `calle`, `colonia`
 
 CREATE TABLE `conceptos` (
   `id` int(11) NOT NULL,
-  `concepto` varchar(15) COLLATE utf8_unicode_ci NOT NULL
+  `concepto` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `costo` decimal(5,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -297,7 +301,8 @@ CREATE TABLE `promociones` (
   `fecha_fin` datetime NOT NULL,
   `tipo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `descuento` int(11) NOT NULL,
-  `estatus` int(11) NOT NULL
+  `estatus` int(11) NOT NULL,
+  `id_catalogo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -311,16 +316,17 @@ CREATE TABLE `tecnicos` (
   `nombre` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `estatus` int(11) NOT NULL,
   `fecha_creacion` date NOT NULL,
-  `fecha_actualizacion` date DEFAULT NULL
+  `fecha_actualizacion` date DEFAULT NULL,
+  `color` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `tecnicos`
 --
 
-INSERT INTO `tecnicos` (`id`, `nombre`, `estatus`, `fecha_creacion`, `fecha_actualizacion`) VALUES
-(1, 'jesus', 1, '2025-03-18', '2025-03-21'),
-(2, 'a', 1, '2025-03-21', '2025-03-21');
+INSERT INTO `tecnicos` (`id`, `nombre`, `estatus`, `fecha_creacion`, `fecha_actualizacion`, `color`) VALUES
+(1, 'jesus', 1, '2025-03-18', '2025-03-21', ''),
+(2, 'a', 1, '2025-03-21', '2025-04-07', '');
 
 -- --------------------------------------------------------
 
@@ -346,15 +352,18 @@ CREATE TABLE `users` (
   `nombre` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `tipo_usr` int(11) NOT NULL,
   `estatus` int(11) NOT NULL,
-  `fecha_creacion` date NOT NULL
+  `fecha_creacion` date NOT NULL,
+  `fecha_editar` datetime NOT NULL,
+  `color` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `pwd`, `nombre`, `tipo_usr`, `estatus`, `fecha_creacion`) VALUES
-(1, 'aebarba', '123456789', 'Ana Elisa Barba', 2, 1, '2025-03-11');
+INSERT INTO `users` (`id`, `username`, `pwd`, `nombre`, `tipo_usr`, `estatus`, `fecha_creacion`, `fecha_editar`, `color`) VALUES
+(1, 'aebarba', '123456789', 'Ana Elisa Barba', 2, 1, '2025-03-11', '0000-00-00 00:00:00', ''),
+(2, 'color', 'color', 'user color', 2, 1, '2025-04-07', '0000-00-00 00:00:00', '#64c1da');
 
 --
 -- Índices para tablas volcadas
@@ -500,7 +509,7 @@ ALTER TABLE `catalogo_municipio`
 -- AUTO_INCREMENT de la tabla `catalogo_paquetes`
 --
 ALTER TABLE `catalogo_paquetes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `cat_pagos`
@@ -566,7 +575,7 @@ ALTER TABLE `tipo_pago`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
