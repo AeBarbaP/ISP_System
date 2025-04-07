@@ -461,7 +461,7 @@ else {
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle ms-2 me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Fallas
-                        <i class="bi bi-exclamation-diamond-fill ms-2" style="font-size: 25px; color:"></i>
+                        <i class="bi bi-exclamation-diamond-fill ms-2" style="font-size: 25px;"></i>
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
                         <li><a class="dropdown-item" href="#">Reporte Individual <!-- <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""> --><i class="bi bi-exclamation-triangle ms-2" style="font-size: 2em; "></i></a></li>
@@ -478,7 +478,7 @@ else {
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle ms-2 me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Cortes de Servicio
-                        <i class="bi bi-wifi-off ms-2" style="font-size: 25px; font"></i>
+                        <i class="bi bi-wifi-off ms-2" style="font-size: 25px;"></i>
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
                         <li><a class="dropdown-item" href="#">Reporte Individual <!-- <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""> --><i class="bi bi-clipboard2-x ms-2" style="font-size: 2em; "></i></a></li>
