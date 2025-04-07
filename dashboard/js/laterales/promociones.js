@@ -7,6 +7,7 @@
     const modal = document.createElement('div');
     modal.classList.add('modal', 'fade');
     modal.setAttribute('tabindex', '-1');
+    modal.setAttribute('id', 'modalPromo');
     modal.innerHTML = `
       <div class="modal-dialog">
         <div class="modal-content">
@@ -47,7 +48,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" onclick="guardarPromocion()">Guardar</button>
+            <button type="button" class="btn btn-primary" onclick="registrarPromocion()">Guardar</button>
           </div>
         </div>
       </div>
@@ -204,5 +205,40 @@
       modal.remove();
     });
   }
+
+  function registrarPromocion() {
+    let fecha_inicio = document.getElementById("fecha_inicio").value;
+    let fecha_fin = document.getElementById("fecha_fin").value;
+    let nombre_promocion = document.getElementById("nombre_promocion").value;
+    let tipo_promocion = document.getElementById("tipo_promo").value;
+    let descuento_promo = document.getElementById("descuento_promo").value;
+
+        $.ajax({
+            type: "POST",
+            url: "prcd/registrar_promocion.php", // Archivo PHP que registrará el pago
+            data: { 
+                fecha_inicio: fecha_inicio,
+                fecha_fin: fecha_fin,
+                nombre_promocion: nombre_promocion,
+                tipo_promocion: tipo_promocion,
+                descuento_promo: descuento_promo
+            },
+            dataType: "json",
+            success: function(response) {
+                if (response.success) {
+                    alert("Promoción registrada correctamente.");
+                    $('#modalPromo').modal('hide');
+
+                } else {
+                    alert("Error al registrar promoción: " + response.message);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error("Error en la solicitud AJAX: ", textStatus, errorThrown);
+                alert("Error al registrar el pago.");
+            }
+        });
+    
+}
   
   // Termina gestión de promociones

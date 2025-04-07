@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 07-04-2025 a las 23:23:13
+-- Tiempo de generación: 08-04-2025 a las 00:46:37
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.28
 
@@ -302,8 +302,17 @@ CREATE TABLE `promociones` (
   `tipo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `descuento` int(11) NOT NULL,
   `estatus` int(11) NOT NULL,
-  `id_catalogo` int(11) NOT NULL
+  `id_catalogo` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `promociones`
+--
+
+INSERT INTO `promociones` (`id`, `promo`, `fecha_inicio`, `fecha_fin`, `tipo`, `descuento`, `estatus`, `id_catalogo`) VALUES
+(1, '1', '2025-04-07 00:00:00', '2025-04-07 00:00:00', 'Mensualidad', 1, 1, NULL),
+(2, '1', '2025-04-07 00:00:00', '2025-04-07 00:00:00', 'Mensualidad', 1, 1, NULL),
+(3, '2', '2025-04-08 00:00:00', '2025-04-08 00:00:00', 'Instalación', 2, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -454,6 +463,12 @@ ALTER TABLE `pagos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `promociones`
+--
+ALTER TABLE `promociones`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `tecnicos`
 --
 ALTER TABLE `tecnicos`
@@ -558,6 +573,12 @@ ALTER TABLE `logs_users`
 --
 ALTER TABLE `pagos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `promociones`
+--
+ALTER TABLE `promociones`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tecnicos`
