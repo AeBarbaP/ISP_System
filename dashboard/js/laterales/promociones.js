@@ -68,7 +68,7 @@
   }
   
   
-  function editarPromo() {
+  function editarPromo(id) {
   
     let titulo = "Editar Paquete";
     // Crear el elemento del modal
@@ -87,19 +87,19 @@
             <p>
             <div class="input-group mb-3">
                 <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-week me-2"></i>Fecha Inicio:</label>
-                <input type="datetime-local" class="form-control" placeholder="" aria-label="Fecha de inicio" id="fecha_inicio" aria-describedby="basic-addon1">
+                <input type="datetime-local" class="form-control" placeholder="" aria-label="Fecha de inicio" id="fecha_inicioEditar" aria-describedby="basic-addon1">
               </div>
               <div class="input-group mb-3">
                 <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-week me-2"></i>Fecha Final:</label>
-                <input type="datetime-local" class="form-control" placeholder="" aria-label="Fecha de fin" id="fecha_fin" aria-describedby="basic-addon1">
+                <input type="datetime-local" class="form-control" placeholder="" aria-label="Fecha de fin" id="fecha_finEditar" aria-describedby="basic-addon1">
               </div>
               <div class="input-group mb-3">
                 <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Nombre de la promoción:</label>
-                <input type="text" class="form-control" placeholder="Nombre de la promoción" aria-label="nombre promocion" id="nombre_promocion" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" placeholder="Nombre de la promoción" aria-label="nombre promocion" id="nombre_promocionEditar" aria-describedby="basic-addon1">
               </div>
               <div class="input-group mb-3">
                 <label class="form-label" id="basic-addon1"><i class="bi bi-card-checklist me-2"></i>Tipo</label>
-                <select class="form-select" aria-label="Default select example" id="tipo_promo">
+                <select class="form-select" aria-label="Default select example" id="tipo_promoEditar">
                     <option value="" selected>Promoción en...</option>
                     <option value="Mensualidad">Mensualidad</option>
                     <option value="Instalación">Instalación</option>
@@ -108,7 +108,7 @@
               </div>
               <div class="input-group mb-3">
                 <label class="form-label" id="basic-addon1"><i class="bi bi-piggy-bank me-2"></i>Descuento:</label>
-                <input type="number" class="form-control" placeholder="Descuento" aria-label="descuento" id="descuento_promo" aria-describedby="basic-addon1">
+                <input type="number" class="form-control" placeholder="Descuento" aria-label="descuento" id="descuento_promoEditar" aria-describedby="basic-addon1">
               </div>
             </p>
           </div>
@@ -126,10 +126,36 @@
     // Mostrar el modal usando Bootstrap's JavaScript API
     const bootstrapModal = new bootstrap.Modal(modal);
     bootstrapModal.show();
-  
+    queryEditarPaquete(id);
     // Eliminar el modal del DOM cuando se cierre
     modal.addEventListener('hidden.bs.modal', () => {
       modal.remove();
+    });
+  }
+
+  function queryEditarPaquete(id) {
+    $.ajax({
+        type: "POST",
+        url: "query/query_editar_promocion.php", 
+        data: {
+            id: id
+        },
+        dataType: "json",
+        success: function(response) {
+          let data = JSON.parse(JSON.stringify(response));
+            var success = data.success;
+            if (success = 1) {
+                document.getElementById("nombre_promocionEditar").value = data.nombre_promocion;
+                document.getElementById("tipo_promoEditar").value = data.tipo_promocion;
+                document.getElementById("descuento_promoEditar").value = data.descuento_promo;
+                document.getElementById("fecha_inicioEditar").value = data.fecha_inicio;
+                document.getElementById("fecha_finEditar").value = data.fecha_fin;
+            }
+            else {
+                alert("Error al guardar el paquete");
+                console.log(data.error);
+            }
+        }
     });
   }
   
