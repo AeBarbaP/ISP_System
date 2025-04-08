@@ -79,11 +79,12 @@
     modal.innerHTML = `
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header bg-secondary text-light">
             <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+            <input name="id" id="idPromoHidden" hidden>
             <p>
             <div class="input-group mb-3">
                 <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-week me-2"></i>Fecha Inicio:</label>
@@ -114,7 +115,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" onclick="guardarPromo()">Guardar</button>
+            <button type="button" class="btn btn-primary" onclick="editarPromo2()">Guardar</button>
           </div>
         </div>
       </div>
@@ -145,6 +146,7 @@
           let data = JSON.parse(JSON.stringify(response));
             var success = data.success;
             if (success = 1) {
+                document.getElementById("idPromoHidden").value = data.id;
                 document.getElementById("nombre_promocionEditar").value = data.nombre_promocion;
                 document.getElementById("tipo_promoEditar").value = data.tipo_promocion;
                 document.getElementById("descuento_promoEditar").value = data.descuento_promo;
@@ -158,6 +160,44 @@
         }
     });
   }
+
+  function editarPromo2(){
+    let id = document.getElementById("idPromoHidden").value;
+    let fecha_inicio = document.getElementById("fecha_inicioEditar").value;
+    let fecha_fin = document.getElementById("fecha_finEditar").value;
+    let nombre_promocion = document.getElementById("nombre_promocionEditar").value;
+    let tipo_promocion = document.getElementById("tipo_promoEditar").value;
+    let descuento_promo = document.getElementById("descuento_promoEditar").value;
+
+        $.ajax({
+            type: "POST",
+            url: "prcd/prcd_editar_promocion.php", // Archivo PHP que registrará el pago
+            data: { 
+                id: id,
+                fecha_inicio: fecha_inicio,
+                fecha_fin: fecha_fin,
+                nombre_promocion: nombre_promocion,
+                tipo_promocion: tipo_promocion,
+                descuento_promo: descuento_promo
+            },
+            dataType: "json",
+            success: function(response) {
+                if (response.success) {
+                    alert("Promoción editada correctamente.");
+                    queryPromos();
+                    $('#editarPromo').modal('hide');
+
+                } else {
+                    alert("Error al editar promoción: " + response.message);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error("Error en la solicitud AJAX: ", textStatus, errorThrown);
+                alert("Error al registrar el pago.");
+            }
+        });
+
+  }
   
   function gestionPromos() {
     let titulo = "Gestión de Promociones";
@@ -168,9 +208,9 @@
     modal.innerHTML = `
       <div class="modal-dialog modal-xl">>
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">${titulo}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header bg-secondary text-light">
+                <h5 class="modal-title"><i class="bi bi-speedometer"></i> ${titulo}</h5>
+                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <input name="id" id="idHiddenPaq" value="" hidden>
@@ -265,6 +305,7 @@
             success: function(response) {
                 if (response.success) {
                     alert("Promoción registrada correctamente.");
+                    queryPromos();
                     $('#modalPromo').modal('hide');
 
                 } else {
