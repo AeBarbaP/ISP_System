@@ -75,6 +75,7 @@
     const modal = document.createElement('div');
     modal.classList.add('modal', 'fade');
     modal.setAttribute('tabindex', '-1');
+    modal.setAttribute('id', 'editarPromo');
     modal.innerHTML = `
       <div class="modal-dialog">
         <div class="modal-content">
@@ -166,8 +167,8 @@
                       </div>
                   </div>
                 <div class="table-responsive mt-3">
-                    <table class="table p-1">
-                        <thead>
+                    <table class="table p-1 text-center">
+                        <thead class="table-dark">
                             <tr>
                                 <th scope="col">Id</th>
                                 <th scope="col">Nombre Promoción</th>
@@ -176,7 +177,7 @@
                                 <th scope="col">Inicio</th>
                                 <th scope="col">Final</th>
                                 <th scope="col">Estatus</th>
-                                <th scope="col" class="text-end"><i class="bi bi-pencil-square"></i></th>
+                                <th scope="col"><i class="bi bi-pencil-square"></i></th>
                             </tr>
                         </thead>
                         <tbody id="tablaPromos">
@@ -199,11 +200,22 @@
     // Mostrar el modal usando Bootstrap's JavaScript API
     const bootstrapModal = new bootstrap.Modal(modal);
     bootstrapModal.show();
+    queryPromos();
   
     // Eliminar el modal del DOM cuando se cierre
     modal.addEventListener('hidden.bs.modal', () => {
       modal.remove();
     });
+  }
+
+  function queryPromos() {
+    $.ajax({
+        type: "POST",
+        url: "query/query_promociones.php", 
+        success: function(response) {
+          $('#tablaPromos').html(response);
+        },
+      });
   }
 
   function registrarPromocion() {
