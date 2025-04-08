@@ -1,54 +1,45 @@
 <?php
     echo '
-    
-    <div class="modal fade" id="reporteClientes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-person-plus"></i> Editar Usuario</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <input name="id" id="idHidden" value="" hidden>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
-                        <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombreEditar" value="" aria-describedby="basic-addon1" name="nombre" required>
+        <div class="modal fade" id="reporteClientes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-folder2-open me-2"  style="font-size: 25px;"></i> Reporte de Clientes</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-workspace"></i></span>
-                        <input type="text" class="form-control" placeholder="Usuario" aria-label="usuario" value="" id="userEditar" aria-describedby="basic-addon1"  name="username" readonly>
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1" for="inputGroupSelect01">Perfil</span>
-
-                        <select class="form-select" id="perfilEditar" value="" selected="selected" name="perfilselect">
-                            <option value="1">Administrador</option>
-                            <option value="2">Usuario</option>
-                        </select>
-                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                            <input type="radio" class="btn-check" value="1" name="btnradio" id="estatus1">
-                            <label class="btn btn-outline-success" for="estatus1"><i class="bi bi-check-lg"></i> Activo</label>
-                            <input type="radio" class="btn-check" value="2" name="btnradio" id="estatus2">
-                            <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
+                    <div class="modal-body">
+                        <input name="id" id="idHidden" value="" hidden>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-search" style="font-size: 20px;"></i></span>
+                            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar" value="" aria-describedby="basic-addon1" name="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select" id="cliente_reporte" size="4" aria-label="numero de cliente">
+                                <option selected>Selecciona...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option> <!-- Muestra los folios de las incidencias que aún no han sido resueltas para cambiar los datos -->
+                            </select>
+                        </div>
+                        <div class="alert alert-info" role="alert">
+                            Información del cliente: Nombre, domicilio
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" id="basic-addon1">Periodo del reporte:</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-arrow-bar-right" style="font-size: 20px;"></i></span>
+                                <input type="date" class="form-control" placeholder="Fecha inicio" aria-label="fecha inicio" id="fecha_inicio_reportec" value="" aria-describedby="basic-addon1" name="fechainicio" required>
+                                <input type="date" class="form-control" placeholder="Fecha final" aria-label="fecha final" id="fecha_final_reportec" value="" aria-describedby="basic-addon1" name="fechafinal" required>
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-arrow-bar-left" style="font-size: 20px;"></i></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-shield-lock-fill"></i></span>
-                        <input type="password" class="form-control" placeholder="Contraseña" aria-label="contraseña" value="" aria-describedby="basic-addon1" name="pwd" id="passW">
-                        <button class="btn btn-primary" type="button" id="btnShowPwd" onclick="myFunction()">
-                            <svg class="bi" width="1.5em" height="1.5em" id="ojocerradoIcon"><use href="#ojoCerrado"></use></svg>
-                            <i class="bi bi-eye" id="ojoabiertoIcon" hidden></i>
-                        </button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
+                        <button type="submit" class="btn btn-primary"><i class="bi bi-filetype-pdf me-2" style="font-size: 20px;"></i>Generar Reporte</button>
                     </div>
-                    <!-- <input type="checkbox" > Mostrar Password  -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button>
                 </div>
             </div>
         </div>
-    </div>
-    
     ';
 ?>

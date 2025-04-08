@@ -407,8 +407,8 @@ else {
                         <i class="bi bi-person-rolodex ms-2" style="font-size: 25px;"></i>
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
-                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#reporteClientes">Reportes de Clientes <i class="bi bi-folder2-open ms-2" style="font-size: 25px;"></i></a></li>
-                        <li><a class="dropdown-item" href="#">Reportes de Contratos<i class="bi bi-clipboard2-check ms-2" style="font-size: 25px;"></i></a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reporteClientes">Reportes de Clientes <i class="bi bi-folder2-open ms-2" style="font-size: 25px;"></i></a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reporteContratos">Reportes de Contratos<i class="bi bi-clipboard2-check ms-2" style="font-size: 25px;"></i></a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -491,17 +491,27 @@ else {
                         <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionTecnicos" onclick="usuariosQueryG()" href="#">Gestión de Cortes <i class="bi bi-window-x ms-2" style="font-size: 30px;"></i></a></li>
                     </ul>
                 </div>
-                
-
+                <div class="vr"></div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle ms-2 me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Corte de Caja
+                        <i class="bi bi-receipt ms-2" style="font-size: 25px;"></i>
+                    </a>
+                    <ul class="dropdown-menu text-end mt-2">
+                        <li><a class="dropdown-item" href="#">Generar Reporte del Día<!-- <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""> --><i class="bi bi-receipt ms-2" style="font-size: 2em; "></i></a></li>
+                        <!-- <li><a class="dropdown-item" href="#">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
+                        </li> -->
+                        <!-- <li>
+                            <hr class="dropdown-divider">
+                        </li> -->
+                        <!-- <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregar" href="">Agregar Técnico<i class="bi bi-person-plus ms-2" style="font-size: 30px;"></i></a></li> -->
+                        <!-- <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionTecnicos" onclick="usuariosQueryG()" href="#">Gestión de Cortes <i class="bi bi-window-x ms-2" style="font-size: 30px;"></i></a></li> -->
+                    </ul>
+                </div>
                 <span class="navbar-text ms-auto">
                 <img class="me-3" src="../images/logo_conectwi_wide-removebg-preview.png" style="height: 2.7rem;" alt="Logotipo ConectWi">
                 </span>
-                <!-- esto no sera el fin apenas es el inicio -->
-                <!-- <form class="d-flex justify-content-end align-items-end" style="justify-content: end;" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form> -->
-
+                
             </div>
         </nav>
         <div class="container text-end align-items-end justify-content-end"><!-- inicio container principal-->
@@ -690,8 +700,9 @@ else {
 <script src="assets/js/graficos.js"></script>
 
 <?php
-    include("modales/agregarUsuario.php");
+    /* include("modales/agregarUsuario.php");
     include("modales/editarUsuario.php");
-    include("modales/gestionarUsuarios.php");
+    include("modales/gestionarUsuarios.php"); */
     include("modales/reporteClientes.php");
+    include("modales/reporteContratos.php");
 ?>

@@ -1,7 +1,7 @@
 <?php
     echo '
     
-    <div class="modal fade" id="gestionUsuarios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="gestionUsuarios9" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">>
             <div class="modal-content">
                 <div class="modal-header">
@@ -34,27 +34,28 @@
                             </div>
                         </div>
                     
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button>
-                    <div class="table-responsive mt-3">
-                        <table class="table p-1">
-                            <thead>
-                                <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col">Perfil</th>
-                                    <th scope="col">Fecha de creación</th>
-                                    <th scope="col">Último logIn</th>
-                                    <th scope="col">Estatus</th>
-                                    <th scope="col">Nombre completo</th>
-                                    <th scope="col">Usuario</th>
-                                    <th scope="col" class="text-end"><i class="bi bi-people"></i></th>
-                                </tr>
-                            </thead>
-                            <tbody id="tablaUsuariosG">
-                                
-                            </tbody>
-                        </table>
-                    </div>
+                        <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button>
+                        <div class="table-responsive mt-3">
+                            <table class="table p-1">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">Perfil</th>
+                                        <th scope="col">Fecha de creación</th>
+                                        <th scope="col">Último logIn</th>
+                                        <th scope="col">Estatus</th>
+                                        <th scope="col">Nombre completo</th>
+                                        <th scope="col">Usuario</th>
+                                        <th scope="col" class="text-end"><i class="bi bi-people"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaUsuariosG">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
                     <!-- <input type="checkbox" > Mostrar Password  -->
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
