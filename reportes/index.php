@@ -61,10 +61,10 @@ else {
         <script src="assets/js/agregarUser.js"></script>
         <script src="assets/js/reportes.js"></script>
         <script src="assets/js/gestionUsers.js"></script>
+        <script src="assets/js/contratos.js"></script>
 
         <!-- js jquery cdn -->
         <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-
         
         
         <style>
@@ -408,7 +408,7 @@ else {
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reporteClientes">Reportes de Clientes <i class="bi bi-folder2-open ms-2" style="font-size: 25px;"></i></a></li>
-                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reporteContratos">Reportes de Contratos<i class="bi bi-clipboard2-check ms-2" style="font-size: 25px;"></i></a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reporteContratos" onclick="consultaContratosRep()">Reportes de Contratos<i class="bi bi-clipboard2-check ms-2" style="font-size: 25px;"></i></a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -705,4 +705,5 @@ else {
     include("modales/gestionarUsuarios.php"); */
     include("modales/reporteClientes.php");
     include("modales/reporteContratos.php");
+    include("modales/reporteContratoIndividual.php");
 ?>

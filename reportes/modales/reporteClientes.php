@@ -33,6 +33,14 @@
                                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-arrow-bar-left" style="font-size: 20px;"></i></span>
                             </div>
                         </div>
+                        <div class="mb-3">
+                            <label for="tipoReporteCliente" class="form-label">Tipo Reporte:</label>
+                            <select class="form-select" id="tipoReporteCliente" aria-label="Tipo reporte" required>
+                                <option selected>Selecciona...</option>
+                                <option value="Global">Global</option>
+                                <option value="Detallado">Detallado</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>

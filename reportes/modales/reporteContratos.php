@@ -31,7 +31,7 @@
                         <div class="row">
                             <div class="col-6">
                             </div>
-                            <div class="col-6">
+                            <div class="col-6 text-end">
                                 <div class="btn-group align-items-end" role="group" aria-label="Basic radio toggle button group">
                                     <input type="radio" class="btn-check" value="1" name="btnradio" id="estatuscontrato1">
                                     <label class="btn btn-outline-success" for="estatuscontrato1"><i class="bi bi-check-lg"></i> Activo</label>
@@ -43,7 +43,7 @@
                             </div>
                         </div>
                         <div class="table-responsive table-hover mt-3">
-                            <table class="table p-1">
+                            <table class="table p-1 text-center table-hover">
                                 <thead>
                                     <tr>
                                         <th scope="col">Folio</th>
@@ -51,9 +51,9 @@
                                         <th scope="col">Localidad</th>
                                         <th scope="col">Paquete</th>
                                         <th scope="col">Fecha Contrato</th>
-                                        <th scope="col">Estatus</th>
                                         <th scope="col">IP</th>
-                                        <th scope="col" class="text-end"><i class="bi bi-clipboard2-check"></i></th>
+                                        <th scope="col">Estatus</th>
+                                        <th scope="col"><i class="bi bi-clipboard2-check"></i></th>
                                     </tr>
                                 </thead>
                                 <tbody id="tablaContratosG">
