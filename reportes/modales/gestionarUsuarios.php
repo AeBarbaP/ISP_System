@@ -33,7 +33,6 @@
                                 </div>
                             </div>
                         </div>
-                    
                         <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button>
                         <div class="table-responsive mt-3">
                             <table class="table p-1">
