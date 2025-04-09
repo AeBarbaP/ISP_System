@@ -96,22 +96,10 @@ function generarTablaPagos(folio) {
                             <td>Mensualidad</td>
                             <td>${mesNombre}</td>
                             <td></td>
-                            <td><span class="badge bg-primary text-light" style="cursor: pointer;" onclick="registrarPago('${folioPago}','${nuevoFolio}', ${mesNumero})">Pagar</span></td>
+                            <td><span class="badge bg-primary text-light" style="cursor: pointer;" onclick="registrarPago('${folioPago}','${nuevoFolio}', ${mesNumero})">Agregar</span></td>
                         </tr>
                     `;
-                } else {
-                    // Mes con pago
-                    tablaPagos += `
-                        <tr class="table-success text-dark">
-                            <td>${mesNumero}</td>
-                            <td>${mesNombre}</td>
-                            <td>${pago.concepto || 'Mensualidad'}</td>
-                            <td>${mesNombre}</td>
-                            <td>${pago.monto || ''}</td>
-                            <td><span class="badge bg-danger text-light" style="cursor: pointer;" onclick="eliminarPago('${folioPago}','${nuevoFolio}', ${mesNumero})">Eliminar</span></td>
-                        </tr>
-                    `;
-                }
+                } 
             });
 
             document.getElementById("NuevaSolicitud").hidden = false;
