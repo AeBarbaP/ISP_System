@@ -57,12 +57,14 @@ else {
 
         <!-- js de carga -->
         <script src="assets/js/query_onload.js"></script>
-        <script src="assets/js/userUpdate.js"></script>
-        <script src="assets/js/agregarUser.js"></script>
+        <!-- <script src="assets/js/userUpdate.js"></script>
+        <script src="assets/js/agregarUser.js"></script> -->
         <script src="assets/js/reportes.js"></script>
-        <script src="assets/js/gestionUsers.js"></script>
+        <!-- <script src="assets/js/gestionUsers.js"></script> -->
         <script src="assets/js/contratos.js"></script>
         <script src="assets/js/pagos.js"></script>
+        <script src="assets/js/usuarios.js"></script>
+        <script src="../dashboard/js/menusLaterales.js"></script>
 
         <!-- js jquery cdn -->
         <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -379,10 +381,10 @@ else {
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reportePagos" onclick="consultaPagosRep()">Reporte de Pagos <i class="bi bi-cash-coin ms-2" style="font-size: 25px;"></i></a></li>
-                        <li>
+                        <!-- <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionClientes" onclick="" href="#">Gestión de Clientes <i class="bi bi-person-gear ms-2" style="font-size: 30px;"></i></a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionClientes" onclick="" href="#">Gestión de Clientes <i class="bi bi-person-gear ms-2" style="font-size: 30px;"></i></a></li> -->
                         <!-- <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -396,14 +398,14 @@ else {
                         <i class="bi bi-people-fill ms-2" style="font-size: 25px;"></i>
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
-                        <li><a class="dropdown-item" href="#">Reporte Individual <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""></a></li>
-                        <li><a class="dropdown-item" href="#">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reporteIndividualUsr" onclick="consultaUsuariosRep()">Reporte Individual <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""></a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reportegeneralUsr" onclick="consultaUsuariosGeneral()">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregar" href="">Agregar Usuario<i class="bi bi-person-plus ms-2" style="font-size: 30px;"></i></a></li>
-                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionUsuarios" onclick="usuariosQueryG()" href="#">Gestión de Usuarios <i class="bi bi-person-gear ms-2" style="font-size: 30px;"></i></a></li>
+                        <li><a class="dropdown-item" href="#" onclick="nuevoUsuario()">Agregar Usuario<i class="bi bi-person-plus ms-2" style="font-size: 30px;"></i></a></li>
+                        <li><a class="dropdown-item" onclick="gestionUsuarios()" href="#">Gestión de Usuarios <i class="bi bi-person-gear ms-2" style="font-size: 30px;"></i></a></li>
                     </ul>
                 </div>
                 <div class="vr"></div>
@@ -674,4 +676,6 @@ else {
     /* include("modales/reporteContratoIndividual.php"); */
     include("modales/reportePagos.php");
     include("modales/reportePagoIndividual.php");
+    include("modales/reporteUsuarios.php");
+    include("modales/reporteUsuariosGral.php");
 ?>

@@ -13,7 +13,7 @@
                             <div class="col-sm-4">
                                 <label for="foliocontratoReporte" class="form-label"><h2>Folio:</h2></label>
                             <div>
-                                <input type="text" class="form-control" name="foliocontrato" id="folioContratoReporte" disabled></input>
+                                <input type="text" class="form-control" name="foliocontrato" id="folioContratoReporte" disabled>
                             </div>
                         </div>
                         <div class="col-sm-4">
