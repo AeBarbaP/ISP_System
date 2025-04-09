@@ -38,7 +38,7 @@
                                         <th scope="col">Fecha Pago</th>
                                         <th scope="col">Tipo Pago</th>
                                         <th scope="col">Total</th>
-                                        <th scope="col">Estatus</th>
+                                        
                                         <th scope="col"><i class="bi bi-eye"></i></th>
                                     </tr>
                                 </thead>
