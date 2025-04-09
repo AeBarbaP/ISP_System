@@ -111,8 +111,8 @@
                             <input type="date" class="form-control" id="mesMasCincoDiasInputReporte" disabled>
                             <!-- Carga los datos de la cuota mensual -->
                         </div>
-                    </div>
-                    </form>
+                        </form>
+                        </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
                         <button type="button" class="btn btn-warning"><i class="bi bi-arrow-clockwise me-2" style="font-size: 20px;"></i>Actualizar Datos</button>
