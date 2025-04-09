@@ -7,13 +7,13 @@
                         <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-info-circle me-2"  style="font-size: 25px;"></i>Información de Contrato</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                    <form id="formSolicitudes">   
+                    <div class="modal-body mb-2">
+                    <form id="formSolicitudes2">   
                         <div class="row g-3">   
                             <div class="col-sm-4">
                                 <label for="foliocontratoReporte" class="form-label"><h2>Folio:</h2></label>
                             <div>
-                                <input type="text" class="form-control" name="foliocontrato" id="folioLabelContratoReporte" disabled></input>
+                                <input type="text" class="form-control" name="foliocontrato" id="folioContratoReporte" disabled></input>
                             </div>
                         </div>
                         <div class="col-sm-4">
@@ -89,7 +89,7 @@
                             <input type="number" class="form-control" id="antenaContratoReporte" name="antena" placeholder="" disabled>
                         </div>
                         <div class="col-sm-6">
-                            <label for="ipAddress" class="form-label">IP asignada:</label>
+                            <label for="ipAddressReporte" class="form-label">IP asignada:</label>
                             <input type="number" class="form-control" id="ipAddressContratoReporte" name="ipAddress" placeholder="" disabled>
                         </div>
                         <div class="col-lg-12">
@@ -99,24 +99,25 @@
                             <!-- <h2>$</h2>Carga los datos de la cuota mensual -->
                             <input type="text" class="form-control" id="inputCostoReporte" disabled>
                         </div>
-                        <div class="col-lg-6" id="fechalimite">
+                        <div class="col-lg-6 mb3" id="fechalimite">
                             <h3>Fecha Límite de Pago</h3>
                             <!-- <h3>DD/MMM</h3> -->
                             <input type="date" class="form-control" id="siguienteMesInputReporte" disabled>
                             <!-- Carga los datos de la cuota mensual -->
                         </div>
-                        <div class="col-lg-6" id="fechacorte">
+                        <div class="col-lg-6 mb-3" id="fechacorte">
                             <h3>Fecha de Corte</h3>
                             <!-- <h3>DD/MMM</h3> -->
                             <input type="date" class="form-control" id="mesMasCincoDiasInputReporte" disabled>
                             <!-- Carga los datos de la cuota mensual -->
                         </div>
                     </div>
+                    </form>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
-                        <button type="submit" class="btn btn-warning"><i class="bi bi-filetype-pdf me-2" style="font-size: 20px;"></i>Cambiar Datos</button>
-                        <button type="submit" class="btn btn-success"><i class="bi bi-filetype-pdf me-2" style="font-size: 20px;" hidden></i>Actualizar Datos</button>
-                        <button type="submit" class="btn btn-primary"><i class="bi bi-filetype-pdf me-2" style="font-size: 20px;"></i>Imprimir Contrato</button>
+                        <button type="button" class="btn btn-warning"><i class="bi bi-arrow-clockwise me-2" style="font-size: 20px;"></i>Actualizar Datos</button>
+                        <button type="submit" class="btn btn-primary"><i class="bi bi-floppy me-2" style="font-size: 20px;"></i>Guardar Cambios</button>
+                        <!-- <button type="button" class="btn btn-primary"><i class="bi bi-filetype-pdf me-2" style="font-size: 20px;"></i>Imprimir Contrato</button> -->
                     </div>
                 </div>
             </div>

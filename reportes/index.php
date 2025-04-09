@@ -412,7 +412,7 @@ else {
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Reporte de Pagos <i class="bi bi-cash-coin ms-2" style="font-size: 25px;"></i></a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reportePagos" onclick="consultaPagosRep()">Reporte de Pagos <i class="bi bi-cash-coin ms-2" style="font-size: 25px;"></i></a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -705,5 +705,6 @@ else {
     include("modales/gestionarUsuarios.php"); */
     include("modales/reporteClientes.php");
     include("modales/reporteContratos.php");
-    include("modales/reporteContratoIndividual.php");
+    /* include("modales/reporteContratoIndividual.php"); */
+    include("modales/reportePagos.php");
 ?>
