@@ -1,6 +1,7 @@
 function pagoNew() {
     $("#pago").modal("show");
     generarFolio2();
+    queryConcepto();
 
     // Obtener los elementos input
     const inputFechaActual = document.getElementById('fechaSolicitud');
@@ -28,9 +29,9 @@ function queryConcepto(){
     $.ajax({
         type: "POST",
         url: "query/query_conceptos.php",
-        dataType: "json",
+        dataType: "html",
         success: function(data) {
+            $('#catalogoConceptos').html(data);
         }
-
         });
 }
