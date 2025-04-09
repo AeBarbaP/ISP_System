@@ -1,5 +1,4 @@
-<?php
-    echo '
+
         <div class="modal fade" id="reporteContratoIndividual" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
@@ -12,7 +11,8 @@
                         <div class="row g-3">   
                             <div class="col-sm-4">
                                 <label for="foliocontratoReporte" class="form-label"><h2>Folio:</h2></label>
-                            <div>
+                            </div>
+                            <div class="col-sm-4">
                                 <input type="text" class="form-control" name="foliocontrato" id="folioContratoReporte" disabled>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-sm-4">
                             <label for="estado" class="form-label">Estado:</label>
-                            <select class="form-select" name="" id="catalogoEstados" disabled></select>
+                            <select class="form-select" name="" id="catalogoEstadosReporte" disabled></select>
                         </div>
                         <div class="col-sm-4">
                             <label for="cp" class="form-label">C.P.:</label>
@@ -99,13 +99,13 @@
                             <!-- <h2>$</h2>Carga los datos de la cuota mensual -->
                             <input type="text" class="form-control" id="inputCostoReporte" disabled>
                         </div>
-                        <div class="col-lg-6 mb3" id="fechalimite">
+                        <div class="col-lg-6 mb3" id="fechalimiteReporte">
                             <h3>Fecha Límite de Pago</h3>
                             <!-- <h3>DD/MMM</h3> -->
                             <input type="date" class="form-control" id="siguienteMesInputReporte" disabled>
                             <!-- Carga los datos de la cuota mensual -->
                         </div>
-                        <div class="col-lg-6 mb-3" id="fechacorte">
+                        <div class="col-lg-6 mb-3" id="fechacorteReporte">
                             <h3>Fecha de Corte</h3>
                             <!-- <h3>DD/MMM</h3> -->
                             <input type="date" class="form-control" id="mesMasCincoDiasInputReporte" disabled>

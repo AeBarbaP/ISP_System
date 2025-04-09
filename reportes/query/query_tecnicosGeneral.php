@@ -31,7 +31,7 @@
             ';
         }
     echo'
-        <td><a href="#" data-bs-toggle="modal" data-bs-target="#reporteIndividualUsr" onclick="consultaTecnicosInfoRep('.$id.')"><i class="bi bi-pen"></i></a></td> //Esta función no existe aún, es para llenar los campos del modal que genera reporte global o detallado de actividades de usuarios, hay que incluir login y logout además de los logs de usr
+        <td><a href="#" data-bs-toggle="modal" data-bs-target="#reporteIndividualTecnico"  onclick="consultaTecnicosRep('.$id.')"><i class="bi bi-pen"></i></a></td> //Esta función no existe aún, es para llenar los campos del modal que genera reporte global o detallado de actividades de usuarios, hay que incluir login y logout además de los logs de usr
     </tr>
     ';
     }

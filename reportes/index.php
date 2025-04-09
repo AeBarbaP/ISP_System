@@ -664,21 +664,23 @@ else {
             </div>
         </div><!-- fin container principal-->
     </body><!--aqui-->
+
+    <?php
+        /* include("modales/agregarUsuario.php");
+        include("modales/editarUsuario.php");
+        include("modales/gestionarUsuarios.php"); */
+        include("modales/reporteClientes.php");
+        include("modales/reporteContratos.php");
+        include("modales/reporteContratoIndividual.php");
+        include("modales/reportePagos.php");
+        include("modales/reportePagoIndividual.php");
+        include("modales/reporteUsuarios.php");
+        include("modales/reporteUsuariosGral.php");
+        include("modales/reporteTecnicos.php");
+        include("modales/reporteTecnicosGral.php");
+    ?>
+
 </html>
     
 <script src="assets/js/graficos.js"></script>
 
-<?php
-    /* include("modales/agregarUsuario.php");
-    include("modales/editarUsuario.php");
-    include("modales/gestionarUsuarios.php"); */
-    include("modales/reporteClientes.php");
-    include("modales/reporteContratos.php");
-    /* include("modales/reporteContratoIndividual.php"); */
-    include("modales/reportePagos.php");
-    include("modales/reportePagoIndividual.php");
-    include("modales/reporteUsuarios.php");
-    include("modales/reporteUsuariosGral.php");
-    include("modales/reporteTecnicos.php");
-    include("modales/reporteTecnicosGral.php");
-?>
