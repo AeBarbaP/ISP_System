@@ -63,9 +63,15 @@ else {
         <script src="assets/js/gestionUsers.js"></script>
         <script src="assets/js/contratos.js"></script>
         <script src="assets/js/pagos.js"></script>
+        <script src="assets/js/promocion.js"></script>
+        <script src="assets/js/perfiles.js"></script>
+        <script src="assets/js/select2.js"></script>
+        <script src="assets/js/registroPago.js"></script>
         <script src="assets/js/usuarios.js"></script>
         <script src="assets/js/tecnicos.js"></script>
-        <script src="/js/menusLaterales.js"></script>
+        <script src="assets/js/menusLaterales.js"></script>
+        <script src="assets/js/scripts.js"></script>
+        <script src="assets/js/validaciones.js"></script>
 
         <!-- js jquery cdn -->
         <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>

@@ -1,15 +1,3 @@
-
-function consultaPagosRep() {
-    $.ajax({
-        url: 'query/query_pagos.php',
-        type: 'POST',
-        dataType: 'html',
-        success: function(data) {
-            $('#tablaPagosG').html(data);
-        }
-    });
-}
-
 function queryClientes(cliente) {
     $.ajax({
         type: "POST",
@@ -72,7 +60,7 @@ function ejecutarFuncionConFolio(folio) {
             $('#datosGenerales').html(datosGenerales);
 
              // Llamar a la función para generar la tabla de pagos
-            generarTablaPagos(folio);
+             generarTablaPagos(folio);
         }
     });
 }

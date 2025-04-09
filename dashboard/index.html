@@ -40,7 +40,7 @@
               <li class="nav-item ms-0 me-3 d-lg-flex d-none">
                 <a href="#" class="nav-link horizontal-nav-left-menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class="mdi mdi-format-list-bulleted"></i></a>
               </li>
-              <li class="nav-item dropdown">
+              <!-- <li class="nav-item dropdown">
                 <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
                   <i class="mdi mdi-bell mx-0"></i>
                   <span class="count bg-success">2</span>
@@ -132,7 +132,7 @@
                     </div>
                   </a>
                 </div>
-              </li>
+              </li> -->
             </ul>
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                 <a class="navbar-brand brand-logo" href="index.html"><img src="../images/logo_conectwi_wide-removebg-preview.png" height="30px" alt="logo"/></a>
@@ -973,6 +973,10 @@
 							<option value="4">Transferencia</option>
 						</select>
 					</div>
+					<div class="col-lg-4 mb-2" id="pagodiv2" >
+						<label for="tipopago" class="form-label"># Baucher:</label>
+						<input class="form-control" type="text" id="tipopagoBaucher" placeholder="Num. baucher" required>
+					</div>
                     
                 </div>
                 <div class="modal-footer">
@@ -1069,7 +1073,7 @@
 							Corte de Caja
 						</a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#" onclick="corteCajaDiario()">Generar Corte de Caja</a></li>
+							<li><a class="dropdown-item" href="#" id="menuCorteCaja" onclick="corteCajaDiario()">Generar Corte de Caja</a></li>
 							<li><a class="dropdown-item" href="#" onclick="reporteCorteCaja()">Imprimir Corte de Caja</a></li>
 						</ul>
 					</li>

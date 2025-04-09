@@ -1305,15 +1305,13 @@ function editarIncidencia() {
               <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
               <select class="form-select" id="folio_incidencia_editar" size="4" aria-label="folio incidencia">
                 <option selected>Selecciona...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option> <!-- Muestra los folios de las incidencias que aún no han sido resueltas para cambiar los datos -->
+                <!-- Muestra los folios de las incidencias que aún no han sido resueltas para cambiar los datos -->
               </select>
             </div>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
               <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_incidenciaU" aria-describedby="basic-addon1" disabled>
-            </div>
+            </div> -->
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
               <input type="text" class="form-control" placeholder="" aria-label="cliente" id="cliente_incidenciaU" aria-describedby="basic-addon1">
@@ -1379,7 +1377,10 @@ function resolverIncidencia() {
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
-              <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_incidenciaU" aria-describedby="basic-addon1" disabled>
+              <select class="form-select" id="clientes_corte" size="4" aria-label="clientes para corte">
+                <option selected>Selecciona...</option>
+                 <!-- Muestra los clientes que están en proceso de corte y al seleccionar muestra la info del domicilio como en el pago -->
+              </select>
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
@@ -1732,7 +1733,7 @@ function gestionAntenas() {
 
 function altaCorte() {
 
-  let titulo = "Editar Orden de Corte";
+  let titulo = "Nueva Orden de Corte";
   // Crear el elemento del modal
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
@@ -1757,9 +1758,7 @@ function altaCorte() {
             <div class="mb-3">
               <select class="form-select" id="clientes_corte" size="4" aria-label="clientes para corte">
                 <option selected>Selecciona...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option> <!-- Muestra los clientes que están en proceso de corte y al seleccionar muestra la info del domicilio como en el pago -->
+                 <!-- Muestra los clientes que están en proceso de corte y al seleccionar muestra la info del domicilio como en el pago -->
               </select>
             </div>
             <div class="mb-3" id="datosDomicilio">
@@ -1846,9 +1845,7 @@ function editarCorte() {
               <label class="form-label" id="basic-addon1"><i class="bi bi-list-ol me-2"></i>Folio de Corte:</label>
               <select class="form-select" id="folio_corte_editar" size="4" aria-label="folio corte">
                 <option selected>Selecciona...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option> <!-- Muestra los folios de las ordenes de corte que aún no han sido resueltas para cambiar los datos -->
+                 <!-- Muestra los folios de las ordenes de corte que aún no han sido resueltas para cambiar los datos -->
               </select>
             </div>
             <div class="mb-3" id="datosClienteyDomicilio">
@@ -1999,9 +1996,7 @@ function resolverCorte() {
               <label class="form-label" id="basic-addon1"><i class="bi bi-list-ol me-2"></i>Folio de Corte:</label>
               <select class="form-select" id="folio_corte_tecnico" size="4" aria-label="folio corte">
                 <option selected>Selecciona...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option> <!-- Muestra los folios de las ordenes de corte que aún no han sido resueltas para cambiar los datos -->
+                <!-- Muestra los folios de las ordenes de corte que aún no han sido resueltas para cambiar los datos -->
               </select>
             </div>
             <div class="mb-3" id="datosClienteyDomicilio">

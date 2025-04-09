@@ -551,7 +551,14 @@ function fechaTecnicoE(){
 function guardarTecnico(){
   let fecha = document.getElementById('fecha_creacion_tecnico').value;
   let nombre = document.getElementById('nombre_tecnico').value;
-  let estatus_tecnico = document.getElementById('estatus_tecnico').value;
+
+  if (document.getElementById('estatus1').checked == true){
+    var estatus_tecnico = 1;
+  }
+  else if (document.getElementById('estatus2').checked == true){
+    var estatus_tecnico = 2;
+  }
+
 
   $.ajax({
     url: 'prcd/guardarTecnico.php',
@@ -559,7 +566,7 @@ function guardarTecnico(){
     data:{
       fecha:fecha,
       nombre:nombre,
-      estatus_tecnico,estatus_tecnico
+      estatus_tecnico:estatus_tecnico
     },
     dataType: 'json',
     success: function(data) {
