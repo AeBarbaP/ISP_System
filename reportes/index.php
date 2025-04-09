@@ -177,7 +177,6 @@ else {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     </head>
 
-    <script src="../dashboard/js/menusLaterales.js"></script>
     <script src="../dashboard/js/laterales/promociones.js"></script>
     <script src="../dashboard/js/laterales/paquetes.js"></script>
 
