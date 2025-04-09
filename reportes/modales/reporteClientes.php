@@ -16,9 +16,7 @@
                         <div class="mb-3">
                             <select class="form-select" id="cliente_reporte" size="4" aria-label="numero de cliente">
                                 <option selected>Selecciona...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option> <!-- Muestra los folios de las incidencias que aún no han sido resueltas para cambiar los datos -->
+                                <!-- Muestra los folios de las incidencias que aún no han sido resueltas para cambiar los datos -->
                             </select>
                         </div>
                         <div class="alert alert-info" role="alert">

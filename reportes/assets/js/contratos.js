@@ -13,3 +13,14 @@ function consultaContratosRep() {
         }
     });
 }
+
+function consultaClientesRep() {
+    $.ajax({
+        url: 'query/query_clientes.php',
+        type: 'POST',
+        dataType: 'html',
+        success: function(data) {
+            $('#cliente_reporte').html(data);
+        }
+    });
+}
