@@ -34,4 +34,13 @@ function queryConcepto(){
             $('#catalogoConceptos').html(data);
         }
         });
+
+        $.ajax({
+            type: "POST",
+            url: "query/query_paquetes.php",
+            dataType: "html",
+            success: function(data) {
+                $('#Mensualidad').html(data);
+            }
+            });
 }

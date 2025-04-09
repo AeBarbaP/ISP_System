@@ -9,7 +9,7 @@ echo'
 ';
 while($row = $resultado->fetch_assoc()){
     echo'
-    <option value="'.$row['id'].'">'.$row['concepto'].'</option>
+    <optgroup label="'.$row['concepto'].'" id="'.$row['concepto'].'"></optgroup>
     ';
 }
 
