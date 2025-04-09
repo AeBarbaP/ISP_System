@@ -64,6 +64,7 @@ else {
         <script src="assets/js/contratos.js"></script>
         <script src="assets/js/pagos.js"></script>
         <script src="assets/js/usuarios.js"></script>
+        <script src="assets/js/tecnicos.js"></script>
         <script src="../dashboard/js/menusLaterales.js"></script>
 
         <!-- js jquery cdn -->
@@ -401,11 +402,11 @@ else {
                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reporteIndividualUsr" onclick="consultaUsuariosRep()">Reporte Individual <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""></a></li>
                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reportegeneralUsr" onclick="consultaUsuariosGeneral()">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item" href="#" onclick="nuevoUsuario()">Agregar Usuario<i class="bi bi-person-plus ms-2" style="font-size: 30px;"></i></a></li>
-                        <li><a class="dropdown-item" onclick="gestionUsuarios()" href="#">Gestión de Usuarios <i class="bi bi-person-gear ms-2" style="font-size: 30px;"></i></a></li>
+                        <li><a class="dropdown-item" onclick="gestionUsuarios()" href="#">Gestión de Usuarios <i class="bi bi-person-gear ms-2" style="font-size: 30px;"></i></a></li> -->
                     </ul>
                 </div>
                 <div class="vr"></div>
@@ -415,14 +416,14 @@ else {
                         <i class="bi bi-person-raised-hand ms-2" style="font-size: 25px;"></i>
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
-                        <li><a class="dropdown-item" href="#">Reporte Individual <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""></a></li>
-                        <li><a class="dropdown-item" href="#">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reporteIndividualTecnico" onclick="consultaTecnicosRep()">Reporte Individual <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""></a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reportegeneralTecnicos" onclick="consultaTecnicosGeneral()">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregar" href="">Agregar Técnico<i class="bi bi-person-plus ms-2" style="font-size: 30px;"></i></a></li>
-                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionTecnicos" onclick="usuariosQueryG()" href="#">Gestión de Técnicos <i class="bi bi-person-gear ms-2" style="font-size: 30px;"></i></a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionTecnicos" onclick="usuariosQueryG()" href="#">Gestión de Técnicos <i class="bi bi-person-gear ms-2" style="font-size: 30px;"></i></a></li> -->
                     </ul>
                 </div>
                 <div class="vr"></div>
@@ -678,4 +679,6 @@ else {
     include("modales/reportePagoIndividual.php");
     include("modales/reporteUsuarios.php");
     include("modales/reporteUsuariosGral.php");
+    include("modales/reporteTecnicos.php");
+    include("modales/reporteTecnicosGral.php");
 ?>
