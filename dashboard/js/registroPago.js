@@ -23,3 +23,14 @@ function pagoNew() {
 
     // Inicia el ajax para los datos del usuario
 }
+
+function queryConcepto(){
+    $.ajax({
+        type: "POST",
+        url: "query/query_conceptos.php",
+        dataType: "json",
+        success: function(data) {
+        }
+
+        });
+}

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 08-04-2025 a las 00:46:37
+-- Tiempo de generación: 09-04-2025 a las 07:36:21
 -- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.4.28
+-- Versión de PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -179,7 +179,7 @@ INSERT INTO `clientes` (`id`, `folio`, `nombre`, `domicilio`, `calle`, `colonia`
 (1, '202502242354403E354EAA', 'JesusRLV', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2025-02-24', '2025-03-24', '2025-03-29', '12.12', 1),
 (2, '202502242354403E354EA1', 'JesusRLV 2', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2025-02-24', '2025-03-24', '2025-03-29', '12.12', 1),
 (3, '202502242354403E354EA2', 'JesusRLV 3', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2025-02-24', '2025-03-24', '2025-03-29', '12.12', 1),
-(4, '202502242354403E354EA3', 'Ana Elisa B', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2025-02-24', '2025-03-24', '2025-03-29', '12.12', 1);
+(4, '202502242354403E354EA3', 'Ana Elisa B', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2024-01-03', '2025-03-24', '2024-01-01', '12.12', 1);
 
 -- --------------------------------------------------------
 
@@ -192,6 +192,16 @@ CREATE TABLE `conceptos` (
   `concepto` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `costo` decimal(5,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `conceptos`
+--
+
+INSERT INTO `conceptos` (`id`, `concepto`, `costo`) VALUES
+(1, 'Mensualidad', '350.00'),
+(2, 'Instalación', '70.00'),
+(3, 'Reconexión', '100.00'),
+(4, 'Adelanto', '350.00');
 
 -- --------------------------------------------------------
 
@@ -286,7 +296,15 @@ CREATE TABLE `pagos` (
 --
 
 INSERT INTO `pagos` (`id`, `num_pago`, `fecha_pago`, `folio_contrato`, `concepto`, `periodo`, `tipo_pago`, `descuento`, `total`) VALUES
-(1, '1', '2025-03-05 00:55:00', '202502242354403E354EA3', 1, 'Enero-Marzo', 1, '0', 1000);
+(1, '1', '2025-03-05 00:55:00', '202502242354403E354EA3', 1, 'Enero-Marzo', 1, '0', 1000),
+(2, 'CW2025-002', '2025-04-09 06:22:28', '202502242354403E354EA3', 1, '1', 1, '0', 350),
+(3, 'CW2025-002', '2025-04-09 06:33:31', '202502242354403E354EA3', 1, '5', 1, '0', 350),
+(4, 'CW2025-002', '2025-04-09 06:35:51', '202502242354403E354EA3', 1, '2', 1, '0', 350),
+(5, 'CW2025-002', '2025-04-09 06:37:04', '202502242354403E354EA3', 1, '4', 1, '0', 350),
+(6, 'CW2025-002', '2025-04-09 06:37:48', '202502242354403E354EA3', 1, '7', 1, '0', 350),
+(7, 'CW2025-002', '2025-04-09 06:45:09', '202502242354403E354EA3', 1, '9', 1, '0', 350),
+(8, 'CW2025-002', '2025-04-09 06:46:45', '202502242354403E354EA3', 1, '3', 1, '0', 350),
+(9, 'CW2025-002', '2025-04-09 07:09:09', '202502242354403E354EA3', 1, '6', 1, '0', 350);
 
 -- --------------------------------------------------------
 
@@ -542,7 +560,7 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `conceptos`
 --
 ALTER TABLE `conceptos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `cortes`
@@ -572,7 +590,7 @@ ALTER TABLE `logs_users`
 -- AUTO_INCREMENT de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `promociones`
