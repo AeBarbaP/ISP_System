@@ -68,7 +68,7 @@ function ejecutarFuncionConFolio(folio) {
 function generarTablaPagos(folio) {
     $.ajax({
         type: "POST",
-        url: "query/query_pagos_cliente.php", // Archivo PHP que buscará los pagos
+        url: "query/query_pagos_cliente.php",
         data: { 
             folio: folio 
         },
@@ -82,27 +82,39 @@ function generarTablaPagos(folio) {
                 "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
             ];
 
-            // Recorrer los meses y buscar los pagos correspondientes
-            meses.forEach((mes, index) => {
-                const pago = data.find(p => p.mes == (index + 1)); // Buscar pago para el mes actual
-                const mesNumero = index + 1; // Número del mes (1 = Enero, 2 = Febrero, etc.)
-                const descripcion = 'Mensualidad';
-            
-                tablaPagos += `
-                    <tr class="${pago ? 'bg-secondary' : 'bg-ligth'}">
-                        <td>${index+1}</td>
-                        <td>${mes}</td>
-                        <td>${descripcion}</td>
-                        <td>${pago ? pago.periodo : mes}</td>
-                        <td>${pago ? pago.monto : ''}</td>
-                        <td>${pago ? pago.concepto : `<span class="badge bg-primary text-light" style="cursor: pointer;" onclick="registrarPago('${folioPago}','${nuevoFolio}', ${mesNumero})">Pagar</span>`}</td>
-                    </tr>
-                `;
+            // Recorrer los pagos recibidos
+            data.forEach((pago) => {
+                const mesNumero = pago.mes;
+                const mesNombre = meses[mesNumero - 1];
+                
+                if (pago.pagado === false) {
+                    // Mes sin pago
+                    tablaPagos += `
+                        <tr class="bg-light">
+                            <td>${mesNumero}</td>
+                            <td>${mesNombre}</td>
+                            <td>Mensualidad</td>
+                            <td>${mesNombre}</td>
+                            <td></td>
+                            <td><span class="badge bg-primary text-light" style="cursor: pointer;" onclick="registrarPago('${folioPago}','${nuevoFolio}', ${mesNumero})">Pagar</span></td>
+                        </tr>
+                    `;
+                } else {
+                    // Mes con pago
+                    tablaPagos += `
+                        <tr class="table-success text-dark">
+                            <td>${mesNumero}</td>
+                            <td>${mesNombre}</td>
+                            <td>${pago.concepto || 'Mensualidad'}</td>
+                            <td>${mesNombre}</td>
+                            <td>${pago.monto || ''}</td>
+                            <td><span class="badge bg-danger text-light" style="cursor: pointer;" onclick="eliminarPago('${folioPago}','${nuevoFolio}', ${mesNumero})">Eliminar</span></td>
+                        </tr>
+                    `;
+                }
             });
 
             document.getElementById("NuevaSolicitud").hidden = false;
-
-            // Insertar la tabla en el tbody
             $('#NuevaSolicitud').html(tablaPagos);
         },
         error: function(jqXHR, textStatus, errorThrown) {
