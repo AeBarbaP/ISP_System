@@ -16,7 +16,7 @@ function consultaContratosRep() {
 
 function consultaClientesRep() {
     $.ajax({
-        url: 'query/query_clientes.php',
+        url: 'query/query_clientesRep.php',
         type: 'POST',
         dataType: 'html',
         success: function(data) {
