@@ -70,6 +70,7 @@ else {
         <script src="assets/js/usuarios.js"></script>
         <script src="assets/js/tecnicos.js"></script>
         <script src="assets/js/menusLaterales.js"></script>
+        <script src="assets/js/laterales/antenas.js"></script>
         <script src="assets/js/scripts.js"></script>
         <script src="assets/js/validaciones.js"></script>
 

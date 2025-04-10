@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 09-04-2025 a las 23:59:28
+-- Tiempo de generación: 10-04-2025 a las 20:35:33
 -- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.4.28
+-- Versión de PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,8 +44,16 @@ CREATE TABLE `antenas` (
   `modelo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `num_serie` int(11) NOT NULL,
   `MAC` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `fecha_alta` date NOT NULL
+  `fecha_alta` date NOT NULL,
+  `estatus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `antenas`
+--
+
+INSERT INTO `antenas` (`id`, `marca`, `modelo`, `num_serie`, `MAC`, `fecha_alta`, `estatus`) VALUES
+(1, '54', '4', 4, '4', '2025-04-10', 1);
 
 -- --------------------------------------------------------
 
@@ -612,7 +620,7 @@ ALTER TABLE `acciones`
 -- AUTO_INCREMENT de la tabla `antenas`
 --
 ALTER TABLE `antenas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `catalogo_adelanto`
