@@ -25,10 +25,13 @@ function pagoNew() {
     // Inicia el ajax para los datos del usuario
 }
 
-function queryConcepto(){
+function queryConcepto(folio){
     $.ajax({
         type: "POST",
         url: "query/query_conceptos.php",
+        data:{
+            folio:folio
+        },
         dataType: "html",
         success: function(data) {
             $('#catalogoConceptos').html(data);
