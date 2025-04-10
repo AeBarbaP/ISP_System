@@ -35,6 +35,7 @@ function contratoNew() {
     inputSiguienteMes.value = siguienteMesFormateado;
     inputMesMasCincoDias.value = mesMasCincoDiasFormateado;
 
+    antenas();
     comunidad();
     municipio();
     estado();
@@ -42,6 +43,16 @@ function contratoNew() {
     generarFolio();
 }
 
+function antenas(){
+    $.ajax({
+        type: "POST",
+        url: "query/antenas.php",
+        dataType: "html",
+        success: function(data){
+            $('#antenaContrato').html(data);  
+        }
+    });
+}
 function comunidad(){
     $.ajax({
         type: "POST",
