@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 10-04-2025 a las 20:35:33
+-- Tiempo de generación: 10-04-2025 a las 23:08:15
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -236,7 +236,7 @@ CREATE TABLE `clientes` (
   `comprobante` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `servicio` int(11) NOT NULL,
   `antena` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `direccionip` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+  `direccionip` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `fecha_contrato` date NOT NULL,
   `fecha_limite` date NOT NULL,
   `fecha_corte` date NOT NULL,
@@ -252,7 +252,11 @@ INSERT INTO `clientes` (`id`, `folio`, `nombre`, `domicilio`, `calle`, `colonia`
 (1, '202502242354403E354EAA', 'JesusRLV', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2025-02-24', '2025-03-24', '2025-03-29', '12.12', 1),
 (2, '202502242354403E354EA1', 'JesusRLV 2', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2025-02-24', '2025-03-24', '2025-03-29', '12.12', 1),
 (3, '202502242354403E354EA2', 'JesusRLV 3', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2025-02-24', '2025-03-24', '2025-03-29', '12.12', 1),
-(4, '202502242354403E354EA3', 'Ana Elisa B', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2024-01-03', '2025-03-24', '2024-01-01', '12.12', 1);
+(4, '202502242354403E354EA3', 'Ana Elisa B', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2024-01-03', '2025-03-24', '2024-01-01', '12.12', 1),
+(5, '20250410155630FE88FECB', 'Contrato con antena', '2', NULL, NULL, '1', '1', '1', 98000, '99999', 'Casa', 'INE', 'agua', 1, '1', '', '2025-04-10', '2025-05-10', '2025-05-15', '350.00', 1),
+(6, '2025041015593805441E2E', 'Contrato con antena 2', '3', NULL, NULL, '1', '', '1', 98000, '99999', 'Casa', 'INE', 'agua', 2, '1', '', '2025-04-10', '2025-05-10', '2025-05-15', '550.00', 1),
+(7, '20250410160422DC243E3A', 'Contrato con antena 3', '4', NULL, NULL, '1', '1', '1', 98000, '99999', 'Casa', 'INE', 'agua', 3, '1', '', '2025-04-10', '2025-05-10', '2025-05-15', '850.00', 1),
+(8, '20250410160533EF9C5D6A', 'Contrato con antena 4', '4', NULL, NULL, '2', '1', '1', 98000, '99999', 'Casa', 'INE', 'agua', 1, '1', '10.125.80.12', '2025-04-10', '2025-05-10', '2025-05-15', '350.00', 1);
 
 -- --------------------------------------------------------
 
@@ -674,7 +678,7 @@ ALTER TABLE `cat_pagos`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `conceptos`
