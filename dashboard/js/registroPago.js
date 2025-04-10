@@ -35,39 +35,39 @@ function queryConcepto(){
         }
         });
 
-        $.ajax({
-            type: "POST",
-            url: "query/query_paquetes.php",
-            dataType: "html",
-            success: function(data) {
-                $('#Mensualidad').html(data);
-            }
-            });
+        // $.ajax({
+        //     type: "POST",
+        //     url: "query/query_paquetes.php",
+        //     dataType: "html",
+        //     success: function(data) {
+        //         $('#Mensualidad').html(data);
+        //     }
+        //     });
 
-        $.ajax({
-            type: "POST",
-            url: "query/query_instalacion.php",
-            dataType: "html",
-            success: function(data) {
-                $('#Instalación').html(data);
-            }
-            });
+        // $.ajax({
+        //     type: "POST",
+        //     url: "query/query_instalacion.php",
+        //     dataType: "html",
+        //     success: function(data) {
+        //         $('#Instalación').html(data);
+        //     }
+        //     });
 
-        $.ajax({
-            type: "POST",
-            url: "query/query_reconexion.php",
-            dataType: "html",
-            success: function(data) {
-                $('#Reconexión').html(data);
-            }
-            });
+        // $.ajax({
+        //     type: "POST",
+        //     url: "query/query_reconexion.php",
+        //     dataType: "html",
+        //     success: function(data) {
+        //         $('#Reconexión').html(data);
+        //     }
+        //     });
 
-        $.ajax({
-            type: "POST",
-            url: "query/query_adelanto.php",
-            dataType: "html",
-            success: function(data) {
-                $('#Adelanto').html(data);
-            }
-            });
+        // $.ajax({
+        //     type: "POST",
+        //     url: "query/query_adelanto.php",
+        //     dataType: "html",
+        //     success: function(data) {
+        //         $('#Adelanto').html(data);
+        //     }
+        //     });
 }
