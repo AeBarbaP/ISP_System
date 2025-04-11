@@ -168,15 +168,13 @@ function altaAntena() {
                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
                         <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscar" name="buscar">
                     </div>
-                    <div class="col-6">
-                      <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" value="1" name="btnradio" id="btnradio_antenaA">
-                        <label class="btn btn-outline-success" for="btnradio1"><i class="bi bi-check-lg"></i> Disponibles</label>
-                    
-                        <input type="radio" class="btn-check" value="0" name="btnradio" id="btnradio_antenaD">
-                        <label class="btn btn-outline-danger" for="btnradio2"><i class="bi bi-x-lg"></i> Asignadas</label>
-                      </div>
-                    </div>
+                  </div>
+                  <div class="col-5" mb-3>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                      <input type="radio" class="btn-check" value="1" name="btnradio" id="btnradio_antenaA">
+                      <label class="btn btn-outline-success" for="btnradio1"><i class="bi bi-check-lg"></i> Disponibles</label>
+                      <input type="radio" class="btn-check" value="0" name="btnradio" id="btnradio_antenaD">
+                      <label class="btn btn-outline-danger" for="btnradio2"><i class="bi bi-x-lg"></i> Asignadas</label>
                   </div>
                 </div>
                 <div class="table-responsive mt-3">
