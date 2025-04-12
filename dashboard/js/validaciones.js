@@ -39,3 +39,17 @@ function cerrarpago(){
     document.getElementById('printticket').hidden = true;
     document.getElementById('cerrarpago1').hidden = false;
 }
+
+function baucher(){
+    var pago = document.getElementById('tipopago').value;
+
+    if (pago == 1){
+        document.getElementById('pagodiv2').hidden = true;
+    }
+    else if (pago == 2 || pago == 3 || pago == 4){
+        document.getElementById('pagodiv2').hidden = false;
+    }
+    else {
+        document.getElementById('pagodiv2').hidden = true;
+    }
+}
