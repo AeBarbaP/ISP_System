@@ -881,46 +881,47 @@
                         <label for="datos_usr" class="form-label"><i class="bi bi-person"></i> Fecha:</label>
                         <input type="date" class="form-control" id="fechaSolicitud" name="datos_usr" placeholder="" disabled>
                     </div>
-                    <div class="col-lg-6" id="foliosearch">
+                    <!-- <div class="col-lg-6" id="foliosearch" hidden>
 						<label for="buscafolio" class="form-label">Buscar Folio</label>
 						<input class="form-control" list="datalistOptions" id="buscafolio" oninput=""placeholder="Type to search...">
 						<datalist id="datalistOptions">
-							<!-- falta función para consulta de folios de clientes para llenar este datalist -->
+							falta función para consulta de folios de clientes para llenar este datalist
 						</datalist>
-                    </div>
-                    <div class="col-lg-6" id="nombresearch" hidden>
+                    </div> -->
+                    <div class="col-lg-12" id="nombresearch">
 						<label for="buscanombre" class="form-label">Buscar Nombre</label>
-						<input class="form-control" list="nombresClientes" id="buscanombre" oninput="queryClientes(this.value)" placeholder="Type to search...">
+						<input class="form-control" list="nombresClientes" id="buscanombre" oninput="queryClientes(this.value)" placeholder="Ingresa el nombre del cliente...">
 						<datalist id="nombresClientes"> 
 
 						</datalist>
                     </div>
-                    <div class="col-lg-6" id="domiciliosearch" hidden>
+                    <!-- <div class="col-lg-6" id="domiciliosearch" hidden>
 						<label for="buscadomicilio" class="form-label">Buscar Domicilio</label>
 						<input class="form-control" list="domicilios" id="buscadomicilio" oninput=""placeholder="Type to search...">
 						<datalist id="domicilios">
-							<!-- Falta función de consulta para busqueda por domicilio y que llene el datalist -->
+							Falta función de consulta para busqueda por domicilio y que llene el datalist
 						</datalist>
-                    </div>
+                    </div> -->
 					<div class="col-lg-4 ms-5 mt-3 my-auto">
-						<div class="form-check m-0">
+						<!-- <div class="form-check m-0">
 							<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="1" checked onclick="hideInput(this.value)">
 							<label class="form-check-label" for="exampleRadios1">
 								Buscar por Folio
 							</label>
-						</div>
-						<div class="form-check m-0" >
-							<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="2" onclick="hideInput(this.value)" checked>
+						</div> -->
+						<!-- <div class="form-check m-0" > -->
+							<!-- <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="2" onclick="hideInput(this.value)" checked> -->
+							<!-- <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="2" checked>
 							<label class="form-check-label" for="exampleRadios2">
 								Buscar por Nombre
 							</label>
-						</div>
-						<div class="form-check m-0">
+						</div> -->
+						<!-- <div class="form-check m-0">
 							<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="3" onclick="hideInput(this.value)">
 							<label class="form-check-label" for="exampleRadios3">
 								Buscar por Domicilio
 							</label>
-						</div>
+						</div> -->
                     </div>
 					<div class="col-lg-12" id="datoscliente" hidden>
 						<div id="datosGenerales">
