@@ -7,11 +7,14 @@ $resultado = $conn->query($sql);
 $row = $resultado->fetch_assoc();
 $clientes = array();
 
+
+
     $clientes[] = array(
         'nombre' => $row['nombre'],
         'folio' => $row['folio'],
         'domicilio' => $row['domicilio'],
-        'telefono' => $row['telefono']
+        'telefono' => $row['telefono'],
+        'comunidad' => $row['comunidad']
     );
 
 

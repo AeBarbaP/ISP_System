@@ -8,7 +8,8 @@ $clientes = array();
 while($row = $resultado->fetch_assoc()){
     $clientes[] = array(
         'nombre' => $row['nombre'],
-        'folio' => $row['folio'] // Asegúrate de incluir el folio
+        'folio' => $row['folio'], // Asegúrate de incluir el folio
+        'comunidad' => $row['comunidad']
     );
 }
 
