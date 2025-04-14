@@ -754,8 +754,8 @@
                     <div class="col-sm-4">
                     </div>
                     <div class="col-sm-4">
-                        <label for="date" class="form-label">Fecha de Contratación:</label>
-                        <input type="date" class="form-control" name="date" id="dateContratoNew" placeholder="" disabled>
+                        <label for="date" class="form-label mt-3">Fecha de Contratación:</label>
+                        <input type="date" class="form-control" name="date" id="dateContratoNew" placeholder="">
                     </div>
 					<h2>Datos del Cliente</h2>
                     <div class="col-sm-12">
@@ -764,7 +764,9 @@
                     </div>
                     <div class="col-sm-4">
                         <label for="calle" class="form-label">Domicilio:</label>
-                        <input type="text" class="form-control" id="domicilioContrato" name="calle" placeholder="">
+						<div class="input-group input-group-sm mb-3">
+                        	<input type="text" class="form-control" id="domicilioContrato" name="calle" placeholder="">
+						</div>
                     </div>
                     <div class="col-sm-4">
                         <label for="colonia" class="form-label">Comunidad:</label>
@@ -781,11 +783,15 @@
                     </div>
                     <div class="col-sm-4">
                         <label for="cp" class="form-label">C.P.:</label>
-                        <input type="text" class="form-control" id="cpContrato" name="cp" placeholder="">
+						<div class="input-group input-group-sm mb-3">
+                        	<input type="text" class="form-control" id="cpContrato" name="cp" placeholder="">
+						</div>
                     </div>
                     <div class="col-sm-4">
                         <label for="telefono" class="form-label">Teléfono:</label>
-                        <input type="text" class="form-control" id="telefonoContrato" name="telefono" placeholder="">
+						<div class="input-group input-group-sm mb-3">
+                        	<input type="text" class="form-control" id="telefonoContrato" name="telefono" placeholder="">
+						</div>
                     </div>
                     <div class="col-sm-12">
                         <label for="referencias" class="form-label">Referencias de la vivienda:</label>
@@ -825,7 +831,9 @@
                     </div>
 					<div class="col-sm-4">
 						<label for="ipAddress" class="form-label">IP asignada:</label>
-                        <input type="text" class="form-control" id="ipAddressContrato" name="ipAddress" placeholder="">
+						<div class="input-group input-group-sm mb-3">
+                        	<input type="text" class="form-control" id="ipAddressContrato" name="ipAddress" placeholder="">
+						</div>
                     </div>
 					<div class="col-lg-12">
 						<h2>Cuota Mensual</h2>
@@ -834,13 +842,13 @@
 						<!-- <h2>$</h2>Carga los datos de la cuota mensual -->
 						<input type="text" class="form-control" id="inputCosto" disabled>
 					</div>
-					<div class="col-lg-6" id="fechalimite">
+					<div class="col-lg-6 mb-3" id="fechalimite">
 						<h3>Fecha Límite de Pago</h3>
 						<!-- <h3>DD/MMM</h3> -->
 						<input type="date" class="form-control" id="siguienteMesInput" disabled>
 						<!-- Carga los datos de la cuota mensual -->
 					</div>
-					<div class="col-lg-6" id="fechacorte">
+					<div class="col-lg-6 mb-3" id="fechacorte">
 						<h3>Fecha de Corte</h3>
 						<!-- <h3>DD/MMM</h3> -->
 						<input type="date" class="form-control" id="mesMasCincoDiasInput" disabled>
