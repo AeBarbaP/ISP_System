@@ -21,7 +21,7 @@ function queryClientes(cliente) {
         success: function(data) {
             let options = '';
             data.forEach(function(item) {
-                options += `<option value="${item.nombre}" data-folio="${item.folio}">`;
+                options += `<option value="${item.nombre}" data-folio="${item.folio}" data-comunidad="${item.comunidad}">`;
             });
             $('#nombresClientes').html(options);
         },
@@ -65,6 +65,9 @@ function ejecutarFuncionConFolio(folio) {
                 <div class="alert alert-info mb-2" role="alert">
                 <h3>${item.nombre}</h3><span>Folio Contrato: ${item.folio}</span><br>
                 <span>Domicilio:${item.domicilio}</span>
+                <br>
+                <h3>${item.nombre}</h3><span>Folio Contrato: ${item.folio}</span><br>
+                <span>Comunidad:${item.comunidad}</span>
                 <br>
                 <span>Teléfono: ${item.telefono}</span>
                 </div>`;

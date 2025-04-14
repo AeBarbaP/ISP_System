@@ -551,14 +551,7 @@ function fechaTecnicoE(){
 function guardarTecnico(){
   let fecha = document.getElementById('fecha_creacion_tecnico').value;
   let nombre = document.getElementById('nombre_tecnico').value;
-
-  if (document.getElementById('estatus1').checked == true){
-    var estatus_tecnico = 1;
-  }
-  else if (document.getElementById('estatus2').checked == true){
-    var estatus_tecnico = 2;
-  }
-
+  let estatus_tecnico = document.getElementById('estatus_tecnico').value;
 
   $.ajax({
     url: 'prcd/guardarTecnico.php',
@@ -566,7 +559,7 @@ function guardarTecnico(){
     data:{
       fecha:fecha,
       nombre:nombre,
-      estatus_tecnico:estatus_tecnico
+      estatus_tecnico,estatus_tecnico
     },
     dataType: 'json',
     success: function(data) {
@@ -1217,11 +1210,15 @@ function altaIncidencia() {
               <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_incidencia" aria-describedby="basic-addon1" disabled>
             </div>
             <label for="buscanombre" class="form-label"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
-            <div class="input-group mb-3" id="nombresearch">
-              <input class="form-control" list="nombresClientes" id="buscanombre" oninput="queryClientes(this.value)" placeholder="Type to search...">
-              <datalist id="nombresClientes"> 
-
-              </datalist>
+            <div class="mb-3">
+              <div class="input-group" id="nombresearch">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+                <input class="form-control" id="buscanombre" oninput="queryClientes(this.value)">
+              </div>
+              <select class="form-select" size="4" aria-label="clientes" id="nombresClientes">
+                <option selected>Selecciona...</option>
+              
+              </select>
             </div>
             <div class="col-lg-12" id="datoscliente" hidden>
               <div id="datosGenerales">
@@ -1312,15 +1309,13 @@ function editarIncidencia() {
               <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
               <select class="form-select" id="folio_incidencia_editar" size="4" aria-label="folio incidencia">
                 <option selected>Selecciona...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option> <!-- Muestra los folios de las incidencias que aún no han sido resueltas para cambiar los datos -->
+                <!-- Muestra los folios de las incidencias que aún no han sido resueltas para cambiar los datos -->
               </select>
             </div>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
               <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_incidenciaU" aria-describedby="basic-addon1" disabled>
-            </div>
+            </div> -->
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
               <input type="text" class="form-control" placeholder="" aria-label="cliente" id="cliente_incidenciaU" aria-describedby="basic-addon1">
@@ -1386,7 +1381,10 @@ function resolverIncidencia() {
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
-              <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_incidenciaU" aria-describedby="basic-addon1" disabled>
+              <select class="form-select" id="clientes_corte" size="4" aria-label="clientes para corte">
+                <option selected>Selecciona...</option>
+                 <!-- Muestra los clientes que están en proceso de corte y al seleccionar muestra la info del domicilio como en el pago -->
+              </select>
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
@@ -1521,7 +1519,7 @@ function gestionIncidencias() {
 
 function altaCorte() {
 
-  let titulo = "Editar Orden de Corte";
+  let titulo = "Nueva Orden de Corte";
   // Crear el elemento del modal
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
@@ -1546,9 +1544,7 @@ function altaCorte() {
             <div class="mb-3">
               <select class="form-select" id="clientes_corte" size="4" aria-label="clientes para corte">
                 <option selected>Selecciona...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option> <!-- Muestra los clientes que están en proceso de corte y al seleccionar muestra la info del domicilio como en el pago -->
+                 <!-- Muestra los clientes que están en proceso de corte y al seleccionar muestra la info del domicilio como en el pago -->
               </select>
             </div>
             <div class="mb-3" id="datosDomicilio">
@@ -1635,9 +1631,7 @@ function editarCorte() {
               <label class="form-label" id="basic-addon1"><i class="bi bi-list-ol me-2"></i>Folio de Corte:</label>
               <select class="form-select" id="folio_corte_editar" size="4" aria-label="folio corte">
                 <option selected>Selecciona...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option> <!-- Muestra los folios de las ordenes de corte que aún no han sido resueltas para cambiar los datos -->
+                 <!-- Muestra los folios de las ordenes de corte que aún no han sido resueltas para cambiar los datos -->
               </select>
             </div>
             <div class="mb-3" id="datosClienteyDomicilio">
@@ -1788,9 +1782,7 @@ function resolverCorte() {
               <label class="form-label" id="basic-addon1"><i class="bi bi-list-ol me-2"></i>Folio de Corte:</label>
               <select class="form-select" id="folio_corte_tecnico" size="4" aria-label="folio corte">
                 <option selected>Selecciona...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option> <!-- Muestra los folios de las ordenes de corte que aún no han sido resueltas para cambiar los datos -->
+                <!-- Muestra los folios de las ordenes de corte que aún no han sido resueltas para cambiar los datos -->
               </select>
             </div>
             <div class="mb-3" id="datosClienteyDomicilio">
