@@ -9,7 +9,7 @@ function queryClientes(cliente) {
         success: function(data) {
             let options = '';
             data.forEach(function(item) {
-                options += `<option value="${item.nombre}" data-folio="${item.folio}">`;
+                options += `<option value="${item.nombre}" data-folio="${item.folio}">${item.nombre}</option>`;
             });
             $('#nombresClientes').html(options);
         },
@@ -20,7 +20,7 @@ function queryClientes(cliente) {
 }
 
 $(document).ready(function() {
-    $('#buscanombre').on('change', function() {
+    $('#nombresClientes').on('change', function() {
         const selectedValue = $(this).val();
         const selectedOption = $(`#nombresClientes option[value="${selectedValue}"]`);
         const folio = selectedOption.data('folio');
@@ -53,6 +53,8 @@ function ejecutarFuncionConFolio(folio) {
                 <div class="alert alert-info mb-2" role="alert">
                 <h3>${item.nombre}</h3><span>Folio Contrato: ${item.folio}</span><br>
                 <span>Domicilio:${item.domicilio}</span>
+                <br>
+                <span>Comunidad:${item.comunidad}</span>
                 <br>
                 <span>Teléfono: ${item.telefono}</span>
                 </div>`;
