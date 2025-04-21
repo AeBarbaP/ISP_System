@@ -2,21 +2,22 @@
 session_start();
 
 
-if (isset($_SESSION['perfil'])){
+if (isset($_SESSION['sess'])){
     echo "
-        <script type=\"text/javascript>
+    <script>
+            console.log('sesion activa');
             alert('Acceso correcto');
         </script>
-        ;
     ";
 }
 else {
+
     echo "
-        <script type=\"text/javascript>
+        <script>
+            console.log('sesion inactiva');
             alert('Acceso denegado');
-            window.location.href='login.html';
+            window.location.href='../dashboard/index.html';
         </script>
-        ;
     ";
 }
 
@@ -24,9 +25,9 @@ else {
 
 <!doctype html>
 
-<html lang="es" data-bs-theme="auto">
+<html lang="es" data-bs-theme="light">
     <head>
-        <script src="assets/js/color-modes.js"></script>
+        <!--<script src="assets/js/color-modes.js"></script>-->
         <link rel="icon" type="image/png" href="../images/logoantenaISP.ico"/>
 
         <meta charset="utf-8">

@@ -1213,15 +1213,15 @@ function altaIncidencia() {
             <div class="mb-3">
               <div class="input-group" id="nombresearch">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                <input class="form-control" id="buscanombre" oninput="queryClientes(this.value)">
+                <input class="form-control" id="buscanombreI" oninput="queryClientes(this.value)">
               </div>
-              <select class="form-select" size="4" aria-label="clientes" id="nombresClientes">
+              <select class="form-select" size="4" aria-label="incidenciaslist" id="incidenciasList">
                 <option selected>Selecciona...</option>
               
               </select>
             </div>
-            <div class="col-lg-12" id="datoscliente" hidden>
-              <div id="datosGenerales">
+            <div class="col-lg-12" id="datosclienteI" hidden>
+              <div id="datosGeneralesI">
                 
               </div>
             </div>
