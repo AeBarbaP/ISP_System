@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 10-04-2025 a las 23:08:15
+-- Tiempo de generación: 22-04-2025 a las 18:04:44
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -249,7 +249,7 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id`, `folio`, `nombre`, `domicilio`, `calle`, `colonia`, `comunidad`, `municipio`, `estado`, `cp`, `telefono`, `referencias`, `identificacion`, `comprobante`, `servicio`, `antena`, `direccionip`, `fecha_contrato`, `fecha_limite`, `fecha_corte`, `cuota`, `estatus`) VALUES
-(1, '202502242354403E354EAA', 'JesusRLV', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2025-02-24', '2025-03-24', '2025-03-29', '12.12', 1),
+(1, '202502242354403E354EAA', 'JesusRLV', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2025-02-24', '2025-03-24', '2024-02-01', '12.12', 1),
 (2, '202502242354403E354EA1', 'JesusRLV 2', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2025-02-24', '2025-03-24', '2025-03-29', '12.12', 1),
 (3, '202502242354403E354EA2', 'JesusRLV 3', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2025-02-24', '2025-03-24', '2025-03-29', '12.12', 1),
 (4, '202502242354403E354EA3', 'Ana Elisa B', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2024-01-03', '2025-03-24', '2024-01-01', '12.12', 1),
@@ -278,7 +278,8 @@ INSERT INTO `conceptos` (`id`, `concepto`, `costo`) VALUES
 (1, 'Mensualidad', '350.00'),
 (2, 'Instalación', '500.00'),
 (3, 'Reconexión', '80.00'),
-(4, 'Adelanto', '350.00');
+(4, 'Adelanto', '350.00'),
+(5, 'Promociones', '0.00');
 
 -- --------------------------------------------------------
 
@@ -362,8 +363,9 @@ CREATE TABLE `pagos` (
   `num_pago` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
   `fecha_pago` datetime NOT NULL,
   `folio_contrato` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
-  `concepto` int(11) NOT NULL,
+  `concepto` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `periodo` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `annio` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `tipo_pago` int(11) NOT NULL,
   `descuento` varchar(7) COLLATE utf8_unicode_ci NOT NULL,
   `total` int(11) NOT NULL
@@ -373,16 +375,19 @@ CREATE TABLE `pagos` (
 -- Volcado de datos para la tabla `pagos`
 --
 
-INSERT INTO `pagos` (`id`, `num_pago`, `fecha_pago`, `folio_contrato`, `concepto`, `periodo`, `tipo_pago`, `descuento`, `total`) VALUES
-(1, '1', '2025-03-05 00:55:00', '202502242354403E354EA3', 1, 'Enero-Marzo', 1, '0', 1000),
-(2, 'CW2025-002', '2025-04-09 06:22:28', '202502242354403E354EA3', 1, '1', 1, '0', 350),
-(3, 'CW2025-002', '2025-04-09 06:33:31', '202502242354403E354EA3', 1, '5', 1, '0', 350),
-(4, 'CW2025-002', '2025-04-09 06:35:51', '202502242354403E354EA3', 1, '2', 1, '0', 350),
-(5, 'CW2025-002', '2025-04-09 06:37:04', '202502242354403E354EA3', 1, '4', 1, '0', 350),
-(6, 'CW2025-002', '2025-04-09 06:37:48', '202502242354403E354EA3', 1, '7', 1, '0', 350),
-(7, 'CW2025-002', '2025-04-09 06:45:09', '202502242354403E354EA3', 1, '9', 1, '0', 350),
-(8, 'CW2025-002', '2025-04-09 06:46:45', '202502242354403E354EA3', 1, '3', 1, '0', 350),
-(9, 'CW2025-002', '2025-04-09 07:09:09', '202502242354403E354EA3', 1, '6', 1, '0', 350);
+INSERT INTO `pagos` (`id`, `num_pago`, `fecha_pago`, `folio_contrato`, `concepto`, `periodo`, `annio`, `tipo_pago`, `descuento`, `total`) VALUES
+(2, 'CW2025-002', '2025-04-09 06:22:28', '202502242354403E354EA3', 'Mensualidad', '1', '2004', 1, '0', 350),
+(3, 'CW2025-002', '2025-04-09 06:33:31', '202502242354403E354EA3', 'Mensualidad', '5', '2004', 1, '0', 350),
+(4, 'CW2025-002', '2025-04-09 06:35:51', '202502242354403E354EA3', 'Mensualidad', '2', '2004', 1, '0', 350),
+(5, 'CW2025-002', '2025-04-09 06:37:04', '202502242354403E354EA3', 'Mensualidad', '4', '2004', 1, '0', 350),
+(6, 'CW2025-002', '2025-04-09 06:37:48', '202502242354403E354EA3', 'Mensualidad', '7', '2004', 1, '0', 350),
+(7, 'CW2025-002', '2025-04-09 06:45:09', '202502242354403E354EA3', 'Mensualidad', '9', '2004', 1, '0', 350),
+(8, 'CW2025-002', '2025-04-09 06:46:45', '202502242354403E354EA3', 'Mensualidad', '3', '2004', 1, '0', 350),
+(9, 'CW2025-002', '2025-04-09 07:09:09', '202502242354403E354EA3', 'Mensualidad', '6', '2004', 1, '0', 350),
+(10, 'CW2025-002', '2025-04-11 00:20:21', '202502242354403E354EA3', 'Mensualidad', '2', '2005', 1, '0', 350),
+(11, 'CW2025-002', '2025-04-11 00:21:04', '202502242354403E354EA3', 'Mensualidad', '8', '2004', 1, '0', 350),
+(12, 'CW2025-002', '2025-04-11 00:25:24', '202502242354403E354EA3', 'Mensualidad', '11', '2004', 1, '0', 350),
+(13, 'CW2025-002', '2025-04-11 00:25:24', '202502242354403E354EAA', 'Mensualidad', '4', '2005', 1, '0', 350);
 
 -- --------------------------------------------------------
 
@@ -392,7 +397,7 @@ INSERT INTO `pagos` (`id`, `num_pago`, `fecha_pago`, `folio_contrato`, `concepto
 
 CREATE TABLE `promociones` (
   `id` int(11) NOT NULL,
-  `promo` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `promo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `fecha_inicio` datetime NOT NULL,
   `fecha_fin` datetime NOT NULL,
   `tipo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -406,9 +411,10 @@ CREATE TABLE `promociones` (
 --
 
 INSERT INTO `promociones` (`id`, `promo`, `fecha_inicio`, `fecha_fin`, `tipo`, `descuento`, `estatus`, `id_catalogo`) VALUES
-(1, '1', '2025-04-07 00:00:00', '2025-04-07 00:00:00', 'Mensualidad', 1, 1, NULL),
-(2, '1', '2025-04-07 00:00:00', '2025-04-07 00:00:00', 'Mensualidad', 1, 1, NULL),
-(3, '2', '2025-04-08 00:00:00', '2025-04-08 00:00:00', 'Instalación', 2, 1, NULL);
+(1, '1', '2025-04-07 00:00:00', '2025-04-07 00:00:00', 'Mensualidad', 1, 0, NULL),
+(2, '1', '2025-04-07 00:00:00', '2025-04-07 00:00:00', 'Mensualidad', 1, 0, NULL),
+(3, '2', '2025-04-08 00:00:00', '2025-04-08 00:00:00', 'Instalación', 2, 0, NULL),
+(4, 'Promoción de prueba', '2025-04-11 00:00:26', '2025-04-11 00:00:26', 'Mensualidad', 70, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -684,7 +690,7 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `conceptos`
 --
 ALTER TABLE `conceptos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `cortes`
@@ -714,13 +720,13 @@ ALTER TABLE `logs_users`
 -- AUTO_INCREMENT de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `promociones`
 --
 ALTER TABLE `promociones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tecnicos`
