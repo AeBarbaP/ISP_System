@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 22-04-2025 a las 18:04:44
+-- Tiempo de generación: 24-04-2025 a las 00:39:56
 -- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.4.29
+-- Versión de PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -392,6 +392,20 @@ INSERT INTO `pagos` (`id`, `num_pago`, `fecha_pago`, `folio_contrato`, `concepto
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `pagos_generales`
+--
+
+CREATE TABLE `pagos_generales` (
+  `id` int(11) NOT NULL,
+  `folio_contrato` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `total` decimal(8,2) NOT NULL,
+  `tarjeta` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `folio_pago` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `promociones`
 --
 
@@ -411,9 +425,9 @@ CREATE TABLE `promociones` (
 --
 
 INSERT INTO `promociones` (`id`, `promo`, `fecha_inicio`, `fecha_fin`, `tipo`, `descuento`, `estatus`, `id_catalogo`) VALUES
-(1, '1', '2025-04-07 00:00:00', '2025-04-07 00:00:00', 'Mensualidad', 1, 0, NULL),
-(2, '1', '2025-04-07 00:00:00', '2025-04-07 00:00:00', 'Mensualidad', 1, 0, NULL),
-(3, '2', '2025-04-08 00:00:00', '2025-04-08 00:00:00', 'Instalación', 2, 0, NULL),
+(1, '1', '2025-04-07 00:00:00', '2025-04-07 00:00:00', 'Mensualidad', 1, 1, NULL),
+(2, '1', '2025-04-07 00:00:00', '2025-04-07 00:00:00', 'Mensualidad', 1, 1, NULL),
+(3, '2', '2025-04-08 00:00:00', '2025-04-08 00:00:00', 'Instalación', 2, 1, NULL),
 (4, 'Promoción de prueba', '2025-04-11 00:00:26', '2025-04-11 00:00:26', 'Mensualidad', 70, 1, 1);
 
 -- --------------------------------------------------------
@@ -593,6 +607,12 @@ ALTER TABLE `pagos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `pagos_generales`
+--
+ALTER TABLE `pagos_generales`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `promociones`
 --
 ALTER TABLE `promociones`
@@ -721,6 +741,12 @@ ALTER TABLE `logs_users`
 --
 ALTER TABLE `pagos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de la tabla `pagos_generales`
+--
+ALTER TABLE `pagos_generales`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `promociones`

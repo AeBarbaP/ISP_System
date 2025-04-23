@@ -191,9 +191,29 @@ function tablaGrid(){
         <td>${concepto}</td>
         <td>${periodo}</td>
         <td>${costo}</td>
-        <td>Pagar</td>
+        <td><span class="badge bg-primary"><i class="bi bi-wallet2"></i> Pagar</span></td>
+        <td><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></td>
     `;
 
     cuerpo.appendChild(fila);
     contador++;
+}
+
+// Función básica para eliminar fila
+function eliminarTr(elemento) {
+    if(confirm('¿Estás seguro de eliminar este registro?')) {
+        elemento.closest('tr').remove();
+    }
+}
+
+function swalpago(){
+    Swal.fire({
+		position: "top-end",
+		icon: "success",
+		title: "Pago Exitoso",
+		showConfirmButton: false,
+		timer: 1500
+	});
+    document.getElementById('printticket').hidden = false;
+    document.getElementById('pagoreg').hidden = true;
 }

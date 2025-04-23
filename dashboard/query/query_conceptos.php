@@ -3,6 +3,7 @@ require('../prcd/conn.php');
 
 // Obtener el folio del cliente
 $folioCliente = $_POST['folio'];
+$recargo = 420; // Valor del recargo
 
 // Array para almacenar los meses adeudados
 $adeudos = array();
@@ -68,7 +69,7 @@ echo '<option value="" selected>Selecciona el concepto ...</option>';
 if (!empty($adeudos)) {
     echo '<optgroup label="Adeudos Pendientes">';
     foreach ($adeudos as $adeudo) {
-        echo '<option value="' . $adeudo['valor'] . '" data-categoria="1">' . $adeudo['nombre'] . '</option>';
+        echo '<option value="' . $adeudo['valor'] . '" data-categoria="1" data-costo="'.$recargo.'" data-concepto="Recargo" data-periodo="' . $adeudo['nombre'] . '">' . $adeudo['nombre'] . '</option>';
     }
     echo '</optgroup>';
 }
@@ -109,7 +110,7 @@ while($concepto = $resultadoConceptos->fetch_assoc()) {
             $sql = "SELECT * FROM catalogo_adelanto ORDER BY id ASC";
             $resultado = $conn->query($sql);
             while($row = $resultado->fetch_assoc()) {
-                echo '<option value="' . $row['id'] . '" data-categoria="5" data-costo="'.$row['costo'].'" data-concepto="Adelanto" data-periodo="Adelanto">' . $row['tipo_adelanto'] . '</option>';
+                echo '<option value="' . $row['id'] . '" data-categoria="5" data-costo="'.$row['costo'].'" data-concepto="Adelanto ' . $row['tipo_adelanto'] . '" data-periodo="' . $row['tipo_adelanto'] . '">' . $row['tipo_adelanto'] . '</option>';
             }
             break;
             
