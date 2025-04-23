@@ -169,3 +169,31 @@ function queryDashboard1() {
 }
 
 queryDashboard1();
+
+let contador = 1;
+
+function tablaGrid(){
+    const select = document.getElementById('catalogoConceptos');
+    const selectedOption = select.options[select.selectedIndex];
+
+    const valor = selectedOption.value;
+    const costo = selectedOption.dataset.costo;
+    const concepto = selectedOption.dataset.concepto;
+    const periodo = selectedOption.dataset.periodo;
+
+    const cuerpo = document.getElementById("NuevaSolicitud");
+
+    const fila = document.createElement("tr");
+
+    fila.innerHTML = `
+        <td>${contador}</td>
+        <td>${periodo}</td>
+        <td>${concepto}</td>
+        <td>${periodo}</td>
+        <td>${costo}</td>
+        <td>Pagar</td>
+    `;
+
+    cuerpo.appendChild(fila);
+    contador++;
+}

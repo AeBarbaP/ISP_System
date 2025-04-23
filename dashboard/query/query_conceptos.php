@@ -82,10 +82,10 @@ while($concepto = $resultadoConceptos->fetch_assoc()) {
     
     switch($concepto['id']) {
         case 1:
-            $sql = "SELECT * FROM catalogo_paquetes ORDER BY id ASC";
+            $sql = "SELECT * FROM catalogo_paquetes WHERE estatus = 1 ORDER BY id ASC";
             $resultado = $conn->query($sql);
             while($row = $resultado->fetch_assoc()) {
-                echo '<option value="' . $row['id'] . '">' . $row['paquetes'] . '</option>';
+                echo '<option value="'.$row['id'].'" data-costo="'.$row['costo'].'" data-concepto="Paquete" data-periodo="Periodo prueba">'.$row['paquetes'].'</option>';
             }
             break;
             
