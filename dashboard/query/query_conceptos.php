@@ -68,7 +68,7 @@ echo '<option value="" selected>Selecciona el concepto ...</option>';
 if (!empty($adeudos)) {
     echo '<optgroup label="Adeudos Pendientes">';
     foreach ($adeudos as $adeudo) {
-        echo '<option value="' . $adeudo['valor'] . '">' . $adeudo['nombre'] . '</option>';
+        echo '<option value="' . $adeudo['valor'] . '" data-categoria="1">' . $adeudo['nombre'] . '</option>';
     }
     echo '</optgroup>';
 }
@@ -85,7 +85,7 @@ while($concepto = $resultadoConceptos->fetch_assoc()) {
             $sql = "SELECT * FROM catalogo_paquetes WHERE estatus = 1 ORDER BY id ASC";
             $resultado = $conn->query($sql);
             while($row = $resultado->fetch_assoc()) {
-                echo '<option value="'.$row['id'].'" data-costo="'.$row['costo'].'" data-concepto="Paquete" data-periodo="Periodo prueba">'.$row['paquetes'].'</option>';
+                echo '<option value="'.$row['id'].'" data-categoria="2" data-costo="'.$row['costo'].'" data-concepto="Paquete" data-periodo="Periodo prueba">'.$row['paquetes'].'</option>';
             }
             break;
             
@@ -93,7 +93,7 @@ while($concepto = $resultadoConceptos->fetch_assoc()) {
             $sql = "SELECT * FROM catalogo_instalacion ORDER BY id ASC";
             $resultado = $conn->query($sql);
             while($row = $resultado->fetch_assoc()) {
-                echo '<option value="' . $row['id'] . '">' . $row['tipo_instalacion'] . '</option>';
+                echo '<option value="' . $row['id'] . '" data-categoria="3">' . $row['tipo_instalacion'] . '</option>';
             }
             break;
             
