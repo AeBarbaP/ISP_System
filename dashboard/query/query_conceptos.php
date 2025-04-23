@@ -93,7 +93,7 @@ while($concepto = $resultadoConceptos->fetch_assoc()) {
             $sql = "SELECT * FROM catalogo_instalacion ORDER BY id ASC";
             $resultado = $conn->query($sql);
             while($row = $resultado->fetch_assoc()) {
-                echo '<option value="' . $row['id'] . '" data-categoria="3">' . $row['tipo_instalacion'] . '</option>';
+                echo '<option value="' . $row['id'] . '" data-categoria="3" data-costo="'.$row['costo'].'" data-concepto="Instalación" data-periodo="Instalación">' . $row['tipo_instalacion'] . '</option>';
             }
             break;
             
@@ -101,7 +101,7 @@ while($concepto = $resultadoConceptos->fetch_assoc()) {
             $sql = "SELECT * FROM catalogo_reconexion ORDER BY id ASC";
             $resultado = $conn->query($sql);
             while($row = $resultado->fetch_assoc()) {
-                echo '<option value="' . $row['id'] . '">' . $row['tipo_reconexion'] . '</option>';
+                echo '<option value="' . $row['id'] . '" data-categoria="4" data-costo="'.$row['costo'].'" data-concepto="Reconexión" data-periodo="Reconexión">' . $row['tipo_reconexion'] . '</option>';
             }
             break;
             
@@ -109,7 +109,7 @@ while($concepto = $resultadoConceptos->fetch_assoc()) {
             $sql = "SELECT * FROM catalogo_adelanto ORDER BY id ASC";
             $resultado = $conn->query($sql);
             while($row = $resultado->fetch_assoc()) {
-                echo '<option value="' . $row['id'] . '">' . $row['tipo_adelanto'] . '</option>';
+                echo '<option value="' . $row['id'] . '" data-categoria="5" data-costo="'.$row['costo'].'" data-concepto="Adelanto" data-periodo="Adelanto">' . $row['tipo_adelanto'] . '</option>';
             }
             break;
             
@@ -117,7 +117,7 @@ while($concepto = $resultadoConceptos->fetch_assoc()) {
             $sql = "SELECT * FROM promociones WHERE estatus = 1 ORDER BY id ASC";
             $resultado = $conn->query($sql);
             while($row = $resultado->fetch_assoc()) {
-                echo '<option value="' . $row['id'] . '">' . $row['promo'] . ' | -$' . $row['descuento'] . '</option>';
+                echo '<option value="' . $row['id'] . '" data-categoria="6" data-costo="'.$row['costo'].'" data-concepto="Descuento" data-periodo="Descuento">' . $row['promo'] . ' | -$' . $row['descuento'] . '</option>';
             }
             break;
     }
