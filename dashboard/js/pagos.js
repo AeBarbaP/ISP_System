@@ -186,24 +186,34 @@ function tablaGrid(){
     const fila = document.createElement("tr");
 
     fila.innerHTML = `
-        <td>${contador}</td>
         <td>${periodo}</td>
         <td>${concepto}</td>
         <td>${periodo}</td>
         <td>${costo}</td>
-        <td><span class="badge bg-primary"><i class="bi bi-wallet2"></i> Pagar</span></td>
-        <td><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></td>
+        
+        <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
     `;
 
     cuerpo.appendChild(fila);
     contador++;
-}
+    calcularTotal();}
 
 // Función básica para eliminar fila
 function eliminarTr(elemento) {
     if(confirm('¿Estás seguro de eliminar este registro?')) {
         elemento.closest('tr').remove();
+
+        calcularTotal(); // Recalcula todo desde cero
     }
+}
+
+// Función para calcular el total desde cero (más precisa)
+function calcularTotal() {
+    let total = 0;
+    document.querySelectorAll("#NuevaSolicitud tr").forEach(fila => {
+        total += parseFloat(fila.cells[3].textContent);
+    });
+    document.getElementById('total-costo').textContent = total.toFixed(2);
 }
 
 function swalpago(){
