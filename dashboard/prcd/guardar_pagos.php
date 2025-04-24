@@ -15,12 +15,12 @@ try {
     foreach ($pagos as $index => $pago) {
         // Validar campos requeridos
         $requiredFields = [
-            'num_pago' => 'Número de pago',
+            'folio_pago' => 'Número de pago',
             'folio_contrato' => 'Folio de contrato',
-            'fecha_pago' => 'Fecha de pago',
+            'fechaSolicitud' => 'Fecha de pago',
             'concepto' => 'Concepto',
             'periodo' => 'Periodo',
-            'total' => 'Monto total'
+            'costo' => 'Monto total'
         ];
 
         $missingFields = [];
@@ -39,7 +39,7 @@ try {
         }
 
         // Validar formato de los datos
-        if (!is_numeric($pago['total'])) {
+        if (!is_numeric($pago['costo'])) {
             throw new Exception("El monto total debe ser numérico en el pago #" . ($index + 1));
         }
 
@@ -57,19 +57,20 @@ try {
         $annio = !empty($pago['annio']) ? $pago['annio'] : date('Y');
         $tipo_pago = !empty($pago['tipo_pago']) ? $pago['tipo_pago'] : 1;
         $descuento = !empty($pago['descuento']) ? $pago['descuento'] : 0.00;
+        $costo = intval($pago['costo'],0);
 
         // Vincular parámetros según tipos de datos de tu tabla
         $bound = $stmt->bind_param(
             "sssssiidd", // Tipos: s=string, i=integer, d=decimal
-            $pago['num_pago'],
-            $pago['fecha_pago'],
+            $pago['folio_pago'],
+            $pago['fechaSolicitud'],
             $pago['folio_contrato'],
             $pago['concepto'],
             $pago['periodo'],
             $annio,
             $tipo_pago,
             $descuento,
-            $pago['total']
+            $pago['costo']
         );
 
         if (!$bound) {
@@ -82,7 +83,7 @@ try {
 
         $results[] = [
             'id' => $conn->insert_id,
-            'num_pago' => $pago['num_pago']
+            'num_pago' => $pago['folio_pago']
         ];
         $stmt->close();
     }

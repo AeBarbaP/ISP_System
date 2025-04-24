@@ -1,3 +1,7 @@
+function _grecibos(el){
+    return document.getElementById(el);
+}
+
 function pagoNew() {
     $("#pago").modal("show");
     generarFolio2();
@@ -90,7 +94,8 @@ function guardarTodosPagos() {
             if (response.success) {
                 filas.addClass('table-success');
                 $('.btn-pagar').html('<i class="bi bi-check-circle"></i> Pagado').removeClass('btn-primary').addClass('btn-success');
-                actualizarTotal();
+                //actualizarTotal();
+                guardarRecibo();
                 alert(response.message);
             } else {
                 alert('Error: ' + response.message);
@@ -99,5 +104,35 @@ function guardarTodosPagos() {
         complete: function() {
             $('#btnGuardarTodos').html('<i class="bi bi-save"></i> Guardar Todos').prop('disabled', false);
         }
+    });
+}
+
+function guardarRecibo(){
+    var folio_pago = _grecibos('folioLabelpago').value;
+    var fecha_pago = _grecibos('fechaSolicitud').value;
+    var tarjeta = _grecibos('tipopagoBaucher').value;
+    var tipo_pago = _grecibos('tipopago').value;
+    var folio_contrato = _grecibos('folioContratoRegistro').innerText;
+    var total_pago = _grecibos('total-costo').innerText;
+
+    $.ajax({
+        url: 'prcd/guardar_recibo.php',
+        type: 'POST',
+        data: { 
+            folio_pago:folio_pago,
+            fecha_pago:fecha_pago,
+            tipo_pago:tipo_pago,
+            tarjeta:tarjeta,
+            folio_contrato:folio_contrato,
+            total_pago:total_pago
+        },
+        success: function(response) {
+            if (response.success) {
+                //actualizarTotal();
+                console.log(response.message);
+            } else {
+                alert('Error: ' + response.message);
+            }
+        },
     });
 }
