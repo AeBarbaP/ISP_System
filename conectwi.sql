@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 24-04-2025 a las 00:39:56
+-- Tiempo de generación: 24-04-2025 a las 21:39:59
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.28
 
@@ -361,14 +361,14 @@ CREATE TABLE `logs_users` (
 CREATE TABLE `pagos` (
   `id` int(11) NOT NULL,
   `num_pago` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
-  `fecha_pago` datetime NOT NULL,
+  `fecha_pago` date NOT NULL,
   `folio_contrato` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
-  `concepto` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `concepto` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `periodo` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `annio` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `annio` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
   `tipo_pago` int(11) NOT NULL,
-  `descuento` varchar(7) COLLATE utf8_unicode_ci NOT NULL,
-  `total` int(11) NOT NULL
+  `descuento` decimal(5,2) NOT NULL,
+  `total` decimal(5,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -376,18 +376,18 @@ CREATE TABLE `pagos` (
 --
 
 INSERT INTO `pagos` (`id`, `num_pago`, `fecha_pago`, `folio_contrato`, `concepto`, `periodo`, `annio`, `tipo_pago`, `descuento`, `total`) VALUES
-(2, 'CW2025-002', '2025-04-09 06:22:28', '202502242354403E354EA3', 'Mensualidad', '1', '2004', 1, '0', 350),
-(3, 'CW2025-002', '2025-04-09 06:33:31', '202502242354403E354EA3', 'Mensualidad', '5', '2004', 1, '0', 350),
-(4, 'CW2025-002', '2025-04-09 06:35:51', '202502242354403E354EA3', 'Mensualidad', '2', '2004', 1, '0', 350),
-(5, 'CW2025-002', '2025-04-09 06:37:04', '202502242354403E354EA3', 'Mensualidad', '4', '2004', 1, '0', 350),
-(6, 'CW2025-002', '2025-04-09 06:37:48', '202502242354403E354EA3', 'Mensualidad', '7', '2004', 1, '0', 350),
-(7, 'CW2025-002', '2025-04-09 06:45:09', '202502242354403E354EA3', 'Mensualidad', '9', '2004', 1, '0', 350),
-(8, 'CW2025-002', '2025-04-09 06:46:45', '202502242354403E354EA3', 'Mensualidad', '3', '2004', 1, '0', 350),
-(9, 'CW2025-002', '2025-04-09 07:09:09', '202502242354403E354EA3', 'Mensualidad', '6', '2004', 1, '0', 350),
-(10, 'CW2025-002', '2025-04-11 00:20:21', '202502242354403E354EA3', 'Mensualidad', '2', '2005', 1, '0', 350),
-(11, 'CW2025-002', '2025-04-11 00:21:04', '202502242354403E354EA3', 'Mensualidad', '8', '2004', 1, '0', 350),
-(12, 'CW2025-002', '2025-04-11 00:25:24', '202502242354403E354EA3', 'Mensualidad', '11', '2004', 1, '0', 350),
-(13, 'CW2025-002', '2025-04-11 00:25:24', '202502242354403E354EAA', 'Mensualidad', '4', '2005', 1, '0', 350);
+(2, 'CW2025-002', '2025-04-09', '202502242354403E354EA3', 'Mensualidad', '1', '2004', 1, '0.00', '350.00'),
+(3, 'CW2025-002', '2025-04-09', '202502242354403E354EA3', 'Mensualidad', '5', '2004', 1, '0.00', '350.00'),
+(4, 'CW2025-002', '2025-04-09', '202502242354403E354EA3', 'Mensualidad', '2', '2004', 1, '0.00', '350.00'),
+(5, 'CW2025-002', '2025-04-09', '202502242354403E354EA3', 'Mensualidad', '4', '2004', 1, '0.00', '350.00'),
+(6, 'CW2025-002', '2025-04-09', '202502242354403E354EA3', 'Mensualidad', '7', '2004', 1, '0.00', '350.00'),
+(7, 'CW2025-002', '2025-04-09', '202502242354403E354EA3', 'Mensualidad', '9', '2004', 1, '0.00', '350.00'),
+(8, 'CW2025-002', '2025-04-09', '202502242354403E354EA3', 'Mensualidad', '3', '2004', 1, '0.00', '350.00'),
+(9, 'CW2025-002', '2025-04-09', '202502242354403E354EA3', 'Mensualidad', '6', '2004', 1, '0.00', '350.00'),
+(10, 'CW2025-002', '2025-04-11', '202502242354403E354EA3', 'Mensualidad', '2', '2005', 1, '0.00', '350.00'),
+(11, 'CW2025-002', '2025-04-11', '202502242354403E354EA3', 'Mensualidad', '8', '2004', 1, '0.00', '350.00'),
+(12, 'CW2025-002', '2025-04-11', '202502242354403E354EA3', 'Mensualidad', '11', '2004', 1, '0.00', '350.00'),
+(13, 'CW2025-002', '2025-04-11', '202502242354403E354EAA', 'Mensualidad', '4', '2005', 1, '0.00', '350.00');
 
 -- --------------------------------------------------------
 

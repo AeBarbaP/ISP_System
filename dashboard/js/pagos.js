@@ -51,7 +51,7 @@ function ejecutarFuncionConFolio(folio) {
             data.forEach(function(item) {
                 datosGenerales += `
                 <div class="alert alert-info mb-2" role="alert">
-                <h3>${item.nombre}</h3><span>Folio Contrato: ${item.folio}</span><br>
+                <h3>${item.nombre}</h3><span>Folio Contrato: </span><span id="folioContratoRegistro">${item.folio}</span><br>
                 <span>Domicilio:${item.domicilio}</span>
                 <br>
                 <span>Comunidad:${item.comunidad}</span>
@@ -214,16 +214,4 @@ function calcularTotal() {
         total += parseFloat(fila.cells[3].textContent);
     });
     document.getElementById('total-costo').textContent = total.toFixed(2);
-}
-
-function swalpago(){
-    Swal.fire({
-		position: "top-end",
-		icon: "success",
-		title: "Pago Exitoso",
-		showConfirmButton: false,
-		timer: 1500
-	});
-    document.getElementById('printticket').hidden = false;
-    document.getElementById('pagoreg').hidden = true;
 }
