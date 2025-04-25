@@ -3,7 +3,7 @@ include('conn.php');
 date_default_timezone_set('America/Mexico_City');
 setlocale(LC_TIME, 'es_MX.UTF-8');
 
-$sql ="SELECT * FROM pagos ORDER BY id ASC LIMIT 1";
+$sql ="SELECT * FROM pagos_generales ORDER BY id DESC LIMIT 1";
 $resultado = $conn->query($sql);
 $filas = $resultado->num_rows;
 
@@ -16,15 +16,15 @@ else{
     $consecutivo = 1;
 }
 
-if (strlen($consecutivo == 1)){
+if (strlen($consecutivo) == 1){
     $consecutivo = "000".$consecutivo;
 }
 
-else if (strlen($consecutivo == 2)){
+else if (strlen($consecutivo) == 2){
     $consecutivo = "00".$consecutivo;
 }
 
-else if (strlen($consecutivo == 3)){
+else if (strlen($consecutivo) == 3){
     $consecutivo = "0".$consecutivo;
 }
 
