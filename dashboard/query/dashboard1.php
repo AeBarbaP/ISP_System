@@ -2,7 +2,7 @@
 
 require('../prcd/conn.php');
 
-$sql = "SELECT * FROM pagos ORDER BY id ASC";
+$sql = "SELECT * FROM pagos_generales ORDER BY id ASC";
 $resultado = $conn->query($sql);
 while($row = $resultado->fetch_assoc()){
     $contrato = $row['folio_contrato'];

@@ -134,19 +134,13 @@ function guardarRecibo(){
             if(success = 1){
                 alert("Recibo guardado");
                 $('#pago').modal('hide');
-                // limpiarCampos2();
+                queryDashboard1();
             }
             else{
                 alert("No se guardó");
                 console.log(datos.error)
             }
-            // if (response.success) {
-            //     //actualizarTotal();
-            //     console.log(response.message);
-            // } else {
-            //     alert('Error: ' + response.message);
-            // }
-
+          
         },
     });
 }
