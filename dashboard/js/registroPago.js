@@ -127,12 +127,37 @@ function guardarRecibo(){
             total_pago:total_pago
         },
         success: function(response) {
-            if (response.success) {
-                //actualizarTotal();
-                console.log(response.message);
-            } else {
-                alert('Error: ' + response.message);
+            var datos = JSON.parse(JSON.stringify(response));
+
+            var success = datos.success;
+    
+            if(success = 1){
+                alert("Recibo guardado");
+                $('#pago').modal('hide');
+                // limpiarCampos2();
             }
+            else{
+                alert("No se guardó");
+                console.log(datos.error)
+            }
+            // if (response.success) {
+            //     //actualizarTotal();
+            //     console.log(response.message);
+            // } else {
+            //     alert('Error: ' + response.message);
+            // }
+
         },
     });
 }
+
+// function queryRecibo(folio_pago){
+//     $.ajax({
+//         type: "POST",
+//         url: "query/query_recibo.php",
+//         dataType: "html",
+//         success: function(data) {
+//             $('#recibos').html(data);
+//         }
+//     });
+// }

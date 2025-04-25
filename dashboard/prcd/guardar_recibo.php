@@ -24,7 +24,7 @@ $sql = "INSERT INTO pagos_generales (
         tipo_pago
         ) VALUES (
         '$folio_contrato', 
-        '$total_pago'
+        '$total_pago',
         '$tarjeta',
         '$folio_pago', 
         '$fecha_pago',
