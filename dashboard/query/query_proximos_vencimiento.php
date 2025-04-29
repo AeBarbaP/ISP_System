@@ -39,6 +39,4 @@ while($row = $resultado->fetch_assoc()){
             $fecha->add(new DateInterval('P1M')); // Siguiente mes
         }
     // while para obtener el recorrido de pagos
-
-    
 }
