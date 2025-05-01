@@ -145,13 +145,27 @@ function guardarRecibo(){
     });
 }
 
-// function queryRecibo(folio_pago){
-//     $.ajax({
-//         type: "POST",
-//         url: "query/query_recibo.php",
-//         dataType: "html",
-//         success: function(data) {
-//             $('#recibos').html(data);
-//         }
-//     });
-// }
+function queryRecibo(){
+    $.ajax({
+        type: "POST",
+        url: "query/query_proximos_vencimiento.php",
+        dataType: "html",
+        success: function(data) {
+            $('#tablaProximos').html(data);
+        }
+    });
+}
+
+function queryRecibo2(){
+    $.ajax({
+        type: "POST",
+        url: "query/query_proximos_vencimiento_2.php",
+        dataType: "html",
+        success: function(data) {
+            $('#tablaProximos2').html(data);
+        }
+    });
+}
+
+queryRecibo();
+queryRecibo2();
