@@ -24,6 +24,9 @@ while($row = $resultado->fetch_assoc()){
             
             // 6. Mostrar resultados
             echo "<tr>
+                    <td style='padding:8px;'>".$row['folio']."</td>
+                    <td style='padding:8px;'>".$row['nombre']."</td>
+                    <td style='padding:8px;'>".$row['cuota']."</td>
                     <td style='padding:8px;'>".$fecha->format('m/Y')."</td>";
             
             if($resultado->num_rows > 0) {
@@ -31,8 +34,8 @@ while($row = $resultado->fetch_assoc()){
                 echo "<td style='color:green; padding:8px;'>✅ PAGADO</td>
                     <td style='padding:8px;'>$".number_format($pago['total'], 2)."</td>";
             } else {
-                echo "<td style='color:red; padding:8px;'>❌ PENDIENTE</td>
-                    <td style='padding:8px;'>$0.00</td>";
+                echo '<td style="color:red; padding:8px;">❌ PENDIENTE</td>
+                    <td class="align-items-center"><button class="btn btn-sm btn-info btn-rounded"><i class="mdi mdi-refresh mx-0 text-white"></i></button></td>';
             }
             
             echo "</tr>";
