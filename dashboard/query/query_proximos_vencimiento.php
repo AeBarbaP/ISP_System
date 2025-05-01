@@ -24,7 +24,11 @@ while($row = $resultado->fetch_assoc()){
             
             // 6. Mostrar resultados
             echo "<tr>
-                    <td style='padding:8px;'>".$fecha->format('m/Y')."</td>";
+                    <td style='padding:8px;'>".$row['folio']."</td>
+                    <td style='padding:8px;'>".$row['nombre']."</td>
+                    <td style='padding:8px;'>".$fecha->format('m/Y')."</td>
+                    <td style='padding:8px;'>".$row['cuota']."</td>
+                    ";
             
             if($resultado->num_rows > 0) {
                 $pago = $resultado->fetch_assoc();
