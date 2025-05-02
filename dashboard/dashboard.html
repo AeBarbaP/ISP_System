@@ -1018,7 +1018,24 @@
         </div>
     </div>
 </div>
-
+<script>
+	$(document).ready(function () {
+		$('#printticket').on('click', function (event) {
+			if ($('.modal').is(':visible')) {
+				console.log('si');
+				var modalId = $(event.target).closest('.modal').attr('id');
+				$('body').css('visibility', 'hidden');
+				$("#" + modalId).css('visibility', 'visible');
+				$('#' + modalId).removeClass('modal');
+				window.print();
+				$('body').css('visibility', 'visible');
+				$('#' + modalId).addClass('modal');
+			} else {
+				window.print();
+			}
+		})
+	});
+	</script>
 <!-- Termina Modal para agregar solicitud -->
 
 <nav class="navbar bg-body-tertiary fixed-top">

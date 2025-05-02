@@ -215,3 +215,18 @@ function calcularTotal() {
     });
     document.getElementById('total-costo').textContent = total.toFixed(2);
 }
+
+function imprimirSeleccion(nombre) {
+    var ficha = document.getElementById(nombre);
+    var ventimp = window.open(' ', 'popimpr');
+    var fecha = new Date('Y');
+    var texto = "<center><p>.</p><p>...</p><p>.</p><h1 style='font-size: 2.5rem; font-family: 'Aboreto', cursive;'><strong>CONECTWi</strong></h1><h1 style='font-size: 2rem; font-family: 'Aboreto', cursive;'>Recibo de Pago</h1></center>";
+    var texto2 = "<center><p style='font-size: 2rem;'>CONSERVE SU TICKET</p><p style='font-size: 1.5rem;'>Únicamente presentando éste ticket se pordrá acreditar su pago</p><p style='font-size: 1.2rem;'>http://www.conectwi.com</p><p style='font-size: 1.2rem;'>CONECTWI | "+fecha+"</p></center>";
+    var tabla = "";
+    ventimp.document.write(texto);
+    ventimp.document.write(ficha.innerHTML);
+    ventimp.document.write(texto2);
+    ventimp.document.close();
+    ventimp.print();
+    ventimp.close();
+}
