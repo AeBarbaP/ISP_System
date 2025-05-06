@@ -1019,19 +1019,18 @@
     </div>
 </div>
 
-
-
 <div class="modal fade" id="ticket" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header" style="background-image: url('images/Recurso\ 1.png'); background-size: cover; padding-top: 3px;">
-				
-				<h5 class="modal-title">Ticket</h5>
+			<div class="modal-header bg-secondary" id="header" style="background-image: url('images/Recurso1.png'); background-size: cover; ">
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
-			<div class="modal-body">
-				<p>Recibo de Pago</p>
-				<div class="row">
+			<div class="modal-body mb-2">
+				<div >
+					<img class="ms-2" src="../images/logo_conectwi_wide-removebg-preview.png" style="height: 4rem;" alt="">
+					<h3 class="text-center mt-5" style="font-size: 1.5rem; font-weight: bold;">RECIBO DE PAGO</h3>
+				</div>
+				<div class="row mt-5">
 					<div class="col-4">
 						<p>Fecha:<br><span id="ticketFecha"></span></p>
 					</div>
@@ -1041,12 +1040,14 @@
 						<p>Folio:<br><span id="ticketFolio"></span></p>
 					</div>
 				</div>
-				<article>
-					<div class="col-7" id="ticketDatosCliente">
-
-					</div>
-					<div class="col-5 text-end" id="ticketNoCliente">
-
+				<article class="mt-2 mb-2">
+					<div class="row">
+						<div class="col-7" id="ticketDatosCliente">
+							<label>Cliente:</label>
+						</div>
+						<div class="col-5" id="ticketNoCliente">
+							<label>Contrato:</label>
+						</div>
 					</div>
 				</article>
 				<article>
@@ -1086,8 +1087,14 @@
 
 					</div>
 				</article>
+				<article>
+					<div class="text-center mt-5 mb-5">
+						<p style="font-size: 1.5rem;"><b>GRACIAS POR SU PREFERENCIA</b></p>
+						<p style="font-size: 1.2rem;"><b>CONSERVE SU TICKET</b></p><p style='font-size: 1rem;'>Únicamente presentando éste ticket pordrá acreditar su pago.<br>http://www.conectwi.com</p><p style='font-size: 1rem;'>CONECTWI | 2025</p>
+					</div>
+				</article>
 			</div>
-			<div class="modal-footer">
+			<div class="modal-footer bg-secondary" id="footer" style="background-image: url('images/Recurso5.png'); background-size: cover;">
 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 				<button type="button" id="printticket1" class="btn btn-primary">Imprimir</button>
 			</div>
@@ -1095,27 +1102,6 @@
 	</div>
 </div>
 
-
-
-
-<script>
-	$(document).ready(function () {
-		$('#printticket1').on('click', function (event) {
-			if ($('.modal').is(':visible')) {
-				console.log('si');
-				var modalId = $(event.target).closest('.modal').attr('id');
-				$('body').css('visibility', 'hidden');
-				$("#" + modalId).css('visibility', 'visible');
-				$('#' + modalId).removeClass('modal');
-				window.print();
-				$('body').css('visibility', 'visible');
-				$('#' + modalId).addClass('modal');
-			} else {
-				window.print();
-			}
-		})
-	});
-	</script>
 <!-- Termina Modal para agregar solicitud -->
 
 <nav class="navbar bg-body-tertiary fixed-top">

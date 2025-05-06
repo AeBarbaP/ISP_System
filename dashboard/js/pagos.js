@@ -231,3 +231,28 @@ function imprimirSeleccion(nombre) {
     ventimp.close();
 }
 
+$(document).ready(function () {
+    $('#printticket1').on('click', function (event) {
+        if ($('.modal').is(':visible')) {
+            console.log('si');
+            var modalId = $(event.target).closest('.modal').attr('id');
+            $('body').css('visibility', 'hidden');
+            $('footer').css('visibility', 'hidden');
+            document.getElementById('footer').hidden = true;
+            $('header').css('visibility', 'hidden');
+            document.getElementById('header').hidden = true;
+            $("#" + modalId).css('visibility', 'visible');
+            $('#' + modalId).removeClass('modal');
+            window.print();
+            $('body').css('visibility', 'visible');
+            $('footer').css('visibility', 'visible');
+            document.getElementById('footer').hidden = false;
+            $('header').css('visibility', 'visible');
+            document.getElementById('header').hidden = false;
+            $('#' + modalId).addClass('modal');
+        } else {
+            window.print();
+        }
+    })
+});
+
