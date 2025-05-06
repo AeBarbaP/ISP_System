@@ -230,3 +230,4 @@ function imprimirSeleccion(nombre) {
     ventimp.print();
     ventimp.close();
 }
+
