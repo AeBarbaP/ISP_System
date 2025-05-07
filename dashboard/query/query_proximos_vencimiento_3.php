@@ -14,15 +14,20 @@ $resultado_clientes = $conn->query($sql_clientes);
 while ($cliente = $resultado_clientes->fetch_assoc()) {
     $fecha_contrato = new DateTime($cliente['fecha_contrato']);
     $fecha_corte = new DateTime($cliente['fecha_corte']);
+    $folio = $cliente['folio'];
 
     $diaCorte = $fecha_corte->format('d');
     $mesCorte = $fecha_corte->format('m');
     $anioCorte = $fecha_corte->format('Y');
+    //$fechaC = $anioHoy . '-' . $mesCorte . '-' . $diaCorte;
+    /* $fecha_corte2 = new DateTime($fechaC);
+    $fecha_corte2->setTime(0, 0, 0); // Normalizar a medianoche para evitar problemas de comparación
+    echo $fechaC; */
+    $sqlPagos = "SELECT * FROM pagos_generales WHERE folio_contrato = '$folio' AND MONTH(fecha_pago) = '$mesCorte' AND YEAR(fecha_pago) = '$anioHoy'";
+    $resultado_clientes = $conn->query($sqlPagos);
+    $filas = $resultado_clientes->num_rows;
 
-    $fecha_corte = new DateTime($anioHoy . '-' . $mesCorte . '-' . $diaCorte);
-    $fecha_corte->setTime(0, 0, 0); // Normalizar a medianoche para evitar problemas de comparación
-
-    $folio = $cliente['folio'];
+    if ($filas == 0){
 
     // Calcula la diferencia entre las dos fechas
     $diferencia = $hoy->diff($fecha_corte);
@@ -66,5 +71,7 @@ while ($cliente = $resultado_clientes->fetch_assoc()) {
         </tr>
         ";
     }
+}
+
 }
 ?>
