@@ -4,12 +4,24 @@ require_once("../prcd/conn.php");
 $hoy = new DateTime(); // Fecha actual
 $hoy->setTime(0, 0, 0); // Normalizar a medianoche para evitar problemas de comparación
 
+$diaHoy = $hoy->format('d');
+$mesHoy = $hoy->format('m');
+$anioHoy = $hoy->format('Y');
+
 $sql_clientes = "SELECT * FROM clientes";
 $resultado_clientes = $conn->query($sql_clientes);
 
 while ($cliente = $resultado_clientes->fetch_assoc()) {
     $fecha_contrato = new DateTime($cliente['fecha_contrato']);
     $fecha_corte = new DateTime($cliente['fecha_corte']);
+
+    $diaCorte = $fecha_corte->format('d');
+    $mesCorte = $fecha_corte->format('m');
+    $anioCorte = $fecha_corte->format('Y');
+
+    $fecha_corte = new DateTime($anioHoy . '-' . $mesCorte . '-' . $diaCorte);
+    $fecha_corte->setTime(0, 0, 0); // Normalizar a medianoche para evitar problemas de comparación
+
     $folio = $cliente['folio'];
 
     // Calcula la diferencia entre las dos fechas
