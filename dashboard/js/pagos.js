@@ -231,7 +231,7 @@ function imprimirSeleccion(nombre) {
     ventimp.close();
 }
 
-$(document).ready(function () {
+/* $(document).ready(function () {
     $('#printticket1').on('click', function (event) {
         if ($('.modal').is(':visible')) {
             console.log('si');
@@ -254,5 +254,5 @@ $(document).ready(function () {
             window.print();
         }
     })
-});
+}); */
 
