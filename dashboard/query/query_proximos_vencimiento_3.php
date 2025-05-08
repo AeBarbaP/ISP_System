@@ -28,13 +28,12 @@ while ($cliente = $resultado_clientes->fetch_assoc()) {
 
     $resultado_pagos = $conn->query($sqlPagos);
     $filas = $resultado_pagos->num_rows;
-
+    echo $filas;
     if ($filas == 0) {
         $diferencia = $hoy->diff($fecha_corte)->days;
-
         // Determina color y porcentaje
         if ($diferencia == 1) {
-            $dias_restantes = 100;
+            $dias_restantes = 90;
             $color = '#ee5b5b';
         } else if ($diferencia == 2) {
             $dias_restantes = 80;
@@ -48,6 +47,12 @@ while ($cliente = $resultado_clientes->fetch_assoc()) {
         } else if ($diferencia == 5) {
             $dias_restantes = 20;
             $color = '#0ddbb9';
+        } else if ($diferencia == 6) {
+            $dias_restantes = 10;
+            $color = '#0ddbb9';
+        } else if ($diferencia == 0) {
+            $dias_restantes = 100;
+            $color = '#ee5b5b';
         } else {
             // Fuera del rango de interés
             continue;
@@ -57,8 +62,6 @@ while ($cliente = $resultado_clientes->fetch_assoc()) {
         <tr>
             <td style='padding:8px;'>{$cliente['folio']}</td>
             <td style='padding:8px;'>{$cliente['nombre']}</td>
-            <td style='padding:8px;'>{$fecha_corte->format('d/m/Y')}</td>
-            <td style='padding:8px;'>$" . number_format($cliente['cuota'], 2) . "</td>
             <td style='padding:8px;'>
                 <div class='progress'>
                     <div class='progress-bar' role='progressbar' style='width: {$dias_restantes}%; background-color: {$color};' 
@@ -67,6 +70,8 @@ while ($cliente = $resultado_clientes->fetch_assoc()) {
                     </div>
                 </div>
             </td>
+            <td style='padding:8px;'>$" . number_format($cliente['cuota'], 2) . "</td>
+            <td style='padding:8px;'>{$fecha_corte->format('d/m/Y')}</td>
         </tr>";
     }
 }

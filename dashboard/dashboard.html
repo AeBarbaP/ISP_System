@@ -30,7 +30,7 @@
 	 <script src="js/laterales/paquetes.js"></script>
 	 <script src="js/laterales/corteDiario.js"></script>
 	<!-- área de scripts -->
-	<body>
+	<body onload="queryDashboard1();">
     <div class="container-scroller">
 		<!-- partial:partials/_horizontal-navbar.html -->
     <div class="horizontal-menu">
@@ -350,160 +350,28 @@
 										<div class="table-responsive">
 											<table class="table table-hover text-center">
 												<caption>de 1 a 6 días antes de la fecha límite de pago.</caption>
-											<thead style="background-color: aliceblue;" class="text-dark">
-												<tr>
-												<th class="scope" style="font-weight: bold;">
-													Contrato
-												</th>
-												<th class="scope" style="font-weight: bold;">
-													Nombre del Cliente
-												</th>
-												<th class="scope" style="font-weight: bold;">
-													Progreso de Vencimiento
-												</th>
-												<th class="scope" style="font-weight: bold;">
-													Monto
-												</th>
-												<th class="scope" style="font-weight: bold;">
-													Fecha Límite de Pago
-												</th>
-												</tr>
-											</thead>
-											<tbody id="tablaProximos">
-												<!-- <tr>
-												<td class="py-1">
-													C-0859
-												</td>
-												<td>
-													Juan Arturo
-												</td>
-												<td>
-													<div class="progress">
-													<div class="progress-bar bg-success"  role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-													</div>
-												</td>
-												<td>
-													$ 77.99
-												</td>
-												<td>
-													May 15, 2025
-												</td>
-												</tr>
-												<tr>
-												<td class="py-1">
-													C-0574
-												</td>
-												<td>
-													Marco Díaz
-												</td>
-												<td>
-													<div class="progress">
-													<div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-													</div>
-												</td>
-												<td>
-													$245.30
-												</td>
-												<td>
-													July 1, 2025
-												</td>
-												</tr>
-												<tr>
-												<td class="py-1">
-													C-0195
-												</td>
-												<td>
-													Juan Ricardo
-												</td>
-												<td>
-													<div class="progress">
-													<div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-													</div>
-												</td>
-												<td>
-													$138.00
-												</td>
-												<td>
-													Apr 12, 2025
-												</td>
-												</tr>
-												<tr>
-												<td class="py-1">
-													C-0267
-												</td>
-												<td>
-													Pedro Martínez
-												</td>
-												<td>
-													<div class="progress">
-													<div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-													</div>
-												</td>
-												<td>
-													$ 77.99
-												</td>
-												<td>
-													May 15, 2025
-												</td>
-												</tr>
-												<tr>
-												<td class="py-1">
-													C-0711
-												</td>
-												<td>
-													Eduardo Rivas
-												</td>
-												<td>
-													<div class="progress">
-													<div class="progress-bar bg-success" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-													</div>
-												</td>
-												<td>
-													$ 160.25
-												</td>
-												<td>
-													May 03, 2025
-												</td>
-												</tr>
-												<tr>
-												<td class="py-1">
-													C-0747
-												</td>
-												<td>
-													José Soto
-												</td>
-												<td>
-													<div class="progress">
-													<div class="progress-bar bg-warning" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-													</div>
-												</td>
-												<td>
-													$ 123.21
-												</td>
-												<td>
-													April 05, 2025
-												</td>
-												</tr>
-												<tr>
-												<td class="py-1">
-													C-0679
-												</td>
-												<td>
-													Enrique López
-												</td>
-												<td>
-													<div class="progress">
-													<div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-													</div>
-												</td>
-												<td>
-													$ 150.00
-												</td>
-												<td>
-													June 16, 2025
-												</td>
-												</tr> -->
-											</tbody>
+												<thead style="background-color: aliceblue;" class="text-dark">
+													<tr>
+														<th class="scope" style="font-weight: bold;">
+															Contrato
+														</th>
+														<th class="scope" style="font-weight: bold;">
+															Nombre del Cliente
+														</th>
+														<th class="scope" style="font-weight: bold;">
+															Progreso de Vencimiento
+														</th>
+														<th class="scope" style="font-weight: bold;">
+															Monto
+														</th>
+														<th class="scope" style="font-weight: bold;">
+															Fecha Límite de Pago
+														</th>
+													</tr>
+												</thead>
+												<tbody id="tablaProximos">
+													
+												</tbody>
 											</table>
 										</div>
 										</div>
