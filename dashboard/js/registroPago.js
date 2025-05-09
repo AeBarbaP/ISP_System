@@ -169,3 +169,35 @@ function queryRecibo2(){
 
 queryRecibo();
 queryRecibo2();
+
+function _pagosRealizados(el){
+    return document.getElementById(el);
+}
+
+function abrirModalPagos(folio){
+    $("#listaPagosInv").modal("show");
+    _pagosRealizados('folioPagoRealizado').innerText = "";
+    _pagosRealizados('fechaPagoRealizado').innerText = "";
+    _pagosRealizados('nombrePagoRealizado').innerText = "";
+    _pagosRealizados('totalPagoRealizado').innerText = "";
+
+    let folioPago = folio;
+    $.ajax({
+        type: "POST",
+        url: "query/query_pago_query.php",
+        data: {
+            folio: folioPago
+        },
+        dataType: "json",
+        success: function(data){
+            var datos = JSON.parse(JSON.stringify(data));
+            var success = datos.success; 
+            if (success == 1){
+                _pagosRealizados('folioPagoRealizado').innerText = datos.folio_pago;
+                _pagosRealizados('fechaPagoRealizado').innerText = datos.fecha_pago;
+                _pagosRealizados('nombrePagoRealizado').innerText = datos.fecha_pago;
+                _pagosRealizados('totalPagoRealizado').innerText = datos.fecha_pago;
+            }
+        }
+    });
+}

@@ -11,6 +11,8 @@ while($row = $resultado->fetch_assoc()){
     $row2 = $resultado2->fetch_assoc();
     echo'
     <tr class="text-center" data-href="#" data-bs-toggle="modal" data-bs-target="#listaPagosInv">
+
+    <tr class="text-center"onclick="abrirModalPagos(\'' . $row['folio_contrato'] . '\')">
         <td>' . $row['folio_contrato'] . '</td>
         <td>' . $row2['nombre'] . '</td>
         <td>$' . $row['total'] . '</td>

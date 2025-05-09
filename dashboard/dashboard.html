@@ -1054,10 +1054,21 @@
 		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
-		  <p><strong>Folio contrato:</strong></p>
-		  <p><strong>fecha pago:</strong></p>
-		  <p><strong>Nombre:</strong></p>
-		  <p><strong>Total: </strong></p>
+		  <p><strong>Folio contrato:</strong><span id="folioPagoRealizado"></span></p>
+		  <p><strong>fecha pago:</strong><span id="fechaPagoRealizado"></span></p>
+		  <p><strong>Nombre:</strong><span id="nombrePagoRealizado"></span></p>
+		  <p><strong>Total: </strong><span id="totalPagoRealizado"></span></p>
+
+		  <p>
+			<table>
+				<thead>
+					<tr>
+						<th>Descripción</th>
+						<th>Monto</th>
+					</tr>
+				</thead>
+			</table>
+		  </p>
 		</div>
 		<div class="modal-footer">
 		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
