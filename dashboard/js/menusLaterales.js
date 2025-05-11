@@ -1550,13 +1550,13 @@ function altaCorte() {
             <div class="mb-3" id="datosDomicilio">
 							<p> Aqui se imprime el domicilio del cliente <br>que se va a hacer el corte</p>
 						</div>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
               <select class="form-select" aria-label="tecnico asignado" id="tecnico_corte">
                   <option value="" selected>Selecciona Técnico...</option>
-                  <!-- aquí se llena con la tabla de Técnicos -->
+                  aquí se llena con la tabla de Técnicos
               </select>
-            </div>
+            </div> -->
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Corte:</label>
               <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_corteAsignacion" aria-describedby="basic-addon1">
@@ -1637,13 +1637,13 @@ function editarCorte() {
             <div class="mb-3" id="datosClienteyDomicilio">
 							<p> Aqui se imprime la info de la orden de corte, <br>el domicilio y nombre del cliente <br>que se va a hacer el corte</p>
 						</div>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
               <select class="form-select" aria-label="tecnico asignado" id="tecnico_corte_editar">
                   <option value="" selected>Selecciona Técnico...</option>
-                  <!-- aquí se llena con la tabla de Técnicos y el selected es el que está asignado -->
+                  aquí se llena con la tabla de Técnicos y el selected es el que está asignado 
               </select>
-            </div>
+            </div> -->
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Corte:</label>
               <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_corteAsignacion_editar" aria-describedby="basic-addon1">

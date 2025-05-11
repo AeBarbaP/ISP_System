@@ -41,8 +41,8 @@ while ($cliente = $resultado_clientes->fetch_assoc()) {
         <tr>
             <td style='padding:8px;'>{$cliente['folio']}</td>
             <td style='padding:8px;'>{$cliente['nombre']}</td>
-            <td style='padding:8px;'>{$fecha_corte->format('d/m/Y')}</td>
             <td style='padding:8px;'>$" . number_format($cliente['cuota'], 2) . "</td>
+            <td style='padding:8px;'>{$fecha_corte->format('d/m/Y')}</td>
             <td style='padding:8px;'>
                 <div class='progress'>
                     <div class='progress-bar' role='progressbar' style='width: {$dias_restantes}%; background-color: {$color};' 

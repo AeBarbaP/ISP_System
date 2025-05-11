@@ -37,13 +37,13 @@ while ($cliente = $resultado_clientes->fetch_assoc()) {
             $color = '#ee5b5b';
         } else if ($diferencia == 2) {
             $dias_restantes = 80;
-            $color = '#fcd53b';
+            $color = '#ee5b5b';
         } else if ($diferencia == 3) {
             $dias_restantes = 60;
             $color = '#fcd53b';
         } else if ($diferencia == 4) {
             $dias_restantes = 40;
-            $color = '#0ddbb9';
+            $color = '#fcd53b';
         } else if ($diferencia == 5) {
             $dias_restantes = 20;
             $color = '#0ddbb9';
