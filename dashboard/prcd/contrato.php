@@ -8,7 +8,7 @@ class PDF extends FPDF {
         $this->SetY(36); // Ajustar el margen para evitar que el texto se empalme
         $this->SetFont('Arial', 'B', 12);
         $this->Cell(0, 10, 'CONTRATO DE PRESTACION DE SERVICIOS DE RED INALAMBRICA E INTERNET', 0, 1, 'C');
-        $this->Ln(5);
+        $this->Ln(3);
     }
 
     function Footer() {
@@ -22,29 +22,95 @@ $pdf = new PDF();
 $pdf->SetMargins(15, 10, 15); // Márgenes reducidos (izquierda, arriba, derecha)
 $pdf->AddPage();
 $pdf->SetFont('Arial', 'B', 10);
-$pdf->MultiCell(0, 7, utf8_decode(
+$pdf->MultiCell(0, 5, utf8_decode(
     'CONTRATO DE PRESTACIÓN DE SERVICIOS DE RED INALÁMBRICA E INTERNET QUE CELEBRAN POR UNA PARTE LA EMPRESA "CONECTWI" REPRESENTADA POR EL ING. SERGIO PAVEL MERCADO ARTEAGA, POR OTRA PARTE, EL SUSCRIPTOR CUYO NOMBRE Y DOMICILIO SE ESPECIFICAN EN LA PARTE FRONTAL DEL PRESENTE CONTRATO:'
 ));
-$pdf->Cell(0, 7, "\n\n", 0, 1);
+$pdf->Cell(0, 5, "\n", 0, 1);
 
 $pdf->SetFont('Arial', 'B', 10);
 $pdf->Cell(0, 7, 'DATOS DEL CLIENTE:', 0, 1,'C');
-$pdf->SetFont('Arial', '', 10);
-$pdf->MultiCell(0, 7, utf8_decode(
-    "Nombre del Cliente: __________________________________________________________________________\n".
-    "Domicilio: ________________________________________".
-    " Comunidad: _______________________________\n".
-    " Municipio: ________________________________\n".
-    "Estado: _________________________________".
-    "Número de Teléfono: _________________________________________________________________________\n".
-    "Fecha de Instalación: ____________________________".
-    " IP del Cliente: ________________________________\n".
-    "Total a pagar: _________________________________".
+
+$pdf->SetFont('Arial','B',10);
+$pdf->Cell(36,6,utf8_decode('Nombre del Cliente:'),0,0,'L');
+$pdf->Cell(1,6,utf8_decode(''),0,0,'C');
+$pdf->Cell(139,6,utf8_decode('  '),'B',0,'L');
+$pdf->Ln();
+$pdf->SetFont('Arial','B',10);
+$pdf->Cell(20,6,utf8_decode('Domicilio:'),0,0,'L');
+$pdf->Cell(1,6,utf8_decode(''),0,0,'C');
+$pdf->Cell(95,6,utf8_decode('  '),'B',0,'L');
+$pdf->Cell(19,6,utf8_decode('Teléfono:'),0,0,'L');
+$pdf->Cell(1,6,utf8_decode(''),0,0,'C');
+$pdf->Cell(40,6,utf8_decode('  '),'B',0,'L');
+$pdf->Ln();
+$pdf->SetFont('Arial','B',10);
+$pdf->Cell(22,6,utf8_decode('Comunidad:'),0,0,'L');
+$pdf->Cell(1,6,utf8_decode(''),0,0,'C');
+$pdf->Cell(66,6,utf8_decode('  '),'B',0,'L');
+$pdf->Cell(20,6,utf8_decode('Municipio:'),0,0,'L');
+$pdf->Cell(1,6,utf8_decode(''),0,0,'C');
+$pdf->Cell(66,6,utf8_decode('  '),'B',0,'L');
+$pdf->Ln();
+$pdf->SetFont('Arial','B',10);
+$pdf->Cell(16,6,utf8_decode('Estado:'),0,0,'L');
+$pdf->Cell(2,6,utf8_decode(''),0,0,'C');
+$pdf->Cell(66,6,utf8_decode('  '),'B',0,'L');
+$pdf->Ln();
+$pdf->Ln();
+$pdf->SetFont('Arial','B',10);
+$pdf->Cell(33,6,utf8_decode('Fecha Instalación:'),0,0,'L');
+$pdf->Cell(1,6,utf8_decode(''),0,0,'C');
+$pdf->Cell(40,6,utf8_decode('  '),'B',0,'L');
+$pdf->Cell(1,6,utf8_decode(''),0,0,'C');
+$pdf->Ln();
+$pdf->Cell(19,6,utf8_decode('IP Cliente:'),0,0,'L');
+$pdf->Cell(1,6,utf8_decode(''),0,0,'C');
+$pdf->Cell(69,6,utf8_decode('  '),'B',0,'L');
+$pdf->Cell(1,6,utf8_decode(''),0,0,'C');
+$pdf->Cell(16,6,utf8_decode('Antena:'),0,0,'L');
+$pdf->Cell(1,6,utf8_decode(''),0,0,'C');
+$pdf->Cell(69,6,utf8_decode('  '),'B',0,'L');
+$pdf->Ln();
+$pdf->SetFont('Arial','B',10);
+$pdf->Cell(40,6,utf8_decode('Velocidad Contratada:'),0,0,'L');
+$pdf->Cell(1,6,utf8_decode(''),0,0,'C');
+$pdf->Cell(22,6,utf8_decode('  '),'B',0,'L');
+$pdf->Cell(1,6,utf8_decode(''),0,0,'C');
+$pdf->Cell(24,6,utf8_decode('Mensualidad:'),0,0,'L');
+$pdf->Cell(1,6,utf8_decode(''),0,0,'C');
+$pdf->Cell(28,6,utf8_decode(' $ '),'B',0,'L');
+$pdf->Cell(1,6,utf8_decode(''),0,0,'C');
+$pdf->Cell(25,6,utf8_decode('Días de Pago:'),0,0,'L');
+$pdf->Cell(1,6,utf8_decode(''),0,0,'C');
+$pdf->Cell(33,6,utf8_decode('   del Mes'),'B',0,'L');
+$pdf->Ln();
+$pdf->SetFont('Arial','B',10);
+$pdf->Cell(33,6,utf8_decode('Mes(es) Pagados:'),0,0,'L');
+$pdf->Cell(1,6,utf8_decode(''),0,0,'C');
+$pdf->Cell(66,6,utf8_decode('  '),'B',0,'L');
+$pdf->Ln();
+$pdf->Ln();
+
+
+/* $pdf->SetFont('Arial', '', 10);
+$pdf->MultiCell(0, 6, utf8_decode(
+    "Nombre del Cliente: _________________________________________________________________________ \n".
+    "Domicilio: ___________________________________________________ ".
+    "Núm. Teléfono: _________________\n".
+    "Comunidad: ___________________________________ ".
+    "Municipio: ___________________________________\n".
+    "Estado: _________________________________\n".
+    "Fecha de Instalación: ___________________\n".
+    "IP del Cliente: ______________________ ".
+    "Antena: ____________________ ".
+    "Total a pagar: ________________\n".
     "Mes/es Pagados: _______________________________\n\n"
-));
+)); */
+
+
 
 $pdf->SetFont('Arial', 'B', 10);
-$pdf->Cell(0, 7, 'AMBAS PARTES SE SOMETEN DE CONFORMIDAD A LAS SIGUIENTES CLAUSULAS:', 0, 1,'C');
+$pdf->Cell(0, 8, 'AMBAS PARTES SE SOMETEN DE CONFORMIDAD A LAS SIGUIENTES CLAUSULAS:', 0, 1,'C');
 $pdf->SetFont('Arial', '', 10);
 
 $clausulas = [
