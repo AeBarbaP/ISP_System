@@ -230,3 +230,21 @@ function generarFolio2(){
     });
     // y poner el resultado en el label con id "folioLabelContrato"
 }
+function generarFolioIncidencia(){
+    // Llamar a la función que genera el folio
+    $.ajax({
+        type: "POST",
+        url: "prcd/generarFolioIncidencia.php",
+        dataType: "json",
+        success: function(data){
+            var datos = JSON.parse(JSON.stringify(data));
+            var success = datos.success;
+            if(success == 1) {
+                _("folio_incidencia").value = datos.folio;
+            } else {
+                alert("No se pudo generar el folio");
+            }
+        }
+    });
+    // y poner el resultado en el label con id "folioLabelContrato"
+}

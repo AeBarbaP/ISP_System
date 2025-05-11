@@ -1215,7 +1215,7 @@ function altaIncidencia() {
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
                 <input class="form-control" id="buscanombre" oninput="queryClientes(this.value)">
               </div>
-              <select class="form-select" size="4" aria-label="clientes" id="nombresClientes">
+              <select class="form-select" size="4" aria-label="clientes" id="nombresClientesIncidencia">
                 <option selected>Selecciona...</option>
               
               </select>
@@ -1232,7 +1232,7 @@ function altaIncidencia() {
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
               <select class="form-select" aria-label="tecnico asignado" id="tecnico_incidencia">
-                  <option value="" selected>Selecciona Técnico...</option>
+                  
                   <!-- aquí se llena con la tabla de Técnicos -->
               </select>
             </div>
@@ -1256,11 +1256,26 @@ function altaIncidencia() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
-  fechaRegistroIncidencia()
+  fechaRegistroIncidencia();
+  generarFolioIncidencia();
+  consultaClientesFallas();
+  queryTecnicos_Falla()
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
+  });
+}
+
+
+function consultaClientesFallas() {
+  $.ajax({
+      url: 'query/query_clientesFallas.php',
+      type: 'POST',
+      dataType: 'html',
+      success: function(data) {
+          $('#nombresClientesIncidencia').html(data);
+      }
   });
 }
 
@@ -1283,6 +1298,17 @@ function fechaRegistroIncidencia(){
 
   // Asignar las fechas a los inputs
   inputFechaActual.value = fechaActualFormateada;
+}
+
+function queryTecnicos_Falla(){
+  $.ajax({
+    url: 'query/query_tecnicosFallas.php',
+    type: 'POST',
+    dataType: 'html',
+    success: function(data) {
+        $('#tecnico_incidencia').html(data);
+    }
+});
 }
 
 function editarIncidencia() {
