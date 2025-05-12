@@ -1562,7 +1562,7 @@ function altaCorte() {
           <p>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-check me-2"></i>Fecha</label>
-              <input type="date" class="form-control" placeholder="" aria-label="Fecha de orden" id="fecha_orden" aria-describedby="basic-addon1" disabled>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha de orden" id="fecha_orden_corte" aria-describedby="basic-addon1" disabled>
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio:</label>
@@ -1607,6 +1607,7 @@ function altaCorte() {
   bootstrapModal.show();
   fechaRegistroCorte();
   queryClientesCorte();
+  generarFolioCorte();
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
@@ -1624,6 +1625,32 @@ function queryClientesCorte() {
             // $('#clientesCorte').selectpicker('refresh');
         }
     });
+}
+
+function generarFolioCorte(){
+    // Llamar a la función que genera el folio
+    $.ajax({
+        type: "POST",
+        url: "prcd/generarFolioCorte.php",
+        dataType: "json",
+        success: function(data){
+            var datos = JSON.parse(JSON.stringify(data));
+            var success = datos.success;
+            if(success == 1) {
+                _("folio_corte").value = datos.folio;
+            } else {
+                alert("No se pudo generar el folio");
+            }
+        }
+    });
+}
+
+function guardarCorte() {
+  var fecha_orden = _('fecha_orden_corte').vale;
+  var folio = _('folio_corte').vale;
+  var tecnico = _('tecnico_corte').vale;
+  // _('modalclientes_corteCorte').vale;
+  var fecha_asignacion = _('fecha_corteAsignacion').vale;
 }
 
 function fechaRegistroCorte(){
