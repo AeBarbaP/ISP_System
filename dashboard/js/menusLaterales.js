@@ -1313,7 +1313,7 @@ function queryTecnicos_Falla(){
 
 function editarIncidencia() {
 
-  let titulo = "Nuevo Reporte de Incidencia";
+  let titulo = "Editar Reporte de Incidencia";
   // Crear el elemento del modal
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
@@ -1352,7 +1352,7 @@ function editarIncidencia() {
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
-              <select class="form-select" aria-label="tecnico asignado" id="tecnico_incidencia">
+              <select class="form-select" aria-label="tecnico asignado" id="tecnico_incidencia2">
                   <option value="" selected>Selecciona Técnico...</option>
                   <!-- aquí se llena con la tabla de Técnicos -->
               </select>
@@ -1377,11 +1377,34 @@ function editarIncidencia() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
-  fechaRegistroIncidencia()
+  queryTecnicos_Falla2();
+  foliosIncidenciasQ();
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
+  });
+}
+
+function queryTecnicos_Falla2(){
+  $.ajax({
+    url: 'query/query_tecnicosFallas.php',
+    type: 'POST',
+    dataType: 'html',
+    success: function(data) {
+        $('#tecnico_incidencia2').html(data);
+    }
+});
+}
+
+function foliosIncidenciasQ(){
+    $.ajax({
+      url: 'query/query_fallasFolios.php',
+      type: 'POST',
+      dataType: 'html',
+      success: function(data) {
+          $('#folio_incidencia_editar').html(data);
+      }
   });
 }
 
@@ -1409,7 +1432,7 @@ function resolverIncidencia() {
               <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
               <select class="form-select" id="clientes_corte" size="4" aria-label="clientes para corte">
                 <option selected>Selecciona...</option>
-                 <!-- Muestra los clientes que están en proceso de corte y al seleccionar muestra la info del domicilio como en el pago -->
+                <!-- Muestra los clientes que están en proceso de corte y al seleccionar muestra la info del domicilio como en el pago -->
               </select>
             </div>
             <div class="mb-3">

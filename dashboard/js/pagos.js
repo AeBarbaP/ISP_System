@@ -168,7 +168,7 @@ function queryDashboard1() {
     });
 }
 
-queryDashboard1();
+
 
 let contador = 1;
 
