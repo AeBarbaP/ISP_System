@@ -1550,6 +1550,7 @@ function altaCorte() {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'modalCorte');
   modal.innerHTML = `
     <div class="modal-dialog">
       <div class="modal-content">
@@ -1569,7 +1570,7 @@ function altaCorte() {
             </div>
             <div class="mb-3">
               <select class="form-select" id="clientes_corte" size="4" aria-label="clientes para corte">
-                <option selected>Selecciona...</option>
+                
                  <!-- Muestra los clientes que están en proceso de corte y al seleccionar muestra la info del domicilio como en el pago -->
               </select>
             </div>
@@ -1604,12 +1605,25 @@ function altaCorte() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
-  fechaRegistroCorte()
+  fechaRegistroCorte();
+  queryClientesCorte();
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+}
+
+function queryClientesCorte() {
+    $.ajax({
+        url: 'query/query_clientesCorte.php',
+        type: 'POST',
+        dataType: 'html',
+        success: function(data) {
+            $('#clientes_corte').html(data);
+            // $('#clientesCorte').selectpicker('refresh');
+        }
+    });
 }
 
 function fechaRegistroCorte(){
