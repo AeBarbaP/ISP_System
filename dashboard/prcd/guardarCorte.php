@@ -7,17 +7,18 @@ require('conn.php');
 $username = $_SESSION['username'];
 $fecha_orden = $_POST['fecha_orden'];
 $folio = $_POST['folio'];
+$folio_cliente = $_POST['folio_cliente'];
 /* $tecnico = $_POST['tecnico']; */
 $fecha_asignacion = $_POST['fecha_asignacion'];
 
 $query = "INSERT INTO cortes (
-        folio,
+        folio_cliente,
         username,
         folio_corte,
         fecha,
         estatus
         ) VALUES (
-        '$fecha_orden',
+        '$folio_cliente',
         '$username',
         '$folio',
         '$fecha_asignacion',

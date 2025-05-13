@@ -31,7 +31,7 @@ else if (strlen($consecutivo) == 3){
 
 // Generar un identificador único
 $fechaActual = date("Y"); // Formato: AñoMesDíaHoraMinutoSegundo
-$identificadorUnico = "CORTE-".$fechaActual."-".$consecutivo; // Cadena única alfanumérica FOLIO
+$identificadorUnico = "C".$fechaActual."-".$consecutivo; // Cadena única alfanumérica FOLIO
 
     if($identificadorUnico){
         echo json_encode(array(

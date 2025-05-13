@@ -1594,7 +1594,7 @@ function altaCorte() {
             <div class="mb-3">
               <select class="form-select" id="clientes_corte" size="4" aria-label="clientes para corte">
                 
-                 <!-- Muestra los clientes que están en proceso de corte y al seleccionar muestra la info del domicilio como en el pago -->
+                <!-- Muestra los clientes que están en proceso de corte y al seleccionar muestra la info del domicilio como en el pago -->
               </select>
             </div>
             <div class="mb-3" id="datosDomicilio">
@@ -1671,7 +1671,7 @@ function generarFolioCorte(){
 function guardarCorte() {
   var fecha_orden = _('fecha_orden_corte').value;
   // falta agregar el username
-  var username = _('clientes_corte').value;
+  var folio_cliente = _('clientes_corte').value;
   var folio = _('folio_corte').value;
   // var tecnico = _('tecnico_corte').value;
   // _('modalclientes_corteCorte').value;
@@ -1681,9 +1681,8 @@ function guardarCorte() {
     type: 'POST',
     data: {
       fecha_orden: fecha_orden,
-      //username: username,
+      folio_cliente:folio_cliente,
       folio: folio,
-      // tecnico: tecnico,
       fecha_asignacion: fecha_asignacion
     },
     dataType: 'JSON',

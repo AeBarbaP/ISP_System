@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2025 at 11:29 PM
+-- Generation Time: May 13, 2025 at 11:31 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -252,11 +252,11 @@ INSERT INTO `clientes` (`id`, `folio`, `nombre`, `domicilio`, `calle`, `colonia`
 (1, '202502242354403E354EAA', 'JesusRLV', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2025-02-24', '2025-03-24', '2024-02-01', '12.12', 1),
 (2, '202502242354403E354EA1', 'JesusRLV 2', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2025-02-24', '2025-03-24', '2025-03-29', '12.12', 1),
 (3, '202502242354403E354EA2', 'JesusRLV 3', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2025-02-24', '2025-03-24', '2025-03-29', '12.12', 1),
-(4, '202502242354403E354EA3', 'Ana Elisa B', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2024-01-03', '2025-03-24', '2024-01-01', '12.12', 1),
-(5, '20250410155630FE88FECB', 'Contrato con antena', '2', NULL, NULL, '1', '1', '1', 98000, '99999', 'Casa', 'INE', 'agua', 1, '1', '', '2025-04-10', '2025-05-10', '2025-05-15', '350.00', 1),
-(6, '2025041015593805441E2E', 'Contrato con antena 2', '3', NULL, NULL, '1', '', '1', 98000, '99999', 'Casa', 'INE', 'agua', 2, '1', '', '2025-04-10', '2025-05-10', '2025-05-15', '550.00', 1),
-(7, '20250410160422DC243E3A', 'Contrato con antena 3', '4', NULL, NULL, '1', '1', '1', 98000, '99999', 'Casa', 'INE', 'agua', 3, '1', '', '2025-04-10', '2025-05-10', '2025-05-15', '850.00', 1),
-(8, '20250410160533EF9C5D6A', 'Contrato con antena 4', '4', NULL, NULL, '2', '1', '1', 98000, '99999', 'Casa', 'INE', 'agua', 1, '1', '10.125.80.12', '2025-04-10', '2025-05-10', '2025-05-15', '350.00', 1);
+(4, '202502242354403E354EA3', 'Ana Elisa B', 'Tulipanes 12 A', NULL, NULL, '1', '1', '1', 98608, '4915000', 'Casa', 'INE', 'luz', 2, '', '', '2024-01-03', '2025-05-13', '2025-05-08', '12.12', 1),
+(5, '20250410155630FE88FECB', 'Contrato con antena', '2', NULL, NULL, '1', '1', '1', 98000, '99999', 'Casa', 'INE', 'agua', 1, '1', '', '2025-04-10', '2025-05-16', '2025-05-11', '350.00', 1),
+(6, '2025041015593805441E2E', 'Contrato con antena 2', '3', NULL, NULL, '1', '', '1', 98000, '99999', 'Casa', 'INE', 'agua', 2, '1', '', '2025-04-10', '2025-05-18', '2025-05-13', '550.00', 1),
+(7, '20250410160422DC243E3A', 'Contrato con antena 3', '4', NULL, NULL, '1', '1', '1', 98000, '99999', 'Casa', 'INE', 'agua', 3, '1', '', '2025-04-10', '2025-05-14', '2025-05-09', '850.00', 1),
+(8, '20250410160533EF9C5D6A', 'Contrato con antena 4', '4', NULL, NULL, '2', '1', '1', 98000, '99999', 'Casa', 'INE', 'agua', 1, '1', '10.125.80.12', '2025-04-10', '2025-05-15', '2025-05-10', '350.00', 1);
 
 -- --------------------------------------------------------
 
@@ -291,11 +291,23 @@ CREATE TABLE `cortes` (
   `id` int(11) NOT NULL,
   `folio_cliente` varchar(35) NOT NULL,
   `username` varchar(15) NOT NULL,
-  `folio_corte` int(11) NOT NULL,
+  `folio_corte` varchar(20) NOT NULL,
   `fecha` date NOT NULL,
-  `tecnico` int(11) NOT NULL,
-  `estatus` varchar(15) NOT NULL
+  `tecnico` int(11) DEFAULT NULL,
+  `estatus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `cortes`
+--
+
+INSERT INTO `cortes` (`id`, `folio_cliente`, `username`, `folio_corte`, `fecha`, `tecnico`, `estatus`) VALUES
+(1, '2025-05-13', 'aebarba', '0', '2025-05-13', NULL, 1),
+(2, '1', 'aebarba', '0', '2025-05-14', NULL, 1),
+(3, '3', 'aebarba', 'CORTE-2025-0003', '2025-05-14', NULL, 1),
+(4, '202502242354403E354EAA', 'aebarba', 'CORTE-2025-0004', '2025-05-15', NULL, 1),
+(5, '202502242354403E354EAA', 'aebarba', 'CORTE-2025-0005', '2025-05-16', NULL, 1),
+(6, '202502242354403E354EAA', 'aebarba', 'C2025-0006', '2025-05-14', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -390,7 +402,15 @@ INSERT INTO `pagos` (`id`, `num_pago`, `fecha_pago`, `folio_contrato`, `concepto
 (13, 'CW2025-002', '2025-04-11', '202502242354403E354EAA', 'Mensualidad', '4', '2005', 1, '0.00', '350.00'),
 (14, 'CW2025-03', '2025-04-24', '202502242354403E354EA3', 'Recargo', 'Enero 2024', '2025', 1, '0.00', '420.00'),
 (15, 'CW2025-03', '2025-04-24', '202502242354403E354EA3', 'Recargo', 'Enero 2024', '2025', 1, '0.00', '420.00'),
-(16, 'CW2025-03', '2025-04-24', '202502242354403E354EA3', 'Recargo', 'Febrero 2024', '2025', 1, '0.00', '420.00');
+(16, 'CW2025-03', '2025-04-24', '202502242354403E354EA3', 'Recargo', 'Febrero 2024', '2025', 1, '0.00', '420.00'),
+(17, 'CW2025-03', '2025-04-25', '202502242354403E354EA3', 'Recargo', 'Enero 2024', '2025', 1, '0.00', '420.00'),
+(18, 'CW2025-03', '2025-04-25', '20250410155630FE88FECB', 'Paquete', 'Periodo prueba', '2025', 1, '0.00', '350.00'),
+(19, 'CW2025-03', '2025-04-25', '20250410155630FE88FECB', 'Instalación', 'Instalación', '2025', 1, '0.00', '1.00'),
+(20, 'CW2025-03', '2025-04-25', '2025041015593805441E2E', 'Paquete', 'Periodo prueba', '2025', 1, '0.00', '850.00'),
+(21, 'CW2025-03', '2025-04-25', '2025041015593805441E2E', 'Instalación', 'Instalación', '2025', 1, '0.00', '1.00'),
+(22, 'CW2025-0004', '2025-04-25', '202502242354403E354EA1', 'Reconexión', 'Reconexión', '2025', 1, '0.00', '0.00'),
+(23, 'CW2025-0004', '2025-04-25', '202502242354403E354EA1', 'Recargo', 'Marzo 2025', '2025', 1, '0.00', '420.00'),
+(24, 'CW2025-0005', '2025-05-02', '202502242354403E354EA3', 'Recargo', 'Junio 2024', '2025', 1, '0.00', '420.00');
 
 -- --------------------------------------------------------
 
@@ -407,6 +427,17 @@ CREATE TABLE `pagos_generales` (
   `fecha_pago` date NOT NULL,
   `tipo_pago` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `pagos_generales`
+--
+
+INSERT INTO `pagos_generales` (`id`, `folio_contrato`, `total`, `tarjeta`, `folio_pago`, `fecha_pago`, `tipo_pago`) VALUES
+(1, '202502242354403E354EA3', '420.00', '', 'CW2025-01', '2025-04-25', 1),
+(2, '20250410155630FE88FECB', '351.00', '', 'CW2025-02', '2025-04-25', 1),
+(3, '2025041015593805441E2E', '851.00', '', 'CW2025-03', '2025-04-25', 1),
+(4, '202502242354403E354EA1', '420.00', '', 'CW2025-0004', '2025-04-25', 1),
+(5, '202502242354403E354EA3', '420.00', '', 'CW2025-0005', '2025-04-02', 1);
 
 -- --------------------------------------------------------
 
@@ -721,7 +752,7 @@ ALTER TABLE `conceptos`
 -- AUTO_INCREMENT for table `cortes`
 --
 ALTER TABLE `cortes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `incidencias`
@@ -745,13 +776,13 @@ ALTER TABLE `logs_users`
 -- AUTO_INCREMENT for table `pagos`
 --
 ALTER TABLE `pagos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `pagos_generales`
 --
 ALTER TABLE `pagos_generales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `promociones`
