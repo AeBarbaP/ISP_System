@@ -1,12 +1,13 @@
 <?php
+session_start();
 
 require('conn.php');
 
 
+$username = $_SESSION['username'];
 $fecha_orden = $_POST['fecha_orden'];
-$username = $_POST['username'];
 $folio = $_POST['folio'];
-$tecnico = $_POST['tecnico'];
+/* $tecnico = $_POST['tecnico']; */
 $fecha_asignacion = $_POST['fecha_asignacion'];
 
 $query = "INSERT INTO cortes (
@@ -14,13 +15,13 @@ $query = "INSERT INTO cortes (
         username,
         folio_corte,
         fecha,
-        tecnico
+        estatus
         ) VALUES (
         '$fecha_orden',
         '$username',
         '$folio',
-        '$tecnico',
-        '$fecha_asignacion'
+        '$fecha_asignacion',
+        1
         )";
 
     $resultado = $conn->query($query);

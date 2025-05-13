@@ -1681,7 +1681,7 @@ function guardarCorte() {
     type: 'POST',
     data: {
       fecha_orden: fecha_orden,
-      username: username,
+      //username: username,
       folio: folio,
       // tecnico: tecnico,
       fecha_asignacion: fecha_asignacion

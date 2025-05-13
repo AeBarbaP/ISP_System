@@ -12,6 +12,11 @@ $filas = $resultado->num_rows;
 
 if($filas == 1){ 
     $_SESSION['sess'] = 1;
+    $row = $resultado->fetch_assoc();
+    
+    $_SESSION['username'] = $row['username'];
+    $_SESSION['nombre'] = $row['nombre'];
+
     echo json_encode(array(
         'success'=>1
     ));
