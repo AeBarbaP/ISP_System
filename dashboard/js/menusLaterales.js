@@ -1669,16 +1669,43 @@ function generarFolioCorte(){
 }
 
 function guardarCorte() {
-  var fecha_orden = _('fecha_orden_corte').vale;
-  var folio = _('folio_corte').vale;
-  var tecnico = _('tecnico_corte').vale;
-  // _('modalclientes_corteCorte').vale;
-  var fecha_asignacion = _('fecha_corteAsignacion').vale;
+  var fecha_orden = _('fecha_orden_corte').value;
+  // falta agregar el username
+  var username = _('username').value;
+  var folio = _('folio_corte').value;
+  var tecnico = _('tecnico_corte').value;
+  // _('modalclientes_corteCorte').value;
+  var fecha_asignacion = _('fecha_corteAsignacion').value;
+  $.ajax({
+    url: 'query/queryEdicionUsuario.php',
+    type: 'POST',
+    data: {
+      fecha_orden: fecha_orden,
+      username: username,
+      folio: folio,
+      tecnico: tecnico,
+      fecha_asignacion: fecha_asignacion
+    },
+    dataType: 'JSON',
+    success: function(response) {
+      // Llenar los campos del formulario con los datos del usuario
+      let datos = JSON.parse(JSON.stringify(response));
+      let success = datos.success;
+      if(success == 1){
+        alert('Corte guardado exitosamente');
+        $('#modalCorte').modal('hide');
+      }
+      else{
+        alert('No se guardó el corte');
+      }
+    }
+
+  });
 }
 
 function fechaRegistroCorte(){
   // Obtener los elementos input
-  const inputFechaActual = document.getElementById('fecha_orden');
+  const inputFechaActual = document.getElementById('fecha_orden_corte');
   // Obtener la fecha actual
   const fechaActual = new Date();
 
