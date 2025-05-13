@@ -2,25 +2,75 @@
 
 require('conn.php');
 
+date_default_timezone_set('America/Mexico_City');
+setlocale(LC_TIME, 'es_MX.UTF-8');
 
-$fecha_orden = $_POST['fecha_orden'];
-$username = $_POST['username'];
-$folio = $_POST['folio'];
-$tecnico = $_POST['tecnico'];
-$fecha_asignacion = $_POST['fecha_asignacion'];
+// $fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
 
-$query = "INSERT INTO cortes (
-        folio,
-        username,
-        folio_corte,
-        fecha,
-        tecnico
+// Generar un identificador único
+$fechaActual = date("YmdHis"); // Formato: AñoMesDíaHoraMinutoSegundo
+$identificadorUnico = $_POST['folio'];
+
+$fechaContrato = $_POST['fechaContrato'];
+$nombreCompleto = $_POST['nombreCompleto'];
+$domicilioContrato = $_POST['domicilioContrato'];
+$catalogoComunidades = $_POST['catalogoComunidades'];
+$catalogoMunicipios = $_POST['catalogoMunicipios'];
+$catalogoEstados = $_POST['catalogoEstados'];
+$cpContrato = $_POST['cpContrato'];
+$telefonoContrato = $_POST['telefonoContrato'];
+$referenciasContrato = $_POST['referenciasContrato'];
+$identificacionContrato = $_POST['identificacionContrato'];
+$comprobanteContrato = $_POST['comprobanteContrato'];
+$catalogoPaquetes = $_POST['catalogoPaquetes'];
+$antenaContrato = $_POST['antenaContrato'];
+$ipAddressContrato = $_POST['ipAddressContrato'];
+$inputCosto = $_POST['inputCosto'];
+$siguienteMesInput = $_POST['siguienteMesInput'];
+$mesMasCincoDiasInput = $_POST['mesMasCincoDiasInput'];
+
+$estatus = 1;
+
+$query = "INSERT INTO clientes (
+        folio, 
+        nombre, 
+        domicilio,
+        comunidad,
+        municipio,
+        estado,
+        cp,
+        telefono,
+        referencias,
+        identificacion,
+        comprobante,
+        servicio,
+        antena,
+        direccionip,
+        fecha_contrato,
+        fecha_limite,
+        fecha_corte,
+        cuota,
+        estatus
         ) VALUES (
-        '$fecha_orden',
-        '$username',
-        '$folio',
-        '$tecnico',
-        '$fecha_asignacion'
+        '$identificadorUnico', 
+        '$nombreCompleto', 
+        '$domicilioContrato',
+        '$catalogoComunidades',
+        '$catalogoMunicipios',
+        '$catalogoEstados',
+        '$cpContrato',
+        '$telefonoContrato',
+        '$referenciasContrato',
+        '$identificacionContrato',
+        '$comprobanteContrato',
+        '$catalogoPaquetes',
+        '$antenaContrato',
+        '$ipAddressContrato',
+        '$fechaActual',
+        '$siguienteMesInput',
+        '$mesMasCincoDiasInput',
+        '$inputCosto',
+        '$estatus'
         )";
 
     $resultado = $conn->query($query);

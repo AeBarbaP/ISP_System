@@ -1677,7 +1677,7 @@ function guardarCorte() {
   // _('modalclientes_corteCorte').value;
   var fecha_asignacion = _('fecha_corteAsignacion').value;
   $.ajax({
-    url: 'query/queryEdicionUsuario.php',
+    url: 'prcd/guardarCorte.php',
     type: 'POST',
     data: {
       fecha_orden: fecha_orden,
