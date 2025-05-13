@@ -1671,9 +1671,9 @@ function generarFolioCorte(){
 function guardarCorte() {
   var fecha_orden = _('fecha_orden_corte').value;
   // falta agregar el username
-  var username = _('username').value;
+  var username = _('clientes_corte').value;
   var folio = _('folio_corte').value;
-  var tecnico = _('tecnico_corte').value;
+  // var tecnico = _('tecnico_corte').value;
   // _('modalclientes_corteCorte').value;
   var fecha_asignacion = _('fecha_corteAsignacion').value;
   $.ajax({
@@ -1683,7 +1683,7 @@ function guardarCorte() {
       fecha_orden: fecha_orden,
       username: username,
       folio: folio,
-      tecnico: tecnico,
+      // tecnico: tecnico,
       fecha_asignacion: fecha_asignacion
     },
     dataType: 'JSON',
