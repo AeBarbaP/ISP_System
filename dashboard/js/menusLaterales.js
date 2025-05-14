@@ -1324,6 +1324,9 @@ function guardarIncidencia() {
         // Llamar a la función para actualizar la tabla de incidencias
         // queryIncidencias();
         }
+        else{
+          console.log(data.error);
+        }
     }
     });
 }

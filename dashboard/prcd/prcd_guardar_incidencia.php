@@ -6,22 +6,20 @@ $fecha = $_POST['fecha'];
 $folio = $_POST['folio'];
 $descripcion = $_POST['descripcion'];
 $tecnico = $_POST['tecnico'];
-$fechaAsignacion = $_POST['fecha_asignacion'];
-$idCliente = $_POST['id_cliente'];
+$fechaAsignacion = $_POST['fechaAsignacion'];
+$idCliente = $_POST['idCliente'];
 
 $sql = "INSERT INTO incidencias (
-    fecha,
+    fecha_reporte,
     folio_incidencia,
     descripcion,
     tecnico,
-    fecha_asignacion,
-    id_cliente
+    folio_cliente
 ) VALUES (
     '$fecha',
     '$folio',
     '$descripcion',
     '$tecnico',
-    '$fechaAsignacion',
     '$idCliente'
 )";
 $result = mysqli_query($conn, $sql);
@@ -29,7 +27,9 @@ $result = mysqli_query($conn, $sql);
 if($result) {
     echo json_encode(array("success" => 1));
 } else {
-    echo json_encode(array("success" => 0));
+    $error = $conn->error;
+    echo json_encode(array("success" => 0, "error" => $error
+));
 }
 mysqli_close($conn);
 
