@@ -43,6 +43,13 @@ function contratoNew() {
     generarFolio();
 }
 
+function cambiarFecha(){
+    const inputFechaActual = document.getElementById('dateContratoNew');
+
+    var fechaCambio = new Date(inputFechaActual.value);
+    
+}
+
 function antenas(){
     $.ajax({
         type: "POST",
