@@ -1302,18 +1302,18 @@ function guardarIncidencia() {
   let tecnico = _('tecnico_incidencia').value;
   let fechaAsignacion = _('fecha_incidenciaAsignacion').value;
   let idCliente = _('nombresClientesIncidencia').value;
-  $.ajax({
-    url: 'prcd/prcd_guardar_incidencia.php',
-    type: 'POST',
-    data:{
-      fecha:fecha,
-      folio:folio,
-      descripcion:descripcion,
-      tecnico:tecnico,
-      fechaAsignacion:fechaAsignacion,
-      idCliente:idCliente
-    },
-    dataType: 'json',
+    $.ajax({
+      url: 'prcd/prcd_guardar_incidencia.php',
+      type: 'POST',
+      data:{
+        fecha:fecha,
+        folio:folio,
+        descripcion:descripcion,
+        tecnico:tecnico,
+        fechaAsignacion:fechaAsignacion,
+        idCliente:idCliente
+      },
+      dataType: 'json',
     success: function(data) {
       var datos = JSON.parse(JSON.stringify(data));
       var success = datos.success;
@@ -1324,8 +1324,8 @@ function guardarIncidencia() {
         // Llamar a la función para actualizar la tabla de incidencias
         // queryIncidencias();
         }
-      }
-  });
+    }
+    });
 }
 
 
