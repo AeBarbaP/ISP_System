@@ -1192,6 +1192,7 @@ function altaIncidencia() {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'modalIncidencia');
   modal.innerHTML = `
     <div class="modal-dialog">
       <div class="modal-content">
@@ -1291,6 +1292,42 @@ function queryClientes(valor) {
         }
     });
 }
+
+// guardar incidencia
+function guardarIncidencia() {
+  let fecha = _('fecha_incidencia').value;
+  let folio = _('folio_incidencia').value;
+  // let cliente = _('buscanombre').value;
+  let descripcion = _('descripcion_incidencia').value;
+  let tecnico = _('tecnico_incidencia').value;
+  let fechaAsignacion = _('fecha_incidenciaAsignacion').value;
+  let idCliente = _('nombresClientesIncidencia').value;
+  $.ajax({
+    url: 'prcd/prcd_guardar_incidencia.php',
+    type: 'POST',
+    data:{
+      fecha:fecha,
+      folio:folio,
+      descripcion:descripcion,
+      tecnico:tecnico,
+      fechaAsignacion:fechaAsignacion,
+      idCliente:idCliente
+    },
+    dataType: 'json',
+    success: function(data) {
+      var datos = JSON.parse(JSON.stringify(data));
+      var success = datos.success;
+      if (success == 1) {
+        alert('Incidencia guardada correctamente');
+        // Aquí puedes agregar código para cerrar el modal o limpiar los campos
+        $('#modalIncidencia').modal('hide');
+        // Llamar a la función para actualizar la tabla de incidencias
+        // queryIncidencias();
+        }
+      }
+  });
+}
+
 
 
 function consultaClientesFallas() {
