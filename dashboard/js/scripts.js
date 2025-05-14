@@ -42,13 +42,58 @@ function contratoNew() {
     catalogoPaquetes();
     generarFolio();
 }
+function cambiarFecha() {
 
-function cambiarFecha(){
+    // Obtener los elementos input
+    const inputSiguienteMes = document.getElementById('siguienteMesInput');
+    const inputMesMasCincoDias = document.getElementById('mesMasCincoDiasInput');
     const inputFechaActual = document.getElementById('dateContratoNew');
+    // Obtener la fecha actual
 
-    var fechaCambio = new Date(inputFechaActual.value);
-    
+    // const fechaActual = new Date();
+    const fechaActual = new Date(inputFechaActual.value);
+
+    // 1. Calcular el siguiente mes
+    const siguienteMes = new Date(fechaActual);
+    siguienteMes.setMonth(fechaActual.getMonth() + 1); // Sumar un mes
+
+    // 2. Calcular un mes más cinco días
+    const mesMasCincoDias = new Date(fechaActual);
+    mesMasCincoDias.setMonth(fechaActual.getMonth() + 1); // Sumar un mes
+    mesMasCincoDias.setDate(fechaActual.getDate() + 5);   // Sumar cinco días
+
+    // Función para formatear la fecha en YYYY-MM-DD
+    function formatearFecha(fecha) {
+        const año = fecha.getFullYear();
+        const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Meses van de 0 a 11
+        const dia = String(fecha.getDate()).padStart(2, '0');
+        return `${año}-${mes}-${dia}`;
+    }
+
+    // Formatear las fechas
+    const siguienteMesFormateado = formatearFecha(siguienteMes);
+    const mesMasCincoDiasFormateado = formatearFecha(mesMasCincoDias);
+    const fechaActualFormateada = formatearFecha(fechaActual);
+
+    // Asignar las fechas a los inputs
+    // inputFechaActual.value = fechaActualFormateada;
+    inputSiguienteMes.value = siguienteMesFormateado;
+    inputMesMasCincoDias.value = mesMasCincoDiasFormateado;
+
+    antenas();
+    comunidad();
+    municipio();
+    estado();
+    catalogoPaquetes();
+    generarFolio();
 }
+
+// function cambiarFecha(){
+//     const inputFechaActual = document.getElementById('dateContratoNew');
+
+//     var fechaCambio = new Date(inputFechaActual.value);
+
+// }
 
 function antenas(){
     $.ajax({
