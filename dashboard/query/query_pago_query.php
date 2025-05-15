@@ -13,11 +13,20 @@ $sqlNombre = "SELECT * FROM clientes WHERE folio = '$folio_contrato'";
 $resultadoNombre = $conn->query($sqlNombre);
 $rowNombre = $resultadoNombre->fetch_assoc();
 
-$sqlPagos ="SELECT * FROM pagos WHERE folio_pago = '$folio_pago'";
+$sqlPagos ="SELECT * FROM pagos WHERE num_pago = '$folio_pago'";
 $resultadoPagos = $conn->query($sqlPagos);
 $rowPagos = $resultadoPagos->fetch_assoc();
 
 // generar listado de pagos con while
+$listado = array();
+while ($rowPagos = $resultadoPagos->fetch_assoc()) {
+    $listado[] = array(
+        'num_pago' => $rowPagos['num_pago'],
+        'fecha_pago' => $rowPagos['fecha_pago'],
+        'monto' => $rowPagos['monto'],
+        'estatus' => $rowPagos['estatus']
+    );
+}
 
 $nombre = $rowNombre['nombre'];
 $fechaPago = $rowNombre['fecha_corte'];
@@ -29,7 +38,8 @@ echo json_encode(array(
     'nombre' => $nombre,
     'fechaPago' => $fechaPago,
     'folio' => $folio,
-    'total' => $total
+    'total' => $total,
+    'listado' => $listado,
 ));
 
 
