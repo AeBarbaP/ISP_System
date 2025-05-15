@@ -1,6 +1,8 @@
 <?php
-
+session_start();
 require_once ('conn.php');
+
+$username = $_SESSION['username'];
 
 $fecha = $_POST['fecha'];
 $folio = $_POST['folio'];
@@ -13,6 +15,7 @@ $sql = "INSERT INTO incidencias (
     fecha_reporte,
     folio_incidencia,
     descripcion,
+    username,
     tecnico,
     folio_cliente,
     estatus
@@ -20,6 +23,7 @@ $sql = "INSERT INTO incidencias (
     '$fecha',
     '$folio',
     '$descripcion',
+    '$username',
     '$tecnico',
     '$idCliente',
     1

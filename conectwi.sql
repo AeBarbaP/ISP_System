@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2025 at 11:31 PM
+-- Generation Time: May 15, 2025 at 09:28 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -324,9 +324,17 @@ CREATE TABLE `incidencias` (
   `tecnico` int(11) NOT NULL,
   `estatus` int(11) NOT NULL,
   `fecha_reporte` datetime NOT NULL,
-  `fecha_resolucion` datetime NOT NULL,
-  `comentario_tecnico` varchar(250) NOT NULL
+  `fecha_resolucion` datetime DEFAULT NULL,
+  `comentario_tecnico` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `incidencias`
+--
+
+INSERT INTO `incidencias` (`id`, `folio_incidencia`, `descripcion`, `folio_cliente`, `username`, `tecnico`, `estatus`, `fecha_reporte`, `fecha_resolucion`, `comentario_tecnico`) VALUES
+(1, 'RI2025-0001', 'hgfsgds', '2025041015593805441E2E', 'annaeliza', 1, 1, '2025-05-14 00:00:00', NULL, NULL),
+(2, 'RI2025-0002', 'error', '202502242354403E354EA3', 'annaeliza', 2, 1, '2025-05-15 00:00:00', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -758,7 +766,7 @@ ALTER TABLE `cortes`
 -- AUTO_INCREMENT for table `incidencias`
 --
 ALTER TABLE `incidencias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `logs_login`

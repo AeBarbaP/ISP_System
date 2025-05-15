@@ -1378,7 +1378,7 @@ function queryTecnicos_Falla(){
 
 function editarIncidencia() {
 
-  let titulo = "Editar Reporte de Incidencia";
+  let titulo = "Editar Reporte de Falla";
   // Crear el elemento del modal
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
@@ -1470,6 +1470,28 @@ function foliosIncidenciasQ(){
       success: function(data) {
           $('#folio_incidencia_editar').html(data);
       }
+  });
+}
+
+function editarFalla(){
+  var folio = document.getElementById('folio_incidencia_editar').value;
+  $.ajax({
+    url: 'query/query_fallasDetalles.php',
+    type: 'POST',
+    dataType: 'JSON',
+    data: {
+      folio:folio
+    },
+    success: function(data) {
+      var datos = JSON.parse(JSON.stringify(data));
+      var success = datos.success;
+      if (success == 1) {
+          document.getElementById
+        }
+        else{
+          console.log(data.error);
+        }
+    }
   });
 }
 
