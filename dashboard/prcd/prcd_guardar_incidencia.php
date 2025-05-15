@@ -14,13 +14,15 @@ $sql = "INSERT INTO incidencias (
     folio_incidencia,
     descripcion,
     tecnico,
-    folio_cliente
+    folio_cliente,
+    estatus
 ) VALUES (
     '$fecha',
     '$folio',
     '$descripcion',
     '$tecnico',
-    '$idCliente'
+    '$idCliente',
+    1
 )";
 $result = mysqli_query($conn, $sql);
 

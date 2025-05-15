@@ -193,10 +193,10 @@ function abrirModalPagos(folio){
             var datos = JSON.parse(JSON.stringify(data));
             var success = datos.success; 
             if (success == 1){
-                _pagosRealizados('folioPagoRealizado').innerText = datos.folio_pago;
-                _pagosRealizados('fechaPagoRealizado').innerText = datos.fecha_pago;
-                _pagosRealizados('nombrePagoRealizado').innerText = datos.fecha_pago;
-                _pagosRealizados('totalPagoRealizado').innerText = datos.fecha_pago;
+                _pagosRealizados('folioPagoRealizado').innerText = datos.folio;
+                _pagosRealizados('fechaPagoRealizado').innerText = datos.fechaPago;
+                _pagosRealizados('nombrePagoRealizado').innerText = datos.nombre;
+                _pagosRealizados('totalPagoRealizado').innerText = datos.total;
             }
         }
     });
