@@ -1,4 +1,4 @@
-function queryClientes(cliente) {
+function queryClientesPago(cliente) {
     $.ajax({
         type: "POST",
         url: "query/query_clientes.php",

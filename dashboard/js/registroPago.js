@@ -175,6 +175,9 @@ function _pagosRealizados(el){
 }
 
 function abrirModalPagos(folio){
+    const tabla = document.getElementById('tablaPagosBody');
+    tabla.innerHTML = '';
+    
     $("#listaPagosInv").modal("show");
     _pagosRealizados('folioPagoRealizado').innerText = "";
     _pagosRealizados('fechaPagoRealizado').innerText = "";
@@ -192,11 +195,27 @@ function abrirModalPagos(folio){
         success: function(data){
             var datos = JSON.parse(JSON.stringify(data));
             var success = datos.success; 
+            var listado = datos.listado;
+            console.log(listado);
             if (success == 1){
-                _pagosRealizados('folioPagoRealizado').innerText = datos.folio;
+                _pagosRealizados('folioPagoRealizado').innerText = datos.folio_pago;
                 _pagosRealizados('fechaPagoRealizado').innerText = datos.fechaPago;
                 _pagosRealizados('nombrePagoRealizado').innerText = datos.nombre;
                 _pagosRealizados('totalPagoRealizado').innerText = datos.total;
+
+                // listado tabla
+                listado.forEach((pago, index) => {
+                    const fila = document.createElement('tr');
+
+                    fila.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${pago.fechaPago}</td>
+                        <td>${pago.nombre}</td>
+                        <td>$${parseFloat(pago.monto).toFixed(2)}</td>
+                    `;
+
+                    tabla.appendChild(fila);
+                });
             }
         }
     });
