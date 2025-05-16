@@ -12,8 +12,9 @@ while($row = $resultado->fetch_assoc()){
     echo'
     <tr class="text-center" data-href="#" data-bs-toggle="modal" data-bs-target="#listaPagosInv">
 
-    <tr class="text-center"onclick="abrirModalPagos(\'' . $row['folio_contrato'] . '\')">
+    <tr class="text-center"onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\')">
         <td>' . $row['folio_contrato'] . '</td>
+        <td>' . $row['folio_pago'] . '</td>
         <td>' . $row2['nombre'] . '</td>
         <td>$' . $row['total'] . '</td>
         <td>' . $row['fecha_pago'] . '</td>

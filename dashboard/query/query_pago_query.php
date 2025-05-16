@@ -3,7 +3,7 @@ require('../prcd/conn.php');
 
 $folio = $_POST['folio'];
 
-$sql = "SELECT * FROM pagos_generales WHERE folio_contrato = '$folio'";
+$sql = "SELECT * FROM pagos_generales WHERE folio_pago = '$folio'";
 $resultado = $conn->query($sql);
 $row = $resultado->fetch_assoc();
 $folio_contrato = $row['folio_contrato'];
@@ -20,24 +20,24 @@ $resultadoPagos = $conn->query($sqlPagos);
 // generar listado de pagos con while
 $listado = array();
 while ($rowPagos = $resultadoPagos->fetch_assoc()) {
-    $listado = array(
+    $listado[] = array(
         'num_pago' => $rowPagos['num_pago'],
         'fecha_pago' => $rowPagos['fecha_pago'],
-        'monto' => $rowPagos['total'],
-        'estatus' => $rowPagos['estatus']
+        'monto' => $rowPagos['total']
+        // 'estatus' => $rowPagos['estatus']
     );
 }
 
 $nombre = $rowNombre['nombre'];
 $fechaPago = $rowNombre['fecha_corte'];
 $folio = $rowNombre['folio'];
-$total = $rowNombre['cuota'];
+$total = $row['total'];
 
 echo json_encode(array(
     'success' => 1,
     'nombre' => $nombre,
     'fechaPago' => $fechaPago,
-    'folio' => $folio,
+    'folio' => $folio_contrato,
     'folio_pago' => $folio_pago,
     'total' => $total,
     'listado' => $listado
