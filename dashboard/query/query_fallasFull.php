@@ -10,36 +10,46 @@
         $folio = $row['folio_incidencia'];
         $descripcion = $row['descripcion'];
         $folio_cliente = $row['folio_cliente'];
-        $tecnico = $row['tecnico'];
+        $tecnico1 = $row['tecnico'];
         $fecha_reporte = $row['fecha_reporte'];
+        $estatus = $row['estatus'];
+        $id = $row['id'];
 
-        while($row = $resultado->fetch_assoc()){
-            $x++;
-            $estatus = $row['estatus'];
-            echo'
-            <tr>
-                <td>'.$x.'</td>
-                <td>'.$folio.'</td>
-                <td>'.$fecha_reporte.'</td>
-                <td>'.$folio_cliente.'</td>
-                <td>'.$tecnico.'</td>
-                ';
-                if($estatus == 1){
-                    echo'
-                    <td><i class="bi bi-check-circle text-success"></i></td>
-                    ';
-                }
-                else{
-                    echo'
-                    <td><i class="bi bi-x-circle-fill text-danger"></i></td>
-                    ';
-                }
-            echo'
-                
-                <td><a href="#" onclick="editarFalla1('.$row['id'].')"><i class="bi bi-pencil-square"></i></a></td>
-            </tr>
+        $sql1 = "SELECT * FROM tecnicos WHERE id = '$tecnico1'";
+        $resultado1 = $conn->query($sql1);
+        $row1 = $resultado1->fetch_assoc();
+
+        $tecnico = $row1['nombre'];
+
+        echo'
+        <tr>
+            <td>'.$x.'</td>
+            <td>'.$folio.'</td>
+            <td>'.$fecha_reporte.'</td>
+            <td>'.$folio_cliente.'</td>
+            <td>'.$tecnico.'</td>
             ';
-        }
+            if($estatus == 1){
+                echo'
+                <td><a href="#" onclick="modalActualizarEstatusFalla('.$id.')"><i class="bi bi-record-circle-fill text-primary"></i></a></td>
+                ';
+            }
+            else if ($estatus == 2){
+                echo'
+                <td><a href="#" onclick="modalActualizarEstatusFalla('.$id.')"><i class="bi bi-check-circle text-success"></i></a></td>
+                ';
+            }
+            else if ($estatus == 3){
+                echo'
+                <td><a href="#" onclick="modalActualizarEstatusFalla('.$id.')"><i class="bi bi-x-circle text-danger"></i></a></td>
+                ';
+            }
+        echo'
+            
+            <td><a href="#" onclick="editarIncidenciaG('.$id.')"><i class="bi bi-pencil-square"></i></a></td>
+        </tr>
+        ';
+    
     }
     
 ?>
