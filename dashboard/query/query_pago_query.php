@@ -23,8 +23,8 @@ while ($rowPagos = $resultadoPagos->fetch_assoc()) {
     $listado[] = array(
         'num_pago' => $rowPagos['num_pago'],
         'fecha_pago' => $rowPagos['fecha_pago'],
-        'monto' => $rowPagos['total']
-        // 'estatus' => $rowPagos['estatus']
+        'monto' => $rowPagos['total'],
+        'concepto' => $rowPagos['concepto']
     );
 }
 

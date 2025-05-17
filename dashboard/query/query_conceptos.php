@@ -103,7 +103,7 @@ while($concepto = $resultadoConceptos->fetch_assoc()) {
             $sql = "SELECT * FROM promociones WHERE estatus = 1 ORDER BY id ASC";
             $resultado = $conn->query($sql);
             while($row = $resultado->fetch_assoc()) {
-                echo '<option value="' . $row['id'] . '" data-categoria="6" data-costo="'.$row['costo'].'" data-concepto="Descuento" data-periodo="Descuento">' . $row['promo'] . ' | -$' . $row['descuento'] . '</option>';
+                echo '<option value="' . $row['id'] . '" data-categoria="6" data-costo="-'.$row['descuento'].'" data-concepto="Descuento" data-periodo="Descuento">' . $row['promo'] . ' | -$' . $row['descuento'] . '</option>';
             }
             break;
     }
