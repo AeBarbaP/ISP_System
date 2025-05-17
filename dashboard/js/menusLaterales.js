@@ -1398,7 +1398,7 @@ function editarIncidencia() {
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
-              <select class="form-select" id="folio_incidencia_editar" size="4" aria-label="folio incidencia">
+              <select class="form-select" id="folio_incidencia_editar" size="4" aria-label="folio incidencia" onchange="infoFallaEditar()">
                 <option selected>Selecciona...</option>
                 <!-- Muestra los folios de las incidencias que aún no han sido resueltas para cambiar los datos -->
               </select>
@@ -1410,6 +1410,7 @@ function editarIncidencia() {
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
               <input type="text" class="form-control" placeholder="" aria-label="cliente" id="cliente_incidenciaU" aria-describedby="basic-addon1">
+              <input type="text" class="form-control" placeholder="" aria-label="cliente" id="foliocliente_incidenciaU" aria-describedby="basic-addon1" hidden>
             </div>
             <div class="mb-3">
               <label for="descripcion_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Descripción de la incidencia:</label>
@@ -1473,7 +1474,7 @@ function foliosIncidenciasQ(){
   });
 }
 
-function editarFalla(){
+function infoFallaEditar(){
   var folio = document.getElementById('folio_incidencia_editar').value;
   $.ajax({
     url: 'query/query_fallasDetalles.php',
@@ -1486,7 +1487,11 @@ function editarFalla(){
       var datos = JSON.parse(JSON.stringify(data));
       var success = datos.success;
       if (success == 1) {
-          document.getElementById
+          /* document.getElementById('folio_incidenciaU').value = datos.folio; */
+          document.getElementById('cliente_incidenciaU').value = datos.cliente;
+          document.getElementById('fecha_incidenciaU').value = datos.fecha;
+          document.getElementById('descripcion_incidenciaU').value = datos.descripcion;
+          document.getElementById('tecnico_incidencia2').value = datos.tecnico;
         }
         else{
           console.log(data.error);
