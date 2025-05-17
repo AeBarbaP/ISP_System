@@ -1425,7 +1425,7 @@ function editarIncidencia() {
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Asignación:</label>
-              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaAsignacion" aria-describedby="basic-addon1">
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaAsignacionU" aria-describedby="basic-addon1">
             </div>
           </p>
         </div>
@@ -1489,7 +1489,7 @@ function infoFallaEditar(){
       if (success == 1) {
           /* document.getElementById('folio_incidenciaU').value = datos.folio; */
           document.getElementById('cliente_incidenciaU').value = datos.cliente;
-          document.getElementById('fecha_incidenciaU').value = datos.fecha;
+          document.getElementById('fecha_incidenciaAsignacionU').value = datos.fecha_reporte;
           document.getElementById('descripcion_incidenciaU').value = datos.descripcion;
           document.getElementById('tecnico_incidencia2').value = datos.tecnico;
         }
@@ -1793,6 +1793,7 @@ function editarIncidenciaG(x) {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'modalEditarReporteFalla');
   modal.innerHTML = `
     <div class="modal-dialog">
       <div class="modal-content">
@@ -1804,30 +1805,30 @@ function editarIncidenciaG(x) {
           <p>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Alta</label>
-              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaG" aria-describedby="basic-addon1" disabled>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaReporteFalla" aria-describedby="basic-addon1" disabled>
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
-              <input class="form-control" id="incidencia_editarG" aria-label="folio incidencia" disabled>
+              <input class="form-control" id="incidencia_editarReporteFalla" aria-label="folio incidencia" disabled>
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
-              <input type="text" class="form-control" placeholder="" aria-label="cliente" id="cliente_incidenciaG" aria-describedby="basic-addon1">
+              <input type="text" class="form-control" placeholder="" aria-label="cliente" id="cliente_incidenciaReporteFalla" aria-describedby="basic-addon1">
             </div>
             <div class="mb-3">
               <label for="descripcion_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Descripción de la incidencia:</label>
-              <textarea class="form-control" rows="5" aria-label="descripcion incidencia" id="descripcion_incidenciaG"></textarea>
+              <textarea class="form-control" rows="5" aria-label="descripcion incidencia" id="descripcion_incidenciaReporteFalla"></textarea>
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
-              <select class="form-select" aria-label="tecnico asignado" id="tecnico_incidencia2G">
+              <select class="form-select" aria-label="tecnico asignado" id="tecnico_incidencia2ReporteFalla">
                   <option value="" selected>Selecciona Técnico...</option>
                   <!-- aquí se llena con la tabla de Técnicos -->
               </select>
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Asignación:</label>
-              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaAsignacionG" aria-describedby="basic-addon1">
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaAsignacionReporteFalla" aria-describedby="basic-addon1">
             </div>
             <div class="mb-3">
                   <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Estatus</label>
@@ -1842,7 +1843,7 @@ function editarIncidenciaG(x) {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" onclick="updateIncidencia1()">Guardar</button>
+          <button type="button" class="btn btn-primary" onclick="updateReporteFalla()">Guardar</button>
         </div>
       </div>
     </div>
@@ -1864,7 +1865,36 @@ function editarIncidenciaG(x) {
 
 //Termina gestión de Incidencias
 
+// update reporte falla
+function updateReporteFalla(){
+  let fecha_alta = fecha_incidenciaReporteFalla.value;
+  let folio = incidencia_editarReporteFalla.value;
+  let cliente = cliente_incidenciaReporteFalla.value;
+  let descripcion = descripcion_incidenciaReporteFalla.value;
+  let tecnico = tecnico_incidencia2ReporteFalla.value;
+  let fecha_asignacion = fecha_incidenciaAsignacionReporteFalla.value;
 
+  $.ajax({
+    url: 'prcd/prcd_editarIncidencia.php',
+    type: 'POST',
+    dataType: 'JSON',
+    data: {
+      id:id,
+      estatus:estatus
+    },
+    success: function(data) {
+      var datos = JSON.parse(JSON.stringify(data));
+      var success = datos.success;
+      if (success == 1) {
+        alert('Incidencia actualizada');
+        }
+        else{
+          alert('No se actualizó la incidencia');
+        }
+    }
+  });
+}
+// termina update reporte falla
 
 //Inicia gestión de ordenes de corte
 
