@@ -1416,7 +1416,7 @@ const fechaFormateada = `${year}-${month}-${day}`;
             
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
-              <input type="text" class="form-control" placeholder="" aria-label="cliente" id="cliente_incidenciaU" aria-describedby="basic-addon1">
+              <input type="text" class="form-control" placeholder="" aria-label="cliente" id="cliente_incidenciaU" aria-describedby="basic-addon1" disabled>
               <input type="text" class="form-control" placeholder="" aria-label="cliente" id="foliocliente_incidenciaU" aria-describedby="basic-addon1" hidden>
             </div>
             <div class="mb-3">
