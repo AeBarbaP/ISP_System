@@ -209,6 +209,7 @@ function abrirModalPagos(folio){
 
                     fila.innerHTML = `
                         <td>${index + 1}</td>
+                        <td>${pago.concepto}</td>
                         <td>${pago.num_pago}</td>
                         <td>$${parseFloat(pago.monto).toFixed(2)}</td>
                     `;
