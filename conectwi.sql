@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2025 at 09:28 PM
+-- Generation Time: May 19, 2025 at 10:13 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -322,6 +322,7 @@ CREATE TABLE `incidencias` (
   `folio_cliente` varchar(35) NOT NULL,
   `username` varchar(15) NOT NULL,
   `tecnico` int(11) NOT NULL,
+  `fecha_asignacion` date DEFAULT NULL,
   `estatus` int(11) NOT NULL,
   `fecha_reporte` datetime NOT NULL,
   `fecha_resolucion` datetime DEFAULT NULL,
@@ -332,9 +333,9 @@ CREATE TABLE `incidencias` (
 -- Dumping data for table `incidencias`
 --
 
-INSERT INTO `incidencias` (`id`, `folio_incidencia`, `descripcion`, `folio_cliente`, `username`, `tecnico`, `estatus`, `fecha_reporte`, `fecha_resolucion`, `comentario_tecnico`) VALUES
-(1, 'RI2025-0001', 'hgfsgds', '2025041015593805441E2E', 'annaeliza', 1, 1, '2025-05-14 00:00:00', NULL, NULL),
-(2, 'RI2025-0002', 'error', '202502242354403E354EA3', 'annaeliza', 2, 1, '2025-05-15 00:00:00', NULL, NULL);
+INSERT INTO `incidencias` (`id`, `folio_incidencia`, `descripcion`, `folio_cliente`, `username`, `tecnico`, `fecha_asignacion`, `estatus`, `fecha_reporte`, `fecha_resolucion`, `comentario_tecnico`) VALUES
+(1, 'RI2025-0001', 'Prueba de edición de reportes de fallas', '202502242354403E354EA3', 'annaeliza', 1, '2025-05-23', 1, '2025-05-10 00:00:00', NULL, ''),
+(2, 'RI2025-0002', 'error', '20250410155630FE88FECB', 'annaeliza', 2, '2025-05-15', 1, '2025-05-10 00:00:00', NULL, '');
 
 -- --------------------------------------------------------
 
