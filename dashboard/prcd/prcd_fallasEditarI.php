@@ -17,7 +17,9 @@ $sql = "UPDATE incidencias SET (
 $result = mysqli_query($conn, $sql);
 
 if($result) {
-    echo json_encode(array("success" => 1));
+    echo json_encode(array(
+        "success" => 1,
+    ));
 } else {
     $error = $conn->error;
     echo json_encode(array("success" => 0, "error" => $error
