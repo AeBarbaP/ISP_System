@@ -1786,6 +1786,32 @@ function modalActualizarEstatusFalla(x){
     modal.remove();
   });
 }
+
+function actualizarEstatusQuery(){
+  var id = document.getElementById("idHiddenIncUI").value;
+  $.ajax({
+    url: 'query/query_llenadoModalUpdateEstatusF.php',
+    type: 'POST',
+    dataType: 'json',
+    data: {
+      id:di
+    },
+    success: function(data) {
+      var datos = JSON.parse(JSON.stringify(data));
+      var success = datos.success;
+      if(success == 1){
+        document.getElementById('fecha_incidenciaUI').value = datos.fechaAlta;
+        document.getElementById('folio_incidenciaUI').value = datos.folio;
+        document.getElementById('cliente_incidenciaUI').value = datos.cliente;
+        document.getElementById('descripcion_incidenciaUI').value = datos.descripcion;
+        document.getElementById('tecnico_incidencia2I').value = datos.tecnico;
+        document.getElementById('fecha_incidenciaAsignacionI').value = datos.asignacion;
+        document.getElementById('estatus_incidenciaI').value = datos.estatus;
+      }
+    }
+  })
+}
+
 function editarEstatusFalla(){
   var id = document.getElementById('idHiddenIncU').value;
   var estatus = document.getElementById('estatus_incidenciaI').value;
