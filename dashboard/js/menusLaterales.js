@@ -1727,44 +1727,43 @@ function modalActualizarEstatusFalla(x){
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-              <input name="id" id="idHiddenIncU" value="${id}" hidden>
-              <p>
-                <div class="mb-3">
-                  <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Alta</label>
-                  <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaUI" aria-describedby="basic-addon1" disabled>
-                </div>
-                <!-- <div class="mb-3">
-                  <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
-                  <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_incidenciaUI" aria-describedby="basic-addon1" disabled>
-                </div> -->
-                <div class="mb-3">
-                  <label class="form-label" id="basic-addon1"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
-                  <input type="text" class="form-control" placeholder="" aria-label="cliente" id="cliente_incidenciaUI" aria-describedby="basic-addon1" disabled>
-                </div>
-                <div class="mb-3">
-                  <label for="descripcion_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Descripción de la incidencia:</label>
-                  <textarea class="form-control" rows="5" aria-label="descripcion incidencia" id="descripcion_incidenciaUI" disabled></textarea>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Técnico Asignado</label>
-                  <input type="text" class="form-control" aria-label="tecnico asignado" id="tecnico_incidencia2I" disabled>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Asignación:</label>
-                  <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaAsignacionI" aria-describedby="basic-addon1" disabled>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Estatus</label>
-                  <select class="form-select" aria-label="estatus incidencia" id="estatus_incidenciaI">
-                      <option value="" selected>Selecciona Estatus...</option>
-                      <option value="1">Asignada</option>
-                      <option value="2">Resuelta</option>
-                      <option value="0">Cancelada</option>
-                  </select>
-                </div>
-              </p>
-            </div>
-        
+            <input name="id" id="idHiddenIncU" value="${id}" hidden>
+            <p>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Alta</label>
+                <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaUI" aria-describedby="basic-addon1" disabled>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
+                <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_incidenciaUI" aria-describedby="basic-addon1" disabled>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
+                <input type="text" class="form-control" placeholder="" aria-label="cliente" id="cliente_incidenciaUI" aria-describedby="basic-addon1" disabled>
+              </div>
+              <div class="mb-3">
+                <label for="descripcion_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Descripción de la incidencia:</label>
+                <textarea class="form-control" rows="5" aria-label="descripcion incidencia" id="descripcion_incidenciaUI" disabled></textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Técnico Asignado</label>
+                <input type="text" class="form-control" aria-label="tecnico asignado" id="tecnico_incidencia2I" disabled>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Asignación:</label>
+                <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaAsignacionI" aria-describedby="basic-addon1" disabled>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Estatus</label>
+                <select class="form-select" aria-label="estatus incidencia" id="estatus_incidenciaI">
+                    <option value="" selected>Selecciona Estatus...</option>
+                    <option value="1">Asignada</option>
+                    <option value="2">Resuelta</option>
+                    <option value="0">Cancelada</option>
+                </select>
+              </div>
+            </p>
+          </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
               <button type="button" class="btn btn-primary" onclick="editarEstatusFalla()"><i class="bi bi-floppy"></i> Guardar Cambios</button>
@@ -1779,7 +1778,7 @@ function modalActualizarEstatusFalla(x){
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
-  editarEstatusFalla()
+  actualizarEstatusQuery()
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
@@ -1788,20 +1787,20 @@ function modalActualizarEstatusFalla(x){
 }
 
 function actualizarEstatusQuery(){
-  var id = document.getElementById("idHiddenIncUI").value;
+  var id = document.getElementById("idHiddenIncU").value;
   $.ajax({
-    url: 'query/query_llenadoModalUpdateEstatusF.php',
+    url: 'query/query_ModalUpdateEstatusF.php',
     type: 'POST',
     dataType: 'json',
     data: {
-      id:di
+      id:id
     },
     success: function(data) {
       var datos = JSON.parse(JSON.stringify(data));
       var success = datos.success;
       if(success == 1){
-        document.getElementById('fecha_incidenciaUI').value = datos.fechaAlta;
-        document.getElementById('folio_incidenciaUI').value = datos.folio;
+        document.getElementById('fecha_incidenciaUI').value = datos.fecha_reporte;
+        document.getElementById('folio_incidenciaUI').value = datos.folio_incidencia;
         document.getElementById('cliente_incidenciaUI').value = datos.cliente;
         document.getElementById('descripcion_incidenciaUI').value = datos.descripcion;
         document.getElementById('tecnico_incidencia2I').value = datos.tecnico;
