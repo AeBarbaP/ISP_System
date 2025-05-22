@@ -46,7 +46,7 @@
             }
         echo'
             
-            <td><a href="#" onclick="editarIncidenciaG('.$id.')"><i class="bi bi-pencil-square"></i></a></td>
+            <td><a href="#" onclick="editarIncidencia('.$folio.')"><i class="bi bi-pencil-square"></i></a></td>
         </tr>
         ';
     
