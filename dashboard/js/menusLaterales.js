@@ -1376,16 +1376,8 @@ function queryTecnicos_Falla(){
 });
 }
 
-function editarIncidencia(x) {
+function editarIncidencia() {
   // Obtener fecha actual
-  var folio = toString(x);
-  if (folio == "" || folio == null){
-    console.log("sin folio");
-  }
-  else {
-    document.getElementById('folio_incidencia_editar').value = folio;
-    infoFallaEditar();
-  }
   const fechaActual = new Date();
 
   // Formatear a YYYY-MM-DD (ej: "2023-10-05")
@@ -1728,6 +1720,7 @@ function modalActualizarEstatusFalla(x){
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'estatusUpdate');
   modal.innerHTML = `
     <div class="modal-dialog">>
       <div class="modal-content">
@@ -1820,7 +1813,36 @@ function actualizarEstatusQuery(){
   })
 }
 
-function infoModalEditarI(x){
+function editarEstatusFalla(){
+  var folio = document.getElementById('folio_incidenciaUI').value;
+  var estatus = document.getElementById('estatus_incidenciaI').value;
+  $.ajax({
+    url: 'prcd/prcd_fallasEditarI.php',
+    type: 'POST',
+    dataType: 'JSON',
+    data: {
+      folio:folio,
+      estatus:estatus
+    },
+    success: function(data) {
+      var datos = JSON.parse(JSON.stringify(data));
+      var success = datos.success;
+      if (success == 1) {
+        Swal.fire({
+          title: "Estatus Actualizado!",
+          icon: "success",
+          draggable: true
+        });
+        $('#estatusUpdate').modal('hide');
+      }
+      else{
+        console.log(data.error);
+      }
+    }
+  });
+}
+
+function G(x){
   var id = x;
   console.log(id);
   $.ajax({
@@ -1847,82 +1869,91 @@ function infoModalEditarI(x){
     }
   });
 }
-// function editarIncidenciaG() {
-  
-//   let titulo = "Editar Reporte de Falla";
-//   // Crear el elemento del modal
-//   const modal = document.createElement('div');
-//   modal.classList.add('modal', 'fade');
-//   modal.setAttribute('tabindex', '-1');
-//   modal.setAttribute('id', 'modalEditarReporteFalla');
-//   modal.innerHTML = `
-//     <div class="modal-dialog">
-//       <div class="modal-content">
-//         <div class="modal-header">
-//           <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
-//           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-//         </div>
-//         <div class="modal-body">
-//           <p>
-//             <div class="mb-3">
-//               <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Alta</label>
-//               <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaReporteFalla" aria-describedby="basic-addon1" disabled>
-//             </div>
-//             <div class="mb-3">
-//               <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
-//               <input class="form-control" id="folioIncidencia_editarReporteFalla" aria-label="folio incidencia" disabled>
-//             </div>
-//             <div class="mb-3">
-//               <label class="form-label" id="basic-addon1"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
-//               <input type="text" class="form-control" placeholder="" aria-label="cliente" id="cliente_incidenciaReporteFalla" aria-describedby="basic-addon1">
-//             </div>
-//             <div class="mb-3">
-//               <label for="descripcion_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Descripción de la incidencia:</label>
-//               <textarea class="form-control" rows="5" aria-label="descripcion incidencia" id="descripcion_incidenciaReporteFalla"></textarea>
-//             </div>
-//             <div class="mb-3">
-//               <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
-//               <select class="form-select" aria-label="tecnico asignado" id="tecnico_incidencia2ReporteFalla">
-//                   <option value="" selected>Selecciona Técnico...</option>
-//                   <!-- aquí se llena con la tabla de Técnicos -->
-//               </select>
-//             </div>
-//             <div class="mb-3">
-//               <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Asignación:</label>
-//               <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaAsignacionReporteFalla" aria-describedby="basic-addon1">
-//             </div>
-//             <div class="mb-3">
-//                   <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Estatus</label>
-//                   <select class="form-select" aria-label="estatus incidencia" id="estatus_incidenciaG">
-//                       <option value="" selected>Selecciona Estatus...</option>
-//                       <option value="1">Asignada</option>
-//                       <option value="2">Resuelta</option>
-//                       <option value="0">Cancelada</option>
-//                   </select>
-//                 </div>
-//           </p>
-//         </div>
-//         <div class="modal-footer">
-//           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-//           <button type="button" class="btn btn-primary" onclick="updateReporteFalla()">Guardar</button>
-//         </div>
-//       </div>
-//     </div>
-//   `;
+function editarIncidenciaG(x) {
+  var folio = x;
+  if (folio == "" || folio == null){
+    console.log("sin folio");
+  }
+  else {
+    document
+  }
+  let titulo = "Editar Reporte de Falla";
+  // Crear el elemento del modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'modalEditarReporteFallaG');
+  modal.innerHTML = `
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Alta</label>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaReporteFalla" aria-describedby="basic-addon1" disabled>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
+              <input class="form-control" id="folioIncidencia_editarReporteFalla" aria-label="folio incidencia" disabled>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
+                <select class="form-select" id="folio_incidencia_editarG" size="4" aria-label="folio incidencia" onchange="infoFallaEditar()">
+                  <option selected>Selecciona...</option>
+                  <!-- Muestra los folios de las incidencias que aún no han sido resueltas para cambiar los datos -->
+                </select>
+              </div>
+            <div class="mb-3">
+              <label for="descripcion_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Descripción de la incidencia:</label>
+              <textarea class="form-control" rows="5" aria-label="descripcion incidencia" id="descripcion_incidenciaReporteFalla"></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
+              <select class="form-select" aria-label="tecnico asignado" id="tecnico_incidencia2ReporteFalla">
+                  <option value="" selected>Selecciona Técnico...</option>
+                  <!-- aquí se llena con la tabla de Técnicos -->
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Asignación:</label>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaAsignacionReporteFalla" aria-describedby="basic-addon1">
+            </div>
+            <div class="mb-3">
+                  <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Estatus</label>
+                  <select class="form-select" aria-label="estatus incidencia" id="estatus_incidenciaG">
+                      <option value="" selected>Selecciona Estatus...</option>
+                      <option value="1">Asignada</option>
+                      <option value="2">Resuelta</option>
+                      <option value="0">Cancelada</option>
+                  </select>
+                </div>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="updateReporteFalla()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  `;
 
-//   // Agregar el modal al body del documento
-//   document.body.appendChild(modal);
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
 
-//   // Mostrar el modal usando Bootstrap's JavaScript API
-//   const bootstrapModal = new bootstrap.Modal(modal);
-//   bootstrapModal.show();
-//   infoModalEditarI(id);
+  // Mostrar el modal usando Bootstrap's JavaScript API
+  const bootstrapModal = new bootstrap.Modal(modal);
+  bootstrapModal.show();
+  infoModalEditarG(id);
 
-//   // Eliminar el modal del DOM cuando se cierre
-//   modal.addEventListener('hidden.bs.modal', () => {
-//     modal.remove();
-//   });
-// }
+  // Eliminar el modal del DOM cuando se cierre
+  modal.addEventListener('hidden.bs.modal', () => {
+    modal.remove();
+  });
+}
 
 //Termina gestión de Incidencias
 

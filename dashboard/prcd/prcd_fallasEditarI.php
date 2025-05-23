@@ -5,14 +5,12 @@ require_once ('conn.php');
 $username = $_SESSION['username'];
 
 
-$id = $_POST['id'];
+$folio = $_POST['folio'];
 $estatus = $_POST['estatus'];
 
-$sql = "UPDATE incidencias SET (
-    estatus
-) VALUES (
-    '$estatus'
-) WHERE id = '$id'";
+$sql = "UPDATE incidencias SET 
+        estatus = '$estatus'    
+        WHERE folio_incidencia = '$folio'";
 
 $result = mysqli_query($conn, $sql);
 
