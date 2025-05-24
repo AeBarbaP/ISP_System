@@ -1396,7 +1396,7 @@ function editarIncidencia() {
     modal.innerHTML = `
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header bg-secondary text-light">
             <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
@@ -1560,9 +1560,9 @@ function resolverIncidencia() {
   modal.innerHTML = `
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header bg-secondary text-light">
           <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <p>
@@ -1634,11 +1634,11 @@ function gestionIncidencias() {
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
   modal.innerHTML = `
-    <div class="modal-dialog modal-xl">>
+    <div class="modal-dialog modal-xl">
       <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header bg-secondary text-light">
               <h5 class="modal-title"><i class="bi bi-card-list me-2"></i>${titulo}</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
               <input name="id" id="idHiddenInc" value="" hidden>
@@ -1663,7 +1663,7 @@ function gestionIncidencias() {
                 </div>
                 <div class="table-responsive mt-3">
                   <table class="table p-1">
-                      <thead>
+                      <thead class="table-dark text-light">
                           <tr>
                               <th scope="col">Id</th>
                               <th scope="col">Folio</th>
@@ -1887,7 +1887,7 @@ function editarIncidenciaG(x) {
   modal.innerHTML = `
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header bg-secondary text-light">
           <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
