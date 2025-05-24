@@ -39,7 +39,7 @@
                 <td><a href="#" onclick="modalActualizarEstatusFalla('.$id.')"><i class="bi bi-check-circle text-success"></i></a></td>
                 ';
             }
-            else if ($estatus == 3){
+            else if ($estatus == 0){
                 echo'
                 <td><a href="#" onclick="modalActualizarEstatusFalla('.$id.')"><i class="bi bi-x-circle text-danger"></i></a></td>
                 ';

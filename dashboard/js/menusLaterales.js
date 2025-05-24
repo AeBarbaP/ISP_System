@@ -1834,6 +1834,7 @@ function editarEstatusFalla(){
           draggable: true
         });
         $('#estatusUpdate').modal('hide');
+        queryFallasFull();
       }
       else{
         console.log(data.error);
