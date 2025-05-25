@@ -11,6 +11,16 @@
 
 // ---------------- función _(el) -------------
 
+// ------------------ return para las fechas en todos los inputs ------------------
+function obtenerFechaHoy() {
+  const hoy = new Date();
+  const anio = hoy.getFullYear();
+  const mes = String(hoy.getMonth() + 1).padStart(2, '0'); // los meses van de 0 a 11
+  const dia = String(hoy.getDate()).padStart(2, '0');
+  return `${anio}-${mes}-${dia}`;
+}
+// ------------------ return para las fechas en todos los inputs ------------------
+
 function _(el){
   return document.getElementById(el);
 }
@@ -1551,7 +1561,7 @@ function infoFallaEditar(){
 }
 
 function resolverIncidencia() {
-
+  let fechaHoy = obtenerFechaHoy();
   let titulo = "Reporte Técnico de Incidencia";
   // Crear el elemento del modal
   const modal = document.createElement('div');
@@ -1568,7 +1578,7 @@ function resolverIncidencia() {
           <p>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Alta</label>
-              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaUT" aria-describedby="basic-addon1" disabled>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaUT" aria-describedby="basic-addon1" value="${fechaHoy}" disabled>
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
@@ -1639,6 +1649,28 @@ function queryIncidenciasTecnico(){
     }
 });
 }
+
+function querySelectCliente(){
+  let select = document.getElementById('clientes_corteIncidencia');
+  let opcionSeleccionada = select.selectedOptions[0]; 
+  let usuario = opcionSeleccionada.dataset.username; 
+  $.ajax({
+    url: 'query/query_nombreIncidencia.php',
+    data:{
+      usuario : usuario
+    },
+    type: 'POST',
+    dataType: 'json',
+    success: function(data) {
+      var datos = JSON.parse(JSON.stringify(data));
+      var success = datos.success;
+      if(success == 1){
+        _('cliente_incidenciaU').value = datos.usuario;
+      }
+    }
+});
+}
+
 
 function gestionIncidencias() {
   let titulo = "Gestión de Incidencias";
