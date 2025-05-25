@@ -1572,10 +1572,11 @@ function resolverIncidencia() {
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
-              <select class="form-select" id="clientes_corte" size="4" aria-label="clientes para corte">
-                <option selected>Selecciona...</option>
-                <!-- Muestra los clientes que están en proceso de corte y al seleccionar muestra la info del domicilio como en el pago -->
+              
+              <select class="form-select" id="clientes_corteIncidencia" size="4" aria-label="clientes para corte">
+                
               </select>
+
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
@@ -1619,12 +1620,24 @@ function resolverIncidencia() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
-  fechaRegistroIncidencia()
+  // fechaRegistroIncidencia();
+  queryIncidenciasTecnico();
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+}
+
+function queryIncidenciasTecnico(){
+  $.ajax({
+    url: 'query/query_reporteTecnico.php',
+    type: 'POST',
+    dataType: 'html',
+    success: function(data) {
+        $('#clientes_corteIncidencia').html(data);
+    }
+});
 }
 
 function gestionIncidencias() {
