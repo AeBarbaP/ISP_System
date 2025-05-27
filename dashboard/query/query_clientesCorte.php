@@ -14,7 +14,7 @@ while($row = $resultado->fetch_assoc()){
 
     $comunidad1 = $row1['comunidad'];
 
-    echo '<option value="'.$row['folio'].'" data-username="'.$row['nombre'].'">'.$row['nombre'].' | '.$comunidad1.'</option>';
+    echo '<option value="'.$row['folio'].'" data-username="'.$row['nombre'].'" data-username="'.$row['nombre'].'">'.$row['nombre'].' | '.$comunidad1.'</option>';
 }
 
 ?>
