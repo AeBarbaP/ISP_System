@@ -16,7 +16,7 @@ while($row = $resultado->fetch_assoc()){
     $cliente = $row1['nombre'];
     $domicilio = $row1['domicilio'];
 
-    echo '<option value="'.$folio_incidencia.'" data-username="'.$folio_cliente.'" onclick="querySelectCliente()">'.$folio_incidencia.' | '.$cliente.' | '.$domicilio.'</option>';
+    echo '<option value="'.$folio_incidencia.'" data-username="'.$folio_cliente.'" data-folioincidencia="'.$folio_incidencia.'" onclick="querySelectCliente()">'.$folio_incidencia.' | '.$cliente.' | '.$domicilio.'</option>';
 }
 
 ?>

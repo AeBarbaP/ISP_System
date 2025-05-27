@@ -1567,6 +1567,7 @@ function resolverIncidencia() {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'modalReporteIncidenciaT');
   modal.innerHTML = `
     <div class="modal-dialog">
       <div class="modal-content">
@@ -1600,9 +1601,9 @@ function resolverIncidencia() {
               <label class="form-label" id="basic-addon1"><i class="bi bi-exclamation-circle me-2"></i>Estatus</label>
               <select class="form-select" aria-label="estatus incidencia" id="estatus_incidenciaR">
                   <option value="" selected>Selecciona...</option>
-                  <option value="En proceso" >En proceso</option>
-                  <option value="Resuelta" >Resuelta</option>
-                  <option value="Cancelada" >Cancelada</option>
+                  <option value="1" >En proceso</option>
+                  <option value="2" >Resuelta</option>
+                  <option value="0" >Cancelada</option>
               </select>
             </div>
             <div class="mb-3">
@@ -1618,7 +1619,7 @@ function resolverIncidencia() {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" onclick="updateIncidencia()">Guardar</button>
+          <button type="button" class="btn btn-primary" onclick="cambiarComentario()">Guardar</button>
         </div>
       </div>
     </div>
@@ -1666,9 +1667,42 @@ function querySelectCliente(){
       var success = datos.success;
       if(success == 1){
         _('cliente_incidenciaU').value = datos.usuario;
+        _('descripcion_incidenciaU').value = datos.incidencia;
+        _('estatus_incidenciaR').value = datos.estatus;
       }
     }
 });
+}
+
+function cambiarComentario(){
+  let select = document.getElementById('clientes_corteIncidencia');
+  let opcionSeleccionada = select.selectedOptions[0]; 
+  let usuario = opcionSeleccionada.dataset.folioincidencia;
+
+  let estatus = _('estatus_incidenciaR').value;
+  let fechaAtencion = _('fecha_incidenciaRT').value;
+  let comentario = _('comentario_incidenciaU').value;
+
+  $.ajax({
+    url: 'prcd/prcd_editar_TecnicoIncidencia.php',
+    data:{
+      usuario : usuario,
+      estatus : estatus,
+      fechaAtencion : fechaAtencion,
+      comentario : comentario
+    },
+    type: 'POST',
+    dataType: 'json',
+    success: function(data) {
+      var datos = JSON.parse(JSON.stringify(data));
+      var success = datos.success;
+      if(success == 1){
+        alert('Comentario actualizado');
+        // aqui successComment
+        $('#modalReporteIncidenciaT').modal('hide');
+      }
+    }
+  });
 }
 
 
