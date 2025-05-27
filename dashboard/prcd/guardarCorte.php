@@ -9,7 +9,7 @@ $fecha_orden = $_POST['fecha_orden'];
 $folio = $_POST['folio'];
 $folio_cliente = $_POST['folio_cliente'];
 /* $tecnico = $_POST['tecnico']; */
-$fecha_asignacion = $_POST['fecha_asignacion'];
+$fecha_corte = $_POST['fecha_corte'];
 
 $query = "INSERT INTO cortes (
         folio_cliente,
@@ -21,7 +21,7 @@ $query = "INSERT INTO cortes (
         '$folio_cliente',
         '$username',
         '$folio',
-        '$fecha_asignacion',
+        '$fecha_corte',
         1
         )";
 

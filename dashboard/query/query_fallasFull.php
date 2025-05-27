@@ -39,14 +39,14 @@
                 <td><a href="#" onclick="modalActualizarEstatusFalla('.$id.')"><i class="bi bi-check-circle text-success"></i></a></td>
                 ';
             }
-            else if ($estatus == 0){
+            else if ($estatus == 3){
                 echo'
                 <td><a href="#" onclick="modalActualizarEstatusFalla('.$id.')"><i class="bi bi-x-circle text-danger"></i></a></td>
                 ';
             }
         echo'
             
-            <td><a href="#" onclick="editarIncidencia(\''.$folio.'\')"><i class="bi bi-pencil-square"></i></a></td>
+            <td><a href="#" onclick="editarIncidencia2(\''.$folio.'\')"><i class="bi bi-pencil-square"></i></a></td>
         </tr>
         ';
     

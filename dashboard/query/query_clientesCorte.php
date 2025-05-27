@@ -4,7 +4,7 @@ require('../prcd/conn.php');
 $sql = "SELECT * FROM clientes"; // Busca coincidencias parciales
 $resultado = $conn->query($sql);
 $clientes = array();
-echo '<option selected>Selecciona...</option>';
+echo '<option>Selecciona...</option>';
 while($row = $resultado->fetch_assoc()){
     $comunidad = $row['comunidad'];
 
@@ -14,7 +14,7 @@ while($row = $resultado->fetch_assoc()){
 
     $comunidad1 = $row1['comunidad'];
 
-    echo '<option value="'.$row['folio'].'" data-username="'.$row['nombre'].'" data-username="'.$row['nombre'].'">'.$row['nombre'].' | '.$comunidad1.'</option>';
+    echo '<option value="'.$row['folio'].'" data-name="'.$row['nombre'].'" data-folio="'.$row['folio'].'" onselect="queryClientesCorteInfo()">'.$row['nombre'].' | '.$comunidad1.'</option>';
 }
 
 ?>

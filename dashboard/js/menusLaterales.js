@@ -2067,18 +2067,15 @@ function altaCorte() {
               <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_corte" aria-describedby="basic-addon1" disabled>
             </div>
             <div class="mb-3">
-              <select class="form-select" id="clientes_corte" size="4" aria-label="clientes para corte">
+              <select class="form-select" id="clientes_corte" size="4" aria-label="clientes para corte" onchange="queryClientesCorte(this.value)">
                 
                 <!-- Muestra los clientes que están en proceso de corte y al seleccionar muestra la info del domicilio como en el pago -->
               </select>
             </div>
-            <div class="mb-3" id="datosDomicilio">
-							<p> Aqui se imprime el domicilio del cliente <br>que se va a hacer el corte</p>
-							<p><div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-house-exclamation-fill"></i></span>
-                  <input type="text" class="form-control" placeholder="Domicilio" aria-label="Domicilio" aria-describedby="basic-addon1" disabled>
-                </div>
-              </p>
+            <div class="alert alert-info mb-3" id="datosDomicilioInfo" role="alert">
+              <p>Cliente: <span id="nombreClienteCorte"></span><br>
+              Domicilio: <span id="domicilioClienteCorte"></span><br>							
+              Comunidad: <span id="comunidadClienteCorte"></span></p>							
 						</div>
             <!-- <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
@@ -2155,15 +2152,15 @@ function guardarCorte() {
   var folio = _('folio_corte').value;
   // var tecnico = _('tecnico_corte').value;
   // _('modalclientes_corteCorte').value;
-  var fecha_asignacion = _('fecha_corteAsignacion').value;
+  var fecha_corte = _('fecha_corteAsignacion').value;
   $.ajax({
     url: 'prcd/guardarCorte.php',
     type: 'POST',
     data: {
       fecha_orden: fecha_orden,
       folio_cliente:folio_cliente,
-      folio: folio,
-      fecha_asignacion: fecha_asignacion
+      folio:folio,
+      fecha_corte:fecha_corte
     },
     dataType: 'JSON',
     success: function(response) {
@@ -2180,6 +2177,29 @@ function guardarCorte() {
     }
 
   });
+}
+
+function queryClientesCorteInfo(){
+  let select = document.getElementById('clientes_corte');
+  let opcionSeleccionada = select.selectedOptions[0]; 
+  let folio = opcionSeleccionada.dataset.folio; 
+  $.ajax({
+    url: 'query/query_infoClientesCorte.php',
+    data:{
+      folio : folio
+    },
+    type: 'POST',
+    dataType: 'json',
+    success: function(data) {
+      var datos = JSON.parse(JSON.stringify(data));
+      var success = datos.success;
+      if(success = 1){
+        _('nombreClienteCorte').innerText = datos.nombre;
+        _('domicilioClienteCorte').innerText = datos.domicilio;
+        _('comunidadClienteCorte').innerText = datos.comunidad;
+      }
+    }
+});
 }
 
 // function fechaRegistroCorte(){
@@ -2227,7 +2247,7 @@ function editarCorte() {
               <label class="form-label" id="basic-addon1"><i class="bi bi-list-ol me-2"></i>Folio de Corte:</label>
               <select class="form-select" id="folio_corte_editar" size="4" aria-label="folio corte">
                 <option selected>Selecciona...</option>
-                 <!-- Muestra los folios de las ordenes de corte que aún no han sido resueltas para cambiar los datos -->
+                <!-- Muestra los folios de las ordenes de corte que aún no han sido resueltas para cambiar los datos -->
               </select>
             </div>
             <div class="mb-3" id="datosClienteyDomicilio">
