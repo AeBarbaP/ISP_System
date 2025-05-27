@@ -2042,7 +2042,7 @@ function editarIncidenciaG(x) {
 //Inicia gestión de ordenes de corte
 
 function altaCorte() {
-
+  let fechaHoy = obtenerFechaHoy();
   let titulo = "Nueva Orden de Corte";
   // Crear el elemento del modal
   const modal = document.createElement('div');
@@ -2060,7 +2060,7 @@ function altaCorte() {
           <p>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-check me-2"></i>Fecha</label>
-              <input type="date" class="form-control" placeholder="" aria-label="Fecha de orden" id="fecha_orden_corte" aria-describedby="basic-addon1" disabled>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha de orden" id="fecha_orden_corte" aria-describedby="basic-addon1" value="${fechaHoy}" disabled>
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio:</label>
@@ -2074,6 +2074,11 @@ function altaCorte() {
             </div>
             <div class="mb-3" id="datosDomicilio">
 							<p> Aqui se imprime el domicilio del cliente <br>que se va a hacer el corte</p>
+							<p><div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-house-exclamation-fill"></i></span>
+                  <input type="text" class="form-control" placeholder="Domicilio" aria-label="Domicilio" aria-describedby="basic-addon1" disabled>
+                </div>
+              </p>
 						</div>
             <!-- <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
@@ -2103,7 +2108,7 @@ function altaCorte() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
-  fechaRegistroCorte();
+  // fechaRegistroCorte();
   queryClientesCorte();
   generarFolioCorte();
 
@@ -2177,26 +2182,26 @@ function guardarCorte() {
   });
 }
 
-function fechaRegistroCorte(){
-  // Obtener los elementos input
-  const inputFechaActual = document.getElementById('fecha_orden_corte');
-  // Obtener la fecha actual
-  const fechaActual = new Date();
+// function fechaRegistroCorte(){
+//   // Obtener los elementos input
+//   const inputFechaActual = document.getElementById('fecha_orden_corte');
+//   // Obtener la fecha actual
+//   const fechaActual = new Date();
 
-  // Función para formatear la fecha en YYYY-MM-DD
-  function formatearFecha(fecha) {
-      const año = fecha.getFullYear();
-      const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Meses van de 0 a 11
-      const dia = String(fecha.getDate()).padStart(2, '0');
-      return `${año}-${mes}-${dia}`;
-  }
+//   // Función para formatear la fecha en YYYY-MM-DD
+//   function formatearFecha(fecha) {
+//       const año = fecha.getFullYear();
+//       const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Meses van de 0 a 11
+//       const dia = String(fecha.getDate()).padStart(2, '0');
+//       return `${año}-${mes}-${dia}`;
+//   }
 
-  // Formatear las fechas
-  const fechaActualFormateada = formatearFecha(fechaActual);
+//   // Formatear las fechas
+//   const fechaActualFormateada = formatearFecha(fechaActual);
 
-  // Asignar las fechas a los inputs
-  inputFechaActual.value = fechaActualFormateada;
-}
+//   // Asignar las fechas a los inputs
+//   inputFechaActual.value = fechaActualFormateada;
+// }
 
 function editarCorte() {
 
