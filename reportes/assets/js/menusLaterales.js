@@ -307,6 +307,7 @@ function gestionUsuarios(){
                                 <th scope="col">Estatus</th>
                                 <th scope="col">Nombre completo</th>
                                 <th scope="col">Usuario</th>
+                                <th scope="col">Color</th>
                                 <th scope="col" class=""><i class="bi bi-people"></i></th>
                             </tr>
                         </thead>
@@ -382,6 +383,7 @@ function datosEdicionUsr(id) {
         _("editarnombreUsr").value = datos.nombre;
         _("editarcontraseniaUsr").value = datos.pwd;
         _("tipoUsrEditar").value = datos.tipo_usr;
+        _("colorUserEdit").value = datos.color;
 
         if(datos.estatus == 1){
           _('estatusEditarUsr1').checked = true;

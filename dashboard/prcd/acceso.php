@@ -35,7 +35,7 @@ function revisarCorte($id){
 
     require('conn.php');
 
-    $sqlCorte = "SELECT * FROM cortes WHERE usr ='$id'";
+    $sqlCorte = "SELECT * FROM corte_caja WHERE usr ='$id'";
     $resultadoCorte = $conn->query($sqlCorte);
     $filas = $resultadoCorte->num_rows;
 
@@ -47,7 +47,6 @@ function revisarCorte($id){
     else{
         $corte = 0;
         return $corte;
-
     }
 
 }

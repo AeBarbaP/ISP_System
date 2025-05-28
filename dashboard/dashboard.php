@@ -5,7 +5,7 @@
     $nombre = $_SESSION['nombre'];
     $estatusCorte = $_SESSION['estatusCorte'];
 
-    if(empty($user) || empty($nombre) || empty($estatusCorte)){
+    if(empty($user) || empty($nombre)){
         echo "<script type=\"text/javascript\">location.href='prcd/sort.php';</script>";
     }
 ?>

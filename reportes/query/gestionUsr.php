@@ -9,6 +9,7 @@ while($row = $resultado->fetch_assoc()){
     $tipoUser = $row['tipo_usr'];
     $estatus = $row['estatus'];
     $fechaRegistro = $row['fecha_creacion'];
+    $color = $row['color'];
 
     $sqlLogin = "SELECT * FROM logs_login WHERE id_ext = '$id' ORDER BY id DESC LIMIT 1";
     $resultadoLogin = $conn->query($sqlLogin);
@@ -54,6 +55,7 @@ while($row = $resultado->fetch_assoc()){
     echo'
         <td>'.$row['nombre'].'</td>
         <td>'.$row['username'].'</td>
+        <td> <p><i class="bi bi-circle-fill" style="color: '.$color.'"></i></p></td>
         <td><a type="button" style="decoration:none;" onclick="editarUsuario('.$row['id'].')"><i class="bi bi-pencil-square"></i></a></td>
     </tr>
     ';

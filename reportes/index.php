@@ -6,7 +6,6 @@ if (isset($_SESSION['sess'])){
     echo "
     <script>
             console.log('sesion activa');
-            alert('Acceso correcto');
         </script>
     ";
 }
@@ -15,8 +14,7 @@ else {
     echo "
         <script>
             console.log('sesion inactiva');
-            alert('Acceso denegado');
-            window.location.href='../dashboard/index.html';
+            window.location.href='../dashboard/prcd/sort.php';
         </script>
     ";
 }
