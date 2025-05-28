@@ -18,7 +18,7 @@ if($filas == 1){
     
     $_SESSION['username'] = $row['username'];
     $_SESSION['nombre'] = $row['nombre'];
-    $_SESSION['estatusCorte'] = $revisarCorte($id);
+    $_SESSION['estatusCorte'] = revisarCorte($id);
 
     echo json_encode(array(
         'success'=>1
@@ -32,6 +32,8 @@ else{
 }
 
 function revisarCorte($id){
+
+    require('conn.php');
 
     $sqlCorte = "SELECT * FROM cortes WHERE usr ='$id'";
     $resultadoCorte = $conn->query($sqlCorte);

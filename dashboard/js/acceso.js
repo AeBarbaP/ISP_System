@@ -37,7 +37,7 @@ function accesos(){
                     image.style.padding = '1px'; // Espaciado interno
                 }
             }
-        }).then(function(){window.location='dashboard.html';});
+        }).then(function(){window.location='dashboard.php';});
         }
         else
         {
