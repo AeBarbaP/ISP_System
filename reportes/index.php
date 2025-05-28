@@ -633,7 +633,7 @@ else {
                     </div>
                 </div>
             </div>
-            <div class="row mt-4">
+            <!-- <div class="row mt-4">
                 <div class="col-12">
                     <div class="card mb-3" style="width: 100%; height: 100%;">
                         <div class="card-body">
@@ -645,9 +645,9 @@ else {
                                     <h5 class="card-title">Usuarios Registrados</h5>
                                     <p class="text-muted small text-secondary mt-0"></p>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- tabla -->
-                            <table class="table p-1">
+                            <!-- <table class="table p-1">
                                 <thead>
                                     <tr>
                                         <th scope="col"></th>
@@ -663,12 +663,12 @@ else {
                                 <tbody id="tablaUsuarios">
                                     
                                 </tbody>
-                            </table>
+                            </table> -->
                             <!-- tabla -->
-                        </div>
+                        <!-- </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div><!-- fin container principal-->
     </body><!--aqui-->
 
