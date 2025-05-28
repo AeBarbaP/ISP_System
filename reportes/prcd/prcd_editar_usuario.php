@@ -13,7 +13,7 @@ $nombre = $_POST['nombre'];
 $pwd = $_POST['pwd'];
 $tipo_usr = $_POST['tipo_usr'];
 $estatus = $_POST['estatus'];
-$color = $_POST['colorUserEdit'];
+$color = $_POST['colorUser'];
 
 $query = "UPDATE users SET 
         username = '$username',

@@ -177,9 +177,9 @@ function mostrarPwd1(){
 function mostrarPwd2(){
     var valorCheck = _("mostrarPwd");
     if(valorCheck.checked){
-        _("pwdNewUsr").type = "text";
+        _("editarcontraseniaUsr").type = "text";
     }else{
-        _("pwdNewUsr").type = "password";
+        _("editarcontraseniaUsr").type = "password";
     }
 }
 

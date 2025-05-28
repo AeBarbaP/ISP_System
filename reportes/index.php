@@ -58,22 +58,10 @@ else {
 
         <!-- js de carga -->
         <script src="assets/js/query_onload.js"></script>
+        <script src="assets/js/menusLaterales.js"></script>
         <!-- <script src="assets/js/userUpdate.js"></script>
         <script src="assets/js/agregarUser.js"></script> -->
-        <script src="assets/js/reportes.js"></script>
-        <script src="assets/js/gestionUsers.js"></script>
-        <script src="assets/js/contratos.js"></script>
-        <script src="assets/js/pagos.js"></script>
-        <script src="assets/js/promocion.js"></script>
-        <script src="assets/js/perfiles.js"></script>
-        <script src="assets/js/select2.js"></script>
-        <script src="assets/js/registroPago.js"></script>
-        <script src="assets/js/usuarios.js"></script>
-        <script src="assets/js/tecnicos.js"></script>
-        <script src="assets/js/menusLaterales.js"></script>
-        <script src="assets/js/laterales/antenas.js"></script>
-        <script src="assets/js/scripts.js"></script>
-        <script src="assets/js/validaciones.js"></script>
+        
 
         <!-- js jquery cdn -->
         <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -242,7 +230,7 @@ else {
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
                             <li class="nav-item dropdown">
-                                <a class="nav-link" aria-current="page" href="../dashboard/index.html"><i class="bi bi-house-door me-3"  style="font-size: 22px"></i>CONECTWI - Inicio</a>
+                                <a class="nav-link" aria-current="page" href="../dashboard/dashboard.html"><i class="bi bi-house-door me-3"  style="font-size: 22px"></i>CONECTWI - Inicio</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -690,4 +678,17 @@ else {
 </html>
     
 <script src="assets/js/graficos.js"></script>
+<script src="assets/js/reportes.js"></script>
+<script src="assets/js/gestionUsers.js"></script>
+<script src="assets/js/contratos.js"></script>
+<script src="assets/js/pagos.js"></script>
+<script src="assets/js/promocion.js"></script>
+<script src="assets/js/perfiles.js"></script>
+<script src="assets/js/select2.js"></script>
+<script src="assets/js/registroPago.js"></script>
+<script src="assets/js/usuarios.js"></script>
+<script src="assets/js/tecnicos.js"></script>
+<script src="assets/js/laterales/antenas.js"></script>
+<script src="assets/js/scripts.js"></script>
+<script src="assets/js/validaciones.js"></script>
 
