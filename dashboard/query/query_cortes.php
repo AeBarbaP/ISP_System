@@ -38,9 +38,14 @@ while($row = $resultado->fetch_assoc()){
             echo '<td><span style="border-radius: 5px; background-color:blue; padding:5px; color:white; font-size:8px">'.$row_a['nombre'].'</span></td>';
         }
         // <td>'.$tecnico_asignado.'</td>
-        echo '<td>'.$row['fecha'].'</td>
-        <td>'.$row['estatus'].'</td>
-        <td><i class="bi bi-pencil-square"></i> | <i class="bi bi-trash"></i></td>
+        echo '<td>'.$row['fecha'].'</td>';
+        if($row['estatus'] == 1){
+            echo'<td>Corte realizado</td>';
+        }
+        else{
+            echo'<td>Corte no realizado</td>';
+        }
+        echo '<td><i class="bi bi-pencil-square"></i> | <i class="bi bi-trash"></i></td>
     </tr>
     ';
 }

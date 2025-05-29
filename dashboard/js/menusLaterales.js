@@ -2359,7 +2359,7 @@ function gestionCortes() {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
-  modal.setAttribute('id', 'tablaCortes');
+  modal.setAttribute('id', 'modaltablaCortes');
   modal.innerHTML = `
     <div class="modal-dialog modal-xl">>
       <div class="modal-content">
@@ -2373,7 +2373,7 @@ function gestionCortes() {
                 <div class="col-6">
                   <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                      <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscarCortes" name="buscar">
+                      <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscarCortes234" oninput="filtradoTabla()" name="buscar">
                   </div>
                 </div>
               </div>
@@ -2430,14 +2430,26 @@ function queryTablaCortes(){
   });
 }
 
-$(document).ready(function () {
-			$("#buscarCortes").on("keyup", function () {
-				var value = $(this).val().toLowerCase();
-				$("#tablaCortesFull tr").filter(function () {
-					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-				});
-			});
-		});
+// filtrado en tabla
+function filtradoTabla(){
+    const buscador = document.getElementById('buscarCortes234');
+    const filas = document.querySelectorAll('#tablaCortesFull tr');
+    
+    if (buscador && filas.length > 0) {
+        buscador.addEventListener('keyup', function() {
+            const valor = this.value.toLowerCase().trim();
+            
+            filas.forEach(function(fila) {
+                const textoFila = fila.textContent.toLowerCase();
+                fila.style.display = textoFila.includes(valor) ? '' : 'none';
+            });
+        });
+    } else {
+        console.error('Elementos no encontrados: #buscarCortes o #tablaCortesFull');
+    }
+
+}
+
 
 function resolverCorte() {
 
