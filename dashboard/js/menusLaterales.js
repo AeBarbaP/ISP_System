@@ -2067,7 +2067,7 @@ function altaCorte() {
               <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_corte" aria-describedby="basic-addon1" disabled>
             </div>
             <div class="mb-3">
-              <select class="form-select" id="clientes_corte" size="4" aria-label="clientes para corte" onchange="queryClientesCorte(this.value)">
+              <select class="form-select" id="clientes_corte" size="4" aria-label="clientes para corte" onchange=" queryClientesCorteInfo(event);">
                 
                 <!-- Muestra los clientes que están en proceso de corte y al seleccionar muestra la info del domicilio como en el pago -->
               </select>
@@ -2179,10 +2179,12 @@ function guardarCorte() {
   });
 }
 
-function queryClientesCorteInfo(){
-  let select = document.getElementById('clientes_corte');
-  let opcionSeleccionada = select.selectedOptions[0]; 
-  let folio = opcionSeleccionada.dataset.folio; 
+function queryClientesCorteInfo(event){
+  event.preventDefault();
+  // let select = document.getElementById('clientes_corte');
+  // let opcionSeleccionada = select.selectedOptions[0]; 
+  // let folio = opcionSeleccionada.dataset.folio; 
+  let folio = document.getElementById('clientes_corte').value;  
   $.ajax({
     url: 'query/query_infoClientesCorte.php',
     data:{
