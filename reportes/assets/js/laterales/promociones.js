@@ -90,19 +90,21 @@
           <div class="modal-body">
             <input name="id" id="idPromoHidden" value=${id} hidden>
             <p>
-            <div class="input-group mb-3">
-                <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-week me-2"></i>Fecha Inicio:</label>
-                <input type="date" class="form-control" placeholder="" aria-label="Fecha de inicio" id="fecha_inicioEditar" aria-describedby="basic-addon1">
+              <div class="row">
+                <div class="col-6 mb-3">
+                  <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-week me-2"></i>Fecha Inicio</label>
+                  <input type="date" class="form-control" placeholder="" aria-label="Fecha de inicio" id="fecha_inicioEditar" aria-describedby="basic-addon1">
+                </div>
+                <div class="col-6 mb-3">
+                  <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-week me-2"></i>Fecha Final</label>
+                  <input type="date" class="form-control" placeholder="" aria-label="Fecha de fin" id="fecha_finEditar" aria-describedby="basic-addon1">
+                </div>
               </div>
-              <div class="input-group mb-3">
-                <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-week me-2"></i>Fecha Final:</label>
-                <input type="date" class="form-control" placeholder="" aria-label="Fecha de fin" id="fecha_finEditar" aria-describedby="basic-addon1">
-              </div>
-              <div class="input-group mb-3">
+              <div class="mb-3">
                 <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Nombre de la promoción:</label>
                 <input type="text" class="form-control" placeholder="Nombre de la promoción" aria-label="nombre promocion" id="nombre_promocionEditar" aria-describedby="basic-addon1">
               </div>
-              <div class="input-group mb-3">
+              <div class="mb-3">
                 <label class="form-label" id="basic-addon1"><i class="bi bi-card-checklist me-2"></i>Tipo</label>
                 <select class="form-select" aria-label="Default select example" id="tipo_promoEditar">
                     <option value="" selected>Promoción en...</option>
@@ -111,9 +113,13 @@
                     <option value="Recargos">Recargos</option>
                 </select>
               </div>
-              <div class="input-group mb-3">
-                <label class="form-label" id="basic-addon1"><i class="bi bi-piggy-bank me-2"></i>Descuento:</label>
-                <input type="number" class="form-control" placeholder="Descuento" aria-label="descuento" id="descuento_promoEditar" aria-describedby="basic-addon1">
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-piggy-bank me-2"></i>Descuento (monto):</label>
+                <div class="input-group">
+                  <span class="input-group-text" id="basic-addon1">$</span>
+                  <input type="text" class="form-control" placeholder="Descuento" aria-label="descuento" id="descuento_promoEditar" pattern=" 0+\.[0-9]*[1-9][0-9]*$" name="itemConsumption" onkeypress="return event.charCode >= 48 && event.charCode <= 57" aria-describedby="basic-addon1">
+                  <span class="input-group-text" id="basic-addon13">.00</span>
+                </div>
               </div>
             </p>
           </div>
