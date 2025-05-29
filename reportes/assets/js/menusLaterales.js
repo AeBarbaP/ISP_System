@@ -447,6 +447,7 @@ function nuevoTecnico() {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'nuevoTecnico');
   modal.innerHTML = `
     <div class="modal-dialog">
       <div class="modal-content">
@@ -504,6 +505,7 @@ function nuevoTecnico() {
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  
 }
 
 function fechaTecnico(){
@@ -553,15 +555,23 @@ function fechaTecnicoE(){
 function guardarTecnico(){
   let fecha = document.getElementById('fecha_creacion_tecnico').value;
   let nombre = document.getElementById('nombre_tecnico').value;
-  let estatus_tecnico = document.getElementById('estatus_tecnico').value;
+  var estatusa_tecnico = document.getElementById('estatus1');
+  var estatusi_tecnico = document.getElementById('estatus2');
+
+  if (estatusa_tecnico.checked){
+    var estatus_tecnico = 1;
+  }
+  else if (estatusi_tecnico.checked){
+    var estatus_tecnico = 0;
+  }
 
   $.ajax({
-    url: 'prcd/guardarTecnico.php',
+    url: '../reportes/prcd/guardarTecnico.php',
     type: 'POST',
     data:{
       fecha:fecha,
       nombre:nombre,
-      estatus_tecnico,estatus_tecnico
+      estatus_tecnico:estatus_tecnico
     },
     dataType: 'json',
     success: function(data) {
@@ -570,7 +580,7 @@ function guardarTecnico(){
 
       if (success == 1) {
         alert("Técnico creado");
-        
+        $('#nuevoTecnico').modal('hide');
       }
       else{
           alert("No se guardó");
