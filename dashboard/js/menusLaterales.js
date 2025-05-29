@@ -2226,7 +2226,7 @@ function editarCorte() {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
-  modal.setAttribute('id', 'ordenCorte');
+  modal.setAttribute('id', 'ordenCorteEditar');
   modal.innerHTML = `
     <div class="modal-dialog">
       <div class="modal-content">
@@ -2242,12 +2242,18 @@ function editarCorte() {
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-list-ol me-2"></i>Folio de Corte:</label>
-              <select class="form-select" id="folio_corte_editar" size="4" aria-label="folio corte" onchange=" queryClientesCorteInfoEditar(event);">
+              <select class="form-select" id="folio_corte_editar" size="4" aria-label="folio corte" onchange="queryClientesCorteInfoEditar();">
                 
               </select>
             </div>
             <div class="mb-3" id="datosClienteyDomicilio">
-							<p> Aqui se imprime la info de la orden de corte, <br>el domicilio y nombre del cliente <br>que se va a hacer el corte</p>
+							<p> 
+              <div class="alert alert-info mb-3" id="datosDomicilioInfo" role="alert">
+              <p>Cliente: <span id="nombreClienteCorteEditar"></span><br>
+              Domicilio: <span id="domicilioClienteCorteEditar"></span><br>							
+              Comunidad: <span id="comunidadClienteCorteEditar"></span></p>							
+						</div>
+              </p>
 						</div>
             <!-- <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
@@ -2265,7 +2271,7 @@ function editarCorte() {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" onclick="editarCorte()">Actualizar</button>
+          <button type="button" class="btn btn-primary" onclick="actualizarCorte()">Actualizar</button>
         </div>
       </div>
     </div>
@@ -2297,8 +2303,7 @@ function queryClientesCorteEditar() {
     });
 }
 
-function queryClientesCorteInfoEditar(event){
-  event.preventDefault();
+function queryClientesCorteInfoEditar(){
   
   let folio = document.getElementById('folio_corte_editar').value;  
   $.ajax({
@@ -2312,13 +2317,40 @@ function queryClientesCorteInfoEditar(event){
       var datos = JSON.parse(JSON.stringify(data));
       var success = datos.success;
       if(success = 1){
-        _('nombreClienteCorte').innerText = datos.nombre;
-        _('domicilioClienteCorte').innerText = datos.domicilio;
-        _('comunidadClienteCorte').innerText = datos.comunidad;
+        _('nombreClienteCorteEditar').innerText = datos.nombre;
+        _('domicilioClienteCorteEditar').innerText = datos.domicilio;
+        _('comunidadClienteCorteEditar').innerText = datos.comunidad;
         _('fecha_corteAsignacion_editar').value = datos.fecha;
       }
     }
 });
+}
+
+function actualizarCorte(){
+  var folio = _('folio_corte_editar').value;
+  var fecha_corte = _('fecha_corteAsignacion_editar').value;
+  $.ajax({
+    url: 'prcd/editarCorte.php',
+    type: 'POST',
+    data: {
+      folio:folio,
+      fecha_corte:fecha_corte
+    },
+    dataType: 'JSON',
+    success: function(response) {
+      let datos = JSON.parse(JSON.stringify(response));
+      let success = datos.success;
+      if(success == 1){
+        alert('Corte actualizado exitosamente');
+        $('#ordenCorteEditar').modal('hide');
+      }
+      else{
+        alert('No se editó el corte');
+        console.log(datos.error)
+      }
+    }
+
+  });
 }
 
 function gestionCortes() {
