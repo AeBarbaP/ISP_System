@@ -264,7 +264,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+                <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
                 <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
             </div>
         </div>
@@ -332,7 +332,26 @@
 }
 
 function eliminarPromo(id){
-
+$.ajax({
+        type: "POST",
+        url: "../reportes/prcd/prcd_eliminar_promocion.php", 
+        data: {
+            id: id
+        },
+        dataType: "json",
+        success: function(response) {
+          let data = JSON.parse(JSON.stringify(response));
+            var success = data.success;
+            if (success = 1) {
+                alert("Promoción eliminada correctamente.");
+                queryPromos();
+            }
+            else {
+                alert("Error al eliminar la Promoción");
+                console.log(data.error);
+            }
+        }
+    });
 }
   
   // Termina gestión de promociones
