@@ -2359,12 +2359,13 @@ function gestionCortes() {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'tablaCortes');
   modal.innerHTML = `
     <div class="modal-dialog modal-xl">>
       <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header bg-secondary text-light">
               <h5 class="modal-title"><i class="bi bi-wifi-off me-2"></i>${titulo}</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
               <input name="id" id="idHiddenCortes" value="" hidden>
@@ -2377,20 +2378,20 @@ function gestionCortes() {
                 </div>
               </div>
               <div class="table-responsive mt-3">
-                  <table class="table table-hover p-1">
-                      <thead>
+                  <table class="table table-hover p-1 text-center">
+                      <thead class="bg-dark text-light">
                           <tr>
-                              <th scope="col">Id</th>
+                              <th scope="col">#</th>
                               <th scope="col">Folio Corte</th>
                               <th scope="col">Cliente</th>
                               <th scope="col">Domicilio</th>
                               <th scope="col">Técnico Asignado</th>
                               <th scope="col">Fecha Registro</th>
                               <th scope="col">Estatus</th>
-                              <th scope="col" class="text-end"><i class="bi bi-pencil-square me-2"></i><i class="bi bi-trash"></i> </th>
+                              <th scope="col"><i class="bi bi-pencil-square"></i><i class="bi bi-trash"></i> </th>
                           </tr>
                       </thead>
-                      <tbody id="tablaCortes">
+                      <tbody id="tablaCortesFull">
                           
                       </tbody>
                   </table>
@@ -2410,10 +2411,22 @@ function gestionCortes() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
+  queryTablaCortes();
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
+  });
+}
+
+function queryTablaCortes(){
+  $.ajax({
+      url: 'query/query_cortes.php',
+      type: 'POST',
+      dataType: 'html',
+      success: function(data) {
+          $('#tablaCortesFull').html(data);
+      }
   });
 }
 
