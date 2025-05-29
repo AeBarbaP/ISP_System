@@ -2069,7 +2069,6 @@ function altaCorte() {
             <div class="mb-3">
               <select class="form-select" id="clientes_corte" size="4" aria-label="clientes para corte" onchange=" queryClientesCorteInfo(event);">
                 
-                <!-- Muestra los clientes que están en proceso de corte y al seleccionar muestra la info del domicilio como en el pago -->
               </select>
             </div>
             <div class="alert alert-info mb-3" id="datosDomicilioInfo" role="alert">
@@ -2077,13 +2076,7 @@ function altaCorte() {
               Domicilio: <span id="domicilioClienteCorte"></span><br>							
               Comunidad: <span id="comunidadClienteCorte"></span></p>							
 						</div>
-            <!-- <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
-              <select class="form-select" aria-label="tecnico asignado" id="tecnico_corte">
-                  <option value="" selected>Selecciona Técnico...</option>
-                  aquí se llena con la tabla de Técnicos
-              </select>
-            </div> -->
+           
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Corte:</label>
               <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_corteAsignacion" aria-describedby="basic-addon1">
@@ -2227,29 +2220,30 @@ function queryClientesCorteInfo(event){
 
 function editarCorte() {
 
-  let titulo = "Editar Órden de Corte";
+  let fecha = obtenerFechaHoy();
+  let titulo = "Editar Orden de Corte";
   // Crear el elemento del modal
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'ordenCorte');
   modal.innerHTML = `
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header bg-secondary text-light">
           <h5 class="modal-title"><i class="bi bi-wifi-off me-2"></i> ${titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <p>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-check me-2"></i>Fecha</label>
-              <input type="date" class="form-control" placeholder="" aria-label="Fecha de orden" id="fecha_orden_editar" aria-describedby="basic-addon1" disabled>
+              <input type="date" class="form-control" placeholder="" aria-label="Fecha de orden" id="fecha_orden_editar" aria-describedby="basic-addon1" value="${fecha}" disabled>
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-list-ol me-2"></i>Folio de Corte:</label>
-              <select class="form-select" id="folio_corte_editar" size="4" aria-label="folio corte">
-                <option selected>Selecciona...</option>
-                <!-- Muestra los folios de las ordenes de corte que aún no han sido resueltas para cambiar los datos -->
+              <select class="form-select" id="folio_corte_editar" size="4" aria-label="folio corte" onchange=" queryClientesCorteInfoEditar(event);">
+                
               </select>
             </div>
             <div class="mb-3" id="datosClienteyDomicilio">
@@ -2283,7 +2277,7 @@ function editarCorte() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
-  fechaRegistroCorteEditar()
+  queryClientesCorteEditar();
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
@@ -2291,25 +2285,39 @@ function editarCorte() {
   });
 }
 
-function fechaRegistroCorteEditar(){
-  // Obtener los elementos input
-  const inputFechaActual = document.getElementById('fecha_orden_editar');
-  // Obtener la fecha actual
-  const fechaActual = new Date();
+function queryClientesCorteEditar() {
+    $.ajax({
+        url: 'query/query_clientesCorte.php',
+        type: 'POST',
+        dataType: 'html',
+        success: function(data) {
+            $('#folio_corte_editar').html(data);
+            // $('#clientesCorte').selectpicker('refresh');
+        }
+    });
+}
 
-  // Función para formatear la fecha en YYYY-MM-DD
-  function formatearFecha(fecha) {
-      const año = fecha.getFullYear();
-      const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Meses van de 0 a 11
-      const dia = String(fecha.getDate()).padStart(2, '0');
-      return `${año}-${mes}-${dia}`;
-  }
-
-  // Formatear las fechas
-  const fechaActualFormateada = formatearFecha(fechaActual);
-
-  // Asignar las fechas a los inputs
-  inputFechaActual.value = fechaActualFormateada;
+function queryClientesCorteInfoEditar(event){
+  event.preventDefault();
+  
+  let folio = document.getElementById('clientes_corte').value;  
+  $.ajax({
+    url: 'query/query_infoClientesCorteEditar.php',
+    data:{
+      folio : folio
+    },
+    type: 'POST',
+    dataType: 'json',
+    success: function(data) {
+      var datos = JSON.parse(JSON.stringify(data));
+      var success = datos.success;
+      if(success = 1){
+        _('nombreClienteCorte').innerText = datos.nombre;
+        _('domicilioClienteCorte').innerText = datos.domicilio;
+        _('comunidadClienteCorte').innerText = datos.comunidad;
+      }
+    }
+});
 }
 
 function gestionCortes() {
