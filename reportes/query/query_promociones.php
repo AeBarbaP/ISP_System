@@ -28,6 +28,7 @@ while($row = $resultado->fetch_assoc()){
     echo'
         
         <td><a href="#" onclick="editarPromo('.$row['id'].')"><i class="bi bi-pencil-square"></i></a></td>
+        <td><a href="#" onclick="eliminarPromo('.$row['id'].')"><i class="bi bi-trash3 text-danger"></i></a></td>
     </tr>
     ';
 }

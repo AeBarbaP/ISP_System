@@ -20,20 +20,20 @@
               <div class="row">
                 <div class="col-6 mb-3">
                   <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-week me-2"></i>Fecha Inicio</label>
-                  <input type="datetime-local" class="form-control" placeholder="" aria-label="Fecha de inicio" id="fecha_inicio" aria-describedby="basic-addon1">
+                  <input type="date" class="form-control" placeholder="" aria-label="Fecha de inicio" id="fecha_inicio1" aria-describedby="basic-addon1">
                 </div>
                 <div class="col-6 mb-3">
                   <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-week me-2"></i>Fecha Final</label>
-                  <input type="datetime-local" class="form-control" placeholder="" aria-label="Fecha de fin" id="fecha_fin" aria-describedby="basic-addon1">
+                  <input type="date" class="form-control" placeholder="" aria-label="Fecha de fin" id="fecha_fin1" aria-describedby="basic-addon1">
                 </div>
               </div>
               <div class="mb-3">
                 <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Nombre de Promoción</label>
-                <input type="text" class="form-control" placeholder="Nombre de la promoción" aria-label="nombre promocion" id="nombre_promocion" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" placeholder="Nombre de la promoción" aria-label="nombre promocion" id="nombre_promocion1" aria-describedby="basic-addon1">
               </div>
               <div class="mb-3">
                 <label class="form-label" id="basic-addon1"><i class="bi bi-card-checklist me-2"></i>Tipo</label>
-                <select class="form-select" aria-label="Default select example" id="tipo_promo">
+                <select class="form-select" aria-label="Default select example" id="tipo_promo1">
                     <option value="" selected>Promoción en...</option>
                     <option value="Mensualidad">Mensualidad</option>
                     <option value="Instalación">Instalación</option>
@@ -41,8 +41,12 @@
                 </select>
               </div>
               <div class="mb-3">
-                <label class="form-label" id="basic-addon1"><i class="bi bi-piggy-bank me-2"></i>Descuento</label>
-                <input type="text" class="form-control" placeholder="Descuento" aria-label="descuento" id="descuento_promo" aria-describedby="basic-addon1">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-piggy-bank me-2"></i>Descuento (monto):</label>
+                <div class="input-group">
+                  <span class="input-group-text" id="basic-addon1">$</span>
+                  <input type="text" class="form-control" placeholder="Descuento" aria-label="descuento" id="descuento_promo1" pattern=" 0+\.[0-9]*[1-9][0-9]*$" name="itemConsumption" onkeypress="return event.charCode >= 48 && event.charCode <= 57" aria-describedby="basic-addon1">
+                  <span class="input-group-text" id="basic-addon1">.00</span>
+                </div>
               </div>
             </p>
           </div>
@@ -68,8 +72,8 @@
   }
   
   
-  function editarPromo(id) {
-  
+  function editarPromo(x) {
+    let id = x;
     let titulo = "Editar Paquete";
     // Crear el elemento del modal
     const modal = document.createElement('div');
@@ -84,15 +88,15 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <input name="id" id="idPromoHidden" hidden>
+            <input name="id" id="idPromoHidden" value=${id} hidden>
             <p>
             <div class="input-group mb-3">
                 <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-week me-2"></i>Fecha Inicio:</label>
-                <input type="datetime-local" class="form-control" placeholder="" aria-label="Fecha de inicio" id="fecha_inicioEditar" aria-describedby="basic-addon1">
+                <input type="date" class="form-control" placeholder="" aria-label="Fecha de inicio" id="fecha_inicioEditar" aria-describedby="basic-addon1">
               </div>
               <div class="input-group mb-3">
                 <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-week me-2"></i>Fecha Final:</label>
-                <input type="datetime-local" class="form-control" placeholder="" aria-label="Fecha de fin" id="fecha_finEditar" aria-describedby="basic-addon1">
+                <input type="date" class="form-control" placeholder="" aria-label="Fecha de fin" id="fecha_finEditar" aria-describedby="basic-addon1">
               </div>
               <div class="input-group mb-3">
                 <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Nombre de la promoción:</label>
@@ -171,7 +175,7 @@
 
         $.ajax({
             type: "POST",
-            url: "prcd/prcd_editar_promocion.php", // Archivo PHP que registrará el pago
+            url: "../reportes/prcd/prcd_editar_promocion.php", // Archivo PHP que registrará el pago
             data: { 
                 id: id,
                 fecha_inicio: fecha_inicio,
@@ -244,6 +248,7 @@
                                 <th scope="col">Final</th>
                                 <th scope="col">Estatus</th>
                                 <th scope="col"><i class="bi bi-pencil-square"></i></th>
+                                <th scope="col"><i class="bi bi-trash3"></i></th>
                             </tr>
                         </thead>
                         <tbody id="tablaPromos">
@@ -285,15 +290,15 @@
   }
 
   function registrarPromocion() {
-    let fecha_inicio = document.getElementById("fecha_inicio").value;
-    let fecha_fin = document.getElementById("fecha_fin").value;
-    let nombre_promocion = document.getElementById("nombre_promocion").value;
-    let tipo_promocion = document.getElementById("tipo_promo").value;
-    let descuento_promo = document.getElementById("descuento_promo").value;
+    let fecha_inicio = document.getElementById("fecha_inicio1").value;
+    let fecha_fin = document.getElementById("fecha_fin1").value;
+    let nombre_promocion = document.getElementById("nombre_promocion1").value;
+    let tipo_promocion = document.getElementById("tipo_promo1").value;
+    let descuento_promo = document.getElementById("descuento_promo1").value;
 
         $.ajax({
             type: "POST",
-            url: "prcd/registrar_promocion.php", // Archivo PHP que registrará el pago
+            url: "../reportes/prcd/registrar_promocion.php", // Archivo PHP que registrará el pago
             data: { 
                 fecha_inicio: fecha_inicio,
                 fecha_fin: fecha_fin,
@@ -318,6 +323,10 @@
             }
         });
     
+}
+
+function eliminarPromo(id){
+
 }
   
   // Termina gestión de promociones
