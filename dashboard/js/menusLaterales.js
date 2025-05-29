@@ -2287,7 +2287,7 @@ function editarCorte() {
 
 function queryClientesCorteEditar() {
     $.ajax({
-        url: 'query/query_clientesCorte.php',
+        url: 'query/query_clientesCorteEditar.php',
         type: 'POST',
         dataType: 'html',
         success: function(data) {
@@ -2300,7 +2300,7 @@ function queryClientesCorteEditar() {
 function queryClientesCorteInfoEditar(event){
   event.preventDefault();
   
-  let folio = document.getElementById('clientes_corte').value;  
+  let folio = document.getElementById('folio_corte_editar').value;  
   $.ajax({
     url: 'query/query_infoClientesCorteEditar.php',
     data:{
@@ -2315,6 +2315,7 @@ function queryClientesCorteInfoEditar(event){
         _('nombreClienteCorte').innerText = datos.nombre;
         _('domicilioClienteCorte').innerText = datos.domicilio;
         _('comunidadClienteCorte').innerText = datos.comunidad;
+        _('fecha_corteAsignacion_editar').value = datos.fecha;
       }
     }
 });

@@ -2,7 +2,13 @@
     require('../prcd/conn.php');
     $folio = $_POST['folio'];
 
-    $sql = "SELECT * FROM clientes WHERE folio = '$folio'"; // Busca coincidencias parciales
+    $sqlCliente = "SELECT * FROM cortes WHERE folio_corte = '$folio'";
+    $resultadoCliente = $conn->query($sqlCliente);
+    $rowCliente = $resultadoCliente->fetch_assoc();
+    $cliente = $rowCliente['folio_cliente'];
+    $fecha = $rowCliente['fecha'];
+
+    $sql = "SELECT * FROM clientes WHERE folio = '$cliente'"; // Busca coincidencias parciales
     $resultado = $conn->query($sql);
     $row = $resultado->fetch_assoc();
     $clientes = array();
