@@ -1792,6 +1792,17 @@ function queryFallasFull() {
   });
 }
 
+function abrirEdicionIncidencias(id){
+  // $("#ordenCorteEditar").modal("show");
+  $('#modaltablaCortes').modal('hide');
+  editarCorte();
+  setTimeout(() => {
+    document.getElementById('folio_corte_editar').value = id;
+    queryClientesCorteInfoEditar();
+  }, 100);
+  $('#folio_corte_editar').val(id);
+}
+
 function modalActualizarEstatusFalla(x){
   let titulo = "Actualizar Estatus Falla";
   // Crear el elemento del modal
@@ -1955,7 +1966,7 @@ function editarIncidenciaG(x) {
     console.log("sin folio");
   }
   else {
-    document
+    // document
   }
   let titulo = "Editar Reporte de Falla";
   // Crear el elemento del modal
@@ -2474,7 +2485,6 @@ function eliminarCorte(id){
 
 function abrirEdicionCorte(id){
   // $("#ordenCorteEditar").modal("show");
-  console.log(id);
   $('#modaltablaCortes').modal('hide');
   editarCorte();
   setTimeout(() => {
@@ -2482,9 +2492,10 @@ function abrirEdicionCorte(id){
     queryClientesCorteInfoEditar();
   }, 100);
   $('#folio_corte_editar').val(id);
-  console.log('Si llega hasta acá');
-
 }
+
+// sige código de actualización de cortes
+// sige código de actualización de cortes
 
 function resolverCorte() {
 
