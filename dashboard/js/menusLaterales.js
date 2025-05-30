@@ -2242,9 +2242,11 @@ function editarCorte() {
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-list-ol me-2"></i>Folio de Corte:</label>
+
               <select class="form-select" id="folio_corte_editar" size="4" aria-label="folio corte" onchange="queryClientesCorteInfoEditar();">
                 
               </select>
+              
             </div>
             <div class="mb-3" id="datosClienteyDomicilio">
 							<p> 
@@ -2475,9 +2477,11 @@ function abrirEdicionCorte(id){
   console.log(id);
   $('#modaltablaCortes').modal('hide');
   editarCorte();
-  document.getElementById('folio_corte_editar').value = id;
-
-  $('#folio_corte_editar').val(id).trigger('change');
+  setTimeout(() => {
+    document.getElementById('folio_corte_editar').value = id;
+  }, 100);
+  $('#folio_corte_editar').val(id);
+  console.log('Si llega hasta acá');
 
 }
 
