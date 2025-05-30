@@ -2479,6 +2479,7 @@ function abrirEdicionCorte(id){
   editarCorte();
   setTimeout(() => {
     document.getElementById('folio_corte_editar').value = id;
+    queryClientesCorteInfoEditar();
   }, 100);
   $('#folio_corte_editar').val(id);
   console.log('Si llega hasta acá');
