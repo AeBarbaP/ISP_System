@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-05-2025 a las 03:20:11
+-- Tiempo de generación: 30-05-2025 a las 02:38:09
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -42,7 +42,7 @@ CREATE TABLE `antenas` (
   `id` int(11) NOT NULL,
   `marca` varchar(15) NOT NULL,
   `modelo` varchar(50) NOT NULL,
-  `num_serie` int(11) NOT NULL,
+  `num_serie` varchar(25) NOT NULL,
   `MAC` varchar(25) NOT NULL,
   `fecha_alta` date NOT NULL,
   `estatus` int(11) NOT NULL
@@ -53,7 +53,10 @@ CREATE TABLE `antenas` (
 --
 
 INSERT INTO `antenas` (`id`, `marca`, `modelo`, `num_serie`, `MAC`, `fecha_alta`, `estatus`) VALUES
-(1, '54', '4', 4, '4', '2025-04-10', 1);
+(1, '54', '4', '4', '4', '2025-04-10', 1),
+(2, 'TP-LINK', 'M-586', '0', '125.125.125.1', '2025-05-28', 1),
+(3, 'TP-LINK', 'M8568', '0', '125.125.125.0', '2025-05-29', 1),
+(4, 'CISCO', 'HU-558', 'GS874DS684AF', '255.255.255.0', '2025-05-29', 1);
 
 -- --------------------------------------------------------
 
@@ -180,8 +183,9 @@ CREATE TABLE `catalogo_paquetes` (
 
 INSERT INTO `catalogo_paquetes` (`id`, `paquetes`, `velocidad`, `costo`, `estatus`) VALUES
 (1, 'Básico', 7, 350.00, 1),
-(2, 'Intermedio', 12, 550.00, 0),
-(3, 'Avanzado', 18, 850.00, 1);
+(2, 'Intermedio', 12, 550.00, 1),
+(3, 'Avanzado', 18, 850.00, 1),
+(7, 'Paquete Muevas', 25, 400.00, 1);
 
 -- --------------------------------------------------------
 
@@ -483,12 +487,9 @@ CREATE TABLE `promociones` (
 --
 
 INSERT INTO `promociones` (`id`, `promo`, `fecha_inicio`, `fecha_fin`, `tipo`, `descuento`, `estatus`, `id_catalogo`) VALUES
-(1, '1', '2025-04-07', '2025-04-07', 'Mensualidad', 1, 1, NULL),
-(2, '1', '2025-04-07', '2025-04-07', 'Mensualidad', 1, 1, NULL),
-(3, '2', '2025-04-08', '2025-04-08', 'Instalación', 2, 1, NULL),
 (4, 'Promoción de prueba', '2025-04-11', '2025-04-11', 'Mensualidad', 70, 1, 1),
-(5, 'prueba', '0000-00-00', '0000-00-00', 'Mensualidad', 100, 1, NULL),
-(6, 'prueba 2', '0000-00-00', '0000-00-00', 'Recargos', 200, 1, NULL),
+(5, 'prueba', '2025-06-06', '2025-06-18', 'Mensualidad', 100, 1, NULL),
+(6, 'prueba 2', '2025-07-17', '2025-07-31', 'Recargos', 200, 1, NULL),
 (7, 'Prueba promo4', '2025-05-28', '2025-05-30', 'Mensualidad', 100, 1, NULL),
 (8, 'Prueba de nuevo', '2025-05-29', '2025-06-06', 'Instalación', 200, 1, NULL);
 
@@ -513,7 +514,10 @@ CREATE TABLE `tecnicos` (
 
 INSERT INTO `tecnicos` (`id`, `nombre`, `estatus`, `fecha_creacion`, `fecha_actualizacion`, `color`) VALUES
 (1, 'jesus', 1, '2025-03-18', '2025-03-21', ''),
-(2, 'a', 1, '2025-03-21', '2025-04-07', '');
+(2, 'a', 1, '2025-03-21', '2025-04-07', ''),
+(3, 'Fernando González', 1, '2025-05-28', NULL, ''),
+(4, 'Mario González', 1, '2025-05-28', NULL, ''),
+(5, 'Alejandro Reyes', 0, '2025-05-28', '2025-05-28', '');
 
 -- --------------------------------------------------------
 
@@ -560,7 +564,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `pwd`, `nombre`, `tipo_usr`, `estatus`, `fecha_creacion`, `fecha_editar`, `color`) VALUES
 (1, 'aebarba', '123456789', 'Ana Elisa Barba', 2, 1, '2025-03-11', '0000-00-00 00:00:00', ''),
-(2, 'color', 'color', 'user color', 2, 1, '2025-04-07', '0000-00-00 00:00:00', '#64c1da');
+(2, 'color', 'color', 'user color', 2, 1, '2025-04-07', '0000-00-00 00:00:00', '#64c1da'),
+(3, 'nuevo', '12345', 'Luis', 3, 1, '2025-05-28', '0000-00-00 00:00:00', '#008080');
 
 --
 -- Índices para tablas volcadas
@@ -718,7 +723,7 @@ ALTER TABLE `acciones`
 -- AUTO_INCREMENT de la tabla `antenas`
 --
 ALTER TABLE `antenas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `catalogo_adelanto`
@@ -754,7 +759,7 @@ ALTER TABLE `catalogo_municipio`
 -- AUTO_INCREMENT de la tabla `catalogo_paquetes`
 --
 ALTER TABLE `catalogo_paquetes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `catalogo_reconexion`
@@ -832,7 +837,7 @@ ALTER TABLE `promociones`
 -- AUTO_INCREMENT de la tabla `tecnicos`
 --
 ALTER TABLE `tecnicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_pago`
@@ -844,7 +849,7 @@ ALTER TABLE `tipo_pago`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

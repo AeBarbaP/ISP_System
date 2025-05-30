@@ -236,7 +236,7 @@ function altaAntena() {
     let modelo = _antenas('modelo_antena').value;
     let serie = _antenas('numSerie_antena').value;
     let mac = _antenas('macAdd_antena').value;
-
+    console.log(serie);
     if (fecha_alta === "" || marca === "" || modelo === "" || serie === "" || mac === "") {
       alert("Por favor, completa todos los campos de la antena.");
       return;
