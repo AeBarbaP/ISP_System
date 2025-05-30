@@ -45,7 +45,7 @@ while($row = $resultado->fetch_assoc()){
         else{
             echo'<td>Corte no realizado</td>';
         }
-        echo '<td><i class="bi bi-pencil-square"></i> | <i class="bi bi-trash"></i></td>
+        echo '<td><a href="#" onclick="editarIndCorte('.$row['id'].')"><i class="bi bi-pencil-square"></i></a> | <a href="#" onclick="eliminarCorte('.$row['id'].')"><i class="bi bi-trash"></i></a></td>
     </tr>
     ';
 }

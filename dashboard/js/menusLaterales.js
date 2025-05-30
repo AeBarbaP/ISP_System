@@ -2447,13 +2447,32 @@ function filtradoTabla(){
     } else {
         console.error('Elementos no encontrados: #buscarCortes o #tablaCortesFull');
     }
-
 }
 
+function eliminarCorte(id){
+  if(confirm('¿Desea eliminar el registro de corte?')){
+      $.ajax({
+          url: 'prcd/prcd_eliminar_corte.php',
+          type: 'POST',
+          dataType: 'json',
+          data:{
+            id:id
+          },
+          success: function(data) {
+          var datos = JSON.parse(JSON.stringify(data));
+          var success = datos.success;
+          if(success == 1){
+            alert('Corte eliminado');
+            queryTablaCortes();
+          }
+        }
+      });
+  }
+}
 
 function resolverCorte() {
 
-  let titulo = "Órden de Corte - Reporte técnico";
+  let titulo = "Orden de Corte - Reporte técnico";
   // Crear el elemento del modal
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
