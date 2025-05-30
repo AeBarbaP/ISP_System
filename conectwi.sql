@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-05-2025 a las 02:38:09
+-- Tiempo de generación: 30-05-2025 a las 05:20:13
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -44,6 +44,7 @@ CREATE TABLE `antenas` (
   `modelo` varchar(50) NOT NULL,
   `num_serie` varchar(25) NOT NULL,
   `MAC` varchar(25) NOT NULL,
+  `ip_address` varchar(20) DEFAULT NULL,
   `fecha_alta` date NOT NULL,
   `estatus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -52,11 +53,11 @@ CREATE TABLE `antenas` (
 -- Volcado de datos para la tabla `antenas`
 --
 
-INSERT INTO `antenas` (`id`, `marca`, `modelo`, `num_serie`, `MAC`, `fecha_alta`, `estatus`) VALUES
-(1, '54', '4', '4', '4', '2025-04-10', 1),
-(2, 'TP-LINK', 'M-586', '0', '125.125.125.1', '2025-05-28', 1),
-(3, 'TP-LINK', 'M8568', '0', '125.125.125.0', '2025-05-29', 1),
-(4, 'CISCO', 'HU-558', 'GS874DS684AF', '255.255.255.0', '2025-05-29', 1);
+INSERT INTO `antenas` (`id`, `marca`, `modelo`, `num_serie`, `MAC`, `ip_address`, `fecha_alta`, `estatus`) VALUES
+(1, '54', '4', '4', '4', '0', '2025-04-10', 1),
+(2, 'TP-LINK', 'M-586', '0', '4e.65.g8.36', '125.125.125.1', '2025-05-28', 1),
+(3, 'TP-LINK', 'M8568', '0', '5t.69.4g.68', '125.125.125.0', '2025-05-29', 1),
+(4, 'CISCO', 'HU-558', 'GS874DS684AF', '5h.54.g3.wc', '255.255.255.0', '2025-05-29', 1);
 
 -- --------------------------------------------------------
 

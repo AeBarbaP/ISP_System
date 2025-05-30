@@ -14,7 +14,9 @@ $resultado = $conn->query($sql);
             'modelo' => $row['modelo'],
             'num_serie' => $row['num_serie'],
             'mac' => $row['MAC'],
-            'fecha_alta' => $row['fecha_alta']
+            'fecha_alta' => $row['fecha_alta'],
+            'estatus' => $row['estatus'],
+            'ipaddress' => $row['ip_address'],
             )
         );
     }

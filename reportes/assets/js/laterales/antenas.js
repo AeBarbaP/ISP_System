@@ -38,7 +38,7 @@ function altaAntena() {
                 <input type="text" class="form-control" placeholder="Num. Serie" aria-label="numero de serie" id="numSerie_antena" aria-describedby="basic-addon1">
               </div>
               <div class="mb-3">
-                <label class="form-label" id="basic-addon1"><i class="bi bi-code-square me-2"></i>MAC Addres</label>
+                <label class="form-label" id="basic-addon1"><i class="bi bi-code-square me-2"></i>MAC Address</label>
                 <input type="text" class="form-control" placeholder="MAC Address" aria-label="MAC" id="macAdd_antena" aria-describedby="basic-addon1">
               </div>
             </p>
@@ -120,8 +120,20 @@ function altaAntena() {
                 <input type="text" class="form-control" placeholder="Num. Serie" aria-label="numero de serie" id="numSerie_antenaEditar" aria-describedby="basic-addon1">
               </div>
               <div class="mb-3">
-                <label class="form-label" id="basic-addon1"><i class="bi bi-code-square me-2"></i>MAC Addres</label>
+                <label class="form-label" id="basic-addon1"><i class="bi bi-code-square me-2"></i>MAC Address</label>
                 <input type="text" class="form-control" placeholder="MAC Address" aria-label="MAC" id="macAdd_antenaEditar" aria-describedby="basic-addon1">
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-wifi me-2"></i>IP Address</label>
+                <input type="text" class="form-control" placeholder="IP Address" aria-label="IP" id="ipAdd_antenaEditar" aria-describedby="basic-addon1">
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-sliders me-2"></i>Estatus</label>
+                <select  class="form-select" aria-label="Estatus" id="estatus_antenaEditar">
+                  <option selected>Open this select menu</option>
+                  <option value="1">Disponible</option>
+                  <option value="2">Asignada</option>
+                </select>
               </div>
             </p>
           </div>
@@ -288,6 +300,8 @@ function altaAntena() {
           _antenas("numSerie_antenaEditar").value = datos.num_serie;
           _antenas("macAdd_antenaEditar").value = datos.mac;
           _antenas("fecha_alta_antenaEditar").value = datos.fecha_alta;
+          _antenas("estatus_antenaEditar").value = estatus;
+          _antenas("ipAdd_antenaEditar").value = datos.ipaddress;
           
           // if(estatus == 1){
           //   _('estatusEditarPaquete1').checked = true;
@@ -310,8 +324,10 @@ function altaAntena() {
     let modelo = _antenas('modelo_antenaEditar').value;
     let serie = _antenas('numSerie_antenaEditar').value;
     let mac = _antenas('macAdd_antenaEditar').value;
+    let estatus = _antenas('estatus_antenaEditar').value;
+    let ipaddress = _antenas('ipAdd_antenaEditar').value;
 
-    if (fecha_alta === "" || marca === "" || modelo === "" || serie === "" || mac === "") {
+    if (fecha_alta === "" || marca === "" || modelo === "" || serie === "" || mac === "" || estatus === "" || ipaddress === "") {
       alert("Por favor, completa todos los campos de la antena.");
       return;
     }
@@ -324,7 +340,9 @@ function altaAntena() {
           marca: marca,
           modelo: modelo,
           serie: serie,
-          mac: mac
+          mac: mac,
+          estatus: estatus,
+          ipaddress: ipaddress
       },
       success: function (response) {
           let data = JSON.parse(JSON.stringify(response));
