@@ -164,8 +164,8 @@
 							<i class="mdi mdi-settings text-primary"></i>
 							Editar mis datos
 						</a>
-						<a class="dropdown-item">
-							<i class="mdi mdi-logout text-primary" href="prcd/sort.php" ></i>
+						<a href="prcd/sort.php" class="dropdown-item">
+							<i class="mdi mdi-logout text-primary" ></i>
 							Cerrar Sesión
 						</a>
                   </div>

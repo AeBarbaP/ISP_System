@@ -2470,6 +2470,17 @@ function eliminarCorte(id){
   }
 }
 
+function abrirEdicionCorte(id){
+  // $("#ordenCorteEditar").modal("show");
+  console.log(id);
+  $('#modaltablaCortes').modal('hide');
+  editarCorte();
+  document.getElementById('folio_corte_editar').value = id;
+
+  $('#folio_corte_editar').val(id).trigger('change');
+
+}
+
 function resolverCorte() {
 
   let titulo = "Orden de Corte - Reporte técnico";

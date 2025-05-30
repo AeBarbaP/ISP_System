@@ -16,8 +16,6 @@ while($row = $resultado->fetch_assoc()){
 
     $tecnico = $row['tecnico'];
 
-    
-
     $fecha = $row['fecha'];
     $estatus = $row['estatus'];
 
@@ -45,7 +43,7 @@ while($row = $resultado->fetch_assoc()){
         else{
             echo'<td>Corte no realizado</td>';
         }
-        echo '<td><a href="#" onclick="editarIndCorte('.$row['id'].')"><i class="bi bi-pencil-square"></i></a> | <a href="#" onclick="eliminarCorte('.$row['id'].')"><i class="bi bi-trash"></i></a></td>
+        echo '<td><a href="#" onclick="abrirEdicionCorte(\''.$row['folio_corte'].'\')"><i class="bi bi-pencil-square"></i></a> | <a href="#" onclick="eliminarCorte('.$row['id'].')"><i class="bi bi-trash"></i></a></td>
     </tr>
     ';
 }
