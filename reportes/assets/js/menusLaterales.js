@@ -853,6 +853,7 @@ function nuevoMunicipio() {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'modalnuevoMunicipio');
   modal.innerHTML = `
     <div class="modal-dialog">
       <div class="modal-content">
@@ -868,7 +869,7 @@ function nuevoMunicipio() {
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-card-checklist me-2"></i>Estado</label>
-              <select class="form-select" aria-label="estado" id="estado">
+              <select class="form-select" aria-label="estado" id="estadoMun">
                   <option value="" selected>Selecciona...</option>
                   <option value="Zacatecas">Zacatecas</option>
                   <option value="Jalisco">Jalisco</option>
@@ -898,6 +899,73 @@ function nuevoMunicipio() {
   });
 }
 
+function guardarMunicipio() {
+  let nombre = _antenas('nombre_municipio').value;
+  let estado = _antenas('estadoMun').value;
+
+  if (nombre === "" || estado === "") {
+    alert("Por favor, completa todos los campos del municipio.");
+    return;
+  }
+  $.ajax({
+    url: 'prcd/guardarMunicipio.php',
+    type: 'POST',
+    data: {
+        nombre: nombre,
+        estado: estado
+    },
+    success: function (response) {
+        let data = JSON.parse(JSON.stringify(response));
+        let success = data.success;
+        if (success = 1) {
+            alert("Municipio guardado con éxito");
+            $('#modalnuevoMunicipio').modal('hide');
+            // Recargar la tabla de paquetes
+            //cargarAntenas();
+        }
+        else {
+            alert("Error al guardar el municipio");
+            console.log(data.error);
+        }
+    }
+  });
+}
+
+function cargarMunicipios(){
+    $.ajax({
+      url: 'query/query_antenas.php',
+      type: 'POST',
+      dataType: 'html',
+      success: function (response) {
+          $('#tablaMunicipios').html(response);
+      }
+    });
+  }
+
+function datosMunicipio(id){
+  $.ajax({
+    url: 'query/query_datos_municipio.php',
+    type: 'POST',
+    data:{
+      id:id
+    },
+    dataType: 'json',
+    success: function(data) {
+      var datos = JSON.parse(JSON.stringify(data));
+      var success = datos.success;
+      var estatus = datos.estatus;
+
+      if (success == 1) {
+        _antenas("nombre_municipioEditar").value = datos.nombre;
+        _antenas("estadoMunEditar").value = datos.estado;
+
+      }
+      else{
+          console.log(datos.error)
+      }
+    }
+  });
+}
 
 function editarMunicipio() {
 
@@ -917,11 +985,11 @@ function editarMunicipio() {
           <p>
           <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i></label>
-              <input type="text" class="form-control" placeholder="Nombre del Municipio" aria-label="nombre municipio" id="nombre_municipio" aria-describedby="basic-addon1">
+              <input type="text" class="form-control" placeholder="Nombre del Municipio" aria-label="nombre municipio" id="nombre_municipioEditar" aria-describedby="basic-addon1">
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-card-checklist me-2"></i></label>
-              <select class="form-select" aria-label="estado" id="estado">
+              <select class="form-select" aria-label="estado" id="estadoMunEditar">
                   <option value="" selected>Selecciona...</option>
                   <option value="Zacatecas">Zacatecas</option>
                   <option value="Jalisco">Jalisco</option>
@@ -977,7 +1045,7 @@ function gestionMunicipios() {
                   <table class="table p-1">
                       <thead>
                           <tr>
-                              <th scope="col">Id</th>
+                              <th scope="col">#</th>
                               <th scope="col">Nombre Municipio</th>
                               <th scope="col">Estado</th>
                               <th scope="col" class="text-end"><i class="bi bi-people"></i></th>

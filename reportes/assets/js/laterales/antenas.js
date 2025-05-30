@@ -130,7 +130,6 @@ function altaAntena() {
               <div class="mb-3">
                 <label class="form-label" id="basic-addon1"><i class="bi bi-sliders me-2"></i>Estatus</label>
                 <select  class="form-select" aria-label="Estatus" id="estatus_antenaEditar">
-                  <option selected>Open this select menu</option>
                   <option value="1">Disponible</option>
                   <option value="2">Asignada</option>
                 </select>
