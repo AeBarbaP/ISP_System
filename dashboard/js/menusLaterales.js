@@ -1408,7 +1408,7 @@ function editarIncidencia() {
         <div class="modal-content">
           <div class="modal-header bg-secondary text-light">
             <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <p>
@@ -2595,9 +2595,9 @@ function editarDatosUsr(){
   modal.innerHTML = `
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header bg-secondary text-light">
           <h5 class="modal-title"><i class="bi bi-person-circle me-2"></i> ${titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <input name="id" id="idUserM" hidden>
