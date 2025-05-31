@@ -1,41 +1,6 @@
 function _(el){
   return document.getElementById(el);
 }
-// ---------------- buscadores de datos -------------
-
-// $(document).ready(function () {
-//   $("#buscarNameUser").on("keyup", function () {
-//       var value = $(this).val().toLowerCase();
-//       $("#tablaUsuariosG tr").filter(function () {
-//           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-//       });
-//   });
-// });
-
-// ---------------- función _(el) -------------
-
-// ------------------ return para las fechas en todos los inputs ------------------
-
-function revisarCorte(){
-
-  $.ajax({
-    url: 'query/corteCaja.php',
-    type: 'POST',
-    dataType: 'json',
-    success: function(data) {
-      var datos = JSON.parse(JSON.stringify(data));
-      var success = datos.success;
-    
-            if (success == 1) {
-              alert("Existe corte");
-              
-            }
-            else{
-                alert("No existe corte");
-            }
-    }
-  });
-}
 
 function obtenerFechaHoy() {
   const hoy = new Date();

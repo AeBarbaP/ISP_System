@@ -98,45 +98,45 @@
 						trigger="hover"
 						colors="primary:#0ddbb9"
 						style="width:40px;height:40px"
-						class="menu-icon">
+						class="menu-icon coloresNav">
 					</lord-icon>
 					<span class="menu-title">Inicio</span>
 					</a>
               	</li>
-			  	<li class="nav-item">
-					<a onclick="contratoNew()" class="nav-link">
+			  	<li class="nav-item" disabled>
+					<a onclick="contratoNew()" class="nav-link bloquearNav" disabled>
 						<!-- <i class="mdi mdi-file-document-box-outline menu-icon"></i> -->
 						<lord-icon
 						src="https://cdn.lordicon.com/rbbnmpcf.json"
 						trigger="hover"
 						colors="primary:#0ddbb9"
 						style="width:40px;height:40px"
-						class="menu-icon2 mb-2">
+						class="menu-icon2 mb-2 coloresNav">
 					</lord-icon>
 					<span class="menu-title">Contrato Nuevo</span></a>
 				</li>
 				<li class="nav-item">
-					<a onclick="pagoNew()" class="nav-link">
+					<a onclick="pagoNew()" class="nav-link bloquearNav">
 					<!-- <i class="mdi mdi-square-inc-cash menu-icon"></i> -->
 					<lord-icon
 						src="https://cdn.lordicon.com/ciawvzjk.json"
 						trigger="hover"
 						colors="primary:#0ddbb9"
 						style="width:40px;height:40px"
-						class="menu-icon2 mb-2">
+						class="menu-icon2 mb-2 coloresNav">
 					</lord-icon>
 					<span class="menu-title">Registrar Pago</span>
 					<i class="menu-arrow"></i>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a onclick="altaIncidencia()" class="nav-link" >
+					<a onclick="altaIncidencia()" class="nav-link bloquearNav">
 					<lord-icon
 						src="https://cdn.lordicon.com/ygvjgdmk.json"
 						trigger="hover"
 						colors="primary:#0ddbb9"
 						style="width:40px;height:40px;"
-						class="menu-icon2 mb-2">
+						class="menu-icon2 mb-2 coloresNav">
 					</lord-icon>
 					<!-- <i class="mdi mdi-finance menu-icon"></i> -->
 					<span class="menu-title">Reportar Falla</span>
@@ -144,13 +144,13 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a onclick="altaCorte()" class="nav-link" >
+					<a onclick="altaCorte()" class="nav-link bloquearNav">
 						<lord-icon
 						src="https://cdn.lordicon.com/xmuplryc.json"
 						trigger="hover"
 						colors="primary:#0ddbb9"
 						style="width:40px;height:40px"
-						class="menu-icon2 mb-2">
+						class="menu-icon2 mb-2 coloresNav">
 					</lord-icon>
 					<!-- <i class="mdi mdi-finance menu-icon"></i> -->
 					<span class="menu-title">Orden de Corte</span>
@@ -158,13 +158,13 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="../reportes/index.php" class="nav-link">
+					<a href="../reportes/index.php" class="nav-link bloquearNav">
 						<lord-icon
 							src="https://cdn.lordicon.com/zrtfxghu.json"
 							trigger="hover"
 							colors="primary:#16c79e"
 							style="width:40px;height:40px"
-							class="menu-icon2 mb-2">
+							class="menu-icon2 mb-2 coloresNav">
 						</lord-icon>
 						<span class="menu-title">Reportes</span>
 						<i class="menu-arrow"></i>
@@ -342,11 +342,7 @@
 														<td>
 															Germán Rivas
 														</td>
-														<!-- <td>
-															<div class="progress">
-															<div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-															</div>
-														</td> -->
+														
 														<td>
 															$ 77.99
 														</td>
@@ -365,11 +361,7 @@
 														<td>
 															Marco Pérez
 														</td>
-														<!-- <td>
-															<div class="progress">
-															<div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-															</div>
-														</td> -->
+														
 														<td>
 															$245.30
 														</td>
@@ -388,11 +380,7 @@
 														<td>
 															Juan Ricardo
 														</td>
-														<!-- <td>
-															<div class="progress">
-															<div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-															</div>
-														</td> -->
+														
 														<td>
 															$138.00
 														</td>
@@ -411,11 +399,7 @@
 														<td>
 															Pedro Méndez
 														</td>
-														<!-- <td>
-															<div class="progress">
-															<div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-															</div>
-														</td> -->
+														
 														<td>
 															$ 77.99
 														</td>
@@ -434,11 +418,7 @@
 														<td>
 															Eduardo Santana
 														</td>
-														<!-- <td>
-															<div class="progress">
-															<div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-															</div>
-														</td> -->
+														
 														<td>
 															$ 160.25
 														</td>
@@ -457,11 +437,7 @@
 														<td>
 															Juan Díaz
 														</td>
-														<!--  <td>
-															<div class="progress">
-															<div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-															</div>
-														</td> -->
+														
 														<td>
 															$ 123.21
 														</td>
@@ -911,7 +887,7 @@
 							Corte de Caja
 						</a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#" id="menuCorteCaja" onclick="corteCajaDiario()">Generar Corte de Caja</a></li>
+							<li><a class="dropdown-item corteCaja" href="#" id="menuCorteCaja" onclick="corteCajaDiario()">Generar Corte de Caja</a></li>
 							<li><a class="dropdown-item" href="#" onclick="reporteCorteCaja()">Imprimir Corte de Caja</a></li>
 						</ul>
 					</li>
@@ -920,7 +896,7 @@
 					</li>
 				
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<a class="nav-link dropdown-toggle bloquearMenus" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							<i class="bi bi-exclamation-circle me-2"></i>
 							Reportes de Fallas
 						</a>
@@ -932,7 +908,7 @@
 						</ul>
 					</li>
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<a class="nav-link dropdown-toggle bloquearMenus" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							<i class="bi bi-wifi-off me-2"></i>
 							Orden de Corte de Servicio
 						</a>
