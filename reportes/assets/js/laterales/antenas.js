@@ -317,7 +317,7 @@ function altaAntena() {
     });
   }
 
-  function eliminarAntena(id){
+function eliminarAntena(id){
 $.ajax({
         type: "POST",
         url: "../reportes/prcd/prcd_eliminar_antena.php", 
