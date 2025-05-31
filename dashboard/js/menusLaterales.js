@@ -1,3 +1,6 @@
+function _(el){
+  return document.getElementById(el);
+}
 // ---------------- buscadores de datos -------------
 
 // $(document).ready(function () {
@@ -12,6 +15,28 @@
 // ---------------- función _(el) -------------
 
 // ------------------ return para las fechas en todos los inputs ------------------
+
+function revisarCorte(){
+
+  $.ajax({
+    url: 'query/corteCaja.php',
+    type: 'POST',
+    dataType: 'json',
+    success: function(data) {
+      var datos = JSON.parse(JSON.stringify(data));
+      var success = datos.success;
+    
+            if (success == 1) {
+              alert("Existe corte");
+              
+            }
+            else{
+                alert("No existe corte");
+            }
+    }
+  });
+}
+
 function obtenerFechaHoy() {
   const hoy = new Date();
   const anio = hoy.getFullYear();
@@ -21,9 +46,6 @@ function obtenerFechaHoy() {
 }
 // ------------------ return para las fechas en todos los inputs ------------------
 
-function _(el){
-  return document.getElementById(el);
-}
 
 // Función para abrir el modal dinámicamente
 function nuevoUsuario() {

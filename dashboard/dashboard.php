@@ -42,7 +42,8 @@
 	 <script src="js/laterales/paquetes.js"></script>
 	 <script src="js/laterales/corteDiario.js"></script>
 	<!-- área de scripts -->
-	<body onload="queryDashboard1();">
+	<body onload="queryDashboard1();revisarCorte();">
+		
     <div class="container-scroller">
 		<!-- partial:partials/_horizontal-navbar.html -->
     <div class="horizontal-menu">
@@ -53,99 +54,7 @@
               <li class="nav-item ms-0 me-3 d-lg-flex d-none">
                 <a href="#" class="nav-link horizontal-nav-left-menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class="mdi mdi-format-list-bulleted bg-primary rounded pt-2 pe-2 ps-2"></i></a>
               </li>
-              <!-- <li class="nav-item dropdown">
-                <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
-                  <i class="mdi mdi-bell mx-0"></i>
-                  <span class="count bg-success">2</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                  <p class="mb-0 font-weight-normal float-left dropdown-header">Notificaciones</p>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                        <div class="btn btn-inverse-warning btn-rounded ">
-                          <i class="mdi mdi-wifi-off mx-0"></i>
-                        </div>
-                    </div>
-                    <div class="preview-item-content">
-                        <h6 class="preview-subject font-weight-normal">Vencidos</h6>
-                        <p class="font-weight-light small-text mb-0 text-muted">
-                          Hoy
-                        </p>
-                    </div>
-                  </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                        <div class="btn btn-inverse-info btn-rounded ">
-                          <i class="mdi mdi-alert mx-0"></i>
-                        </div>
-                    </div>
-                    <div class="preview-item-content">
-                        <h6 class="preview-subject font-weight-normal">Próximos a vencer</h6>
-                        <p class="font-weight-light small-text mb-0 text-muted">
-                          1 a 5 días
-                        </p>
-                    </div>
-                  </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                        <div class="btn btn-inverse-danger btn-rounded ">
-                          <i class="mdi mdi-content-cut mx-0"></i>
-                        </div>
-                    </div>
-                    <div class="preview-item-content">
-                        <h6 class="preview-subject font-weight-normal">En proceso de Corte</h6>
-                        <p class="font-weight-light small-text mb-0 text-muted">
-                          Asignados para corte
-                        </p>
-                    </div>
-                  </a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-bs-toggle="dropdown">
-                  <i class="mdi mdi-email mx-0"></i>
-                  <span class="count bg-primary">4</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-                  <p class="mb-0 font-weight-normal float-left dropdown-header">Mensajes</p>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                        <img src="images/faces/face4.jpg" alt="image" class="profile-pic">
-                    </div>
-                    <div class="preview-item-content flex-grow">
-                        <h6 class="preview-subject ellipsis font-weight-normal">Usuario
-                        </h6>
-                        <p class="font-weight-light small-text text-muted mb-0">
-                          The meeting is cancelled
-                        </p>
-                    </div>
-                  </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                        <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
-                    </div>
-                    <div class="preview-item-content flex-grow">
-                        <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
-                        </h6>
-                        <p class="font-weight-light small-text text-muted mb-0">
-                          New product launch
-                        </p>
-                    </div>
-                  </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                        <img src="images/faces/face3.jpg" alt="image" class="profile-pic">
-                    </div>
-                    <div class="preview-item-content flex-grow">
-                        <h6 class="preview-subject ellipsis font-weight-normal"> Johnson
-                        </h6>
-                        <p class="font-weight-light small-text text-muted mb-0">
-                          Upcoming board meeting
-                        </p>
-                    </div>
-                  </a>
-                </div>
-              </li> -->
+             
             </ul>
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                 <a class="navbar-brand brand-logo" href="index.html"><img src="../images/logo_conectwi_wide-removebg-preview.png" height="30px" alt="logo"/></a>
