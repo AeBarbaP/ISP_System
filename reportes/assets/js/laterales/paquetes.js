@@ -29,8 +29,9 @@ function nuevoPaquete() {
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-cash-coin me-2"></i>Precio mensual</label>
               <div class="input-group">
-              <input type="text" class="form-control" placeholder="Precio mensual" aria-label="precio" id="precio_paquete" aria-describedby="basic-addon1">
-              <span class="input-group-text" id="basic-addon1">.00</span>
+                <span class="input-group-text" id="basic-addon1">$</span>
+                <input type="text" class="form-control" pattern=" 0+\.[0-9]*[1-9][0-9]*$" name="itemConsumption" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="Precio mensual" aria-label="precio" id="precio_paquete" aria-describedby="basic-addon1">
+                <span class="input-group-text" id="basic-addon1">.00</span>
               </div>
             </div>
             <div class="mb-3"> 
@@ -103,7 +104,8 @@ function nuevoPaquete() {
             </div>
             <div class="input-group mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-cash-coin me-2"></i></label>
-              <input type="text" class="form-control" placeholder="Precio mensual" aria-label="precio" id="precio_paqueteEditar" aria-describedby="basic-addon1">
+              <span class="input-group-text" id="basic-addon1">$</span>
+              <input type="text" class="form-control" pattern=" 0+\.[0-9]*[1-9][0-9]*$" name="itemConsumption" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="Precio mensual" aria-label="precio" id="precio_paqueteEditar" aria-describedby="basic-addon1">
               <span class="input-group-text" id="basic-addon1">.00</span>
             </div>
             <div class="mb-3"> 
