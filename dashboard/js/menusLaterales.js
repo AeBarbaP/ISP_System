@@ -1419,9 +1419,7 @@ function editarIncidencia() {
               <div class="mb-3">
                 <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
                 <select class="form-select" id="folio_incidencia_editar" size="4" aria-label="folio incidencia" onchange="infoFallaEditar()">
-                  <option selected>Selecciona...</option>
-                  <!-- Muestra los folios de las incidencias que aún no han sido resueltas para cambiar los datos -->
-                </select>
+                  
               </div>
               
               <div class="mb-3">
@@ -1712,6 +1710,7 @@ function gestionIncidencias() {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'modalEditarIncidencias');
   modal.innerHTML = `
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
@@ -1794,13 +1793,13 @@ function queryFallasFull() {
 
 function abrirEdicionIncidencias(id){
   // $("#ordenCorteEditar").modal("show");
-  $('#modaltablaCortes').modal('hide');
-  editarCorte();
+  $('#modalEditarIncidencias').modal('hide');
+  editarIncidencia();
   setTimeout(() => {
-    document.getElementById('folio_corte_editar').value = id;
-    queryClientesCorteInfoEditar();
+    document.getElementById('folio_incidencia_editar').value = id;
+    infoFallaEditar()();
   }, 100);
-  $('#folio_corte_editar').val(id);
+  // $('#folio_corte_editar').val(id);
 }
 
 function modalActualizarEstatusFalla(x){
@@ -1960,14 +1959,8 @@ function G(x){
     }
   });
 }
-function editarIncidenciaG(x) {
-  var folio = x;
-  if (folio == "" || folio == null){
-    console.log("sin folio");
-  }
-  else {
-    // document
-  }
+function editarIncidenciaG() {
+  
   let titulo = "Editar Reporte de Falla";
   // Crear el elemento del modal
   const modal = document.createElement('div');
@@ -2047,8 +2040,6 @@ function editarIncidenciaG(x) {
 }
 
 //Termina gestión de Incidencias
-
-
 
 //Inicia gestión de ordenes de corte
 

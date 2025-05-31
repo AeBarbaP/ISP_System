@@ -1,7 +1,7 @@
 <?php
     require('../../dashboard/prcd/conn.php');
 
-    $sql = "SELECT * FROM incidencias ORDER BY id DESC";
+    $sql = "SELECT * FROM incidencias WHERE estatus = 1 ORDER BY id DESC";
     $resultado = $conn->query($sql);
     $x = 0;
     while($row = $resultado->fetch_assoc()){
@@ -46,7 +46,7 @@
             }
         echo'
             
-            <td><a href="#" onclick="editarIncidencia2(\''.$folio.'\')"><i class="bi bi-pencil-square"></i></a></td>
+            <td><a href="#" onclick="abrirEdicionIncidencias(\''.$folio.'\')"><i class="bi bi-pencil-square"></i></a></td>
         </tr>
         ';
     
