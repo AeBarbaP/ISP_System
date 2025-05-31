@@ -317,6 +317,29 @@ function altaAntena() {
     });
   }
 
+  function eliminarAntena(id){
+$.ajax({
+        type: "POST",
+        url: "../reportes/prcd/prcd_eliminar_antena.php", 
+        data: {
+            id: id
+        },
+        dataType: "json",
+        success: function(response) {
+          let data = JSON.parse(JSON.stringify(response));
+            var success = data.success;
+            if (success = 1) {
+                alert("Antena eliminada correctamente.");
+                cargarAntenas();
+            }
+            else {
+                alert("Error al eliminar la Antena");
+                console.log(data.error);
+            }
+        }
+    });
+}
+
   function edicionAntena(id){
     let fecha_alta = _antenas('fecha_alta_antenaEditar').value;
     let marca = _antenas('marca_antenaEditar').value;

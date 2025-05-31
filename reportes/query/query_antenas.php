@@ -27,7 +27,7 @@ while($row = $resultado->fetch_assoc()){
         }
     echo'
         
-        <td><a href="#" onclick="editarAntena('.$row['id'].')"><i class="bi bi-pencil-square"></i></a></td>
+        <td><a href="#" onclick="editarAntena('.$row['id'].')"><i class="bi bi-pencil-square"></i></a> <a href="#" onclick="eliminarAntena('.$row['id'].')"><i class="bi bi-trash"></i></a></td>
     </tr>
     ';
 }

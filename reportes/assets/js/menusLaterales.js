@@ -933,7 +933,7 @@ function guardarMunicipio() {
 
 function cargarMunicipios(){
     $.ajax({
-      url: 'query/query_antenas.php',
+      url: 'query/query_municipios.php',
       type: 'POST',
       dataType: 'html',
       success: function (response) {
@@ -944,7 +944,7 @@ function cargarMunicipios(){
 
 function datosMunicipio(id){
   $.ajax({
-    url: 'query/query_datos_municipio.php',
+    url: 'query/query_datos_mpio.php',
     type: 'POST',
     data:{
       id:id
@@ -953,7 +953,6 @@ function datosMunicipio(id){
     success: function(data) {
       var datos = JSON.parse(JSON.stringify(data));
       var success = datos.success;
-      var estatus = datos.estatus;
 
       if (success == 1) {
         _antenas("nombre_municipioEditar").value = datos.nombre;
@@ -967,13 +966,14 @@ function datosMunicipio(id){
   });
 }
 
-function editarMunicipio() {
+function editarMunicipio(id) {
 
   let titulo = "Editar Municipio";
   // Crear el elemento del modal
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'editarMpioModal');
   modal.innerHTML = `
     <div class="modal-dialog">
       <div class="modal-content">
@@ -984,11 +984,11 @@ function editarMunicipio() {
         <div class="modal-body">
           <p>
           <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i></label>
+              <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Nombre Municipio:</label>
               <input type="text" class="form-control" placeholder="Nombre del Municipio" aria-label="nombre municipio" id="nombre_municipioEditar" aria-describedby="basic-addon1">
             </div>
             <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-card-checklist me-2"></i></label>
+              <label class="form-label" id="basic-addon1"><i class="bi bi-card-checklist me-2"></i>Estado</label>
               <select class="form-select" aria-label="estado" id="estadoMunEditar">
                   <option value="" selected>Selecciona...</option>
                   <option value="Zacatecas">Zacatecas</option>
@@ -1000,7 +1000,7 @@ function editarMunicipio() {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" onclick="updateMpio()">Guardar</button>
+          <button type="button" class="btn btn-primary" onclick="updateMpio(${id})">Guardar</button>
         </div>
       </div>
     </div>
@@ -1012,11 +1012,89 @@ function editarMunicipio() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
+  datosMunicipio(id);
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+}
+
+function updateMpio(id){
+    let municipio = _antenas('nombre_municipioEditar').value;
+    let estado = _antenas('estadoMunEditar').value;
+
+    if (estado === "" || municipio === "") {
+      alert("Por favor, completa todos los campos de la antena.");
+      return;
+    }
+    $.ajax({
+      url: 'prcd/prcd_editar_municipio.php',
+      type: 'POST',
+      data: {
+          id: id,
+          estado: estado,
+          municipio: municipio
+      },
+      success: function (response) {
+          let data = JSON.parse(JSON.stringify(response));
+          let success = data.success;
+          if (success = 1) {
+              alert("Municipio editado con éxito");
+              $('#editarMpioModal').modal('hide');
+              // Recargar la tabla de paquetes
+              cargarMunicipios();
+          }
+          else {
+              alert("Error al actualizar el Municipio");
+              console.log(data.error);
+          }
+      }
+    });
+}
+function eliminarMunicipio(id){
+  Swal.fire({
+    title: "Estas seguro?",
+    text: "Se eliminará el Municipio seleccionado",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Sí, borrarlo!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $.ajax({
+        type: "POST",
+        url: "prcd/prcd_eliminar_mpio.php", 
+        data: {
+            id: id
+        },
+        dataType: "json",
+        success: function(response) {
+          let data = JSON.parse(JSON.stringify(response));
+            var success = data.success;
+            if (success = 1) {
+                Swal.fire({
+                  title: "Eliminado!",
+                  text: "El Municipio fue eliminado con éxito.",
+                  icon: "success"
+                });
+                cargarMunicipios();
+            }
+            else {
+                Swal.fire({
+                  title: "Error!",
+                  text: "No se pudo Eliminar el Municipio.",
+                  icon: "error"
+                });
+                console.log(data.error);
+            }
+        }
+      });
+      
+    }
+  });
+
 }
 
 function gestionMunicipios() {
@@ -1042,16 +1120,17 @@ function gestionMunicipios() {
                     </div>
                 </div>
                 <div class="table-responsive mt-3">
-                  <table class="table p-1">
+                  <table class="table text-center p-1">
                       <thead>
                           <tr>
                               <th scope="col">#</th>
                               <th scope="col">Nombre Municipio</th>
                               <th scope="col">Estado</th>
-                              <th scope="col" class="text-end"><i class="bi bi-people"></i></th>
+                              <th scope="col"><i class="bi bi-pencil-square"></i></th>
+                              <th scope="col"><i class="bi bi-trash"></i></th>
                           </tr>
                       </thead>
-                      <tbody id="tablaMunicipios">
+                      <tbody id="tablaMunicipios" >
                           
                       </tbody>
                   </table>
@@ -1071,6 +1150,7 @@ function gestionMunicipios() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
+  cargarMunicipios()
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
