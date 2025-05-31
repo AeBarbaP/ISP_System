@@ -44,11 +44,9 @@ function revisarCorte(){
                     confirmButtonColor: '#3085d6',
                     footer: 'ConectWI'
                 });
-
-
-              
+                bloquearTodo();
             }
-            else{
+            else if(success == 0){
                 Swal.fire({
                     icon: 'success',
                     imageUrl: '../images/logo_conectwi_wide-removebg-preview.png',
