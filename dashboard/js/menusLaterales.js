@@ -1408,7 +1408,7 @@ function editarIncidencia() {
         <div class="modal-content">
           <div class="modal-header bg-secondary text-light">
             <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <p>
@@ -2591,26 +2591,27 @@ function editarDatosUsr(){
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'modalDatosUser');
   modal.innerHTML = `
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header bg-secondary text-light">
           <h5 class="modal-title"><i class="bi bi-person-circle me-2"></i> ${titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <input name="id" value="'.$id.'" hidden>
+          <input name="id" id="idUserM" hidden>
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
-              <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" value="" aria-describedby="basic-addon1" name="nombre" required>
+              <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" value="" aria-describedby="basic-addon1" name="nombre" id="nombreUserM" required>
           </div>
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-workspace"></i></span>
-              <input type="text" class="form-control" placeholder="Usuario" aria-label="usuario" value="" aria-describedby="basic-addon1" readonly>
+              <input type="text" class="form-control" placeholder="Usuario" aria-label="usuario" value="" aria-describedby="basic-addon1" id="usrUserM" readonly>
           </div>
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1" for="inputGroupSelect01" readonly>Perfil</span>
-              <select class="form-select" id="inputGroupSelect01" value="" selected="selected" disabled>
+              <select class="form-select" value="" selected="selected" id="perfilUserM" disabled>
                   <option value="" selected>Usuario A</option>
                   <option value="" >Usuario B</option>
                   <option value="" >Administrador</option>
@@ -2627,13 +2628,13 @@ function editarDatosUsr(){
           </div>
           <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-shield-lock-fill"></i></span>
-              <input type="password" class="form-control" placeholder="Contraseña" aria-label="contraseña" value="" aria-describedby="basic-addon1" name="pwd" id="passW">
+              <input type="password" class="form-control" placeholder="Contraseña" aria-label="contraseña" value="" aria-describedby="basic-addon1" name="pwd" id="passWM">
           </div>
-          <input type="checkbox" onclick="myFunction()"> Mostrar Password 
+          <input type="checkbox" id="mostrarPwdM" onclick="mostrarPwdM()"> Mostrar Password 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" onclick="updateUser()">Actualizar</button>
+          <button type="button" class="btn btn-primary" onclick="editarUsuarioDash()">Actualizar</button>
         </div>
       </div>
     </div>
@@ -2645,11 +2646,81 @@ function editarDatosUsr(){
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
+  queryUsr();
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+}
+
+function queryUsr(){
+   $.ajax({
+        type: "POST",
+        url: "query/query_usr.php",
+        dataType: "json",
+        success: function(data){
+            var datos = JSON.parse(JSON.stringify(data));
+            var success = datos.success;
+    
+            if(success == 1){
+                _('idUserM').value = datos.id;
+                _('nombreUserM').value = datos.nombre;
+                _('usrUserM').value = datos.username;
+                _('perfilUserM').value = datos.tipo_usr;
+                if(datos.estatus == 1){
+                  _('btnradio1').checked;
+                }
+                else{
+                  _('btnradio2').checked;
+                }
+                _('passWM').value = datos.pwd;
+            }
+            else{
+                alert("No se guardó");
+                console.log(datos.error)
+            }
+        }
+    });
+}
+
+function mostrarPwdM(){
+  var check = _('mostrarPwdM');
+  if (check.checked){
+    _('passWM').setAttribute('type','text');
+  }
+  else{
+    _('passWM').setAttribute('type','password');
+  }
+}
+
+function editarUsuarioDash(){
+  var id = _('idUserM').value;
+  var nombre = _('nombreUserM').value;
+  var pass = _('passWM').value;
+  $.ajax({
+    type: "POST",
+    url: "prcd/editar_usuario_dashboard.php",
+    dataType: "json",
+    data:{
+      id : id,
+      nombre : nombre,
+      pass : pass
+    },
+    success: function(data){
+      var datos = JSON.parse(JSON.stringify(data));
+            var success = datos.success;
+    
+            if(success == 1){
+              alert('Usuario editado');
+              $('#modalDatosUser').modal('hide');
+            }
+            else{
+              alert('Usuario no editado');
+            }
+    }
+  });
+
 }
 
 

@@ -16,6 +16,7 @@ if($filas == 1){
 
     $id = $row['id'];
     
+    $_SESSION['idUsr'] = $row['id'];
     $_SESSION['username'] = $row['username'];
     $_SESSION['nombre'] = $row['nombre'];
     $_SESSION['estatusCorte'] = revisarCorte($id);
