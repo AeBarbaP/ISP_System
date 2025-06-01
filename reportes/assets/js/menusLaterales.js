@@ -900,8 +900,8 @@ function nuevoMunicipio() {
 }
 
 function guardarMunicipio() {
-  let nombre = _antenas('nombre_municipio').value;
-  let estado = _antenas('estadoMun').value;
+  let nombre = _('nombre_municipio').value;
+  let estado = _('estadoMun').value;
 
   if (nombre === "" || estado === "") {
     alert("Por favor, completa todos los campos del municipio.");
@@ -955,8 +955,8 @@ function datosMunicipio(id){
       var success = datos.success;
 
       if (success == 1) {
-        _antenas("nombre_municipioEditar").value = datos.nombre;
-        _antenas("estadoMunEditar").value = datos.estado;
+        _("nombre_municipioEditar").value = datos.nombre;
+        _("estadoMunEditar").value = datos.estado;
 
       }
       else{
@@ -1150,7 +1150,7 @@ function gestionMunicipios() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
-  cargarMunicipios()
+  cargarMunicipios();
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
@@ -1169,6 +1169,7 @@ function nuevaComunidad() {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'modalnuevoComunidad');
   modal.innerHTML = `
     <div class="modal-dialog">
       <div class="modal-content">
@@ -1184,14 +1185,14 @@ function nuevaComunidad() {
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-geo-alt me-2"></i>Municipio</label>
-              <select class="form-select" aria-label="municipio" id="municipio">
-                  <option value="" selected>Selecciona Municipio...</option>
+              <select class="form-select" aria-label="municipio" id="municipioCom">
+                  
                   <!-- aquí se llena con la tabla de municipios -->
               </select>
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-map me-2"></i>Estado:</label>
-              <select class="form-select" aria-label="estado" id="estado">
+              <select class="form-select" aria-label="estado" id="estadoCom">
                   <option value="" selected>Selecciona Estado...</option>
                   <option value="Zacatecas">Zacatecas</option>
                   <option value="Jalisco">Jalisco</option>
@@ -1214,6 +1215,7 @@ function nuevaComunidad() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
+  selectMunicipios();
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
@@ -1221,6 +1223,48 @@ function nuevaComunidad() {
   });
 }
 
+function selectMunicipios(){
+    $.ajax({
+    url: 'query/queryMpios.php',
+    type: 'POST',
+    dataType: 'html',
+    success: function(data) {
+      $('#municipioCom').html(data);
+    }
+  })
+}
+
+function guardarComunidad() {
+  let nombre = _antenas('nombre_comunidad').value;
+  let municipio = _antenas('municipioCom').value;
+  let estado = _antenas('estadoCom').value;
+
+  if (nombre === "" || municipio === "" || estado === "") {
+    alert("Por favor, completa todos los campos de la comunidad.");
+    return;
+  }
+  $.ajax({
+    url: 'prcd/guardarComunidad.php',
+    type: 'POST',
+    data: {
+        nombre: nombre,
+        municipio: municipio
+    },
+    success: function (response) {
+        let data = JSON.parse(JSON.stringify(response));
+        let success = data.success;
+        if (success = 1) {
+            alert("Comunidad guardada con éxito");
+            $('#modalnuevoComunidad').modal('hide');
+        }
+        else {
+            alert("Error al guardar la comunidad");
+            console.log(data.error);
+        }
+    }
+  });
+  _
+}
 
 function editarComunidad() {
 
@@ -1240,11 +1284,11 @@ function editarComunidad() {
           <p>
           <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Comunidad:</label>
-              <input type="text" class="form-control" placeholder="Nombre de la Comunidad" aria-label="nombre comunidad" id="nombre_comunidad" aria-describedby="basic-addon1">
+              <input type="text" class="form-control" placeholder="Nombre de la Comunidad" aria-label="nombre comunidad" id="nombre_comunidadEdit" aria-describedby="basic-addon1">
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-geo-alt me-2"></i>Municipio:</label>
-              <select class="form-select" aria-label="municipio" id="municipio">
+              <select class="form-select" aria-label="municipio" id="municipioCom">
                   <option value="" selected>Selecciona Municipio...</option>
                   <!-- aquí se llena con la tabla de municipios -->
               </select>
@@ -1274,6 +1318,7 @@ function editarComunidad() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
+  selectMunicipios();
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
@@ -1287,6 +1332,7 @@ function gestionComunidades() {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'gestionComunidades');
   modal.innerHTML = `
     <div class="modal-dialog modal-xl">>
       <div class="modal-content">
@@ -1311,7 +1357,7 @@ function gestionComunidades() {
                               <th scope="col">Nombre Comunidad</th>
                               <th scope="col">Municipio</th>
                               <th scope="col">Estado</th>
-                              <th scope="col" class="text-end"><i class="bi bi-people"></i></th>
+                              <th scope="col"><i class="bi bi-pencil-square"></i></th>
                           </tr>
                       </thead>
                       <tbody id="tablaComunidades">

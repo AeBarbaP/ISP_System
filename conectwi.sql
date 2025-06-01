@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-05-2025 a las 05:20:13
+-- Tiempo de generación: 01-06-2025 a las 17:05:24
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -54,8 +54,6 @@ CREATE TABLE `antenas` (
 --
 
 INSERT INTO `antenas` (`id`, `marca`, `modelo`, `num_serie`, `MAC`, `ip_address`, `fecha_alta`, `estatus`) VALUES
-(1, '54', '4', '4', '4', '0', '2025-04-10', 1),
-(2, 'TP-LINK', 'M-586', '0', '4e.65.g8.36', '125.125.125.1', '2025-05-28', 1),
 (3, 'TP-LINK', 'M8568', '0', '5t.69.4g.68', '125.125.125.0', '2025-05-29', 1),
 (4, 'CISCO', 'HU-558', 'GS874DS684AF', '5h.54.g3.wc', '255.255.255.0', '2025-05-29', 1);
 
@@ -97,16 +95,19 @@ INSERT INTO `catalogo_adelanto` (`id`, `tipo_adelanto`, `costo`) VALUES
 
 CREATE TABLE `catalogo_comunidades` (
   `id` int(11) NOT NULL,
-  `comunidad` varchar(100) NOT NULL
+  `comunidad` varchar(100) NOT NULL,
+  `municipio` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `catalogo_comunidades`
 --
 
-INSERT INTO `catalogo_comunidades` (`id`, `comunidad`) VALUES
-(1, 'Comunidad 1'),
-(2, 'Comunidad 2');
+INSERT INTO `catalogo_comunidades` (`id`, `comunidad`, `municipio`) VALUES
+(1, 'Comunidad 1', ''),
+(2, 'Comunidad 2', ''),
+(3, 'La Escondida', '2'),
+(4, 'La Zacatecana', '4');
 
 -- --------------------------------------------------------
 
@@ -162,7 +163,10 @@ CREATE TABLE `catalogo_municipio` (
 --
 
 INSERT INTO `catalogo_municipio` (`id`, `municipio`, `estado`) VALUES
-(1, 'Genaro Codina', 'Zacatecas');
+(2, 'Zacatecas', 'Zacatecas'),
+(3, 'Colotlán', 'Jalisco'),
+(4, 'Genaro Codina', 'Zacatecas'),
+(7, 'Villanueva', 'Zacatecas');
 
 -- --------------------------------------------------------
 
@@ -736,7 +740,7 @@ ALTER TABLE `catalogo_adelanto`
 -- AUTO_INCREMENT de la tabla `catalogo_comunidades`
 --
 ALTER TABLE `catalogo_comunidades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `catalogo_estado`
@@ -754,7 +758,7 @@ ALTER TABLE `catalogo_instalacion`
 -- AUTO_INCREMENT de la tabla `catalogo_municipio`
 --
 ALTER TABLE `catalogo_municipio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `catalogo_paquetes`
