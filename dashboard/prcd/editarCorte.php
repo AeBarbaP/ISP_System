@@ -6,6 +6,7 @@ require('conn.php');
 date_default_timezone_set('America/Mexico_City');
 setlocale(LC_TIME, 'es_MX.UTF-8');
 $fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
+$userLog = $_SESSION['username'];
 
 $username = $_SESSION['username'];
 $folio = $_POST['folio'];
@@ -31,7 +32,7 @@ if($resultado){
         )
         VALUES(
         '$userLog',
-        1,
+        3,
         $fechaHoy,
         'NA')
         ";

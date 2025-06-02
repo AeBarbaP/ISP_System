@@ -3,6 +3,11 @@ session_start();
 
 require('conn.php');
 
+date_default_timezone_set('America/Mexico_City');
+setlocale(LC_TIME, 'es_MX.UTF-8');
+// $userLog = $_SESSION['username'];
+$fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
+
 $usr = $_POST['usr'];
 $pwd = $_POST['pwd'];
 
@@ -21,9 +26,27 @@ if($filas == 1){
     $_SESSION['nombre'] = $row['nombre'];
     $_SESSION['estatusCorte'] = revisarCorte($id);
 
+    $userLog = $_SESSION['username'];
+
     echo json_encode(array(
         'success'=>1
     ));
+
+     // --------- log ---------------
+        $sqlLOG = "INSERT INTO log_users(
+        username,
+        accion,
+        hora,
+        folio_cliente
+        )
+        VALUES(
+        '$userLog',
+        21,
+        $fechaHoy,
+        'NA')
+        ";
+        $resultadoLOG = $conn->query($sqlLOG);
+        // --------- log ---------------
 }
 else{
     $_SESSION['sess'] = "";
