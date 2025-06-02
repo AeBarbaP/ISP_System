@@ -559,7 +559,7 @@ else {
                             <div class="card mb-3" style="max-width: 20rem; background-color: rgba(78, 160, 242);">
                                 <div class="card-header text-white" style="font-size: larger;"><strong>Servicios Pagados</strong></div>
                                 <div class="card-body">
-                                    <h3 class="card-title text-white">#</h3>
+                                    <h3 class="card-title text-white"># <span id="alDia">0</span></h3>
                                     <p class="card-text text-white">Clientes que tienen sus servicio pagado al día.</p>
                                 </div>
                             </div>
@@ -568,7 +568,7 @@ else {
                             <div class="card mb-3" style="max-width: 20rem; background-color: rgba(245, 205, 45);">
                                 <div class="card-header text-white" style="font-size: larger;"><strong>Servicios Vencidos</strong></div>
                                 <div class="card-body">
-                                    <h3 class="card-title text-white">#</h3>
+                                    <h3 class="card-title text-white"># <span id="vencidos2">0</span></h3>
                                     <p class="card-text text-white">Clientes que tienen su servicio vencido.</p>
                                 </div>
                             </div>
@@ -577,7 +577,7 @@ else {
                             <div class="card" style="max-width: 20rem; background-color: rgba(225, 85, 127);">
                                 <div class="card-header text-white">Servicios Cortados</div>
                                 <div class="card-body">
-                                    <h3 class="card-title text-white">#</h3>
+                                    <h3 class="card-title text-white"># <span id="segundoCorte">0</span></h3>
                                     <p class="card-text text-white">Clientes que tienen su servicio cortado.</p>
                                 </div>
                             </div>
