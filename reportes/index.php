@@ -539,7 +539,7 @@ else {
                                     <div class="row mt-5">
                                         <div class="col-6 text-start h1"><i class="bi bi-credit-card-2-front-fill border p-2 rounded" style="background-color: #cbe5ff; color: #4ea0f2;"></i></div>
                                         <div class="col-6">
-                                            <p class="card-text h3 pe-2" style="color: #4ea0f2;"><span id="credEnt"></span></p>
+                                            <p class="card-text h3 pe-2" style="color: #4ea0f2;"><span id="credEnt">0</span></p>
                                             <p class=""><small class="text-danger">(<i class="bi bi-arrow-up"></i> 54.3%)</small></p>
                                         </div>
                                         <!-- <div class="col-12 justify-content-center">

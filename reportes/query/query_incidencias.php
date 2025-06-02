@@ -5,11 +5,11 @@ $sql = "SELECT COUNT(*) AS incidencias FROM incidencias WHERE MONTH(fecha_report
 $resultado = $conn->query($sql);
 $row = $resultado->fetch_assoc();
 
-$contratos = $row['contratos'];
+$incidencias = $row['incidencias'];
 
 echo json_encode(array(
     'success'=>1,
-    'incidencia'=>$contratos
+    'incidencia'=>$incidencias
 ))
 
 ?>
