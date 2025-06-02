@@ -1,10 +1,10 @@
 <?php
     session_start();
-    /* $usr = $_SESSION['usr']; */
-    $usr = "annaeliza";
 
     date_default_timezone_set('America/Mexico_City');
     setlocale(LC_TIME, 'es_MX.UTF-8');
+    $userLog = $_SESSION['username'];
+    $fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
 
     $fecha_registro = strftime("%Y-%m-%d,%H:%M:%S");
 
@@ -23,18 +23,24 @@
     $resultadoUsr= $conn->query($sqlinsertUsr);
     
     if($resultadoUsr){
-        $sqlInsertUsr = "INSERT INTO log_registro(
-            usr,
-            tipo_dato,
-            fecha)
-            VALUES(
-            '$usr',
-            '$tipo_dato',
-            '$fecha_registro')";
-        $resultadoUsr = $conn->query($sqlInsertUsr);
         echo json_encode(array(
             'success' => 1
         ));
+        // --------- log ---------------
+        $sqlLOG = "INSERT INTO log_users(
+        username,
+        accion,
+        hora,
+        folio_cliente
+        )
+        VALUES(
+        '$userLog',
+        23,
+        $fechaHoy,
+        'NA')
+        ";
+        $resultadoLOG = $conn->query($sqlLOG);
+        // --------- log ---------------
     }
     else{
         echo json_encode(array(
