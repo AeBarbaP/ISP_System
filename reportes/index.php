@@ -503,7 +503,7 @@ else {
                             <div class="card mb-3" style="width: 100%; height: 100%;">
                                 <div class="card-body mt-3">
                                     <h5 class="card-title strong">Contratos Nuevos</h5>
-                                    <p class="card-text text-muted">Última quincena</p>
+                                    <p class="card-text text-muted">Mes actual</p>
                                     <div class="row">
                                         <div class="col-6">
                                             <h1 class="text-start p-3">
@@ -511,7 +511,7 @@ else {
                                             </h1>
                                         </div>
                                         <div class="col-6">
-                                            <h1 class="p-3" style="color: #4ea0f2;"><span id="expNews2"></span></h1>
+                                            <h1 class="p-3" style="color: #4ea0f2;"><span id="expNews2">0</span></h1>
                                             <p><small class="text-success pe-2">(<i class="bi bi-arrow-up"></i> 17.2%)</small></p>
                                         </div>
                                     </div>
@@ -525,7 +525,7 @@ else {
                                     <div class="row mt-5">
                                         <div class="col-6 text-start h1"><i class="bi bi-person-badge border p-2 rounded" style="background-color: #cbe5ff; color: #4ea0f2;"></i></div>
                                         <div class="col-6">
-                                            <p class="card-text h3 pe-2" style="color: #4ea0f2;"><span id="filasTar"></span></p>
+                                            <p class="card-text h3 pe-2" style="color: #4ea0f2;"><span id="filasTar">0</span></p>
                                             <p class=""><small class="text-warning">(<i class="bi bi-arrow-up"></i> 33.3%)</small></p>
                                         </div>
                                     </div>
@@ -677,6 +677,7 @@ else {
 
 </html>
     
+<script src="assets/js/dashboard.js"></script>
 <script src="assets/js/graficos.js"></script>
 <script src="assets/js/reportes.js"></script>
 <script src="assets/js/gestionUsers.js"></script>
