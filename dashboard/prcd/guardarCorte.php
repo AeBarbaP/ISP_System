@@ -3,8 +3,13 @@ session_start();
 
 require('conn.php');
 
+date_default_timezone_set('America/Mexico_City');
+setlocale(LC_TIME, 'es_MX.UTF-8');
+$userLog = $_SESSION['username'];
+$fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
 
 $username = $_SESSION['username'];
+
 $fecha_orden = $_POST['fecha_orden'];
 $folio = $_POST['folio'];
 $folio_cliente = $_POST['folio_cliente'];

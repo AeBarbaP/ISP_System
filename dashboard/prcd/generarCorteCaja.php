@@ -5,6 +5,7 @@ require('conn.php');
 date_default_timezone_set('America/Mexico_City');
 setlocale(LC_TIME, 'es_MX.UTF-8');
 $fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
+$userLog = $_SESSION['username'];
 
 $estatus = 1;
 $id = $_SESSION['idUsr'];
@@ -26,6 +27,19 @@ $query = "INSERT INTO corte_caja (
         echo json_encode(array(
             'success'=>1
         ));
+        $sqlLOG = "INSERT INTO log_users(
+        username,
+        accion,
+        hora,
+        folio_cliente
+        )
+        VALUES(
+        '$userLog',
+        4,
+        $fechaHoy,
+        'NA')
+        ";
+        $resultadoLOG = $conn->query($sqlLOG);
     }
     else{
         $error = $conn->error;

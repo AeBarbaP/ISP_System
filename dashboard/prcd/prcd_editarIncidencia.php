@@ -1,6 +1,12 @@
 <?php
+session_start();
 
 require('conn.php');
+
+date_default_timezone_set('America/Mexico_City');
+setlocale(LC_TIME, 'es_MX.UTF-8');
+$userLog = $_SESSION['username'];
+$fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
 
 $folio = $_POST['folio'];
 $descripcion = $_POST['descripcion'];

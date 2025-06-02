@@ -3,6 +3,10 @@ session_start();
 
 require('conn.php');
 
+date_default_timezone_set('America/Mexico_City');
+setlocale(LC_TIME, 'es_MX.UTF-8');
+$fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
+
 $username = $_SESSION['username'];
 $folio = $_POST['folio'];
 $fecha_corte = $_POST['fecha_corte'];
@@ -19,6 +23,19 @@ if($resultado){
     echo json_encode(array(
         'success'=>1
     ));
+    $sqlLOG = "INSERT INTO log_users(
+        username,
+        accion,
+        hora,
+        folio_cliente
+        )
+        VALUES(
+        '$userLog',
+        1,
+        $fechaHoy,
+        'NA')
+        ";
+        $resultadoLOG = $conn->query($sqlLOG);
 }
 else{
     $error = $conn->error;

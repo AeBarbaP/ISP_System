@@ -1,4 +1,10 @@
 <?php
+session_start();
+date_default_timezone_set('America/Mexico_City');
+setlocale(LC_TIME, 'es_MX.UTF-8');
+$userLog = $_SESSION['username'];
+$fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
+
 header('Content-Type: application/json');
 require('conn.php');
 
@@ -94,6 +100,20 @@ try {
         'message' => count($results) . ' pagos guardados correctamente',
         'data' => $results
     ]);
+
+    $sqlLOG = "INSERT INTO log_users(
+        username,
+        accion,
+        hora,
+        folio_cliente
+        )
+        VALUES(
+        '$userLog',
+        5,
+        $fechaHoy,
+        'NA')
+        ";
+        $resultadoLOG = $conn->query($sqlLOG);
 
 } catch (Exception $e) {
     if (isset($conn) && method_exists($conn, 'rollback')) {
