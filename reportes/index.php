@@ -51,6 +51,8 @@ else {
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- js de gráficos -->
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
+
+        <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js "></script>
         
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 

@@ -124,3 +124,43 @@ function conteoGeneral() {
     });
 }
 
+
+$(document).ready(function() {
+    $.ajax({
+        url: 'query/query_pagos_mes.php', // Ruta a tu archivo PHP
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            // Procesar datos para la gráfica
+            const ctx = document.getElementById('myChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar', // Tipo de gráfica (puede ser 'line', 'pie', etc.)
+                data: {
+                    labels: data.map(item => item.fecha),
+                    datasets: [{
+                        label: 'Pagos por día',
+                        data: data.map(item => item.total_pagos),
+                        backgroundColor:'rgba(1, 219, 254, 07)',
+                        borderColor: 'rgb(17, 68, 68)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Número de pagos' }
+                        },
+                        x: {
+                            title: { display: true, text: 'Fecha' }
+                        }
+                    }
+                }
+            });
+        },
+        error: function(xhr, status, error) {
+            console.error("Error al cargar los datos:", error);
+        }
+    });
+});
