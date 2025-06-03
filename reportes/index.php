@@ -599,18 +599,16 @@ else {
                                         </div>
                                     </div>
                                     <!-- tabla -->
-                                    <table class="table p-1">
-                                        <thead>
+                                    <table class="table text-center">
+                                        <thead class="table-dark text-light">
                                             <tr>
-                                            <th scope="col"></th>
-                                            <th scope="col">Actividad</th>
-                                            <th scope="col">Avance</th>
-                                            <th scope="col">Departamento</th>
-                                            <th scope="col">Usuario</th>
-                                            <th scope="col" class="text-end"><i class="bi bi-people"></i></th>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Usuario</th>
+                                                <th scope="col">Actividad</th>
+                                                <th scope="col">Fecha/Hora</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="usuariosTabla">
+                                        <tbody id="tablaLOG">
                                             
                                         </tbody>
                                     </table>

@@ -10,6 +10,6 @@ $incidencias = $row['incidencias'];
 echo json_encode(array(
     'success'=>1,
     'incidencia'=>$incidencias
-))
+));
 
 ?>

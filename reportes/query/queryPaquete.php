@@ -14,6 +14,6 @@ echo json_encode(array(
     'velocidad' => $row['velocidad'],
     'costo' => $row['costo'],
     'estatus' => $row['estatus']
-))
+));
 
 ?>

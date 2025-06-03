@@ -10,6 +10,6 @@ $cortes = $row['cortes'];
 echo json_encode(array(
     'success'=>1,
     'cortes'=>$cortes
-))
+));
 
 ?>

@@ -10,6 +10,6 @@ $contratos = $row['contratos'];
 echo json_encode(array(
     'success'=>1,
     'contratos'=>$contratos
-))
+));
 
 ?>

@@ -12,6 +12,6 @@ echo json_encode(array(
     'success' => 1,
     'nombre' => $row['nombre'],
     'estatus' => $row['estatus']
-))
+));
 
 ?>

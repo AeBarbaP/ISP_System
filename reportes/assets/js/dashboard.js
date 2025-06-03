@@ -116,7 +116,7 @@ function queryLOG(){
     $.ajax({
         type: "POST",
         url: "query/query_log.php",
-        dataType: "json",
+        dataType: "html",
         success: function(data){
             $('#tablaLOG').html(data);
         }
