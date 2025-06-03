@@ -321,7 +321,7 @@ else {
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="timeline p-4 blockt mb-4" id="twitterLog">
-                                                <div class="tl-item active">
+                                                <!-- <div class="tl-item active">
                                                     <div class="tl-dot b-warning"></div>
                                                     <div class="tl-content">
                                                         <div class="">@twitter thanks for you appreciation and @google thanks for you appreciation</div>
@@ -355,7 +355,7 @@ else {
                                                         <div class="">Learn how to use <a href="#" data-abc="true">Google Analytics</a> to discover vital information about your readers.</div>
                                                         <div class="tl-date text-muted mt-1">3 days ago</div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
