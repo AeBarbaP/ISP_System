@@ -124,3 +124,16 @@ function queryLOG(){
 }
 
 queryLOG();
+
+function queryLOGTwitter(){
+    $.ajax({
+        type: "POST",
+        url: "query/query_logTwitter.php",
+        dataType: "html",
+        success: function(data){
+            $('#twitterLog').html(data);
+        }
+    });
+}
+
+queryLOGTwitter();

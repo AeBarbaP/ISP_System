@@ -320,7 +320,7 @@ else {
                                 <ul class="dropdown-menu">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="timeline p-4 blockt mb-4">
+                                            <div class="timeline p-4 blockt mb-4" id="twitterLog">
                                                 <div class="tl-item active">
                                                     <div class="tl-dot b-warning"></div>
                                                     <div class="tl-content">
