@@ -28,11 +28,7 @@ if($filas == 1){
 
     $userLog = $_SESSION['username'];
 
-    echo json_encode(array(
-        'success'=>1
-    ));
-
-     // --------- log ---------------
+    // --------- log ---------------
         $sqlLOG = "INSERT INTO log_users(
         username,
         accion,
@@ -42,11 +38,15 @@ if($filas == 1){
         VALUES(
         '$userLog',
         21,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);
         // --------- log ---------------
+
+    echo json_encode(array(
+        'success'=>1
+    ));
 }
 else{
     $_SESSION['sess'] = "";

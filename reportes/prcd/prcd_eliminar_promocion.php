@@ -30,7 +30,7 @@ $query = "DELETE FROM promociones
         VALUES(
         '$userLog',
         40,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);

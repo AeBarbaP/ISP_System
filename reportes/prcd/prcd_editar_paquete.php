@@ -38,7 +38,7 @@ $query = "UPDATE catalogo_paquetes SET
         VALUES(
         '$userLog',
         34,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);

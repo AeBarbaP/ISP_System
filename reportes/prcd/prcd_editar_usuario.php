@@ -43,7 +43,7 @@ $query = "UPDATE users SET
         VALUES(
         '$userLog',
         37,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);

@@ -30,7 +30,7 @@ $query = "DELETE FROM catalogo_municipio
         VALUES(
         '$userLog',
         39,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);

@@ -33,6 +33,21 @@ $query = "INSERT INTO cortes (
     $resultado = $conn->query($query);
 
     if($resultado){
+        // --------- log ---------------
+        $sqlLOG = "INSERT INTO log_users(
+        username,
+        accion,
+        hora,
+        folio_cliente
+        )
+        VALUES(
+        '$userLog',
+        8,
+        '$fechaHoy',
+        'NA')
+        ";
+        $resultadoLOG = $conn->query($sqlLOG);
+        // --------- log ---------------
         echo json_encode(array(
             'success'=>1
         ));

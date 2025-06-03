@@ -36,7 +36,9 @@ $sql = "INSERT INTO incidencias (
 $result = mysqli_query($conn, $sql);
 
 if($result) {
+    
     echo json_encode(array("success" => 1));
+
     // --------- log ---------------
         $sqlLOG = "INSERT INTO log_users(
         username,
@@ -47,11 +49,12 @@ if($result) {
         VALUES(
         '$userLog',
         19,
-        $fechaHoy,
-        'NA')
-        ";
+        '$fechaHoy',
+        'NA'
+        )";
         $resultadoLOG = $conn->query($sqlLOG);
         // --------- log ---------------
+
 } else {
     $error = $conn->error;
     echo json_encode(array("success" => 0, "error" => $error

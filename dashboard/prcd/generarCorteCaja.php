@@ -24,9 +24,6 @@ $query = "INSERT INTO corte_caja (
     $resultado = $conn->query($query);
 
     if($resultado){
-        echo json_encode(array(
-            'success'=>1
-        ));
         $sqlLOG = "INSERT INTO log_users(
         username,
         accion,
@@ -36,10 +33,13 @@ $query = "INSERT INTO corte_caja (
         VALUES(
         '$userLog',
         4,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);
+        echo json_encode(array(
+            'success'=>1
+        ));
     }
     else{
         $error = $conn->error;

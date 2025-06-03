@@ -38,7 +38,7 @@ $query = "UPDATE tecnicos SET
         VALUES(
         '$userLog',
         36,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);

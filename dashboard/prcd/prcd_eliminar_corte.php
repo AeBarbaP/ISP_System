@@ -14,9 +14,6 @@ $query = "DELETE FROM cortes WHERE id = '$id'";
 $resultado = $conn->query($query);
 
     if($resultado){
-        echo json_encode(array(
-            'success'=>1
-        ));
         // --------- log ---------------
         $sqlLOG = "INSERT INTO log_users(
         username,
@@ -26,12 +23,15 @@ $resultado = $conn->query($query);
         )
         VALUES(
         '$userLog',
-        1,
-        $fechaHoy,
+        17,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);
         // --------- log ---------------
+        echo json_encode(array(
+            'success'=>1
+        ));
     }
     else{
         $error = $conn->error;

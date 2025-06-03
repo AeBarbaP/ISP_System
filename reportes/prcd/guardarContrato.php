@@ -90,7 +90,7 @@ $query = "INSERT INTO clientes (
         VALUES(
         '$userLog',
         28,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);

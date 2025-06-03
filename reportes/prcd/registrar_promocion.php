@@ -44,7 +44,7 @@ $query = "INSERT INTO promociones (
         VALUES(
         '$userLog',
         41,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);

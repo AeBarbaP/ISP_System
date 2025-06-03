@@ -20,10 +20,6 @@ $query = "UPDATE tecnicos SET
     $resultado = $conn->query($query);
 
     if($resultado){
-        echo json_encode(array(
-            'success'=>1
-        ));
-
         // --------- log ---------------
         $sqlLOG = "INSERT INTO log_users(
         username,
@@ -34,12 +30,16 @@ $query = "UPDATE tecnicos SET
         VALUES(
         '$userLog',
         1,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);
         // --------- log ---------------
-        
+        echo json_encode(array(
+            'success'=>1
+        ));
+
+
     }
     else{
         $error = $conn->error;

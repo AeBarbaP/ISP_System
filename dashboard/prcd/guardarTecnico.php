@@ -26,9 +26,6 @@ $query = "INSERT INTO tecnicos (
     $resultado = $conn->query($query);
 
     if($resultado){
-        echo json_encode(array(
-            'success'=>1
-        ));
         // --------- log ---------------
         $sqlLOG = "INSERT INTO log_users(
         username,
@@ -39,11 +36,14 @@ $query = "INSERT INTO tecnicos (
         VALUES(
         '$userLog',
         10,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);
         // --------- log ---------------
+        echo json_encode(array(
+            'success'=>1
+        ));
     }
     else{
         $error = $conn->error;

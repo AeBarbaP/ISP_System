@@ -40,7 +40,7 @@ $query = "UPDATE promociones SET
         VALUES(
         '$userLog',
         35,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);

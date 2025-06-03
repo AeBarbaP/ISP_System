@@ -95,12 +95,7 @@ try {
     }
 
     $conn->commit();
-    echo json_encode([
-        'success' => true, 
-        'message' => count($results) . ' pagos guardados correctamente',
-        'data' => $results
-    ]);
-
+    
     $sqlLOG = "INSERT INTO log_users(
         username,
         accion,
@@ -110,10 +105,17 @@ try {
         VALUES(
         '$userLog',
         5,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);
+    
+        echo json_encode([
+        'success' => true, 
+        'message' => count($results) . ' pagos guardados correctamente',
+        'data' => $results
+    ]);
+
 
 } catch (Exception $e) {
     if (isset($conn) && method_exists($conn, 'rollback')) {

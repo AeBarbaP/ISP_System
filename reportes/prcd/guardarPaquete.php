@@ -39,7 +39,7 @@ $query = "INSERT INTO catalogo_paquetes (
         VALUES(
         '$userLog',
         30,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);

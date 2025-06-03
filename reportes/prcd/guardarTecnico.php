@@ -39,7 +39,7 @@ $query = "INSERT INTO tecnicos (
         VALUES(
         '$userLog',
         31,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);

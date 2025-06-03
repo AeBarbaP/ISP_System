@@ -38,24 +38,24 @@ $sql = "INSERT INTO pagos_generales (
         )";
         $resultado = $conn->query($sql);
         if($resultado){
+            // --------- log ---------------
+            $sqlLOG = "INSERT INTO log_users(
+            username,
+            accion,
+            hora,
+            folio_cliente
+            )
+            VALUES(
+            '$userLog',
+            6,
+            '$fechaHoy',
+            'NA')
+            ";
+            $resultadoLOG = $conn->query($sqlLOG);
+            // --------- log ---------------
             echo json_encode(array(
                 'success'=>1
             ));
-            // --------- log ---------------
-        $sqlLOG = "INSERT INTO log_users(
-        username,
-        accion,
-        hora,
-        folio_cliente
-        )
-        VALUES(
-        '$userLog',
-        6,
-        $fechaHoy,
-        'NA')
-        ";
-        $resultadoLOG = $conn->query($sqlLOG);
-        // --------- log ---------------
         }
         else{
             $error = $conn->error;

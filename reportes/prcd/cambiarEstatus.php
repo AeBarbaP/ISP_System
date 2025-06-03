@@ -29,7 +29,7 @@
         VALUES(
         '$userLog',
         24,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);

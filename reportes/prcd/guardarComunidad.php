@@ -34,7 +34,7 @@ session_start();
         VALUES(
         '$userLog',
         27,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);

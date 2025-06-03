@@ -34,13 +34,13 @@ $query = "UPDATE tecnicos SET
         )
         VALUES(
         '$userLog',
-        1,
-        $fechaHoy,
+        25,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);
         // --------- log ---------------
-        
+
     }
     else{
         $error = $conn->error;

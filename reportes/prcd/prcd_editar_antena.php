@@ -43,7 +43,7 @@ $query = "UPDATE antenas SET
         VALUES(
         '$userLog',
         32,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);

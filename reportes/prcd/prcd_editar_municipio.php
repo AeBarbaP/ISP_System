@@ -33,7 +33,7 @@ $query = "UPDATE catalogo_municipio SET
         VALUES(
         '$userLog',
         33,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);

@@ -27,9 +27,6 @@ $query = "UPDATE promociones SET
     $resultado = $conn->query($query);
 
     if($resultado){
-        echo json_encode(array(
-            'success'=>1
-        ));
         // --------- log ---------------
         $sqlLOG = "INSERT INTO log_users(
         username,
@@ -40,11 +37,14 @@ $query = "UPDATE promociones SET
         VALUES(
         '$userLog',
         13,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);
         // --------- log ---------------
+        echo json_encode(array(
+            'success'=>1
+        ));
     }
     else{
         $error = $conn->error;

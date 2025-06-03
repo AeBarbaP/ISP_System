@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('conn.php');
 
 date_default_timezone_set('America/Mexico_City');
 setlocale(LC_TIME, 'es_MX.UTF-8');
@@ -16,12 +17,13 @@ folio_cliente
 VALUES(
 '$userLog',
 22,
-$fechaHoy,
+'$fechaHoy',
 'NA')
 ";
 $resultadoLOG = $conn->query($sqlLOG);
 // --------- log ---------------
-
+// $error = $conn->error;
+// echo $error;
 session_destroy();
 $_SESSION = [];
 

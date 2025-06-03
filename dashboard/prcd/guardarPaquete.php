@@ -26,24 +26,24 @@ $query = "INSERT INTO catalogo_paquetes (
         )";
         $resultado = $conn->query($query);
         if($resultado){
+            // --------- log ---------------
+            $sqlLOG = "INSERT INTO log_users(
+            username,
+            accion,
+            hora,
+            folio_cliente
+            )
+            VALUES(
+            '$userLog',
+            9,
+            '$fechaHoy',
+            'NA')
+            ";
+            $resultadoLOG = $conn->query($sqlLOG);
+            // --------- log ---------------
             echo json_encode(array(
                 'success'=>1
             ));
-            // --------- log ---------------
-        $sqlLOG = "INSERT INTO log_users(
-        username,
-        accion,
-        hora,
-        folio_cliente
-        )
-        VALUES(
-        '$userLog',
-        9,
-        $fechaHoy,
-        'NA')
-        ";
-        $resultadoLOG = $conn->query($sqlLOG);
-        // --------- log ---------------
         }
         else{
             $error = $conn->error;

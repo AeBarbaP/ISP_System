@@ -24,9 +24,6 @@ $query = "UPDATE incidencias SET
     $resultado = $conn->query($query);
 
     if($resultado){
-        echo json_encode(array(
-            'success'=>1
-        ));
         // --------- log ---------------
         $sqlLOG = "INSERT INTO log_users(
         username,
@@ -37,11 +34,14 @@ $query = "UPDATE incidencias SET
         VALUES(
         '$userLog',
         15,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);
         // --------- log ---------------
+        echo json_encode(array(
+            'success'=>1
+        ));
         
     }
     else{

@@ -30,7 +30,7 @@ $query = "DELETE FROM antenas
         VALUES(
         '$userLog',
         38,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);

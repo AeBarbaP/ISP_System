@@ -23,9 +23,6 @@
     $resultadoUsr= $conn->query($sqlinsertUsr);
     
     if($resultadoUsr){
-        echo json_encode(array(
-            'success' => 1
-        ));
         // --------- log ---------------
         $sqlLOG = "INSERT INTO log_users(
         username,
@@ -36,11 +33,14 @@
         VALUES(
         '$userLog',
         23,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);
         // --------- log ---------------
+        echo json_encode(array(
+            'success' => 1
+        ));
     }
     else{
         echo json_encode(array(

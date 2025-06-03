@@ -5,7 +5,7 @@ session_start();
     setlocale(LC_TIME, 'es_MX.UTF-8');
     $userLog = $_SESSION['username'];
     $fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
-    
+
     include('conn.php');
 
     $nombre = $_POST['nombre'];
@@ -34,7 +34,7 @@ session_start();
         VALUES(
         '$userLog',
         29,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);

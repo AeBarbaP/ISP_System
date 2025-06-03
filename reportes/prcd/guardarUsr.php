@@ -53,7 +53,7 @@ $query = "INSERT INTO users (
         VALUES(
         '$userLog',
         31,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);

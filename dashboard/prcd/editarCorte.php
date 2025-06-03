@@ -21,9 +21,6 @@ $query = "UPDATE cortes SET
 $resultado = $conn->query($query);
 
 if($resultado){
-    echo json_encode(array(
-        'success'=>1
-    ));
     $sqlLOG = "INSERT INTO log_users(
         username,
         accion,
@@ -33,10 +30,13 @@ if($resultado){
         VALUES(
         '$userLog',
         3,
-        $fechaHoy,
+        '$fechaHoy',
         'NA')
         ";
         $resultadoLOG = $conn->query($sqlLOG);
+    echo json_encode(array(
+        'success'=>1
+    ));
 }
 else{
     $error = $conn->error;
