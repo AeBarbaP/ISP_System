@@ -149,9 +149,19 @@ $(document).ready(function() {
                     responsive: true,
                     scales: {
                         y: {
-                            beginAtZero: true,
-                            title: { display: true, text: 'Número de pagos' }
-                        },
+            beginAtZero: true,
+            title: { display: true, text: 'Número de pagos' },
+            ticks: {
+                // Fuerza números enteros (sin decimales)
+                precision: 0, // Opción 1 (Chart.js 3+)
+                // stepSize: 1,  // Opción 2 (para versiones anteriores)
+                callback: function(value) {
+                    if (Number.isInteger(value)) {
+                        return value; // Solo muestra enteros
+                    }
+                }
+            }
+        },
                         x: {
                             title: { display: true, text: 'Fecha' }
                         }
