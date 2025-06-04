@@ -2,27 +2,46 @@
 require('pdf/fpdf/fpdf.php');
 require('conn.php');
 
+setlocale(LC_TIME, 'es_ES.UTF-8', 'spanish');
+date_default_timezone_set('America/Mexico_City');
+
+$meses = [
+    1 => 'enero', 2 => 'febrero', 3 => 'marzo', 
+    4 => 'abril', 5 => 'mayo', 6 => 'junio',
+    7 => 'julio', 8 => 'agosto', 9 => 'septiembre',
+    10 => 'octubre', 11 => 'noviembre', 12 => 'diciembre'
+];
+
 $id = $_REQUEST['id'];
 
-$sql = "SELECT * FROM clientes WHERE folio = '$id'";
-$resultado = $conn->query($sql);
-$row = $resultado->fetch_assoc();
+$row = $conn->query("SELECT * FROM clientes WHERE folio = '$id'")->fetch_assoc();
 
 $fechaContrato = new DateTime($row['fecha_contrato']);
 
 $nombre = $row['nombre'];
 $domicilio = $row['domicilio'];
 $telefono = $row['telefono'];
-$comunidad = $row['comunidad'];
-$municipio = $row['municipio'];
-$estado = $row['estado'];
+
+$comunidad1 = $row['comunidad'];
+$rowComunidad = $conn->query("SELECT * FROM catalogo_comunidades WHERE id = '$comunidad1'")->fetch_assoc();
+$comunidad = $rowComunidad['comunidad'];
+
+$municipio1 = $row['municipio'];
+$rowMunicipio = $conn->query("SELECT * FROM catalogo_municipio WHERE id = '$municipio1'")->fetch_assoc();
+$municipio = $rowMunicipio['municipio'];
+
+$estado1 = $row['estado'];
+$rowEstado = $conn->query("SELECT * FROM catalogo_estado WHERE id = '$estado1'")->fetch_assoc();
+$estado = $rowEstado['estado'];
+
 $direccionip = $row['direccionip'];
 $antena = $row['antena'];
 $fecha_contrato = $row['fecha_contrato'];
 $servicio = $row['servicio'];
 // $mes = $inicio->format('m');
 $dia_pago = $fechaContrato->format('d');
-$mes_pago = $fechaContrato->format('m');
+// $mes_pago = $fechaContrato->format('m');
+$mes_pago = $meses[(int)$fechaContrato->format('m')];
 $mensualidad = '350';
 $meses_pagados = '1';
 $servicio = $row['servicio'];
@@ -108,7 +127,7 @@ $pdf->Cell(28,6,utf8_decode(' $ '.$mensualidad),'B',0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
 $pdf->Cell(25,6,utf8_decode('Días de Pago: '),0,0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
-$pdf->Cell(33,6,utf8_decode(''.$dia_pago.' del mes '.$mes_pago.''),'B',0,'L');
+$pdf->Cell(33,6,utf8_decode(''.$dia_pago.' del mes de '.$mes_pago.''),'B',0,'L');
 $pdf->Ln();
 $pdf->SetFont('Arial','B',10);
 $pdf->Cell(33,6,utf8_decode('Mes(es) Pagados:'),0,0,'L');
