@@ -44,7 +44,11 @@ $dia_pago = $fechaContrato->format('d');
 $mes_pago = $meses[(int)$fechaContrato->format('m')];
 $mensualidad = '350';
 $meses_pagados = '1';
-$servicio = $row['servicio'];
+
+$servicio1 = $row['servicio'];
+$rowServicio = $conn->query("SELECT * FROM catalogo_paquetes WHERE id = '$servicio1'")->fetch_assoc();
+$servicio = $rowServicio['paquetes'];
+$servicioV = $rowServicio['velocidad'];
 
 class PDF extends FPDF {
     function Header() {
@@ -119,7 +123,7 @@ $pdf->Ln();
 $pdf->SetFont('Arial','B',10);
 $pdf->Cell(40,6,utf8_decode('Velocidad Contratada:'),0,0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
-$pdf->Cell(22,6,utf8_decode('  '.$servicio),'B',0,'L');
+$pdf->Cell(22,6,utf8_decode('  '.$servicioV. ' MBps'),'B',0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
 $pdf->Cell(24,6,utf8_decode('Mensualidad:'),0,0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
@@ -127,7 +131,7 @@ $pdf->Cell(28,6,utf8_decode(' $ '.$mensualidad),'B',0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
 $pdf->Cell(25,6,utf8_decode('Días de Pago: '),0,0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
-$pdf->Cell(33,6,utf8_decode(''.$dia_pago.' del mes de '.$mes_pago.''),'B',0,'L');
+$pdf->Cell(33,6,utf8_decode(''.$dia_pago.' del mes'),'B',0,'L');
 $pdf->Ln();
 $pdf->SetFont('Arial','B',10);
 $pdf->Cell(33,6,utf8_decode('Mes(es) Pagados:'),0,0,'L');
