@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 03-06-2025 a las 19:35:38
+-- Tiempo de generación: 04-06-2025 a las 00:17:30
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -180,22 +180,22 @@ INSERT INTO `catalogo_logs` (`id`, `descripcion`) VALUES
 (16, 'Editar usuario'),
 (17, 'Eliminar corte'),
 (18, 'Editar fallas'),
-(19, 'Registrar promoción'),
-(20, 'Acceso sistema'),
-(21, 'Salida sistema'),
-(22, 'Agregar usuario (Reportes)'),
-(23, 'Cambiar estatus usuario (Reportes)'),
-(24, 'Cambiar estatus técnico (Reportes)'),
-(25, 'Guardar antena (Reportes)'),
-(26, 'Guardar comunidad (Reportes)'),
-(27, 'Guardar contrato (Reportes)'),
-(28, 'Guardar municipio (Reportes)'),
-(29, 'Guardar paquete (Reportes)'),
-(30, 'Guardar usuario (Reportes)'),
-(31, 'Editar antena (Reportes)'),
-(32, 'Editar municipio (Reportes)'),
-(33, 'Editar paquete (Reportes)'),
-(34, 'Editar promoción (Reportes)'),
+(19, 'Guardar incidencias'),
+(20, 'Registrar promoción'),
+(21, 'Acceso sistema'),
+(22, 'Salida sistema'),
+(23, 'Agregar usuario (Reportes)'),
+(24, 'Cambiar estatus usuario (Reportes)'),
+(25, 'Cambiar estatus técnico (Reportes)'),
+(26, 'Guardar antena (Reportes)'),
+(27, 'Guardar comunidad (Reportes)'),
+(28, 'Guardar contrato (Reportes)'),
+(29, 'Guardar municipio (Reportes)'),
+(30, 'Guardar paquete (Reportes)'),
+(31, 'Guardar usuario (Reportes)'),
+(32, 'Editar antena (Reportes)'),
+(33, 'Editar municipio (Reportes)'),
+(34, 'Editar paquete (Reportes)'),
 (35, 'Editar promoción (Reportes)'),
 (36, 'Editar técnico (Reportes)'),
 (37, 'Editar usuario (Reportes)'),
@@ -248,7 +248,8 @@ INSERT INTO `catalogo_paquetes` (`id`, `paquetes`, `velocidad`, `costo`, `estatu
 (1, 'Básico', 7, '350.00', 1),
 (2, 'Intermedio', 12, '550.00', 1),
 (3, 'Avanzado', 18, '850.00', 1),
-(7, 'Paquete Muevas', 25, '400.00', 1);
+(7, 'Paquete Muevas', 25, '400.00', 1),
+(8, 'Paquete de prueba jesusrlv', 1, '1.00', 1);
 
 -- --------------------------------------------------------
 
@@ -467,11 +468,16 @@ CREATE TABLE `log_users` (
 --
 
 INSERT INTO `log_users` (`id`, `username`, `accion`, `hora`, `folio_cliente`) VALUES
-(1, '', 22, '2025-06-03 12:17:32', 'NA'),
+(1, 'jesusrlv', 22, '2025-06-03 12:17:32', 'NA'),
 (2, 'aebarba', 22, '2025-06-03 12:18:04', 'NA'),
-(3, '', 22, '2025-06-03 12:19:25', 'NA'),
+(3, 'jesusrlv', 22, '2025-06-03 12:19:25', 'NA'),
 (4, 'aebarba', 19, '2025-06-03 12:21:01', 'NA'),
-(5, 'aebarba', 22, '2025-06-03 12:27:20', 'NA');
+(5, 'aebarba', 22, '2025-06-03 12:27:20', 'NA'),
+(6, 'jesusrlv', 22, '2025-06-03 12:45:12', 'NA'),
+(7, 'aebarba', 21, '2025-06-03 12:45:25', 'NA'),
+(8, 'aebarba', 30, '2025-06-03 17:04:14', 'NA'),
+(9, 'aebarba', 26, '2025-06-03 17:16:31', 'NA'),
+(10, 'aebarba', 38, '2025-06-03 17:16:53', 'NA');
 
 -- --------------------------------------------------------
 
@@ -812,7 +818,7 @@ ALTER TABLE `acciones`
 -- AUTO_INCREMENT de la tabla `antenas`
 --
 ALTER TABLE `antenas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `catalogo_adelanto`
@@ -854,7 +860,7 @@ ALTER TABLE `catalogo_municipio`
 -- AUTO_INCREMENT de la tabla `catalogo_paquetes`
 --
 ALTER TABLE `catalogo_paquetes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `catalogo_reconexion`
@@ -908,7 +914,7 @@ ALTER TABLE `logs_login`
 -- AUTO_INCREMENT de la tabla `log_users`
 --
 ALTER TABLE `log_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos`
