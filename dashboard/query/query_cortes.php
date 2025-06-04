@@ -26,14 +26,14 @@ while($row = $resultado->fetch_assoc()){
         <td>'.$cliente.'</td>
         <td>'.$domicilio.'</td>';
         if($tecnico === NULL){
-            echo '<td><span style="border-radius: 5px; background-color:red; padding:5px; color:white; font-size:8px">No asignado</span></td>';
+            //echo '<td><span style="border-radius: 5px; background-color:red; padding:5px; color:white; font-size:8px">No asignado</span></td>';
         }
         else{
             $tecnico_a = $row['tecnico'];
             $sqlTecnico = "SELECT * FROM tecnicos WHERE id = '$tecnico_a' AND estatus = 1";
             $resultado_a = $conn->query($sqlTecnico);
             $row_a = $resultado_a->fetch_assoc();
-            echo '<td><span style="border-radius: 5px; background-color:blue; padding:5px; color:white; font-size:8px">'.$row_a['nombre'].'</span></td>';
+            //echo '<td><span style="border-radius: 5px; background-color:blue; padding:5px; color:white; font-size:8px">'.$row_a['nombre'].'</span></td>';
         }
         // <td>'.$tecnico_asignado.'</td>
         echo '<td>'.$row['fecha'].'</td>';

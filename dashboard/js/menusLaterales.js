@@ -2376,7 +2376,7 @@ function gestionCortes() {
                               <th scope="col">Folio Corte</th>
                               <th scope="col">Cliente</th>
                               <th scope="col">Domicilio</th>
-                              <th scope="col">Técnico Asignado</th>
+                              <!-- <th scope="col">Técnico Asignado</th> -->
                               <th scope="col">Fecha Registro</th>
                               <th scope="col">Estatus</th>
                               <th scope="col"><i class="bi bi-pencil-square"></i><i class="bi bi-trash"></i> </th>
