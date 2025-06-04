@@ -7,6 +7,13 @@ $row = $resultado->fetch_assoc();
 
 $cortes = $row['cortes'];
 
+if ($cortes == 0 || $cortes == null) {
+    $cortes = 0;
+}
+else{
+    $cortes = $cortes;
+}
+
 echo json_encode(array(
     'success'=>1,
     'cortes'=>$cortes

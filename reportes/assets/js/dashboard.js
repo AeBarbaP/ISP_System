@@ -7,7 +7,7 @@ function queryContratosNuevos(){
             var datos = JSON.parse(JSON.stringify(data));
             var success = datos.success;
             if(success == 1) {
-                _("expNews2").value = datos.contratos;
+                _("expNews2").innerHTML = datos.contratos;
             } else {
                 console.log("No existen contratos");
             }
@@ -26,7 +26,7 @@ function queryIncidencias(){
             var datos = JSON.parse(JSON.stringify(data));
             var success = datos.success;
             if(success == 1) {
-                _("filasTar").value = datos.incidencias;
+                _("filasFallas").innerText = datos.incidencias;
             } else {
                 console.log("No existen contratos");
             }
@@ -45,7 +45,7 @@ function queryCortes(){
             var datos = JSON.parse(JSON.stringify(data));
             var success = datos.success;
             if(success == 1) {
-                _("credEnt").value = datos.incidencia;
+                _("filasCortes").innerHTML = datos.incidencia;
             } else {
                 console.log("No existen contratos");
             }

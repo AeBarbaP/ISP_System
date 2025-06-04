@@ -230,7 +230,7 @@ else {
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
                             <li class="nav-item dropdown">
-                                <a class="nav-link" aria-current="page" href="../dashboard/dashboard.html"><i class="bi bi-house-door me-3"  style="font-size: 22px"></i>CONECTWI - Inicio</a>
+                                <a class="nav-link" aria-current="page" href="../dashboard/dashboard.php"><i class="bi bi-house-door me-3"  style="font-size: 22px"></i>CONECTWI - Inicio</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -511,7 +511,7 @@ else {
                                             </h1>
                                         </div>
                                         <div class="col-6">
-                                            <h1 class="p-3" style="color: #4ea0f2;"><span id="expNews2">0</span></h1>
+                                            <h1 class="p-3" style="color: #4ea0f2;"><span id="expNews2"></span></h1>
                                             <p><small class="text-success pe-2">(<i class="bi bi-arrow-up"></i> 17.2%)</small></p>
                                         </div>
                                     </div>
@@ -525,8 +525,8 @@ else {
                                     <div class="row mt-5">
                                         <div class="col-6 text-start h1"><i class="bi bi-person-badge border p-2 rounded" style="background-color: #cbe5ff; color: #4ea0f2;"></i></div>
                                         <div class="col-6">
-                                            <p class="card-text h3 pe-2" style="color: #4ea0f2;"><span id="filasTar">0</span></p>
-                                            <p class=""><small class="text-warning">(<i class="bi bi-arrow-up"></i> 33.3%)</small></p>
+                                            <p class="card-text h3 pe-2" style="color: #4ea0f2;"><span id="filasFallas"></span></p>
+                                            <p class=""><small class="text-warning"><i class="bi bi-exclamation-triangle"></i></small></p>
                                         </div>
                                     </div>
                                 </div>
@@ -539,8 +539,8 @@ else {
                                     <div class="row mt-5">
                                         <div class="col-6 text-start h1"><i class="bi bi-credit-card-2-front-fill border p-2 rounded" style="background-color: #cbe5ff; color: #4ea0f2;"></i></div>
                                         <div class="col-6">
-                                            <p class="card-text h3 pe-2" style="color: #4ea0f2;"><span id="credEnt">0</span></p>
-                                            <p class=""><small class="text-danger">(<i class="bi bi-arrow-up"></i> 54.3%)</small></p>
+                                            <p class="card-text h3 pe-2" style="color: #4ea0f2;"><span id="filasCortes">0</span></p>
+                                            <p class=""><small class="text-danger"><i class="bi bi-scissors"></i></small></p>
                                         </div>
                                         <!-- <div class="col-12 justify-content-center">
                                             <p class=""><small class="text-secondary"><i class="bi bi-list-columns-reverse me-2"></i> Reportes</small></p>

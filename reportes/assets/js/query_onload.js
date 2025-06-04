@@ -12,23 +12,23 @@ function usuariosQueryLogs(){
 function conteoGeneralCards(){ 
     $.ajax({
         type:"POST",
-        url:"query/queryconteoGeneral.php",
+        url:"query/query_conteogeneral.php",
         dataType: "json",
         cache: false,
         success: function(response)
         { 
             var jsonData = JSON.parse(JSON.stringify(response));
             var filas = jsonData.filas;
-            var filasExp = jsonData.filasExp;
-            var filasTar = jsonData.filasTar;
+            var cortes = jsonData.cortes;
+            var fallas = jsonData.fallas;
             var filasAct = jsonData.filasAct;
 
-            console.log("Nuevos registros: "+filas);
-            document.getElementById("expNews2").innerHTML = filas;
-            console.log("Entrega credenciales: "+filasExp);
-            document.getElementById("credEnt").innerHTML = filasExp;
-            console.log("Tarjetones entregados: "+filasTar);
-            document.getElementById("filasTar").innerHTML = filasTar;
+            //console.log("Nuevos registros: "+filas);
+            document.getElementById("filasContratos").innerHTML = filas;
+            //console.log("Entrega credenciales: "+filasExp);
+            document.getElementById("filasFallas").innerHTML = filasExp;
+            //console.log("Tarjetones entregados: "+filasTar);
+            document.getElementById("filasCortes").innerHTML = filasTar;
         }
     });
 }
