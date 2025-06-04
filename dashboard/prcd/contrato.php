@@ -1,5 +1,31 @@
 <?php
 require('pdf/fpdf/fpdf.php');
+require('conn.php');
+
+$id = $_REQUEST['id'];
+
+$sql = "SELECT * FROM clientes WHERE folio = '$id'";
+$resultado = $conn->query($sql);
+$row = $resultado->fetch_assoc();
+
+$fechaContrato = new DateTime($row['fecha_contrato']);
+
+$nombre = $row['nombre'];
+$domicilio = $row['domicilio'];
+$telefono = $row['telefono'];
+$comunidad = $row['comunidad'];
+$municipio = $row['municipio'];
+$estado = $row['estado'];
+$direccionip = $row['direccionip'];
+$antena = $row['antena'];
+$fecha_contrato = $row['fecha_contrato'];
+$servicio = $row['servicio'];
+// $mes = $inicio->format('m');
+$dia_pago = $fechaContrato->format('d');
+$mes_pago = $fechaContrato->format('m');
+$mensualidad = '350';
+$meses_pagados = '1';
+$servicio = $row['servicio'];
 
 class PDF extends FPDF {
     function Header() {
@@ -31,63 +57,63 @@ $pdf->SetFont('Arial', 'B', 10);
 $pdf->Cell(0, 7, 'DATOS DEL CLIENTE:', 0, 1,'C');
 
 $pdf->SetFont('Arial','B',10);
-$pdf->Cell(36,6,utf8_decode('Nombre del Cliente:'),0,0,'L');
+$pdf->Cell(36,6,utf8_decode('Nombre del Cliente: '),0,0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
-$pdf->Cell(139,6,utf8_decode('  '),'B',0,'L');
+$pdf->Cell(139,6,utf8_decode('  '.$nombre),'B',0,'L');
 $pdf->Ln();
 $pdf->SetFont('Arial','B',10);
 $pdf->Cell(20,6,utf8_decode('Domicilio:'),0,0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
-$pdf->Cell(95,6,utf8_decode('  '),'B',0,'L');
-$pdf->Cell(19,6,utf8_decode('Teléfono:'),0,0,'L');
+$pdf->Cell(95,6,utf8_decode('  '. $domicilio),'B',0,'L');
+$pdf->Cell(19,6,utf8_decode('Teléfono: '),0,0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
-$pdf->Cell(40,6,utf8_decode('  '),'B',0,'L');
+$pdf->Cell(40,6,utf8_decode('  '.$telefono),'B',0,'L');
 $pdf->Ln();
 $pdf->SetFont('Arial','B',10);
 $pdf->Cell(22,6,utf8_decode('Comunidad:'),0,0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
-$pdf->Cell(66,6,utf8_decode('  '),'B',0,'L');
+$pdf->Cell(66,6,utf8_decode('  '.$comunidad),'B',0,'L');
 $pdf->Cell(20,6,utf8_decode('Municipio:'),0,0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
-$pdf->Cell(66,6,utf8_decode('  '),'B',0,'L');
+$pdf->Cell(66,6,utf8_decode('  '.$municipio),'B',0,'L');
 $pdf->Ln();
 $pdf->SetFont('Arial','B',10);
 $pdf->Cell(16,6,utf8_decode('Estado:'),0,0,'L');
 $pdf->Cell(2,6,utf8_decode(''),0,0,'C');
-$pdf->Cell(66,6,utf8_decode('  '),'B',0,'L');
+$pdf->Cell(66,6,utf8_decode('  '.$estado),'B',0,'L');
 $pdf->Ln();
 $pdf->Ln();
 $pdf->SetFont('Arial','B',10);
 $pdf->Cell(33,6,utf8_decode('Fecha Instalación:'),0,0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
-$pdf->Cell(40,6,utf8_decode('  '),'B',0,'L');
+$pdf->Cell(40,6,utf8_decode('  '.$fecha_contrato),'B',0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
 $pdf->Ln();
 $pdf->Cell(19,6,utf8_decode('IP Cliente:'),0,0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
-$pdf->Cell(69,6,utf8_decode('  '),'B',0,'L');
+$pdf->Cell(69,6,utf8_decode('  '.$direccionip),'B',0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
 $pdf->Cell(16,6,utf8_decode('Antena:'),0,0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
-$pdf->Cell(69,6,utf8_decode('  '),'B',0,'L');
+$pdf->Cell(69,6,utf8_decode('  '.$antena),'B',0,'L');
 $pdf->Ln();
 $pdf->SetFont('Arial','B',10);
 $pdf->Cell(40,6,utf8_decode('Velocidad Contratada:'),0,0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
-$pdf->Cell(22,6,utf8_decode('  '),'B',0,'L');
+$pdf->Cell(22,6,utf8_decode('  '.$servicio),'B',0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
 $pdf->Cell(24,6,utf8_decode('Mensualidad:'),0,0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
-$pdf->Cell(28,6,utf8_decode(' $ '),'B',0,'L');
+$pdf->Cell(28,6,utf8_decode(' $ '.$mensualidad),'B',0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
-$pdf->Cell(25,6,utf8_decode('Días de Pago:'),0,0,'L');
+$pdf->Cell(25,6,utf8_decode('Días de Pago: '),0,0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
-$pdf->Cell(33,6,utf8_decode('   del Mes'),'B',0,'L');
+$pdf->Cell(33,6,utf8_decode(''.$dia_pago.' del mes '.$mes_pago.''),'B',0,'L');
 $pdf->Ln();
 $pdf->SetFont('Arial','B',10);
 $pdf->Cell(33,6,utf8_decode('Mes(es) Pagados:'),0,0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
-$pdf->Cell(66,6,utf8_decode('  '),'B',0,'L');
+$pdf->Cell(66,6,utf8_decode('  '.$meses_pagados),'B',0,'L');
 $pdf->Ln();
 $pdf->Ln();
 

@@ -218,7 +218,7 @@ function guardarContrato(){
     
             if(success == 1){
                 alert("Contrato guardado");
-                $('#contrato').modal('hide');
+                // $('#contrato').modal('hide');
                 // limpiarCampos2();
             }
             else{
@@ -228,6 +228,13 @@ function guardarContrato(){
         }
     });
 }
+
+function contratoNuevo() {
+    var id = document.getElementById('folioLabelContrato').value;
+    const url = `prcd/contrato.php?id=${encodeURIComponent(id)}`;
+    window.open(url, '_blank'); // '_blank' abre en nueva pestaña
+}
+
 
 function mostrarPwd1(){
     var valorCheck = _("mostrarPwd1");

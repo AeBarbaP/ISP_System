@@ -625,7 +625,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Cancelar</button>
                     <button type="button" class="btn btn-primary" id="guardarbtn" onclick="guardarContrato()" >Guardar</button> <!-- Guarda registro de cliente nuevo y manda a modal de pago automáticamente -->
-                    <button type="button" class="btn btn-success" id="imprimircbtn" data-bs-toggle="modal" data-bs-target="#pago" >Imprimir Contrato</button>
+                    <button type="button" class="btn btn-success" id="imprimircbtn" onclick="contratoNuevo()">Imprimir Contrato</button>
                 </div>
             </div>
         </div>
