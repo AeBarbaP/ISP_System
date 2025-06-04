@@ -1266,13 +1266,14 @@ function guardarComunidad() {
   _
 }
 
-function editarComunidad() {
+function editarComunidad(id) {
 
   let titulo = "Editar Comunidad";
   // Crear el elemento del modal
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'editarComunidadModal');
   modal.innerHTML = `
     <div class="modal-dialog">
       <div class="modal-content">
@@ -1295,7 +1296,7 @@ function editarComunidad() {
             </div>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-map me-2"></i>Estado:</label>
-              <select class="form-select" aria-label="estado" id="estado">
+              <select class="form-select" aria-label="estado" id="estadoMunUpdate">
                   <option value="" selected>Selecciona Estado...</option>
                   <option value="Zacatecas">Zacatecas</option>
                   <option value="Jalisco">Jalisco</option>
@@ -1306,7 +1307,7 @@ function editarComunidad() {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" onclick="updateComunidad()">Guardar</button>
+          <button type="button" class="btn btn-primary" onclick="updateComunidad(${id})">Guardar</button>
         </div>
       </div>
     </div>
@@ -1319,10 +1320,126 @@ function editarComunidad() {
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
   selectMunicipios();
+  datosComunidad(id);
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
+  });
+}
+
+function cargarComunidades(){
+  $.ajax({
+    url: 'query/query_comunidades.php',
+    type: 'POST',
+    dataType: 'html',
+    success: function (response) {
+        $('#tablaComunidades').html(response);
+    }
+  });
+}
+
+function datosComunidad(id){
+  $.ajax({
+    url: 'query/query_datos_comunidad.php',
+    type: 'POST',
+    data:{
+      id:id
+    },
+    dataType: 'json',
+    success: function(data) {
+      var datos = JSON.parse(JSON.stringify(data));
+      var success = datos.success;
+
+      if (success == 1) {
+        _("nombre_comunidadEdit").value = datos.comunidad;
+        _("municipioCom").value = datos.municipio;
+        _("estadoMunUpdate").value = datos.estado;
+
+      }
+      else{
+          console.log(datos.error)
+      }
+    }
+  });
+}
+
+function updateComunidad(id){
+  let municipio = _('municipioCom').value;
+  let estado = _('estadoMunUpdate').value;
+  let comunidad = _('nombre_comunidadEdit').value;
+
+  if (estado === "" || municipio === "" || comunidad === "") {
+    alert("Por favor, completa todos los campos de la antena.");
+    return;
+  }
+  $.ajax({
+    url: 'prcd/prcd_editar_comunidad.php',
+    type: 'POST',
+    data: {
+        id: id,
+        estado: estado,
+        municipio: municipio,
+        comunidad: comunidad
+    },
+    success: function (response) {
+        let data = JSON.parse(JSON.stringify(response));
+        let success = data.success;
+        if (success = 1) {
+            alert("Comunidad editado con éxito");
+            $('#editarComunidadModal').modal('hide');
+            // Recargar la tabla de paquetes
+            cargarComunidades();
+        }
+        else {
+            alert("Error al actualizar la Comunidad");
+            console.log(data.error);
+        }
+    }
+  });
+}
+
+function eliminarComunidad(id){
+  Swal.fire({
+    title: "Estas seguro/a?",
+    text: "Se eliminará la Comunidad seleccionada",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Sí, borrarla!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $.ajax({
+        type: "POST",
+        url: "prcd/prcd_eliminar_comunidad.php", 
+        data: {
+            id: id
+        },
+        dataType: "json",
+        success: function(response) {
+          let data = JSON.parse(JSON.stringify(response));
+            var success = data.success;
+            if (success = 1) {
+                Swal.fire({
+                  title: "Eliminada!",
+                  text: "La Comunidad fue eliminada con éxito.",
+                  icon: "success"
+                });
+                cargarComunidades();
+            }
+            else {
+                Swal.fire({
+                  title: "Error!",
+                  text: "No se pudo Eliminar la Comunidad.",
+                  icon: "error"
+                });
+                console.log(data.error);
+            }
+        }
+      });
+      
+    }
   });
 }
 
@@ -1358,6 +1475,7 @@ function gestionComunidades() {
                               <th scope="col">Municipio</th>
                               <th scope="col">Estado</th>
                               <th scope="col"><i class="bi bi-pencil-square"></i></th>
+                              <th scope="col"><i class="bi bi-trash"></i></th>
                           </tr>
                       </thead>
                       <tbody id="tablaComunidades">
@@ -1380,6 +1498,7 @@ function gestionComunidades() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
+  cargarComunidades();
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
