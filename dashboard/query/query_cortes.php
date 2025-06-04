@@ -24,7 +24,7 @@ while($row = $resultado->fetch_assoc()){
         <td>'.$x.'</td>
         <td>'.$row['folio_corte'].'</td>
         <td>'.$cliente.'</td>
-        <td>'.$domicilio.'</td>';
+        <td>'.$domicilio.'</td>'; 
         if($tecnico === NULL){
             //echo '<td><span style="border-radius: 5px; background-color:red; padding:5px; color:white; font-size:8px">No asignado</span></td>';
         }
