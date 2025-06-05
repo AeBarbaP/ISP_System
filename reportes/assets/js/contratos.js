@@ -20,7 +20,7 @@ function consultaClientesRep() {
         type: 'POST',
         dataType: 'html',
         success: function(data) {
-            $('#cliente_reporte').html(data);
+            $('#cliente_reporte_individual').html(data);
         }
     });
 }

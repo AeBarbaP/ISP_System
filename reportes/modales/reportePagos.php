@@ -31,8 +31,9 @@
                         
                         <div class="table-responsive table-hover mt-3">
                             <table class="table p-1 text-center table-hover">
-                                <thead>
+                                <thead class="table-dark text-light">
                                     <tr>
+                                        <th scope="col">#</th>
                                         <th scope="col">Folio</th>
                                         <th scope="col">Cliente</th>
                                         <th scope="col">Fecha Pago</th>
