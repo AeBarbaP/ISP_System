@@ -140,7 +140,7 @@ $(document).ready(function() {
                     datasets: [{
                         label: 'Pagos por día',
                         data: data.map(item => item.total_pagos),
-                        backgroundColor:'rgba(29, 226, 222, 1)',
+                        backgroundColor:'rgba(78, 160, 242, 1)',
                         //borderColor: 'rgb(17, 68, 68)',
                         borderWidth: 1,
                         borderRadius: 10
