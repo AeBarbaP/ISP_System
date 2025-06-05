@@ -441,7 +441,7 @@ else {
                 </div>
                 <div class="vr"></div>
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle  ms-2 me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle  ms-2 me-2 bloquearNav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Corte de Caja
                         <i class="bi bi-receipt ms-2" style="font-size: 25px;"></i>
                     </a>
@@ -579,7 +579,7 @@ else {
                                         </div>
                                         <div class="col-9 text-end">
                                             <h4 class="card-title">Actividad Reciente</h4>
-                                            <p class="text-muted small text-secondary mt-0">de Junio 1 de 2024 - Diciembre 31 de 2024</p>
+                                            <p class="text-muted small text-secondary mt-0">Mes en curso</p>
                                         </div>
                                     </div>
                                     <!-- tabla -->
