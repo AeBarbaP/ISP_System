@@ -14,7 +14,7 @@
                             <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar" value="" aria-describedby="basic-addon1" name="nombre" required>
                         </div>
                         <div class="mb-3">
-                            <select class="form-select" id="cliente_reporte" size="4" aria-label="numero de cliente">
+                            <select class="form-select" id="cliente_reporte_individual" size="4" aria-label="numero de cliente">
                                 <option selected>Selecciona...</option>
                                 <!-- Muestra los folios de las incidencias que aún no han sido resueltas para cambiar los datos -->
                             </select>
@@ -35,14 +35,14 @@
                             <label for="tipoReporteCliente" class="form-label">Tipo Reporte:</label>
                             <select class="form-select" id="tipoReporteCliente" aria-label="Tipo reporte" required>
                                 <option selected>Selecciona...</option>
-                                <option value="Global">Global</option>
-                                <option value="Detallado">Detallado</option>
+                                <option value="1">Global</option>
+                                <option value="2">Detallado</option>
                             </select>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
-                        <button type="submit" class="btn btn-primary"><i class="bi bi-filetype-pdf me-2" style="font-size: 20px;"></i>Generar Reporte</button>
+                        <button type="button" class="btn btn-primary" onclick="generarReporteIndClientes()"><i class="bi bi-filetype-pdf me-2" style="font-size: 20px;"></i>Generar Reporte</button>
                     </div>
                 </div>
             </div>

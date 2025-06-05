@@ -19,7 +19,7 @@
         $comunidad = $row1['comunidad'];
     
         echo'
-            <option>'.$nombre.' | '.$comunidad.'</option>
+            <option value="'.$folio.'">'.$nombre.' | '.$comunidad.'</option>
         ';
     }
     
