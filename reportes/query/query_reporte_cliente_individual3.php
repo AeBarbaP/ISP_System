@@ -12,8 +12,11 @@ ORDER BY id DESC";
 
 $resultado = $conn->query($sql);
 $x = 0;
+$totalSuma = 0;
 while($row = $resultado->fetch_assoc()){
     $x++;
+    $totalSuma = $totalSuma + $row['total'];
+
     echo'
     <tr>
         <td>'.$x.'</td>
@@ -24,5 +27,11 @@ while($row = $resultado->fetch_assoc()){
     </tr>
     ';
 }
-
+echo'
+<tr class="table-info">
+    <td colspan="2" class="text-center"></td>
+    <td colspan="1" class="text-center"><strong>Total:</strong></td>
+    <td colspan="1" class="text-center">'.$totalSuma.'</td>
+</tr>
+';
 ?>

@@ -43,16 +43,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="row">
-                            <div class="col-6 mb-3">
-                                <label class="form-label" id="basic-addon1">Tipo de Pago:</label>
-                                <input type="text" class="form-control" placeholder="" aria-label="tipo pago" id="tipo_pago_reportes" value="" aria-describedby="basic-addon1" name="tipo" disabled>
-                            </div>
-                            <div class="col-6 mb-3">
-                                <label class="form-label" id="basic-addon1">Total Pagado:</label>
-                                <input type="text" class="form-control" placeholder="" aria-label="total pago" id="total_pago_reportes" value="" aria-describedby="basic-addon1" name="total" disabled>
-                            </div>
-                        </div>
+                        
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>

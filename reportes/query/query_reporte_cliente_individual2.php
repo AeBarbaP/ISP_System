@@ -12,8 +12,10 @@ ORDER BY id DESC";
 
 $resultado = $conn->query($sql);
 $x = 0;
+$totalSuma = 0;
 while($row = $resultado->fetch_assoc()){
     $x++;
+    $totalSuma = $totalSuma + $row['total'];
     $folio = $row['folio_contrato'];
     $rowNombre = $conn->query("SELECT * FROM clientes WHERE folio = '$folio'")->fetch_assoc();
     $tipoPago = $row['tipo_pago'];
@@ -41,4 +43,12 @@ while($row = $resultado->fetch_assoc()){
     </tr>
     ';
 }
+echo'
+<tr class="table-info">
+    <td colspan="4" class="text-center"></td>
+    <td colspan="1" class="text-center"><strong>Total:</strong></td>
+    <td colspan="1" class="text-center">'.$totalSuma.'</td>
+    <td colspan="1" class="text-end"></td>
+</tr>
+';
 ?>
