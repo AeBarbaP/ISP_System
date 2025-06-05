@@ -53,9 +53,11 @@ function guardarContrato(){
             var success = datos.success;
     
             if(success == 1){
-                alert("Contrato guardado");
+                //alert("Contrato guardado");
+                $('#contrato').modal('reset');
                 $('#contrato').modal('hide');
                 // limpiarCampos2();
+
             }
             else{
                 alert("No se guardó");

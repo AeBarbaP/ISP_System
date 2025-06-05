@@ -49,15 +49,38 @@ function ejecutarFuncionConFolio(folio) {
             document.getElementById("datoscliente").hidden = false;
             let datosGenerales = '';
             data.forEach(function(item) {
+                if (item.pagos == 0){
+                    alert('Usuario nuevo, no hay pagos registrados');
+                    datosGenerales += `
+                    <div class="alert alert-info mb-2" role="alert">
+                    <h3><b>${item.nombre}</b></h3>
+                    <span>Folio Contrato: </span><span id="folioContratoRegistro">${item.folio}</span><br>
+                    <span>Domicilio: ${item.domicilio}</span>
+                    <br>
+                    <span>Comunidad: ${item.comunidad}</span>
+                    <br>
+                    <span>Teléfono: ${item.telefono}</span>
+                    <br>
+                    <span class="h3"><b>Paquete Contratado: ${item.paquete}</b></span>
+                    <br>
+                    <span class="h3">Último Pago Registrado: ${item.ultimopago} ${item.total}</span>
+                    </div>`;
+                }
+                else{
                 datosGenerales += `
                 <div class="alert alert-info mb-2" role="alert">
-                <h3>${item.nombre}</h3><span>Folio Contrato: </span><span id="folioContratoRegistro">${item.folio}</span><br>
-                <span>Domicilio:${item.domicilio}</span>
-                <br>
-                <span>Comunidad:${item.comunidad}</span>
-                <br>
-                <span>Teléfono: ${item.telefono}</span>
-                </div>`;
+                    <h3><b>${item.nombre}</b></h3>
+                    <span>Folio Contrato: </span><span id="folioContratoRegistro">${item.folio}</span><br>
+                    <span>Domicilio: ${item.domicilio}</span>
+                    <br>
+                    <span>Comunidad: ${item.comunidad}</span>
+                    <br>
+                    <span>Teléfono: ${item.telefono}</span>
+                    <br>
+                    <span class="h3"><b>Paquete Contratado: ${item.paquete}</b></span>
+                    <br>
+                    <span class="h3">Último Pago Registrado: ${item.ultimopago} ${item.total}</span>
+                    </div>`;}
             });
             $('#datosGenerales').html(datosGenerales);
 

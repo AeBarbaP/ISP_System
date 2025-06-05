@@ -91,7 +91,7 @@
 			<script src="https://cdn.lordicon.com/lordicon.js"></script>
             <ul class="nav page-navigation">
               	<li class="nav-item">
-					<a class="nav-link" href="index.html">
+					<a class="nav-link" href="dashboard.php">
 					<!-- <i class="mdi mdi-file-document-box menu-icon"></i> -->
 					<lord-icon
 						src="https://cdn.lordicon.com/cnpvyndp.json"
@@ -335,120 +335,6 @@
 													</tr>
 												</thead>
 												<tbody id="tablaProximos2">
-													<tr>
-														<td class="py-1">
-															C-0356
-														</td>
-														<td>
-															Germán Rivas
-														</td>
-														
-														<td>
-															$ 77.99
-														</td>
-														<td>
-															May 15, 2025
-														</td>
-														<td>
-															Asignado
-														</td>
-														<td class="align-items-center"><button class="btn btn-sm btn-info btn-rounded"><i class="mdi mdi-refresh mx-0 text-white"></i></button></td>
-													</tr>
-													<tr>
-														<td class="py-1">
-															C-0329
-														</td>
-														<td>
-															Marco Pérez
-														</td>
-														
-														<td>
-															$245.30
-														</td>
-														<td>
-															July 1, 2025
-														</td>
-														<td>
-															Asignado
-														</td>
-														<td class="align-items-center"><button class="btn btn-sm btn-info btn-rounded"><i class="mdi mdi-refresh mx-0 text-white"></i></button></td>
-													</tr>
-													<tr>
-														<td class="py-1">
-															C-0544
-														</td>
-														<td>
-															Juan Ricardo
-														</td>
-														
-														<td>
-															$138.00
-														</td>
-														<td>
-															Apr 12, 2025
-														</td>
-														<td>
-															Asignado
-														</td>
-														<td class="align-items-center"><button class="btn btn-sm btn-info btn-rounded"><i class="mdi mdi-refresh mx-0 text-white"></i></button></td>
-													</tr>
-													<tr>
-														<td class="py-1">
-															C-0436
-														</td>
-														<td>
-															Pedro Méndez
-														</td>
-														
-														<td>
-															$ 77.99
-														</td>
-														<td>
-															May 15, 2025
-														</td>
-														<td>
-															Asignado
-														</td>
-														<td class="align-items-center"><button class="btn btn-sm btn-info btn-rounded"><i class="mdi mdi-refresh mx-0 text-white"></i></button></td>
-													</tr>
-													<tr>
-														<td class="py-1">
-															C-0582
-														</td>
-														<td>
-															Eduardo Santana
-														</td>
-														
-														<td>
-															$ 160.25
-														</td>
-														<td>
-															May 03, 2025
-														</td>
-														<td>
-															Asignado
-														</td>
-														<td class="align-items-center"><button class="btn btn-sm btn-info btn-rounded"><i class="mdi mdi-refresh mx-0 text-white"></i></button></td>
-													</tr>
-													<tr>
-														<td class="py-1">
-															C-0222
-														</td>
-														<td>
-															Juan Díaz
-														</td>
-														
-														<td>
-															$ 123.21
-														</td>
-														<td>
-															April 05, 2025
-														</td>
-														<td>
-															Asignado
-														</td>
-														<td class="align-items-center"><button class="btn btn-sm btn-info btn-rounded"><i class="mdi mdi-refresh mx-0 text-white"></i></button></td>
-													</tr>
 													
 												</tbody>
 											</table>
@@ -537,16 +423,25 @@
                     </div>
                     <div class="col-sm-4">
                         <label for="colonia" class="form-label">Comunidad:</label>
-                        <select class="form-select" name="" id="catalogoComunidades"></select>
+						<div class="input-group input-group-sm mb-3">
+                        	<input type="text" class="form-control" id="catalogoComunidades" name="comunidad" placeholder="">
+						</div>
+                        <!-- <select class="form-select" name="" id="catalogoComunidades"></select> -->
                     </div>
                     
                     <div class="col-sm-4">
                         <label for="municipio" class="form-label">Municipio:</label>
-                        <select class="form-select" name="" id="catalogoMunicipios"></select>
+						<div class="input-group input-group-sm mb-3">
+                        	<input type="text" class="form-control" id="catalogoMunicipios" name="municipio" placeholder="">
+						</div>
+                        <!-- <select class="form-select" name="" id="catalogoMunicipios"></select> -->
                     </div>
                     <div class="col-sm-4">
                         <label for="estado" class="form-label">Estado:</label>
-                        <select class="form-select" name="" id="catalogoEstados"></select>
+						<div class="input-group input-group-sm mb-3">
+                        	<input type="text" class="form-control" id="catalogoEstados" name="estado" placeholder="">
+						</div>
+                        <!-- <select class="form-select" name="" id="catalogoEstados"></select> -->
                     </div>
                     <div class="col-sm-4">
                         <label for="cp" class="form-label">C.P.:</label>

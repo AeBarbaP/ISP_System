@@ -217,8 +217,11 @@ function guardarContrato(){
             var success = datos.success;
     
             if(success == 1){
-                alert("Contrato guardado");
-                // $('#contrato').modal('hide');
+                $('#contrato').modal('hide');
+                $(".modal").on('hidden.bs.modal', function () {
+                    $(this).find('form').trigger('reset');
+                });
+                //$('#contrato').modal('reset');
                 // limpiarCampos2();
             }
             else{

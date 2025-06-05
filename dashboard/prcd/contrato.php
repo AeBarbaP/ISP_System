@@ -22,17 +22,17 @@ $nombre = $row['nombre'];
 $domicilio = $row['domicilio'];
 $telefono = $row['telefono'];
 
-$comunidad1 = $row['comunidad'];
-$rowComunidad = $conn->query("SELECT * FROM catalogo_comunidades WHERE id = '$comunidad1'")->fetch_assoc();
-$comunidad = $rowComunidad['comunidad'];
+$comunidad = $row['comunidad'];
+//$rowComunidad = $conn->query("SELECT * FROM catalogo_comunidades WHERE id = '$comunidad1'")->fetch_assoc();
+//$comunidad = $rowComunidad['comunidad'];
 
-$municipio1 = $row['municipio'];
-$rowMunicipio = $conn->query("SELECT * FROM catalogo_municipio WHERE id = '$municipio1'")->fetch_assoc();
-$municipio = $rowMunicipio['municipio'];
+$municipio = $row['municipio'];
+//$rowMunicipio = $conn->query("SELECT * FROM catalogo_municipio WHERE id = '$municipio1'")->fetch_assoc();
+//$municipio = $rowMunicipio['municipio'];
 
-$estado1 = $row['estado'];
-$rowEstado = $conn->query("SELECT * FROM catalogo_estado WHERE id = '$estado1'")->fetch_assoc();
-$estado = $rowEstado['estado'];
+$estado = $row['estado'];
+//$rowEstado = $conn->query("SELECT * FROM catalogo_estado WHERE id = '$estado1'")->fetch_assoc();
+//$estado = $rowEstado['estado'];
 
 $direccionip = $row['direccionip'];
 $antena = $row['antena'];
