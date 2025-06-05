@@ -14,18 +14,31 @@ $resultado = $conn->query($sql);
 $x = 0;
 while($row = $resultado->fetch_assoc()){
     $x++;
+    $folio = $row['folio_contrato'];
+    $rowNombre = $conn->query("SELECT * FROM clientes WHERE folio = '$folio'")->fetch_assoc();
+    $tipoPago = $row['tipo_pago'];
+    if($tipoPago == 1){
+        $pago = "Efectivo";
+    }
+    elseif($tipoPago == 2){
+        $pago = "Tarjeta de débito";
+    }
+    elseif($tipoPago == 3){
+        $pago = "Tarjeta de crédito";
+    }
+    elseif($tipoPago == 4){
+        $pago = "Transferencia";
+    }
     echo'
     <tr>
         <td>'.$x.'</td>
         <td>'.$row['folio_pago'].'</td>
-        <td>'.$row['folio_contrato'].'</td>
+        <td>'.$rowNombre['nombre'].'</td>
         <td>'.$row['fecha_pago'].'</td>
-        <td>'.$row['tipo_pago'].'</td>
+        <td>'.$pago.'</td>
         <td>'.$row['total'].'</td>
         <td><i class="bi bi-eye"></i></td>
     </tr>
     ';
 }
-
-echo json_encode($clientes);
 ?>
