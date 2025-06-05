@@ -26,7 +26,7 @@ function queryIncidencias(){
             var datos = JSON.parse(JSON.stringify(data));
             var success = datos.success;
             if(success == 1) {
-                _("filasFallas").innerText = datos.incidencias;
+                _("filasFallas").innerText = datos.incidencia;
             } else {
                 console.log("No existen contratos");
             }
@@ -45,7 +45,7 @@ function queryCortes(){
             var datos = JSON.parse(JSON.stringify(data));
             var success = datos.success;
             if(success == 1) {
-                _("filasCortes").innerHTML = datos.incidencia;
+                _("filasCortes").innerHTML = datos.cortes;
             } else {
                 console.log("No existen contratos");
             }
