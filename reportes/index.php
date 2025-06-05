@@ -176,7 +176,7 @@ else {
     <script src="../dashboard/js/laterales/promociones.js"></script>
     <script src="../dashboard/js/laterales/paquetes.js"></script>
 
-    <body class="bg-body-secondary" onload="">
+    <body class="bg-body-secondary" onload="revisarCorte()">
         <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
             <symbol id="check2" viewBox="0 0 16 16">
                 <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -233,7 +233,7 @@ else {
                                 <a class="nav-link" aria-current="page" href="../dashboard/dashboard.php"><i class="bi bi-house-door me-3"  style="font-size: 22px"></i>CONECTWI - Inicio</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle bloquearNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-people me-2" style="font-size: 22px"></i>
                                     Usuarios
                                 </a>
@@ -244,7 +244,7 @@ else {
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle bloquearNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-person-raised-hand me-2" style="font-size: 22px"></i>
                                     Técnicos
                                 </a>
@@ -254,7 +254,7 @@ else {
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle bloquearNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-columns-gap me-2" style="font-size: 22px"></i>
                                     Paquetes
                                 </a>
@@ -264,7 +264,7 @@ else {
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle bloquearNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-tag me-2" style="font-size: 22px"></i>
                                     Promociones
                                 </a>
@@ -277,7 +277,7 @@ else {
                                 <hr>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle bloquearNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-broadcast-pin me-2" style="font-size: 22px"></i>
                                     Inventario de Antenas
                                 </a>
@@ -290,7 +290,7 @@ else {
                                 <hr>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle bloquearNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-geo-alt me-2" style="font-size: 22px"></i>
                                 Catálogo de Municipios
                                 </a>
@@ -300,7 +300,7 @@ else {
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle bloquearNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-geo-fill me-2" style="font-size: 22px"></i>
                                     Catálogo de Comunidades
                                 </a>
@@ -366,30 +366,22 @@ else {
                 </div>
                 
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle  ms-3 me-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle  ms-3 me-3 bloquearNav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Clientes 
                         <i class="bi bi-person-rolodex ms-2" style="font-size: 25px;"></i>
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reporteClientes" onclick="consultaClientesRep() ">Reportes de Clientes <i class="bi bi-folder2-open ms-2" style="font-size: 25px;"></i></a></li>
-                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reporteContratos" onclick="consultaContratosRep()">Reportes de Contratos<i class="bi bi-clipboard2-check ms-2" style="font-size: 25px;"></i></a></li>
+                        <li><a class="dropdown-item bloquearNav" href="#" data-bs-toggle="modal" data-bs-target="#reporteContratos" onclick="consultaContratosRep()">Reportes de Contratos<i class="bi bi-clipboard2-check ms-2" style="font-size: 25px;"></i></a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reportePagos" onclick="consultaPagosRep()">Reporte de Pagos <i class="bi bi-cash-coin ms-2" style="font-size: 25px;"></i></a></li>
-                        <!-- <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionClientes" onclick="" href="#">Gestión de Clientes <i class="bi bi-person-gear ms-2" style="font-size: 30px;"></i></a></li> -->
-                        <!-- <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Gráficas <i class="bi bi-graph-up-arrow ms-2" style="font-size: 20px;"></i></a></li> -->
+                        <li><a class="dropdown-item bloquearNav" href="#" data-bs-toggle="modal" data-bs-target="#reportePagos" onclick="consultaPagosRep()">Reporte de Pagos <i class="bi bi-cash-coin ms-2" style="font-size: 25px;"></i></a></li>
                     </ul>
                 </div>
                 <div class="vr"></div>
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle ms-2 me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle ms-2 me-2 bloquearNav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Usuarios
                         <i class="bi bi-people-fill ms-2" style="font-size: 25px;"></i>
                     </a>
@@ -397,16 +389,12 @@ else {
                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reporteIndividualUsr" onclick="consultaUsuariosRep()">Reporte Individual <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""></a></li>
                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reportegeneralUsr" onclick="consultaUsuariosGeneral()">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
                         </li>
-                        <!-- <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#" onclick="nuevoUsuario()">Agregar Usuario<i class="bi bi-person-plus ms-2" style="font-size: 30px;"></i></a></li>
-                        <li><a class="dropdown-item" onclick="gestionUsuarios()" href="#">Gestión de Usuarios <i class="bi bi-person-gear ms-2" style="font-size: 30px;"></i></a></li> -->
+                        
                     </ul>
                 </div>
                 <div class="vr"></div>
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle ms-2 me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle ms-2 me-2 bloquearNav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Técnicos
                         <i class="bi bi-person-raised-hand ms-2" style="font-size: 25px;"></i>
                     </a>
@@ -414,16 +402,12 @@ else {
                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reporteIndividualTecnico" onclick="consultaTecnicosRep()">Reporte Individual <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""></a></li>
                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reportegeneralTecnicos" onclick="consultaTecnicosGeneral()">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
                         </li>
-                        <!-- <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregar" href="">Agregar Técnico<i class="bi bi-person-plus ms-2" style="font-size: 30px;"></i></a></li>
-                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionTecnicos" onclick="usuariosQueryG()" href="#">Gestión de Técnicos <i class="bi bi-person-gear ms-2" style="font-size: 30px;"></i></a></li> -->
+                        
                     </ul>
                 </div>
                 <div class="vr"></div>
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle ms-2 me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle ms-2 me-2 bloquearNav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Fallas
                         <i class="bi bi-exclamation-diamond-fill ms-2" style="font-size: 25px;"></i>
                     </a>
@@ -434,13 +418,13 @@ else {
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <!-- <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregar" href="">Agregar Técnico<i class="bi bi-person-plus ms-2" style="font-size: 30px;"></i></a></li> -->
+                        
                         <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionTecnicos" onclick="usuariosQueryG()" href="#">Gestión de Fallas <i class="bi bi-exclamation-octagon ms-2" style="font-size: 30px;"></i></a></li>
                     </ul>
                 </div>
                 <div class="vr"></div>
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle ms-2 me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link bloquearNav dropdown-toggle ms-2 me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Cortes de Servicio
                         <i class="bi bi-wifi-off ms-2" style="font-size: 25px;"></i>
                     </a>
@@ -457,12 +441,12 @@ else {
                 </div>
                 <div class="vr"></div>
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle ms-2 me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle  ms-2 me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Corte de Caja
                         <i class="bi bi-receipt ms-2" style="font-size: 25px;"></i>
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
-                        <li><a class="dropdown-item" href="#">Generar Reporte del Día<!-- <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""> --><i class="bi bi-receipt ms-2" style="font-size: 2em; "></i></a></li>
+                        <li><a class="dropdown-item" href="#" onclick="corteCajaDiario()">Generar Reporte del Día<!-- <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""> --><i class="bi bi-receipt ms-2" style="font-size: 2em; "></i></a></li>
                         <!-- <li><a class="dropdown-item" href="#">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
                         </li> -->
                         <!-- <li>
@@ -676,6 +660,7 @@ else {
 </html>
     
 <script src="assets/js/dashboard.js"></script>
+<script src="assets/js/corteDiario.js"></script>
 <script src="assets/js/graficos.js"></script>
 <script src="assets/js/reportes.js"></script>
 <script src="assets/js/gestionUsers.js"></script>
