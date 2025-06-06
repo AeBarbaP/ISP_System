@@ -120,7 +120,7 @@ function pago_anticipado() {
                     <div class="row">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" id="enero">
+                                <input class="form-check-input" name="meses[]" type="checkbox" value="1" id="enero">
                                 <label class="form-check-label" for="enero">
                                     Enero
                                 </label>
@@ -128,7 +128,7 @@ function pago_anticipado() {
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="7" id="julio">
+                                <input class="form-check-input" name="meses[]" type="checkbox" value="7" id="julio">
                                 <label class="form-check-label" for="julio">
                                     Julio
                                 </label>
@@ -138,7 +138,7 @@ function pago_anticipado() {
                     <div class="row">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="2" id="febrero">
+                                <input class="form-check-input" name="meses[]" type="checkbox" value="2" id="febrero">
                                 <label class="form-check-label" for="febrero">
                                     Febrero
                                 </label>
@@ -146,7 +146,7 @@ function pago_anticipado() {
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="8" id="agosto">
+                                <input class="form-check-input" name="meses[]" type="checkbox" value="8" id="agosto">
                                 <label class="form-check-label" for="agosto">
                                     Agosto
                                 </label>
@@ -156,7 +156,7 @@ function pago_anticipado() {
                     <div class="row">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="3" id="marzo">
+                                <input class="form-check-input" name="meses[]" type="checkbox" value="3" id="marzo">
                                 <label class="form-check-label" for="marzo">
                                     Marzo
                                 </label>
@@ -164,7 +164,7 @@ function pago_anticipado() {
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="9" id="septiembre">
+                                <input class="form-check-input" name="meses[]" type="checkbox" value="9" id="septiembre">
                                 <label class="form-check-label" for="septiembre">
                                     Septiembre
                                 </label>
@@ -174,7 +174,7 @@ function pago_anticipado() {
                     <div class="row">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="4" id="abril">
+                                <input class="form-check-input" name="meses[]" type="checkbox" value="4" id="abril">
                                 <label class="form-check-label" for="abril">
                                     Abril
                                 </label>
@@ -182,7 +182,7 @@ function pago_anticipado() {
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="10" id="octubre">
+                                <input class="form-check-input" name="meses[]" type="checkbox" value="10" id="octubre">
                                 <label class="form-check-label" for="octubre">
                                     Octubre
                                 </label>
@@ -192,7 +192,7 @@ function pago_anticipado() {
                     <div class="row">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="5" id="mayo">
+                                <input class="form-check-input" name="meses[]" type="checkbox" value="5" id="mayo">
                                 <label class="form-check-label" for="mayo">
                                     Mayo
                                 </label>
@@ -200,7 +200,7 @@ function pago_anticipado() {
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="11" id="noviembre">
+                                <input class="form-check-input" name="meses[]" type="checkbox" value="11" id="noviembre">
                                 <label class="form-check-label" for="noviembre">
                                     Noviembre
                                 </label>
@@ -210,7 +210,7 @@ function pago_anticipado() {
                     <div class="row">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="6" id="junio">
+                                <input class="form-check-input" name="meses[]" type="checkbox" value="6" id="junio">
                                 <label class="form-check-label" for="junio">
                                     Junio
                                 </label>
@@ -218,7 +218,7 @@ function pago_anticipado() {
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="12" id="diciembre">
+                                <input class="form-check-input" name="meses[]" type="checkbox" value="12" id="diciembre">
                                 <label class="form-check-label" for="diciembre">
                                     Diciembre
                                 </label>
@@ -536,6 +536,46 @@ function agregarMontoAdicional(){
     calcularTotal();
 }
 // función para agregar pago adicional
+
+// función para los meses
+function agregarPA(){
+    let fechaMesAnnio = obtenerFechaHoyMesAnnio();
+    let concepto = "Pago anticipado";
+    let montoAdicional = "450";
+    const cuerpo = document.getElementById("NuevaSolicitud");
+    const checkboxes = document.querySelectorAll('input[name="meses[]"]:checked');
+
+    // Validar que al menos un mes esté seleccionado
+    if (checkboxes.length === 0) {
+        alert("¡Selecciona al menos un mes!");
+        return;
+    }
+
+    // Crear una fila por cada mes seleccionado
+    checkboxes.forEach(checkbox => {
+        const meses = [
+                "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+            ];
+        let previoMeses = checkbox.value;
+        let mesReal = previoMeses - 1;
+        let mesSeleccionado = meses[mesReal];
+        const fila = document.createElement("tr");
+        fila.innerHTML = `
+            <td>${fechaMesAnnio}</td>
+            <td>${concepto}</td>
+            <td>${mesSeleccionado}</td>  <!-- Mes individual -->
+            <td>${montoAdicional}</td>
+            <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
+        `;
+        cuerpo.appendChild(fila);
+    });
+
+    contador += checkboxes.length;  // Actualizar contador con la cantidad de meses
+    $('#cargoAdicionalModal').modal('hide');
+    calcularTotal();
+}
+// función para los meses
 
 // Función para calcular el total desde cero (más precisa)
 function calcularTotal() {
