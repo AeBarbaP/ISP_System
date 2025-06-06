@@ -694,8 +694,8 @@
 							</div>
 							<div class="col-4">
 								<div class="input-group mb-3 mt-1" style="margin-left: -.2rem">
-									<select class="form-select" id="promociones" disabled>
-										<option selected>Selecciona...</option>
+									<select class="form-select" id="promocionesPagos" onchange="agregarPromoTable()" disabled>
+										
 									</select>
 								</div>
 							</div>

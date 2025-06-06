@@ -428,7 +428,8 @@ function tablaGrid(){
 
     cuerpo.appendChild(fila);
     contador++;
-    calcularTotal();}
+    calcularTotal();
+}
 
 // Función básica para eliminar fila
 function eliminarTr(elemento) {
@@ -445,7 +446,10 @@ function agregarDescuento(){
     let fechaMesAnnio = obtenerFechaHoyMesAnnio();
     let periodo = "Pago actual";
     let concepto = "Descuento";
-    if(descuento != null || descuento != 0){
+    if(descuento == null || descuento == ""){
+        alert('Agrega la cantidad a descontar');
+        return;
+    }
     
         const cuerpo = document.getElementById("NuevaSolicitud");
         const fila = document.createElement("tr");
@@ -462,12 +466,44 @@ function agregarDescuento(){
         cuerpo.appendChild(fila);
         contador++;
         calcularTotal();
-    }
-    else{
-        alert('Debes agregar un valor al descuento');
-    }
+    
 }
 // función para agregar descuento
+// función para agregar promoción
+function agregarPromoTable(){
+    const select = document.getElementById('promocionesPagos');
+    let fecha = obtenerFechaHoyMesAnnio();
+    let validacion = select.value;
+    if (validacion == "" | validacion == null){
+        alert('Debes seleccionar una promoción');
+        return;
+
+    }
+    const selectedOption = select.options[select.selectedIndex];
+
+    const valor = selectedOption.value;
+    const costo = selectedOption.dataset.costo;
+    const concepto = selectedOption.dataset.concepto;
+    const periodo = selectedOption.dataset.periodo;
+
+    const cuerpo = document.getElementById("NuevaSolicitud");
+
+    const fila = document.createElement("tr");
+
+    fila.innerHTML = `
+        <td>${fecha}</td>
+        <td>${concepto}</td>
+        <td>${periodo}</td>
+        <td>${costo}</td>
+        
+        <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
+    `;
+
+    cuerpo.appendChild(fila);
+    contador++;
+    calcularTotal();
+}
+// función para agregar promoción
 
 // Función para calcular el total desde cero (más precisa)
 function calcularTotal() {

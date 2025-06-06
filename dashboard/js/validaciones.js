@@ -55,9 +55,9 @@ function descuento_promo(){
     }
 
     if (promo.checked){
-        document.getElementById('promociones').disabled = false;
+        document.getElementById('promocionesPagos').disabled = false;
     }
     else {
-        document.getElementById('promociones').disabled = true;
+        document.getElementById('promocionesPagos').disabled = true;
     }
 }

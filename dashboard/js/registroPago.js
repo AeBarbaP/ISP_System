@@ -6,6 +6,7 @@ function pagoNew() {
     $("#pago").modal("show");
     generarFolio2();
     // queryConcepto();
+    queryPromociones();
 
     // Obtener los elementos input
     const inputFechaActual = document.getElementById('fechaSolicitud');
@@ -41,6 +42,19 @@ function queryConcepto(folio){
             // $('#catalogoConceptos').html(data);
             $('#NuevaSolicitud').html(data);
             calcularTotal();
+        }
+        });
+
+}
+
+function queryPromociones(){
+    $.ajax({
+        type: "POST",
+        url: "query/query_promociones_select.php",
+        dataType: "html",
+        success: function(data) {
+            // $('#catalogoConceptos').html(data);
+            $('#promocionesPagos').html(data);
         }
         });
 
