@@ -38,7 +38,9 @@ function queryConcepto(folio){
         },
         dataType: "html",
         success: function(data) {
-            $('#catalogoConceptos').html(data);
+            // $('#catalogoConceptos').html(data);
+            $('#NuevaSolicitud').html(data);
+            calcularTotal();
         }
         });
 
