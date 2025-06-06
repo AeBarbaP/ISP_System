@@ -100,13 +100,13 @@ function pago_anticipado() {
   modal.setAttribute('tabindex', '-1');
   modal.setAttribute('id', 'pagoAnticipadoModal');
   modal.innerHTML = `
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title"><i class="bi bi-person-fill-add"> </i>${titulo}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body ms-5">
                 <form id="pagoAnticipadoForm">
                     <div class="row">
                         <div class="col-6">
@@ -119,55 +119,19 @@ function pago_anticipado() {
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="2" id="febrero">
-                                <label class="form-check-label" for="febrero">
-                                    Febrero
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="3" id="marzo">
-                                <label class="form-check-label" for="marzo">
-                                    Marzo
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="4" id="abril">
-                                <label class="form-check-label" for="abril">
-                                    Abril
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="5" id="mayo">
-                                <label class="form-check-label" for="mayo">
-                                    Mayo
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="6" id="junio">
-                                <label class="form-check-label" for="junio">
-                                    Junio
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="7" id="julio">
                                 <label class="form-check-label" for="julio">
                                     Julio
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="2" id="febrero">
+                                <label class="form-check-label" for="febrero">
+                                    Febrero
                                 </label>
                             </div>
                         </div>
@@ -183,9 +147,27 @@ function pago_anticipado() {
                     <div class="row">
                         <div class="col-6">
                             <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="3" id="marzo">
+                                <label class="form-check-label" for="marzo">
+                                    Marzo
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="9" id="septiembre">
                                 <label class="form-check-label" for="septiembre">
                                     Septiembre
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="4" id="abril">
+                                <label class="form-check-label" for="abril">
+                                    Abril
                                 </label>
                             </div>
                         </div>
@@ -201,9 +183,27 @@ function pago_anticipado() {
                     <div class="row">
                         <div class="col-6">
                             <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="5" id="mayo">
+                                <label class="form-check-label" for="mayo">
+                                    Mayo
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="11" id="noviembre">
                                 <label class="form-check-label" for="noviembre">
                                     Noviembre
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="6" id="junio">
+                                <label class="form-check-label" for="junio">
+                                    Junio
                                 </label>
                             </div>
                         </div>
@@ -233,6 +233,58 @@ function pago_anticipado() {
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
   fechaTecnico();
+
+  // Eliminar el modal del DOM cuando se cierre
+  modal.addEventListener('hidden.bs.modal', () => {
+    modal.remove();
+  });
+}
+
+function cargo_adicional() {
+
+  let titulo = "Cargo Adicional";
+  // Crear el elemento del modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'cargoAdicionalModal');
+  modal.innerHTML = `
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="bi bi-person-fill-add"> </i>${titulo}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="cargoAdicionalForm">
+                    <div class="mb-3">
+                        <label class="form-label" id="basic-addon1">Descripción:</label>
+                        <input type="text" class="form-control" placeholder="Descripción cargo adicional" aria-label="Descripción" id="descrip_adicional" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" id="basic-addon1">Monto:</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">$</span>
+                            <input type="text" class="form-control" placeholder="" aria-label="Monto" aria-describedby="basic-addon1">
+                            <span class="input-group-text" id="basic-addon1">.00</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="agregarCA()">Agregar</button>
+            </div>
+        </div>
+    </div>
+  `;
+
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
+
+  // Mostrar el modal usando Bootstrap's JavaScript API
+  const bootstrapModal = new bootstrap.Modal(modal);
+  bootstrapModal.show();
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {

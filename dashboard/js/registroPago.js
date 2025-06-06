@@ -52,11 +52,11 @@ function swalpago(){
 		showConfirmButton: false,
 		timer: 1500
 	});
-    document.getElementById('printticket').hidden = false;
-    document.getElementById('pagoreg').hidden = true;
-
+    document.getElementById('pagoreg').disabled = true;
     guardarTodosPagos();
+    
 }
+
 function guardarTodosPagos() {
     const filas = $('#NuevaSolicitud tr');
     const pagos = [];

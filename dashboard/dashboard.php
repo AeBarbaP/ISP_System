@@ -597,25 +597,49 @@
 						<div class="col-lg-12 ">
 							<div class="d-grid gap-2">
 								<button class="btn btn-outline-primary" type="button" onclick="pago_anticipado()">Registrar Pago Anticipado</button>
+								<button class="btn btn-outline-primary" type="button" onclick="cargo_adicional()">Cargo Adicional</button>
 							</div>
 						</div>
-					</div>
-					<hr>
-					<!-- <div class="container">
-						<div class="input-group mb-1">
-							<span class="input-group-text" id="basic-addon1"><i class="bi bi-bookmarks"></i></span>
-
-							<select class="form-select" aria-label="Default select example" id="catalogoConceptos">
-								<optgroup label="Mensualidad" id="mensualidad">
-								</optgroup>
-							</select>
-
-							<button class="btn btn-primary" onclick="tablaGrid()"><i class="bi bi-plus-circle"></i></button>
+						<!-- <hr>
+						<label>Cargos adicionales:</label>
+						<div class="container ms-5">
+							<div class="row">
+								<div class="col-2">
+								</div>
+								<div class="col-4">
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+										<label class="form-check-label" for="inlineCheckbox1">Recargo: $<span></span></label>
+									</div>
+								</div>
+								<div class="col-4">
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+										<label class="form-check-label" for="inlineCheckbox2">Reconexión: $<span></span></label>
+									</div>
+								</div>
+								<div class="col-2">
+								</div>
+							</div> -->
+							<!-- <div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
+								<label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+							</div> -->
+							<!-- <div class="input-group mb-1">
+								<span class="input-group-text" id="basic-addon1"><i class="bi bi-bookmarks"></i></span>
+	
+								<select class="form-select" aria-label="Default select example" id="catalogoConceptos">
+									<optgroup label="Mensualidad" id="mensualidad">
+									</optgroup>
+								</select>
+	
+								<button class="btn btn-primary" onclick="tablaGrid()"><i class="bi bi-plus-circle"></i></button>
+							</div>
+							<div class="form-text" id="basic-addon4">Selecciona el concepto.</div> -->
 						</div>
-						<div class="form-text" id="basic-addon4">Selecciona el concepto.</div>
-					</div> -->
-					<hr>
-					<div class="col-sm-12">
+						<hr>
+					</div>
+					<div class="col-sm-12 mb-2">
 						<label for="datos_usr" class="form-label"><i class="bi bi-person"></i> Descripción:</label>
 						<!-- <div id="NuevaSolicitud"></div> -->
 						<div class="table-responsive" id="tablaSolicitud">
@@ -644,31 +668,64 @@
 							</table>
 						</div>
 					</div>
-					<div class="col-lg-6 mb-2" id="pagodiv" >
-						<label for="tipopago" class="form-label">Tipo de Pago:</label>
-						<select class="form-select" id="tipopago" aria-label="Default select example" onchange="baucher()" required>
-							<option value="1" selected>Efectivo</option>
-							<option value="2">Tarjeta Débito</option>
-							<option value="3">Tarjeta Crédito</option>
-							<option value="4">Transferencia</option>
-						</select>
-					</div>
-					<div class="col-lg-4 mb-2" id="pagodiv2" hidden>
-						<label for="tipopago" class="form-label"># Baucher:</label>
-						<div class="input-group input-group-sm">
-							<input class="form-control input-sm" type="text" id="tipopagoBaucher" placeholder="Num. baucher">
+					<hr>
+					<label>Aplicar Descuentos y Promociones</label>
+					<div class="container mt-2 ms-5">
+						<div class="row">
+							<div class="col-2">
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" onclick="descuento_promo()" id="descuento">
+									<label class="form-check-label" style="margin-left: -.1rem" for="descuento">Descuento:</label>
+								</div>
+							</div>
+							<div class="col-3">
+								<div class="input-group input-group-sm mt-1">
+									<span class="input-group-text" id="basic-addon1">$</span>
+									<input type="text" class="form-control" placeholder="" aria-label="Monto" id="monto_desc" aria-describedby="basic-addon1" disabled>
+									<span class="input-group-text" id="basic-addon1">.00</span>
+								</div>
+							</div>
+							<div class="col-2">
+								<div class="form-check form-check-inline ms-3">
+									<input class="form-check-input" type="checkbox" id="promocion" onclick="descuento_promo()">
+									<label class="form-check-label" style="margin-left: -.1rem" for="promocion">Promoción:</label>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="input-group mb-3 mt-1">
+									<select class="form-select" id="promociones" disabled>
+										<option selected>Selecciona...</option>
+									</select>
+								</div>
+							</div>
 						</div>
 					</div>
-                    
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="pagoreg" onclick="swalpago()">Pagar</button>
-                    <a type="button" class="btn btn-success" id="printticket" onclick="cerrarpago()" data-bs-toggle="modal" data-bs-target="#ticket" hidden >Imprimir Ticket</a>
-                    <button type="button" class="btn btn-success" id="cerrarpago1" data-bs-dismiss="modal" hidden >Cerrar</button>
-                </div>
-            </div>
-        </div>
+					<div class="row">
+						<div class="col-6 mt-2 mb-2" id="pagodiv" >
+							<label for="tipopago" class="form-label">Tipo de Pago:</label>
+							<select class="form-select" id="tipopago" aria-label="Default select example" onchange="baucher()" required>
+								<option value="1" selected>Efectivo</option>
+								<option value="2">Tarjeta Débito</option>
+								<option value="3">Tarjeta Crédito</option>
+								<option value="4">Transferencia</option>
+							</select>
+						</div>
+						<div class="col-6 mt-2 mb-2" id="pagodiv2" hidden>
+							<label for="tipopago" class="form-label"># Baucher:</label>
+							<div class="input-group input-group-sm">
+								<input class="form-control input-sm" type="text" id="tipopagoBaucher" placeholder="Num. baucher">
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Cancelar</button>
+				<button type="button" class="btn btn-primary" id="pagoreg" onclick="swalpago()">Pagar</button>
+				<a type="button" class="btn btn-success" id="printticket" onclick="cerrarpago()" data-bs-toggle="modal" data-bs-target="#ticket" hidden >Imprimir Ticket</a>
+				<button type="button" class="btn btn-success" id="cerrarpago1" data-bs-dismiss="modal" hidden >Cerrar</button>
+			</div>
+		</div>
     </div>
 </div>
 

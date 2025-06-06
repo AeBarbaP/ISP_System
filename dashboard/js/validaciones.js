@@ -24,8 +24,7 @@ function mostrardatos(){
 }
 
 function cerrarpago(){
-    document.getElementById('printticket').hidden = true;
-    document.getElementById('cerrarpago1').hidden = false;
+    document.getElementById('cerrarpago1').disabled = true;
 }
 
 function baucher(){
@@ -39,5 +38,24 @@ function baucher(){
     }
     else {
         document.getElementById('pagodiv2').hidden = true;
+    }
+}
+
+function descuento_promo(){
+    var descuento = document.getElementById('descuento');
+    var promo = document.getElementById('promocion');
+
+    if (descuento.checked){
+        document.getElementById('monto_desc').disabled = false;
+    }
+    else{
+        document.getElementById('monto_desc').disabled = true;
+    }
+
+    if (promo.checked){
+        document.getElementById('promociones').disabled = false;
+    }
+    else {
+        document.getElementById('promociones').disabled = true;
     }
 }
