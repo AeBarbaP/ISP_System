@@ -59,7 +59,7 @@ function ejecutarFuncionConFolio(folio) {
             let datosGenerales = '';
             data.forEach(function(item) {
                 if (item.pagos == 0){
-                    alert('Usuario nuevo, no hay pagos registrados');
+                    // alert('Usuario nuevo, no hay pagos registrados');
                     datosGenerales += `
                     <div class="alert alert-info mb-2" role="alert">
                     <h3><b>${item.nombre}</b></h3>
@@ -540,6 +540,8 @@ function agregarMontoAdicional(){
 // función para los meses
 function agregarPA(){
     let fechaMesAnnio = obtenerFechaHoyMesAnnio();
+    let hoy = new Date();
+    let anio = hoy.getFullYear();
     let concepto = "Pago anticipado";
     let montoAdicional = "450";
     const cuerpo = document.getElementById("NuevaSolicitud");
@@ -557,12 +559,18 @@ function agregarPA(){
                 "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
                 "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
             ];
-        let previoMeses = checkbox.value;
-        let mesReal = previoMeses - 1;
-        let mesSeleccionado = meses[mesReal];
+            let previoMeses = checkbox.value;
+            let mesReal = previoMeses - 1;
+            let mesSeleccionado = meses[mesReal];
+            if(previoMeses.length = 1){
+                var dato = '0'+previoMeses;
+            }
+            else{
+                var dato = previoMeses;
+            }
         const fila = document.createElement("tr");
         fila.innerHTML = `
-            <td>${fechaMesAnnio}</td>
+            <td>${anio}-${dato}</td>
             <td>${concepto}</td>
             <td>${mesSeleccionado}</td>  <!-- Mes individual -->
             <td>${montoAdicional}</td>
