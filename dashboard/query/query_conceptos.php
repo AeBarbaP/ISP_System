@@ -44,6 +44,7 @@ if (!empty($folioCliente)) {
     ];
 
     if(($fin > $fechaNuevaCorte1) && ($fin < $fechaNuevaCorte2)){
+        
         $nombreMesN = $meses[$mesM];
         echo'
         <tr>
@@ -53,6 +54,7 @@ if (!empty($folioCliente)) {
             <td>'.$costoMensual.'</td>
             <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
         </tr>';
+        
     }
 
 while ($inicio <= $fin) {
