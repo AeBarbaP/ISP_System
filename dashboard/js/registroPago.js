@@ -5,7 +5,7 @@ function _grecibos(el){
 function pagoNew() {
     $("#pago").modal("show");
     generarFolio2();
-    queryConcepto();
+    // queryConcepto();
 
     // Obtener los elementos input
     const inputFechaActual = document.getElementById('fechaSolicitud');

@@ -1,6 +1,8 @@
 <?php
 require('../prcd/conn.php');
 
+if (!is_null($_POST['folio'])){
+
 // Obtener el folio del cliente
 $folioCliente = $_POST['folio'];
 $recargo = '15.00'; // Valor del recargo
@@ -103,6 +105,11 @@ while ($inicio <= $fin) {
     $inicio->modify('+1 month');
 }
 
+}
+
+} //fin if
+else{
+    return;
 }
 
 
