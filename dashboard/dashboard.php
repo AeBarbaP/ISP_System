@@ -683,7 +683,7 @@
 									<span class="input-group-text" id="basic-addon1">$</span>
 									<input type="text" class="form-control" placeholder="" aria-label="Monto" id="monto_desc" aria-describedby="basic-addon1" disabled>
 									<span class="input-group-text" id="basic-addon1">.00</span>
-									<button class="btn btn-outline-secondary" type="button" id="addbtndesc" onclick="tablaGrid()" disabled><i class="bi bi-plus-circle"></i></button>
+									<button class="btn btn-outline-secondary" type="button" id="addbtndesc" onclick="agregarDescuento()" disabled><i class="bi bi-plus-circle"></i></button>
 								</div>
 							</div>
 							<div class="col-2">

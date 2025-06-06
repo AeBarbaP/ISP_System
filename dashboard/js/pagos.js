@@ -1,3 +1,12 @@
+function obtenerFechaHoyMesAnnio() {
+  const hoy = new Date();
+  const anio = hoy.getFullYear();
+  const mes = String(hoy.getMonth() + 1).padStart(2, '0'); // los meses van de 0 a 11
+  const dia = String(hoy.getDate()).padStart(2, '0');
+//   return `${anio}-${mes}-${dia}`;
+  return `${anio}-${mes}`;
+}
+
 function queryClientesPago(cliente) {
     $.ajax({
         type: "POST",
@@ -429,6 +438,36 @@ function eliminarTr(elemento) {
         calcularTotal(); // Recalcula todo desde cero
     }
 }
+
+// función para agregar descuento
+function agregarDescuento(){
+    let descuento = _('monto_desc').value;
+    let fechaMesAnnio = obtenerFechaHoyMesAnnio();
+    let periodo = "Pago actual";
+    let concepto = "Descuento";
+    if(descuento != null || descuento != 0){
+    
+        const cuerpo = document.getElementById("NuevaSolicitud");
+        const fila = document.createElement("tr");
+
+        fila.innerHTML = `
+            <td>${fechaMesAnnio}</td>
+            <td>${concepto}</td>
+            <td>${periodo}</td>
+            <td>-${descuento}</td>
+            
+            <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
+        `;
+
+        cuerpo.appendChild(fila);
+        contador++;
+        calcularTotal();
+    }
+    else{
+        alert('Debes agregar un valor al descuento');
+    }
+}
+// función para agregar descuento
 
 // Función para calcular el total desde cero (más precisa)
 function calcularTotal() {
