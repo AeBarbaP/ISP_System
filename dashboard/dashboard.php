@@ -670,7 +670,7 @@
 					</div>
 					<hr>
 					<label>Aplicar Descuentos y Promociones</label>
-					<div class="container mt-2 ms-5">
+					<div class="container mt-2 ms-3">
 						<div class="row">
 							<div class="col-2">
 								<div class="form-check form-check-inline">
@@ -678,11 +678,12 @@
 									<label class="form-check-label" style="margin-left: -.1rem" for="descuento">Descuento:</label>
 								</div>
 							</div>
-							<div class="col-3">
+							<div class="col-4">
 								<div class="input-group input-group-sm mt-1">
 									<span class="input-group-text" id="basic-addon1">$</span>
 									<input type="text" class="form-control" placeholder="" aria-label="Monto" id="monto_desc" aria-describedby="basic-addon1" disabled>
 									<span class="input-group-text" id="basic-addon1">.00</span>
+									<button class="btn btn-outline-secondary" type="button" id="addbtndesc" onclick="tablaGrid()" disabled><i class="bi bi-plus-circle"></i></button>
 								</div>
 							</div>
 							<div class="col-2">
@@ -692,7 +693,7 @@
 								</div>
 							</div>
 							<div class="col-4">
-								<div class="input-group mb-3 mt-1">
+								<div class="input-group mb-3 mt-1" style="margin-left: -.2rem">
 									<select class="form-select" id="promociones" disabled>
 										<option selected>Selecciona...</option>
 									</select>
@@ -700,6 +701,7 @@
 							</div>
 						</div>
 					</div>
+					<hr>
 					<div class="row">
 						<div class="col-6 mt-2 mb-2" id="pagodiv" >
 							<label for="tipopago" class="form-label">Tipo de Pago:</label>

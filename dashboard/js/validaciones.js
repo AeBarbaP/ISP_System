@@ -47,9 +47,11 @@ function descuento_promo(){
 
     if (descuento.checked){
         document.getElementById('monto_desc').disabled = false;
+        document.getElementById('addbtndesc').disabled = false;
     }
     else{
         document.getElementById('monto_desc').disabled = true;
+        document.getElementById('addbtndesc').disabled = true;
     }
 
     if (promo.checked){
