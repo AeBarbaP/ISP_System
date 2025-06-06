@@ -273,7 +273,7 @@ function cargo_adicional() {
                         <label class="form-label" id="basic-addon1">Monto:</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">$</span>
-                            <input type="text" class="form-control" placeholder="" aria-label="Monto" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" placeholder="" id="montoAdicional" aria-label="Monto" aria-describedby="basic-addon1">
                             <span class="input-group-text" id="basic-addon1">.00</span>
                         </div>
                     </div>
@@ -281,7 +281,7 @@ function cargo_adicional() {
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="agregarCA()">Agregar</button>
+                <button type="button" class="btn btn-primary" onclick="agregarMontoAdicional()">Agregar</button>
             </div>
         </div>
     </div>
@@ -474,7 +474,7 @@ function agregarPromoTable(){
     const select = document.getElementById('promocionesPagos');
     let fecha = obtenerFechaHoyMesAnnio();
     let validacion = select.value;
-    if (validacion == "" | validacion == null){
+    if (validacion == "" || validacion == null){
         alert('Debes seleccionar una promoción');
         return;
 
@@ -504,6 +504,38 @@ function agregarPromoTable(){
     calcularTotal();
 }
 // función para agregar promoción
+// función para agregar pago adicional
+function agregarMontoAdicional(){
+    
+    let fecha = obtenerFechaHoyMesAnnio();
+    let descripcion = _('descrip_adicional').value;
+    let montoAdicional = _('montoAdicional').value;
+    let periodo = "Monto adicional agregado";
+
+    if (descripcion == "" || descripcion == null || montoAdicional == "" || montoAdicional == null ){
+        alert('Debes llenar los datos para agregar descuento');
+        return;
+    }
+
+    const cuerpo = document.getElementById("NuevaSolicitud");
+
+    const fila = document.createElement("tr");
+
+    fila.innerHTML = `
+        <td>${fecha}</td>
+        <td>${descripcion}</td>
+        <td>${periodo}</td>
+        <td>${montoAdicional}</td>
+        
+        <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
+    `;
+
+    cuerpo.appendChild(fila);
+    contador++;
+    $('#cargoAdicionalModal').modal('hide');
+    calcularTotal();
+}
+// función para agregar pago adicional
 
 // Función para calcular el total desde cero (más precisa)
 function calcularTotal() {
