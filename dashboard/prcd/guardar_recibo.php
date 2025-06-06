@@ -13,7 +13,7 @@ $fecha_pago = $_POST['fecha_pago'];
 $tipo_pago = $_POST['tipo_pago'];
 $folio_contrato = $_POST['folio_contrato'];
 $total_pago = $_POST['total_pago'];
-
+$periodo = $_POST['periodo'];
 if ($tipo_pago == 1){
     $tarjeta = "";
 }
@@ -27,14 +27,16 @@ $sql = "INSERT INTO pagos_generales (
         tarjeta, 
         folio_pago,
         fecha_pago,
-        tipo_pago
+        tipo_pago,
+        periodo
         ) VALUES (
         '$folio_contrato', 
         '$total_pago',
         '$tarjeta',
         '$folio_pago', 
         '$fecha_pago',
-        '$tipo_pago'
+        '$tipo_pago',
+        '$periodo'
         )";
         $resultado = $conn->query($sql);
         if($resultado){

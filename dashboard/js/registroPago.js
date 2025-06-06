@@ -70,6 +70,7 @@ function swalpago(){
 	});
     document.getElementById('pagoreg').disabled = true;
     guardarTodosPagos();
+    revisarPagosAnticipados();
     
 }
 
@@ -122,6 +123,48 @@ function guardarTodosPagos() {
         }
     });
 }
+function revisarPagosAnticipados() {
+
+    // var folio_pago = _grecibos('folioLabelpago').value;
+    // var fecha_pago = _grecibos('fechaSolicitud').value;
+    // var tarjeta = _grecibos('tipopagoBaucher').value;
+    // var tipo_pago = _grecibos('tipopago').value;
+    // var folio_contrato = _grecibos('folioContratoRegistro').innerText;
+    // var total_pago = _grecibos('total-costo').innerText;
+
+    var tarjeta = _grecibos('tipopagoBaucher').value;
+    var tipo_pago = 4;
+
+    const filas = $('#NuevaSolicitud tr');
+    const pagos = [];
+    const folioPago = $('#folioLabelpago').val();
+    const foliContrato = document.getElementById('folioContratoRegistro').innerText;
+    const fechaSolicitud = $('#fechaSolicitud').val();
+
+    filas.each(function() {
+        var concepto = $(this).find('td:eq(1)').text();
+        if (concepto == 'Pago anticipado') { // Solo no pagados
+                $.ajax({
+                    url: 'prcd/guardar_recibo.php',
+                    type: 'POST',
+                    data: { 
+                        folio_pago: folioPago,
+                        fecha_pago: fechaSolicitud,
+                        tarjeta: tarjeta,
+                        tipo_pago: tipo_pago,
+                        folio_contrato: foliContrato,
+                        periodo: $(this).find('td:eq(0)').text(),
+                        concepto: $(this).find('td:eq(1)').text(),
+                        mes: $(this).find('td:eq(2)').text(),
+                        total_pago: $(this).find('td:eq(3)').text()
+                     },
+                    success: function(data) {
+                        console.log('Guardado');
+                    }
+                });
+            }
+    });
+}
 
 function guardarRecibo(){
     var folio_pago = _grecibos('folioLabelpago').value;
@@ -130,6 +173,7 @@ function guardarRecibo(){
     var tipo_pago = _grecibos('tipopago').value;
     var folio_contrato = _grecibos('folioContratoRegistro').innerText;
     var total_pago = _grecibos('total-costo').innerText;
+    var periodo = '0000-00';
 
     $.ajax({
         url: 'prcd/guardar_recibo.php',
@@ -140,7 +184,8 @@ function guardarRecibo(){
             tipo_pago:tipo_pago,
             tarjeta:tarjeta,
             folio_contrato:folio_contrato,
-            total_pago:total_pago
+            total_pago:total_pago,
+            periodo : periodo
         },
         success: function(response) {
             var datos = JSON.parse(JSON.stringify(response));

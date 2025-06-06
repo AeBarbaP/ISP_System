@@ -562,7 +562,7 @@ function agregarPA(){
             let previoMeses = checkbox.value;
             let mesReal = previoMeses - 1;
             let mesSeleccionado = meses[mesReal];
-            if(previoMeses.length = 1){
+            if(previoMeses.length == 1){
                 var dato = '0'+previoMeses;
             }
             else{
