@@ -539,7 +539,7 @@
                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="formSolicitudes">   
+                <form id="formPagos">   
                 <div class="row g-3">   
                     <div class="col-sm-4">
                         <label for="foliopago" class="form-label">Folio de pago: </label>
@@ -564,24 +564,11 @@
 							<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
 							<input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" id="buscanombre" oninput="queryClientesPago(this.value)" aria-describedby="basic-addon1" id="buscarCortes" name="buscar">
 						</div>
-						<select class="form-select" onchange="queryClientes(this.value)" id="nombresClientes" size="3" aria-label="folio corte">
+						<select class="form-select" onchange="queryClientes(this.value)" id="nombresClientes" size="2" aria-label="folio corte">
 							<!-- <option selected>Selecciona...</option> -->
 							<!-- Muestra los folios de las ordenes de corte que aún no han sido resueltas para cambiar los datos -->
 						</select>
 					</div>
-                    <!-- <div class="col-lg-12" id="nombresearch">
-						<input class="form-control" list="nombresClientes" id="buscanombre" oninput="queryClientes(this.value)" placeholder="Ingresa el nombre del cliente...">
-						<datalist id="nombresClientes"> 
-
-						</datalist>
-                    </div> -->
-                    <!-- <div class="col-lg-6" id="domiciliosearch" hidden>
-						<label for="buscadomicilio" class="form-label">Buscar Domicilio</label>
-						<input class="form-control" list="domicilios" id="buscadomicilio" oninput=""placeholder="Type to search...">
-						<datalist id="domicilios">
-							Falta función de consulta para busqueda por domicilio y que llene el datalist
-						</datalist>
-                    </div> -->
 					<div class="col-lg-4 ms-5 my-auto">
 						<!-- <div class="form-check m-0">
 							<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="1" checked onclick="hideInput(this.value)">
@@ -607,9 +594,14 @@
 						<div id="datosGenerales">
 							
 						</div>
+						<div class="col-lg-12 ">
+							<div class="d-grid gap-2">
+								<button class="btn btn-outline-primary" type="button" onclick="pago_anticipado()">Registrar Pago Anticipado</button>
+							</div>
+						</div>
 					</div>
 					<hr>
-					<div class="container">
+					<!-- <div class="container">
 						<div class="input-group mb-1">
 							<span class="input-group-text" id="basic-addon1"><i class="bi bi-bookmarks"></i></span>
 
@@ -621,7 +613,7 @@
 							<button class="btn btn-primary" onclick="tablaGrid()"><i class="bi bi-plus-circle"></i></button>
 						</div>
 						<div class="form-text" id="basic-addon4">Selecciona el concepto.</div>
-					</div>
+					</div> -->
 					<hr>
 					<div class="col-sm-12">
 						<label for="datos_usr" class="form-label"><i class="bi bi-person"></i> Descripción:</label>
