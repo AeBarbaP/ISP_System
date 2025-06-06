@@ -44,7 +44,7 @@
                         </div>
                         <div class="table-responsive table-hover mt-3">
                             <table class="table p-1 text-center">
-                                <thead>
+                                <thead class="table-dark text-light">
                                     <tr>
                                         <th scope="col">Folio</th>
                                         <th scope="col">Cliente</th>
