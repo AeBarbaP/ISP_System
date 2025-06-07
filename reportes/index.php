@@ -286,7 +286,7 @@ else {
                                     <li><a class="dropdown-item" href="#" onclick="gestionAntenas()">Editar Antenas</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <hr>
                             </li>
                             <li class="nav-item dropdown">
@@ -308,7 +308,7 @@ else {
                                     <li><a class="dropdown-item" href="#" onclick="nuevaComunidad()">Agregar Comunidad</a></li>
                                     <li><a class="dropdown-item" href="#" onclick="gestionComunidades()">Editar Comunidades</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li class="nav-item">
                                 <hr>
                             </li>
