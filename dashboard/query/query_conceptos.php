@@ -46,14 +46,32 @@ if (!empty($folioCliente)) {
     if(($fin > $fechaNuevaCorte1) && ($fin < $fechaNuevaCorte2)){
         
         $nombreMesN = $meses[$mesM];
-        echo'
-        <tr>
-            <td>'.$annio.'-'.$mesM.'</td>
-            <td>Pago oportuno</td>
-            <td>'.$nombreMesN.'</td>
-            <td>'.$costoMensual.'</td>
-            <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
-        </tr>';
+
+        $concat = "$annio-$mesM";
+        $sql = "SELECT * FROM pagos_generales 
+                WHERE folio_contrato = '$folioContrato' 
+                AND periodo = '$concat'";
+
+        $resultado = $conn->query($sql);
+        // $row = $resultado->fetch_assoc();
+        $filas = $resultado->num_rows;
+        if($filas == 1){
+            echo'
+            <tr>
+                <td colspan="5" class="table-success">No tiene adeudos</td>
+            </tr>';
+        }
+        else{
+            echo'
+            <tr>
+                <td>'.$annio.'-'.$mesM.'</td>
+                <td>Pago oportuno</td>
+                <td>'.$nombreMesN.'</td>
+                <td>'.$costoMensual.'</td>
+                <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
+            </tr>';
+        }
+
         
     }
 

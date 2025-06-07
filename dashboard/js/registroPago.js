@@ -195,7 +195,59 @@ function revisarPagosAtrasado() {
     });
 }
 
-function guardarRecibo(){
+function guardarRecibo() {
+
+    var folio_pago = _grecibos('folioLabelpago').value;
+    var fecha_pago = _grecibos('fechaSolicitud').value;
+    var tarjeta = _grecibos('tipopagoBaucher').value;
+    var tipo_pago = _grecibos('tipopago').value;
+    var folio_contrato = _grecibos('folioContratoRegistro').innerText;
+    var total_pago = _grecibos('total-costo').innerText;
+
+    var tarjeta = _grecibos('tipopagoBaucher').value;
+    var tipo_pago = 1;
+
+    const filas = $('#NuevaSolicitud tr');
+    const pagos = [];
+
+    filas.each(function() {
+        var concepto = $(this).find('td:eq(1)').text();
+        if (concepto == 'Pago oportuno') { // Solo no pagados
+                $.ajax({
+                    url: 'prcd/guardar_recibo.php',
+                    type: 'POST',
+                    data: { 
+                        folio_pago: folio_pago,
+                        fecha_pago: fecha_pago,
+                        tarjeta: tarjeta,
+                        tipo_pago: tipo_pago,
+                        folio_contrato: folio_contrato,
+                        periodo: $(this).find('td:eq(0)').text(),
+                        concepto: $(this).find('td:eq(1)').text(),
+                        mes: $(this).find('td:eq(2)').text(),
+                        total_pago: total_pago
+                     },
+                    success: function(response) {
+                        var datos = JSON.parse(JSON.stringify(response));
+
+                        var success = datos.success;
+                
+                        if(success = 1){
+                            alert("Recibo guardado");
+                            $('#pago').modal('hide');
+                            queryDashboard1();
+                        }
+                        else{
+                            alert("No se guardó");
+                            console.log(datos.error)
+                        }
+                    }
+                });
+            }
+    });
+}
+
+function guardarRecibo999(){
     var folio_pago = _grecibos('folioLabelpago').value;
     var fecha_pago = _grecibos('fechaSolicitud').value;
     var tarjeta = _grecibos('tipopagoBaucher').value;
