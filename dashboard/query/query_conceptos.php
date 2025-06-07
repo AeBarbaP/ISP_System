@@ -66,10 +66,14 @@ while ($inicio <= $fin) {
     // $fechaNuevaCorte = new DateTime($anio'-'$mes'-'$dia);
 
     // Consulta por mes y año en MySQL
+    // $sql = "SELECT * FROM pagos_generales 
+    //         WHERE folio_contrato = '$folioContrato' 
+    //         AND MONTH(fecha_pago) = '$mes' 
+    //         AND YEAR(fecha_pago) = '$anio'";
+    $concat = "$anio-$mes";
     $sql = "SELECT * FROM pagos_generales 
             WHERE folio_contrato = '$folioContrato' 
-            AND MONTH(fecha_pago) = '$mes' 
-            AND YEAR(fecha_pago) = '$anio'";
+            AND periodo = '$concat'";
 
     $resultado = $conn->query($sql);
     $row = $resultado->fetch_assoc();

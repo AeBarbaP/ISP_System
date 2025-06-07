@@ -162,7 +162,7 @@ function revisarPagosAnticipados() {
 function revisarPagosAtrasado() {
 
     var tarjeta = _grecibos('tipopagoBaucher').value;
-    var tipo_pago = 4;
+    var tipo_pago = 1;
 
     const filas = $('#NuevaSolicitud tr');
     const pagos = [];
@@ -172,7 +172,7 @@ function revisarPagosAtrasado() {
 
     filas.each(function() {
         var concepto = $(this).find('td:eq(1)').text();
-        if (concepto == 'Pago anticipado') { // Solo no pagados
+        if (concepto == 'Adeudo') { // Solo no pagados
                 $.ajax({
                     url: 'prcd/guardar_recibo.php',
                     type: 'POST',
