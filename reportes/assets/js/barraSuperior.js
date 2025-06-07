@@ -37,3 +37,16 @@ function generarReporteIndClientes(){
     }
 
 }
+
+function modalFallasInd(){
+    $('#reporteFallasInd').modal('show');
+
+    $.ajax({
+        url: 'query/query_reporte_incidencias.php',
+        type: 'POST',
+        dataType: 'html',
+        success: function(data) {
+            $('#reporteFallas').html(data);
+        }
+    });
+}

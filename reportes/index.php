@@ -412,9 +412,11 @@ else {
                         <i class="bi bi-exclamation-diamond-fill ms-2" style="font-size: 25px;"></i>
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
-                        <li><a class="dropdown-item" href="#">Reporte Individual <!-- <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""> --><i class="bi bi-exclamation-triangle ms-2" style="font-size: 2em; "></i></a></li>
-                        <li><a class="dropdown-item" href="#">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
-                        </li>
+                        <li><a class="dropdown-item" href="#" onclick="modalFallasInd()">
+                            Reportes 
+                            
+                        <i class="bi bi-exclamation-triangle ms-2" style="font-size: 2em; "></i></a></li>
+                        
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -646,6 +648,7 @@ else {
         /* include("modales/agregarUsuario.php");
         include("modales/editarUsuario.php");
         include("modales/gestionarUsuarios.php"); */
+        include("modales/reporteFallasInd.php");
         include("modales/reporteClientes.php");
         include("modales/reporteContratos.php");
         include("modales/reporteContratoIndividual.php");
