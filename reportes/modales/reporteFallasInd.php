@@ -5,15 +5,15 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">
-                        <i class="bi bi-exclamation-triangle me-2" style="font-size: 25px; "></i>
+                        <i class="bi bi-exclamation-triangle me-2 text-danger" style="font-size: 25px; "></i>
                         
                         Reporte de Fallas</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         
-                <table class="table">
-                    <thead class="table-dark text-center">
+                <table class="table table-sm align-middle">
+                    <thead class="table-dark text-center align-middle">
                         <tr>
                         <th scope="col">#</th>
                         <th scope="col">Folio falla</th>
@@ -25,7 +25,7 @@
                         <th scope="col">Estatus</th>
                         </tr>
                     </thead>
-                    <tbody id="reporteFallas">
+                    <tbody id="reporteFallas" class="text-center">
                         
                     </tbody>
                 </table>
