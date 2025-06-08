@@ -431,8 +431,8 @@ else {
                         <i class="bi bi-wifi-off ms-2" style="font-size: 25px;"></i>
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
-                        <li><a class="dropdown-item" href="#">Reporte Individual <!-- <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""> --><i class="bi bi-clipboard2-x ms-2" style="font-size: 2em; "></i></a></li>
-                        <li><a class="dropdown-item" href="#">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reporteCorteInd">Reporte Individual <!-- <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""> --><i class="bi bi-clipboard2-x ms-2" style="font-size: 2em; "></i></a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reportegeneralCortesServ">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
@@ -585,8 +585,8 @@ else {
                                         </div>
                                     </div>
                                     <!-- tabla -->
-                                    <table class="table text-center">
-                                        <thead class="table-dark text-light">
+                                    <table class="table table-hover text-center">
+                                        <thead class="">
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Usuario</th>
@@ -659,6 +659,8 @@ else {
         include("modales/reporteTecnicos.php");
         include("modales/reporteTecnicosGral.php");
         include("modales/reporteFallas.php");
+        include("modales/reporteCorteServicioInd.php");
+        include("modales/reporteCortesServGral.php");
     ?>
 
 </html>
