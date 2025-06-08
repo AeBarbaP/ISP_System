@@ -18,10 +18,13 @@ $resultado = $conn->query($sql);
     $rowTecnico = $conn->query("SELECT * FROM tecnicos WHERE id = '$tecnico'")->fetch_assoc();
 
     if($estatus == 1){
-        $estatusIncidencia = "Incidencia activa";
+        $estatusIncidencia = "Activa";
     }
     elseif($estatus == 2){
-        $estatusIncidencia = "Incidencia resuelta";
+        $estatusIncidencia = "Resuelta";
+    }
+    elseif($estatus == 3){
+        $estatusIncidencia = "Cancelada";
     }
 
     echo
@@ -29,12 +32,11 @@ $resultado = $conn->query($sql);
     <tr>
         <td>'.$x.'</td>
         <td>'.$row['folio_incidencia'].'</td>
-        <td>'.$row['descripcion'].'</td>
         <td>'.$rowCliente['nombre'].'</td>
         <td>'.$rowTecnico['nombre'].'</td>
         <td>'.$row['fecha_reporte'].'</td>
-        <td>'.$row['fecha_resolucion'].'</td>
         <td>'.$estatusIncidencia.'</td>
+        <td><a href="#" onclick="modalVerFalla()"><i class="bi bi-eye"></i></a></td>
     </tr>
     ';
 }

@@ -412,16 +412,16 @@ else {
                         <i class="bi bi-exclamation-diamond-fill ms-2" style="font-size: 25px;"></i>
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
-                        <li><a class="dropdown-item" href="#" onclick="modalFallasInd()">
-                            Reportes 
+                        <li><a class="dropdown-item" href="#" onclick="modalFallas()">
+                            Reporte Individual 
                             
                         <i class="bi bi-exclamation-triangle ms-2" style="font-size: 2em; "></i></a></li>
                         
                         <li>
-                            <hr class="dropdown-divider">
+                        <li><a class="dropdown-item" href="#" onclick="modalFallasInd()">
+                            Reporte General 
+                            <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
                         </li>
-                        
-                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionTecnicos" onclick="usuariosQueryG()" href="#">Gestión de Fallas <i class="bi bi-exclamation-octagon ms-2" style="font-size: 30px;"></i></a></li>
                     </ul>
                 </div>
                 <div class="vr"></div>
@@ -658,6 +658,7 @@ else {
         include("modales/reporteUsuariosGral.php");
         include("modales/reporteTecnicos.php");
         include("modales/reporteTecnicosGral.php");
+        include("modales/reporteFallas.php");
     ?>
 
 </html>
