@@ -28,7 +28,7 @@
                                 <input type="date" class="form-control" placeholder="Fecha final" aria-label="fecha final" id="fecha_final_reporteinc" value="" aria-describedby="basic-addon1" name="fechafinal" required>
                                 <span class="input-group-text""><i class="bi bi-arrow-bar-left" style="font-size: 20px;"></i></span>
                             </div>
-                        </div> -->
+                        </div> 
                         <div class="mb-3">
                             <label for="tipoReporteUser" class="form-label">Tipo Reporte:</label>
                             <select class="form-select" id="tipoReporteInc" aria-label="Tipo reporte" required>
@@ -36,7 +36,7 @@
                                 <option value="Global">Global</option>
                                 <option value="Detallado">Detallado</option>
                             </select>
-                        </div>
+                        </div> -->
                         </form>
                     </div>
                     <div class="modal-footer">
