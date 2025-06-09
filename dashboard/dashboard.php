@@ -205,8 +205,10 @@
 					<div class="row mt-4">
 						<div class="col-lg-8 grid-margin stretch-card">
 							<div class="card">
-								<div class="card-body">
+								<div class="card-header pt-4">
 									<h4 class="card-title">Últimos Pagos Registrados</h4>
+								</div>
+								<div class="card-body overflow-auto">
 									<div class="row">
 										<div class="table-responsive">
 											<table class="table table-striped table-hover">
@@ -251,8 +253,10 @@
 						<div class="col-lg-6 grid-margin stretch-card">
 							<div class="card">
 								<div class="card overflow-auto">
-									<div class="card-body">
+									<div class="card-header pt-4">
 										<h4 class="card-title">Próximos a Vencer</h4>
+									</div>
+									<div class="card-body">
 										<!-- <p class="card-description">
 										Add class <code>.table-striped</code>
 										</p> -->
@@ -305,11 +309,11 @@
 							<div class="col-lg-6 grid-margin stretch-card">
 								<!-- <div class="card"> -->
 									<div class="card overflow-auto">
+										<div class="card-header pt-4">
+											<h4 class="card-title">Servicios Vencidos</h4>
+										</div>
 										<div class="card-body">
-										<h4 class="card-title">Servicios Vencidos</h4>
-										<!-- <p class="card-description">
-											Add class <code>.table-striped</code>
-										</p> -->
+										
 										<div class="table-responsive">
 											<table class="table table-hover text-center">
 												<thead style="background-color: aliceblue;" class="text-dark">
