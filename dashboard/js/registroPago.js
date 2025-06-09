@@ -84,15 +84,17 @@ function guardarTodosPagos() {
 
     var i = 0;
     filas.each(function() {
-        i = i +1;
         var concepto = $(this).find('td:eq(1)').text();
         if (concepto == 'Pago anticipado') {
+            i = i +1;
             var folioPago = folioPago1 +'-FAn-'+ i;
         }
         else if (concepto == 'Adeudo' || concepto == 'Recargo' || concepto == 'Reconexión'){
+            i = i;
             var folioPago = folioPago1 +'-FAt-'+ i;
         }
         else{
+            i = i +1;
             var folioPago = folioPago1;
         }
         if (!$(this).hasClass('table-success')) { // Solo no pagados
@@ -149,10 +151,10 @@ function revisarPagosAnticipados() {
 
     var i = 0;
     filas.each(function() {
-        i = i +1;
-        var folioPago = folioPago1 +'-FAn-'+ i;
         var concepto = $(this).find('td:eq(1)').text();
         if (concepto == 'Pago anticipado') { // Solo no pagados
+                i = i +1;
+                var folioPago = folioPago1 +'-FAn-'+ i;
                 $.ajax({
                     url: 'prcd/guardar_recibo.php',
                     type: 'POST',
@@ -186,10 +188,10 @@ function revisarPagosAtrasado() {
     const fechaSolicitud = $('#fechaSolicitud').val();
     var i = 0;
     filas.each(function() {
-        i = i +1;
-        var folioPago = folioPago1 +'-FAt-'+ i;
         var concepto = $(this).find('td:eq(1)').text();
         if (concepto == 'Adeudo') { // Solo no pagados
+                i = i +1;
+                var folioPago = folioPago1 +'-FAt-'+ i;
                 $.ajax({
                     url: 'prcd/guardar_recibo.php',
                     type: 'POST',
