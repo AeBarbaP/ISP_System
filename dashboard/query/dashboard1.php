@@ -36,7 +36,7 @@ $totalRegistros = $resultadoTotal->fetch_assoc()['total'];
 $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
 
 // Consulta principal con paginación
-$sql = "SELECT * FROM pagos_generales ORDER BY id ASC LIMIT $offset, $registrosPorPagina";
+$sql = "SELECT * FROM pagos_generales ORDER BY fecha_pago DESC LIMIT $offset, $registrosPorPagina";
 $resultado = $conn->query($sql);
 
 echo '

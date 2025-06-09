@@ -124,10 +124,29 @@ while ($inicio <= $fin) {
             <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
         </tr>
         ';
-    }
 
+        $sqlDesconexion = "SELECT * FROM cortes WHERE folio_cliente = '$folioCliente'";
+        $resultadoDesconexion = $conn -> query($sqlDesconexion);
+        $filaDesconexion = $resultadoDesconexion->num_rows;
+        if($filaDesconexion){
+            $recargoReconexion = '50.00';
+            $rowDesconexion = $resultadoDesconexion->fetch_assoc();
+            echo'
+            <tr>
+                <td>0000-00</td>
+                <td>Reconexión</td>
+                <td>'.$nombreMes.'</td>
+                <td>'.$recargoReconexion.'</td>
+                <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
+            </tr>
+            ';
+        }
+}
+
+    
     $inicio->modify('+1 month');
 }
+
 
 }
 

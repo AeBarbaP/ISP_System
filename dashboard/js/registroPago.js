@@ -78,11 +78,23 @@ function swalpago(){
 function guardarTodosPagos() {
     const filas = $('#NuevaSolicitud tr');
     const pagos = [];
-    const folioPago = $('#folioLabelpago').val();
+    const folioPago1 = $('#folioLabelpago').val();
     const foliContrato = document.getElementById('folioContratoRegistro').innerText;
     const fechaSolicitud = $('#fechaSolicitud').val();
 
+    var i = 0;
     filas.each(function() {
+        i = i +1;
+        var concepto = $(this).find('td:eq(1)').text();
+        if (concepto == 'Pago anticipado') {
+            var folioPago = folioPago1 +'-FAn-'+ i;
+        }
+        else if (concepto == 'Adeudo' || concepto == 'Recargo' || concepto == 'Reconexión'){
+            var folioPago = folioPago1 +'-FAt-'+ i;
+        }
+        else{
+            var folioPago = folioPago1;
+        }
         if (!$(this).hasClass('table-success')) { // Solo no pagados
             pagos.push({
                 folio_pago: folioPago,
@@ -131,11 +143,14 @@ function revisarPagosAnticipados() {
 
     const filas = $('#NuevaSolicitud tr');
     const pagos = [];
-    const folioPago = $('#folioLabelpago').val();
+    const folioPago1 = $('#folioLabelpago').val();
     const foliContrato = document.getElementById('folioContratoRegistro').innerText;
     const fechaSolicitud = $('#fechaSolicitud').val();
 
+    var i = 0;
     filas.each(function() {
+        i = i +1;
+        var folioPago = folioPago1 +'-FAn-'+ i;
         var concepto = $(this).find('td:eq(1)').text();
         if (concepto == 'Pago anticipado') { // Solo no pagados
                 $.ajax({
@@ -166,11 +181,13 @@ function revisarPagosAtrasado() {
 
     const filas = $('#NuevaSolicitud tr');
     const pagos = [];
-    const folioPago = $('#folioLabelpago').val();
+    const folioPago1 = $('#folioLabelpago').val();
     const foliContrato = document.getElementById('folioContratoRegistro').innerText;
     const fechaSolicitud = $('#fechaSolicitud').val();
-
+    var i = 0;
     filas.each(function() {
+        i = i +1;
+        var folioPago = folioPago1 +'-FAt-'+ i;
         var concepto = $(this).find('td:eq(1)').text();
         if (concepto == 'Adeudo') { // Solo no pagados
                 $.ajax({
