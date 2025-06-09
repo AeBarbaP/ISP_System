@@ -389,13 +389,32 @@ function registrarPago(folioPago, folio, mes) {
 }
 //------------- Pagos dashboard --------------------------------
 
-function queryDashboard1() {
+// function queryDashboard1() {
+//     $.ajax({
+//         type: "POST",
+//         url: "query/dashboard1.php",
+//         dataType: "HTML",
+//         success: function(data) {
+//             $('#dashboard1').html(data);
+//         }
+//     });
+// }
+
+function queryDashboard1(pagina = 1) {
     $.ajax({
         type: "POST",
         url: "query/dashboard1.php",
+        data: { pagina: pagina },
         dataType: "HTML",
         success: function(data) {
             $('#dashboard1').html(data);
+            
+            // Agregar evento a los botones de paginación
+            $('.paginacion').on('click', function(e) {
+                e.preventDefault();
+                var pagina = $(this).data('pagina');
+                queryDashboard1(pagina);
+            });
         }
     });
 }

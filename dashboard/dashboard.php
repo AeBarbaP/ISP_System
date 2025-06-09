@@ -203,7 +203,7 @@
 						</div>
 					</div>
 					<div class="row mt-4">
-						<div class="col-lg-8 grid-margin stretch-card">
+						<!-- <div class="col-lg-8 grid-margin stretch-card">
 							<div class="card">
 								<div class="card-header pt-4">
 									<h4 class="card-title">Últimos Pagos Registrados</h4>
@@ -240,7 +240,35 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
+						<div class="col-lg-8 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-header pt-4">
+            <h4 class="card-title">Últimos Pagos Registrados</h4>
+        </div>
+        <div class="card-body overflow-auto">
+            <div class="row">
+                <div class="table-responsive" id="dashboard1">
+                    <!-- <table class="table table-striped table-hover">
+                        <thead style="background-color: aliceblue;">
+                            <tr class="text-center">
+                                <th class="scope" style="font-weight: bold;">Contrato</th>
+                                <th class="scope" style="font-weight: bold;"># pago</th>
+                                <th class="scope" style="font-weight: bold;">Nombre del Cliente</th>
+                                <th class="scope" style="font-weight: bold;">Monto</th>
+                                <th class="scope" style="font-weight: bold;">Fecha de Pago</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dashboard1"> -->
+                            <!-- Los datos se cargarán aquí via AJAX -->
+                        <!-- </tbody>
+                    </table> -->
+                </div>
+            </div>
+            <!-- La paginación se insertará aquí automáticamente -->
+        </div>
+    </div>
+</div>
 						<div class="col-lg-4 mb-3 mb-lg-0">
 							<div class="card congratulation-bg random-card text-center">
 								<div class="card-body pb-0">
