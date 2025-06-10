@@ -44,12 +44,12 @@ $resultado = $conn->query($sql);
 $x = ($paginaActual - 1) * $registrosPorPagina + 1;
 
 echo '
-    <table class="table table-hover text-center">
+    <table class="table table-hover text-center table-bordered table-striped">
         <thead class="table-dark">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Usuario</th>
-                <th scope="col">Actividad</th>
+                <th scope="col" class="">Actividad</th>
                 <th scope="col">Fecha/Hora</th>
             </tr>
         </thead>
@@ -61,12 +61,23 @@ while($row = $resultado->fetch_assoc()){
     $sqlAccion = "SELECT * FROM catalogo_logs WHERE id = '$accion'";
     $resultadoAccion = $conn->query($sqlAccion);
     $rowAccion = $resultadoAccion->fetch_assoc();
+
+    if($accion >= 1 && $accion <= 16){
+        $colorActividad = 'text-primary';
+    }
+    else if($accion >= 17 && $accion <= 32){
+        $colorActividad = 'text-warning';
+        $colorActividad = 'text-warning';
+    }
+    else{
+        $colorActividad = 'text-success';
+    }
     
     echo'
     <tr>
         <td>'.$x.'</td>
-        <td>'.$row['username'].'</td>
-        <td>'.$rowAccion['descripcion'].'</td>
+        <td><i class="bi bi-person-circle text-primary"></i> '.$row['username'].'</td>
+        <td class="text-start"><i class="bi bi-circle '.$colorActividad.'"></i> '.$rowAccion['descripcion'].'</td>
         <td>'.$row['hora'].'</td>
     </tr>
     ';
