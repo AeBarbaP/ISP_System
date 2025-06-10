@@ -317,13 +317,31 @@ function queryRecibo(){
     });
 }
 
-function queryRecibo2(){
-    $.ajax({
+// function queryRecibo2(){
+//     $.ajax({
+//         type: "POST",
+//         url: "query/query_proximos_vencimiento_2.php",
+//         dataType: "html",
+//         success: function(data) {
+//             $('#tablaProximos2').html(data);
+//         }
+//     });
+// }
+function queryRecibo2(pagina = 1){
+        $.ajax({
         type: "POST",
         url: "query/query_proximos_vencimiento_2.php",
+        data: { pagina: pagina },
         dataType: "html",
         success: function(data) {
             $('#tablaProximos2').html(data);
+            
+            // Agregar evento a los botones de paginación
+            $('.paginacion-proximos').on('click', function(e) {
+                e.preventDefault();
+                var pagina = $(this).data('pagina');
+                queryRecibo2(pagina);
+            });
         }
     });
 }

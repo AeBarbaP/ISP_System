@@ -285,15 +285,11 @@
 										<h4 class="card-title">Próximos a Vencer</h4>
 									</div>
 									<div class="card-body">
-										<!-- <p class="card-description">
-										Add class <code>.table-striped</code>
-										</p> -->
 										<ul class="list-group list-group-horizontal mb-4">
 											<li class="list-group-item">
 												1 - 2 días para vencer
 												<div class="btn btn-sm btn-danger btn-rounded ms-2"></div>
 											</li>
-											<!-- <li><span class="bg-warning"></span></li> -->
 											<li class="list-group-item">
 												3 - 4 días para vencer
 												<div class="btn btn-sm btn-warning btn-rounded ms-2"></div>
@@ -303,8 +299,8 @@
 												<div class="btn btn-sm btn-success btn-rounded ms-2"></div>
 											</li>
 										</ul>
-										<div class="table-responsive">
-											<table class="table table-hover text-center">
+										<div class="table-responsive" id="tablaProximos">
+											<!-- <table class="table table-hover text-center">
 												<caption>de 1 a 6 días antes de la fecha límite de pago.</caption>
 												<thead style="background-color: aliceblue;" class="text-dark">
 													<tr>
@@ -325,10 +321,10 @@
 														</th>
 													</tr>
 												</thead>
-												<tbody id="tablaProximos">
+												
 													
-												</tbody>
-											</table>
+												</tbody> -->
+											<!-- </table> -->
 										</div>
 										</div>
 									</div>
@@ -342,8 +338,8 @@
 										</div>
 										<div class="card-body">
 										
-										<div class="table-responsive">
-											<table class="table table-hover text-center">
+										<div class="table-responsive" id="tablaProximos2">
+											<!-- <table class="table table-hover text-center">
 												<thead style="background-color: aliceblue;" class="text-dark">
 													<tr>
 														<th class="scope" style="font-weight: bold;">
@@ -366,10 +362,10 @@
 														</th>
 													</tr>
 												</thead>
-												<tbody id="tablaProximos2">
+												<tbody >
 													
 												</tbody>
-											</table>
+											</table> -->
 										</div>
 									</div>
 								<!-- </div> -->
