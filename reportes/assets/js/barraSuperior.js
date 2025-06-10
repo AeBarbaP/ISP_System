@@ -62,3 +62,43 @@ function modalFallas(){
         //}
     //});
 }
+
+function generarReporteIndUsuarios(){
+    let usuario = _('usr_reporte').value;
+    let fechaInicio = _('fecha_inicio_reporteusr').value;
+    let fechaFinal = _('fecha_final_reporteusr').value;
+    let tipoReporte = _('tipoReporteUsr').value;
+
+    if(tipoReporte == 1){ // general
+        $.ajax({
+            url: 'query/query_reporte_usuario_individual1.php',
+            type: 'POST',
+            data: {
+                usuario : usuario,
+                fechaInicio, fechaInicio,
+                fechaFinal : fechaFinal            },
+            dataType: 'html',
+            success: function(data) {
+                $('#reporteUsuarioG').modal('show');
+                $('#tablaUsuariosInd').html(data);
+            }
+        });
+    }
+    else if(tipoReporte == 2){ // Individual
+         $.ajax({
+            url: 'query/query_reporte_usuario_individual2.php',
+            type: 'POST',
+            data: {
+                usuario : usuario,
+                fechaInicio, fechaInicio,
+                fechaFinal : fechaFinal            
+            },
+            dataType: 'html',
+            success: function(data) {
+                $('#reporteUsuarioG').modal('show');
+                $('#tablaUsuariosIndG').html(data);
+            }
+        });
+    }
+
+}

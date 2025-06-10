@@ -663,6 +663,8 @@ else {
         include("modales/reporteFallas.php");
         include("modales/reporteCorteServicioInd.php");
         include("modales/reporteCortesServGral.php");
+        include("modales/reporteUsuarioInd.php");
+        include("modales/reporteUsuarioG.php");
     ?>
 
 </html>
