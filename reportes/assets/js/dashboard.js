@@ -112,13 +112,21 @@ function queryAlDia(){
 
 queryAlDia();
 
-function queryLOG(){
+function queryLOG(pagina = 1){    
     $.ajax({
         type: "POST",
         url: "query/query_log.php",
+        data: { pagina: pagina },
         dataType: "html",
         success: function(data){
             $('#tablaLOG').html(data);
+            
+            // Agregar evento a los botones de paginación específicos
+            $('.paginacion-log').on('click', function(e) {
+                e.preventDefault();
+                var pagina = $(this).data('pagina');
+                queryLOG(pagina);
+            });
         }
     });
 }

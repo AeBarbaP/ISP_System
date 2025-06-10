@@ -585,6 +585,8 @@ else {
                                         </div>
                                     </div>
                                     <!-- tabla -->
+                                     <div class="table-responsive" id="tablaLOG"></div>
+<!--                                      
                                     <table class="table table-hover text-center">
                                         <thead class="">
                                             <tr>
@@ -594,10 +596,10 @@ else {
                                                 <th scope="col">Fecha/Hora</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="tablaLOG">
+                                        <tbody id="tablaLOG"> -->
                                             
-                                        </tbody>
-                                    </table>
+                                        <!-- </tbody>
+                                    </table> -->
                                     <!-- tabla -->
                                 </div>
                             </div>
