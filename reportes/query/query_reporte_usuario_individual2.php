@@ -28,12 +28,13 @@ while($row = $resultado->fetch_assoc()){
         <td>'.$rowNombre['nombre'].'</td>
         <td>'.$rowAccion['descripcion'].'</td>
         <td>'.$row['hora'].'</td>
+        <td>Sin estatus</td>
     </tr>
     ';
 }
 echo'
 <tr class="table-info">
-    <td colspan="4" class="text-center"></td>
+    <td colspan="3" class="text-center"></td>
     <td colspan="1" class="text-center"><strong>Total:</strong></td>
     <td colspan="1" class="text-center">'.$totalSuma.'</td>
     <td colspan="1" class="text-end"></td>

@@ -37,6 +37,7 @@
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Usuario</th>
+                                        <th scope="col">Fecha</th>
                                         <th scope="col">Acción</th>
                                         <th scope="col">Estatus</th>
                                     </tr>
