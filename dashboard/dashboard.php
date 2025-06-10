@@ -42,7 +42,7 @@
 	 <script src="js/laterales/paquetes.js"></script>
 	 <script src="js/laterales/corteDiario.js"></script>
 	<!-- área de scripts -->
-	<body onload="queryDashboard1();revisarCorte();">
+	<body onload="queryDashboard1();revisarCorte();ultimoAcceso('<?php echo $user; ?>');">
 		
     <div class="container-scroller">
 		<!-- partial:partials/_horizontal-navbar.html -->
@@ -179,17 +179,23 @@
 			<div class="main-panel">
 				<div class="content-wrapper">
 					<div class="row">
-						<div class="col-sm-6 mb-4 mb-xl-0">
-							<div class="d-lg-flex align-items-center">
+						<div class="col-sm-12 mb-4 mb-xl-0 ">
+							<div class="alert alert-light border border-success" role="alert">
 								<div>
-									<h3 class="text-dark font-weight-bold mb-2">Bienvenid@ (Usuario)!</h3>
+									<h1 class="font-weight-bold mb-2" style="color:#0ddbb9">Bienvenid@ <small class="text-body-secondary">(<?php echo $nombre ?>)!</small></h1>
+									<h6 class="font-weight-normal mb-2">Su último login fue <strong><span id="ultimoAcceso"></span></strong></h6>
+								</div>
+							</div>
+							<!-- <div class="d-lg-flex align-items-center" hidden>
+								<div>
+									<h1 class="text-secondary font-weight-bold mb-2">Bienvenid@ <small class="text-body-secondary">(<?php echo $nombre ?>)!</small></h1>
 									<h6 class="font-weight-normal mb-2">Su último login fue hace 8 horas.</h6>
 								</div>
 								<div class="ms-lg-5 d-lg-flex d-none">
 								</div>
-							</div>
+							</div> -->
 						</div>
-						<div class="col-sm-6">
+						<!-- <div class="col-sm-6">
 							<div class="d-flex align-items-center justify-content-md-end">
 								<div class="pe-1 mb-3 mb-xl-0">
 									<button type="button" class="btn bg-white btn-icon">
@@ -200,7 +206,7 @@
 									</button>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<div class="row mt-4">
 						<!-- <div class="col-lg-8 grid-margin stretch-card">

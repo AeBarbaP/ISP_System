@@ -95,6 +95,31 @@ function cambiarFecha() {
 
 // }
 
+function ultimoAcceso(id){
+    $.ajax({
+        type: "POST",
+        url: "query/query_ultimo_acceso.php",
+        dataType: "json",
+        data:{
+            id:id
+        },
+        success: function(data){
+            var datos = JSON.parse(JSON.stringify(data));
+            var success = datos.success;
+            var hora = datos.hora;
+    
+            if(success == 1){
+               document.getElementById('ultimoAcceso').innerHTML = hora;
+                
+            }
+            else{
+                alert("No se guardó");
+                console.log(datos.error)
+            } 
+        }
+    });
+}
+
 function antenas(){
     $.ajax({
         type: "POST",
