@@ -37,10 +37,10 @@ function generarReporteIndClientes(){
     }
 
 }
-
+// juntos
 function modalFallasInd(){
-    $('#reporteFallasInd').modal('show');
-
+    $('#reporteFallasInd2').modal('show');
+    
     $.ajax({
         url: 'query/query_reporte_incidencias.php',
         type: 'POST',
@@ -50,18 +50,56 @@ function modalFallasInd(){
         }
     });
 }
+function reporteFallaG(folio){
+    let folioReporte = folio;
+    $.ajax({
+        url: 'query/query_reporte_incidencias_individual.php',
+        type: 'POST',
+        data: {
+            folioReporte : folioReporte
+        },
+        dataType: 'html',
+        success: function(data) {
+            $('#reporteFallasInd').modal('show');
+            $('#reporteFallasInd2').modal('hide');
+            $('#bodyFallasInd').html(data);
+        }
+    });
+}
+// juntos
+
+// estos van juntos
 function modalFallas(){
     $('#reporteIndividualInc').modal('show');
-
-    //$.ajax({
-        //url: 'query/query_reporte_incidencias.php',
-        //type: 'POST',
-        //dataType: 'html',
-        //success: function(data) {
-            //$('#reporteFallas').html(data);
-        //}
-    //});
+    
+    $.ajax({
+        url: 'query/query_reporte_incidencias2.php',
+        type: 'POST',
+        dataType: 'html',
+        success: function(data) {
+            $('#inc_reporte').html(data);
+        }
+    });
 }
+
+function reporteFallaInd(){
+    let folioReporte = _('inc_reporte').value;
+    $.ajax({
+        url: 'query/query_reporte_incidencias_individual.php',
+        type: 'POST',
+        data: {
+            folioReporte : folioReporte
+        },
+        dataType: 'html',
+        success: function(data) {
+            $('#reporteFallasInd').modal('show');
+            $('#reporteIndividualInc').modal('hide');
+            $('#bodyFallasInd').html(data);
+        }
+    });
+    
+}
+// estos van juntos
 
 function generarReporteIndUsuarios(){
     let usuario = _('usr_reporte').value;
@@ -111,7 +149,7 @@ function generarReporteTecnicos(){
 
     if(tipoReporte == 1){ // general
         $.ajax({
-            url: 'query/query_tecnicosGeneral.php',
+            url: 'query/query_tecnicosGeneral2.php',
             type: 'POST',
             data: {
                 tecnico : tecnico,
@@ -140,5 +178,4 @@ function generarReporteTecnicos(){
             }
         });
     }
-
 }

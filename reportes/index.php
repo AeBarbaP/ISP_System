@@ -651,6 +651,7 @@ else {
         include("modales/editarUsuario.php");
         include("modales/gestionarUsuarios.php"); */
         include("modales/reporteFallasInd.php");
+        include("modales/reporteFallasInd2.php");
         include("modales/reporteClientes.php");
         include("modales/reporteContratos.php");
         include("modales/reporteContratoIndividual.php");

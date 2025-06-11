@@ -1,9 +1,9 @@
 <?php
     require('../../dashboard/prcd/conn.php');
 
-    // $tecnico = $_POST['tecnico'];
+    $tecnico = $_POST['tecnico'];
 
-    $sql = "SELECT * FROM tecnicos WHERE estatus = 1 ORDER BY id DESC";
+    $sql = "SELECT * FROM tecnicos WHERE id = '$tecnico' AND estatus = 1 ORDER BY id DESC";
     $resultado = $conn->query($sql);
     $x = 0;
     $y = 0;
