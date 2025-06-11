@@ -13,21 +13,24 @@ $username = $_SESSION['username'];
 $fecha_orden = $_POST['fecha_orden'];
 $folio = $_POST['folio'];
 $folio_cliente = $_POST['folio_cliente'];
-/* $tecnico = $_POST['tecnico']; */
+$tecnico = $_POST['tecnico'];
 $fecha_corte = $_POST['fecha_corte'];
+$estatus = 1;
 
 $query = "INSERT INTO cortes (
         folio_cliente,
         username,
         folio_corte,
         fecha,
+        tecnico,
         estatus
         ) VALUES (
         '$folio_cliente',
         '$username',
         '$folio',
         '$fecha_corte',
-        1
+        '$tecnico',
+        '$estatus'
         )";
 
     $resultado = $conn->query($query);

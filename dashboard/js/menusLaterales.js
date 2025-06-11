@@ -1328,8 +1328,6 @@ function guardarIncidencia() {
     });
 }
 
-
-
 function consultaClientesFallas() {
   $.ajax({
       url: 'query/query_clientesFallas.php',
@@ -2065,6 +2063,14 @@ function altaCorte() {
               Domicilio: <span id="domicilioClienteCorte"></span><br>							
               Comunidad: <span id="comunidadClienteCorte"></span></p>							
 						</div>
+
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
+              <select class="form-select" aria-label="tecnico asignado" id="tecnico_corte">
+                  
+                  <!-- aquí se llena con la tabla de Técnicos -->
+              </select>
+            </div>
            
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Corte:</label>
@@ -2090,6 +2096,7 @@ function altaCorte() {
   // fechaRegistroCorte();
   queryClientesCorte();
   generarFolioCorte();
+  queryTecnicos_Corte();
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
@@ -2107,6 +2114,17 @@ function queryClientesCorte() {
             // $('#clientesCorte').selectpicker('refresh');
         }
     });
+}
+
+function queryTecnicos_Corte(){
+  $.ajax({
+    url: 'query/query_tecnicosFallas.php',
+    type: 'POST',
+    dataType: 'html',
+    success: function(data) {
+        $('#tecnico_corte').html(data);
+    }
+});
 }
 
 function generarFolioCorte(){
@@ -2132,8 +2150,7 @@ function guardarCorte() {
   // falta agregar el username
   var folio_cliente = _('clientes_corte').value;
   var folio = _('folio_corte').value;
-  // var tecnico = _('tecnico_corte').value;
-  // _('modalclientes_corteCorte').value;
+  var tecnico = _('tecnico_corte').value;
   var fecha_corte = _('fecha_corteAsignacion').value;
   $.ajax({
     url: 'prcd/guardarCorte.php',
@@ -2142,6 +2159,7 @@ function guardarCorte() {
       fecha_orden: fecha_orden,
       folio_cliente:folio_cliente,
       folio:folio,
+      tecnico:tecnico,
       fecha_corte:fecha_corte
     },
     dataType: 'JSON',
