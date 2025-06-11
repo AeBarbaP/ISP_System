@@ -102,3 +102,43 @@ function generarReporteIndUsuarios(){
     }
 
 }
+
+function generarReporteTecnicos(){
+    let tecnico = _('tec_reporteInd').value;
+    let fechaInicio = _('fecha_inicio_reportetec').value;
+    let fechaFinal = _('fecha_final_reportetec').value;
+    let tipoReporte = _('tipoReporteTec').value;
+
+    if(tipoReporte == 1){ // general
+        $.ajax({
+            url: 'query/query_tecnicosGeneral.php',
+            type: 'POST',
+            data: {
+                tecnico : tecnico,
+                fechaInicio, fechaInicio,
+                fechaFinal : fechaFinal            },
+            dataType: 'html',
+            success: function(data) {
+                $('#reportegeneralTecnicos').modal('show');
+                $('#tec_tablaGral').html(data);
+            }
+        });
+    }
+    else if(tipoReporte == 2){ // Individual
+         $.ajax({
+            url: '',
+            type: 'POST',
+            data: {
+                usuario : usuario,
+                fechaInicio, fechaInicio,
+                fechaFinal : fechaFinal            
+            },
+            dataType: 'html',
+            success: function(data) {
+                $('#reporteUsuarioG').modal('show');
+                $('#tec_tablaGral').html(data);
+            }
+        });
+    }
+
+}

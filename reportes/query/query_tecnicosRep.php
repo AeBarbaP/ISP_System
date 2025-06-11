@@ -1,7 +1,7 @@
 <?php
     require('../../dashboard/prcd/conn.php');
 
-    $sql = "SELECT * FROM tecnicos ORDER BY id DESC";
+    $sql = "SELECT * FROM tecnicos WHERE estatus = 1 ORDER BY id DESC";
     $resultado = $conn->query($sql);
     $x = 0;
     while($row = $resultado->fetch_assoc()){

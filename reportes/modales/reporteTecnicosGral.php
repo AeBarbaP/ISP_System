@@ -42,13 +42,14 @@
                         </div>
                         <div class="table-responsive table-hover mt-3">
                             <table class="table p-1 text-center">
-                                <thead>
+                                <thead class="table-dark">
                                     <tr>
                                         <th scope="col">#</th>
+                                        <th scope="col">Tipo</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Fecha Alta</th>
-                                        <th scope="col">Ultima Actualización</th>
                                         <th scope="col">Estatus</th>
+                                        
                                         <th scope="col"><i class="bi bi-pen"></i></th>
                                     </tr>
                                 </thead>
