@@ -37,7 +37,7 @@ function generarReporteIndClientes(){
     }
 
 }
-// juntos
+// juntos ---------------------------
 function modalFallasInd(){
     $('#reporteFallasInd2').modal('show');
     
@@ -66,7 +66,7 @@ function reporteFallaG(folio){
         }
     });
 }
-// juntos
+// juntos ---------------------------
 
 // estos van juntos
 function modalFallas(){
@@ -177,5 +177,59 @@ function generarReporteTecnicos(){
                 $('#tec_tablaGral').html(data);
             }
         });
+    }
+}
+
+function queryCortesReporteInd(){
+    $('#reporteCorteInd').modal('show');
+    $.ajax({
+            url: 'query/query_cortes_individual.php',
+            type: 'POST',
+            dataType: 'html',
+            success: function(data) {
+                $('#corteserv_reporte').html(data);
+            }
+        });
+}
+
+function generarReporteCorteInd(){
+    let folio = _('corteserv_reporte').value;
+    // let fechaInicio = _('fecha_inicio_reportecorte').value;
+    // let fechaFinal = _('fecha_final_reportecorte').value;
+    let tipoReporte = _('tipoReporteCorte').value;
+
+    if(tipoReporte == 2){ // general
+        $.ajax({
+            url: 'query/query_reporte_cortes_individual.php',
+            type: 'POST',
+            data: {
+                folio : folio
+                // fechaInicio, fechaInicio,
+                // fechaFinal : fechaFinal            
+                },
+            dataType: 'html',
+            success: function(data) {
+                $('#reporteCorteInd').modal('hide');
+                $('#reporteCorteInd2').modal('show');
+                $('#cortes_detalle').html(data);
+            }
+        });
+    }
+    else if(tipoReporte == 1){ // Individual
+        //  $.ajax({
+        //     url: '',
+        //     type: 'POST',
+        //     data: {
+        //         usuario : usuario,
+        //         fechaInicio, fechaInicio,
+        //         fechaFinal : fechaFinal            
+        //     },
+        //     dataType: 'html',
+        //     success: function(data) {
+        //         $('#reporteUsuarioG').modal('show');
+        //         $('#tec_tablaGral').html(data);
+        //     }
+        // });
+        console.log('X');
     }
 }

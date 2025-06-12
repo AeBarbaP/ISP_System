@@ -431,13 +431,13 @@ else {
                         <i class="bi bi-wifi-off ms-2" style="font-size: 25px;"></i>
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
-                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reporteCorteInd">Reporte Individual <!-- <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""> --><i class="bi bi-clipboard2-x ms-2" style="font-size: 2em; "></i></a></li>
+                        <li><a class="dropdown-item" href="#" onclick="queryCortesReporteInd()">Reporte Individual<i class="bi bi-clipboard2-x ms-2" style="font-size: 2em; "></i></a></li>
                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reportegeneralCortesServ">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <!-- <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregar" href="">Agregar Técnico<i class="bi bi-person-plus ms-2" style="font-size: 30px;"></i></a></li> -->
+                       
                         <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionTecnicos" onclick="gestionCortes()" href="#">Gestión de Cortes <i class="bi bi-window-x ms-2" style="font-size: 30px;"></i></a></li>
                     </ul>
                 </div>
@@ -663,6 +663,7 @@ else {
         include("modales/reporteTecnicosGral.php");
         include("modales/reporteFallas.php");
         include("modales/reporteCorteServicioInd.php");
+        include("modales/reporteCorteServicioInd_detalle.php");
         include("modales/reporteCortesServGral.php");
         include("modales/reporteUsuarioInd.php");
         include("modales/reporteUsuarioG.php");
