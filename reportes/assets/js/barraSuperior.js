@@ -263,3 +263,43 @@ function generarReporteCorteGral(){
         }
     });
 }
+
+function queryPagoIndividual(val){
+    $('#reportePagoIndividual').modal('show');
+    let folioPago = val;
+
+     $.ajax({
+        url: 'query/query_pagos_individual.php',
+        type: 'POST',
+        data:{
+            folioPago : folioPago
+        },
+        dataType: 'html',
+        success: function(data) {
+            $('#tablaPagoIndividualG').html(data);
+        }
+    });
+
+}
+
+function datosPagoIndividual(cliente){
+    $.ajax({
+            type: "POST",
+            url: "query/query_pagos_individual_datos.php", 
+            data: { 
+                cliente: cliente
+            },
+            dataType: "json",
+            success: function(response) {
+                // podría fallar la consulta sin el strignfy
+                let success = response.success;
+                if (success == 1) {
+                    _('nombrePG').innerHTML = response.nombre;
+                    _('ncontratoPG').innerText = response.folio;
+                    _('domicilioPG').innerText = response.domicilio;
+                } else {
+                    alert("Error al registrar el pago: " + response.message);
+                }
+            }
+        });
+}

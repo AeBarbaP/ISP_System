@@ -8,17 +8,24 @@ $diaHoy = $hoy->format('d');
 $mesHoy = $hoy->format('m');
 $anioHoy = $hoy->format('Y');
 
-$sql = "SELECT * FROM pagos_generales WHERE MONTH(fecha_pago) = $mesHoy AND YEAR(fecha_pago) = $anioHoy ORDER BY id DESC";
+$folio = $_POST['folioPago'];
+
+$sql = "SELECT * FROM pagos WHERE num_pago = '$folio' ORDER BY id DESC";
 $resultado = $conn->query($sql);
 $x = 0;
+$total2 = 0;
 while($row = $resultado->fetch_assoc()){
     $x++;
-    $numPago = $row['folio_pago'];
+    $numPago = $row['num_pago'];
+    $concepto = $row['concepto'];
+    $periodo = $row['periodo'];
     $folioContrato = $row['folio_contrato'];
     $fechaPago = $row['fecha_pago'];
     $id = $row['id'];
     $tipoPago = $row['tipo_pago'];
     $total = $row['total'];
+
+    $total2 = $total2 + $total;
 
     $sql1 = "SELECT * FROM clientes WHERE folio = '$folioContrato'";
     $resultado1 = $conn->query($sql1);
@@ -35,15 +42,18 @@ while($row = $resultado->fetch_assoc()){
     echo'
     <tr>
         <td>'.$x.'</td>
-        <td>'.$numPago.'</td>
-        <td>'.$cliente.'</td>
-        <td>'.$fechaPago.'</td>
-        <td>'.$pago.'</td>
+        <td>'.$concepto.'</td>
+        <td>'.$periodo.'</td>
         <td>'.$total.'</td>
-    
-        <td><a href="#" onclick="queryPagoIndividual(\''.$numPago.'\'); datosPagoIndividual(\''.$folioContrato.'\')"><i class="bi bi-eye-fill"></i></a></td>
     </tr>
     ';
 }
+
+echo'
+<tr>
+    <td class="table-success text-end" colspan="3">Total</td>
+    <td class="table-success">'.$total2.'</td>
+</tr>
+';
 
 ?>

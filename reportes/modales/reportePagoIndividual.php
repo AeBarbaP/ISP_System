@@ -4,14 +4,14 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-cash-coin me-2"  style="font-size: 25px;"></i> Reporte de Pagos</h5>
+                        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-cash-coin me-2"  style="font-size: 25px;"></i> Reporte de Pagos Detallado</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="alert alert-info" role="alert">
-                            Nombre del cliente:
-                            Número de Contrato:
-                            Domicilio:
+                            <h6><strong>Nombre del cliente:</strong> <span id="nombrePG"></span></h6>
+                            <h6><strong>Número de Contrato:</strong> <span id="ncontratoPG"></span></h6>
+                            <h6><strong>Domicilio:</strong> <span id="domicilioPG"></span></h6>
                         </div>
                         <div class="row">
                             <div class="col-6">
