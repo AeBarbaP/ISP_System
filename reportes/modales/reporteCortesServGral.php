@@ -45,9 +45,10 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Folio</th>
+                                        <th scope="col">Folio corte</th>
                                         <th scope="col">Fecha Corte</th>
                                         <th scope="col">Cliente</th>
+                                        <th scope="col">Técnico asignado</th>
                                         <th scope="col">Estatus</th>
                                         <th scope="col"><i class="bi bi-eye"></i></th>
                                     </tr>

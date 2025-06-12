@@ -233,3 +233,33 @@ function generarReporteCorteInd(){
         console.log('X');
     }
 }
+function generarReporteCorteInd2(folio2){
+    let folio = folio2;
+    
+        $.ajax({
+            url: 'query/query_reporte_cortes_individual.php',
+            type: 'POST',
+            data: {
+                folio : folio        
+                },
+            dataType: 'html',
+            success: function(data) {
+                $('#reportegeneralCortesServ').modal('hide');
+                $('#reporteCorteInd2').modal('show');
+                $('#cortes_detalle').html(data);
+            }
+        });
+}
+
+function generarReporteCorteGral(){
+    $('#reportegeneralCortesServ').modal('show');
+    
+    $.ajax({
+        url: 'query/query_reporte_cortes_gral.php',
+        type: 'POST',
+        dataType: 'html',
+        success: function(data) {
+            $('#cortesserv_tablaGral').html(data);
+        }
+    });
+}

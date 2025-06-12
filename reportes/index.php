@@ -432,7 +432,7 @@ else {
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
                         <li><a class="dropdown-item" href="#" onclick="queryCortesReporteInd()">Reporte Individual<i class="bi bi-clipboard2-x ms-2" style="font-size: 2em; "></i></a></li>
-                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reportegeneralCortesServ">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
+                        <li><a class="dropdown-item" href="#" onclick="generarReporteCorteGral()">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
