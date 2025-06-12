@@ -438,7 +438,7 @@ else {
                             <hr class="dropdown-divider">
                         </li>
                        
-                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionTecnicos" onclick="gestionCortes()" href="#">Gestión de Cortes <i class="bi bi-window-x ms-2" style="font-size: 30px;"></i></a></li>
+                        <li><a class="dropdown-item"  onclick="reporteCortes()" href="#">Gestión de Cortes <i class="bi bi-window-x ms-2" style="font-size: 30px;"></i></a></li>
                     </ul>
                 </div>
                 <div class="vr"></div>

@@ -305,14 +305,15 @@ function datosPagoIndividual(cliente){
 }
 
 function reporteCortes(){
-    $('#gestionTecnicos').modal('show');
+    $('#modalReporteCortes').modal('show'); //está en menusLaterales.js ln 2022
+    gestionCortes();
     
     $.ajax({
-        url: 'query/query_reporte_cortes_gral.php',
+        url: 'query/query_reporte_cortes_gral2.php',
         type: 'POST',
         dataType: 'html',
         success: function(data) {
-            $('#cortesserv_tablaGral').html(data);
+            $('#tablaCortesReporte').html(data);
         }
     });
 }

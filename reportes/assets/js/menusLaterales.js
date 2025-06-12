@@ -2025,6 +2025,7 @@ function gestionCortes() {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'modalReporteCortes');
   modal.innerHTML = `
     <div class="modal-dialog modal-xl">>
       <div class="modal-content">
@@ -2046,7 +2047,7 @@ function gestionCortes() {
                   <table class="table table-hover p-1">
                       <thead>
                           <tr>
-                              <th scope="col">Id</th>
+                              <th scope="col">#</th>
                               <th scope="col">Folio Corte</th>
                               <th scope="col">Cliente</th>
                               <th scope="col">Domicilio</th>
@@ -2056,7 +2057,7 @@ function gestionCortes() {
                               <th scope="col" class="text-end"><i class="bi bi-pencil-square me-2"></i><i class="bi bi-trash"></i> </th>
                           </tr>
                       </thead>
-                      <tbody id="tablaCortes">
+                      <tbody id="tablaCortesReporte">
                           
                       </tbody>
                   </table>
