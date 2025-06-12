@@ -303,3 +303,16 @@ function datosPagoIndividual(cliente){
             }
         });
 }
+
+function reporteCortes(){
+    $('#gestionTecnicos').modal('show');
+    
+    $.ajax({
+        url: 'query/query_reporte_cortes_gral.php',
+        type: 'POST',
+        dataType: 'html',
+        success: function(data) {
+            $('#cortesserv_tablaGral').html(data);
+        }
+    });
+}
