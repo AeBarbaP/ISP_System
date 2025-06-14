@@ -63,7 +63,7 @@
             <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item nav-profile dropdown">
                   <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-                    <span class="nav-profile-name">Usuario</span>
+                    <span class="nav-profile-name"><?php echo $nombre ?></span>
                     <span class="online-status"></span>
                     <img src="images/faces/face28.png" alt="profile"/>
                   </a>
@@ -182,7 +182,7 @@
 						<div class="col-sm-12 mb-4 mb-xl-0 ">
 							<div class="alert alert-light border border-success" role="alert">
 								<div>
-									<h1 class="font-weight-bold mb-2" style="color:#0ddbb9">Bienvenid@ <small class="text-body-secondary">(<?php echo $nombre ?>)!</small></h1>
+									<h1 class="font-weight-bold mb-2" style="color:#0ddbb9">Bienvenid@ <small class="text-body-secondary"><?php echo $nombre ?>!</small></h1>
 									<h6 class="font-weight-normal mb-2">Su último login fue <strong><span id="ultimoAcceso"></span></strong></h6>
 								</div>
 							</div>
