@@ -52,7 +52,7 @@
           <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
             <ul class="navbar-nav navbar-nav-left">
               <li class="nav-item ms-0 me-3 d-lg-flex d-none">
-                <a href="#" class="nav-link horizontal-nav-left-menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class="mdi mdi-format-list-bulleted bg-primary rounded pt-2 pe-2 ps-2"></i></a>
+                <a href="#" class="nav-link horizontal-nav-left-menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class="mdi mdi-format-list-bulleted rounded pt-2 pe-2 ps-2" style="color:blue; border: 1px solid blue;"></i></a>
               </li>
              
             </ul>
@@ -179,7 +179,7 @@
 			<div class="main-panel">
 				<div class="content-wrapper">
 					<div class="row">
-						<div class="col-sm-12 mb-4 mb-xl-0 ">
+						<div class="col-sm-12 ">
 							<div class="alert alert-light border border-success" role="alert">
 								<div>
 									<h1 class="font-weight-bold mb-2" style="color:#0ddbb9">Bienvenid@ <small class="text-body-secondary"><?php echo $nombre ?>!</small></h1>
@@ -208,7 +208,7 @@
 							</div>
 						</div> -->
 					</div>
-					<div class="row mt-4">
+					<div class="row mt-2">
 						<!-- <div class="col-lg-8 grid-margin stretch-card">
 							<div class="card">
 								<div class="card-header pt-4">
