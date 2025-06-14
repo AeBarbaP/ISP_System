@@ -1299,6 +1299,12 @@ function guardarIncidencia() {
   let tecnico = _('tecnico_incidencia').value;
   let fechaAsignacion = _('fecha_incidenciaAsignacion').value;
   let idCliente = _('nombresClientesIncidencia').value;
+
+  if(idCliente == "" || descripcion == "" || tecnico == "" || fechaAsignacion == ""){
+    alert('Debes llenar los campos');
+    return;
+  }
+
     $.ajax({
       url: 'prcd/prcd_guardar_incidencia.php',
       type: 'POST',
@@ -2152,6 +2158,11 @@ function guardarCorte() {
   var folio = _('folio_corte').value;
   var tecnico = _('tecnico_corte').value;
   var fecha_corte = _('fecha_corteAsignacion').value;
+
+  if(folio_cliente == "" || tecnico == "" || fecha_corte == ""){
+    alert('Debes llenar todos los campos');
+  }
+
   $.ajax({
     url: 'prcd/guardarCorte.php',
     type: 'POST',

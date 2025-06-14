@@ -61,6 +61,11 @@ function queryPromociones(){
 }
 
 function swalpago(){
+    var nombre = document.getElementById('nombresClientes').value;
+    if (nombre == ""){
+        alert('Debes seleccionar nombre del cliente');
+        return;
+    }
     Swal.fire({
 		position: "top-end",
 		icon: "success",
@@ -81,6 +86,11 @@ function guardarTodosPagos() {
     const folioPago1 = $('#folioLabelpago').val();
     const foliContrato = document.getElementById('folioContratoRegistro').innerText;
     const fechaSolicitud = $('#fechaSolicitud').val();
+
+    if (filas == 0) {
+        alert('No hay pagos pendientes para guardar');
+        return;
+    }
 
     var i = 0;
     filas.each(function() {

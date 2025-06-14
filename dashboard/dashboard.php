@@ -426,7 +426,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-secondary text-light">
-                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-plus-circle-dotted"></i> Contrato nuevo</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-person-fill-add"></i> Contrato nuevo</h1>
                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -460,7 +460,7 @@
 						<div class="input-group input-group-sm mb-3">
                         	<input type="text" class="form-control" id="catalogoComunidades" name="comunidad" placeholder="">
 						</div>
-                        <!-- <select class="form-select" name="" id="catalogoComunidades"></select> -->
+                        
                     </div>
                     
                     <div class="col-sm-4">
@@ -468,14 +468,14 @@
 						<div class="input-group input-group-sm mb-3">
                         	<input type="text" class="form-control" id="catalogoMunicipios" name="municipio" placeholder="">
 						</div>
-                        <!-- <select class="form-select" name="" id="catalogoMunicipios"></select> -->
+                        
                     </div>
                     <div class="col-sm-4">
                         <label for="estado" class="form-label">Estado:</label>
 						<div class="input-group input-group-sm mb-3">
                         	<input type="text" class="form-control" id="catalogoEstados" name="estado" placeholder="">
 						</div>
-                        <!-- <select class="form-select" name="" id="catalogoEstados"></select> -->
+                        
                     </div>
                     <div class="col-sm-4">
                         <label for="cp" class="form-label">C.P.:</label>
