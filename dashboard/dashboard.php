@@ -427,7 +427,7 @@
         <div class="modal-content">
             <div class="modal-header bg-secondary text-light">
                 <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-person-fill-add"></i> Contrato nuevo</h1>
-                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="" aria-label="Close"></button>
+                <button type="button" class="btn-close bg-light" onclick="limpiarModal()" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="formSolicitudes">   
@@ -552,7 +552,7 @@
 					</div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Cancelar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal()">Cancelar</button>
                     <button type="button" class="btn btn-primary" id="guardarbtn" onclick="guardarContrato()" >Guardar</button> <!-- Guarda registro de cliente nuevo y manda a modal de pago automáticamente -->
                     <button type="button" class="btn btn-success" id="imprimircbtn" onclick="contratoNuevo()">Imprimir Contrato</button>
                 </div>
@@ -570,7 +570,7 @@
         <div class="modal-content">
             <div class="modal-header bg-secondary text-light">
                 <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-credit-card"></i> Registro de pago</h1>
-                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="" aria-label="Close"></button>
+                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="limpiarModal()" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="formPagos">   
@@ -756,7 +756,7 @@
 				</div>
 			</form>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Cancelar</button>
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal()">Cancelar</button>
 				<button type="button" class="btn btn-primary" id="pagoreg" onclick="swalpago()">Pagar</button>
 				<a type="button" class="btn btn-success" id="printticket" onclick="cerrarpago()" data-bs-toggle="modal" data-bs-target="#ticket" hidden >Imprimir Ticket</a>
 				<button type="button" class="btn btn-success" id="cerrarpago1" data-bs-dismiss="modal" hidden >Cerrar</button>

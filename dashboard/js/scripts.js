@@ -109,7 +109,7 @@ function ultimoAcceso(id){
             var hora = datos.hora;
     
             if(success == 1){
-               document.getElementById('ultimoAcceso').innerHTML = hora;
+                document.getElementById('ultimoAcceso').innerHTML = hora;
                 
             }
             else{
@@ -248,9 +248,7 @@ function guardarContrato(){
     
             if(success == 1){
                 $('#contrato').modal('hide');
-                $(".modal").on('hidden.bs.modal', function () {
-                    $(this).find('form').trigger('reset');
-                });
+                limpiarModal();
                 //$('#contrato').modal('reset');
                 // limpiarCampos2();
             }
@@ -259,6 +257,12 @@ function guardarContrato(){
                 console.log(datos.error)
             }
         }
+    });
+}
+
+function limpiarModal(){
+    $(".modal").on('hidden.bs.modal', function () {
+        $(this).find('form').trigger('reset');
     });
 }
 

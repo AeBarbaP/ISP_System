@@ -362,6 +362,7 @@ function generarTablaPagos(folio) {
 
 //------------- Registrar pago --------------------------------
 function registrarPago(folioPago, folio, mes) {
+    // código
     if (confirm("¿Estás seguro de registrar el pago para este mes?")) {
         $.ajax({
             type: "POST",
@@ -374,7 +375,8 @@ function registrarPago(folioPago, folio, mes) {
             dataType: "json",
             success: function(response) {
                 if (response.success) {
-                    alert("Pago registrado correctamente.");
+                   // swalpago();
+                    //alert("Pago registrado correctamente.");
                     generarTablaPagos(folio); // Recargar la tabla de pagos
                 } else {
                     alert("Error al registrar el pago: " + response.message);

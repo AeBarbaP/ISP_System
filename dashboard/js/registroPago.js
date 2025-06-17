@@ -77,7 +77,7 @@ function swalpago(){
     guardarTodosPagos();
     revisarPagosAnticipados();
     revisarPagosAtrasado();
-    
+    limpiarModal();
 }
 
 function guardarTodosPagos() {
@@ -138,7 +138,8 @@ function guardarTodosPagos() {
                 $('.btn-pagar').html('<i class="bi bi-check-circle"></i> Pagado').removeClass('btn-primary').addClass('btn-success');
                 //actualizarTotal();
                 guardarRecibo();
-                alert(response.message);
+                //alert(response.message);
+                console.log(response.message);
             } else {
                 alert('Error: ' + response.message);
             }
@@ -262,7 +263,7 @@ function guardarRecibo() {
                         var success = datos.success;
                 
                         if(success = 1){
-                            alert("Recibo guardado");
+                            console.log("Recibo guardado");
                             $('#pago').modal('hide');
                             queryDashboard1();
                         }
