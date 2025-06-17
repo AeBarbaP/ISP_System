@@ -4,6 +4,7 @@
     $user = $_SESSION['username'];
     $nombre = $_SESSION['nombre'];
     $estatusCorte = $_SESSION['estatusCorte'];
+	$tipo_usr = $_SESSION['tipo_usr'];
 
     if(empty($user) || empty($nombre)){
         echo "<script type=\"text/javascript\">location.href='prcd/sort.php';</script>";
@@ -157,7 +158,18 @@
 					<i class="menu-arrow"></i>
 					</a>
 				</li>
-				<li class="nav-item">
+				<?php 
+				if($tipo_usr == 1){
+					echo'
+					<li class="nav-item">
+					';
+				}
+				else{
+					echo'
+					<li class="nav-item" hidden>
+					';
+				}
+				?>
 					<a href="../reportes/index.php" class="nav-link bloquearNav">
 						<lord-icon
 							src="https://cdn.lordicon.com/zrtfxghu.json"
