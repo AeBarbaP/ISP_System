@@ -27,65 +27,67 @@ function nuevoUsuario() {
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">${titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal()" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>
-          <div class="mb-4">
-            <label class="form-label" id="basic-addon1">Nombre completo:</label>
-            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" id="nombreNew" placeholder="Nombre Completo">
-          </div>
-          <div class="mb-3">
-            <label class="form-label" id="basic-addon1">Usuario:</label>
-            <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" id="usrNew">
-          </div>
-          <div class="mb-3">
-            <label class="form-label" id="basic-addon1">Contraseña:</label>
-            <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" id="pwdNew1">
-          </div>
-          <div class="input-group mb-3 justify-content-end">
-            <input class="form-check-input" type="checkbox" role="switch" id="mostrarPwd1" onchange="mostrarPwd1()">
-            <span class="input-group-btn ms-2">Mostrar password</i></span>
-          </div>
-          <div class="row">
-            <div class="col-6 mb-3">
-              <label class="form-label" id="basic-addon1">Tipo de Usuario:</label>
-              <select class="form-select" aria-label="Default select example" id="tipoUsrNew">
-                  <option selected>Tipo de usuario ...</option>
-                  <option value="3">Usuario A</option>
-                  <option value="2">Usuario B</option>
-                  <option value="1">Administrador</option>
-              </select>
-            </div>
-            <div class="col-6 mb-3"> 
-              <label class="form-label" id="basic-addon1">Estatus:</label>
-              <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" value="1" name="btnradio" id="estatus1">
-                <label class="btn btn-outline-success" for="estatus1"><i class="bi bi-check-lg"></i> Activo</label>
-                <input type="radio" class="btn-check" value="2" name="btnradio" id="estatus2">
-                <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
+          <form id="newUser1">
+            <p>
+              <div class="mb-4">
+                <label class="form-label" id="basic-addon1">Nombre completo:</label>
+                <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" id="nombreNew" placeholder="Nombre Completo">
               </div>
-            </div>
-            <div class="mb-2"> 
-              <label class="form-label" id="basic-addon1">Asignar Color:</label>
-              <div class="input-group">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette"></i></span>
-                <input type="color" class="form-control form-control-color" placeholder="Asignar color" aria-describedby="basic-addon1"  name="color" id="colorUser" required>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1">Usuario:</label>
+                <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" id="usrNew">
               </div>
-            </div>
-            <!-- <div class="col-6 mb-3">
-              <label class="form-label" id="basic-addon1">Estatus:</label>
-              <select class="form-select" aria-label="Default select example" id="estatusNew">
-                  <option value="" selected>Estatus de usuario ...</option>
-                  <option value="1">Activo</option>
-                  <option value="0">Inactivo</option>
-              </select>
-            </div> -->
-          </div>
-          </p>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1">Contraseña:</label>
+                <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" id="pwdNew1">
+              </div>
+              <div class="input-group mb-3 justify-content-end">
+                <input class="form-check-input" type="checkbox" role="switch" id="mostrarPwd1" onchange="mostrarPwd1()">
+                <span class="input-group-btn ms-2">Mostrar password</i></span>
+              </div>
+              <div class="row">
+                <div class="col-6 mb-3">
+                  <label class="form-label" id="basic-addon1">Tipo de Usuario:</label>
+                  <select class="form-select" aria-label="Default select example" id="tipoUsrNew">
+                      <option selected>Tipo de usuario ...</option>
+                      <option value="3">Usuario A</option>
+                      <option value="2">Usuario B</option>
+                      <option value="1">Administrador</option>
+                  </select>
+                </div>
+                <div class="col-6 mb-3"> 
+                  <label class="form-label" id="basic-addon1">Estatus:</label>
+                  <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" value="1" name="btnradio" id="estatus1">
+                    <label class="btn btn-outline-success" for="estatus1"><i class="bi bi-check-lg"></i> Activo</label>
+                    <input type="radio" class="btn-check" value="2" name="btnradio" id="estatus2">
+                    <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
+                  </div>
+                </div>
+                <div class="mb-2"> 
+                  <label class="form-label" id="basic-addon1">Asignar Color:</label>
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette"></i></span>
+                    <input type="color" class="form-control form-control-color" placeholder="Asignar color" aria-describedby="basic-addon1"  name="color" id="colorUser" required>
+                  </div>
+                </div>
+                <!-- <div class="col-6 mb-3">
+                  <label class="form-label" id="basic-addon1">Estatus:</label>
+                  <select class="form-select" aria-label="Default select example" id="estatusNew">
+                      <option value="" selected>Estatus de usuario ...</option>
+                      <option value="1">Activo</option>
+                      <option value="0">Inactivo</option>
+                  </select>
+                </div> -->
+              </div>
+            </p>
+          </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal()">Cerrar</button>
           <button type="button" class="btn btn-primary" onclick="guardarUsr(`+id+`)">Guardar</button>
         </div>
       </div>
@@ -103,6 +105,7 @@ function nuevoUsuario() {
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  limpiarModal();
 }
 
 function guardarUsr(){
@@ -139,6 +142,7 @@ function guardarUsr(){
               $("#modalNewUsr").on("hidden.bs.modal", function () {
                 $(this).remove(); // Elimina el modal del DOM
               });
+              limpiarModal();
             }
             else{
                 alert("No se guardó");
@@ -177,59 +181,61 @@ function editarUsuario(id) {
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">${titulo}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal()" aria-label="Close"></button>
           </div>
           <div class="modal-body">
           <input id="editarId" hidden>
-            <p>
-              <div class="mb-3">
-                <label class="form-label" id="basic-addon1">Usuario:</label>
-                <input type="text" class="form-control border-secondary" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" id="editarUsr" disabled>
-              </div>
-              <div class="mb-3">
-                <label class="form-label" id="basic-addon1">Nombre Completo:</label>
-                <input type="text" class="form-control border-secondary" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1"
-                id="editarnombreUsr">
-              </div>
-              <div class="mb-3">
-                <label class="form-label" id="basic-addon1">Contraseña:</label>
-                <input type="password" class="form-control border-secondary" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" id="editarcontraseniaUsr">
-              </div>
-              <div class="input-group mb-3 justify-content-end">
-                <input class="form-check-input" type="checkbox" role="switch" id="mostrarPwd" onchange="mostrarPwd2()">
-                <span class="input-group-btn ms-2">Mostrar password</i></span>
-              </div>
-              <div class="row">
-                <div class="col-6 mb-3">
-                  <label class="form-label" id="basic-addon1">Tipo de Usuario:</label>
-                  <select class="form-select" aria-label="Default select example" id="tipoUsrEditar">
-                    <option selected>Tipo de usuario ...</option>
-                    <option value="3">Usuario A</option>
-                    <option value="2">Usuario B</option>
-                    <option value="1">Administrador</option>
-                  </select>
+            <form id="editUserMod">
+              <p>
+                <div class="mb-3">
+                  <label class="form-label" id="basic-addon1">Usuario:</label>
+                  <input type="text" class="form-control border-secondary" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" id="editarUsr" disabled>
                 </div>
-                <div class="col-6 mb-3"> 
-                  <label class="form-label" id="basic-addon1">Estatus:</label>
-                  <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" value="1" name="btnradio" id="estatusEditarUsr1">
-                    <label class="btn btn-outline-success" for="estatusEditarUsr1"><i class="bi bi-check-lg"></i> Activo</label>
-                    <input type="radio" class="btn-check" value="2" name="btnradio" id="estatusEditarUsr2">
-                    <label class="btn btn-outline-danger" for="estatusEditarUsr2"><i class="bi bi-x-lg"></i> Inactivo</label>
+                <div class="mb-3">
+                  <label class="form-label" id="basic-addon1">Nombre Completo:</label>
+                  <input type="text" class="form-control border-secondary" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1"
+                  id="editarnombreUsr">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" id="basic-addon1">Contraseña:</label>
+                  <input type="password" class="form-control border-secondary" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" id="editarcontraseniaUsr">
+                </div>
+                <div class="input-group mb-3 justify-content-end">
+                  <input class="form-check-input" type="checkbox" role="switch" id="mostrarPwd" onchange="mostrarPwd2()">
+                  <span class="input-group-btn ms-2">Mostrar password</i></span>
+                </div>
+                <div class="row">
+                  <div class="col-6 mb-3">
+                    <label class="form-label" id="basic-addon1">Tipo de Usuario:</label>
+                    <select class="form-select" aria-label="Default select example" id="tipoUsrEditar">
+                      <option selected>Tipo de usuario ...</option>
+                      <option value="3">Usuario A</option>
+                      <option value="2">Usuario B</option>
+                      <option value="1">Administrador</option>
+                    </select>
+                  </div>
+                  <div class="col-6 mb-3"> 
+                    <label class="form-label" id="basic-addon1">Estatus:</label>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                      <input type="radio" class="btn-check" value="1" name="btnradio" id="estatusEditarUsr1">
+                      <label class="btn btn-outline-success" for="estatusEditarUsr1"><i class="bi bi-check-lg"></i> Activo</label>
+                      <input type="radio" class="btn-check" value="2" name="btnradio" id="estatusEditarUsr2">
+                      <label class="btn btn-outline-danger" for="estatusEditarUsr2"><i class="bi bi-x-lg"></i> Inactivo</label>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="mb-2"> 
-                <label class="form-label" id="basic-addon1">Asignar Color:</label>
-                <div class="input-group">
-                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette"></i></span>
-                  <input type="color" class="form-control form-control-color" placeholder="Asignar color" aria-describedby="basic-addon1"  name="color" id="colorUserEdit" required>
+                <div class="mb-2"> 
+                  <label class="form-label" id="basic-addon1">Asignar Color:</label>
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette"></i></span>
+                    <input type="color" class="form-control form-control-color" placeholder="Asignar color" aria-describedby="basic-addon1"  name="color" id="colorUserEdit" required>
+                  </div>
                 </div>
-              </div>
-            </p>
+              </p>
+            </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-secondary" onclick="limpiarModal()" data-bs-dismiss="modal">Cerrar</button>
             <button type="button" class="btn btn-primary" onclick="editarUsuarioFinal()">Editar</button>
           </div>
         </div>
@@ -249,6 +255,7 @@ function editarUsuario(id) {
     modal.addEventListener('hidden.bs.modal', () => {
       modal.remove();
     });
+    limpiarModal();
   }
 
 function gestionUsuarios(){
@@ -262,9 +269,10 @@ function gestionUsuarios(){
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">${titulo}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal()" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+              <form id="usersGestionForm1">
                 <input name="id" id="idHidden" value="" hidden>
                 <div class="row">
                     <div class="col-md-6">
@@ -313,9 +321,10 @@ function gestionUsuarios(){
                     </table>
                 </div>
                 <!-- <input type="checkbox" > Mostrar Password  -->
+              </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+                <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal" onclick="limpiarModal()"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
                 <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
             </div>
         </div>
@@ -348,6 +357,7 @@ function gestionUsuarios(){
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  limpiarModal();
 }
 
 function queryTablaUsuario() {
@@ -428,11 +438,13 @@ function editarUsuarioFinal(){
         // Cerrar el modal usando la instancia guardada
         $("#modalEditarUsr").modal('hide');
         queryGestionUsr();
+        limpiarModal();
       } 
     }
   });
   // Cerrar el modal
   $('#modalEditar').modal('hide');
+  limpiarModal();
 }
 
 function nuevoTecnico() {
@@ -447,40 +459,42 @@ function nuevoTecnico() {
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title"><i class="bi bi-person-fill-add"> </i>${titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal();" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>
-          <div class="mb-3">
-            <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-plus me-2"></i> Fecha:</label>
-            <input type="date" class="form-control" placeholder="" aria-label="Fecha de creacion" id="fecha_creacion_tecnico" aria-describedby="basic-addon1" disabled>
-          </div>
-          <div class="mb-3">
-            <label class="form-label" id="basic-addon1"><i class="bi bi-person-fill-add me-2"></i>Nombre completo:</label>
-            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_tecnico" aria-describedby="basic-addon1">
-          </div>
-          <div class="mb-3"> 
-            <label class="form-label" id="basic-addon1">Estatus:</label>
-            <br>
-            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-              <input type="radio" class="btn-check" value="1" name="btnradio" id="estatus1">
-              <label class="btn btn-outline-success" for="estatus1"><i class="bi bi-check-lg"></i> Activo</label>
-              <input type="radio" class="btn-check" value="2" name="btnradio" id="estatus2">
-              <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
-            </div>
-          </div>
-          <!-- <div class="mb-3">
-            <label class="form-label" id="basic-addon1"></label>
-            <select class="form-select" aria-label="Default select example" id="estatus_tecnico">
-                <option value="" selected>Estatus...</option>
-                <option value="1">Activo</option>
-                <option value="0">Inactivo</option>
-            </select>
-          </div> -->
-          </p>
+          <form id="nuevoTec1"
+            <p>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-plus me-2"></i> Fecha:</label>
+                <input type="date" class="form-control" placeholder="" aria-label="Fecha de creacion" id="fecha_creacion_tecnico" aria-describedby="basic-addon1" disabled>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-person-fill-add me-2"></i>Nombre completo:</label>
+                <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_tecnico" aria-describedby="basic-addon1">
+              </div>
+              <div class="mb-3"> 
+                <label class="form-label" id="basic-addon1">Estatus:</label>
+                <br>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                  <input type="radio" class="btn-check" value="1" name="btnradio" id="estatus1">
+                  <label class="btn btn-outline-success" for="estatus1"><i class="bi bi-check-lg"></i> Activo</label>
+                  <input type="radio" class="btn-check" value="2" name="btnradio" id="estatus2">
+                  <label class="btn btn-outline-danger" for="estatus2"><i class="bi bi-x-lg"></i> Inactivo</label>
+                </div>
+              </div>
+              <!-- <div class="mb-3">
+                <label class="form-label" id="basic-addon1"></label>
+                <select class="form-select" aria-label="Default select example" id="estatus_tecnico">
+                    <option value="" selected>Estatus...</option>
+                    <option value="1">Activo</option>
+                    <option value="0">Inactivo</option>
+                </select>
+              </div> -->
+            </p>
+          </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal()">Cerrar</button>
           <button type="button" class="btn btn-primary" onclick="guardarTecnico()">Guardar</button>
         </div>
       </div>
@@ -499,6 +513,7 @@ function nuevoTecnico() {
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  limpiarModal();
 }
 
 function fechaTecnico(){
@@ -586,9 +601,10 @@ function gestionTecnicos() {
       <div class="modal-content">
           <div class="modal-header">
               <h5 class="modal-title">${titulo}</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal()" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+            <form id="gestionTec1">
               <input name="id" id="idHidden" value="" hidden>
               <div class="row">
                 <div class="col-md-6">
@@ -624,9 +640,10 @@ function gestionTecnicos() {
                       </tbody>
                   </table>
               </div>
+            </form>
           </div>
           <div class="modal-footer">
-              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal" onclick="limpiarModal()"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
               <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
           </div>
       </div>
@@ -646,6 +663,7 @@ function gestionTecnicos() {
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  limpiarModal();
 }
 
 function queryTecnicos(){
@@ -700,33 +718,35 @@ function editarTecnico(id) {
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title"><i class="bi bi-pencil-square me-2"></i>${titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal()" aria-label="Close"></button>
         </div>
         <div class="modal-body">
         <input id="idEditarTecnico" value="${id}" hidden>
-          <p>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha</label>
-              <input type="date" class="form-control" placeholder="" aria-label="Fecha de creacion" id="fecha_creacion_tecnicoEditar" aria-describedby="basic-addon1" disabled>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-person-circle me-2"></i>Nombre Completo</label>
-              <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_tecnico_editar" aria-describedby="basic-addon1">
-            </div>
-            <div class="mb-3"> 
-              <label class="form-label" id="basic-addon1">Estatus:</label>
-              <br>
-              <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" value="1" name="btnradioEditarTecnico" id="estatusEditarTecnico1">
-                <label class="btn btn-outline-success" for="estatusEditarTecnico1"><i class="bi bi-check-lg"></i> Activo</label>
-                <input type="radio" class="btn-check" value="0" name="btnradioEditarTecnico" id="estatusEditarTecnico2">
-                <label class="btn btn-outline-danger" for="estatusEditarTecnico2"><i class="bi bi-x-lg"></i> Inactivo</label>
+          <form id="edicionTec1">
+            <p>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha</label>
+                <input type="date" class="form-control" placeholder="" aria-label="Fecha de creacion" id="fecha_creacion_tecnicoEditar" aria-describedby="basic-addon1" disabled>
               </div>
-            </div>
-          </p>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-person-circle me-2"></i>Nombre Completo</label>
+                <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_tecnico_editar" aria-describedby="basic-addon1">
+              </div>
+              <div class="mb-3"> 
+                <label class="form-label" id="basic-addon1">Estatus:</label>
+                <br>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                  <input type="radio" class="btn-check" value="1" name="btnradioEditarTecnico" id="estatusEditarTecnico1">
+                  <label class="btn btn-outline-success" for="estatusEditarTecnico1"><i class="bi bi-check-lg"></i> Activo</label>
+                  <input type="radio" class="btn-check" value="0" name="btnradioEditarTecnico" id="estatusEditarTecnico2">
+                  <label class="btn btn-outline-danger" for="estatusEditarTecnico2"><i class="bi bi-x-lg"></i> Inactivo</label>
+                </div>
+              </div>
+            </p>
+          </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal()">Cerrar</button>
           <button type="button" class="btn btn-primary" onclick="editarDatosTecnico()"><i class="bi bi-pencil-square"></i> Editar</button>
         </div>
       </div>
@@ -746,6 +766,7 @@ function editarTecnico(id) {
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  limpiarModal();
 }
 
 // datos para editar técnico
@@ -818,6 +839,7 @@ function editarDatosTecnico(){
        alert('Datos editados correctamente');
        queryTecnicos();
        $('#modalEditarTecnico').modal('hide');
+       limpiarModal();
       }
       else{
           console.log(datos.error)
@@ -843,27 +865,29 @@ function nuevoMunicipio() {
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title"><i class="bi bi-plus-circle me-2"></i> ${titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal();" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Municipio:</label>
-              <input type="text" class="form-control" placeholder="Nombre del Municipio" aria-label="nombre municipio" id="nombre_municipio" aria-describedby="basic-addon1">
-            </div>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-card-checklist me-2"></i>Estado</label>
-              <select class="form-select" aria-label="estado" id="estado">
-                  <option value="" selected>Selecciona...</option>
-                  <option value="Zacatecas">Zacatecas</option>
-                  <option value="Jalisco">Jalisco</option>
-                  <option value="Aguascalientes">Aguascalientes</option>
-              </select>
-            </div>
-          </p>
+          <form id="municipioDash">
+            <p>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Municipio:</label>
+                <input type="text" class="form-control" placeholder="Nombre del Municipio" aria-label="nombre municipio" id="nombre_municipio" aria-describedby="basic-addon1">
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-card-checklist me-2"></i>Estado</label>
+                <select class="form-select" aria-label="estado" id="estado">
+                    <option value="" selected>Selecciona...</option>
+                    <option value="Zacatecas">Zacatecas</option>
+                    <option value="Jalisco">Jalisco</option>
+                    <option value="Aguascalientes">Aguascalientes</option>
+                </select>
+              </div>
+            </p>
+          </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal();">Cerrar</button>
           <button type="button" class="btn btn-primary" onclick="guardarMunicipio()">Guardar</button>
         </div>
       </div>
@@ -881,6 +905,7 @@ function nuevoMunicipio() {
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  limpiarModal();
 }
 
 
@@ -896,27 +921,29 @@ function editarMunicipio() {
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal();" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>
-          <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i></label>
-              <input type="text" class="form-control" placeholder="Nombre del Municipio" aria-label="nombre municipio" id="nombre_municipio" aria-describedby="basic-addon1">
-            </div>
+          <form id="editMpio1">
+            <p>
             <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-card-checklist me-2"></i></label>
-              <select class="form-select" aria-label="estado" id="estado">
-                  <option value="" selected>Selecciona...</option>
-                  <option value="Zacatecas">Zacatecas</option>
-                  <option value="Jalisco">Jalisco</option>
-                  <option value="Aguascalientes">Aguascalientes</option>
-              </select>
-            </div>
-          </p>
+                <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i></label>
+                <input type="text" class="form-control" placeholder="Nombre del Municipio" aria-label="nombre municipio" id="nombre_municipio" aria-describedby="basic-addon1">
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-card-checklist me-2"></i></label>
+                <select class="form-select" aria-label="estado" id="estado">
+                    <option value="" selected>Selecciona...</option>
+                    <option value="Zacatecas">Zacatecas</option>
+                    <option value="Jalisco">Jalisco</option>
+                    <option value="Aguascalientes">Aguascalientes</option>
+                </select>
+              </div>
+            </p>
+          </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal();">Cerrar</button>
           <button type="button" class="btn btn-primary" onclick="updateMpio()">Guardar</button>
         </div>
       </div>
@@ -934,6 +961,7 @@ function editarMunicipio() {
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  limpiarModal();
 }
 
 function gestionMunicipios() {
@@ -947,9 +975,10 @@ function gestionMunicipios() {
       <div class="modal-content">
           <div class="modal-header">
               <h5 class="modal-title">${titulo}</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal();" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+            <form id="gestionMpio1">
               <input name="id" id="idHiddenMun" value="" hidden>
               <div class="row">
                 <div class="col-md-6">
@@ -973,9 +1002,10 @@ function gestionMunicipios() {
                       </tbody>
                   </table>
               </div>
+            </form>
           </div>
           <div class="modal-footer">
-              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal" onclick="limpiarModal();"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
               <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
           </div>
       </div>
@@ -993,6 +1023,7 @@ function gestionMunicipios() {
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  limpiarModal();
 }
 
 //Termina gestión de Municipios
@@ -1011,34 +1042,36 @@ function nuevaComunidad() {
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title"><i class="bi bi-plus-circle me-2"></i> ${titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal();" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Comunidad:</label>
-              <input type="text" class="form-control" placeholder="Nombre de la Comunidad" aria-label="nombre comunidad" id="nombre_comunidad" aria-describedby="basic-addon1">
-            </div>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-geo-alt me-2"></i>Municipio</label>
-              <select class="form-select" aria-label="municipio" id="municipio">
-                  <option value="" selected>Selecciona Municipio...</option>
-                  <!-- aquí se llena con la tabla de municipios -->
-              </select>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-map me-2"></i>Estado:</label>
-              <select class="form-select" aria-label="estado" id="estado">
-                  <option value="" selected>Selecciona Estado...</option>
-                  <option value="Zacatecas">Zacatecas</option>
-                  <option value="Jalisco">Jalisco</option>
-                  <option value="Aguascalientes">Aguascalientes</option>
-              </select>
-            </div>
-          </p>
+          <form>
+            <p>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Comunidad:</label>
+                <input type="text" class="form-control" placeholder="Nombre de la Comunidad" aria-label="nombre comunidad" id="nombre_comunidad" aria-describedby="basic-addon1">
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-geo-alt me-2"></i>Municipio</label>
+                <select class="form-select" aria-label="municipio" id="municipio">
+                    <option value="" selected>Selecciona Municipio...</option>
+                    <!-- aquí se llena con la tabla de municipios -->
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-map me-2"></i>Estado:</label>
+                <select class="form-select" aria-label="estado" id="estado">
+                    <option value="" selected>Selecciona Estado...</option>
+                    <option value="Zacatecas">Zacatecas</option>
+                    <option value="Jalisco">Jalisco</option>
+                    <option value="Aguascalientes">Aguascalientes</option>
+                </select>
+              </div>
+            </p>
+          </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal();">Cerrar</button>
           <button type="button" class="btn btn-primary" onclick="guardarComunidad()">Guardar</button>
         </div>
       </div>
@@ -1056,6 +1089,7 @@ function nuevaComunidad() {
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  limpiarModal();
 }
 
 
@@ -1071,34 +1105,36 @@ function editarComunidad() {
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title"><i class="bi bi-plus-circle me-2"></i> ${titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal()" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>
-          <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Comunidad:</label>
-              <input type="text" class="form-control" placeholder="Nombre de la Comunidad" aria-label="nombre comunidad" id="nombre_comunidad" aria-describedby="basic-addon1">
-            </div>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-geo-alt me-2"></i>Municipio:</label>
-              <select class="form-select" aria-label="municipio" id="municipio">
-                  <option value="" selected>Selecciona Municipio...</option>
-                  <!-- aquí se llena con la tabla de municipios -->
-              </select>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-map me-2"></i>Estado:</label>
-              <select class="form-select" aria-label="estado" id="estado">
-                  <option value="" selected>Selecciona Estado...</option>
-                  <option value="Zacatecas">Zacatecas</option>
-                  <option value="Jalisco">Jalisco</option>
-                  <option value="Aguascalientes">Aguascalientes</option>
-              </select>
-            </div>
-          </p>
+          <form>
+            <p>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Comunidad:</label>
+                <input type="text" class="form-control" placeholder="Nombre de la Comunidad" aria-label="nombre comunidad" id="nombre_comunidad" aria-describedby="basic-addon1">
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-geo-alt me-2"></i>Municipio:</label>
+                <select class="form-select" aria-label="municipio" id="municipio">
+                    <option value="" selected>Selecciona Municipio...</option>
+                    <!-- aquí se llena con la tabla de municipios -->
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-map me-2"></i>Estado:</label>
+                <select class="form-select" aria-label="estado" id="estado">
+                    <option value="" selected>Selecciona Estado...</option>
+                    <option value="Zacatecas">Zacatecas</option>
+                    <option value="Jalisco">Jalisco</option>
+                    <option value="Aguascalientes">Aguascalientes</option>
+                </select>
+              </div>
+            </p>
+          </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal();">Cerrar</button>
           <button type="button" class="btn btn-primary" onclick="updateComunidad()">Guardar</button>
         </div>
       </div>
@@ -1116,6 +1152,7 @@ function editarComunidad() {
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  limpiarModal();
 }
 
 function gestionComunidades() {
@@ -1129,9 +1166,10 @@ function gestionComunidades() {
       <div class="modal-content">
           <div class="modal-header">
               <h5 class="modal-title"><i class="bi bi-card-list me-2"></i>${titulo}</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal();" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+            <form>
               <input name="id" id="idHiddenCom" value="" hidden>
               <div class="row">
                 <div class="col-md-6">
@@ -1156,9 +1194,10 @@ function gestionComunidades() {
                       </tbody>
                   </table>
               </div>
+            </form>
           </div>
           <div class="modal-footer">
-              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal" onclick="limpiarModal();"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
               <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
           </div>
       </div>
@@ -1176,6 +1215,7 @@ function gestionComunidades() {
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  limpiarModal();
 }
 
 //Termina gestión de comunidades
@@ -1195,53 +1235,55 @@ function altaIncidencia() {
       <div class="modal-content">
         <div class="modal-header bg-secondary text-light">
           <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
-          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="limpiarModal();" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha</label>
-              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidencia" aria-describedby="basic-addon1" disabled>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
-              <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_incidencia" aria-describedby="basic-addon1" disabled>
-            </div>
-            <label for="buscanombre" class="form-label"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
-            <div class="mb-3">
-              <div class="input-group" id="nombresearch">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                <input class="form-control" id="buscanombre" oninput="queryClientes(this.value)">
+          <form>
+            <p>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha</label>
+                <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidencia" aria-describedby="basic-addon1" disabled>
               </div>
-              <select class="form-select" size="4" aria-label="clientes" id="nombresClientesIncidencia">
-                <option selected>Selecciona...</option>
-              
-              </select>
-            </div>
-            <div class="col-lg-12" id="datoscliente" hidden>
-              <div id="datosGenerales">
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
+                <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_incidencia" aria-describedby="basic-addon1" disabled>
+              </div>
+              <label for="buscanombre" class="form-label"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
+              <div class="mb-3">
+                <div class="input-group" id="nombresearch">
+                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+                  <input class="form-control" id="buscanombre" oninput="queryClientes(this.value)">
+                </div>
+                <select class="form-select" size="4" aria-label="clientes" id="nombresClientesIncidencia">
+                  <option selected>Selecciona...</option>
                 
+                </select>
               </div>
-            </div>
-            <div class="mb-3">
-              <label for="descripcion_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Describe la incidencia:</label>
-              <textarea class="form-control" rows="5" aria-label="descripcion incidencia" id="descripcion_incidencia"></textarea>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
-              <select class="form-select" aria-label="tecnico asignado" id="tecnico_incidencia">
+              <div class="col-lg-12" id="datoscliente" hidden>
+                <div id="datosGenerales">
                   
-                  <!-- aquí se llena con la tabla de Técnicos -->
-              </select>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Atención:</label>
-              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaAsignacion" aria-describedby="basic-addon1">
-            </div>
-          </p>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="descripcion_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Describe la incidencia:</label>
+                <textarea class="form-control" rows="5" aria-label="descripcion incidencia" id="descripcion_incidencia"></textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
+                <select class="form-select" aria-label="tecnico asignado" id="tecnico_incidencia">
+                    
+                    <!-- aquí se llena con la tabla de Técnicos -->
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Atención:</label>
+                <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaAsignacion" aria-describedby="basic-addon1">
+              </div>
+            </p>
+          </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal();">Cerrar</button>
           <button type="button" class="btn btn-primary" onclick="guardarIncidencia()">Guardar</button>
         </div>
       </div>
@@ -1263,6 +1305,7 @@ function altaIncidencia() {
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  limpiarModal();
 }
 //  código filtrado para en select de nuevo reporte de incidencia
 
@@ -1324,6 +1367,7 @@ function guardarIncidencia() {
         alert('Incidencia guardada correctamente');
         // Aquí puedes agregar código para cerrar el modal o limpiar los campos
         $('#modalIncidencia').modal('hide');
+        limpiarModal();
         // Llamar a la función para actualizar la tabla de incidencias
         // queryIncidencias();
         }
@@ -1399,44 +1443,46 @@ function editarIncidencia() {
         <div class="modal-content">
           <div class="modal-header bg-secondary text-light">
             <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
-            <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="limpiarModal();" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p>
-              <div class="mb-3">
-                <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Alta</label>
-                <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaU" aria-describedby="basic-addon1" value="${fechaFormateada}" disabled>
-              </div>
-              <div class="mb-3">
-                <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
-                <select class="form-select" id="folio_incidencia_editar" size="4" aria-label="folio incidencia" onchange="infoFallaEditar()">
-                  
-              </div>
-              
-              <div class="mb-3">
-                <label class="form-label" id="basic-addon1"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
-                <input type="text" class="form-control" placeholder="" aria-label="cliente" id="cliente_incidenciaU" aria-describedby="basic-addon1" disabled>
-                <input type="text" class="form-control" placeholder="" aria-label="cliente" id="foliocliente_incidenciaU" aria-describedby="basic-addon1" hidden>
-              </div>
-              <div class="mb-3">
-                <label for="descripcion_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Descripción de la incidencia:</label>
-                <textarea class="form-control" rows="5" aria-label="descripcion incidencia" id="descripcion_incidenciaU"></textarea>
-              </div>
-              <div class="mb-3">
-                <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
-                <select class="form-select" aria-label="tecnico asignado" id="tecnico_incidencia2">
-                    <option value="" selected>Selecciona Técnico...</option>
-                    <!-- aquí se llena con la tabla de Técnicos -->
-                </select>
-              </div>
-              <div class="mb-3">
-                <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Asignación:</label>
-                <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaAsignacionU" aria-describedby="basic-addon1">
-              </div>
-            </p>
+            <form>
+              <p>
+                <div class="mb-3">
+                  <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Alta</label>
+                  <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaU" aria-describedby="basic-addon1" value="${fechaFormateada}" disabled>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
+                  <select class="form-select" id="folio_incidencia_editar" size="4" aria-label="folio incidencia" onchange="infoFallaEditar()">
+                    
+                </div>
+                
+                <div class="mb-3">
+                  <label class="form-label" id="basic-addon1"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
+                  <input type="text" class="form-control" placeholder="" aria-label="cliente" id="cliente_incidenciaU" aria-describedby="basic-addon1" disabled>
+                  <input type="text" class="form-control" placeholder="" aria-label="cliente" id="foliocliente_incidenciaU" aria-describedby="basic-addon1" hidden>
+                </div>
+                <div class="mb-3">
+                  <label for="descripcion_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Descripción de la incidencia:</label>
+                  <textarea class="form-control" rows="5" aria-label="descripcion incidencia" id="descripcion_incidenciaU"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
+                  <select class="form-select" aria-label="tecnico asignado" id="tecnico_incidencia2">
+                      <option value="" selected>Selecciona Técnico...</option>
+                      <!-- aquí se llena con la tabla de Técnicos -->
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Asignación:</label>
+                  <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaAsignacionU" aria-describedby="basic-addon1">
+                </div>
+              </p>
+            </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal();">Cerrar</button>
             <button type="button" class="btn btn-primary" onclick="updateReporteFalla()">Guardar</button>
           </div>
         </div>
@@ -1455,8 +1501,9 @@ function editarIncidencia() {
 
     // Eliminar el modal del DOM cuando se cierre
     modal.addEventListener('hidden.bs.modal', () => {
-    modal.remove();
-  });
+      modal.remove();
+    });
+    limpiarModal();
 }
 
 // update reporte falla
@@ -1486,12 +1533,13 @@ function updateReporteFalla(){
       if (success == 1) {
         alert('Incidencia actualizada');
         $("#modalEditarReporteFalla").modal("hide");
-        folio_incidencia_editar.value = "";
-        fecha_incidenciaU.value = "";
-        foliocliente_incidenciaU.value = "";
-        descripcion_incidenciaU.value = "";
-        tecnico_incidencia2.value = "";
-        fecha_incidenciaAsignacionU.value = "";
+        limpiarModal();
+        //folio_incidencia_editar.value = "";
+        //fecha_incidenciaU.value = "";
+        //foliocliente_incidenciaU.value = "";
+        //descripcion_incidenciaU.value = "";
+        //tecnico_incidencia2.value = "";
+        //fecha_incidenciaAsignacionU.value = "";
         }
         else{
           alert('No se actualizó la incidencia');
@@ -1562,52 +1610,50 @@ function resolverIncidencia() {
       <div class="modal-content">
         <div class="modal-header bg-secondary text-light">
           <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
-          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="limpiarModal();" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Alta</label>
-              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaUT" aria-describedby="basic-addon1" value="${fechaHoy}" disabled>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
-              
-              <select class="form-select" id="clientes_corteIncidencia" size="4" aria-label="clientes para corte">
-                
-              </select>
-
-            </div>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
-              <input type="text" class="form-control" placeholder="" aria-label="cliente" id="cliente_incidenciaU" aria-describedby="basic-addon1" disabled>
-            </div>
-            <div class="mb-3">
-              <label for="descripcion_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Descripción de la incidencia:</label>
-              <textarea class="form-control" rows="5" aria-label="descripcion incidencia" id="descripcion_incidenciaU" disabled></textarea>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-exclamation-circle me-2"></i>Estatus</label>
-              <select class="form-select" aria-label="estatus incidencia" id="estatus_incidenciaR">
-                  <option value="" selected>Selecciona...</option>
-                  <option value="1" >En proceso</option>
-                  <option value="2" >Resuelta</option>
-                  <option value="0" >Cancelada</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha Atención:</label>
-              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaRT" aria-describedby="basic-addon1">
-            </div>
-            <div class="mb-3">
-              <label for="comentario_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Comentario Técnico:</label>
-              <textarea class="form-control" rows="5" aria-label="comentario incidencia" id="comentario_incidenciaU"></textarea>
-            </div>
-            
-          </p>
+          <form>
+            <p>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Alta</label>
+                <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaUT" aria-describedby="basic-addon1" value="${fechaHoy}" disabled>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio Incidencia</label>
+                <select class="form-select" id="clientes_corteIncidencia" size="4" aria-label="clientes para corte">
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-person-vcard me-2"></i>Cliente:</label>
+                <input type="text" class="form-control" placeholder="" aria-label="cliente" id="cliente_incidenciaU" aria-describedby="basic-addon1" disabled>
+              </div>
+              <div class="mb-3">
+                <label for="descripcion_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Descripción de la incidencia:</label>
+                <textarea class="form-control" rows="5" aria-label="descripcion incidencia" id="descripcion_incidenciaU" disabled></textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-exclamation-circle me-2"></i>Estatus</label>
+                <select class="form-select" aria-label="estatus incidencia" id="estatus_incidenciaR">
+                    <option value="" selected>Selecciona...</option>
+                    <option value="1" >En proceso</option>
+                    <option value="2" >Resuelta</option>
+                    <option value="0" >Cancelada</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha Atención:</label>
+                <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaRT" aria-describedby="basic-addon1">
+              </div>
+              <div class="mb-3">
+                <label for="comentario_incidencia" class="form-label"><i class="bi bi-cursor-text me-2"></i>Comentario Técnico:</label>
+                <textarea class="form-control" rows="5" aria-label="comentario incidencia" id="comentario_incidenciaU"></textarea>
+              </div>
+            </p>
+          </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal();">Cerrar</button>
           <button type="button" class="btn btn-primary" onclick="cambiarComentario()">Guardar</button>
         </div>
       </div>
@@ -1627,6 +1673,7 @@ function resolverIncidencia() {
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  limpiarModal();
 }
 
 function queryIncidenciasTecnico(){
@@ -1689,6 +1736,7 @@ function cambiarComentario(){
         alert('Comentario actualizado');
         // aqui successComment
         $('#modalReporteIncidenciaT').modal('hide');
+        limpiarModal();
       }
     }
   });
