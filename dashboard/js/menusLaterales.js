@@ -1755,9 +1755,10 @@ function gestionIncidencias() {
       <div class="modal-content">
           <div class="modal-header bg-secondary text-light">
               <h5 class="modal-title"><i class="bi bi-card-list me-2"></i>${titulo}</h5>
-              <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="limpiarModal();" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+            <form>
               <input name="id" id="idHiddenInc" value="" hidden>
               <div class="row">
                 <div class="col-md-6">
@@ -1796,9 +1797,10 @@ function gestionIncidencias() {
                       </tbody>
                   </table>
               </div>
+            </form>
           </div>
           <div class="modal-footer">
-              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal" onclick="limpiarModal();"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
               <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
           </div>
       </div>
@@ -1817,6 +1819,7 @@ function gestionIncidencias() {
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  limpiarModal();
 }
 
 function queryFallasFull() {
@@ -1854,7 +1857,7 @@ function modalActualizarEstatusFalla(x){
       <div class="modal-content">
           <div class="modal-header">
               <h5 class="modal-title"><i class="bi bi-card-list me-2"></i>${titulo}</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal();" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <input name="id" id="idHiddenIncU" value="${id}" hidden>
