@@ -2311,47 +2311,48 @@ function editarCorte() {
       <div class="modal-content">
         <div class="modal-header bg-secondary text-light">
           <h5 class="modal-title"><i class="bi bi-wifi-off me-2"></i> ${titulo}</h5>
-          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="limpiarModal();" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-check me-2"></i>Fecha</label>
-              <input type="date" class="form-control" placeholder="" aria-label="Fecha de orden" id="fecha_orden_editar" aria-describedby="basic-addon1" value="${fecha}" disabled>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-list-ol me-2"></i>Folio de Corte:</label>
+          <form>
+            <p>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-check me-2"></i>Fecha</label>
+                <input type="date" class="form-control" placeholder="" aria-label="Fecha de orden" id="fecha_orden_editar" aria-describedby="basic-addon1" value="${fecha}" disabled>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-list-ol me-2"></i>Folio de Corte:</label>
 
-              <select class="form-select" id="folio_corte_editar" size="4" aria-label="folio corte" onchange="queryClientesCorteInfoEditar();">
+                <select class="form-select" id="folio_corte_editar" size="4" aria-label="folio corte" onchange="queryClientesCorteInfoEditar();">
+                  
+                </select>
                 
-              </select>
-              
-            </div>
-            <div class="mb-3" id="datosClienteyDomicilio">
-							<p> 
-              <div class="alert alert-info mb-3" id="datosDomicilioInfo" role="alert">
-              <p>Cliente: <span id="nombreClienteCorteEditar"></span><br>
-              Domicilio: <span id="domicilioClienteCorteEditar"></span><br>							
-              Comunidad: <span id="comunidadClienteCorteEditar"></span></p>							
-						</div>
-              </p>
-						</div>
-            <!-- <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
-              <select class="form-select" aria-label="tecnico asignado" id="tecnico_corte_editar">
-                  <option value="" selected>Selecciona Técnico...</option>
-                  aquí se llena con la tabla de Técnicos y el selected es el que está asignado 
-              </select>
-            </div> -->
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Corte:</label>
-              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_corteAsignacion_editar" aria-describedby="basic-addon1">
-            </div>
-            
-          </p>
+              </div>
+              <div class="mb-3" id="datosClienteyDomicilio">
+                <p> 
+                <div class="alert alert-info mb-3" id="datosDomicilioInfo" role="alert">
+                <p>Cliente: <span id="nombreClienteCorteEditar"></span><br>
+                Domicilio: <span id="domicilioClienteCorteEditar"></span><br>							
+                Comunidad: <span id="comunidadClienteCorteEditar"></span></p>							
+              </div>
+                </p>
+              </div>
+              <!-- <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-person-raised-hand me-2"></i>Asignar a Técnico</label>
+                <select class="form-select" aria-label="tecnico asignado" id="tecnico_corte_editar">
+                    <option value="" selected>Selecciona Técnico...</option>
+                    aquí se llena con la tabla de Técnicos y el selected es el que está asignado 
+                </select>
+              </div> -->
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Corte:</label>
+                <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_corteAsignacion_editar" aria-describedby="basic-addon1">
+              </div>
+            </p>
+          </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal();">Cerrar</button>
           <button type="button" class="btn btn-primary" onclick="actualizarCorte()">Actualizar</button>
         </div>
       </div>
@@ -2370,6 +2371,7 @@ function editarCorte() {
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  limpiarModal();
 }
 
 function queryClientesCorteEditar() {
@@ -2424,6 +2426,7 @@ function actualizarCorte(){
       if(success == 1){
         alert('Corte actualizado exitosamente');
         $('#ordenCorteEditar').modal('hide');
+        limpiarModal();
       }
       else{
         alert('No se editó el corte');
@@ -2446,9 +2449,10 @@ function gestionCortes() {
       <div class="modal-content">
           <div class="modal-header bg-secondary text-light">
               <h5 class="modal-title"><i class="bi bi-wifi-off me-2"></i>${titulo}</h5>
-              <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="limpiarModal();" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+            <form>
               <input name="id" id="idHiddenCortes" value="" hidden>
               <div class="row">
                 <div class="col-6">
@@ -2477,9 +2481,10 @@ function gestionCortes() {
                       </tbody>
                   </table>
               </div>
+            </form>
           </div>
           <div class="modal-footer">
-              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal" onclick="limpiarModal();"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
               <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
           </div>
       </div>
@@ -2498,6 +2503,7 @@ function gestionCortes() {
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  limpiarModal();
 }
 
 function queryTablaCortes(){
@@ -2577,46 +2583,47 @@ function resolverCorte() {
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title"><i class="bi bi-wifi-off me-2"></i> ${titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal();" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-check me-2"></i>Fecha</label>
-              <input type="date" class="form-control" placeholder="" aria-label="Fecha de orden" id="fecha_orden_tecnico" aria-describedby="basic-addon1" disabled>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-list-ol me-2"></i>Folio de Corte:</label>
-              <select class="form-select" id="folio_corte_tecnico" size="4" aria-label="folio corte">
-                <option selected>Selecciona...</option>
-                <!-- Muestra los folios de las ordenes de corte que aún no han sido resueltas para cambiar los datos -->
-              </select>
-            </div>
-            <div class="mb-3" id="datosClienteyDomicilio">
-							<p> Aqui se imprime la info de la orden de corte, <br>el domicilio y nombre del cliente <br>que se va a hacer el corte</p>
-						</div>
-            <div class="mb-3">
-              <label for="comentario_corte" class="form-label"><i class="bi bi-cursor-text me-2"></i>Comentario Técnico:</label>
-              <textarea class="form-control" rows="5" aria-label="comentario tecnico corte" id="comentario_corte"></textarea>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-exclamation-circle me-2"></i>Estatus</label>
-              <select class="form-select" aria-label="estatus corte" id="estatus_corteR">
-                  <option value="" selected>Selecciona...</option>
-                  <option value="En proceso" >En proceso</option>
-                  <option value="Resuelta" >Resuelta</option>
-                  <option value="Cancelada" >Cancelada</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Corte:</label>
-              <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_corte_tecnico" aria-describedby="basic-addon1">
-            </div>
-            
-          </p>
+          <form>
+            <p>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-check me-2"></i>Fecha</label>
+                <input type="date" class="form-control" placeholder="" aria-label="Fecha de orden" id="fecha_orden_tecnico" aria-describedby="basic-addon1" disabled>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-list-ol me-2"></i>Folio de Corte:</label>
+                <select class="form-select" id="folio_corte_tecnico" size="4" aria-label="folio corte">
+                  <option selected>Selecciona...</option>
+                  <!-- Muestra los folios de las ordenes de corte que aún no han sido resueltas para cambiar los datos -->
+                </select>
+              </div>
+              <div class="mb-3" id="datosClienteyDomicilio">
+                <p> Aqui se imprime la info de la orden de corte, <br>el domicilio y nombre del cliente <br>que se va a hacer el corte</p>
+              </div>
+              <div class="mb-3">
+                <label for="comentario_corte" class="form-label"><i class="bi bi-cursor-text me-2"></i>Comentario Técnico:</label>
+                <textarea class="form-control" rows="5" aria-label="comentario tecnico corte" id="comentario_corte"></textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-exclamation-circle me-2"></i>Estatus</label>
+                <select class="form-select" aria-label="estatus corte" id="estatus_corteR">
+                    <option value="" selected>Selecciona...</option>
+                    <option value="En proceso" >En proceso</option>
+                    <option value="Resuelta" >Resuelta</option>
+                    <option value="Cancelada" >Cancelada</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Corte:</label>
+                <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_corte_tecnico" aria-describedby="basic-addon1">
+              </div>
+            </p>
+          </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal();">Cerrar</button>
           <button type="button" class="btn btn-primary" onclick="editarCorte()">Actualizar</button>
         </div>
       </div>
@@ -2635,6 +2642,7 @@ function resolverCorte() {
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  limpiarModal();
 }
 
 function fechaRegistroCorteEditar(){
@@ -2674,43 +2682,45 @@ function editarDatosUsr(){
       <div class="modal-content">
         <div class="modal-header bg-secondary text-light">
           <h5 class="modal-title"><i class="bi bi-person-circle me-2"></i> ${titulo}</h5>
-          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="limpiarModal();" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <input name="id" id="idUserM" hidden>
-          <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
-              <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" value="" aria-describedby="basic-addon1" name="nombre" id="nombreUserM" required>
-          </div>
-          <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-workspace"></i></span>
-              <input type="text" class="form-control" placeholder="Usuario" aria-label="usuario" value="" aria-describedby="basic-addon1" id="usrUserM" readonly>
-          </div>
-          <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1" for="inputGroupSelect01" readonly>Perfil</span>
-              <select class="form-select" value="" selected="selected" id="perfilUserM" disabled>
-                  <option value="" selected>Usuario A</option>
-                  <option value="" >Usuario B</option>
-                  <option value="" >Administrador</option>
-              </select>
+          <form>
+            <input name="id" id="idUserM" hidden>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
+                <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" value="" aria-describedby="basic-addon1" name="nombre" id="nombreUserM" required>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-workspace"></i></span>
+                <input type="text" class="form-control" placeholder="Usuario" aria-label="usuario" value="" aria-describedby="basic-addon1" id="usrUserM" readonly>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1" for="inputGroupSelect01" readonly>Perfil</span>
+                <select class="form-select" value="" selected="selected" id="perfilUserM" disabled>
+                    <option value="" selected>Usuario A</option>
+                    <option value="" >Usuario B</option>
+                    <option value="" >Administrador</option>
+                </select>
 
-              <div class="btn-group" role="group" aria-label="Basic radio toggle button group" disabled>
-                  <input type="radio" class="btn-check" value="1" id="btnradio1"
-                  disabled>
-                  <label class="btn btn-outline-success" for="btnradio1"><i class="bi bi-check-lg me-2"></i> Activo</label>
-                  <input type="radio" class="btn-check" value="2" id="btnradio2" disabled>
-                  <label class="btn btn-outline-danger" for="btnradio2"><i class="bi bi-x-lg me-2"></i> Inactivo</label>
-                  
-              </div>
-          </div>
-          <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-shield-lock-fill"></i></span>
-              <input type="password" class="form-control" placeholder="Contraseña" aria-label="contraseña" value="" aria-describedby="basic-addon1" name="pwd" id="passWM">
-          </div>
-          <input type="checkbox" id="mostrarPwdM" onclick="mostrarPwdM()"> Mostrar Password 
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group" disabled>
+                    <input type="radio" class="btn-check" value="1" id="btnradio1"
+                    disabled>
+                    <label class="btn btn-outline-success" for="btnradio1"><i class="bi bi-check-lg me-2"></i> Activo</label>
+                    <input type="radio" class="btn-check" value="2" id="btnradio2" disabled>
+                    <label class="btn btn-outline-danger" for="btnradio2"><i class="bi bi-x-lg me-2"></i> Inactivo</label>
+                    
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-shield-lock-fill"></i></span>
+                <input type="password" class="form-control" placeholder="Contraseña" aria-label="contraseña" value="" aria-describedby="basic-addon1" name="pwd" id="passWM">
+            </div>
+            <input type="checkbox" id="mostrarPwdM" onclick="mostrarPwdM()"> Mostrar Password
+          </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal();">Cerrar</button>
           <button type="button" class="btn btn-primary" onclick="editarUsuarioDash()">Actualizar</button>
         </div>
       </div>
@@ -2729,6 +2739,7 @@ function editarDatosUsr(){
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+  limpiarModal();
 }
 
 function queryUsr(){
@@ -2791,6 +2802,7 @@ function editarUsuarioDash(){
             if(success == 1){
               alert('Usuario editado');
               $('#modalDatosUser').modal('hide');
+              limpiarModal();
             }
             else{
               alert('Usuario no editado');
