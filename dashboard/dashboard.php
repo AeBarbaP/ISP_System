@@ -727,7 +727,7 @@
 							<div class="col-4">
 								<div class="input-group input-group-sm mt-1">
 									<span class="input-group-text" id="basic-addon1">$</span>
-									<input type="text" class="form-control" placeholder="" aria-label="Monto" id="monto_desc" aria-describedby="basic-addon1" disabled>
+									<input type="text" class="form-control input-number" placeholder="" aria-label="Monto" id="monto_desc" aria-describedby="basic-addon1" disabled>
 									<span class="input-group-text" id="basic-addon1">.00</span>
 									<button class="btn btn-outline-secondary" type="button" id="addbtndesc" onclick="agregarDescuento()" disabled><i class="bi bi-plus-circle"></i></button>
 								</div>
@@ -768,7 +768,7 @@
 				</div>
 			</form>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal()">Cancelar</button>
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal();limpiar1modal()">Cancelar</button>
 				<button type="button" class="btn btn-primary" id="pagoreg" onclick="swalpago()">Pagar</button>
 				<a type="button" class="btn btn-success" id="printticket" onclick="cerrarpago()" data-bs-toggle="modal" data-bs-target="#ticket" hidden >Imprimir Ticket</a>
 				<button type="button" class="btn btn-success" id="cerrarpago1" data-bs-dismiss="modal" hidden >Cerrar</button>

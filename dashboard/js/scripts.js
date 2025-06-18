@@ -266,6 +266,16 @@ function limpiarModal(){
     });
 }
 
+function limpiar1modal(){
+    //$(".modal").on('hidden.bs.modal', function () {
+    //    $(this).find('form').trigger('reset');
+    //});
+    _('NuevaSolicitud').innerHTML = "";
+    _('datosGenerales').innerHTML = "";
+    _('nombresClientes').value = "";
+    _('total-costo').innerText = "0.00";
+}
+
 function contratoNuevo() {
     var id = document.getElementById('folioLabelContrato').value;
     const url = `prcd/contrato.php?id=${encodeURIComponent(id)}`;

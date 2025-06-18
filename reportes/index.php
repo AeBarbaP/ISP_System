@@ -680,6 +680,7 @@ else {
 <script src="assets/js/contratos.js"></script>
 <script src="assets/js/pagos.js"></script>
 <script src="assets/js/laterales/promociones.js"></script>
+<script src="assets/js/laterales/paquetes.js"></script>
 <script src="assets/js/perfiles.js"></script>
 <script src="assets/js/select2.js"></script>
 <script src="assets/js/registroPago.js"></script>

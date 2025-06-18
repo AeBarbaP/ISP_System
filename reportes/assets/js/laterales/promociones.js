@@ -44,7 +44,7 @@
                 <label class="form-label" id="basic-addon1"><i class="bi bi-piggy-bank me-2"></i>Descuento (monto):</label>
                 <div class="input-group">
                   <span class="input-group-text" id="basic-addon1">$</span>
-                  <input type="text" class="form-control" placeholder="Descuento" aria-label="descuento" id="descuento_promo1" pattern=" 0+\.[0-9]*[1-9][0-9]*$" name="itemConsumption" onkeypress="return event.charCode >= 48 && event.charCode <= 57" aria-describedby="basic-addon1">
+                  <input type="text" class="form-control" placeholder="Descuento" aria-label="descuento" id="descuento_promo1" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="itemConsumption" aria-describedby="basic-addon1">
                   <span class="input-group-text" id="basic-addon1">.00</span>
                 </div>
               </div>
