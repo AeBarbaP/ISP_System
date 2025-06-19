@@ -363,9 +363,9 @@ function datosPaquete(id){
         var success = datos.success;
   
         if (success == 1) {
-         alert('Datos editados correctamente');
-         cargarPaquetes();
-         $('#editarPaquete').modal('hide');
+          alert('Datos editados correctamente');
+          cargarPaquetes();
+          $('#editarPaquete').modal('hide');
         }
         else{
             console.log(datos.error)

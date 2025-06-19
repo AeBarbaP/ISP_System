@@ -179,6 +179,11 @@
     let tipo_promocion = document.getElementById("tipo_promoEditar").value;
     let descuento_promo = document.getElementById("descuento_promoEditar").value;
 
+    if (fecha_fin == "" || fecha_inicio == "" || nombre_promocion == "" || tipo_promocion == "" || descuento_promo == ""){
+      alert("Por favor, completa todos los campos.");
+      return;
+    }
+
         $.ajax({
             type: "POST",
             url: "../reportes/prcd/prcd_editar_promocion.php", // Archivo PHP que registrará el pago
@@ -301,6 +306,11 @@
     let nombre_promocion = document.getElementById("nombre_promocion1").value;
     let tipo_promocion = document.getElementById("tipo_promo1").value;
     let descuento_promo = document.getElementById("descuento_promo1").value;
+
+    if (fecha_fin == "" || fecha_inicio == "" || nombre_promocion == "" || tipo_promocion == "" || descuento_promo == ""){
+      alert("Por favor, completa todos los campos.");
+      return;
+    }
 
         $.ajax({
             type: "POST",
