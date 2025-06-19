@@ -245,7 +245,7 @@ function guardarPaquete() {
     let estatus = document.querySelector('input[name="btnradio"]:checked').value;
 
     // Validar los campos
-    if (nombre === "" || velocidad === "" || precio === "" || estatus === "") {
+    if (nombre == "" || velocidad == "" || precio == "" || estatus == "") {
         alert("Por favor, completa todos los campos.");
         return;
     }
