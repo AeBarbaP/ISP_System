@@ -179,7 +179,7 @@ function revisarPagosAnticipados() {
                         concepto: $(this).find('td:eq(1)').text(),
                         mes: $(this).find('td:eq(2)').text(),
                         total_pago: $(this).find('td:eq(3)').text()
-                     },
+                    },
                     success: function(data) {
                         console.log('Guardado');
                     }
@@ -256,15 +256,16 @@ function guardarRecibo() {
                         concepto: $(this).find('td:eq(1)').text(),
                         mes: $(this).find('td:eq(2)').text(),
                         total_pago: total_pago
-                     },
+                    },
                     success: function(response) {
                         var datos = JSON.parse(JSON.stringify(response));
 
                         var success = datos.success;
                 
-                        if(success = 1){
+                        if(success == 1){
                             console.log("Recibo guardado");
-                            $('#pago').modal('hide');
+                            imprimirSeleccion(folio_pago);
+                            //$('#pago').modal('hide');
                             queryDashboard1();
                         }
                         else{

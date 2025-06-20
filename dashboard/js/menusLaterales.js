@@ -1252,7 +1252,7 @@ function altaIncidencia() {
               <div class="mb-3">
                 <div class="input-group" id="nombresearch">
                   <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                  <input class="form-control" id="buscanombre" oninput="queryClientes(this.value)">
+                  <input class="form-control" id="buscanombre" oninput="queryClientes1(this.value)">
                 </div>
                 <select class="form-select" size="4" aria-label="clientes" id="nombresClientesIncidencia">
                   <option selected>Selecciona...</option>
@@ -1309,8 +1309,32 @@ function altaIncidencia() {
 }
 //  código filtrado para en select de nuevo reporte de incidencia
 
-function queryClientes(valor) {
+function queryClientes1(valor) {
     const select = document.getElementById('nombresClientesIncidencia');
+    const opciones = select.querySelectorAll('option');
+
+    const texto = valor.toLowerCase();
+
+    // Mostrar todas las opciones si el input está vacío
+    if (texto === '') {
+        opciones.forEach(op => {
+            op.style.display = '';
+        });
+        return;
+    }
+
+    opciones.forEach(op => {
+        // Saltar la opción por defecto "Selecciona..."
+        if (op.textContent.trim().toLowerCase().includes(texto) || op.selected) {
+            op.style.display = '';
+        } else {
+            op.style.display = 'none';
+        }
+    });
+}
+
+function queryClientes(valor) {
+    const select = document.getElementById('nombresClientes');
     const opciones = select.querySelectorAll('option');
 
     const texto = valor.toLowerCase();
