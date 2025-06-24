@@ -39,6 +39,7 @@ function generarReporteIndClientes(){
             success: function(data) {
                 $('#reportePagoIndividual').modal('show');
                 $('#tablaPagoIndividualG').html(data);
+                _('btnReporteIndividualExcel').setAttribute('href','query/excel_query_reporte_cliente_individual3.php?cliente='+cliente+'&finicial='+fechaInicio+'&ffinal='+fechaFinal);
             }
         });
     }
