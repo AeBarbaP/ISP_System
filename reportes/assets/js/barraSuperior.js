@@ -16,11 +16,13 @@ function generarReporteIndClientes(){
             data: {
                 cliente : cliente,
                 fechaInicio, fechaInicio,
-                fechaFinal : fechaFinal            },
+                fechaFinal : fechaFinal
+            },
             dataType: 'html',
             success: function(data) {
                 $('#reportePagos').modal('show');
                 $('#tablaPagosG').html(data);
+                _('btnReportePagos').setAttribute('href','query/excel_query_reporte_cliente_individual2.php?cliente='+cliente+'&finicial='+fechaInicio+'&ffinal='+fechaFinal);
             }
         });
     }
