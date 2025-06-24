@@ -67,6 +67,14 @@ while($row = $resultado->fetch_assoc()){
     ';
 }
 
+echo'
+<tr class="table-info">
+    <td colspan="4" class="text-center"></td>
+    <td colspan="1" class="text-center"><strong>Total:</strong></td>
+    <td colspan="1" class="text-center">'.$totalSuma.'</td>
+    <td colspan="1" class="text-end"></td>
+</tr>
+';
 
 echo'
 </tbody>
