@@ -131,6 +131,7 @@ function generarReporteIndUsuarios(){
             success: function(data) {
                 $('#reporteUsuarioG').modal('show');
                 $('#tablaUsuariosInd').html(data);
+                
             }
         });
     }
@@ -151,6 +152,8 @@ function generarReporteIndUsuarios(){
             success: function(data) {
                 $('#reporteUsuarioG').modal('show');
                 $('#tablaUsuariosIndG').html(data);
+                _('reporteIndExcel').setAttribute('href','query/excel_query_reporte_usuario_individual2.php?usuario='+usuario+'&fechaInicio='+fechaInicio+'&fechaFinal='+fechaFinal);
+
             }
         });
     }
@@ -179,6 +182,7 @@ function generarReporteTecnicos(){
             success: function(data) {
                 $('#reportegeneralTecnicos').modal('show');
                 $('#tec_tablaGral').html(data);
+                _('reporteTecnicoExcel').setAttribute('href','query/excel_query_tecnicosGeneral2.php?tecnico='+tecnico);
             }
         });
     }

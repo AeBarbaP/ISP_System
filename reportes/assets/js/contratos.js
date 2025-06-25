@@ -10,6 +10,8 @@ function consultaContratosRep() {
         dataType: 'html',
         success: function(data) {
             $('#tablaContratosG').html(data);
+            
+
         }
     });
 }
