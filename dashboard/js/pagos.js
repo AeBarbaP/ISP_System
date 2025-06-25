@@ -627,7 +627,7 @@ function imprimirSeleccion(nombre) {
     const fecha = new Date().toLocaleDateString();
     const rutaLogo = '../images/logo_conectwi_wide-removebg-preview.png';
     
-    // Estilos para impresión térmica (8cm)
+    // Estilos optimizados para impresión térmica
     const estilos = `
         <style>
             @page { size: auto; margin: 0; }
@@ -661,11 +661,16 @@ function imprimirSeleccion(nombre) {
                 padding: 2px 3px !important;
                 line-height: 1.2;
                 border: 1px solid #ddd;
+                text-align: center;
             }
-                 /* Ocultar columnas */
+            /* Ocultar primera y última columna */
             tr > :first-child,
             tr > :last-child {
                 display: none;
+            }
+            /* Excepción para fila de total si es necesario */
+            tr.fila-total > :last-child {
+                display: table-cell !important;
             }
             th {
                 background-color: #f2f2f2;
@@ -681,22 +686,16 @@ function imprimirSeleccion(nombre) {
                 font-weight: bold;
             }
             .footer {
-                font-size: 8px !important;
+                font-size: 10px !important;
                 text-align: center;
                 margin-top: 5px;
+                padding-top: 5px;
+                border-top: 1px dashed #000;
             }
             .nombre-cliente {
                 font-weight: bold;
                 margin: 5px 0;
                 text-align: center;
-                font-size: 11px;
-            }
-            .total-externo {
-                font-weight: bold;
-                text-align: right;
-                margin-top: 5px;
-                padding: 3px 0;
-                border-top: 1px dashed #000;
                 font-size: 11px;
             }
         </style>
@@ -706,21 +705,27 @@ function imprimirSeleccion(nombre) {
     const tablaOriginal = document.getElementById('tablaPre');
     const tablaClonada = tablaOriginal.cloneNode(true);
     
-    // 1. Mantener los títulos (no eliminar primera fila de encabezados)
-    // 2. Extraer y eliminar solo la última fila (total)
+    // Extraer el valor del total antes de modificar la tabla
     let totalValue = '';
-    const filas = tablaClonada.querySelectorAll('tr');
-    const ultimaFila = filas[filas.length - 1];
-    
-    if (ultimaFila) {
-        // Extraer el valor del total (última celda)
-        const celdas = ultimaFila.querySelectorAll('td');
-        if (celdas.length > 0) {
-            totalValue = celdas[celdas.length - 1].textContent;
+    const elementoTotal = tablaClonada.querySelector('#total-costo, .total, [data-total]');
+    if (elementoTotal) {
+        totalValue = elementoTotal.textContent.trim();
+        // Eliminar fila de total si es necesario
+        const filaTotal = elementoTotal.closest('tr');
+        if (filaTotal) {
+            filaTotal.parentNode.removeChild(filaTotal);
         }
-        // Eliminar la fila de total de la tabla
-        ultimaFila.parentNode.removeChild(ultimaFila);
     }
+
+    // Ocultar columnas en todas las filas
+    Array.from(tablaClonada.querySelectorAll('tr')).forEach(tr => {
+        if (tr.children.length > 0) {
+            tr.children[0].style.display = 'none'; // Primera columna
+            if (tr.children.length > 1) {
+                tr.lastElementChild.style.display = 'none'; // Última columna
+            }
+        }
+    });
 
     // Generar HTML del logo
     const logoHTML = rutaLogo 
@@ -737,18 +742,17 @@ function imprimirSeleccion(nombre) {
             <body>
                 ${logoHTML}
                 <div class="header-text">
-                    <h1>CONECTWi</h1>
+                    <h1 hidden>CONECTWi</h1>
                     <h2>RECIBO DE PAGO</h2>
                 </div>
                 
                 ${nombre ? `<div class="nombre-cliente">${nombre}</div>` : ''}
                 ${tablaClonada.outerHTML}
                 
-                ${totalValue ? `<div class="total-externo">TOTAL: ${totalValue}</div>` : ''}
-                
                 <div class="footer">
-                    <p>${fecha} | www.conectwi.com</p>
-                    <p>** CONSERVE ESTE TICKET **</p>
+                    ${totalValue ? `<div><strong>TOTAL:</strong> ${totalValue}</div>` : ''}
+                    <div>${fecha} | www.conectwi.com</div>
+                    <div>** CONSERVE ESTE TICKET **</div>
                 </div>
             </body>
         </html>
