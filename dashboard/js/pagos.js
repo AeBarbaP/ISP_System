@@ -625,7 +625,7 @@ function calcularTotal() {
 function imprimirSeleccion(nombre) {
     const ventimp = window.open('', 'popimpr');
     const fecha = new Date().toLocaleDateString();
-    const rutaLogo = '../../images/logo_conectwi_wide-removebg-preview.png'
+    const rutaLogo = '../images/logo_conectwi_wide-removebg-preview.png';
     
     // Estilos para impresión térmica (8cm)
     const estilos = `
@@ -655,15 +655,21 @@ function imprimirSeleccion(nombre) {
                 width: 100% !important;
                 font-size: 9px !important;
                 border-collapse: collapse;
+                margin: 5px 0;
             }
             th, td {
                 padding: 2px 3px !important;
                 line-height: 1.2;
+                border: 1px solid #ddd;
             }
-            /* Ocultar columnas */
+                 /* Ocultar columnas */
             tr > :first-child,
             tr > :last-child {
                 display: none;
+            }
+            th {
+                background-color: #f2f2f2;
+                font-weight: bold;
             }
             .header-text {
                 text-align: center;
@@ -679,6 +685,20 @@ function imprimirSeleccion(nombre) {
                 text-align: center;
                 margin-top: 5px;
             }
+            .nombre-cliente {
+                font-weight: bold;
+                margin: 5px 0;
+                text-align: center;
+                font-size: 11px;
+            }
+            .total-externo {
+                font-weight: bold;
+                text-align: right;
+                margin-top: 5px;
+                padding: 3px 0;
+                border-top: 1px dashed #000;
+                font-size: 11px;
+            }
         </style>
     `;
 
@@ -686,15 +706,23 @@ function imprimirSeleccion(nombre) {
     const tablaOriginal = document.getElementById('tablaPre');
     const tablaClonada = tablaOriginal.cloneNode(true);
     
-    // Eliminar columnas no deseadas
-    Array.from(tablaClonada.querySelectorAll('tr')).forEach(tr => {
-        if (tr.children.length > 1) {
-            tr.removeChild(tr.firstElementChild);
-            tr.removeChild(tr.lastElementChild);
+    // 1. Mantener los títulos (no eliminar primera fila de encabezados)
+    // 2. Extraer y eliminar solo la última fila (total)
+    let totalValue = '';
+    const filas = tablaClonada.querySelectorAll('tr');
+    const ultimaFila = filas[filas.length - 1];
+    
+    if (ultimaFila) {
+        // Extraer el valor del total (última celda)
+        const celdas = ultimaFila.querySelectorAll('td');
+        if (celdas.length > 0) {
+            totalValue = celdas[celdas.length - 1].textContent;
         }
-    });
+        // Eliminar la fila de total de la tabla
+        ultimaFila.parentNode.removeChild(ultimaFila);
+    }
 
-    // Generar HTML del logo (si se proporciona ruta)
+    // Generar HTML del logo
     const logoHTML = rutaLogo 
         ? `<div class="logo-container"><img src="${rutaLogo}" class="logo" alt="Logo"></div>`
         : '';
@@ -713,8 +741,10 @@ function imprimirSeleccion(nombre) {
                     <h2>RECIBO DE PAGO</h2>
                 </div>
                 
-                ${nombre ? `<p><strong>${nombre}</strong></p>` : ''}
+                ${nombre ? `<div class="nombre-cliente">${nombre}</div>` : ''}
                 ${tablaClonada.outerHTML}
+                
+                ${totalValue ? `<div class="total-externo">TOTAL: ${totalValue}</div>` : ''}
                 
                 <div class="footer">
                     <p>${fecha} | www.conectwi.com</p>

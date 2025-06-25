@@ -707,8 +707,8 @@
 									
 								</tbody>
 								<tfoot>
-									<tr class="table-success">
-										<td colspan="3" class="text-end"><strong>Total:</strong></td>
+									<tr class="table-success" id="totalFilas">
+										<td colspan="3" class="text-end" ><strong>Total:</strong></td>
 										<td>
 											<span id="total-costo">0.00</span>
 										</td>
