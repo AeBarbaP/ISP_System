@@ -582,7 +582,7 @@
         <div class="modal-content">
             <div class="modal-header bg-secondary text-light">
                 <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-credit-card"></i> Registro de pago</h1>
-                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="limpiarModal()" aria-label="Close"></button>
+                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="limpiarModal();limpiar1modal()" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="formPagos">   

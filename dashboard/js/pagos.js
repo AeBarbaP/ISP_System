@@ -758,12 +758,15 @@ function imprimirSeleccion(nombre) {
         </html>
     `);
     ventimp.document.close();
+    limpiarModal();
+    limpiar1modal();
+    $('#pago').modal('hide');
 
     ventimp.onload = function() {
         setTimeout(() => {
             ventimp.print();
             ventimp.close();
-        }, 200);
+        }, 50);
     };
 }
 

@@ -271,6 +271,9 @@ function limpiar1modal(){
     //    $(this).find('form').trigger('reset');
     //});
     _('NuevaSolicitud').innerHTML = "";
+    _('buscanombre').value = "";
+    //$("#nombresClientes option[value='option1']").remove();
+    _('nombresClientes').innerHTML = "";
     _('datosGenerales').innerHTML = "";
     _('nombresClientes').value = "";
     _('total-costo').innerText = "0.00";
