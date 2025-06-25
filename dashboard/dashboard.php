@@ -610,7 +610,11 @@
 							<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
 							<input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" id="buscanombre" oninput="queryClientesPago(this.value)" aria-describedby="basic-addon1" id="buscarCortes" name="buscar">
 						</div>
-						<select class="form-select" onchange="queryClientes(this.value);queryConceptoPagos()" id="nombresClientes" size="2" aria-label="folio corte">
+
+						<!-- <select class="form-select" onchange="queryClientes(this.value);queryConceptoPagos()" id="nombresClientes" size="2" aria-label="folio corte"> -->
+						<select class="form-select" onchange="queryClientes(this.value)" id="nombresClientes" size="2" aria-label="folio corte">
+
+
 							<!-- <option selected>Selecciona...</option> -->
 							<!-- Muestra los folios de las ordenes de corte que aún no han sido resueltas para cambiar los datos -->
 						</select>

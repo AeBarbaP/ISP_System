@@ -623,25 +623,114 @@ function calcularTotal() {
 }
 
 function imprimirSeleccion(nombre) {
-    var ficha = nombre;
-    var ventimp = window.open(' ', 'popimpr');
-    // var fecha = new Date('Y');
-    var fecha = new Date('Y-m-d');
+    const ventimp = window.open('', 'popimpr');
+    const fecha = new Date().toLocaleDateString();
+    const rutaLogo = '../../images/logo_conectwi_wide-removebg-preview.png'
     
-    var texto = "<center><p>.</p><p>...</p><p>.</p><h1 style='font-size: 2.5rem; font-family: 'Aboreto', cursive;'><strong>CONECTWi</strong></h1><h1 style='font-size: 2rem; font-family: 'Aboreto', cursive;'>Recibo de Pago</h1></center>";
-    var texto2 = "<center><p style='font-size: 2rem;'>CONSERVE SU TICKET</p><p style='font-size: 1.5rem;'>Únicamente presentando éste ticket se pordrá acreditar su pago</p><p style='font-size: 1.2rem;'>http://www.conectwi.com</p><p style='font-size: 1.2rem;'>CONECTWI | "+fecha+"</p></center>";
-    // var tabla1 = "<table>";
-    var tabla2 = _('tablaPre').cloneNode(true);
-    // var tabla3 = "</table>";
-    ventimp.document.write(texto);
-    ventimp.document.write(ficha);
-    // ventimp.document.write(tabla1);
-    ventimp.document.write(tabla2);
-    // ventimp.document.write(tabla3);
-    ventimp.document.write(texto2);
+    // Estilos para impresión térmica (8cm)
+    const estilos = `
+        <style>
+            @page { size: auto; margin: 0; }
+            body { 
+                width: 8cm !important;
+                margin: 0 !important;
+                padding: 0.2cm !important;
+                font-family: Arial, sans-serif;
+                font-size: 10px !important;
+                -webkit-print-color-adjust: exact;
+            }
+            * { 
+                max-width: 100% !important;
+                box-sizing: border-box;
+            }
+            .logo-container {
+                text-align: center;
+                margin-bottom: 5px;
+            }
+            .logo {
+                max-width: 60% !important;
+                height: auto;
+            }
+            table {
+                width: 100% !important;
+                font-size: 9px !important;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 2px 3px !important;
+                line-height: 1.2;
+            }
+            /* Ocultar columnas */
+            tr > :first-child,
+            tr > :last-child {
+                display: none;
+            }
+            .header-text {
+                text-align: center;
+                margin: 3px 0;
+            }
+            .header-text h1 {
+                font-size: 14px !important;
+                margin: 2px 0;
+                font-weight: bold;
+            }
+            .footer {
+                font-size: 8px !important;
+                text-align: center;
+                margin-top: 5px;
+            }
+        </style>
+    `;
+
+    // Clonar y modificar tabla
+    const tablaOriginal = document.getElementById('tablaPre');
+    const tablaClonada = tablaOriginal.cloneNode(true);
+    
+    // Eliminar columnas no deseadas
+    Array.from(tablaClonada.querySelectorAll('tr')).forEach(tr => {
+        if (tr.children.length > 1) {
+            tr.removeChild(tr.firstElementChild);
+            tr.removeChild(tr.lastElementChild);
+        }
+    });
+
+    // Generar HTML del logo (si se proporciona ruta)
+    const logoHTML = rutaLogo 
+        ? `<div class="logo-container"><img src="${rutaLogo}" class="logo" alt="Logo"></div>`
+        : '';
+
+    ventimp.document.open();
+    ventimp.document.write(`
+        <html>
+            <head>
+                <title>Ticket</title>
+                ${estilos}
+            </head>
+            <body>
+                ${logoHTML}
+                <div class="header-text">
+                    <h1>CONECTWi</h1>
+                    <h2>RECIBO DE PAGO</h2>
+                </div>
+                
+                ${nombre ? `<p><strong>${nombre}</strong></p>` : ''}
+                ${tablaClonada.outerHTML}
+                
+                <div class="footer">
+                    <p>${fecha} | www.conectwi.com</p>
+                    <p>** CONSERVE ESTE TICKET **</p>
+                </div>
+            </body>
+        </html>
+    `);
     ventimp.document.close();
-    ventimp.print();
-    ventimp.close();
+
+    ventimp.onload = function() {
+        setTimeout(() => {
+            ventimp.print();
+            ventimp.close();
+        }, 200);
+    };
 }
 
 /* $(document).ready(function () {

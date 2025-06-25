@@ -140,6 +140,11 @@ function guardarTodosPagos() {
                 guardarRecibo();
                 //alert(response.message);
                 console.log(response.message);
+
+                if (confirm("¿Quieres imprimir el recibo "+folioPago1+"?")) {
+                    imprimirSeleccion(folioPago1);
+                }
+
             } else {
                 alert('Error: ' + response.message);
             }
@@ -181,7 +186,8 @@ function revisarPagosAnticipados() {
                         total_pago: $(this).find('td:eq(3)').text()
                     },
                     success: function(data) {
-                        console.log('Guardado');
+                        console.log('Guardado pagos anticipados');
+                        
                     }
                 });
             }
@@ -218,7 +224,8 @@ function revisarPagosAtrasado() {
                         total_pago: $(this).find('td:eq(3)').text()
                      },
                     success: function(data) {
-                        console.log('Guardado');
+                        console.log('Guardado pagos atrasados');
+                        
                     }
                 });
             }
@@ -264,9 +271,9 @@ function guardarRecibo() {
                 
                         if(success == 1){
                             console.log("Recibo guardado");
-                            imprimirSeleccion(folio_pago);
+                            
                             //$('#pago').modal('hide');
-                            queryDashboard1();
+                            queryDashboard1(pagina = 1);
                         }
                         else{
                             alert("No se guardó");
@@ -307,7 +314,7 @@ function guardarRecibo999(){
             if(success = 1){
                 alert("Recibo guardado");
                 $('#pago').modal('hide');
-                queryDashboard1();
+                queryDashboard1(pagina = 1);
             }
             else{
                 alert("No se guardó");
