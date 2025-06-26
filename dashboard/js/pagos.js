@@ -248,6 +248,25 @@ function pago_anticipado() {
   });
 }
 
+function queryAnticipados() {
+    let folio = _('folioContratoRegistro').textContent;
+
+    $.ajax({
+        type: "POST",
+        url: "query/query_pagos_anticipados2.php",
+        data: { 
+            folio: folio 
+        },
+        dataType: "html",
+        success: function(data) {
+
+        }
+    });
+
+}
+
+
+
 function cargo_adicional() {
 
   let titulo = "Cargo Adicional";
@@ -566,6 +585,7 @@ function agregarMontoAdicional(){
 // función para agregar pago adicional
 
 // función para los meses
+// agregar Pago Anticipado
 function agregarPA(){
     let fechaMesAnnio = obtenerFechaHoyMesAnnio();
     let hoy = new Date();

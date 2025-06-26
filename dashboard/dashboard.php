@@ -43,7 +43,7 @@
 	 <script src="js/laterales/paquetes.js"></script>
 	 <script src="js/laterales/corteDiario.js"></script>
 	<!-- área de scripts -->
-	<body onload="queryDashboard1();revisarCorte();ultimoAcceso('<?php echo $user; ?>');">
+	<body onload="queryDashboard1(pagina = 1);revisarCorte();ultimoAcceso('<?php echo $user; ?>');">
 		
     <div class="container-scroller">
 		<!-- partial:partials/_horizontal-navbar.html -->
