@@ -43,7 +43,7 @@
 	 <script src="js/laterales/paquetes.js"></script>
 	 <script src="js/laterales/corteDiario.js"></script>
 	<!-- área de scripts -->
-	<body onload="queryDashboard1(pagina = 1);revisarCorte();ultimoAcceso('<?php echo $user; ?>');">
+	<body onload="queryDashboard1();revisarCorte();ultimoAcceso('<?php echo $user; ?>');">
 		
     <div class="container-scroller">
 		<!-- partial:partials/_horizontal-navbar.html -->
@@ -553,13 +553,13 @@
 					<div class="col-lg-6 mb-3" id="fechalimite">
 						<h3>Fecha Límite de Pago</h3>
 						<!-- <h3>DD/MMM</h3> -->
-						<input type="date" class="form-control" id="siguienteMesInput" disabled>
+						<input type="date" class="form-control" id="siguienteMesInput">
 						<!-- Carga los datos de la cuota mensual -->
 					</div>
 					<div class="col-lg-6 mb-3" id="fechacorte">
 						<h3>Fecha de Corte</h3>
 						<!-- <h3>DD/MMM</h3> -->
-						<input type="date" class="form-control" id="mesMasCincoDiasInput" disabled>
+						<input type="date" class="form-control" id="mesMasCincoDiasInput">
 						<!-- Carga los datos de la cuota mensual -->
 					</div>
                 </div>

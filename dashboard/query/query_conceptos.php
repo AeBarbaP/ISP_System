@@ -17,7 +17,8 @@ if (!empty($folioCliente)) {
     $rowCorte = $resultadoCorte->fetch_assoc();
 
     $inicio = new DateTime($rowCorte['fecha_corte']);
-    $fin = new DateTime();
+    $fin = new DateTime(); // Fecha actual
+    $fin2 = $fin->format('Y-m-d'); // String con formato
 
     $diaN = '01';
     $mesN = $fin->format('m');
@@ -43,7 +44,7 @@ if (!empty($folioCliente)) {
         '10' => 'Octubre', '11' => 'Noviembre', '12' => 'Diciembre'
     ];
 
-    if(($fin > $fechaNuevaCorte1) && ($fin < $fechaNuevaCorte2)){
+    if(($fin2 > $fechaNuevaCorte1) && ($fin2 < $fechaNuevaCorte2)){
         
         $nombreMesN = $meses[$mesM];
 
@@ -75,7 +76,7 @@ if (!empty($folioCliente)) {
         
     }
 
-while ($inicio <= $fin) {
+while ($inicio <= $fin2) {
     // $dia = $inicio->format('d');
     $dia = '01';
     $mes = $inicio->format('m');
