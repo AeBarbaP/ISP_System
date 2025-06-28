@@ -16,11 +16,8 @@ if (!empty($folioCliente)) {
     $resultadoCorte = $conn->query($sqlCorte);
     $rowCorte = $resultadoCorte->fetch_assoc();
 
-    $inicio = new DateTime($rowCorte['fecha_corte']); //2025-01-05
-    $inicio1 = $inicio->format('Y-m-d');
-
-    $fin = new DateTime(); // Fecha actual
-    $fin2 = $fin->format('Y-m-d'); // String con formato
+    $inicio = new DateTime($rowCorte['fecha_corte']);
+    $fin = new DateTime();
 
     $diaN = '01';
     $mesN = $fin->format('m');
@@ -33,9 +30,7 @@ if (!empty($folioCliente)) {
     $annio = $fin->format('Y');
 
     $fechaNuevaCorte1 = new DateTime("$anioN-$mesN-$diaN");
-    $fechaNuevaCorte1 = $fechaNuevaCorte1->format('Y-m-d');
     $fechaNuevaCorte2 = new DateTime("$anioM-$mesM-$diaM");
-    $fechaNuevaCorte2 = $fechaNuevaCorte2->format('Y-m-d');
 
 
     $folioContrato = $rowCorte['folio'];
@@ -48,14 +43,11 @@ if (!empty($folioCliente)) {
         '10' => 'Octubre', '11' => 'Noviembre', '12' => 'Diciembre'
     ];
 
-    // mayor                           //
-    // hoy > fechaNuevaCorte1         // hoy < fechaNuevaCorte2
-    // 2025-06-27 > 2025-06-01         2025-06-27 < 2025-06-05
-    if($fin2 > $fechaNuevaCorte1 && $fin2 < $fechaNuevaCorte2){
+    if(($fin > $fechaNuevaCorte1) && ($fin < $fechaNuevaCorte2)){
         
         $nombreMesN = $meses[$mesM];
 
-        $concat = "$annio-$mesM"; // 2025-06
+        $concat = "$annio-$mesM";
         $sql = "SELECT * FROM pagos_generales 
                 WHERE folio_contrato = '$folioContrato' 
                 AND periodo = '$concat'";
@@ -69,10 +61,10 @@ if (!empty($folioCliente)) {
                 <td colspan="5" class="table-success">No tiene adeudos</td>
             </tr>';
         }
-        else if($filas < 1){
+        else{
             echo'
             <tr>
-                <td>'.$concat.'</td>
+                <td>'.$annio.'-'.$mesM.'</td>
                 <td>Pago oportuno</td>
                 <td>'.$nombreMesN.'</td>
                 <td>'.$costoMensual.'</td>
@@ -82,13 +74,8 @@ if (!empty($folioCliente)) {
 
         
     }
-    else{
-        echo'
-            <tr>
-                <td colspan="5" class="table-success">'.$fin2.' MA '.$fechaNuevaCorte1.' ---  '.$fin2.' ME '.$fechaNuevaCorte2.'</td>
-            </tr>';
-    }
-while ($inicio <= $fin2) {
+
+while ($inicio <= $fin) {
     // $dia = $inicio->format('d');
     $dia = '01';
     $mes = $inicio->format('m');
@@ -137,29 +124,10 @@ while ($inicio <= $fin2) {
             <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
         </tr>
         ';
+    }
 
-        $sqlDesconexion = "SELECT * FROM cortes WHERE folio_cliente = '$folioCliente' AND estado = 1";
-        $resultadoDesconexion = $conn -> query($sqlDesconexion);
-        $filaDesconexion = $resultadoDesconexion->num_rows;
-        if($filaDesconexion){
-            $recargoReconexion = '50.00';
-            $rowDesconexion = $resultadoDesconexion->fetch_assoc();
-            echo'
-            <tr>
-                <td>0000-00</td>
-                <td>Reconexión</td>
-                <td>'.$nombreMes.'</td>
-                <td>'.$recargoReconexion.'</td>
-                <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
-            </tr>
-            ';
-        }
-}
-
-    
     $inicio->modify('+1 month');
 }
-
 
 }
 
