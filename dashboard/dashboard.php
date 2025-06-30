@@ -885,7 +885,7 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item corteCaja" href="#" id="menuOtrosGastos" data-bs-toggle="modal" data-bs-target="#modalOtrosGastos">Agregar otros gastos</a></li>
-							<li><a class="dropdown-item corteCaja" href="#" id="menuOtrosGastos" onclick="">Reporte otros gastos</a></li>
+							<li><a class="dropdown-item corteCaja" href="#" id="reporteOtrosGastos" onclick="" data-bs-toggle="modal" data-bs-target="#modalReporteOtrosGastos">Reporte otros gastos</a></li>
 							<li><a class="dropdown-item corteCaja" href="#" id="menuCorteCaja" onclick="corteCajaDiario()">Generar Corte de Caja</a></li>
 							<li><a class="dropdown-item" href="#" onclick="reporteCorteCaja()">Imprimir Corte de Caja</a></li>
 						</ul>
@@ -1005,6 +1005,27 @@
 		<div class="modal-footer">
 			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
 			<button type="button" class="btn btn-primary" onclick="guardarOtrosGastos()">Guardar</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+<!-- Modal reporte otros gastos -->
+<div class="modal fade" id="modalReporteOtrosGastos" tabindex="-1" aria-labelledby="modalOtrosGastosLabel" aria-hidden="true">
+	<div class="modal-dialog modal-xl">
+	  <div class="modal-content">
+		<div class="modal-header bg-secondary text-light">
+		  <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-cash-coin"></i> Reporte Otros gastos</h1>
+		  <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			
+		
+			<input type="text" id="idReporteOtrosGastos" value="<?php echo $user ?>" hidden>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+			
 		</div>
 	  </div>
 	</div>
