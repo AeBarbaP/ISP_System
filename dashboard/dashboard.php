@@ -36,6 +36,7 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
 	 <script src="js/scripts.js"></script>
+	 <script src="js/otrosGastos.js"></script>
 	 <script src="js/pagos.js"></script>
 	 <script src="js/registroPago.js"></script>
 	 <script src="js/menusLaterales.js"></script>
@@ -883,6 +884,8 @@
 							Corte de Caja
 						</a>
 						<ul class="dropdown-menu">
+							<li><a class="dropdown-item corteCaja" href="#" id="menuOtrosGastos" data-bs-toggle="modal" data-bs-target="#modalOtrosGastos">Agregar otros gastos</a></li>
+							<li><a class="dropdown-item corteCaja" href="#" id="menuOtrosGastos" onclick="">Reporte otros gastos</a></li>
 							<li><a class="dropdown-item corteCaja" href="#" id="menuCorteCaja" onclick="corteCajaDiario()">Generar Corte de Caja</a></li>
 							<li><a class="dropdown-item" href="#" onclick="reporteCorteCaja()">Imprimir Corte de Caja</a></li>
 						</ul>
@@ -971,6 +974,37 @@
 		</div>
 		<div class="modal-footer">
 		  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+<!-- Modal otros gastos -->
+<div class="modal fade" id="modalOtrosGastos" tabindex="-1" aria-labelledby="modalOtrosGastosLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+	  <div class="modal-content">
+		<div class="modal-header bg-secondary text-light">
+		  <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-cash-coin"></i> Otros gastos</h1>
+		  <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<div class="input-group mb-3">
+				<span class="input-group-text" id="basic-addon1"><i class="bi bi-chat-square-quote-fill"></i></span>
+				<input type="text" class="form-control" placeholder="Concepto" aria-label="Concepto" aria-describedby="basic-addon1" id="conceptoOtrosGastos">
+			</div>
+			<div class="input-group mb-3">
+				<span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
+				<input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" id="cantidadOtrosGastos" onkeypress="return soloNumeros(event)">
+			</div>
+			<div class="input-group mb-3">
+				<span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar4-event"></i></span>
+				<input type="date" class="form-control" placeholder="Fecha" aria-label="Fecha" aria-describedby="basic-addon1" id="fechaOtrosGastos">
+			</div>
+			<input type="text" id="idOtrosGastos" value="<?php echo $user ?>" hidden>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+			<button type="button" class="btn btn-primary" onclick="guardarOtrosGastos()">Guardar</button>
 		</div>
 	  </div>
 	</div>

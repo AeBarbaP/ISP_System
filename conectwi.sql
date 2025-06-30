@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 28-06-2025 a las 07:47:21
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.1.25
+-- Servidor: localhost
+-- Tiempo de generación: 30-06-2025 a las 18:34:09
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `acciones` (
   `id` int(11) NOT NULL,
-  `accion` varchar(25) NOT NULL
+  `accion` varchar(25) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -40,11 +40,11 @@ CREATE TABLE `acciones` (
 
 CREATE TABLE `antenas` (
   `id` int(11) NOT NULL,
-  `marca` varchar(15) NOT NULL,
-  `modelo` varchar(50) NOT NULL,
-  `num_serie` varchar(25) NOT NULL,
-  `MAC` varchar(25) NOT NULL,
-  `ip_address` varchar(20) DEFAULT NULL,
+  `marca` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `modelo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `num_serie` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `MAC` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `ip_address` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `fecha_alta` date NOT NULL,
   `estatus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -65,7 +65,7 @@ INSERT INTO `antenas` (`id`, `marca`, `modelo`, `num_serie`, `MAC`, `ip_address`
 
 CREATE TABLE `catalogo_adelanto` (
   `id` int(11) NOT NULL,
-  `tipo_adelanto` varchar(50) NOT NULL,
+  `tipo_adelanto` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `costo` decimal(5,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -74,18 +74,18 @@ CREATE TABLE `catalogo_adelanto` (
 --
 
 INSERT INTO `catalogo_adelanto` (`id`, `tipo_adelanto`, `costo`) VALUES
-(1, 'Enero', 0.00),
-(2, 'Febrero', 0.00),
-(3, 'Marzo', 0.00),
-(4, 'Abril', 0.00),
-(5, 'Mayo', 0.00),
-(6, 'Junio', 0.00),
-(7, 'Julio', 0.00),
-(8, 'Agosto', 0.00),
-(9, 'Septiembre', 0.00),
-(10, 'Octubre', 0.00),
-(11, 'Noviembre', 0.00),
-(12, 'Diciembre', 0.00);
+(1, 'Enero', '0.00'),
+(2, 'Febrero', '0.00'),
+(3, 'Marzo', '0.00'),
+(4, 'Abril', '0.00'),
+(5, 'Mayo', '0.00'),
+(6, 'Junio', '0.00'),
+(7, 'Julio', '0.00'),
+(8, 'Agosto', '0.00'),
+(9, 'Septiembre', '0.00'),
+(10, 'Octubre', '0.00'),
+(11, 'Noviembre', '0.00'),
+(12, 'Diciembre', '0.00');
 
 -- --------------------------------------------------------
 
@@ -95,9 +95,9 @@ INSERT INTO `catalogo_adelanto` (`id`, `tipo_adelanto`, `costo`) VALUES
 
 CREATE TABLE `catalogo_comunidades` (
   `id` int(11) NOT NULL,
-  `comunidad` varchar(100) NOT NULL,
-  `municipio` varchar(50) NOT NULL,
-  `estado` varchar(20) NOT NULL
+  `comunidad` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `municipio` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `estado` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -118,7 +118,7 @@ INSERT INTO `catalogo_comunidades` (`id`, `comunidad`, `municipio`, `estado`) VA
 
 CREATE TABLE `catalogo_estado` (
   `id` int(11) NOT NULL,
-  `estado` varchar(50) NOT NULL
+  `estado` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -136,7 +136,7 @@ INSERT INTO `catalogo_estado` (`id`, `estado`) VALUES
 
 CREATE TABLE `catalogo_instalacion` (
   `id` int(11) NOT NULL,
-  `tipo_instalacion` varchar(50) NOT NULL,
+  `tipo_instalacion` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `costo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -148,7 +148,7 @@ CREATE TABLE `catalogo_instalacion` (
 
 CREATE TABLE `catalogo_logs` (
   `id` int(11) NOT NULL,
-  `descripcion` varchar(50) NOT NULL
+  `descripcion` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -208,8 +208,8 @@ INSERT INTO `catalogo_logs` (`id`, `descripcion`) VALUES
 
 CREATE TABLE `catalogo_municipio` (
   `id` int(11) NOT NULL,
-  `municipio` varchar(50) NOT NULL,
-  `estado` varchar(70) NOT NULL
+  `municipio` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `estado` varchar(70) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -230,7 +230,7 @@ INSERT INTO `catalogo_municipio` (`id`, `municipio`, `estado`) VALUES
 
 CREATE TABLE `catalogo_paquetes` (
   `id` int(11) NOT NULL,
-  `paquetes` varchar(100) NOT NULL,
+  `paquetes` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `velocidad` int(11) NOT NULL,
   `costo` decimal(6,2) NOT NULL,
   `estatus` int(11) NOT NULL
@@ -241,14 +241,14 @@ CREATE TABLE `catalogo_paquetes` (
 --
 
 INSERT INTO `catalogo_paquetes` (`id`, `paquetes`, `velocidad`, `costo`, `estatus`) VALUES
-(1, 'Comunidades - Básico', 5, 270.00, 1),
-(2, 'Comunidades - Intermedio', 8, 470.00, 1),
-(3, 'Genaro Codina - Básico', 5, 260.00, 1),
-(4, 'Genaro Codina - Intermedio', 8, 460.00, 1),
-(5, 'Purisima - Básico', 5, 300.00, 1),
-(6, 'Torre', 5, 220.00, 1),
-(7, 'Rancho Macías', 8, 500.00, 1),
-(8, 'Rancho Santa Fe', 15, 1000.00, 1);
+(1, 'Comunidades - Básico', 5, '270.00', 1),
+(2, 'Comunidades - Intermedio', 8, '470.00', 1),
+(3, 'Genaro Codina - Básico', 5, '260.00', 1),
+(4, 'Genaro Codina - Intermedio', 8, '460.00', 1),
+(5, 'Purisima - Básico', 5, '300.00', 1),
+(6, 'Torre', 5, '220.00', 1),
+(7, 'Rancho Macías', 8, '500.00', 1),
+(8, 'Rancho Santa Fe', 15, '1000.00', 1);
 
 -- --------------------------------------------------------
 
@@ -258,7 +258,7 @@ INSERT INTO `catalogo_paquetes` (`id`, `paquetes`, `velocidad`, `costo`, `estatu
 
 CREATE TABLE `catalogo_reconexion` (
   `id` int(11) NOT NULL,
-  `tipo_reconexion` varchar(50) NOT NULL,
+  `tipo_reconexion` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `costo` decimal(5,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -267,7 +267,7 @@ CREATE TABLE `catalogo_reconexion` (
 --
 
 INSERT INTO `catalogo_reconexion` (`id`, `tipo_reconexion`, `costo`) VALUES
-(1, 'Reconexión regular', 0.00);
+(1, 'Reconexión regular', '0.00');
 
 -- --------------------------------------------------------
 
@@ -288,26 +288,26 @@ CREATE TABLE `cat_pagos` (
 
 CREATE TABLE `clientes` (
   `id` int(11) NOT NULL,
-  `folio` varchar(35) DEFAULT NULL,
-  `nombre` varchar(250) DEFAULT NULL,
-  `domicilio` varchar(150) DEFAULT NULL,
-  `calle` varchar(30) DEFAULT NULL,
-  `colonia` varchar(30) DEFAULT NULL,
-  `comunidad` varchar(30) DEFAULT NULL,
-  `municipio` varchar(30) DEFAULT NULL,
-  `estado` varchar(10) DEFAULT NULL,
+  `folio` varchar(35) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `nombre` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `domicilio` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `calle` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `colonia` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `comunidad` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `municipio` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `estado` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `cp` int(6) DEFAULT NULL,
-  `telefono` varchar(25) DEFAULT NULL,
-  `referencias` varchar(200) DEFAULT NULL,
-  `identificacion` varchar(20) DEFAULT NULL,
-  `comprobante` varchar(20) DEFAULT NULL,
+  `telefono` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `referencias` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `identificacion` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `comprobante` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `servicio` int(11) DEFAULT NULL,
-  `antena` varchar(25) DEFAULT NULL,
-  `direccionip` varchar(20) DEFAULT NULL,
+  `antena` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `direccionip` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `fecha_contrato` date DEFAULT NULL,
   `fecha_limite` date DEFAULT NULL,
   `fecha_corte` date DEFAULT NULL,
-  `cuota` varchar(6) DEFAULT NULL,
+  `cuota` varchar(6) COLLATE utf8_unicode_ci DEFAULT NULL,
   `estatus` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1768,7 +1768,7 @@ INSERT INTO `clientes` (`id`, `folio`, `nombre`, `domicilio`, `calle`, `colonia`
 
 CREATE TABLE `conceptos` (
   `id` int(11) NOT NULL,
-  `concepto` varchar(15) NOT NULL,
+  `concepto` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `costo` decimal(5,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1777,11 +1777,11 @@ CREATE TABLE `conceptos` (
 --
 
 INSERT INTO `conceptos` (`id`, `concepto`, `costo`) VALUES
-(1, 'Mensualidad', 350.00),
-(2, 'Instalación', 500.00),
-(3, 'Reconexión', 80.00),
-(4, 'Adelanto', 350.00),
-(5, 'Promociones', 0.00);
+(1, 'Mensualidad', '350.00'),
+(2, 'Instalación', '500.00'),
+(3, 'Reconexión', '80.00'),
+(4, 'Adelanto', '350.00'),
+(5, 'Promociones', '0.00');
 
 -- --------------------------------------------------------
 
@@ -1791,9 +1791,9 @@ INSERT INTO `conceptos` (`id`, `concepto`, `costo`) VALUES
 
 CREATE TABLE `cortes` (
   `id` int(11) NOT NULL,
-  `folio_cliente` varchar(35) NOT NULL,
-  `username` varchar(15) NOT NULL,
-  `folio_corte` varchar(20) NOT NULL,
+  `folio_cliente` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `folio_corte` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `fecha` date NOT NULL,
   `tecnico` int(11) DEFAULT NULL,
   `estatus` int(11) NOT NULL
@@ -1838,16 +1838,16 @@ INSERT INTO `corte_caja` (`id`, `usr`, `fecha`, `estatus`) VALUES
 
 CREATE TABLE `incidencias` (
   `id` int(11) NOT NULL,
-  `folio_incidencia` varchar(20) NOT NULL,
-  `descripcion` varchar(250) NOT NULL,
-  `folio_cliente` varchar(35) NOT NULL,
-  `username` varchar(15) NOT NULL,
+  `folio_incidencia` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `descripcion` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `folio_cliente` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `tecnico` int(11) NOT NULL,
   `fecha_asignacion` date DEFAULT NULL,
   `estatus` int(11) NOT NULL,
   `fecha_reporte` datetime NOT NULL,
   `fecha_resolucion` datetime DEFAULT NULL,
-  `comentario_tecnico` varchar(250) DEFAULT NULL
+  `comentario_tecnico` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -1876,10 +1876,10 @@ INSERT INTO `incidencias` (`id`, `folio_incidencia`, `descripcion`, `folio_clien
 
 CREATE TABLE `logs_login` (
   `id` int(11) NOT NULL,
-  `username` varchar(15) NOT NULL,
+  `username` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `inicio` datetime NOT NULL,
   `fin` datetime NOT NULL,
-  `ip` varchar(12) DEFAULT NULL,
+  `ip` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
   `id_ext` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1898,10 +1898,10 @@ INSERT INTO `logs_login` (`id`, `username`, `inicio`, `fin`, `ip`, `id_ext`) VAL
 
 CREATE TABLE `log_users` (
   `id` int(11) NOT NULL,
-  `username` varchar(30) NOT NULL,
+  `username` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `accion` int(11) NOT NULL,
   `hora` datetime NOT NULL,
-  `folio_cliente` varchar(35) NOT NULL
+  `folio_cliente` varchar(35) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2032,7 +2032,38 @@ INSERT INTO `log_users` (`id`, `username`, `accion`, `hora`, `folio_cliente`) VA
 (121, 'aebarba', 6, '2025-06-25 11:53:58', 'NA'),
 (122, 'aebarba', 5, '2025-06-25 11:55:01', 'NA'),
 (123, 'aebarba', 6, '2025-06-25 11:55:01', 'NA'),
-(124, 'aebarba', 21, '2025-06-26 12:22:36', 'NA');
+(124, 'aebarba', 21, '2025-06-26 12:22:36', 'NA'),
+(125, 'aebarba', 21, '2025-06-30 10:17:24', 'NA');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `otros_gastos`
+--
+
+CREATE TABLE `otros_gastos` (
+  `id` int(11) NOT NULL,
+  `concepto` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `cantidad` decimal(10,2) NOT NULL,
+  `fecha` date NOT NULL,
+  `id_ext` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `fecha_sistema` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `otros_gastos`
+--
+
+INSERT INTO `otros_gastos` (`id`, `concepto`, `cantidad`, `fecha`, `id_ext`, `fecha_sistema`) VALUES
+(1, '1', '1.00', '2025-06-23', 'aebarba', '2025-06-30 11:23:04'),
+(2, '11', '1.00', '2025-06-23', 'aebarba', '2025-06-30 11:23:34'),
+(3, 'qwwwq', '11.00', '2025-06-23', 'aebarba', '2025-06-30 11:24:24'),
+(4, 'wqasdasd', '1223.00', '2025-06-23', 'aebarba', '2025-06-30 11:26:25'),
+(5, '1111', '12345.00', '2025-06-23', 'aebarba', '2025-06-30 11:31:58'),
+(6, '111', '111.00', '2025-06-23', 'aebarba', '2025-06-30 11:32:57'),
+(7, '111', '111.00', '2025-06-23', 'aebarba', '2025-06-30 11:33:11'),
+(8, '11111', '1111.00', '2025-06-23', 'aebarba', '2025-06-30 11:33:26'),
+(9, '12', '12.00', '2025-06-12', 'aebarba', '2025-06-30 11:33:45');
 
 -- --------------------------------------------------------
 
@@ -2042,12 +2073,12 @@ INSERT INTO `log_users` (`id`, `username`, `accion`, `hora`, `folio_cliente`) VA
 
 CREATE TABLE `pagos` (
   `id` int(11) NOT NULL,
-  `num_pago` varchar(35) NOT NULL,
+  `num_pago` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
   `fecha_pago` date NOT NULL,
-  `folio_contrato` varchar(35) NOT NULL,
-  `concepto` varchar(50) NOT NULL,
-  `periodo` varchar(25) NOT NULL,
-  `annio` varchar(4) NOT NULL,
+  `folio_contrato` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
+  `concepto` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `periodo` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `annio` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
   `tipo_pago` int(11) NOT NULL,
   `descuento` decimal(5,2) NOT NULL,
   `total` decimal(5,2) NOT NULL
@@ -2061,13 +2092,13 @@ CREATE TABLE `pagos` (
 
 CREATE TABLE `pagos_generales` (
   `id` int(11) NOT NULL,
-  `folio_contrato` varchar(50) NOT NULL,
+  `folio_contrato` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `total` decimal(8,2) NOT NULL,
-  `tarjeta` varchar(10) NOT NULL,
-  `folio_pago` varchar(50) NOT NULL,
+  `tarjeta` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `folio_pago` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `fecha_pago` date NOT NULL,
   `tipo_pago` int(11) NOT NULL,
-  `periodo` varchar(10) DEFAULT NULL
+  `periodo` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -2078,10 +2109,10 @@ CREATE TABLE `pagos_generales` (
 
 CREATE TABLE `promociones` (
   `id` int(11) NOT NULL,
-  `promo` varchar(100) NOT NULL,
+  `promo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `fecha_inicio` date NOT NULL,
   `fecha_fin` date NOT NULL,
-  `tipo` varchar(50) NOT NULL,
+  `tipo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `descuento` int(11) NOT NULL,
   `estatus` int(11) NOT NULL,
   `id_catalogo` int(11) DEFAULT NULL
@@ -2106,11 +2137,11 @@ INSERT INTO `promociones` (`id`, `promo`, `fecha_inicio`, `fecha_fin`, `tipo`, `
 
 CREATE TABLE `tecnicos` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(150) NOT NULL,
+  `nombre` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `estatus` int(11) NOT NULL,
   `fecha_creacion` date NOT NULL,
   `fecha_actualizacion` date DEFAULT NULL,
-  `color` varchar(20) NOT NULL
+  `color` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2132,7 +2163,7 @@ INSERT INTO `tecnicos` (`id`, `nombre`, `estatus`, `fecha_creacion`, `fecha_actu
 
 CREATE TABLE `tipo_pago` (
   `id` int(11) NOT NULL,
-  `tipo` varchar(20) NOT NULL
+  `tipo` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2153,14 +2184,14 @@ INSERT INTO `tipo_pago` (`id`, `tipo`) VALUES
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `username` varchar(15) NOT NULL,
-  `pwd` varchar(10) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
+  `username` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `pwd` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `nombre` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `tipo_usr` int(11) NOT NULL,
   `estatus` int(11) NOT NULL,
   `fecha_creacion` date NOT NULL,
   `fecha_editar` datetime NOT NULL,
-  `color` varchar(20) NOT NULL
+  `color` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2282,6 +2313,12 @@ ALTER TABLE `logs_login`
 -- Indices de la tabla `log_users`
 --
 ALTER TABLE `log_users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `otros_gastos`
+--
+ALTER TABLE `otros_gastos`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2430,7 +2467,13 @@ ALTER TABLE `logs_login`
 -- AUTO_INCREMENT de la tabla `log_users`
 --
 ALTER TABLE `log_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+
+--
+-- AUTO_INCREMENT de la tabla `otros_gastos`
+--
+ALTER TABLE `otros_gastos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos`
