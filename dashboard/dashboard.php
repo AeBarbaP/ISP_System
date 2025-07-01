@@ -886,8 +886,9 @@
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item corteCaja" href="#" id="menuOtrosGastos" data-bs-toggle="modal" data-bs-target="#modalOtrosGastos">Agregar otros gastos</a></li>
 							<li><a class="dropdown-item corteCaja" href="#" id="reporteOtrosGastos" onclick="modalReporteOtrosGastos()">Reporte otros gastos</a></li>
+							<hr class="">
 							<li><a class="dropdown-item corteCaja" href="#" id="menuCorteCaja" onclick="corteCajaDiario()">Generar Corte de Caja</a></li>
-							<li><a class="dropdown-item" href="#" onclick="reporteCorteCaja()">Imprimir Corte de Caja</a></li>
+							<li><a class="dropdown-item" href="prcd/reporte_corte.php" target="_blank">Imprimir Corte de Caja</a></li>
 						</ul>
 					</li>
 					<li>

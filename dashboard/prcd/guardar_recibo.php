@@ -29,7 +29,8 @@ $sql = "INSERT INTO pagos_generales (
         folio_pago,
         fecha_pago,
         tipo_pago,
-        periodo
+        periodo,
+        id_ext
         ) VALUES (
         '$folio_contrato', 
         '$total_pago',
@@ -37,7 +38,8 @@ $sql = "INSERT INTO pagos_generales (
         '$folio_pago', 
         '$fecha_pago',
         '$tipo_pago',
-        '$periodo'
+        '$periodo',
+        '$userLog'
         )";
         $resultado = $conn->query($sql);
         if($resultado){
