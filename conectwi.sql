@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 30-06-2025 a las 18:34:09
+-- Tiempo de generación: 02-07-2025 a las 00:04:31
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.28
 
@@ -1828,7 +1828,7 @@ CREATE TABLE `corte_caja` (
 --
 
 INSERT INTO `corte_caja` (`id`, `usr`, `fecha`, `estatus`) VALUES
-(3, 1, '2025-06-04 20:13:28', 1);
+(3, 1, '2025-07-01 20:13:28', 1);
 
 -- --------------------------------------------------------
 
@@ -2033,7 +2033,10 @@ INSERT INTO `log_users` (`id`, `username`, `accion`, `hora`, `folio_cliente`) VA
 (122, 'aebarba', 5, '2025-06-25 11:55:01', 'NA'),
 (123, 'aebarba', 6, '2025-06-25 11:55:01', 'NA'),
 (124, 'aebarba', 21, '2025-06-26 12:22:36', 'NA'),
-(125, 'aebarba', 21, '2025-06-30 10:17:24', 'NA');
+(125, 'aebarba', 21, '2025-06-30 10:17:24', 'NA'),
+(126, 'aebarba', 6, '2025-07-01 12:00:23', 'NA'),
+(127, 'aebarba', 5, '2025-07-01 12:00:23', 'NA'),
+(128, 'aebarba', 6, '2025-07-01 12:00:23', 'NA');
 
 -- --------------------------------------------------------
 
@@ -2063,7 +2066,8 @@ INSERT INTO `otros_gastos` (`id`, `concepto`, `cantidad`, `fecha`, `id_ext`, `fe
 (6, '111', '111.00', '2025-06-23', 'aebarba', '2025-06-30 11:32:57'),
 (7, '111', '111.00', '2025-06-23', 'aebarba', '2025-06-30 11:33:11'),
 (8, '11111', '1111.00', '2025-06-23', 'aebarba', '2025-06-30 11:33:26'),
-(9, '12', '12.00', '2025-06-12', 'aebarba', '2025-06-30 11:33:45');
+(9, 'Comida encargo por la tarde', '12.00', '2025-07-01', 'aebarba', '2025-06-30 11:33:45'),
+(10, 'Comida', '100.00', '2025-07-01', 'aebarba', '2025-07-01 14:07:06');
 
 -- --------------------------------------------------------
 
@@ -2084,6 +2088,15 @@ CREATE TABLE `pagos` (
   `total` decimal(5,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `pagos`
+--
+
+INSERT INTO `pagos` (`id`, `num_pago`, `fecha_pago`, `folio_contrato`, `concepto`, `periodo`, `annio`, `tipo_pago`, `descuento`, `total`) VALUES
+(1, 'CW2025-0001', '2025-07-01', '20250625SY3NQ61297T', 'Pago oportuno', '2025-07', '2025', 1, '0.00', '260.00'),
+(2, 'CW2025-0001-FAt-1', '2025-07-01', '20250625SY3NQ61297T', 'Adeudo', '2025-06', '2025', 1, '0.00', '260.00'),
+(3, 'CW2025-0001-FAt-1', '2025-07-01', '20250625SY3NQ61297T', 'Recargo', '2025-06', '2025', 1, '0.00', '15.00');
+
 -- --------------------------------------------------------
 
 --
@@ -2098,8 +2111,17 @@ CREATE TABLE `pagos_generales` (
   `folio_pago` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `fecha_pago` date NOT NULL,
   `tipo_pago` int(11) NOT NULL,
-  `periodo` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
+  `periodo` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `id_ext` varchar(10) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `pagos_generales`
+--
+
+INSERT INTO `pagos_generales` (`id`, `folio_contrato`, `total`, `tarjeta`, `folio_pago`, `fecha_pago`, `tipo_pago`, `periodo`, `id_ext`) VALUES
+(1, '20250625SY3NQ61297T', '260.00', '', 'CW2025-0001-FAt-1', '2025-07-01', 1, '2025-06', 'aebarba'),
+(2, '20250625SY3NQ61297T', '535.00', '', 'CW2025-0001', '2025-07-01', 1, '2025-07', 'aebarba');
 
 -- --------------------------------------------------------
 
@@ -2467,25 +2489,25 @@ ALTER TABLE `logs_login`
 -- AUTO_INCREMENT de la tabla `log_users`
 --
 ALTER TABLE `log_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
 
 --
 -- AUTO_INCREMENT de la tabla `otros_gastos`
 --
 ALTER TABLE `otros_gastos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos_generales`
 --
 ALTER TABLE `pagos_generales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `promociones`
