@@ -1020,6 +1020,11 @@
 		</div>
 		<div class="modal-body">
 			<h3>Capturado por: <?php echo $user ?></h3>
+
+			<div class="input-group mb-3">
+				<span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-check-fill"></i></span>
+				<input type="date" class="form-control" placeholder="Fecha" aria-label="Fecha" aria-describedby="basic-addon1" id="fechaOtrosPagosDate" onchange="cambioFechaOtrosGastos()">
+			</div>
 			
 			<table class="table mt-3 text-center">
 				<thead class="table-dark">
@@ -1040,7 +1045,7 @@
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-			<a href="query/excel_query_otros_gastos.php?usr=<?php echo $user ?>" target="_blank" type="button" class="btn btn-primary">Excel</a>
+			<a href="query/excel_query_otros_gastos.php?usr=<?php echo $user ?>" target="_blank" type="button" class="btn btn-primary" id="btnReporteTablaOtrosGastos">Excel</a>
 			
 		</div>
 	  </div>

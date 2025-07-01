@@ -71,3 +71,21 @@ function modalReporteOtrosGastos(){
         }
     });
 }
+
+function cambioFechaOtrosGastos(){
+    let fecha = _('fechaOtrosPagosDate').value;
+    let usr = _('idReporteTablaOtrosGastos').value;
+
+    $.ajax({
+        type: "POST",
+        url: "query/query_otros_gastos2.php",
+        data: {
+            usr: usr,
+            fecha: fecha
+        },
+        success: function(data) {
+            $('#tablaOtrosGastos').html(data); 
+            _('btnReporteTablaOtrosGastos').setAttribute('href','query/excel_query_otros_gastos2.php?usr='+usr+'&fecha='+fecha+'>')
+        }
+    });
+}

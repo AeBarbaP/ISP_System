@@ -2,14 +2,11 @@
 
 require('../prcd/conn.php');
 
-date_default_timezone_set('America/Mexico_City');
-setlocale(LC_TIME, 'es_MX.UTF-8');
-$fechaHoy = strftime("%Y-%m-%d");
-
 $usr = $_POST['usr'];
+$fecha = $_POST['fecha'];
 $x=0;
 $cantidad = 0;
-$sql = "SELECT * FROM otros_gastos WHERE id_ext = '$usr' AND fecha = '$fechaHoy'";
+$sql = "SELECT * FROM otros_gastos WHERE id_ext = '$usr' AND fecha = '$fecha'";
 $resultado = $conn->query($sql);
 while($row = $resultado->fetch_assoc()){
     $x++;

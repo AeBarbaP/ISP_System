@@ -1,4 +1,5 @@
 <?php
+
 require('../prcd/conn.php');
 
 header("Pragma: public");
@@ -8,10 +9,6 @@ header("Content-type: application/x-msdownload");
 header("Content-Disposition: attachment; filename=$filename");
 header("Pragma: no-cache");
 header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-
-date_default_timezone_set('America/Mexico_City');
-setlocale(LC_TIME, 'es_MX.UTF-8');
-$fechaHoy = strftime("%Y-%m-%d");
 
 echo'
 <table>
@@ -27,9 +24,10 @@ echo'
 ';
 
 $usr = $_REQUEST['usr'];
+$fecha = ($_REQUEST['fecha']);
 $x=0;
 $cantidad = 0;
-$sql = "SELECT * FROM otros_gastos WHERE id_ext = '$usr' AND fecha = '$fechaHoy'";
+$sql = "SELECT * FROM otros_gastos WHERE id_ext = '$usr' AND fecha = '$fecha'";
 $resultado = $conn->query($sql);
 while($row = $resultado->fetch_assoc()){
     $x++;
@@ -43,16 +41,19 @@ while($row = $resultado->fetch_assoc()){
     </tr>
     ';
 }
-
 echo'
-<tr>
-    <td colspan="4" class="text-end">Total: '.$cantidad.'</td>
+<tr class="table-success">
+    <td colspan="3" class="text-center"></td>
+    <td colspan="1" class="text-center"><strong>Total: '.$cantidad.'</strong></td>
 </tr>
 ';
 
 echo'
-</tbody>
-    </table>
+    </tbody>
+</table>
 ';
+
+$errorr = $conn->error;
+echo $errorr;
 
 ?>
