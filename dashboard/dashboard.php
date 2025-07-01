@@ -889,6 +889,7 @@
 							<hr class="">
 							<li><a class="dropdown-item corteCaja" href="#" id="menuCorteCaja" onclick="corteCajaDiario()">Generar Corte de Caja</a></li>
 							<li><a class="dropdown-item" href="prcd/reporte_corte.php" target="_blank">Imprimir Corte de Caja</a></li>
+							<li><a class="dropdown-item" href="#" onclick="queryListadoCorte()">Listado de Corte de Caja</a></li>
 						</ul>
 					</li>
 					<li>
@@ -1037,6 +1038,48 @@
 					</tr>
 				</thead>
 				<tbody id="tablaOtrosGastos">
+					
+				</tbody>
+			</table>
+
+
+			<input type="text" id="idReporteTablaOtrosGastos" value="<?php echo $user ?>" hidden>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+			<a href="query/excel_query_otros_gastos.php?usr=<?php echo $user ?>" target="_blank" type="button" class="btn btn-primary" id="btnReporteTablaOtrosGastos">Excel</a>
+			
+		</div>
+	  </div>
+	</div>
+  </div>
+
+<!-- Modal reporte corte caja -->
+<div class="modal fade" id="modalCorteDiario" tabindex="-1" aria-labelledby="modalOtrosGastosLabel" aria-hidden="true">
+	<div class="modal-dialog modal-xl">
+	  <div class="modal-content">
+		<div class="modal-header bg-secondary text-light">
+		  <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-cash-coin"></i> Listado de cortes de caja del mes</h1>
+		  <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<h3>Capturado por: <?php echo $user ?></h3>
+
+			<div class="input-group mb-3">
+				<span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-check-fill"></i></span>
+				<input type="date" class="form-control" placeholder="Fecha" aria-label="Fecha" aria-describedby="basic-addon1" id="fechaOtrosPagosDate" onchange="cambioFechaOtrosGastos()">
+			</div>
+			
+			<table class="table mt-3 text-center">
+				<thead class="table-dark">
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Fecha</th>
+						<th scope="col">Estatus</th>
+						<th scope="col">Ver</th>
+					</tr>
+				</thead>
+				<tbody id="tablaCortesCajaD">
 					
 				</tbody>
 			</table>

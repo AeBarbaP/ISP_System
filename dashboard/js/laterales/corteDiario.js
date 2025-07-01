@@ -111,6 +111,13 @@ function bloquearTodo(){
 
 }
 
-function reporteCorteCaja() {
-
+function queryListadoCorte() {
+    $.ajax({
+        type: "POST",
+        url: "query/query_corteCaja.php",
+        success: function(data) {
+            $('#tablaCortesCajaD').html(data);
+            $('#modalCorteDiario').modal('show');
+        },
+      });
 }
