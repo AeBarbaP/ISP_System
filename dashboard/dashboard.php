@@ -885,7 +885,7 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item corteCaja" href="#" id="menuOtrosGastos" data-bs-toggle="modal" data-bs-target="#modalOtrosGastos">Agregar otros gastos</a></li>
-							<li><a class="dropdown-item corteCaja" href="#" id="reporteOtrosGastos" onclick="" data-bs-toggle="modal" data-bs-target="#modalReporteOtrosGastos">Reporte otros gastos</a></li>
+							<li><a class="dropdown-item corteCaja" href="#" id="reporteOtrosGastos" onclick="modalReporteOtrosGastos()">Reporte otros gastos</a></li>
 							<li><a class="dropdown-item corteCaja" href="#" id="menuCorteCaja" onclick="corteCajaDiario()">Generar Corte de Caja</a></li>
 							<li><a class="dropdown-item" href="#" onclick="reporteCorteCaja()">Imprimir Corte de Caja</a></li>
 						</ul>
@@ -1019,12 +1019,28 @@
 		  <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
+			<h3>Capturado por: <?php echo $user ?></h3>
 			
-		
-			<input type="text" id="idReporteOtrosGastos" value="<?php echo $user ?>" hidden>
+			<table class="table mt-3 text-center">
+				<thead class="table-dark">
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Concepto</th>
+						<th scope="col">Fecha</th>
+						<th scope="col">Cantidad</th>
+					</tr>
+				</thead>
+				<tbody id="tablaOtrosGastos">
+					
+				</tbody>
+			</table>
+
+
+			<input type="text" id="idReporteTablaOtrosGastos" value="<?php echo $user ?>" hidden>
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+			<a href="query/excel_query_otros_gastos.php?usr=<?php echo $user ?>" target="_blank" type="button" class="btn btn-primary">Excel</a>
 			
 		</div>
 	  </div>

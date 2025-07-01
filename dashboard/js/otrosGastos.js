@@ -54,3 +54,20 @@ function guardarOtrosGastos(){
         }
     });
 }
+
+function modalReporteOtrosGastos(){
+    $('#modalReporteOtrosGastos').modal('show');
+
+    let usr = _('idReporteTablaOtrosGastos').value;
+
+    $.ajax({
+        type: "POST",
+        url: "query/query_otros_gastos.php",
+        data: {
+            usr: usr
+        },
+        success: function(data) {
+            $('#tablaOtrosGastos').html(data); 
+        }
+    });
+}
