@@ -6,7 +6,7 @@ $usr = $_POST['usr'];
 $fecha = $_POST['fecha'];
 $x=0;
 $cantidad = 0;
-$sql = "SELECT * FROM otros_gastos WHERE id_ext = '$usr' AND fecha = '$fecha'";
+$sql = "SELECT * FROM otros_gastos WHERE id_ext = '$usr' AND DATE(fecha) = '$fecha'";
 $resultado = $conn->query($sql);
 while($row = $resultado->fetch_assoc()){
     $x++;

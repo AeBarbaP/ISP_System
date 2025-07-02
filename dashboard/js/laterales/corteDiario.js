@@ -112,12 +112,28 @@ function bloquearTodo(){
 }
 
 function queryListadoCorte() {
+  let fecha = obtenerFechaHoy();
+  $('#modalCorteDiario').modal('show');
+
+  _('fechaCorteCajaDate').value = fecha;
+  cambioFechaCortesCaja();
+
+}
+
+function cambioFechaCortesCaja(){
+    let fecha = _('fechaCorteCajaDate').value;
+    let usr = _('idReporteTablaCorteCaja').value;
+
     $.ajax({
         type: "POST",
-        url: "query/query_corteCaja.php",
-        success: function(data) {
-            $('#tablaCortesCajaD').html(data);
-            $('#modalCorteDiario').modal('show');
+        url: "query/query_corteCaja_dashboard.php",
+        data: {
+            usr: usr,
+            fecha: fecha
         },
-      });
+        success: function(data) {
+            $('#tablaCortesCajaD').html(data); 
+            _('btnReporteCortesCaja').setAttribute('href','query/excel_query_corteCaja_dashboard.php?usr='+usr+'&fecha='+fecha+'>')
+        }
+    });
 }

@@ -1,6 +1,7 @@
 <?php
     session_start();
 
+    $idUsr = $_SESSION['idUsr'];
     $user = $_SESSION['username'];
     $nombre = $_SESSION['nombre'];
     $estatusCorte = $_SESSION['estatusCorte'];
@@ -1115,15 +1116,16 @@
 		<div class="modal-body">
 			<h3>Capturado por: <?php echo $user ?></h3>
 
-			<div class="input-group mb-3">
+			<div class="input-group mb-3 mt-3">
 				<span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-check-fill"></i></span>
-				<input type="date" class="form-control" placeholder="Fecha" aria-label="Fecha" aria-describedby="basic-addon1" id="fechaOtrosPagosDate" onchange="cambioFechaOtrosGastos()">
+				<input type="date" class="form-control" aria-describedby="basic-addon1" id="fechaCorteCajaDate" onchange="cambioFechaCortesCaja()">
 			</div>
 			
 			<table class="table mt-3 text-center">
 				<thead class="table-dark">
 					<tr>
 						<th scope="col">#</th>
+						<th scope="col">Descripción</th>
 						<th scope="col">Fecha</th>
 						<th scope="col">Estatus</th>
 						<th scope="col">Ver</th>
@@ -1135,11 +1137,11 @@
 			</table>
 
 
-			<input type="text" id="idReporteTablaOtrosGastos" value="<?php echo $user ?>" hidden>
+			<input type="text" id="idReporteTablaCorteCaja" value="<?php echo $idUsr ?>" hidden>
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-			<a href="query/excel_query_otros_gastos.php?usr=<?php echo $user ?>" target="_blank" type="button" class="btn btn-primary" id="btnReporteTablaOtrosGastos">Excel</a>
+			<a href="query/excel_query_otros_gastos.php?usr=<?php echo $user ?>" target="_blank" type="button" class="btn btn-primary" id="btnReporteCortesCaja">Excel</a>
 			
 		</div>
 	  </div>
