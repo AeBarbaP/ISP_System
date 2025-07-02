@@ -1,28 +1,11 @@
 <?php
 
-// require('../prcd/conn.php');
-
-// $sql = "SELECT * FROM pagos_generales ORDER BY id ASC";
-// $resultado = $conn->query($sql);
-// while($row = $resultado->fetch_assoc()){
-//     $contrato = $row['folio_contrato'];
-//     $sql2 = "SELECT * FROM clientes WHERE folio = '$contrato'";
-//     $resultado2 = $conn->query($sql2);
-//     $row2 = $resultado2->fetch_assoc();
-//     echo'
-//     <tr class="text-center" data-href="#" data-bs-toggle="modal" data-bs-target="#listaPagosInv">
-
-//     <tr class="text-center"onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\')">
-//         <td>' . $row['folio_contrato'] . '</td>
-//         <td>' . $row['folio_pago'] . '</td>
-//         <td>' . $row2['nombre'] . '</td>
-//         <td>$' . $row['total'] . '</td>
-//         <td>' . $row['fecha_pago'] . '</td>
-//     </tr>
-//     ';
-// }
-
 require('../prcd/conn.php');
+
+$fechaHoy = new DateTime();
+$mes = $fechaHoy->format('m');
+$anio = $fechaHoy->format('Y');
+
 
 // Configuración de paginación
 $registrosPorPagina = 18; // Ajusta según necesidad
@@ -36,7 +19,7 @@ $totalRegistros = $resultadoTotal->fetch_assoc()['total'];
 $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
 
 // Consulta principal con paginación
-$sql = "SELECT * FROM pagos_generales ORDER BY fecha_pago DESC LIMIT $offset, $registrosPorPagina";
+$sql = "SELECT * FROM pagos_generales WHERE MONTH(fecha_pago) = '$mes' AND YEAR(fecha_pago) = '$anio' ORDER BY fecha_pago DESC LIMIT $offset, $registrosPorPagina";
 $resultado = $conn->query($sql);
 
 echo '

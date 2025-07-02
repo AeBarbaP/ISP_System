@@ -264,7 +264,7 @@
 						<div class="col-lg-8 grid-margin stretch-card">
     <div class="card">
         <div class="card-header pt-4">
-            <h4 class="card-title">Últimos Pagos Registrados</h4>
+            <h4 class="card-title"><i class="bi bi-calendar-check-fill"></i> Últimos Pagos Registrados en el mes</h4>
         </div>
         <div class="card-body overflow-auto">
             <div class="row">
