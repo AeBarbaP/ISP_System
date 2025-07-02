@@ -650,20 +650,45 @@
 								<button class="btn btn-outline-primary" type="button" onclick="pago_anticipado()">Registrar Pago Anticipado</button>
 								<button class="btn btn-outline-primary" type="button" onclick="cargo_adicional()">Cargo Adicional</button>
 							</div>
-							<div class="col-2">
+						</div>
+						<div class="row mt-2">
+							<!-- Example single danger button -->
+							<div class="btn-group">
+								<!-- <button type="button" class="btn btn-outline-primary text-end"  disabled>Agregar Instalación:</button>
+								<button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+									<span class="visually-hidden">Toggle Dropdown</span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="#">Action</a></li>
+									<li><a class="dropdown-item" href="#">Another action</a></li>
+									<li><a class="dropdown-item" href="#">Something else here</a></li>
+									<li><hr class="dropdown-divider"></li>
+									<li><a class="dropdown-item" href="#">Separated link</a></li>
+								</ul> -->
+								<button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+									Agregar costo de Instalación:
+								</button>
+								<ul class="dropdown-menu aling-items-end">
+									<li><a class="dropdown-item" href="#">Genaro Codina</a></li>
+									<li><a class="dropdown-item" href="#">Comunidades 1</a></li>
+									<li><a class="dropdown-item" href="#">Comunidades 2</a></li>
+								</ul>
+							</div>
+							<!-- <div class="col-4 d-flex align-items-end justify-content-end">
 								<div class="form-check form-check-inline ms-3">
-									<input class="form-check-input" type="checkbox" id="promocion" onclick="descuento_promo()">
-									<label class="form-check-label" style="margin-left: -.1rem" for="promocion">Promoción:</label>
+									<input class="form-check-input" type="checkbox" id="instalacion" onclick="instalacion()">
+									<label class="form-check-label" style="margin-left: -.1rem" for="instalacion">Agregar Instalación:</label>
 								</div>
 							</div>
 							<div class="col-4">
 								<div class="input-group mb-3 mt-1" style="margin-left: -.2rem">
-									<select class="form-select" id="promocionesPagos" onchange="agregarPromoTable()" disabled>
+									<select class="form-select" id="instalacionesPagos" onchange="agregarInstalacionTable()" disabled>
 										
 									</select>
 								</div>
-							</div>
+							</div> -->
 						</div>
+						
 						<!-- <hr>
 						<label>Cargos adicionales:</label>
 						<div class="container ms-5">
