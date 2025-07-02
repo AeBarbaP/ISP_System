@@ -650,6 +650,19 @@
 								<button class="btn btn-outline-primary" type="button" onclick="pago_anticipado()">Registrar Pago Anticipado</button>
 								<button class="btn btn-outline-primary" type="button" onclick="cargo_adicional()">Cargo Adicional</button>
 							</div>
+							<div class="col-2">
+								<div class="form-check form-check-inline ms-3">
+									<input class="form-check-input" type="checkbox" id="promocion" onclick="descuento_promo()">
+									<label class="form-check-label" style="margin-left: -.1rem" for="promocion">Promoción:</label>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="input-group mb-3 mt-1" style="margin-left: -.2rem">
+									<select class="form-select" id="promocionesPagos" onchange="agregarPromoTable()" disabled>
+										
+									</select>
+								</div>
+							</div>
 						</div>
 						<!-- <hr>
 						<label>Cargos adicionales:</label>

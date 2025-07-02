@@ -59,6 +59,7 @@ function guardarOtrosGastos(){
 
 function modalOtrosGastos(){
     $('#modalOtrosGastos').modal('show');
+    $('#modalReporteOtrosGastos').modal('hide');
 
     let fecha = obtenerFechaHoy();
     _('fechaOtrosGastos').value = fecha;
@@ -67,6 +68,7 @@ function modalOtrosGastos(){
 
 function modalReporteOtrosGastos(){
     $('#modalReporteOtrosGastos').modal('show');
+    $('#modalOtrosGastos').modal('hide');
     let fecha = obtenerFechaHoy();
     _('fechaOtrosPagosDate').value = fecha;
     let usr = _('idReporteTablaOtrosGastos').value;
