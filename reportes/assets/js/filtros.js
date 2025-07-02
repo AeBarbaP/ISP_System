@@ -22,3 +22,49 @@ function queryClientes2(valor) {
     });
 }
 
+$(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
+$(document).ready(function() {
+    // Filtro por botones de radio
+    $('input[name="btnradioFiltroC"]').on('change', function() {
+        var value = $(this).val().toLowerCase();
+        var columnaFiltro = 3; // Cambia este número según la columna donde está el estado
+        
+        $('#tablaContratosGRep tr').each(function() {
+            // Saltar la fila de encabezados si existe
+            if ($(this).find('th').length) return;
+            
+            var celdaEstado = $(this).find('td').eq(columnaFiltro).text().toLowerCase();
+            var mostrarFila = false;
+            
+            switch(value) {
+                case '1': // Activo
+                    mostrarFila = celdaEstado.includes('activo');
+                    break;
+                case '2': // Inactivo
+                    mostrarFila = celdaEstado.includes('inactivo');
+                    break;
+                case '3': // Cancelado
+                    mostrarFila = celdaEstado.includes('cancelado');
+                    break;
+                default:
+                    mostrarFila = true; // Mostrar todos si no hay selección
+            }
+            
+            $(this).toggle(mostrarFila);
+        });
+    });
+
+    // Opcional: Botón para limpiar filtros
+    $('#limpiarFiltros').on('click', function() {
+        $('input[name="btnradio"]').prop('checked', false);
+        $('#tablaContratosGRep tr').show();
+    });
+});

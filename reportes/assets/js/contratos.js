@@ -41,3 +41,26 @@ function buscarContratosRep(val){
         }
     });
 }
+
+function buscarContratosRepFecha(){
+    let fechaInicial = _('fecha_inicio_contratos').value;
+    let fechaFinal = _('fecha_final_contratos').value;
+
+    if( fechaInicial == "" || fechaFinal == ""){
+        alert("Debes llenar ambas fechas");
+        return;
+    }
+
+    $.ajax({
+        url: 'query/query_contratosRep_fecha.php',
+        type: 'POST',
+        data:{
+            fechaInicial : fechaInicial,
+            fechaFinal : fechaFinal
+        },
+        dataType: 'html',
+        success: function(data) {
+            $('#tablaContratosGRep').html(data);
+        }
+    });
+}
