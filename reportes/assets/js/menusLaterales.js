@@ -2291,14 +2291,12 @@ function queryCortesDiarios() {
                 </div>
               </div>
               <div class="table-responsive mt-3">
-                  <table class="table table-hover p-1">
+                  <table class="table table-hover text-center p-1">
                       <thead>
                           <tr>
                               <th scope="col">#</th>
                               <th scope="col">Usuario</th>
-                              <th scope="col">Pagos</th>
-                              <th scope="col">Gastos</th>
-                              <th scope="col">Total</th>
+                              
                               <th scope="col">Ver</th>
                           </tr>
                       </thead>

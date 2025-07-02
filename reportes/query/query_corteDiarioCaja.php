@@ -15,25 +15,22 @@ while ($row = $resultado->fetch_assoc()){
     $user = $rowUser['username'];
     $nombre = $rowUser['nombre'];
 
-    $rowPagosGenerales = $conn->query("SELECT * FROM pagos_generales WHERE id_ext = '$user'")->fetch_assoc();
+    // $rowPagosGenerales = $conn->query("SELECT * FROM pagos_generales WHERE id_ext = '$user'")->fetch_assoc();
 
-    $pagos = $rowPagosGenerales['total'];
+    // $pagos = $rowPagosGenerales['total'];
     
-    while($rowOtrosGastos = $conn->query("SELECT * FROM otros_gastos WHERE id_ext = '$user'")->fetch_assoc()){
-        $total = $rowOtrosGastos['cantidad'];
-        $gastoTotal = $gastoTotal + $total;
-    }
+    // while($rowOtrosGastos = $conn->query("SELECT * FROM otros_gastos WHERE id_ext = '$user'")->fetch_assoc()){
+    //     $total = $rowOtrosGastos['cantidad'];
+    //     $gastoTotal = $gastoTotal + $total;
+    // }
 
-    $total = $pagos - $gastoTotal;
+    // $total = $pagos - $gastoTotal;
 
     echo'
     <tr>
         <td>'.$x.'</td>
         <td>'.$nombre.'</td>
-        <td>'.$rowPagosGenerales['total'].'</td>
-        <td>'.$gastoTotal.'</td>
-        <td>'.$total.'</td>
-        <td><i class="bi bi-eye-fill"></i></td>
+        <td><a href="prcd/reporte_corte_por_fecha.php?fecha='.$fecha.'&username='.$user.'" target="_blank"><i class="bi bi-eye-fill"></i></a></td>
     </tr>
     ';
 }
