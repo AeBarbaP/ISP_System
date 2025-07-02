@@ -42,6 +42,8 @@ function guardarOtrosGastos(){
                     confirmButtonColor: '#3085d6'
                 }).then(function() {
                     $('#modalOtrosGastos').modal('hide');
+                    modalReporteOtrosGastos();
+                    limpiarModal();
                     // Aquí puedes agregar una función para actualizar la lista de otros gastos si es necesario
                 });
             } else {
@@ -55,9 +57,18 @@ function guardarOtrosGastos(){
     });
 }
 
+function modalOtrosGastos(){
+    $('#modalOtrosGastos').modal('show');
+
+    let fecha = obtenerFechaHoy();
+    _('fechaOtrosGastos').value = fecha;
+
+}
+
 function modalReporteOtrosGastos(){
     $('#modalReporteOtrosGastos').modal('show');
-
+    let fecha = obtenerFechaHoy();
+    _('fechaOtrosPagosDate').value = fecha;
     let usr = _('idReporteTablaOtrosGastos').value;
 
     $.ajax({

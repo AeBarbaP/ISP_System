@@ -884,7 +884,7 @@
 							Corte de Caja
 						</a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item corteCaja" href="#" id="menuOtrosGastos" data-bs-toggle="modal" data-bs-target="#modalOtrosGastos">Agregar otros gastos</a></li>
+							<li><a class="dropdown-item corteCaja" href="#" id="menuOtrosGastos" onclick="modalOtrosGastos()">Agregar otros gastos</a></li>
 							<li><a class="dropdown-item corteCaja" href="#" id="reporteOtrosGastos" onclick="modalReporteOtrosGastos()">Reporte otros gastos</a></li>
 							<hr class="">
 							<li><a class="dropdown-item corteCaja" href="#" id="menuCorteCaja" onclick="corteCajaDiario()">Generar Corte de Caja</a></li>
@@ -987,25 +987,31 @@
 	  <div class="modal-content">
 		<div class="modal-header bg-secondary text-light">
 		  <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-cash-coin"></i> Otros gastos</h1>
-		  <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+		  <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="limpiarModal();" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
-			<div class="input-group mb-3">
-				<span class="input-group-text" id="basic-addon1"><i class="bi bi-chat-square-quote-fill"></i></span>
-				<input type="text" class="form-control" placeholder="Concepto" aria-label="Concepto" aria-describedby="basic-addon1" id="conceptoOtrosGastos">
-			</div>
-			<div class="input-group mb-3">
-				<span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
-				<input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" id="cantidadOtrosGastos" onkeypress="return soloNumeros(event)">
-			</div>
-			<div class="input-group mb-3">
-				<span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar4-event"></i></span>
-				<input type="date" class="form-control" placeholder="Fecha" aria-label="Fecha" aria-describedby="basic-addon1" id="fechaOtrosGastos">
-			</div>
-			<input type="text" id="idOtrosGastos" value="<?php echo $user ?>" hidden>
+			<form id="formOtrosGastos">
+				<div class=" mb-3">
+					<label class="form-label" for="fechaOtrosGastos"><i class="bi bi-calendar4-event me-2"></i>Fecha:</label>
+					<input type="date" class="form-control" aria-label="Fecha" aria-describedby="basic-addon1" id="fechaOtrosGastos">
+				</div>
+				<div class=" mb-3">
+					<label class="form-label"><i class="bi bi-chat-square-quote-fill me-2"></i>Concepto de pago:</label>
+					<input type="text" class="form-control" placeholder="Concepto" aria-label="Concepto" aria-describedby="basic-addon1" id="conceptoOtrosGastos">
+				</div>
+				<div class=" mb-3">
+					<label class="form-label"><i class="bi bi-currency-dollar me-2"></i>Monto:</label>
+					<div class="input-group">
+						<span class="input-group-text" id="basic-addon1">$</span>
+						<input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" id="cantidadOtrosGastos" onkeypress="return soloNumeros(event)">
+						<span class="input-group-text" id="basic-addon1">.00</span>
+					</div>
+				</div>
+				<input type="text" id="idOtrosGastos" value="<?php echo $user ?>" hidden>
+			</form>
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+			<button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limpiarModal();">Cerrar</button>
 			<button type="button" class="btn btn-primary" onclick="guardarOtrosGastos()">Guardar</button>
 		</div>
 	  </div>
@@ -1021,11 +1027,17 @@
 		  <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
-			<h3>Capturado por: <?php echo $user ?></h3>
-
-			<div class="input-group mb-3">
-				<span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-check-fill"></i></span>
-				<input type="date" class="form-control" placeholder="Fecha" aria-label="Fecha" aria-describedby="basic-addon1" id="fechaOtrosPagosDate" onchange="cambioFechaOtrosGastos()">
+			<h3 class="mb-3">Capturado por: <?php echo $nombre ?></h3>
+			<div class="row">
+				<div class="col-10 d-flex align-items-center">
+					<div class="input-group mb-3">
+						<span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-check-fill"></i></span>
+						<input type="date" class="form-control" placeholder="Fecha" aria-label="Fecha" aria-describedby="basic-addon1" id="fechaOtrosPagosDate" onchange="cambioFechaOtrosGastos()">
+					</div>
+				</div>
+				<div class="col-2 d-flex justify-content-center mb-3">
+					<button type="button" class="btn btn-primary" onclick="modalOtrosGastos()">Agregar +</button>
+				</div>
 			</div>
 			
 			<table class="table mt-3 text-center">
