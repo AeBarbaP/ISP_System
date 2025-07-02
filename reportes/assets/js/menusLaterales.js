@@ -15,6 +15,14 @@ function _(el){
   return document.getElementById(el);
 }
 
+function obtenerFechaHoy() {
+  const hoy = new Date();
+  const anio = hoy.getFullYear();
+  const mes = String(hoy.getMonth() + 1).padStart(2, '0'); // los meses van de 0 a 11
+  const dia = String(hoy.getDate()).padStart(2, '0');
+  return `${anio}-${mes}-${dia}`;
+}
+
 // Función para abrir el modal dinámicamente
 function nuevoUsuario() {
 
@@ -2247,6 +2255,92 @@ function editarDatosUsr(){
     modal.remove();
   });
 }
-
-
 // Termina configuración de cuenta usr activo
+
+// query de reporte de cortes diarios de caja
+// ------------------------------------------------------
+function queryCortesDiarios() {
+  let fecha = obtenerFechaHoy();
+  let titulo = "Consulta de Cortes de Caja";
+  // Crear el elemento del modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'modalReporteCortes');
+  modal.innerHTML = `
+    <div class="modal-dialog modal-xl">>
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title"><i class="bi bi-wifi-off me-2"></i>${titulo}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <input name="id" id="idHiddenCortes" value="" hidden>
+              <div class="row">
+                <div class="col-6">
+                  <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-check-fill"></i></span>
+                      <input type="date" value="${fecha}" class="form-control" aria-describedby="basic-addon1" id="buscarCortesDFecha" name="buscar" onchange="datosCorteCaja()">
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+                      <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscarCortesDFiltro" name="buscar">
+                  </div>
+                </div>
+              </div>
+              <div class="table-responsive mt-3">
+                  <table class="table table-hover p-1">
+                      <thead>
+                          <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Usuario</th>
+                              <th scope="col">Pagos</th>
+                              <th scope="col">Gastos</th>
+                              <th scope="col">Total</th>
+                              <th scope="col">Ver</th>
+                          </tr>
+                      </thead>
+                      <tbody id="tablaCortesCajaReporte">
+                          
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+              <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
+          </div>
+      </div>
+    </div>
+  `;
+
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
+
+  // Mostrar el modal usando Bootstrap's JavaScript API
+  const bootstrapModal = new bootstrap.Modal(modal);
+  bootstrapModal.show();
+  datosCorteCaja();
+
+  // Eliminar el modal del DOM cuando se cierre
+  modal.addEventListener('hidden.bs.modal', () => {
+    modal.remove();
+  });
+}
+
+function datosCorteCaja(){
+  let fecha = _('buscarCortesDFecha').value;
+  $.ajax({
+    url: 'query/query_corteDiarioCaja.php',
+    type: 'POST',
+    data:{
+      fecha : fecha
+    },
+    dataType: 'html',
+    success: function (response) {
+        $('#tablaCortesCajaReporte').html(response);
+    }
+  });
+}

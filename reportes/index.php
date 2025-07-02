@@ -218,7 +218,7 @@ else {
                 <div class="vr"></div>
                 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbarLight" aria-labelledby="offcanvasNavbarLightLabel">
                     <div class="offcanvas-header">
-                        <a href="../dashboard/index.html">
+                        <a href="#">
                             <img src="../images/logo_conectwi_wide-removebg-preview.png" class="ms-2" style="height: 2.7rem;" alt="Logotipo ConectWi">
                         </a>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -443,12 +443,13 @@ else {
                 </div>
                 <div class="vr"></div>
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle  ms-2 me-2 bloquearNav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle  ms-2 me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Corte de Caja
                         <i class="bi bi-receipt ms-2" style="font-size: 25px;"></i>
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
-                        <li><a class="dropdown-item" href="#" onclick="corteCajaDiario()">Generar Reporte del Día<!-- <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""> --><i class="bi bi-receipt ms-2" style="font-size: 2em; "></i></a></li>
+                        <li><a class="dropdown-item bloquearNav" href="#" onclick="corteCajaDiario()">Generar Reporte del Día<!-- <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""> --><i class="bi bi-receipt ms-2" style="font-size: 2em; "></i></a></li>
+                        <li><a class="dropdown-item" href="#" onclick="queryCortesDiarios()">Imprimir reporte<!-- <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""> --><i class="bi bi-receipt ms-2" style="font-size: 2em; "></i></a></li>
                         <!-- <li><a class="dropdown-item" href="#">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
                         </li> -->
                         <!-- <li>
