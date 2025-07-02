@@ -269,8 +269,8 @@ function guardarRecibo() {
 
                         var success = datos.success;
                 
-                        if(success == 1){
-                            console.log("Recibo guardado");
+                        if(success = 1){
+                            alert("Recibo guardado");
                             
                             //$('#pago').modal('hide');
                             queryDashboard1(pagina = 1);

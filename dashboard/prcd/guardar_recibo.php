@@ -59,7 +59,7 @@ $sql = "INSERT INTO pagos_generales (
             $resultadoLOG = $conn->query($sqlLOG);
             // --------- log ---------------
             echo json_encode(array(
-                'success'=>1
+                'success' => 1
             ));
         }
         else{
