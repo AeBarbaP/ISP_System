@@ -673,6 +673,7 @@ else {
 </html>
     
 <script src="assets/js/barraSuperior.js"></script>
+<script src="assets/js/filtros.js"></script>
 <script src="assets/js/dashboard.js"></script>
 <script src="assets/js/corteDiario.js"></script>
 <script src="assets/js/graficos.js"></script>

@@ -26,3 +26,18 @@ function consultaClientesRep() {
         }
     });
 }
+
+function buscarContratosRep(val){
+    let nombre = val;
+    $.ajax({
+        url: 'query/query_contratosRep.php',
+        type: 'POST',
+        data:{
+            nombre : nombre
+        },
+        dataType: 'html',
+        success: function(data) {
+            $('#tablaContratosGRep').html(data);
+        }
+    });
+}
