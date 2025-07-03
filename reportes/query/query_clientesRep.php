@@ -10,13 +10,13 @@
         $folio = $row['folio'];
         $servicio = $row['servicio'];
         $id = $row['id'];
-        $comunidad1 = $row['comunidad'];
+        $comunidad = $row['comunidad'];
 
-        $sql1 = "SELECT * FROM catalogo_comunidades WHERE id = '$comunidad1'";
+        /* $sql1 = "SELECT * FROM catalogo_comunidades WHERE id = '$comunidad1'";
         $resultado1 = $conn->query($sql1);
-        $row1 = $resultado1->fetch_assoc();
+        $row1 = $resultado1->fetch_assoc(); */
 
-        $comunidad = $row1['comunidad'];
+        /* $comunidad = $row['comunidad']; */
     
         echo'
             <option value="'.$folio.'">'.$nombre.' | '.$comunidad.'</option>
