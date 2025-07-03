@@ -33,11 +33,11 @@
                             </div>
                             <div class="col-6 text-end">
                                 <div class="btn-group align-items-end" role="group" aria-label="Basic radio toggle button group">
-                                    <input type="radio" class="btn-check" value="1" name="btnradio" id="estatuscontrato1">
+                                    <input type="radio" class="btn-check" value="Activo" name="btnradioFiltroC" id="estatuscontrato1">
                                     <label class="btn btn-outline-success" for="estatuscontrato1"><i class="bi bi-check-lg"></i> Activo</label>
-                                    <input type="radio" class="btn-check" value="2" name="btnradio" id="estatuscontrato2">
+                                    <input type="radio" class="btn-check" value="Inactivo" name="btnradioFiltroC" id="estatuscontrato2">
                                     <label class="btn btn-outline-warning" for="estatuscontrato2"><i class="bi bi-x-lg"></i> Inactivo</label>
-                                    <input type="radio" class="btn-check" value="3" name="btnradio" id="estatuscontrato3">
+                                    <input type="radio" class="btn-check" value="Cancelado" name="btnradioFiltroC" id="estatuscontrato3">
                                     <label class="btn btn-outline-danger" for="estatuscontrato3"><i class="bi bi-x-lg"></i> Cancelado</label>
                                 </div>
                             </div>
