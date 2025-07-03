@@ -46,7 +46,8 @@
                             <table class="table p-1 text-center">
                                 <thead class="table-dark text-light">
                                     <tr>
-                                        <th scope="col">Folio</th>
+                                        <th scope="col">Folio contrato</th>
+                                        <th scope="col">Folio pago</th>
                                         <th scope="col">Cliente</th>
                                         <th scope="col">Localidad</th>
                                         <th scope="col">Paquete</th>

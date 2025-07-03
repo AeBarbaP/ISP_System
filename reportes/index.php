@@ -376,7 +376,7 @@ else {
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item bloquearNav" href="#" data-bs-toggle="modal" data-bs-target="#reportePagos" onclick="consultaPagosRep()">Reporte de Pagos <i class="bi bi-cash-coin ms-2" style="font-size: 25px;"></i></a></li>
+                        <li><a class="dropdown-item bloquearNav" href="#" data-bs-toggle="modal" data-bs-target="#reportePagos" onclick="">Reporte de Pagos <i class="bi bi-cash-coin ms-2" style="font-size: 25px;"></i></a></li>
                     </ul>
                 </div>
                 <div class="vr"></div>

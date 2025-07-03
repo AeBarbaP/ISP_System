@@ -1,14 +1,14 @@
 
-function consultaPagosRep() {
-    $.ajax({
-        url: 'query/query_pagos.php',
-        type: 'POST',
-        dataType: 'html',
-        success: function(data) {
-            $('#tablaPagosG').html(data);
-        }
-    });
-}
+// function consultaPagosRep() {
+//     $.ajax({
+//         url: 'query/query_pagos.php',
+//         type: 'POST',
+//         dataType: 'html',
+//         success: function(data) {
+//             $('#tablaPagosG').html(data);
+//         }
+//     });
+// }
 
 function queryClientes(cliente) {
     $.ajax({
@@ -181,3 +181,22 @@ function queryDashboard1() {
 }
 
 queryDashboard1();
+
+function buscarPagosRep(val){
+    let nombre = val;
+    if(nombre == ""){
+        _('tablaContratosGRep').innerHTML = "";
+        return;
+    }
+    $.ajax({
+        url: 'query/query_pagosRep.php',
+        type: 'POST',
+        data:{
+            nombre : nombre
+        },
+        dataType: 'html',
+        success: function(data) {
+            $('#tablaPagosGRep').html(data);
+        }
+    });
+}

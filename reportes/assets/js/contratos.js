@@ -29,6 +29,10 @@ function consultaClientesRep() {
 
 function buscarContratosRep(val){
     let nombre = val;
+    if(nombre == ""){
+        _('tablaContratosGRep').innerHTML = "";
+        return;
+    }
     $.ajax({
         url: 'query/query_contratosRep.php',
         type: 'POST',
