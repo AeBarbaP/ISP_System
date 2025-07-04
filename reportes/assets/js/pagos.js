@@ -182,17 +182,24 @@ function queryDashboard1() {
 
 queryDashboard1();
 
-function buscarPagosRep(val){
-    let nombre = val;
-    if(nombre == ""){
-        _('tablaContratosGRep').innerHTML = "";
+function buscarPagosRepFecha(){
+    let fechaInicial = _('fecha_inicio_pagosRep1').value;
+    let fechaFinal = _('fecha_inicio_pagosRep2').value;
+
+    if(fechaInicial == "" || fechaFinal == ""){
+        alert("Debes llenar ambas fechas");
         return;
     }
+    /* if(nombre == ""){
+        _('tablaContratosGRep').innerHTML = "";
+        return;
+    } */
     $.ajax({
         url: 'query/query_pagosRep.php',
         type: 'POST',
         data:{
-            nombre : nombre
+            fechaInicial : fechaInicial,
+            fechaFinal : fechaFinal
         },
         dataType: 'html',
         success: function(data) {

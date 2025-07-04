@@ -49,15 +49,16 @@ else {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="../scripts/css2_.css" rel="stylesheet">
         <link href="../scripts/css2.css" rel="stylesheet">
-        <script src="./scripts/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- <script src="./scripts/sweetalert2@11"></script> -->
         <!-- js de gráficos -->
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
 
         <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js "></script> -->
         <script src="../scripts/chart.umd.min.js "></script>
         
-        <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
-        <script src="../scripts/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!-- <script src="../scripts/chart.js"></script> -->
 
         <!-- js de carga -->
         <script src="assets/js/query_onload.js"></script>
@@ -67,8 +68,8 @@ else {
         
 
         <!-- js jquery cdn -->
-        <script src="../scripts/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-        <!-- <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> -->
+        <!-- <script src="../scripts/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> -->
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
         
         
         <style>

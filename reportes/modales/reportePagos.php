@@ -9,22 +9,26 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-6">
-                                <label class="form-label" id="basic-addon1">Buscar:</label>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-search" style="font-size: 20px;"></i></span>
-                                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar_pago" value="" aria-describedby="basic-addon1" name="nombre" oninput="buscarPagosRep(this.value)" required>
-                                </div>
-                            </div>
+                            
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label class="form-label" id="basic-addon1">Periodo del reporte:</label>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-arrow-bar-right" style="font-size: 20px;"></i></span>
-                                        <input type="date" class="form-control" placeholder="Fecha inicio" aria-label="fecha inicio" id="fecha_inicio_pagos" value="" aria-describedby="basic-addon1" name="fechainicio" required>
-                                        <input type="date" class="form-control" placeholder="Fecha final" aria-label="fecha final" id="fecha_final_pagos" value="" aria-describedby="basic-addon1" name="fechafinal" required>
-                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-arrow-bar-left" style="font-size: 20px;"></i></span>
+                                        <input type="date" class="form-control" placeholder="Fecha inicio" aria-label="fecha inicio" id="fecha_inicio_pagosRep1" value="" aria-describedby="basic-addon1" name="fechainicio" onchange="buscarPagosRepFecha()" required>
+
+                                        <input type="date" class="form-control" placeholder="Fecha final" aria-label="fecha final" id="fecha_inicio_pagosRep2" value="" aria-describedby="basic-addon1" name="fechafinal" onchange="buscarPagosRepFecha()" required>
+                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-arrow-bar-left" style="font-size: 20px;">
+                                        
+                                        </i></span>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label" id="basic-addon1">Filtrar:</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-search" style="font-size: 20px;"></i></span>
+                                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar_pagoREP" value="" aria-describedby="basic-addon1" name="nombre_buscar_pagoREP" required>
                                 </div>
                             </div>
                         </div>

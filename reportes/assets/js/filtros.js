@@ -69,3 +69,13 @@ $(document).ready(function () {
 //         $('#tablaContratosGRep tr').show();
 //     });
 // });
+
+$(document).ready(function () {
+
+        $('input[name="nombre_buscar_pagoREP"]').on('input', function() {
+            var value = $(this).val().toLowerCase();
+            $("#tablaPagosGRep tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
