@@ -1141,8 +1141,7 @@
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-			<a href="query/excel_query_otros_gastos.php?usr=<?php echo $user ?>" target="_blank" type="button" class="btn btn-primary" id="btnReporteCortesCaja">Excel</a>
-			
+			<a href="query/excel_query_otros_gastos.php?usr=<?php echo $user ?>" target="_blank" type="button" class="btn btn-primary" id="btnReporteCortesCaja">Excel</a>			
 		</div>
 	  </div>
 	</div>

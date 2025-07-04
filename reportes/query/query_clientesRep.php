@@ -10,7 +10,13 @@
         $folio = $row['folio'];
         $servicio = $row['servicio'];
         $id = $row['id'];
-        $comunidad = $row['comunidad'];
+        $comunidad1 = $row['comunidad'];
+
+        if ($comunidad1 == 0) {
+            $comunidad = 'Sin comunidad';
+        } else {
+            $comunidad = $comunidad1;
+        }
 
         /* $sql1 = "SELECT * FROM catalogo_comunidades WHERE id = '$comunidad1'";
         $resultado1 = $conn->query($sql1);

@@ -269,7 +269,7 @@ function guardarRecibo() {
 
                         var success = datos.success;
                 
-                        if(success = 1){
+                        if(success == 1){
                             alert("Recibo guardado");
                             
                             //$('#pago').modal('hide');
