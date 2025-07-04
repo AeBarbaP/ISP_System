@@ -29,7 +29,8 @@
 		<link rel="stylesheet" href="css/style.css">
 		<!-- endinject -->
 		<link rel="shortcut icon" href="../images/logoantenaISP.ico"/>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+		<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
+		<link rel="stylesheet" href="../scripts/bootstrap-icons.min.css">
 		
 	</head>
 	<!-- área de scripts -->
