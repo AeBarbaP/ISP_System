@@ -93,7 +93,7 @@
       </nav>
       <nav class="bottom-navbar">
 		  <div class="container">
-			<script src="https://cdn.lordicon.com/lordicon.js"></script>
+			<script src="../scripts/lordicon.js"></script>
             <ul class="nav page-navigation">
               	<li class="nav-item">
 					<a class="nav-link" href="dashboard.php">
