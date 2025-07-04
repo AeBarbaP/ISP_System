@@ -269,11 +269,12 @@ function guardarRecibo() {
 
                         var success = datos.success;
                 
-                        if(success == 1){
+                        if(success = 1){
                             alert("Recibo guardado");
-                            
-                            //$('#pago').modal('hide');
+                            document.getElementById('pagoreg').disabled = false;
+                            $('#pago').modal('hide');
                             queryDashboard1(pagina = 1);
+                            limpiarModal();
                         }
                         else{
                             alert("No se guardó");
@@ -311,7 +312,7 @@ function guardarRecibo999(){
 
             var success = datos.success;
     
-            if(success = 1){
+            if(success == 1){
                 alert("Recibo guardado");
                 $('#pago').modal('hide');
                 queryDashboard1(pagina = 1);
