@@ -9,7 +9,7 @@ $clientes = array();
 while($row = $resultado->fetch_assoc()){
 
     $paquete1 = $row['servicio'];
-    if ($paquete1 == 0 || $paquete1 == '' || $paquete1 == null) {
+    if ($paquete1 == '' || $paquete1 == null) {
         $paquete = 'Sin paquete';
     }
     else {
