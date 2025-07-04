@@ -669,10 +669,13 @@
 								<button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 									Agregar costo de Instalación:
 								</button>
-								<ul class="dropdown-menu aling-items-end">
-									<li><a class="dropdown-item" href="#">Genaro Codina</a></li>
-									<li><a class="dropdown-item" href="#">Comunidades 1</a></li>
-									<li><a class="dropdown-item" href="#">Comunidades 2</a></li>
+								<ul class="dropdown-menu aling-items-end" id="instalacionesPagos">
+									<!-- <li><a class="dropdown-item" href="#">Action</a></li>
+									<li><a class="dropdown-item" href="#">Another action</a></li>
+									<li><a class="dropdown-item" href="#">Something else here</a></li>
+									<li><hr class="dropdown-divider"></li>
+									<li><a class="dropdown-item" href="#">Separated link</a></li> -->
+
 								</ul>
 							</div>
 							<!-- <div class="col-4 d-flex align-items-end justify-content-end">
@@ -1141,7 +1144,8 @@
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-			<a href="query/excel_query_otros_gastos.php?usr=<?php echo $user ?>" target="_blank" type="button" class="btn btn-primary" id="btnReporteCortesCaja">Excel</a>			
+			<a href="query/excel_query_otros_gastos.php?usr=<?php echo $user ?>" target="_blank" type="button" class="btn btn-primary" id="btnReporteCortesCaja">Excel</a>
+			
 		</div>
 	  </div>
 	</div>
