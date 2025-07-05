@@ -917,34 +917,28 @@
 	<div class="container-fluid">
 		<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 			<div class="offcanvas-header">
-				<h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-					<a class="navbar-brand brand-logo" href="index.html"><img src="../images/logo_conectwi_wide-removebg-preview.png" height="30px" alt="logo"/></a>
+				<h5 class="offcanvas-title mb-3" id="offcanvasNavbarLabel">
+					<a class="navbar-brand brand-logo" href="index.html"><img src="../images/logo_conectwi_wide-removebg-preview.png" height="60px" alt="logo"/></a>
 				</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
 			<div class="offcanvas-body">
 				<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<i class="bi bi-receipt me-2" style="font-size: 20px;"></i>
-							Corte de Caja
-						</a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item corteCaja" href="#" id="menuOtrosGastos" onclick="modalOtrosGastos()">Agregar otros gastos</a></li>
-							<li><a class="dropdown-item corteCaja" href="#" id="reporteOtrosGastos" onclick="modalReporteOtrosGastos()">Reporte otros gastos</a></li>
-							<hr class="">
-							<li><a class="dropdown-item corteCaja" href="#" id="menuCorteCaja" onclick="corteCajaDiario()">Generar Corte de Caja</a></li>
-							<li><a class="dropdown-item" href="prcd/reporte_corte.php" target="_blank">Imprimir Corte de Caja</a></li>
-							<li><a class="dropdown-item" href="#" onclick="queryListadoCorte()">Listado de Corte de Caja</a></li>
-						</ul>
-					</li>
 					<li>
 						<hr>
 					</li>
-				
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle bloquearNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<i class="bi bi-clipboard2-check me-2" style="font-size: 22px"></i>
+							Contratos
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reporteContratos" onclick="consultaContratosRep()">Editar Contrato</a></li>
+						</ul>
+					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle bloquearMenus" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<i class="bi bi-exclamation-circle me-2"></i>
+							<i class="bi bi-exclamation-circle me-2" style="font-size: 22px"></i>
 							Reportes de Fallas
 						</a>
 						<ul class="dropdown-menu">
@@ -956,7 +950,7 @@
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle bloquearMenus" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<i class="bi bi-wifi-off me-2"></i>
+							<i class="bi bi-wifi-off me-2" style="font-size: 22px"></i>
 							Orden de Corte de Servicio
 						</a>
 						<ul class="dropdown-menu">
@@ -967,11 +961,38 @@
 						</ul>
 					</li>
 					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle bloquearNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<i class="bi bi-broadcast-pin me-2" style="font-size: 22px"></i>
+							Inventario de Antenas
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#" onclick="altaAntena()">Agregar Antena</a></li>
+							<li><a class="dropdown-item" href="#" onclick="gestionAntenas()">Editar Antenas</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
 						<hr>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<i class="bi bi-person-circle me-2"></i>
+							<i class="bi bi-receipt me-2" style="font-size: 22px;"></i>
+							Corte de Caja
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item corteCaja" href="#" id="menuOtrosGastos" onclick="modalOtrosGastos()">Agregar otros gastos</a></li>
+							<li><a class="dropdown-item corteCaja" href="#" id="reporteOtrosGastos" onclick="modalReporteOtrosGastos()">Reporte otros gastos</a></li>
+							<hr class="">
+							<li><a class="dropdown-item corteCaja" href="#" id="menuCorteCaja" onclick="corteCajaDiario()">Generar Corte de Caja</a></li>
+							<li><a class="dropdown-item" href="prcd/reporte_corte.php" target="_blank">Imprimir Corte de Caja</a></li>
+							<li><a class="dropdown-item" href="#" onclick="queryListadoCorte()">Listado de Corte de Caja</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<hr>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<i class="bi bi-person-circle me-2" style="font-size: 22px"></i>
 							Mi Cuenta
 						</a>
 						<ul class="dropdown-menu">
@@ -980,7 +1001,7 @@
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" aria-expanded="false" href="prcd/sort.php">
-							<i class="bi bi-door-closed me-2"></i>
+							<i class="bi bi-door-closed me-2" style="font-size: 22px"></i>
 							Cerrar Sesión
 						</a>
 					</li>
