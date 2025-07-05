@@ -79,3 +79,13 @@ $(document).ready(function () {
             });
         });
     });
+
+$(document).ready(function () {
+
+        $('input[name="nombreUsuariosGlobalR"]').on('input', function() {
+            var value = $(this).val().toLowerCase();
+            $("#tablaUsuariosIndG tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
