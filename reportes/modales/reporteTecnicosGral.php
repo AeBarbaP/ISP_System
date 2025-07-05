@@ -13,33 +13,26 @@
                                 <label class="form-label" id="basic-addon1">Buscar:</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-search" style="font-size: 20px;"></i></span>
-                                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar_tec_rep" value="" aria-describedby="basic-addon1" name="nombre" required>
+                                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar_tec_rep" value="" aria-describedby="basic-addon1" name="nombre_buscar_tec_rep" required>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="mb-3">
-                                    <label class="form-label" id="basic-addon1">Periodo del reporte:</label>
+                                    <label class="form-label" id="basic-addon1">Estatus del reporte:</label>
                                     <div class="input-group mb-3">
-                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-arrow-bar-right" style="font-size: 20px;"></i></span>
-                                        <input type="date" class="form-control" placeholder="Fecha inicio" aria-label="fecha inicio" id="fecha_inicio_tecs" value="" aria-describedby="basic-addon1" name="fechainicio" required>
-                                        <input type="date" class="form-control" placeholder="Fecha final" aria-label="fecha final" id="fecha_final_tecs" value="" aria-describedby="basic-addon1" name="fechafinal" required>
-                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-arrow-bar-left" style="font-size: 20px;"></i></span>
+                                        <div class="mb-3">
+                                            
+                                            <div class="btn-group align-items-end" role="group" aria-label="Basic radio toggle button group">
+                                            <input type="radio" class="btn-check" value="Activo" name="btnradioFiltroTegG" id="estatustecs1">
+                                            <label class="btn btn-outline-success" for="estatustecs1"><i class="bi bi-check-lg"></i> Activo</label>
+                                            <input type="radio" class="btn-check" value="Inactivo" name="btnradioFiltroTegG" id="estatustecs2">
+                                            <label class="btn btn-outline-warning" for="estatustecs2"><i class="bi bi-x-lg"></i> Inactivo</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-6">
-                            </div>
-                            <div class="col-6 text-end">
-                                <div class="btn-group align-items-end" role="group" aria-label="Basic radio toggle button group">
-                                    <input type="radio" class="btn-check" value="1" name="btnradio" id="estatustecs1">
-                                    <label class="btn btn-outline-success" for="estatustecs1"><i class="bi bi-check-lg"></i> Activo</label>
-                                    <input type="radio" class="btn-check" value="2" name="btnradio" id="estatustecs2">
-                                    <label class="btn btn-outline-warning" for="estatustecs2"><i class="bi bi-x-lg"></i> Inactivo</label>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="table-responsive table-hover mt-3">
                             <table class="table p-1 text-center">
                                 <thead class="table-dark">

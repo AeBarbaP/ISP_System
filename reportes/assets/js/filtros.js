@@ -89,3 +89,33 @@ $(document).ready(function () {
             });
         });
     });
+    
+$(document).ready(function () {
+
+        $('input[name="nombreReporteUserG"]').on('input', function() {
+            var value = $(this).val().toLowerCase();
+            $("#usr_tablaGral tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
+$(document).ready(function () {
+
+        $('input[name="nombre_buscar_tec_rep"]').on('input', function() {
+            var value = $(this).val().toLowerCase();
+            $("#tec_tablaGral tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        // $("#myInput").on("keyup", function () {
+        $('input[name="btnradioFiltroTegG"]').on('change', function() {
+            var value = $(this).val();
+            $("#tec_tablaGral tr").filter(function () {
+                $(this).toggle($(this).text().indexOf(value) > -1)
+            });
+        });
+    });

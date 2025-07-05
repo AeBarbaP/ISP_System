@@ -57,12 +57,12 @@
 
         if($rowCortes['estatus'] == 1){
         echo'
-        <td><a href="#" onclick="cambiaEstatusTecnicoRep('.$id.')"><i class="bi bi-check-circle text-success"></i></a></td>
+        <td><a href="#" onclick="cambiaEstatusTecnicoRep('.$id.')">Activo <i class="bi bi-check-circle text-success"></i></a></td>
         ';
         }
         else{
             echo'
-            <td><a href="#" onclick="cambiaEstatusTecnicoRep('.$id.')"><i class="bi bi-x-circle-fill text-danger"></i></a></td>
+            <td><a href="#" onclick="cambiaEstatusTecnicoRep('.$id.')">Inactivo <i class="bi bi-x-circle-fill text-danger"></i></a></td>
             ';
         }
         }
