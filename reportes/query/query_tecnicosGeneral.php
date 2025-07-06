@@ -21,11 +21,20 @@
             $x++;
             $folio = $rowFallas['folio_cliente'];
             $rowNombre = $conn->query("SELECT * FROM clientes WHERE folio = '$folio'")->fetch_assoc();
+            // $nombre = $rowNombre['nombre'];
+            if ((is_null($rowNombre['nombre']) || $rowNombre['nombre'] == "")) {
+                $nombre = "Sin datos";
+            } else if ($nombre) {
+                    $nombre = $rowNombre['nombre'];
+            } else {
+                    $nombre = "Sin datos";
+            }
+
             echo'
                 <tr>
                     <td>'.$x.'</td>
                     <td>Cortes de servicio</td>
-                    <td>'.$rowNombre['nombre'].'</td>
+                    <td>'.$nombre.'</td>
                     <td>'.$rowFallas['fecha'].'</td>
                     
             ';
