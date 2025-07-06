@@ -139,3 +139,13 @@ $(document).ready(function () {
             });
         });
     });
+
+    $(document).ready(function () {
+
+        $('input[name="buscar_inc_rep"]').on('input', function() {
+            var value = $(this).val().toLowerCase();
+            $("#reporteFallas tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });

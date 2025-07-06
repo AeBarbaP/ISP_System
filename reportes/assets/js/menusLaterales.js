@@ -2028,7 +2028,7 @@ function fechaRegistroCorteEditar(){
 }
 
 function gestionCortes() {
-  let titulo = "Consulta de Cortes";
+  let titulo = "Consulta de Cortes xxx";
   // Crear el elemento del modal
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
@@ -2047,7 +2047,7 @@ function gestionCortes() {
                 <div class="col-6">
                   <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                      <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscarCortes" name="buscar">
+                      <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscarCortesRep" name="buscarCortesRep">
                   </div>
                 </div>
               </div>
