@@ -16,7 +16,7 @@
                                 <label class="form-label" id="basic-addon1">Buscar:</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-search" style="font-size: 20px;"></i></span>
-                                    <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar" id="buscar_inc_rep" value="" aria-describedby="basic-addon1" name="buscarinc" required>
+                                    <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar" id="buscar_inc_rep" value="" aria-describedby="basic-addon1" name="buscar_inc_rep" required>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -36,12 +36,15 @@
                             </div>
                             <div class="col-6 text-end">
                                 <div class="btn-group align-items-end" role="group" aria-label="Basic radio toggle button group">
-                                    <input type="radio" class="btn-check" value="1" name="btnradio" id="estatusinc1">
+                                    
+                                    <input type="radio" class="btn-check" value="Activa" name="btnradioFallasR" id="estatusinc1">
                                     <label class="btn btn-outline-primary" for="estatusinc1"><i class="bi bi-check-lg"></i> Activo</label>
-                                    <input type="radio" class="btn-check" value="" name="btnradio" id="estatusinc3">
+                                    
+                                    <input type="radio" class="btn-check" value="Resuelta" name="btnradioFallasR" id="estatusinc3">
                                     <label class="btn btn-outline-success" for="estatusinc3"><i class="bi bi-check-lg"></i> Resueltas</label>
-                                    <input type="radio" class="btn-check" value="2" name="btnradio" id="estatusinc2">
-                                    <label class="btn btn-outline-danger" for="estatusinc2"><i class="bi bi-x-lg"></i> Candeladas</label>
+                                    
+                                    <input type="radio" class="btn-check" value="Cancelada" name="btnradioFallasR" id="estatusinc2">
+                                    <label class="btn btn-outline-danger" for="estatusinc2"><i class="bi bi-x-lg"></i> Canceladas</label>
                                 </div>
                             </div>
                         </div>

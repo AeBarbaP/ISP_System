@@ -4,7 +4,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-person-vcard me-2"  style="font-size: 25px;"></i> Reporte de Fallas/Incidencias</h5>
+                        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-person-vcard me-2"  style="font-size: 25px;"></i> Reporte de Fallas - Incidencias</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -12,7 +12,7 @@
                         <input name="id" id="idHiddenInc" value="" hidden>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-search" style="font-size: 20px;"></i></span>
-                            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscarusr" value="" aria-describedby="basic-addon1" name="nombre" required>
+                            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscarusr" value="" aria-describedby="basic-addon1" name="nombre_buscarusr" required>
                         </div>
                         <div class="mb-3">
                             <select class="form-select" id="inc_reporte" size="4" aria-label="reporte fallas">

@@ -20,9 +20,10 @@
         while($rowFallas = $resultadoFallas->fetch_assoc()){
             $x++;
             $folio = $rowFallas['folio_cliente'];
+            
             $rowNombre = $conn->query("SELECT * FROM clientes WHERE folio = '$folio'")->fetch_assoc();
-            // $nombre = $rowNombre['nombre'];
-            if ((is_null($rowNombre['nombre']) || $rowNombre['nombre'] == "")) {
+
+            if ($rowNombre['nombre'] && (is_null($rowNombre['nombre']) || $rowNombre['nombre'] == "")) {
                 $nombre = "Sin datos";
             } else if ($nombre) {
                     $nombre = $rowNombre['nombre'];
@@ -55,11 +56,17 @@
         $resultadoCortes = $conn->query($sqlCortes);
         while($rowCortes = $resultadoCortes->fetch_assoc()){
             $x++;
+            $folio2 = $rowCortes['folio_cliente'];
+
+            $rowNombre2 = $conn->query("SELECT * FROM clientes WHERE folio = '$folio2'")->fetch_assoc();
+
+            $nombre2 = $rowNombre2['nombre'];
+
             echo'
                 <tr>
                     <td>'.$x.'</td>
                     <td>Incidencias de servicio</td>
-                    <td>'.$rowCortes['folio_cliente'].'</td>
+                    <td>'.$nombre2.'</td>
                     <td>'.$rowCortes['fecha_reporte'].'</td>
                     
             ';
