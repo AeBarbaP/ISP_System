@@ -326,41 +326,7 @@ else {
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="timeline p-4 blockt mb-4" id="twitterLog">
-                                                <!-- <div class="tl-item active">
-                                                    <div class="tl-dot b-warning"></div>
-                                                    <div class="tl-content">
-                                                        <div class="">@twitter thanks for you appreciation and @google thanks for you appreciation</div>
-                                                        <div class="tl-date text-muted mt-1">13 june 18</div>
-                                                    </div>
-                                                </div>
-                                                <div class="tl-item">
-                                                    <div class="tl-dot b-primary"></div>
-                                                    <div class="tl-content">
-                                                        <div class="">Do you know how Google search works.</div>
-                                                        <div class="tl-date text-muted mt-1">45 minutes ago</div>
-                                                    </div>
-                                                </div>
-                                                <div class="tl-item">
-                                                    <div class="tl-dot b-danger"></div>
-                                                    <div class="tl-content">
-                                                        <div class="">Thanks to <a href="#" data-abc="true">@apple</a>, for iphone 7</div>
-                                                        <div class="tl-date text-muted mt-1">1 day ago</div>
-                                                    </div>
-                                                </div>
-                                                <div class="tl-item">
-                                                    <div class="tl-dot b-danger"></div>
-                                                    <div class="tl-content">
-                                                        <div class="">Order placed <a href="#" data-abc="true">@eBay</a> you will get your products</div>
-                                                        <div class="tl-date text-muted mt-1">1 Week ago</div>
-                                                    </div>
-                                                </div>
-                                                <div class="tl-item">
-                                                    <div class="tl-dot b-warning"></div>
-                                                    <div class="tl-content">
-                                                        <div class="">Learn how to use <a href="#" data-abc="true">Google Analytics</a> to discover vital information about your readers.</div>
-                                                        <div class="tl-date text-muted mt-1">3 days ago</div>
-                                                    </div>
-                                                </div> -->
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -592,63 +558,13 @@ else {
                                     </div>
                                     <!-- tabla -->
                                      <div class="table-responsive" id="tablaLOG"></div>
-<!--                                      
-                                    <table class="table table-hover text-center">
-                                        <thead class="">
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Usuario</th>
-                                                <th scope="col">Actividad</th>
-                                                <th scope="col">Fecha/Hora</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tablaLOG"> -->
-                                            
-                                        <!-- </tbody>
-                                    </table> -->
-                                    <!-- tabla -->
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <div class="row mt-4">
-                <div class="col-12">
-                    <div class="card mb-3" style="width: 100%; height: 100%;">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-3 text-start">
-                                    <button class="btn btn-secondary btn-sm text-white" style="color: #bfc7d1;" data-bs-toggle="modal" data-bs-target="#agregar"><span class="mt-3">Agregar nuevo</span><i class="bi bi-person-plus my-auto ms-2 mb-2"></i></button>
-                                </div>
-                                <div class="col-9 text-end">
-                                    <h5 class="card-title">Usuarios Registrados</h5>
-                                    <p class="text-muted small text-secondary mt-0"></p>
-                                </div>
-                            </div> -->
-                            <!-- tabla -->
-                            <!-- <table class="table p-1">
-                                <thead>
-                                    <tr>
-                                        <th scope="col"></th>
-                                        <th scope="col">Perfil</th>
-                                        <th scope="col">Fecha de creación</th>
-                                        <th scope="col">Último logIn</th>
-                                        <th scope="col">Estatus</th>
-                                        <th scope="col">Nombre completo</th>
-                                        <th scope="col">Usuario</th>
-                                        <th scope="col" class="text-end"><i class="bi bi-people"></i></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tablaUsuarios">
-                                    
-                                </tbody>
-                            </table> -->
-                            <!-- tabla -->
-                        <!-- </div>
-                    </div>
-                </div>
-            </div> -->
         </div><!-- fin container principal-->
     </body><!--aqui-->
 

@@ -100,8 +100,8 @@ function reporteFallaInd(){
         },
         dataType: 'html',
         success: function(data) {
-            $('#reporteFallasInd').modal('show');
             $('#reporteIndividualInc').modal('hide');
+            $('#reporteFallasInd').modal('show');
             $('#bodyFallasInd').html(data);
         }
     });

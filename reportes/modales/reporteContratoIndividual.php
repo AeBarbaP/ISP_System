@@ -1,4 +1,5 @@
-
+<?php
+    echo '
         <div class="modal fade" id="reporteContratoIndividual" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
