@@ -383,14 +383,14 @@ else {
                         <i class="bi bi-exclamation-diamond-fill ms-2" style="font-size: 25px;"></i>
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
-                        <li><a class="dropdown-item" href="#" onclick="modalFallas()">
+                        <!-- <li><a class="dropdown-item" href="#" onclick="modalFallas()">
                             Reporte Individual 
                             
                         <i class="bi bi-exclamation-triangle ms-2" style="font-size: 2em; "></i></a></li>
+                         -->
                         
-                        <li>
                         <li><a class="dropdown-item" href="#" onclick="modalFallasInd()">
-                            Reporte General 
+                            Reporte General
                             <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
                         </li>
                     </ul>
@@ -402,13 +402,13 @@ else {
                         <i class="bi bi-wifi-off ms-2" style="font-size: 25px;"></i>
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
-                        <li><a class="dropdown-item" href="#" onclick="queryCortesReporteInd()">Reporte Individual<i class="bi bi-clipboard2-x ms-2" style="font-size: 2em; "></i></a></li>
+                        <!-- <li><a class="dropdown-item" href="#" onclick="queryCortesReporteInd()">Reporte Individual<i class="bi bi-clipboard2-x ms-2" style="font-size: 2em; "></i></a></li>
                         <li><a class="dropdown-item" href="#" onclick="generarReporteCorteGral()">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                       
+                        -->
                         <li><a class="dropdown-item"  onclick="reporteCortes()" href="#">Gestión de Cortes <i class="bi bi-window-x ms-2" style="font-size: 30px;"></i></a></li>
                     </ul>
                 </div>
@@ -419,7 +419,6 @@ else {
                         <i class="bi bi-receipt ms-2" style="font-size: 25px;"></i>
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
-                        <li><a class="dropdown-item bloquearNav" href="#" onclick="corteCajaDiario()">Generar Reporte del Día<!-- <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""> --><i class="bi bi-receipt ms-2" style="font-size: 2em; "></i></a></li>
                         <li><a class="dropdown-item" href="#" onclick="queryCortesDiarios()">Imprimir reporte<!-- <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""> --><i class="bi bi-receipt ms-2" style="font-size: 2em; "></i></a></li>
                         <!-- <li><a class="dropdown-item" href="#">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
                         </li> -->

@@ -22,10 +22,10 @@
                         <div class="mb-3">
                             <label class="form-label">Periodo del reporte:</label>
                             <div class="input-group mb-3">
-                                <span class="input-group-text"><i class="bi bi-arrow-bar-right" style="font-size: 20px;"></i></span>
+
                                 <input type="date" class="form-control" placeholder="Fecha inicio" aria-label="fecha inicio" id="fecha_inicio_reportetec" value="" aria-describedby="basic-addon1" name="fechainicio" required>
                                 <input type="date" class="form-control" placeholder="Fecha final" aria-label="fecha final" id="fecha_final_reportetec" value="" aria-describedby="basic-addon1" name="fechafinal" required>
-                                <span class="input-group-text"><i class="bi bi-arrow-bar-left" style="font-size: 20px;"></i></span>
+
                             </div>
                         </div>
                         <div class="mb-3">
