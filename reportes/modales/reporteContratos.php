@@ -13,7 +13,7 @@
                                 <label class="form-label" id="basic-addon1">Buscar:</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-search" style="font-size: 20px;"></i></span>
-                                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar"  aria-describedby="basic-addon1" name="nombre" oninput="buscarContratosRep(this.value)" required>
+                                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscarContrato"  aria-describedby="basic-addon1" name="nombre" oninput="buscarContratosRep(this.value)" required>
                                 </div>
                             </div>
                             <div class="col-6">

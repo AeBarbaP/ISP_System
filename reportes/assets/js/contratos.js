@@ -74,6 +74,7 @@ function queryContrato(){
 }
 
 function cambiarEstatusCont(folio, estatus){
+    let name = _('nombre_buscarContrato').value;
     if (confirm("¿Cambiar estatus del contrato?")) {
         $.ajax({
             url: 'prcd/prcd_cambiar_estatus_contrato.php',
@@ -85,8 +86,9 @@ function cambiarEstatusCont(folio, estatus){
             dataType: 'json',
             success: function(data) {
                 let success = data.success;
-                let name = _('nombre_buscar').value;
+                
                 if(success = 1){
+                    _('nombre_buscarContrato').value = name;
                     console.log(name);
                     buscarContratosRep(name);
                     alert('Estatus del contrato '+folio);
