@@ -97,6 +97,6 @@ function cambiarEstatusCont(folio, estatus){
         });
     } else {
     // Code to execute if the user clicks "Cancel" (e.g., do nothing)
-    console.log("No se cambió el estatus");
+    console.log("No se cambió el estatus"); //prueba
     }
 }
