@@ -22,6 +22,26 @@ function queryClientes2(valor) {
     });
 }
 
+function datosClienteRepIN(val){
+    $.ajax({
+        url: 'query/query_datos_reporteClienteIND.php',
+        type: 'POST',
+        dataType: 'json',
+        data:{
+            val : val
+        },
+        success: function(response) {
+            let success = response.success;
+                if (success == 1) {
+                    _('nombreReporteCIND').innerText = response.nombre;
+                    _('domicilioReporteCIND').innerText = response.domicilio;
+                } else {
+                    alert("Error " + response.message);
+                }
+        }
+    });
+}
+
 $(document).ready(function () {
         // $("#myInput").on("keyup", function () {
         $('input[name="btnradioFiltroC"]').on('change', function() {

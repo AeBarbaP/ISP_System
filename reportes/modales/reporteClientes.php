@@ -14,13 +14,14 @@
                             <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar" aria-describedby="basic-addon1" name="nombre" oninput="queryClientes2(this.value)" required>
                         </div>
                         <div class="mb-3">
-                            <select class="form-select" id="cliente_reporte_individual" size="4" aria-label="numero de cliente">
+                            <select class="form-select" id="cliente_reporte_individual" size="4" aria-label="numero de cliente" onchange="datosClienteRepIN(this.value)">
                                 <option selected>Selecciona...</option>
                                 <!-- Muestra los folios de las incidencias que aún no han sido resueltas para cambiar los datos -->
                             </select>
                         </div>
                         <div class="alert alert-info" role="alert">
-                            Información del cliente: Nombre, domicilio
+                            <strong>Información del cliente:</strong> 
+                                <span id="nombreReporteCIND"></span>, <span id="domicilioReporteCIND"></span>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" id="basic-addon1">Periodo del reporte:</label>
