@@ -6,15 +6,15 @@ $resultado = $conn->query($sql);
 while ($row = $resultado->fetch_assoc()){
     $comunidad = $row['comunidad'];
     $paquete = $row['servicio'];
+    $folio = $row['folio'];
 
     $rowComunidad = $conn->query("SELECT * FROM catalogo_comunidades WHERE id = '$comunidad'")->fetch_assoc();
     $rowPaquete = $conn->query("SELECT * FROM catalogo_paquetes WHERE id = '$paquete'")->fetch_assoc();
     if($row['estatus'] == 1){
-        $estatus = "Activo";
+        $estatus = 'Activo <i class="bi bi-check-circle-fill text-success"></i>';
     }
     else{
-        $estatus = "Inactivo";
-
+        $estatus = 'Inactivo <i class="bi bi-x-circle-fill text-danger"></i>';
     }
 
     echo'
@@ -25,7 +25,7 @@ while ($row = $resultado->fetch_assoc()){
         <td>'.$rowPaquete['paquetes'].'</td>
         <td>'.$row['fecha_contrato'].'</td>
         <td>'.$row['direccionip'].'</td>
-        <td>'.$estatus.'</td>
+        <td><a href="#" onclick="cambiarEstatusCont('\.$folio\', '.$row['estatus'].')">'.$estatus.'</a></td>
         <td><i class="bi bi-clipboard2-check"></i></td>
     </tr>
     ';

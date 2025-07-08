@@ -13,7 +13,7 @@
                                 <label class="form-label" id="basic-addon1">Buscar:</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-search" style="font-size: 20px;"></i></span>
-                                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar" value="" aria-describedby="basic-addon1" name="nombre" oninput="buscarContratosRep(this.value)" required>
+                                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar"  aria-describedby="basic-addon1" name="nombre" oninput="buscarContratosRep(this.value)" required>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -43,18 +43,17 @@
                             </div>
                         </div>
                         <div class="table-responsive table-hover mt-3">
-                            <table class="table p-1 text-center">
+                            <table class="table p-1 text-center table-sm">
                                 <thead class="table-dark text-light">
                                     <tr>
                                         <th scope="col">Folio contrato</th>
-                                        <th scope="col">Folio pago</th>
                                         <th scope="col">Cliente</th>
                                         <th scope="col">Localidad</th>
                                         <th scope="col">Paquete</th>
                                         <th scope="col">Fecha Contrato</th>
                                         <th scope="col">IP</th>
                                         <th scope="col">Estatus</th>
-                                        <th scope="col"><i class="bi bi-clipboard2-check"></i></th>
+                                        <th scope="col">Editar</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tablaContratosGRep">

@@ -68,3 +68,33 @@ function buscarContratosRepFecha(){
         }
     });
 }
+
+function queryContrato(){
+
+}
+
+function cambiarEstatusCont(folio, estatus){
+    if (confirm("¿Cambiar estatus del contrato?")) {
+        $.ajax({
+            url: 'prcd/prcd_cambiar_estatus_contrato.php',
+            type: 'POST',
+            data:{
+                folio : folio,
+                estatus : estatus
+            },
+            dataType: 'json',
+            success: function(data) {
+                let success = data.success;
+                let name = _('nombre_buscar').value;
+                if(success = 1){
+                    console.log(name);
+                    buscarContratosRep(name);
+                    alert('Estatus del contrato '+folio);
+                }
+            }
+        });
+    } else {
+    // Code to execute if the user clicks "Cancel" (e.g., do nothing)
+    console.log("No se cambió el estatus");
+    }
+}
