@@ -15,8 +15,8 @@ while($row = $resultado->fetch_assoc()){
     else {
         $paquete = $paquete1;
     }
-    $folio1 = $row['folio'];
-    $nombre1 = $row['nombre'];
+    $folio = $row['folio'];
+    $nombre = $row['nombre'];
     $comunidad1 = $row['comunidad'];
     if ($comunidad1 == 0 || $comunidad1 == '' || $comunidad1 == null) {
         $comunidad = 'Sin comunidad';
@@ -24,18 +24,18 @@ while($row = $resultado->fetch_assoc()){
     else {
         $comunidad = $comunidad1;
     }
-    if ($folio1 == 0 || $folio1 == '' || $folio1 == null) {
+/*     if ($folio1 == 0 || $folio1 == '' || $folio1 == null) {
         $folio = 'Sin folio';
     }
     else {
         $folio = $folio1;
-    }
-    if ($nombre1 == 0 || $nombre1 == '' || $nombre1 == null) {
+    } */
+/*     if ($nombre1 == 0 || $nombre1 == '' || $nombre1 == null) {
         $nombre = 'Sin nombre';
     }
     else {
         $nombre = $nombre1;
-    }
+    } */
 
 
     $sql2 = "SELECT * FROM catalogo_paquetes WHERE id = $paquete";

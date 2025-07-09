@@ -9,16 +9,11 @@
 
     $comunidad1 = $row['comunidad'];
     
-    $sql1 = "SELECT * FROM catalogo_comunidades WHERE id = '$comunidad1'";
-    $resultado1 = $conn->query($sql1);
-    $row1 = $resultado1->fetch_assoc();
 
-    if ($row1 && (is_null($row1['comunidad']) || $row1['comunidad'] == "")) {
-    $comunidad = "Sin datos";
-    } else if ($row1) {
-        $comunidad = $row1['comunidad'];
-    } else {
+    if ($comunidad1 && (is_null($comunidad1) || $comunidad1 == "")) {
         $comunidad = "Sin datos";
+    } else {
+        $comunidad = $comunidad1;
     }
 
     if ($row1 && (is_null($row['domicilio']) || $row['domicilio'] == "")) {

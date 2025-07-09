@@ -27,13 +27,8 @@
         $nombre = $row2['nombre'];
         $comunidad = $row2['comunidad'];
 
-        $sql3 = "SELECT * FROM catalogo_comunidades WHERE id = '$comunidad'";
-        $resultado3 = $conn->query($sql3);
-        $row3 = $resultado3->fetch_assoc();
-
-        $comunidad1 = $row3['comunidad'];
         echo'
-            <option value="'.$folio.'">'.$nombre.' | '.$comunidad1.'</option>
+            <option value="'.$folio.'">'.$nombre.' | '.$comunidad.'</option>
         ';
     }
     

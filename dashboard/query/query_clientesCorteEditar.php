@@ -16,13 +16,8 @@ while($row2 = $resultado2->fetch_assoc()){
 
     $comunidad = $row['comunidad'];
 
-    $sql1 = "SELECT * FROM catalogo_comunidades WHERE id = '$comunidad'";
-    $resultado1 = $conn->query($sql1);
-    $row1 = $resultado1->fetch_assoc();
 
-    $comunidad1 = $row1['comunidad'];
-
-    echo '<option value="'.$folio_corte.'" data-name="'.$row['nombre'].'" data-corte="'.$folio_corte.'">'.$row['nombre'].' | '.$comunidad1.'</option>';
+    echo '<option value="'.$folio_corte.'" data-name="'.$row['nombre'].'" data-corte="'.$folio_corte.'">'.$row['nombre'].' | '.$comunidad.'</option>';
 
 }
 

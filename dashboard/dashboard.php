@@ -633,9 +633,9 @@
 								<button class="btn btn-outline-primary" type="button" onclick="cargo_adicional()">Cargo Adicional</button>
 							</div>
 						</div>
-						<div class="row mt-2">
+						<div class="col-lg-12">
 							<!-- Example single danger button -->
-							<div class="btn-group">
+							<div class="dropdown" style="width: 100%;">
 								<!-- <button type="button" class="btn btn-outline-primary text-end"  disabled>Agregar Instalación:</button>
 								<button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
 									<span class="visually-hidden">Toggle Dropdown</span>
@@ -650,12 +650,12 @@
 								<button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 									Agregar costo de Instalación:
 								</button>
-								<ul class="dropdown-menu aling-items-end" id="instalacionesPagos">
-									<!-- <li><a class="dropdown-item" href="#">Action</a></li>
+								<ul class="dropdown-menu" id="instalacionesPagos">
+									<li><a class="dropdown-item" href="#">Action</a></li>
 									<li><a class="dropdown-item" href="#">Another action</a></li>
 									<li><a class="dropdown-item" href="#">Something else here</a></li>
 									<li><hr class="dropdown-divider"></li>
-									<li><a class="dropdown-item" href="#">Separated link</a></li> -->
+									<li><a class="dropdown-item" href="#">Separated link</a></li>
 
 								</ul>
 							</div>
