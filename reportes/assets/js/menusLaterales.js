@@ -1530,10 +1530,11 @@ function altaIncidencia() {
       <div class="modal-content">
         <div class="modal-header bg-secondary text-light">
           <h5 class="modal-title"><i class="bi bi-box-seam"></i> ${titulo}</h5>
-          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="limpiarModal()" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <p>
+            <form>
             <div class="mb-3">
               <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha</label>
               <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidencia" aria-describedby="basic-addon1" disabled>
@@ -1573,10 +1574,11 @@ function altaIncidencia() {
               <label class="form-label" id="basic-addon1"><i class="bi bi-calendar3 me-2"></i>Fecha de Atención:</label>
               <input type="date" class="form-control" placeholder="" aria-label="Fecha" id="fecha_incidenciaAsignacion" aria-describedby="basic-addon1">
             </div>
+            </form>
           </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal()">Cerrar</button>
           <button type="button" class="btn btn-primary" onclick="guardarIncidencia()">Guardar</button>
         </div>
       </div>
