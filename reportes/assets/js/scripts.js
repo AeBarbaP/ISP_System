@@ -120,3 +120,9 @@ function generarFolio2(){
     });
     // y poner el resultado en el label con id "folioLabelContrato"
 }
+
+function limpiarModal(){
+    $(".modal").on('hidden.bs.modal', function () {
+        $(this).find('form').trigger('reset');
+    });
+}

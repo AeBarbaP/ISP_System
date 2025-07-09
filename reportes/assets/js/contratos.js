@@ -221,3 +221,7 @@ function cambiarFecha() {
     // catalogoPaquetes();
     // generarFolio();
 }
+
+function limpiarTabla(){
+    _('tablaContratosGRep').innerHTML = "";
+}

@@ -5,9 +5,10 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-clipboard2-check me-2"  style="font-size: 25px;"></i> Reporte Cortes de Servicio</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal()" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <form>
                         <div class="row">
                             <div class="col-6">
                                 <label class="form-label" id="basic-addon1">Buscar:</label>
@@ -20,7 +21,7 @@
                                 <div class="mb-3">
                                     <label class="form-label" id="basic-addon1">Periodo del reporte:</label>
                                     <div class="input-group mb-3">
-                                      
+                                    
                                         <input type="date" class="form-control" placeholder="Fecha inicio" aria-label="fecha inicio" id="fecha_inicio_corteservgral" value="" aria-describedby="basic-addon1" name="fechainicio" required>
                                         <input type="date" class="form-control" placeholder="Fecha final" aria-label="fecha final" id="fecha_final_corteservgral" value="" aria-describedby="basic-addon1" name="fechafinal" required>
                                         
@@ -58,10 +59,10 @@
                                 </tbody>
                             </table>
                         </div>
-                        
+                        </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limpiarModal()"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
                         <button type="submit" class="btn btn-primary"><i class="bi bi-filetype-pdf me-2" style="font-size: 20px;"></i>Generar Reporte</button>
                     </div>
                 </div>

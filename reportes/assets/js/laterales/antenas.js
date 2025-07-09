@@ -21,6 +21,7 @@ function altaAntena() {
           </div>
           <div class="modal-body">
             <p>
+              <form>
               <div class="mb-3">
                 <label class="form-label" id="basic-addon1"><i class="bi bi-calendar2-check me-2"></i>Fecha</label>
                 <input type="date" class="form-control" placeholder="" aria-label="Fecha de registro" id="fecha_alta_antena" aria-describedby="basic-addon1" disabled>
@@ -41,6 +42,7 @@ function altaAntena() {
                 <label class="form-label" id="basic-addon1"><i class="bi bi-code-square me-2"></i>MAC Address</label>
                 <input type="text" class="form-control" placeholder="MAC Address" aria-label="MAC" id="macAdd_antena" aria-describedby="basic-addon1">
               </div>
+              </form>
             </p>
           </div>
           <div class="modal-footer">
@@ -251,16 +253,6 @@ function altaAntena() {
   function cargarAntenas(){
     $.ajax({
       url: 'query/query_antenas.php',
-      type: 'POST',
-      dataType: 'html',
-      success: function (response) {
-          $('#tablaAntenas').html(response);
-      }
-    });
-  }
-  function cargarAntenas1(){
-    $.ajax({
-      url: '../reportes/query/query_antenas.php',
       type: 'POST',
       dataType: 'html',
       success: function (response) {

@@ -5,7 +5,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-clipboard2-check me-2"  style="font-size: 25px;"></i> Reporte de Contratos</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal()" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal(); limpiarTabla()" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form id="edicionContratoRep">
@@ -65,7 +65,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limpiarModal()"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limpiarModal(); limpiarTabla()"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
                         <a href="query/excel_query_contratos.php" tagert="_blank" type="button" class="btn btn-primary" id="btnContratosExcel"><i class="bi bi-filetype-pdf me-2" style="font-size: 20px;"></i>Generar Reporte</a>
                     </div>
                 </div>
