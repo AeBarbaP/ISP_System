@@ -69,10 +69,6 @@ function buscarContratosRepFecha(){
     });
 }
 
-function queryContrato(){
-
-}
-
 function cambiarEstatusCont(folio, estatus){
     let name = _('nombre_buscarContrato').value;
     if (confirm("¿Cambiar estatus del contrato?")) {
@@ -99,4 +95,65 @@ function cambiarEstatusCont(folio, estatus){
     // Code to execute if the user clicks "Cancel" (e.g., do nothing)
     console.log("No se cambió el estatus"); //prueba
     }
+}
+
+function editarContratos(folio){
+    $('#modalContratosEdit').modal('show');
+    catalogoPaquetes();
+    antenas();
+    $.ajax({
+        url: 'query/query_contratos_editar.php',
+        type: 'POST',
+        data:{
+            folio : folio
+        },
+        dataType: 'json',
+        success: function(data) {
+            let success = data.success;
+            if(success == 1){
+                _('folioLabelContrato').value = data.folio;
+                _('dateContratoNew').value = data.fecha_contrato;
+                _('nombreCompleto').value = data.nombre;
+                _('domicilioContrato').value = data.domicilio;
+                _('catalogoComunidades').value = data.comunidad;
+                _('catalogoMunicipios').value = data.municipio;
+                _('catalogoEstados').value = data.estado;
+                _('cpContrato').value = data.cp;
+                _('telefonoContrato').value = data.telefono;
+                _('referenciasContrato').value = data.referencias;
+                _('identificacionContrato').value = data.identificacion;
+                _('comprobanteContrato').value = data.comprobante;
+                _('catalogoPaquetes').value = data.servicio;
+                _('antenaContrato').value = data.antena;
+                _('ipAddressContrato').value = data.direccionip;
+                _('inputCosto').value = data.cuota;
+                _('siguienteMesInput').value = data.fecha_limite;
+                _('siguienteMesInput').value = data.fecha_limite;
+                _('mesMasCincoDiasInput').value = data.fecha_corte;
+                _('mesMasCincoDiasInput').value = data.fecha_corte;
+            }
+        }
+    });
+}
+
+function catalogoPaquetes(){
+    $.ajax({
+        type: "POST",
+        url: "query/paquetes.php",
+        dataType: "html",
+        success: function(data){
+            $('#catalogoPaquetes').html(data);  
+        }
+    });
+}
+
+function antenas(){
+    $.ajax({
+        type: "POST",
+        url: "query/antenas.php",
+        dataType: "html",
+        success: function(data){
+            $('#antenaContrato').html(data);  
+        }
+    });
 }

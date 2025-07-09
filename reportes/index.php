@@ -571,6 +571,7 @@ else {
         /* include("modales/agregarUsuario.php");
         include("modales/editarUsuario.php");
         include("modales/gestionarUsuarios.php"); */
+        
         include("modales/reporteFallasInd.php");
         include("modales/reporteFallasInd2.php");
         include("modales/reporteClientes.php");
@@ -588,6 +589,7 @@ else {
         include("modales/reporteCortesServGral.php");
         include("modales/reporteUsuarioInd.php");
         include("modales/reporteUsuarioG.php");
+        include("modales/editarContratos.php");
     ?>
 
 </html>

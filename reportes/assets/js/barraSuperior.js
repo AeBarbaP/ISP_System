@@ -126,7 +126,8 @@ function generarReporteIndUsuarios(){
             data: {
                 usuario : usuario,
                 fechaInicio, fechaInicio,
-                fechaFinal : fechaFinal            },
+                fechaFinal : fechaFinal
+            },
             dataType: 'html',
             success: function(data) {
                 $('#reporteUsuarioG').modal('show');

@@ -1,0 +1,5 @@
+<?php
+
+// inicia editar contrato
+
+?>

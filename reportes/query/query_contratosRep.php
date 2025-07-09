@@ -37,7 +37,7 @@ while ($row = $resultado->fetch_assoc()){
         <td>'.$row['fecha_contrato'].'</td>
         <td>'.$row['direccionip'].'</td>
         <td><a href="#" onclick="cambiarEstatusCont(\''.$folio.'\', '.$row['estatus'].')">'.$estatus.'</a></td>
-        <td><a href="#" onclick="editarCont(\''.$folio.'\')"><i class="bi bi-pencil-square"></i></a></td>
+        <td><a href="#" onclick="editarContratos(\''.$folio.'\')"><i class="bi bi-pencil-square"></i></a></td>
     </tr>
     ';
 }
