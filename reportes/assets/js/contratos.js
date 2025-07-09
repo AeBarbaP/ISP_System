@@ -157,3 +157,21 @@ function antenas(){
         }
     });
 }
+
+function cuotaMensual(select){
+    // Obtener el option seleccionado
+    const selectedOption = select.options[select.selectedIndex];
+
+    // Obtener el valor del atributo data-costo
+    const costo = selectedOption.getAttribute('data-costo');
+
+    // Obtener el input donde se colocará el costo
+    const inputCosto = document.getElementById('inputCosto'); // Cambia 'inputCosto' por el ID de tu input
+
+    // Asignar el costo al input
+    if (costo) {
+        inputCosto.value = costo;
+    } else {
+        inputCosto.value = ''; // Limpiar el input si no hay costo
+    }
+}
