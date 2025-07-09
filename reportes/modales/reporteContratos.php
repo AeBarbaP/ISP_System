@@ -8,6 +8,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <form id="edicionContratoRep">
                         <div class="row">
                             <div class="col-6">
                                 <label class="form-label" id="basic-addon1">Buscar:</label>
@@ -61,7 +62,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        
+                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
