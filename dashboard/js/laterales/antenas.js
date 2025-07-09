@@ -258,16 +258,6 @@ function altaAntena() {
       }
     });
   }
-  function cargarAntenas1(){
-    $.ajax({
-      url: '../reportes/query/query_antenas.php',
-      type: 'POST',
-      dataType: 'html',
-      success: function (response) {
-          $('#tablaAntenas').html(response);
-      }
-    });
-  }
   
   function nuevaAntena(){
     let fecha_alta = _antenas('fecha_alta_antena').value;
