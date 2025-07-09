@@ -2,10 +2,11 @@
     echo '
         <div class="modal fade" id="reporteIndividualTecnico" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
+                <form>
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-person-vcard me-2"  style="font-size: 25px;"></i> Reporte de Técnicos</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal()" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <!-- <input name="id" id="idHidden" value="" hidden> -->
@@ -16,7 +17,7 @@
                         <div class="mb-3">
                             <select class="form-select" id="tec_reporteInd" size="4" aria-label="reporte tecnicoInd">
                                 <option selected>Selecciona...</option>
-                                 <!-- todos los tecnicos activos -->
+                                <!-- todos los tecnicos activos -->
                             </select>
                         </div>
                         <div class="mb-3">
@@ -36,9 +37,10 @@
                                 <!--<option value="2">Detallado</option>-->
                             </select>
                         </div>
+                        </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limpiarModal()"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
                         <button type="button" class="btn btn-primary" onclick="generarReporteTecnicos()"><i class="bi bi-filetype-pdf me-2" style="font-size: 20px;"></i>Generar Reporte</button>
                     </div>
                 </div>

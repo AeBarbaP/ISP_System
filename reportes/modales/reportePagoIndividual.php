@@ -5,9 +5,10 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-cash-coin me-2"  style="font-size: 25px;"></i> Reporte de Pagos Detallado</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal()" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <form>
                         <div class="alert alert-info" role="alert">
                             <h6><strong>Nombre del cliente:</strong> <span id="nombrePG"></span></h6>
                             <h6><strong>Número de Contrato:</strong> <span id="ncontratoPG"></span></h6>
@@ -43,10 +44,10 @@
                                 </tbody>
                             </table>
                         </div>
-                        
+                        </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limpiarModal()"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
                         <a href="#" id="btnReporteIndividualExcel" type="button" class="btn btn-primary"><i class="bi bi-filetype-pdf me-2" style="font-size: 20px;"></i>Generar Reporte</a>
                     </div>
                 </div>

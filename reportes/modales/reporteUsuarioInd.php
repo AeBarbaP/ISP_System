@@ -7,9 +7,10 @@
                         <h5 class="modal-title" id="exampleModalLabel">
                         
                         <i class="bi bi-person"></i> Reporte de Usuarios Individual</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal()" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <form>
                         <div class="row">
                             <div class="col-6">
                                 <label class="form-label" id="basic-addon1">Buscar:</label>
@@ -50,10 +51,10 @@
                                 </tbody>
                             </table>
                         </div>
-                        
+                        </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limpiarModal()"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
                         <button type="button" class="btn btn-primary" onclick="generarReporteIndUsuarios()" ><i class="bi bi-filetype-pdf me-2" style="font-size: 20px;"></i>Generar Reporte </button>
                     </div>
                 </div>

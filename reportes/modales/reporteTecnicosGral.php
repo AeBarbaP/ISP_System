@@ -5,9 +5,10 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-clipboard2-check me-2" style="font-size: 25px;"></i> Reporte de Técnicos</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="limpiarModal()" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <form>
                         <div class="row">
                             <div class="col-6">
                                 <label class="form-label">Buscar:</label>
@@ -45,9 +46,10 @@
                                 <tbody id="tec_tablaGral"></tbody>
                             </table>
                         </div>
+                        </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limpiarModal()">
                             <i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar
                         </button>
                         <a href="" class="btn btn-primary" id="reporteTecnicoExcel" target="_blank">
