@@ -128,9 +128,8 @@ function editarContratos(folio){
                 _('ipAddressContrato').value = data.direccionip;
                 _('inputCosto').value = data.cuota;
                 _('siguienteMesInput').value = data.fecha_limite;
-                _('siguienteMesInput').value = data.fecha_limite;
                 _('mesMasCincoDiasInput').value = data.fecha_corte;
-                _('mesMasCincoDiasInput').value = data.fecha_corte;
+               
             }
         }
     });
@@ -224,4 +223,67 @@ function cambiarFecha() {
 
 function limpiarTabla(){
     _('tablaContratosGRep').innerHTML = "";
+}
+
+function guardarEditarContrato() {
+                let folio = _('folioLabelContrato').value;
+                let nombre = _('nombreCompleto').value;
+                let domicilio = _('domicilioContrato').value;
+                let comunidad = _('catalogoComunidades').value;
+                let municipio = _('catalogoMunicipios').value;
+                let estado = _('catalogoEstados').value;
+                let cp = _('cpContrato').value;
+                let telefono = _('telefonoContrato').value;
+                let referencia = _('referenciasContrato').value;
+                let identificacion = _('identificacionContrato').value;
+                let comprobante = _('comprobanteContrato').value;
+                let paquete = _('catalogoPaquetes').value;
+                let antena = _('antenaContrato').value;
+                let ip = _('ipAddressContrato').value;
+                let fechaContrato = _('dateContratoNew').value;
+                let fechaLimite = _('siguienteMesInput').value;
+                let fechaCorte =  _('mesMasCincoDiasInput').value;
+                let cuota = _('inputCosto').value;
+                
+                $.ajax({
+                    url: 'prcd/prcd_editar_contratosEdicion.php',
+                    type: 'POST',
+                    data: {
+                        folio: folio,
+                        nombre: nombre,
+                        domicilio: domicilio,
+                        comunidad: comunidad,
+                        municipio: municipio,
+                        estado: estado,
+                        cp: cp,
+                        telefono: telefono,
+                        referencia: referencia,
+                        identificacion: identificacion,
+                        comprobante: comprobante,
+                        paquete: paquete,
+                        antena: antena,
+                        ip: ip,
+                        fechaContrato: fechaContrato,
+                        fechaLimite: fechaLimite,
+                        fechaCorte: fechaCorte,
+                        cuota: cuota
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        let success = data.success;
+                        
+                        if(success == 1){
+                            alert('Contrato editado correctamente');
+                            $('#modalContratosEdit').modal('hide');
+                            consultaContratosRep();
+                            limpiarTabla();
+                            buscarContratosRep(nombre);
+                        }
+                        else{
+                            alert('Error al editar el contrato. Por favor, inténtalo de nuevo.');
+                            console.error('Error details:', data.error); // Log the error details for debugging
+                        }
+                    }
+                        
+                });
 }
