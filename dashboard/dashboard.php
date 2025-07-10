@@ -34,8 +34,8 @@
 		
 	</head>
 	<!-- área de scripts -->
-	<script src="../scripts/sweetalert2@11"></script>
-	<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+	<!-- <script src="../scripts/sweetalert2@11"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- 	<script src="../scripts/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 -->
 	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -43,6 +43,8 @@
 	<script src="js/scripts.js"></script>
 	<script src="js/otrosGastos.js"></script>
 	<script src="js/pagos.js"></script>
+	<script src="js/contratos.js"></script>
+	<script src="js/laterales/antenas.js"></script>
 	<script src="js/registroPago.js"></script>
 	<script src="js/menusLaterales.js"></script>
 	<script src="js/laterales/promociones.js"></script>
@@ -415,6 +417,12 @@
 </body>
 </html>
 
+<?php
+	include("modals/reporteContratos.php");
+	include("modals/reporteContratoIndividual.php");
+	include("modals/editarContratos.php");
+?>
+
 <!-- Inicia Modal para contrato nuevo -->
 
 <div class="modal fade" id="contrato" data-bs-backdrop="static" data-bs-keyboard="false"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -595,7 +603,7 @@
 						</div>
 
 						<!-- <select class="form-select" onchange="queryClientes(this.value);queryConceptoPagos()" id="nombresClientes" size="2" aria-label="folio corte"> -->
-						<select class="form-select" onchange="queryClientes(this.value)" id="nombresClientes" size="2" aria-label="folio corte">
+						<select class="form-select" onchange="queryClientes(this.value);catalogoInstalaciones()" id="nombresClientes" size="2" aria-label="folio corte">
 
 
 							<!-- <option selected>Selecciona...</option> -->
@@ -633,7 +641,7 @@
 								<button class="btn btn-outline-primary" type="button" onclick="cargo_adicional()">Cargo Adicional</button>
 							</div>
 						</div>
-						<div class="col-lg-12">
+						<div class="col-lg-12 mt-2">
 							<!-- Example single danger button -->
 							<div class="dropdown" style="width: 100%;">
 								<!-- <button type="button" class="btn btn-outline-primary text-end"  disabled>Agregar Instalación:</button>
@@ -651,11 +659,11 @@
 									Agregar costo de Instalación:
 								</button>
 								<ul class="dropdown-menu" id="instalacionesPagos">
-									<li><a class="dropdown-item" href="#">Action</a></li>
-									<li><a class="dropdown-item" href="#">Another action</a></li>
+									
+									<!-- <li><a class="dropdown-item" href="#">Another action</a></li>
 									<li><a class="dropdown-item" href="#">Something else here</a></li>
 									<li><hr class="dropdown-divider"></li>
-									<li><a class="dropdown-item" href="#">Separated link</a></li>
+									<li><a class="dropdown-item" href="#">Separated link</a></li> -->
 
 								</ul>
 							</div>

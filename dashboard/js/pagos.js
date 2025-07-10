@@ -815,3 +815,14 @@ function imprimirSeleccion(nombre) {
     })
 }); */
 
+function catalogoInstalaciones(){
+    $.ajax({
+        type: "POST",
+        url: "query/queryInstalaciones.php",
+
+        dataType: "html",
+        success: function(data) {
+            $('#instalacionesPagos').html(data);
+        }
+    });
+}
