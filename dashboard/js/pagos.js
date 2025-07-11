@@ -582,6 +582,36 @@ function agregarMontoAdicional(){
     $('#cargoAdicionalModal').modal('hide');
     calcularTotal();
 }
+function agregarCostoInstalacion(id,costo){
+    
+    let fecha = obtenerFechaHoyMesAnnio();
+    let descripcion = "Costo instalación";
+    let montoAdicional = costo;
+    let periodo = "Instalación";
+
+    if (descripcion == "" || descripcion == null || montoAdicional == "" || montoAdicional == null ){
+        alert('Debes llenar los datos para agregar descuento');
+        return;
+    }
+
+    const cuerpo = document.getElementById("NuevaSolicitud");
+
+    const fila = document.createElement("tr");
+
+    fila.innerHTML = `
+        <td>${fecha}</td>
+        <td>${descripcion}</td>
+        <td>${periodo}</td>
+        <td>${montoAdicional}</td>
+        
+        <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
+    `;
+
+    cuerpo.appendChild(fila);
+    contador++;
+    $('#cargoAdicionalModal').modal('hide');
+    calcularTotal();
+}
 // función para agregar pago adicional
 
 // función para los meses
