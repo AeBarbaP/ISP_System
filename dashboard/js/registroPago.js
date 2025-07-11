@@ -41,10 +41,66 @@ function queryConcepto(folio){
         success: function(data) {
             // $('#catalogoConceptos').html(data);
             $('#NuevaSolicitud').html(data);
+            
             calcularTotal();
         }
         });
 
+}
+
+function revisarMeses(){
+    console.log('inicial');
+    const hoy = new Date();
+    const annio = hoy.getFullYear();
+    // const dia = String(hoy.getDate()).padStart(2, '0');
+    // const mes = String(hoy.getMonth() + 1).padStart(2, '0'); // los meses van de 0 a 11
+    //   return `${anio}-${mes}-${dia}`;
+    //  `${anio}-${mes}`;
+
+    const filas = $('#NuevaSolicitud tr');
+
+    filas.each(function() {
+            console.log('interno');
+
+        var concepto = $(this).find('td:eq(0)').text();
+        if (concepto == annio+'-01') {
+            $('.revisarEnero').prop('disabled', true);
+        }
+        else if (concepto == annio+'-02') {
+          $('.revisarFebrero').prop('disabled', true);
+        }
+        else if (concepto == annio+'-03') {
+          $('.revisarMarzo').prop('disabled', true); 
+        }
+        else if (concepto == annio+'-04') {
+          $('.revisarAbril').prop('disabled', true); 
+        }
+        else if (concepto == annio+'-05') {
+          $('.revisarMayo').prop('disabled', true);  
+        }
+        else if (concepto == annio+'-06') {
+          $('.revisarJunio').prop('disabled', true);
+        }
+        else if (concepto == annio+'-07') {
+          $('.revisarJulio').prop('disabled', true);
+        }
+        else if (concepto == annio+'-08') {
+          $('.revisarAgosto').prop('disabled', true); 
+        }
+        else if (concepto == annio+'-09') {
+          $('.revisarSeptiembre').prop('disabled', true);  
+        }
+        else if (concepto == annio+'-10') {
+          $('.revisarOctubre').prop('disabled', true); 
+        }
+        else if (concepto == annio+'-11') {
+          $('.revisarNoviembre').prop('disabled', true);  
+        }
+        else if (concepto == annio+'-12') {
+          $('.revisarDiciembre').prop('disabled', true);  
+        }
+        
+    });
 }
 
 function queryPromociones(){

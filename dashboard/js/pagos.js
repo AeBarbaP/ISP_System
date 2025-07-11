@@ -120,7 +120,7 @@ function pago_anticipado() {
                     <div class="row">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="meses[]" type="checkbox" value="1" id="enero">
+                                <input class="form-check-input revisarEnero" name="meses[]" type="checkbox" value="1" id="enero">
                                 <label class="form-check-label" for="enero">
                                     Enero
                                 </label>
@@ -128,7 +128,7 @@ function pago_anticipado() {
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="meses[]" type="checkbox" value="7" id="julio">
+                                <input class="form-check-input revisarJulio" name="meses[]" type="checkbox" value="7" id="julio">
                                 <label class="form-check-label" for="julio">
                                     Julio
                                 </label>
@@ -138,7 +138,7 @@ function pago_anticipado() {
                     <div class="row">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="meses[]" type="checkbox" value="2" id="febrero">
+                                <input class="form-check-input revisarFebrero" name="meses[]" type="checkbox" value="2" id="febrero">
                                 <label class="form-check-label" for="febrero">
                                     Febrero
                                 </label>
@@ -146,7 +146,7 @@ function pago_anticipado() {
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="meses[]" type="checkbox" value="8" id="agosto">
+                                <input class="form-check-input revisarAgosto" name="meses[]" type="checkbox" value="8" id="agosto">
                                 <label class="form-check-label" for="agosto">
                                     Agosto
                                 </label>
@@ -155,7 +155,7 @@ function pago_anticipado() {
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <div class="form-check">
+                            <div class="form-check revisarMarzo">
                                 <input class="form-check-input" name="meses[]" type="checkbox" value="3" id="marzo">
                                 <label class="form-check-label" for="marzo">
                                     Marzo
@@ -164,7 +164,7 @@ function pago_anticipado() {
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="meses[]" type="checkbox" value="9" id="septiembre">
+                                <input class="form-check-input revisarSeptiembre" name="meses[]" type="checkbox" value="9" id="septiembre">
                                 <label class="form-check-label" for="septiembre">
                                     Septiembre
                                 </label>
@@ -174,7 +174,7 @@ function pago_anticipado() {
                     <div class="row">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="meses[]" type="checkbox" value="4" id="abril">
+                                <input class="form-check-input revisarAbril" name="meses[]" type="checkbox" value="4" id="abril">
                                 <label class="form-check-label" for="abril">
                                     Abril
                                 </label>
@@ -182,7 +182,7 @@ function pago_anticipado() {
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="meses[]" type="checkbox" value="10" id="octubre">
+                                <input class="form-check-input revisarOctubre" name="meses[]" type="checkbox" value="10" id="octubre">
                                 <label class="form-check-label" for="octubre">
                                     Octubre
                                 </label>
@@ -192,7 +192,7 @@ function pago_anticipado() {
                     <div class="row">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="meses[]" type="checkbox" value="5" id="mayo">
+                                <input class="form-check-input revisarMayo" name="meses[]" type="checkbox" value="5" id="mayo">
                                 <label class="form-check-label" for="mayo">
                                     Mayo
                                 </label>
@@ -200,7 +200,7 @@ function pago_anticipado() {
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="meses[]" type="checkbox" value="11" id="noviembre">
+                                <input class="form-check-input revisarNoviembre" name="meses[]" type="checkbox" value="11" id="noviembre">
                                 <label class="form-check-label" for="noviembre">
                                     Noviembre
                                 </label>
@@ -210,7 +210,7 @@ function pago_anticipado() {
                     <div class="row">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="meses[]" type="checkbox" value="6" id="junio">
+                                <input class="form-check-input revisarJunio" name="meses[]" type="checkbox" value="6" id="junio">
                                 <label class="form-check-label" for="junio">
                                     Junio
                                 </label>
@@ -218,7 +218,7 @@ function pago_anticipado() {
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="meses[]" type="checkbox" value="12" id="diciembre">
+                                <input class="form-check-input revisarDiciembre" name="meses[]" type="checkbox" value="12" id="diciembre">
                                 <label class="form-check-label" for="diciembre">
                                     Diciembre
                                 </label>
@@ -241,6 +241,7 @@ function pago_anticipado() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
+  revisarMeses();
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
