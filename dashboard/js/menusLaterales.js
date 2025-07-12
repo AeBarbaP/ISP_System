@@ -2546,6 +2546,16 @@ function gestionCortes() {
   bootstrapModal.show();
   queryTablaCortes();
 
+  $(document).ready(function () {
+
+        $('#buscarCortes234').on('input', function() {
+            var value = $(this).val().toLowerCase();
+            $("#tablaCortesFull tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
