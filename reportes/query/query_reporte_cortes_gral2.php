@@ -18,13 +18,16 @@ $resultado = $conn->query($sql);
     $rowTecnico = $conn->query("SELECT * FROM tecnicos WHERE id = '$tecnico'")->fetch_assoc();
 
      if($estatus == 1){
-        $estatusIncidencia = "Activa";
+        $estatusIncidencia = 'Offline <i class="bi bi-wifi-off text-danger"></i>';
+        $actualizar = 2;
     }
     elseif($estatus == 2){
-        $estatusIncidencia = "Resuelta";
+        $estatusIncidencia = 'Online <i class="bi bi-wifi text-primary"></i>';
+        $actualizar = 1;
     }
     elseif($estatus == 3){
-        $estatusIncidencia = "Cancelada";
+        $estatusIncidencia = 'Cancelada <i class="bi bi-x-circle-fill"></i>';
+        $actualizar = 1;
     } 
 
     // $estatusIncidencia = 'NA';
@@ -38,9 +41,9 @@ $resultado = $conn->query($sql);
         <td>'.$rowTecnico['nombre'].'</td>
         <td>'.$row['fecha'].'</td>
         
-        <td>'.$estatusIncidencia.'<a href="#" onclick="estatusCorteRep('.$row['id'].')"></a></td>
+        <td><a href="#" onclick="estatusCorteRep('.$row['id'].', '.$actualizar.')">'.$estatusIncidencia.'</a></td>
         
-        <td><a href="#" onclick="generarReporteCorteInd2(\''.$row['folio_corte'].'\')"><i class="bi bi-eye"></i></a></td>
+        <td><a href="#" onclick="generarReporteCorteInd2(\''.$row['folio_corte'].'\')"><i class="bi bi-eye"></i></a> | <a href="#" onclick="eliminarCorteInd(\''.$row['id'].'\')"><i class="bi bi-trash-fill"></i></a></td>
     </tr>
     ';
 }

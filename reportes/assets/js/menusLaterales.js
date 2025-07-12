@@ -2037,7 +2037,7 @@ function gestionCortes() {
   modal.setAttribute('tabindex', '-1');
   modal.setAttribute('id', 'modalReporteCortes');
   modal.innerHTML = `
-    <div class="modal-dialog modal-xl">>
+    <div class="modal-dialog modal-xl" style="z-index: 1051;">
       <div class="modal-content">
           <div class="modal-header">
               <h5 class="modal-title"><i class="bi bi-wifi-off me-2"></i>${titulo}</h5>
@@ -2088,6 +2088,8 @@ function gestionCortes() {
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
 
+  reporteCortes();
+
   $(document).ready(function () {
         $('input[name="buscarCortesRep"]').on('input', function() {
             var value = $(this).val().toLowerCase();
@@ -2101,6 +2103,53 @@ function gestionCortes() {
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
   });
+}
+
+function estatusCorteRep(id,estatus){
+  if (confirm("¿Desea cambiar el estatus de corte?")){
+      $.ajax({
+        type: "POST",
+        url: "prcd/prcd_estatus_actualizar.php",
+        data: { 
+            id: id ,
+            estatus: estatus
+        },
+        dataType: "json",
+        success: function(data) {
+          let success = data.success;
+            if(success == 1){
+              alert('Estatus de corte actualizado');
+              reporteCortes();
+            }
+            else{
+              console.log('No se actualizó '+ data.error)
+            }
+          }
+      });
+    }
+}
+
+function eliminarCorteInd(id){
+    if (confirm("¿Desea eliminar el reporte de corte?")){
+      $.ajax({
+        type: "POST",
+        url: "prcd/prcd_eliminar_corte.php",
+        data: { 
+            id: id 
+        },
+        dataType: "json",
+        success: function(data) {
+          let success = data.success;
+            if(success == 1){
+              alert('Registro de corte eliminado');
+              reporteCortes();
+            }
+            else{
+              console.log('No se eliminó '+ data.error)
+            }
+          }
+      });
+    }
 }
 
 function resolverCorte() {

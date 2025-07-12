@@ -263,6 +263,7 @@ function generarReporteCorteInd(){
     }
 }
 function generarReporteCorteInd2(folio2){
+    $('#modalReporteCortes').modal('hide');
     let folio = folio2;
     
         $.ajax({
@@ -334,9 +335,6 @@ function datosPagoIndividual(cliente){
 }
 
 function reporteCortes(){
-    $('#modalReporteCortes').modal('show'); //está en menusLaterales.js ln 2022
-    gestionCortes();
-    
     $.ajax({
         url: 'query/query_reporte_cortes_gral2.php',
         type: 'POST',

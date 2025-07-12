@@ -1,7 +1,7 @@
 <?php
     echo '
         <div class="modal fade" id="reporteCorteInd2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
+            <div class="modal-dialog modal-xl" style="z-index: 1061;">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">

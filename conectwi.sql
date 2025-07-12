@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 12-07-2025 a las 00:03:22
+-- Tiempo de generación: 13-07-2025 a las 01:48:25
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -207,7 +207,9 @@ INSERT INTO `catalogo_logs` (`id`, `descripcion`) VALUES
 (40, 'Eliminar promoción (Reportes)'),
 (41, 'Registrar promoción (Reportes)'),
 (42, 'Editar Comunidad'),
-(43, 'Eliminar Comunidad');
+(43, 'Eliminar Comunidad'),
+(44, 'Eliminar reporte de corte'),
+(45, 'Actualizar estatus corte');
 
 -- --------------------------------------------------------
 
@@ -1813,11 +1815,10 @@ CREATE TABLE `cortes` (
 --
 
 INSERT INTO `cortes` (`id`, `folio_cliente`, `username`, `folio_corte`, `fecha`, `tecnico`, `estatus`) VALUES
-(4, '202502242354403E354EAA', 'aebarba', 'CORTE-2025-0004', '2025-05-15', NULL, 1),
-(5, '202502242354403E354EAA', 'aebarba', 'CORTE-2025-0005', '2025-05-16', NULL, 1),
-(6, '202502242354403E354EAA', 'aebarba', 'C2025-0006', '2025-05-14', NULL, 1),
-(7, '202502242354403E354EAA', 'aebarba', 'C2025-0007', '2025-06-19', 4, 1),
-(8, '202502242354403E354EAA', 'aebarba', 'C2025-0008', '2025-06-26', 4, 1);
+(4, '20250625PQ1WD31Y', 'aebarba', 'C2025-0004', '2025-05-15', 1, 1),
+(6, '20250625PB6UR73C', 'aebarba', 'C2025-0006', '2025-05-14', 3, 1),
+(7, '20250625JX1UD14C', 'aebarba', 'C2025-0007', '2025-06-19', 4, 1),
+(8, '20250625OP0IH17N', 'aebarba', 'C2025-0008', '2025-06-26', 4, 2);
 
 -- --------------------------------------------------------
 
@@ -1831,6 +1832,13 @@ CREATE TABLE `corte_caja` (
   `fecha` datetime NOT NULL,
   `estatus` int(11) NOT NULL COMMENT '1 => cerrado, 0 o null => abierto'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `corte_caja`
+--
+
+INSERT INTO `corte_caja` (`id`, `usr`, `fecha`, `estatus`) VALUES
+(4, 1, '2025-07-12 17:24:00', 0);
 
 -- --------------------------------------------------------
 
@@ -2069,7 +2077,12 @@ INSERT INTO `log_users` (`id`, `username`, `accion`, `hora`, `folio_cliente`) VA
 (156, 'aebarba', 6, '2025-07-03 23:24:11', 'NA'),
 (157, 'aebarba', 6, '2025-07-03 23:24:12', 'NA'),
 (158, 'aebarba', 5, '2025-07-11 17:01:56', 'NA'),
-(159, 'aebarba', 6, '2025-07-11 17:01:56', 'NA');
+(159, 'aebarba', 6, '2025-07-11 17:01:56', 'NA'),
+(160, 'aebarba', 21, '2025-07-12 00:46:10', 'NA'),
+(161, 'aebarba', 21, '2025-07-12 09:48:30', 'NA'),
+(162, 'aebarba', 21, '2025-07-12 17:04:14', 'NA'),
+(163, 'aebarba', 44, '2025-07-12 18:17:19', 'NA'),
+(164, 'aebarba', 45, '2025-07-12 18:47:20', 'NA');
 
 -- --------------------------------------------------------
 
@@ -2501,7 +2514,7 @@ ALTER TABLE `catalogo_instalacion`
 -- AUTO_INCREMENT de la tabla `catalogo_logs`
 --
 ALTER TABLE `catalogo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de la tabla `catalogo_municipio`
@@ -2549,7 +2562,7 @@ ALTER TABLE `cortes`
 -- AUTO_INCREMENT de la tabla `corte_caja`
 --
 ALTER TABLE `corte_caja`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `incidencias`
@@ -2567,7 +2580,7 @@ ALTER TABLE `logs_login`
 -- AUTO_INCREMENT de la tabla `log_users`
 --
 ALTER TABLE `log_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
 
 --
 -- AUTO_INCREMENT de la tabla `otros_gastos`
