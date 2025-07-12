@@ -1854,7 +1854,6 @@ function gestionIncidencias() {
   $(document).ready(function () {
       // $("#myInput").on("keyup", function () {
       $('input[name="btnradioFiltroIncidencias"]').on('change', function() {
-        console.log("si llega filtro");
           var value = $(this).val();
           $("#tablaIncidencias tr").filter(function () {
               $(this).toggle($(this).text().indexOf(value) > -1)
