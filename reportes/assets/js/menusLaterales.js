@@ -2030,7 +2030,7 @@ function fechaRegistroCorteEditar(){
 }
 
 function gestionCortes() {
-  let titulo = "Consulta de Cortes xxx";
+  let titulo = "Consulta de Cortes";
   // Crear el elemento del modal
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
@@ -2055,7 +2055,7 @@ function gestionCortes() {
               </div>
               <div class="table-responsive mt-3">
                   <table class="table table-hover p-1">
-                      <thead>
+                      <thead class="table-dark text-light">
                           <tr>
                               <th scope="col">#</th>
                               <th scope="col">Folio Corte</th>
@@ -2087,6 +2087,15 @@ function gestionCortes() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
+
+  $(document).ready(function () {
+        $('input[name="buscarCortesRep"]').on('input', function() {
+            var value = $(this).val().toLowerCase();
+            $("#tablaCortesReporte tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {

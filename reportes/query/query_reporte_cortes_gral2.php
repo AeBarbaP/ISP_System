@@ -17,7 +17,7 @@ $resultado = $conn->query($sql);
     $rowCliente = $conn->query("SELECT * FROM clientes WHERE folio = '$folio'")->fetch_assoc();
     $rowTecnico = $conn->query("SELECT * FROM tecnicos WHERE id = '$tecnico'")->fetch_assoc();
 
-    /* if($estatus == 1){
+     if($estatus == 1){
         $estatusIncidencia = "Activa";
     }
     elseif($estatus == 2){
@@ -25,18 +25,21 @@ $resultado = $conn->query($sql);
     }
     elseif($estatus == 3){
         $estatusIncidencia = "Cancelada";
-    } */
+    } 
 
-    $estatusIncidencia = 'NA';
+    // $estatusIncidencia = 'NA';
     echo
     '
     <tr>
         <td>'.$x.'</td>
         <td>'.$row['folio_corte'].'</td>
-        
+        <td>'.$rowCliente['nombre'].'</td>
+        <td>'.$rowCliente['domicilio'].'</td>
         <td>'.$rowTecnico['nombre'].'</td>
         <td>'.$row['fecha'].'</td>
-        <td>'.$estatusIncidencia.'</td>
+        
+        <td>'.$estatusIncidencia.'<a href="#" onclick="estatusCorteRep('.$row['id'].')"></a></td>
+        
         <td><a href="#" onclick="generarReporteCorteInd2(\''.$row['folio_corte'].'\')"><i class="bi bi-eye"></i></a></td>
     </tr>
     ';
