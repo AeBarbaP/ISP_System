@@ -1792,19 +1792,31 @@ function gestionIncidencias() {
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="input-group mb-3">
-                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                            <input type="radio" class="btn-check" value="Asignada" name="btnradioFiltroIncidencias" id="btnradio_paqA">
-                            <label class="btn btn-outline-primary" for="btnradio1"><i class="bi bi-check-lg me-2"></i> Asignadas</label>
+                    <div class="btn-group" role="group" aria-label="Filtro de incidencias">
+    <!-- Radio 1: Asignadas -->
+    <input type="radio" class="btn-check" value="Asignada" name="btnradioFiltroIncidencias" id="btnradio_asignada">
+    <label class="btn btn-outline-primary" for="btnradio_asignada">
+        <i class="bi bi-check-lg me-2"></i> Asignadas
+    </label>
 
-                            <input type="radio" class="btn-check" value="Atendida" name="btnradioFiltroIncidencias" id="btnradio_paqP">
-                            <label class="btn btn-outline-success" for="btnradio1"><i class="bi bi-check-lg me-2"></i> Atendidas</label>
+    <!-- Radio 2: Atendidas -->
+    <input type="radio" class="btn-check" value="Atendida" name="btnradioFiltroIncidencias" id="btnradio_atendida">
+    <label class="btn btn-outline-success" for="btnradio_atendida">
+        <i class="bi bi-check-lg me-2"></i> Atendidas
+    </label>
 
-                            <input type="radio" class="btn-check" value="Cancelada" name="btnradioFiltroIncidencias" id="btnradio_paqI">
-                            <label class="btn btn-outline-danger" for="btnradio2"><i class="bi bi-x-lg me-2"></i>Cancelada</label>
+    <!-- Radio 3: Canceladas -->
+    <input type="radio" class="btn-check" value="Cancelada" name="btnradioFiltroIncidencias" id="btnradio_cancelada">
+    <label class="btn btn-outline-danger" for="btnradio_cancelada">
+        <i class="bi bi-x-lg me-2"></i> Canceladas
+    </label>
 
-                        </div>
-                    </div>
+    <!-- Radio 4 (Nuevo): Mostrar todas -->
+    <input type="radio" class="btn-check" value="" name="btnradioFiltroIncidencias" id="btnradio_todas" checked>
+    <label class="btn btn-outline-secondary" for="btnradio_todas">
+        <i class="bi bi-list-ul me-2"></i> Todas
+    </label>
+</div>
                 </div>
                 <div class="table-responsive mt-3">
                   <table class="table p-1 text-center">
@@ -1827,7 +1839,7 @@ function gestionIncidencias() {
             </form>
           </div>
           <div class="modal-footer">
-              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal" onclick="limpiarModal();"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal" onclick="limpiarModal();"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
               <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
           </div>
       </div>
@@ -1851,15 +1863,20 @@ function gestionIncidencias() {
         });
     });
     
-  $(document).ready(function () {
-      // $("#myInput").on("keyup", function () {
-      $('input[name="btnradioFiltroIncidencias"]').on('change', function() {
-          var value = $(this).val();
-          $("#tablaIncidencias tr").filter(function () {
-              $(this).toggle($(this).text().indexOf(value) > -1)
-          });
-      });
-  });
+$(document).ready(function() {
+    $('input[name="btnradioFiltroIncidencias"]').on('change', function() {
+        var value = $(this).val().toLowerCase();
+        
+        $("#tablaIncidencias tr").each(function() {
+            if (value === "") {
+                $(this).show(); // Mostrar todas si el valor está vacío
+            } else {
+                var rowText = $(this).text().toLowerCase();
+                $(this).toggle(rowText.includes(value));
+            }
+        });
+    });
+});
 
 
   // Eliminar el modal del DOM cuando se cierre
@@ -2615,7 +2632,6 @@ function eliminarCorte(id){
 }
 
 function abrirEdicionCorte(id){
-  // $("#ordenCorteEditar").modal("show");
   $('#modaltablaCortes').modal('hide');
   editarCorte();
   setTimeout(() => {

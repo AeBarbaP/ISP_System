@@ -185,8 +185,8 @@ function altaAntena() {
     modal.innerHTML = `
       <div class="modal-dialog modal-xl">>
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">${titulo}</h5>
+            <div class="modal-header bg-secondary text-light">
+                <h5 class="modal-title"><i class="bi bi-broadcast-pin"></i> ${titulo}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -195,22 +195,23 @@ function altaAntena() {
                   <div class="col-6">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscar" name="buscar">
+                        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscarAntenasLat" name="buscar">
                     </div>
                   </div>
                   <div class="col-5" mb-3>
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                      <input type="radio" class="btn-check" value="1" name="btnradio" id="btnradio_antenaA">
-                      <label class="btn btn-outline-success" for="btnradio1"><i class="bi bi-check-lg"></i> Disponibles</label>
-                      <input type="radio" class="btn-check" value="0" name="btnradio" id="btnradio_antenaD">
-                      <label class="btn btn-outline-danger" for="btnradio2"><i class="bi bi-x-lg"></i> Asignadas</label>
-                  </div>
+    <input type="radio" class="btn-check" value="Disponible" name="btnradio_antenaA" id="btnradio_antenaA1">
+    <label class="btn btn-outline-success" for="btnradio_antenaA1"><i class="bi bi-check-lg"></i> Disponibles</label>
+    
+    <input type="radio" class="btn-check" value="Asignada" name="btnradio_antenaA" id="btnradio_antenaA2">
+    <label class="btn btn-outline-danger" for="btnradio_antenaA2"><i class="bi bi-x-lg"></i> Asignadas</label>
+</div>
                 </div>
                 <div class="table-responsive mt-3">
                     <table class="table p-1 text-center">
-                        <thead>
+                        <thead class="bg-dark text-light">
                             <tr>
-                                <th scope="col">Id</th>
+                                <th scope="col">#</th>
                                 <th scope="col">Marca</th>
                                 <th scope="col">Modelo</th>
                                 <th scope="col">Num. Serie</th>
@@ -241,6 +242,26 @@ function altaAntena() {
     const bootstrapModal = new bootstrap.Modal(modal);
     bootstrapModal.show();
     cargarAntenas();
+
+    $(document).ready(function () {
+
+        $('#buscarAntenasLat').on('input', function() {
+            var value = $(this).val().toLowerCase();
+            $("#tablaAntenas tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
+    $(document).ready(function() {
+    $('input[name="btnradio_antenaA"]').on('change', function() {
+        var value = $(this).val().toLowerCase();
+        $("#tablaAntenas tr").each(function() {
+            var rowText = $(this).text().toLowerCase();
+            $(this).toggle(rowText.indexOf(value) > -1);
+        });
+    });
+});
   
     // Eliminar el modal del DOM cuando se cierre
     modal.addEventListener('hidden.bs.modal', () => {

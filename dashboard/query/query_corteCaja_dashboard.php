@@ -14,12 +14,21 @@ $resultado = $conn->query($sql);
 while($row = $resultado->fetch_assoc()) {
     $x++;
     $fecha = date('d-m-Y', strtotime($row['fecha']));
+    $estatus = $row['estatus'];
+
+    if($estatus == 1){
+        $estatusA = "Activo";
+    }
+    else{
+        $estatusA = "No activo";
+    }
+
     echo'
     <tr>
         <td>'.$x.'</td>
         <td>Corte de caja</td>
         <td>'.$fecha.'</td>
-        <td>'.$row['estatus'].'</td>
+        <td>'.$estatusA.'</td>
         <td><a href="prcd/reporte_corte_por_fecha.php?usr='.$id.'&fecha='.$fecha.'" target="_blank"><i class="bi bi-eye-fill"></i></a></td>
     </tr>';
 }
