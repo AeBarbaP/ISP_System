@@ -1788,23 +1788,26 @@ function gestionIncidencias() {
                 <div class="col-md-6">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscar" name="buscar">
+                        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscar" name="buscar_incidencias_filtro">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="input-group mb-3">
                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                            <input type="radio" class="btn-check" value="1" name="btnradio" id="btnradio_paqA">
+                            <input type="radio" class="btn-check" value="Asignada" name="btnradioFiltroIncidencias" id="btnradio_paqA">
                             <label class="btn btn-outline-primary" for="btnradio1"><i class="bi bi-check-lg me-2"></i> Asignadas</label>
-                            <input type="radio" class="btn-check" value="1" name="btnradio" id="btnradio_paqP">
+
+                            <input type="radio" class="btn-check" value="Atendida" name="btnradioFiltroIncidencias" id="btnradio_paqP">
                             <label class="btn btn-outline-success" for="btnradio1"><i class="bi bi-check-lg me-2"></i> Atendidas</label>
-                            <input type="radio" class="btn-check" value="0" name="btnradio" id="btnradio_paqI">
+
+                            <input type="radio" class="btn-check" value="Cancelada" name="btnradioFiltroIncidencias" id="btnradio_paqI">
                             <label class="btn btn-outline-danger" for="btnradio2"><i class="bi bi-x-lg me-2"></i>Cancelada</label>
+
                         </div>
                     </div>
                 </div>
                 <div class="table-responsive mt-3">
-                  <table class="table p-1">
+                  <table class="table p-1 text-center">
                       <thead class="table-dark text-light">
                           <tr>
                               <th scope="col">Id</th>
@@ -1813,7 +1816,7 @@ function gestionIncidencias() {
                               <th scope="col">Cliente</th>
                               <th scope="col">Técnico Asignado</th>
                               <th scope="col">Estatus</th>
-                              <th scope="col" class="text-end"><i class="bi bi-people"></i></th>
+                              <th scope="col""><i class="bi bi-people"></i></th>
                           </tr>
                       </thead>
                       <tbody id="tablaIncidencias">
@@ -1838,6 +1841,27 @@ function gestionIncidencias() {
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
   queryFallasFull();
+
+  $(document).ready(function () {
+        $('input[name="buscar_incidencias_filtro"]').on('input', function() {
+            var value = $(this).val().toLowerCase();
+            $("#tablaIncidencias tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+    
+  $(document).ready(function () {
+      // $("#myInput").on("keyup", function () {
+      $('input[name="btnradioFiltroIncidencias"]').on('change', function() {
+        console.log("si llega filtro");
+          var value = $(this).val();
+          $("#tablaIncidencias tr").filter(function () {
+              $(this).toggle($(this).text().indexOf(value) > -1)
+          });
+      });
+  });
+
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {

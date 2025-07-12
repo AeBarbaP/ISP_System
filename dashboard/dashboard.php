@@ -40,6 +40,7 @@
 -->
 	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
+	<script src="js/filtros.js"></script>
 	<script src="js/scripts.js"></script>
 	<script src="js/otrosGastos.js"></script>
 	<script src="js/pagos.js"></script>

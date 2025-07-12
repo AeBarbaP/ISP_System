@@ -31,17 +31,17 @@
             ';
             if($estatus == 1){
                 echo'
-                <td><a href="#" onclick="modalActualizarEstatusFalla('.$id.')"><i class="bi bi-record-circle-fill text-primary"></i></a></td>
+                <td><a href="#" onclick="modalActualizarEstatusFalla('.$id.')">Asignada <i class="bi bi-record-circle-fill text-primary"></i></a></td>
                 ';
             }
             else if ($estatus == 2){
                 echo'
-                <td><a href="#" onclick="modalActualizarEstatusFalla('.$id.')"><i class="bi bi-check-circle text-success"></i></a></td>
+                <td><a href="#" onclick="modalActualizarEstatusFalla('.$id.')">Atendida <i class="bi bi-check-circle text-success"></i></a></td>
                 ';
             }
-            else if ($estatus == 3){
+            else if ($estatus == 0){
                 echo'
-                <td><a href="#" onclick="modalActualizarEstatusFalla('.$id.')"><i class="bi bi-x-circle text-danger"></i></a></td>
+                <td><a href="#" onclick="modalActualizarEstatusFalla('.$id.')">Cancelada <i class="bi bi-x-circle text-danger"></i></a></td>
                 ';
             }
         echo'
