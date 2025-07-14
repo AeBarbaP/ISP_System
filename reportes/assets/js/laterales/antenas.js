@@ -188,7 +188,7 @@ function altaAntena() {
       <div class="modal-dialog modal-xl">>
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">${titulo}</h5>
+                <h5 class="modal-title"><i class="bi bi-router-fill"></i> ${titulo}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -197,20 +197,21 @@ function altaAntena() {
                   <div class="col-6">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscar" name="buscar">
+                        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscarAntenasGestion" name="buscarAntenasGestion">
                     </div>
                   </div>
                   <div class="col-5" mb-3>
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                      <input type="radio" class="btn-check" value="1" name="btnradio" id="btnradio_antenaA">
-                      <label class="btn btn-outline-success" for="btnradio1"><i class="bi bi-check-lg"></i> Disponibles</label>
-                      <input type="radio" class="btn-check" value="0" name="btnradio" id="btnradio_antenaD">
-                      <label class="btn btn-outline-danger" for="btnradio2"><i class="bi bi-x-lg"></i> Asignadas</label>
+                      <input type="radio" class="btn-check" value="Disponible" name="btnradioAntenas" id="btnradio_antenaA">
+                      <label class="btn btn-outline-success" for="btnradio_antenaA"><i class="bi bi-check-lg"></i> Disponibles</label>
+                      
+                      <input type="radio" class="btn-check" value="Asignada" name="btnradioAntenas" id="btnradio_antenaD">
+                      <label class="btn btn-outline-danger" for="btnradio_antenaD"><i class="bi bi-x-lg"></i> Asignadas</label>
                   </div>
                 </div>
                 <div class="table-responsive mt-3">
-                    <table class="table p-1 text-center">
-                        <thead>
+                    <table class="table p-1 text-center table-striped table-bordered">
+                        <thead class="table-dark text-center">
                             <tr>
                                 <th scope="col">Id</th>
                                 <th scope="col">Marca</th>
@@ -229,7 +230,7 @@ function altaAntena() {
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+                <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
                 <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
             </div>
         </div>
@@ -243,6 +244,23 @@ function altaAntena() {
     const bootstrapModal = new bootstrap.Modal(modal);
     bootstrapModal.show();
     cargarAntenas();
+
+    $("#buscarAntenasGestion").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#tablaAntenas tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+
+  $(document).ready(function() {
+    $('input[name="btnradioAntenas"]').on('change', function() {
+        var value = $(this).val().toLowerCase();
+        $("#tablaAntenas tr").each(function() {
+            var rowText = $(this).text().toLowerCase();
+            $(this).toggle(rowText.indexOf(value) > -1);
+        });
+    });
+});
   
     // Eliminar el modal del DOM cuando se cierre
     modal.addEventListener('hidden.bs.modal', () => {

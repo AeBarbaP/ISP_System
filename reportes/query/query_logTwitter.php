@@ -1,7 +1,7 @@
 <?php
 require('../prcd/conn.php');
 
-$sql = "SELECT * FROM log_users ORDER BY id DESC";
+$sql = "SELECT * FROM log_users WHERE DATE(hora) = CURRENT_DATE() ORDER BY id DESC";
 $resultado = $conn->query($sql);
 $x=0;
 while($row = $resultado->fetch_assoc()){

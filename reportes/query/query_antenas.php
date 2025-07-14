@@ -17,12 +17,12 @@ while($row = $resultado->fetch_assoc()){
         <td>'.$row['fecha_alta'].'</td>';
         if($estatus == 1){
             echo'
-            <td><i class="bi bi-check-circle text-success"></i></td>
+            <td>Disponible <i class="bi bi-check-circle text-success"></i></td>
             ';
         }
         else{
             echo'
-            <td><i class="bi bi-x-circle-fill text-danger"></i></td>
+            <td>Asignada <i class="bi bi-x-circle-fill text-danger"></i></td>
             ';
         }
     echo'

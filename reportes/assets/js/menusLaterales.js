@@ -272,7 +272,7 @@ function gestionUsuarios(){
     <div class="modal-dialog modal-xl">>
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">${titulo}</h5>
+                <h5 class="modal-title"><i class="bi bi-person-fill"></i> ${titulo}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -305,7 +305,7 @@ function gestionUsuarios(){
                 
                 <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
                 <div class="table-responsive mt-3">
-                    <table class="table table-hover p-1">
+                    <table class="table table-hover table-striped table-bordered align-middle p-1">
                         <thead class="text-center table-dark text-light">
                             <tr class="text-center">
                                 <th scope="col"></th>
@@ -327,7 +327,7 @@ function gestionUsuarios(){
                 <!-- <input type="checkbox" > Mostrar Password  -->
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+                <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
                 <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
             </div>
         </div>
@@ -636,7 +636,7 @@ function gestionTecnicos() {
                     </div>
                 </div>
               <div class="table-responsive mt-3">
-                  <table class="table table-hover p-1">
+                  <table class="table table-hover table-striped table-bordered p-1">
                       <thead class="text-center table-dark text-light">
                           <tr>
                               <th scope="col">#</th>

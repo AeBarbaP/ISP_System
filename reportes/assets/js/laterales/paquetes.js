@@ -159,7 +159,7 @@ function nuevoPaquete() {
       <div class="modal-dialog modal-xl">>
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">${titulo}</h5>
+                <h5 class="modal-title"><i class="bi bi-list-check"></i> ${titulo}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -174,11 +174,10 @@ function nuevoPaquete() {
                   <div class="col-md-6">
                       <div class="input-group mb-3">
                           <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                              <input type="radio" class="btn-check" value="
-                              Activo" name="btnradioPaquetes" id="btnradio_paqA">
+                              <input type="radio" class="btn-check" value="Activo" name="buscarPaqueteEditar" id="btnradio_paqA">
                               <label class="btn btn-outline-success" for="btnradio_paqA"><i class="bi bi-check-lg"></i> Activo</label>
                           
-                              <input type="radio" class="btn-check" value="Inactivo" name="btnradioPaquetes" id="btnradio_paqI">
+                              <input type="radio" class="btn-check" value="Inactivo" name="buscarPaqueteEditar" id="btnradio_paqI">
                               <label class="btn btn-outline-danger" for="btnradio_paqI"><i class="bi bi-x-lg"></i> Inactivo</label>
                           </div>
                       </div>
@@ -202,7 +201,7 @@ function nuevoPaquete() {
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+                <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
                 <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
             </div>
         </div>
@@ -223,6 +222,16 @@ function nuevoPaquete() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
+
+     $(document).ready(function() {
+    $('input[name="buscarPaqueteEditar"]').on('change', function() {
+        var value = $(this).val().toLowerCase();
+        $("#tablaPaquetes tr").each(function() {
+            var rowText = $(this).text().toLowerCase();
+            $(this).toggle(rowText.indexOf(value) > -1);
+        });
+    });
+});
 
     // var buscarPaqueteEditar = $('input[name="btnradioPaquetes"]:checked').val() || "";
     // buscarPaqueteEditar.on("change", function () {

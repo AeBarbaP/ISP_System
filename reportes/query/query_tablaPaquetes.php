@@ -15,12 +15,12 @@ while($row = $resultado->fetch_assoc()){
         <td>'.$row['costo'].'</td>';
         if($estatus == 1){
             echo'
-            <td><i class="bi bi-check-circle text-success"></i></td>
+            <td>Activo <i class="bi bi-check-circle text-success"></i></td>
             ';
         }
         else{
             echo'
-            <td><i class="bi bi-x-circle-fill text-danger"></i></td>
+            <td>Inactivo <i class="bi bi-x-circle-fill text-danger"></i></td>
             ';
         }
     echo'
