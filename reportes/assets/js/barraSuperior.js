@@ -58,6 +58,54 @@ function modalFallasInd(){
         }
     });
 }
+// filtrado de fechas en fallas
+function modalFallasIndDate(){
+    let fechaInicio = _('fecha_inicio_incgral').value;
+    let fechaFinal = _('fecha_final_incgral').value;
+
+    if(fechaInicio == "" || fechaFinal == ""){
+        alert('Debes llenar ambas fechas');
+        return;
+    }
+    $.ajax({
+        url: 'query/query_reporte_incidencias_fechas.php',
+        type: 'POST',
+        data:{
+            fechaInicio: fechaInicio,
+            fechaFinal: fechaFinal
+        },
+        dataType: 'html',
+        success: function(data) {
+            $('#reporteFallas').html(data);
+        }
+    });
+}
+
+// filtro de botones para fallas
+$(document).ready(function() {
+    $('input[name="btnradioRepFallas"]').on('change', function() {
+        var value = $(this).val().toLowerCase();
+        $("#usr_tablaGral tr").each(function() {
+            var rowText = $(this).text().toLowerCase();
+            $(this).toggle(rowText.indexOf(value) > -1);
+        });
+    });
+});
+// filtro de botones para fallas
+
+// excel para fallas
+function exportarExcelFallas() {
+  const tabla = document.getElementById('tablaReportesFallasExcel');
+  const html = tabla.outerHTML;
+  const blob = new Blob([html], {type: 'application/vnd.ms-excel'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'reportesFallas.xls';
+  a.click();
+}
+// excel para fallas
+
+
 function reporteFallaG(folio){
     let folioReporte = folio;
     $.ajax({

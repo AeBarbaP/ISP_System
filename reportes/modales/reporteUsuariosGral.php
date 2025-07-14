@@ -23,6 +23,7 @@
                                     <div class="input-group mb-3">
                                     
                                         <input type="date" class="form-control" placeholder="Fecha inicio" aria-label="fecha inicio" id="fecha_inicio_usrs" value="" aria-describedby="basic-addon1" name="fechainicio" required>
+                                        
                                         <input type="date" class="form-control" placeholder="Fecha final" aria-label="fecha final" id="fecha_final_usrs" value="" aria-describedby="basic-addon1" name="fechafinal" required>
                                     
                                     </div>
@@ -34,16 +35,17 @@
                             </div>
                             <div class="col-6 text-end">
                                 <div class="btn-group align-items-end" role="group" aria-label="Basic radio toggle button group">
-                                    <input type="radio" class="btn-check" value="1" name="btnradio" id="estatususrs1">
+                                    <input type="radio" class="btn-check" value="1" name="btnradioRepFallas" id="estatususrs1">
                                     <label class="btn btn-outline-success" for="estatususrs1"><i class="bi bi-check-lg"></i> Activo</label>
-                                    <input type="radio" class="btn-check" value="2" name="btnradio" id="estatususrs2">
+
+                                    <input type="radio" class="btn-check" value="2" name="btnradioRepFallas" id="estatususrs2">
                                     <label class="btn btn-outline-warning" for="estatususrs2"><i class="bi bi-x-lg"></i> Inactivo</label>
                                 </div>
                             </div>
                         </div>
                         <div class="table-responsive table-hover mt-3">
-                            <table class="table p-1 text-center">
-                                <thead>
+                            <table class="table p-1 table-striped table-bordered text-center">
+                                <thead class="table-dark text-light">
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Nombre</th>

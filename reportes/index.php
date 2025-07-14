@@ -358,7 +358,7 @@ else {
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reporteIndividualUsr" onclick="consultaUsuariosRep()">Reporte Individual <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""></a></li>
-                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reportegeneralUsr" onclick="consultaUsuariosGeneral()">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
+                        <li hidden><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reportegeneralUsr" onclick="consultaUsuariosGeneral()">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
                         </li>
                         
                     </ul>

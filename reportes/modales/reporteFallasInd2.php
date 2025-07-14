@@ -25,8 +25,9 @@
                                     <label class="form-label" id="basic-addon1">Periodo del reporte:</label>
                                     <div class="input-group mb-3">
                                     
-                                        <input type="date" class="form-control" placeholder="Fecha inicio" aria-label="fecha inicio" id="fecha_inicio_incgral" value="" aria-describedby="basic-addon1" name="fechainicio" required>
-                                        <input type="date" class="form-control" placeholder="Fecha final" aria-label="fecha final" id="fecha_final_incgral" value="" aria-describedby="basic-addon1" name="fechafinal" required>
+                                        <input type="date" class="form-control" placeholder="Fecha inicio" aria-label="fecha inicio" id="fecha_inicio_incgral" value="" aria-describedby="basic-addon1" name="fechainicio" required onchange="modalFallasIndDate()">
+
+                                        <input type="date" class="form-control" placeholder="Fecha final" aria-label="fecha final" id="fecha_final_incgral" value="" aria-describedby="basic-addon1" name="fechafinal" required onchange="modalFallasIndDate()">
                                     
                                     </div>
                                 </div>
@@ -51,8 +52,8 @@
                         </div>
                     
                         <div class="table-responsive table-hover mt-3">
-                            <table class="table table-sm align-middle">
-                                <thead class="text-center align-middle">
+                            <table class="table table-sm align-middle table-striped table-bordered" id="tablaReportesFallasExcel">
+                                <thead class="text-center align-middle table-dark text-light">
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Folio falla</th>
@@ -72,7 +73,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limpiarModal()"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
-                        <button type="button" class="btn btn-primary" onclick="generarReporteIndClientes()"><i class="bi bi-filetype-pdf me-2" style="font-size: 20px;"></i>Generar Reporte</button>
+                        <button type="button" class="btn btn-primary" onclick="exportarExcelFallas()"><i class="bi bi-filetype-pdf me-2" style="font-size: 20px;"></i>Generar Reporte</button>
                     </div>
                 </div>
             </div>

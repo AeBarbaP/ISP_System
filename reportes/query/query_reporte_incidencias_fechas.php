@@ -5,7 +5,10 @@ date_default_timezone_set('America/Mexico_City');
 setlocale(LC_TIME, 'es_MX.UTF-8');
 $fecha_actual = strftime("%Y-%m-%d,%H:%M:%S");
 
-$sql = "SELECT * FROM incidencias WHERE DATE(fecha_reporte) = CURRENT_DATE() ORDER BY fecha_reporte DESC";
+$fechaInicio = $_POST['fechaInicio'];
+$fechaFinal = $_POST['fechaFinal'];
+
+$sql = "SELECT * FROM incidencias WHERE DATE(fecha_reporte) BETWEEN '$fechaInicio' AND '$fechaFinal' ORDER BY fecha_reporte DESC";
 $resultado = $conn->query($sql);
     $x = 0;
     while($row = $resultado->fetch_assoc()){
