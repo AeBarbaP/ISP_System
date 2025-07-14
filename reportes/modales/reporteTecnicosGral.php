@@ -40,7 +40,7 @@
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Fecha Alta</th>
                                         <th scope="col">Estatus</th>
-                                        <th scope="col"><i class="bi bi-pen"></i></th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody id="tec_tablaGral"></tbody>

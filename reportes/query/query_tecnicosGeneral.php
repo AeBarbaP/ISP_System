@@ -42,12 +42,12 @@
 
         if($rowFallas['estatus'] == 1){
         echo'
-        <td><a href="#" onclick="cambiaEstatusCorte('.$id.')"><i class="bi bi-check-circle text-success"></i></a></td>
+        <td><a href="#" onclick="cambiaEstatusCorte('.$id.')">Activo <i class="bi bi-check-circle text-success"></i></a></td>
         ';
         }
         else{
             echo'
-            <td><a href="#" onclick="cambiaEstatusCorte('.$id.')"><i class="bi bi-x-circle-fill text-danger"></i></a></td>
+            <td><a href="#" onclick="cambiaEstatusCorte('.$id.')">Inactivo <i class="bi bi-x-circle-fill text-danger"></i></a></td>
             ';
         }
 
@@ -73,12 +73,12 @@
 
         if($rowCortes['estatus'] == 1){
         echo'
-        <td><a href="#" onclick="cambiaEstatusFalla'.$id.')"><i class="bi bi-check-circle text-success"></i></a></td>
+        <td><a href="#" onclick="cambiaEstatusFalla'.$id.')">Activo <i class="bi bi-check-circle text-success" </i></a></td>
         ';
         }
         else{
             echo'
-            <td><a href="#" onclick="cambiaEstatusFalla('.$id.')"><i class="bi bi-x-circle-fill text-danger"></i></a></td>
+            <td><a href="#" onclick="cambiaEstatusFalla('.$id.')">Inactivo <i class="bi bi-x-circle-fill text-danger"></i></a></td>
             ';
         }
         }
