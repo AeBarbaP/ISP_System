@@ -1093,7 +1093,7 @@
 				</div>
 			</div>
 			
-			<table class="table mt-3 text-center">
+			<table class="table mt-3 text-center" id="reporteOtrosGastos">
 				<thead class="table-dark">
 					<tr>
 						<th scope="col">#</th>

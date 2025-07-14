@@ -44,7 +44,7 @@
                             </div>
                         </div>
                         <div class="table-responsive table-hover mt-3">
-                            <table class="table p-1 text-center table-sm">
+                            <table class="table p-1 text-center table-sm" id="tablaReporteContratos">
                                 <thead class="table-dark text-light">
                                     <tr>
                                         <th scope="col">Folio contrato</th>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limpiarModal(); limpiarTabla()"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
-                        <a href="query/excel_query_contratos.php" tagert="_blank" type="button" class="btn btn-primary" id="btnContratosExcel"><i class="bi bi-filetype-pdf me-2" style="font-size: 20px;"></i>Generar Reporte</a>
+                        <a href="#" tagert="_blank" type="button" class="btn btn-primary" id="btnContratosExcel" onclick="reporteContratosExcel()"><i class="bi bi-filetype-pdf me-2" style="font-size: 20px;"></i>Generar Reporte</a>
                     </div>
                 </div>
             </div>
