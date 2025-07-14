@@ -15,12 +15,12 @@ while($row = $resultado->fetch_assoc()){
         ';
         if($estatus == 1){
             echo'
-            <td><a href="#" onclick="cambioEstatus(0, '.$row['id'].')"><i class="bi bi-check-circle text-success"></i></a></td>
+            <td><a href="#" onclick="cambioEstatus(0, '.$row['id'].')">Activo <i class="bi bi-check-circle text-success"></i></a></td>
             ';
         }
         else{
             echo'
-            <td><a href="#" onclick="cambioEstatus(1, '.$row['id'].')"><i class="bi bi-x-circle-fill text-danger"></i></a></td>
+            <td><a href="#" onclick="cambioEstatus(1, '.$row['id'].')">Inactivo <i class="bi bi-x-circle-fill text-danger"></i></a></td>
             ';
         }
         echo'
