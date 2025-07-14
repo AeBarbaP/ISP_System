@@ -263,7 +263,7 @@ function editarUsuario(id) {
   }
 
 function gestionUsuarios(){
-  let titulo = "Gestión de Usuarios";
+  let titulo = "Gestión de Usuarios xxx";
   // Crear el elemento del modal
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
@@ -294,10 +294,10 @@ function gestionUsuarios(){
                                 <option value="Usuario B">Usuario B</option>
                             </select>
                             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                <input type="radio" class="btn-check" value="1" name="btnradio" id="btnradio1">
+                                <input type="radio" class="btn-check" value="Activo" name="btnGestionUsr" id="btnradio1">
                                 <label class="btn btn-outline-success" for="btnradio1"><i class="bi bi-check-lg"></i> Activo</label>
                             
-                                <input type="radio" class="btn-check" value="2" name="btnradio" id="btnradio2">
+                                <input type="radio" class="btn-check" value="Inactivo" name="btnGestionUsr" id="btnradio2">
                                 <label class="btn btn-outline-danger" for="btnradio2"><i class="bi bi-x-lg"></i> Inactivo</label>
                             </div>
                         </div>
@@ -306,7 +306,7 @@ function gestionUsuarios(){
                 <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
                 <div class="table-responsive mt-3">
                     <table class="table table-hover p-1">
-                        <thead class="text-center bg-dark text-light">
+                        <thead class="text-center table-dark text-light">
                             <tr class="text-center">
                                 <th scope="col"></th>
                                 <th scope="col">Perfil</th>
@@ -341,6 +341,7 @@ function gestionUsuarios(){
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
   queryGestionUsr();
+  
 
   $("#buscarNameUser").on("keyup", function () {
     var value = $(this).val().toLowerCase();
@@ -349,12 +350,15 @@ function gestionUsuarios(){
     });
   });
 
-  $("#buscarPerfilUser").on("change", function () {
-    var value = $(this).val().toLowerCase();
-    $("#tablaUsuariosG tr").filter(function () {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+  $(document).ready(function() {
+    $('input[name="btnGestionUsr"]').on('change', function() {
+        var value = $(this).val().toLowerCase();
+        $("#tablaUsuariosG tr").each(function() {
+            var rowText = $(this).text().toLowerCase();
+            $(this).toggle(rowText.indexOf(value) > -1);
+        });
     });
-  });
+});
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
