@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-07-2025 a las 01:48:25
+-- Tiempo de generación: 14-07-2025 a las 19:45:21
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -1838,7 +1838,10 @@ CREATE TABLE `corte_caja` (
 --
 
 INSERT INTO `corte_caja` (`id`, `usr`, `fecha`, `estatus`) VALUES
-(4, 1, '2025-07-12 17:24:00', 0);
+(4, 1, '2025-07-12 17:24:00', 0),
+(5, 1, '2025-07-14 12:21:23', 0),
+(6, 2, '2025-07-14 12:22:01', 1),
+(7, 3, '2025-07-14 12:22:27', 1);
 
 -- --------------------------------------------------------
 
@@ -1865,18 +1868,8 @@ CREATE TABLE `incidencias` (
 --
 
 INSERT INTO `incidencias` (`id`, `folio_incidencia`, `descripcion`, `folio_cliente`, `username`, `tecnico`, `fecha_asignacion`, `estatus`, `fecha_reporte`, `fecha_resolucion`, `comentario_tecnico`) VALUES
-(1, 'RI2025-0001', 'Prueba de edición de reportes de fallas', '202502242354403E354EA3', 'annaeliza', 1, '2025-05-23', 2, '2025-05-10 00:00:00', '2025-05-29 00:00:00', ''),
-(2, 'RI2025-0002', 'error', '20250410155630FE88FECB', 'annaeliza', 2, '2025-05-15', 2, '2025-05-10 00:00:00', '2025-05-28 00:00:00', 'Sin comentario'),
-(3, 'RI2025-0003', 'zzz', '20250410160422DC243E3A', 'aebarba', 1, NULL, 1, '2025-06-02 00:00:00', NULL, NULL),
-(4, 'RI2025-0004', 'x', '20250410160533EF9C5D6A', 'aebarba', 1, NULL, 1, '2025-06-03 00:00:00', NULL, NULL),
-(5, 'RI2025-0005', 'x', '202502242354403E354EA3', 'aebarba', 1, NULL, 1, '2025-06-03 00:00:00', NULL, NULL),
-(6, 'RI2025-0006', 'xz', '202502242354403E354EA3', 'aebarba', 1, NULL, 1, '2025-06-03 00:00:00', NULL, NULL),
-(7, 'RI2025-0007', 'xz', '202502242354403E354EA3', 'aebarba', 1, NULL, 1, '2025-06-03 00:00:00', NULL, NULL),
-(8, 'RI2025-0008', 'xz', '202502242354403E354EA3', 'aebarba', 1, NULL, 1, '2025-06-03 00:00:00', NULL, NULL),
-(9, 'RI2025-0009', 'xz', '202502242354403E354EA3', 'aebarba', 1, NULL, 1, '2025-06-03 00:00:00', NULL, NULL),
-(10, 'RI2025-0010', 's', '202502242354403E354EA3', 'aebarba', 1, NULL, 1, '2025-06-03 00:00:00', NULL, NULL),
-(11, 'RI2025-0011', 's', '202502242354403E354EA3', 'aebarba', 1, NULL, 1, '2025-06-03 00:00:00', NULL, NULL),
-(12, 'RI2025-0012', 'ghfdsh', '20250410160422DC243E3A', 'aebarba', 3, NULL, 1, '2025-06-18 00:00:00', NULL, NULL);
+(13, 'RI2025-0001', 'Falla en su casa', '20250625KD2CD41431P', 'aebarba', 1, NULL, 1, '2025-07-14 00:00:00', NULL, NULL),
+(14, 'RI2025-0014', 'No tiene internet', '20250625HF6EA01429Z', 'aebarba', 4, NULL, 1, '2025-07-14 00:00:00', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2082,7 +2075,25 @@ INSERT INTO `log_users` (`id`, `username`, `accion`, `hora`, `folio_cliente`) VA
 (161, 'aebarba', 21, '2025-07-12 09:48:30', 'NA'),
 (162, 'aebarba', 21, '2025-07-12 17:04:14', 'NA'),
 (163, 'aebarba', 44, '2025-07-12 18:17:19', 'NA'),
-(164, 'aebarba', 45, '2025-07-12 18:47:20', 'NA');
+(164, 'aebarba', 45, '2025-07-12 18:47:20', 'NA'),
+(165, 'aebarba', 21, '2025-07-13 22:47:06', 'NA'),
+(166, 'aebarba', 21, '2025-07-14 10:27:45', 'NA'),
+(167, 'aebarba', 35, '2025-07-14 11:04:05', 'NA'),
+(168, 'aebarba', 19, '2025-07-14 11:24:20', 'NA'),
+(169, 'aebarba', 19, '2025-07-14 11:25:02', 'NA'),
+(170, 'aebarba', 4, '2025-07-14 12:21:23', 'NA'),
+(171, 'aebarba', 22, '2025-07-14 12:21:27', 'NA'),
+(172, '', 22, '2025-07-14 12:21:33', 'NA'),
+(173, 'color', 21, '2025-07-14 12:21:51', 'NA'),
+(174, 'color', 4, '2025-07-14 12:22:01', 'NA'),
+(175, 'color', 22, '2025-07-14 12:22:13', 'NA'),
+(176, 'nuevo', 21, '2025-07-14 12:22:18', 'NA'),
+(177, 'nuevo', 4, '2025-07-14 12:22:27', 'NA'),
+(178, 'nuevo', 22, '2025-07-14 12:22:32', 'NA'),
+(179, 'aebarba', 21, '2025-07-14 12:22:40', 'NA'),
+(180, 'aebarba', 6, '2025-07-14 12:24:47', 'NA'),
+(181, 'aebarba', 5, '2025-07-14 12:24:47', 'NA'),
+(182, 'aebarba', 6, '2025-07-14 12:24:47', 'NA');
 
 -- --------------------------------------------------------
 
@@ -2120,7 +2131,8 @@ INSERT INTO `otros_gastos` (`id`, `concepto`, `cantidad`, `fecha`, `id_ext`, `fe
 (14, 'gdsag', '466.00', '2025-07-01', 'aebarba', '2025-07-01 23:13:36'),
 (15, 'pruega hide', '855.00', '2025-07-01', 'aebarba', '2025-07-01 23:42:16'),
 (16, 'pizza', '150.00', '2025-07-02', 'aebarba', '2025-07-02 11:39:42'),
-(17, 'cafe', '25.00', '2025-07-02', 'aebarba', '2025-07-02 11:39:59');
+(17, 'cafe', '25.00', '2025-07-02', 'aebarba', '2025-07-02 11:39:59'),
+(18, 'Pago de comida', '300.00', '2025-07-14', 'aebarba', '2025-07-14 12:25:08');
 
 -- --------------------------------------------------------
 
@@ -2170,7 +2182,10 @@ INSERT INTO `pagos` (`id`, `num_pago`, `fecha_pago`, `folio_contrato`, `concepto
 (22, 'CW2025-0016-FAt-1', '2025-07-03', '20250625QO5MZ7310G', 'Adeudo', '2025-06', '2025', 1, '0.00', '260.00'),
 (23, 'CW2025-0016-FAt-1', '2025-07-03', '20250625QO5MZ7310G', 'Recargo', '2025-06', '2025', 1, '0.00', '15.00'),
 (26, 'CW2025-0018', '2025-07-11', '20250625SU0DH1986C', 'Pago oportuno', '2025-07', '2025', 1, '0.00', '260.00'),
-(27, 'CW2025-0018', '2025-07-11', '20250625SU0DH1986C', 'Costo instalación', '2025-07', '2025', 1, '0.00', '1060.00');
+(27, 'CW2025-0018', '2025-07-11', '20250625SU0DH1986C', 'Costo instalación', '2025-07', '2025', 1, '0.00', '1060.00'),
+(28, 'CW2025-0019', '2025-07-14', '20250625OX4TR55E', 'Pago oportuno', '2025-07', '2025', 1, '0.00', '260.00'),
+(29, 'CW2025-0019-FAt-1', '2025-07-14', '20250625OX4TR55E', 'Adeudo', '2025-06', '2025', 1, '0.00', '260.00'),
+(30, 'CW2025-0019-FAt-1', '2025-07-14', '20250625OX4TR55E', 'Recargo', '2025-06', '2025', 1, '0.00', '15.00');
 
 -- --------------------------------------------------------
 
@@ -2212,7 +2227,9 @@ INSERT INTO `pagos_generales` (`id`, `folio_contrato`, `total`, `tarjeta`, `foli
 (15, '20250625AN2TU02F', '260.00', '', 'CW2025-0015', '2025-07-03', 1, '2025-07', 'aebarba'),
 (16, '20250625QO5MZ7310G', '260.00', '', 'CW2025-0016-FAt-1', '2025-07-03', 1, '2025-06', 'aebarba'),
 (17, '20250625QO5MZ7310G', '535.00', '', 'CW2025-0016', '2025-07-03', 1, '2025-07', 'aebarba'),
-(18, '20250625SU0DH1986C', '1320.00', '', 'CW2025-0018', '2025-07-11', 1, '2025-07', 'aebarba');
+(18, '20250625SU0DH1986C', '1320.00', '', 'CW2025-0018', '2025-07-11', 1, '2025-07', 'aebarba'),
+(19, '20250625OX4TR55E', '260.00', '', 'CW2025-0019-FAt-1', '2025-07-14', 1, '2025-06', 'aebarba'),
+(20, '20250625OX4TR55E', '535.00', '', 'CW2025-0019', '2025-07-14', 1, '2025-07', 'aebarba');
 
 -- --------------------------------------------------------
 
@@ -2239,7 +2256,7 @@ INSERT INTO `promociones` (`id`, `promo`, `fecha_inicio`, `fecha_fin`, `tipo`, `
 (4, 'Promoción de prueba', '2025-04-11', '2025-04-11', 'Mensualidad', 70, 1, 1),
 (5, 'prueba', '2025-06-06', '2025-06-18', 'Mensualidad', 100, 1, NULL),
 (6, 'prueba 2', '2025-07-17', '2025-07-31', 'Recargos', 200, 1, NULL),
-(7, 'Prueba promo4', '2025-05-28', '2025-05-30', 'Mensualidad', 100, 1, NULL),
+(7, 'Prueba promo44', '2025-05-28', '2025-05-30', 'Mensualidad', 100, 1, NULL),
 (8, 'Prueba de nuevo', '2025-05-29', '2025-06-06', 'Instalación', 200, 1, NULL);
 
 -- --------------------------------------------------------
@@ -2562,13 +2579,13 @@ ALTER TABLE `cortes`
 -- AUTO_INCREMENT de la tabla `corte_caja`
 --
 ALTER TABLE `corte_caja`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `incidencias`
 --
 ALTER TABLE `incidencias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `logs_login`
@@ -2580,25 +2597,25 @@ ALTER TABLE `logs_login`
 -- AUTO_INCREMENT de la tabla `log_users`
 --
 ALTER TABLE `log_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
 
 --
 -- AUTO_INCREMENT de la tabla `otros_gastos`
 --
 ALTER TABLE `otros_gastos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos_generales`
 --
 ALTER TABLE `pagos_generales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `promociones`
