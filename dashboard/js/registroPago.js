@@ -142,6 +142,7 @@ function guardarTodosPagos() {
     const folioPago1 = $('#folioLabelpago').val();
     const foliContrato = document.getElementById('folioContratoRegistro').innerText;
     const fechaSolicitud = $('#fechaSolicitud').val();
+    const nombreTicket = _('nombrePagoTicket').innerText;
 
     if (filas == 0) {
         alert('No hay pagos pendientes para guardar');
@@ -198,7 +199,7 @@ function guardarTodosPagos() {
                 console.log(response.message);
 
                 if (confirm("¿Quieres imprimir el recibo "+folioPago1+"?")) {
-                    imprimirSeleccion(folioPago1);
+                    imprimirSeleccion(folioPago1, nombreTicket);
                 }
 
             } else {

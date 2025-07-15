@@ -421,7 +421,7 @@
 <?php
 	include("modals/reporteContratos.php");
 	include("modals/reporteContratoIndividual.php");
-	include("modals/editarContratos.php");
+	//include("modals/editarContratos.php");
 ?>
 
 <!-- Inicia Modal para contrato nuevo -->
@@ -832,7 +832,7 @@
 					</div>
 					<div class="col-4">
 					</div>
-					<div class="col-4">
+					<div class="col-4" hidden>
 						<p>Folio:<br><span id="ticketFolio"></span></p>
 					</div>
 				</div>

@@ -35,12 +35,12 @@ function contratoNew() {
     inputSiguienteMes.value = siguienteMesFormateado;
     inputMesMasCincoDias.value = mesMasCincoDiasFormateado;
 
-    antenas();
     comunidad();
     municipio();
     estado();
     catalogoPaquetes();
     generarFolio();
+    antenas();
 }
 function cambiarFecha() {
 

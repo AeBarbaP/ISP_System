@@ -62,7 +62,7 @@ function ejecutarFuncionConFolio(folio) {
                     // alert('Usuario nuevo, no hay pagos registrados');
                     datosGenerales += `
                     <div class="alert alert-info mb-2" role="alert">
-                    <h3><b>${item.nombre}</b></h3>
+                    <h3 id="nombrePagoTicket"><b>${item.nombre}</b></h3>
                     <span>Folio Contrato: </span><span id="folioContratoRegistro">${item.folio}</span><br>
                     <span>Domicilio: ${item.domicilio}</span>
                     <br>
@@ -673,7 +673,7 @@ function calcularTotal() {
     document.getElementById('total-costo').textContent = total.toFixed(2);
 }
 
-function imprimirSeleccion(nombre) {
+function imprimirSeleccion(nombre, nombre2) {
     const ventimp = window.open('', 'popimpr');
     const fecha = new Date().toLocaleDateString();
     const rutaLogo = '../images/logo_conectwi_wide-removebg-preview.png';
@@ -797,7 +797,7 @@ function imprimirSeleccion(nombre) {
                     <h2>RECIBO DE PAGO</h2>
                 </div>
                 
-                ${nombre ? `<div class="nombre-cliente">${nombre}</div>` : ''}
+                ${nombre2 ? `<div class="nombre-cliente">${nombre2}</div>` : ''}
                 ${tablaClonada.outerHTML}
                 
                 <div class="footer">
