@@ -504,6 +504,7 @@
 							<option selected>Selecciona...</option>
 							<option value="INE">INE</option>
 							<option value="INAPAM">INAPAM</option>
+							<option value="Pasaporte">Pasaporte</option>
 							<option value="Licencia">Licencia de Manejo</option>
 						</select>
                     </div>
@@ -512,10 +513,10 @@
 						<label for="comprobante" class="form-label">Comprobante de Domicilio:</label>
 						<select class="form-select" id="comprobanteContrato" aria-label="Default select example" required>
 							<option selected>Selecciona...</option>
-							<option value="luz">Recibo de Luz Eléctrica</option>
-							<option value="agua">Recibo del Agua</option>
-							<option value="cable">Recibo de Servicio de Televisión</option>
-							<option value="telefono">Teléfono fijo</option>
+							<option value="Luz">Recibo de Luz Eléctrica</option>
+							<option value="Agua">Recibo del Agua</option>
+							<option value="Telefono">Teléfono fijo</option>
+							<option value="Cable">Recibo de Servicio de Televisión</option>
 						</select>
                     </div>
 					

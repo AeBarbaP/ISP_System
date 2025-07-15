@@ -93,16 +93,16 @@ function nuevoPaquete() {
           <div class="modal-body">
             <p>
             
-            <div class="input-group mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i></label>
+            <div class=" mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-cursor-text me-2"></i>Nombre:</label>
               <input type="text" class="form-control" placeholder="Nombre del paquete" aria-label="nombre paquete" id="nombre_paqueteEditar" aria-describedby="basic-addon1">
             </div>
-            <div class="input-group mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-speedometer2 me-2"></i></label>
+            <div class="mb-3">
+              <label class="form-label" id="basic-addon1"><i class="bi bi-speedometer2 me-2"></i>Velocidad:</label>
               <input type="number" class="form-control" placeholder="Velocidad" aria-label="velocidad" id="velocidad_paqueteEditar" min="1" max="50000" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" aria-describedby="basic-addon1">
             </div>
+            <label class="form-label" id="basic-addon1"><i class="bi bi-cash-coin me-2"></i>Precio</label>
             <div class="input-group mb-3">
-              <label class="form-label" id="basic-addon1"><i class="bi bi-cash-coin me-2"></i></label>
               <span class="input-group-text" id="basic-addon1">$</span>
               <input type="text" class="form-control" pattern=" 0+\.[0-9]*[1-9][0-9]*$" name="itemConsumption" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="Precio mensual" aria-label="precio" id="precio_paqueteEditar" aria-describedby="basic-addon1">
               <span class="input-group-text" id="basic-addon1">.00</span>

@@ -130,6 +130,7 @@ function antenas(){
         }
     });
 }
+
 function comunidad(){
     $.ajax({
         type: "POST",
