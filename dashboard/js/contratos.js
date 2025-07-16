@@ -99,8 +99,9 @@ function cambiarEstatusCont(folio, estatus){
 
 function editarContratos(folio){
     $('#modalContratosEdit').modal('show');
-    catalogoPaquetes();
-    antenas();
+    antenasEdit();
+    catalogoPaquetesEdit();
+    generarFolioEdit();
     $.ajax({
         url: 'query/query_contratos_editar.php',
         type: 'POST',
@@ -111,27 +112,73 @@ function editarContratos(folio){
         success: function(data) {
             let success = data.success;
             if(success == 1){
-                _('folioLabelContrato').value = data.folio;
-                _('dateContratoNew').value = data.fecha_contrato;
-                _('nombreCompleto').value = data.nombre;
-                _('domicilioContrato').value = data.domicilio;
-                _('catalogoComunidades').value = data.comunidad;
-                _('catalogoMunicipios').value = data.municipio;
-                _('catalogoEstados').value = data.estado;
-                _('cpContrato').value = data.cp;
-                _('telefonoContrato').value = data.telefono;
-                _('referenciasContrato').value = data.referencias;
-                _('identificacionContrato').value = data.identificacion;
-                _('comprobanteContrato').value = data.comprobante;
-                _('catalogoPaquetes').value = data.servicio;
-                _('antenaContrato').value = data.antena;
-                _('ipAddressContrato').value = data.direccionip;
-                _('inputCosto').value = data.cuota;
-                _('siguienteMesInput').value = data.fecha_limite;
-                _('mesMasCincoDiasInput').value = data.fecha_corte;
+                _('folioLabelContratoEdit').value = data.folio;
+                _('dateContratoEdit').value = data.fecha_contrato;
+                _('nombreCompletoEdit').value = data.nombre;
+                _('domicilioContratoEdit').value = data.domicilio;
+                _('catalogoComunidadesEdit').value = data.comunidad;
+                _('catalogoMunicipiosEdit').value = data.municipio;
+                _('catalogoEstadosEdit').value = data.estado;
+                _('cpContratoEdit').value = data.cp;
+                _('telefonoContratoEdit').value = data.telefono;
+                _('referenciasContratoEdit').value = data.referencias;
+                _('identificacionContratoEdit').value = data.identificacion;
+                _('comprobanteContratoEdit').value = data.comprobante;
+                _('catalogoPaquetesEdit').value = data.servicio;
+                _('antenaContratoEdit').value = data.antena;
+                _('ipAddressContratoEdit').value = data.direccionip;
+                _('inputCostoEdit').value = data.cuota;
+                _('siguienteMesInputEdit').value = data.fecha_limite;
+                _('mesMasCincoDiasInputEdit').value = data.fecha_corte;
             }
         }
     });
+}
+
+function cambiarFechaEdit() {
+
+    // Obtener los elementos input
+    const inputSiguienteMes = document.getElementById('siguienteMesInputEdit');
+    const inputMesMasCincoDias = document.getElementById('mesMasCincoDiasInputEdit');
+    const inputFechaActual = document.getElementById('dateContratoEdit');
+    // Obtener la fecha actual
+
+    // const fechaActual = new Date();
+    const fechaActual = new Date(inputFechaActual.value);
+
+    // 1. Calcular el siguiente mes
+    const siguienteMes = new Date(fechaActual);
+    siguienteMes.setMonth(fechaActual.getMonth() + 1); // Sumar un mes
+
+    // 2. Calcular un mes más cinco días
+    const mesMasCincoDias = new Date(fechaActual);
+    mesMasCincoDias.setMonth(fechaActual.getMonth() + 1); // Sumar un mes
+    mesMasCincoDias.setDate(fechaActual.getDate() + 5);   // Sumar cinco días
+
+    // Función para formatear la fecha en YYYY-MM-DD
+    function formatearFecha(fecha) {
+        const año = fecha.getFullYear();
+        const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Meses van de 0 a 11
+        const dia = String(fecha.getDate()).padStart(2, '0');
+        return `${año}-${mes}-${dia}`;
+    }
+
+    // Formatear las fechas
+    const siguienteMesFormateado = formatearFecha(siguienteMes);
+    const mesMasCincoDiasFormateado = formatearFecha(mesMasCincoDias);
+    const fechaActualFormateada = formatearFecha(fechaActual);
+
+    // Asignar las fechas a los inputs
+    // inputFechaActual.value = fechaActualFormateada;
+    inputSiguienteMes.value = siguienteMesFormateado;
+    inputMesMasCincoDias.value = mesMasCincoDiasFormateado;
+
+    //comunidad();
+    //municipio();
+    //estado();
+    antenasEdit();
+    catalogoPaquetesEdit();
+    //generarFolio();
 }
 
 function catalogoPaquetes(){
@@ -141,6 +188,17 @@ function catalogoPaquetes(){
         dataType: "html",
         success: function(data){
             $('#catalogoPaquetes').html(data);  
+        }
+    });
+}
+
+function catalogoPaquetesEdit(){
+    $.ajax({
+        type: "POST",
+        url: "query/paquetes.php",
+        dataType: "html",
+        success: function(data){
+            $('#catalogoPaquetesEdit').html(data);  
         }
     });
 }
@@ -156,6 +214,18 @@ function antenas(){
     });
 }
 
+function antenasEdit(){
+    $.ajax({
+        type: "POST",
+        url: "query/antenas.php",
+        dataType: "html",
+        success: function(data){
+            $('#antenaContratoEdit').html(data);  
+        }
+    });
+}
+
+
 function cuotaMensual(select){
     // Obtener el option seleccionado
     const selectedOption = select.options[select.selectedIndex];
@@ -165,6 +235,23 @@ function cuotaMensual(select){
 
     // Obtener el input donde se colocará el costo
     const inputCosto = document.getElementById('inputCosto'); // Cambia 'inputCosto' por el ID de tu input
+
+    // Asignar el costo al input
+    if (costo) {
+        inputCosto.value = costo;
+    } else {
+        inputCosto.value = ''; // Limpiar el input si no hay costo
+    }
+}
+function cuotaMensualEdit(select){
+    // Obtener el option seleccionado
+    const selectedOption = select.options[select.selectedIndex];
+
+    // Obtener el valor del atributo data-costo
+    const costo = selectedOption.getAttribute('data-costo');
+
+    // Obtener el input donde se colocará el costo
+    const inputCosto = document.getElementById('inputCostoEdit'); // Cambia 'inputCosto' por el ID de tu input
 
     // Asignar el costo al input
     if (costo) {
@@ -225,25 +312,25 @@ function limpiarTabla(){
 }
 
 function guardarEditarContrato() {
-    let name = _('nombre_buscarContrato').value;
-    let folio = _('folioLabelContrato').value;
-    let nombre = _('nombreCompleto').value;
-    let domicilio = _('domicilioContrato').value;
-    let comunidad = _('catalogoComunidades').value;
-    let municipio = _('catalogoMunicipios').value;
-    let estado = _('catalogoEstados').value;
-    let cp = _('cpContrato').value;
-    let telefono = _('telefonoContrato').value;
-    let referencia = _('referenciasContrato').value;
-    let identificacion = _('identificacionContrato').value;
-    let comprobante = _('comprobanteContrato').value;
-    let paquete = _('catalogoPaquetes').value;
-    let antena = _('antenaContrato').value;
-    let ip = _('ipAddressContrato').value;
-    let fechaContrato = _('dateContratoNew').value;
-    let fechaLimite = _('siguienteMesInput').value;
-    let fechaCorte =  _('mesMasCincoDiasInput').value;
-    let cuota = _('inputCosto').value;
+    //let name = _('nombre_buscarContratoEdit').value;
+    let folio = _('folioLabelContratoEdit').value;
+    let nombre = _('nombreCompletoEdit').value;
+    let domicilio = _('domicilioContratoEdit').value;
+    let comunidad = _('catalogoComunidadesEdit').value;
+    let municipio = _('catalogoMunicipiosEdit').value;
+    let estado = _('catalogoEstadosEdit').value;
+    let cp = _('cpContratoEdit').value;
+    let telefono = _('telefonoContratoEdit').value;
+    let referencia = _('referenciasContratoEdit').value;
+    let identificacion = _('identificacionContratoEdit').value;
+    let comprobante = _('comprobanteContratoEdit').value;
+    let paquete = _('catalogoPaquetesEdit').value;
+    let antena = _('antenaContratoEdit').value;
+    let ip = _('ipAddressContratoEdit').value;
+    let fechaContrato = _('dateContratoEdit').value;
+    let fechaLimite = _('siguienteMesInputEdit').value;
+    let fechaCorte =  _('mesMasCincoDiasInputEdit').value;
+    let cuota = _('inputCostoEdit').value;
     
     $.ajax({
         url: 'prcd/prcd_editar_contratosEdicion.php',

@@ -421,7 +421,7 @@
 <?php
 	include("modals/reporteContratos.php");
 	include("modals/reporteContratoIndividual.php");
-	//include("modals/editarContratos.php");
+	include("modals/editarContratos.php");
 ?>
 
 <!-- Inicia Modal para contrato nuevo -->

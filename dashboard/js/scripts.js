@@ -80,10 +80,10 @@ function cambiarFecha() {
     inputSiguienteMes.value = siguienteMesFormateado;
     inputMesMasCincoDias.value = mesMasCincoDiasFormateado;
 
-    antenas();
     comunidad();
     municipio();
     estado();
+    antenas();
     catalogoPaquetes();
     generarFolio();
 }
@@ -120,7 +120,7 @@ function ultimoAcceso(id){
     });
 }
 
-function antenas(){
+/* function antenas(){
     $.ajax({
         type: "POST",
         url: "query/antenas.php",
@@ -130,6 +130,16 @@ function antenas(){
         }
     });
 }
+function antenasEdit(){
+    $.ajax({
+        type: "POST",
+        url: "query/antenas.php",
+        dataType: "html",
+        success: function(data){
+            $('#antenaContratoEdit').html(data);  
+        }
+    });
+} */
 
 function comunidad(){
     $.ajax({
@@ -161,7 +171,7 @@ function estado(){
         }
     });
 }
-function catalogoPaquetes(){
+/* function catalogoPaquetes(){
     $.ajax({
         type: "POST",
         url: "query/paquetes.php",
@@ -171,6 +181,16 @@ function catalogoPaquetes(){
         }
     });
 }
+function catalogoPaquetesEdit(){
+    $.ajax({
+        type: "POST",
+        url: "query/paquetes.php",
+        dataType: "html",
+        success: function(data){
+            $('#catalogoPaquetesEdit').html(data);  
+        }
+    });
+} */
 
 function cuotaMensual(select){
     // Obtener el option seleccionado
@@ -315,6 +335,25 @@ function generarFolio(){
             var success = datos.success;
             if(success == 1) {
                 _("folioLabelContrato").value = datos.folio;
+            } else {
+                alert("No se pudo generar el folio");
+            }
+        }
+    });
+    // y poner el resultado en el label con id "folioLabelContrato"
+}
+
+function generarFolioEdit(){
+    // Llamar a la función que genera el folio
+    $.ajax({
+        type: "POST",
+        url: "prcd/generarFolio.php",
+        dataType: "json",
+        success: function(data){
+            var datos = JSON.parse(JSON.stringify(data));
+            var success = datos.success;
+            if(success == 1) {
+                _("folioLabelContratoEdit").value = datos.folio;
             } else {
                 alert("No se pudo generar el folio");
             }
