@@ -10,7 +10,7 @@ while ($row = $resultado->fetch_assoc()){
     $comunidad = $row['comunidad'];
     $paquete = $row['servicio'];
 
-    $rowComunidad = $conn->query("SELECT * FROM catalogo_comunidades WHERE id = '$comunidad'")->fetch_assoc();
+    //$rowComunidad = $conn->query("SELECT * FROM catalogo_comunidades WHERE id = '$comunidad'")->fetch_assoc();
     $rowPaquete = $conn->query("SELECT * FROM catalogo_paquetes WHERE id = '$paquete'")->fetch_assoc();
     if($row['estatus'] == 1){
         $estatus = "Activo";
@@ -20,10 +20,10 @@ while ($row = $resultado->fetch_assoc()){
 
     }
 
-    if ($rowComunidad && (is_null($rowComunidad['comunidad']) || $rowComunidad['comunidad'] == "")) {
+    if ($comunidad && (is_null($comunidad) || $comunidad == "")) {
     $comunidad = "Sin datos";
-    } else if ($rowComunidad) {
-        $comunidad = $rowComunidad['comunidad'];
+    } else if ($comunidad) {
+        $comunidad = $comunidad;
     } else {
         $comunidad = "Sin datos";
     }

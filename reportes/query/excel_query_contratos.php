@@ -30,7 +30,7 @@ while ($row = $resultado->fetch_assoc()){
     $comunidad = $row['comunidad'];
     $paquete = $row['servicio'];
 
-    $rowComunidad = $conn->query("SELECT * FROM catalogo_comunidades WHERE id = '$comunidad'")->fetch_assoc();
+    //$rowComunidad = $conn->query("SELECT * FROM catalogo_comunidades WHERE id = '$comunidad'")->fetch_assoc();
     $rowPaquete = $conn->query("SELECT * FROM catalogo_paquetes WHERE id = '$paquete'")->fetch_assoc();
     if($row['estatus'] == 1){
         $estatus = "Activo";
@@ -44,7 +44,7 @@ while ($row = $resultado->fetch_assoc()){
     <tr>
         <td>'.$row['folio'].'</td>
         <td>'.$row['nombre'].'</td>
-        <td>'.$rowComunidad['comunidad'].'</td>
+        <td>'.$comunidad.'</td>
         <td>'.$rowPaquete['paquetes'].'</td>
         <td>'.$row['fecha_contrato'].'</td>
         <td>'.$row['direccionip'].'</td>
