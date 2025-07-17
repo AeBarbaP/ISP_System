@@ -51,6 +51,14 @@ WHERE folio = '$folio'";
 $resultado = $conn->query($query);
 
 if ($resultado) {
+
+    $sqlAntena = "UPDATE antenas SET
+        estatus = 0
+        WHERE
+        id = '$antena'
+        ";
+        $resultadoAntena = $conn->query($sqlAntena);
+
     echo json_encode(array(
         'success' => 1
     ));

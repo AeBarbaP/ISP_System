@@ -2,7 +2,7 @@
 
 require('../prcd/conn.php');
 
-$sql = "SELECT * FROM antenas ORDER BY id ASC";
+$sql = "SELECT * FROM antenas WHERE estatus = 1 ORDER BY id ASC";
 $resultado = $conn->query($sql);
 echo'
 <option value="" selected>Selecciona la antena ...</option>
