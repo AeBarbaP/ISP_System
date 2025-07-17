@@ -312,7 +312,7 @@ function limpiarTabla(){
 }
 
 function guardarEditarContrato() {
-    //let name = _('nombre_buscarContratoEdit').value;
+    let name = _('nombre_buscarContrato').value;
     let folio = _('folioLabelContratoEdit').value;
     let nombre = _('nombreCompletoEdit').value;
     let domicilio = _('domicilioContratoEdit').value;
