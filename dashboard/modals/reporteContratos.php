@@ -49,7 +49,7 @@
                                     <tr>
                                         <th scope="col">Folio contrato</th>
                                         <th scope="col">Cliente</th>
-                                        <th scope="col">Localidad</th>
+                                        <th scope="col">Comunidad</th>
                                         <th scope="col">Paquete</th>
                                         <th scope="col">Fecha Contrato</th>
                                         <th scope="col">IP</th>

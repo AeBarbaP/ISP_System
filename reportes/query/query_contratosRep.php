@@ -11,7 +11,7 @@ while ($row = $resultado->fetch_assoc()){
     $folio = $row['folio'];
 
 
-    $rowComunidad = $conn->query("SELECT * FROM catalogo_comunidades WHERE id = '$comunidad'")->fetch_assoc();
+    //$rowComunidad = $conn->query("SELECT * FROM catalogo_comunidades WHERE id = '$comunidad'")->fetch_assoc();
     $rowPaquete = $conn->query("SELECT * FROM catalogo_paquetes WHERE id = '$paquete'")->fetch_assoc();
     if($row['estatus'] == 1){
         $estatus = 'Activo <i class="bi bi-check-circle-fill text-success"></i>';
@@ -20,10 +20,10 @@ while ($row = $resultado->fetch_assoc()){
         $estatus = 'Inactivo <i class="bi bi-x-circle-fill text-danger"></i>';
     }
 
-    if ($rowComunidad && (is_null($rowComunidad['comunidad']) || $rowComunidad['comunidad'] == "")) {
-    $comunidad = "Sin datos";
-    } else if ($rowComunidad) {
-        $comunidad = $rowComunidad['comunidad'];
+    if ($comunidad && (is_null($comunidad) || $comunidad == "")) {
+        $comunidad = "Sin datos";
+    } else if ($comunidad) {
+        $comunidad = $comunidad;
     } else {
         $comunidad = "Sin datos";
     }
