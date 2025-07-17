@@ -112,7 +112,7 @@ function editarContratos(folio){
             if(success == 1){
                 antenasEdit(data.antena);
                 _('folioLabelContratoEdit').value = data.folio;
-                _('dateContratoNewEdit').value = data.fecha_contrato;
+                _('dateContratoEdit').value = data.fecha_contrato;
                 _('nombreCompletoEdit').value = data.nombre;
                 _('domicilioContratoEdit').value = data.domicilio;
                 _('catalogoComunidadesEdit').value = data.comunidad;
@@ -129,7 +129,7 @@ function editarContratos(folio){
                 _('inputCostoEdit').value = data.cuota;
                 _('siguienteMesInputEdit').value = data.fecha_limite;
                 _('mesMasCincoDiasInputEdit').value = data.fecha_corte;
-               
+                
             }
         }
     });
@@ -190,7 +190,7 @@ function cuotaMensual(select){
     const costo = selectedOption.getAttribute('data-costo');
 
     // Obtener el input donde se colocará el costo
-    const inputCosto = document.getElementById('inputCosto'); // Cambia 'inputCosto' por el ID de tu input
+    const inputCosto = document.getElementById('inputCostoEdit'); // Cambia 'inputCosto' por el ID de tu input
 
     // Asignar el costo al input
     if (costo) {
@@ -266,7 +266,7 @@ function guardarEditarContrato() {
     let paquete = _('catalogoPaquetesEdit').value;
     let antena = _('antenaContratoEdit').value;
     let ip = _('ipAddressContratoEdit').value;
-    let fechaContrato = _('dateContratoNewEdit').value;
+    let fechaContrato = _('dateContratoEdit').value;
     let fechaLimite = _('siguienteMesInputEdit').value;
     let fechaCorte =  _('mesMasCincoDiasInputEdit').value;
     let cuota = _('inputCostoEdit').value;
