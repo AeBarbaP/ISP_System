@@ -99,7 +99,7 @@ function cambiarEstatusCont(folio, estatus){
 
 function editarContratos(folio){
     $('#modalContratosEdit').modal('show');
-    antenasEdit();
+    
     catalogoPaquetesEdit();
     generarFolioEdit();
     $.ajax({
@@ -112,6 +112,7 @@ function editarContratos(folio){
         success: function(data) {
             let success = data.success;
             if(success == 1){
+                antenasEdit(data.antena);
                 _('folioLabelContratoEdit').value = data.folio;
                 _('dateContratoEdit').value = data.fecha_contrato;
                 _('nombreCompletoEdit').value = data.nombre;
@@ -214,10 +215,13 @@ function antenas(){
     });
 }
 
-function antenasEdit(){
+function antenasEdit(id){
     $.ajax({
         type: "POST",
-        url: "query/antenas.php",
+        data:{
+            id:id
+        },
+        url: "query/antenasEdit.php",
         dataType: "html",
         success: function(data){
             $('#antenaContratoEdit').html(data);  
