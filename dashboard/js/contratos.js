@@ -101,7 +101,7 @@ function editarContratos(folio){
     $('#modalContratosEdit').modal('show');
     
     catalogoPaquetesEdit();
-    generarFolioEdit();
+    //generarFolioEdit();
     $.ajax({
         url: 'query/query_contratos_editar.php',
         type: 'POST',
@@ -177,8 +177,8 @@ function cambiarFechaEdit() {
     //comunidad();
     //municipio();
     //estado();
-    antenasEdit();
-    catalogoPaquetesEdit();
+    //antenasEdit();
+    //catalogoPaquetesEdit();
     //generarFolio();
 }
 
