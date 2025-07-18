@@ -10,9 +10,17 @@ $sql2 = "SELECT * FROM antenas WHERE id = '$id'";
 $resultado2 = $conn->query($sql2);
 $row2 = $resultado2->fetch_assoc();
 
-echo'
-<option value="'.$row2['id'].'" selected>'.$row2['marca'].' '.$row2['modelo'].' | '.$row2['MAC'].'</option>
-';
+
+if ($id == "" || $id == null){
+
+    $sql2 = "SELECT * FROM antenas WHERE id = '$id'";
+    $resultado2 = $conn->query($sql2);
+    $row2 = $resultado2->fetch_assoc();
+
+    echo'
+    <option value="'.$row2['id'].'">'.$row2['marca'].' '.$row2['modelo'].' | '.$row2['MAC'].'</option>
+    ';
+}
 
 while($row = $resultado->fetch_assoc()){
     echo'

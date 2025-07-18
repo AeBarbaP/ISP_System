@@ -9,7 +9,7 @@ echo'
 ';
 while($row = $resultado->fetch_assoc()){
     echo'
-   <option value="' . $row['id'] . '" data-costo="' . $row['costo'] . '">' . $row['paquetes'] . ' - <span>' . $row['costo'] . '</span></option>
+   <option value="' . $row['id'] . '" data-costo="'. $row['costo'] . '">' . $row['paquetes'] . ' - <span>' . $row['costo'] . '</span></option>
     ';
 }
 
