@@ -80,6 +80,14 @@ $query = "INSERT INTO clientes (
         echo json_encode(array(
             'success'=>1
         ));
+
+        $sqlAntena = "UPDATE antenas SET
+        estatus = 0
+        WHERE
+        id = '$antenaContrato'
+        ";
+        $resultadoAntena = $conn->query($sqlAntena);
+
         // --------- log ---------------
         $sqlLOG = "INSERT INTO log_users(
         username,

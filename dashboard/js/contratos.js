@@ -99,9 +99,9 @@ function cambiarEstatusCont(folio, estatus){
 
 function editarContratos(folio){
     $('#modalContratosEdit').modal('show');
-    antenasEdit();
+    
     catalogoPaquetesEdit();
-    generarFolioEdit();
+    //generarFolioEdit();
     $.ajax({
         url: 'query/query_contratos_editar.php',
         type: 'POST',
@@ -112,6 +112,7 @@ function editarContratos(folio){
         success: function(data) {
             let success = data.success;
             if(success == 1){
+                antenasEdit(data.antena);
                 _('folioLabelContratoEdit').value = data.folio;
                 _('dateContratoEdit').value = data.fecha_contrato;
                 _('nombreCompletoEdit').value = data.nombre;
@@ -176,8 +177,8 @@ function cambiarFechaEdit() {
     //comunidad();
     //municipio();
     //estado();
-    antenasEdit();
-    catalogoPaquetesEdit();
+    //antenasEdit();
+    //catalogoPaquetesEdit();
     //generarFolio();
 }
 
@@ -214,10 +215,13 @@ function antenas(){
     });
 }
 
-function antenasEdit(){
+function antenasEdit(id){
     $.ajax({
         type: "POST",
-        url: "query/antenas.php",
+        data:{
+            id:id
+        },
+        url: "query/antenasEdit.php",
         dataType: "html",
         success: function(data){
             $('#antenaContratoEdit').html(data);  
@@ -312,7 +316,7 @@ function limpiarTabla(){
 }
 
 function guardarEditarContrato() {
-    //let name = _('nombre_buscarContratoEdit').value;
+    let name = _('nombre_buscarContrato').value;
     let folio = _('folioLabelContratoEdit').value;
     let nombre = _('nombreCompletoEdit').value;
     let domicilio = _('domicilioContratoEdit').value;
