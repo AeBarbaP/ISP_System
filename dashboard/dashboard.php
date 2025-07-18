@@ -67,7 +67,7 @@
 						
 					</ul>
 					<div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-						<a class="navbar-brand brand-logo" href="index.html"><img src="../images/logo_conectwi_wide-removebg-preview.png" height="30px" alt="logo"/></a>
+						<a class="navbar-brand brand-logo" href="dashboard.php"><img src="../images/logo_conectwi_wide-removebg-preview.png" height="30px" alt="logo"/></a>
 						<a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
 					</div>
 					<ul class="navbar-nav navbar-nav-right">
@@ -905,7 +905,7 @@
 		<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 			<div class="offcanvas-header">
 				<h5 class="offcanvas-title mb-3" id="offcanvasNavbarLabel">
-					<a class="navbar-brand brand-logo" href="index.html"><img src="../images/logo_conectwi_wide-removebg-preview.png" height="60px" alt="logo"/></a>
+					<a class="navbar-brand brand-logo" href="dashboard.php"><img src="../images/logo_conectwi_wide-removebg-preview.png" height="60px" alt="logo"/></a>
 				</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
