@@ -1,11 +1,11 @@
 <?php
     $servername="localhost";
-    $database="conectwi_conectwi"; //solo se quit贸 para conexi贸n remota
+    $database="conectwi_conectwi";
     $username="conectwi_admin";
     $password="Conect#12345";
 
     //$servername="localhost";
-    //$database="conectwi"; //solo se quitó para conexión remota
+    //$database="conectwi";
     //$username="root";
     //$password="";
 

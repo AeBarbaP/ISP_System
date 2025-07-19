@@ -76,7 +76,7 @@ echo'
 						<div class="col-sm-6">
 							<label for="comprobante" class="form-label">Identificación:</label>
 							<select class="form-select" id="identificacionContratoEdit" aria-label="comprobante" required>
-								<option value="" selected>Selecciona...</option>
+								<option value="">Selecciona...</option>
 								<option value="INE">INE</option>
 								<option value="INAPAM">INAPAM</option>
 								<option value="Licencia">Licencia de Manejo</option>
@@ -86,7 +86,7 @@ echo'
 						<div class="col-sm-6">
 							<label for="comprobanteContratoEdit" class="form-label">Comprobante de Domicilio:</label>
 							<select class="form-select" id="comprobanteContratoEdit" aria-label="Default select example" required>
-								<option value="" selected>Selecciona...</option>
+								<option value="">Selecciona...</option>
 								<option value="luz">Recibo de Luz Eléctrica</option>
 								<option value="agua">Recibo del Agua</option>
 								<option value="cable">Recibo de Servicio de Televisión</option>

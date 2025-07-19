@@ -5,7 +5,7 @@ require('../prcd/conn.php');
 $sql = "SELECT * FROM catalogo_paquetes ORDER BY id ASC";
 $resultado = $conn->query($sql);
 echo'
-<option value="" selected>Selecciona el paquete ...</option>
+<option value="">Selecciona el paquete ...</option>
 ';
 while($row = $resultado->fetch_assoc()){
     echo'
