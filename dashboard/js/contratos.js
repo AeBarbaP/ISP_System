@@ -97,10 +97,10 @@ function cambiarEstatusCont(folio, estatus){
     }
 }
 
+catalogoPaquetesEdit();
 function editarContratos(folio){
     $('#modalContratosEdit').modal('show');
     
-    catalogoPaquetesEdit();
     //generarFolioEdit();
     $.ajax({
         url: 'query/query_contratos_editar.php',
@@ -131,6 +131,7 @@ function editarContratos(folio){
                 _('inputCostoEdit').value = data.cuota;
                 _('siguienteMesInputEdit').value = data.fecha_limite;
                 _('mesMasCincoDiasInputEdit').value = data.fecha_corte;
+                console.log(data.servicio);
             }
             else{
                 console.log(data.error);
@@ -251,6 +252,7 @@ function cuotaMensual(select){
     }
 }
 function cuotaMensualEdit(select){
+    
     // Obtener el option seleccionado
     const selectedOption = select.options[select.selectedIndex];
 
@@ -263,6 +265,7 @@ function cuotaMensualEdit(select){
     // Asignar el costo al input
     if (costo) {
         inputCosto.value = costo;
+        console.log('No valor');
     } else {
         inputCosto.value = ''; // Limpiar el input si no hay costo
     }
