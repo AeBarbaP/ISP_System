@@ -5,6 +5,7 @@ $folio = $_POST['folio'];
 
 $sql = "SELECT * FROM clientes WHERE folio = '$folio'";
 $resultado = $conn->query($sql);
+if($resultado){
 $row = $resultado->fetch_assoc();
 
 echo json_encode(array(
@@ -31,5 +32,14 @@ echo json_encode(array(
     'cuota'=>$row['cuota'],
     'estatus'=>$row['estatus']
 ));
+
+}
+else{
+    $error = $conn->error;
+    echo json_encode(array(
+        'success'=>0,
+        'error'=>$error
+    ));
+}
 
 ?>

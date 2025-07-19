@@ -111,7 +111,7 @@ function editarContratos(folio){
         dataType: 'json',
         success: function(data) {
             let success = data.success;
-            if(success == 1){
+            if(success = 1){
                 antenasEdit(data.antena);
                 _('folioLabelContratoEdit').value = data.folio;
                 _('dateContratoEdit').value = data.fecha_contrato;
@@ -131,6 +131,9 @@ function editarContratos(folio){
                 _('inputCostoEdit').value = data.cuota;
                 _('siguienteMesInputEdit').value = data.fecha_limite;
                 _('mesMasCincoDiasInputEdit').value = data.fecha_corte;
+            }
+            else{
+                console.log(data.error);
             }
         }
     });
