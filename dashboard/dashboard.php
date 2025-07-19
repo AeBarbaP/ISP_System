@@ -645,7 +645,7 @@
 						</div>
 						<div class="col-lg-12 mt-2">
 							<!-- Example single danger button -->
-							<div class="dropdown" style="width: 100%;">
+							<div class="dropdown-center" style="width: 100%;">
 								<!-- <button type="button" class="btn btn-outline-primary text-end"  disabled>Agregar Instalación:</button>
 								<button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
 									<span class="visually-hidden">Toggle Dropdown</span>
@@ -657,9 +657,9 @@
 									<li><hr class="dropdown-divider"></li>
 									<li><a class="dropdown-item" href="#">Separated link</a></li>
 								</ul> -->
-								<button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+								<a type="button" class="btn btn-outline-primary dropdown-toggle w-100" data-bs-toggle="dropdown" aria-expanded="false">
 									Agregar costo de Instalación:
-								</button>
+								</a>
 								<ul class="dropdown-menu" id="instalacionesPagos">
 									
 									<!-- <li><a class="dropdown-item" href="#">Another action</a></li>

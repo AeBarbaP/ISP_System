@@ -65,8 +65,8 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limpiarModal(); limpiarTabla()"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
-                        <a href="#" tagert="_blank" type="button" class="btn btn-primary" id="btnContratosExcel" onclick="reporteContratosExcel()"><i class="bi bi-filetype-pdf me-2" style="font-size: 20px;"></i>Generar Reporte</a>
+                        <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal" onclick="limpiarModal(); limpiarTabla()"><i class="bi bi-x-circle-fill me-2" style="font-size: 20px;"></i> Cerrar</button>
+                        <a href="#" tagert="_blank" type="button" class="btn btn-primary" id="btnContratosExcel" onclick="reporteContratosExcel()"><i class="bi bi-filetype-pdf me-2" style="font-size: 20px;" hidden></i>Generar Reporte</a>
                     </div>
                 </div>
             </div>
