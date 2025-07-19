@@ -2182,6 +2182,10 @@ function altaCorte() {
                 <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio:</label>
                 <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_corte" aria-describedby="basic-addon1" disabled>
               </div>
+              <div class="mb-1">
+                <label for="filtroNombreCortes" class="form-label">Filtro</label>
+                <input type="text" class="form-control" id="filtroNombreCortes" placeholder="Nombre" oninput="filtrarNombreCorte(this.value)">
+              </div>
               <div class="mb-3">
                 <select class="form-select" id="clientes_corte" size="4" aria-label="clientes para corte" onchange=" queryClientesCorteInfo(event);">
                   
@@ -2223,7 +2227,7 @@ function altaCorte() {
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
   // fechaRegistroCorte();
-  queryClientesCorte();
+  // queryClientesCorte();
   generarFolioCorte();
   queryTecnicos_Corte();
 
@@ -2234,12 +2238,26 @@ function altaCorte() {
   limpiarModal();
 }
 
+
 function queryClientesCorte() {
     $.ajax({
         url: 'query/query_clientesCorte.php',
         type: 'POST',
         dataType: 'html',
         success: function(data) {
+            $('#clientes_corte').html(data);
+            // $('#clientesCorte').selectpicker('refresh');
+        }
+    });
+}
+function filtrarNombreCorte(texto) {
+    $.ajax({
+        url: 'query/query_filtro_clientesCorte.php',
+        type: 'POST',
+        data:{texto: texto},
+        dataType: 'html',
+        success: function(data) {
+            _('clientes_corte').value = "";
             $('#clientes_corte').html(data);
             // $('#clientesCorte').selectpicker('refresh');
         }

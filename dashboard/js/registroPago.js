@@ -332,6 +332,8 @@ function guardarRecibo() {
                             $('#pago').modal('hide');
                             queryDashboard1(pagina = 1);
                             limpiarModal();
+                            document.getElementById("datoscliente").hidden = true;
+
                         }
                         else{
                             alert("No se guardó");
