@@ -13,6 +13,12 @@ $row2 = $resultado2->fetch_assoc();
 
 if ($id == "" || $id == null){
 
+echo'
+    <option value="">Selecciona...</option>
+    ';
+
+}
+else {
     $sql2 = "SELECT * FROM antenas WHERE id = '$id'";
     $resultado2 = $conn->query($sql2);
     $row2 = $resultado2->fetch_assoc();
