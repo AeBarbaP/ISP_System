@@ -5,7 +5,7 @@ if (!is_null($_POST['folio'])){
 
 // Obtener el folio del cliente
 $folioCliente = $_POST['folio'];
-$recargo = '15.00'; // Valor del recargo
+$recargo = '50.00'; // Valor del recargo
 
 // Array para almacenar los meses adeudados
 $adeudos = array();
