@@ -35,12 +35,21 @@ function contratoNew() {
     inputSiguienteMes.value = siguienteMesFormateado;
     inputMesMasCincoDias.value = mesMasCincoDiasFormateado;
 
-    comunidad();
-    municipio();
-    estado();
+    document.getElementById("antenaContrato").addEventListener('keyup', function() { 
+      // remove non digits, break it into chunks of 2 and join with a colon
+      this.value = 
+        (this.value.toUpperCase()
+        .replace(/[^\d|A-Z]/g, '')
+        .match(/.{1,2}/g) || [])
+        .join(".")
+    });
+
+    //comunidad();
+    //municipio();
+    //estado();
     catalogoPaquetes();
     generarFolio();
-    antenas();
+    //antenas();
 }
 function cambiarFecha() {
 
@@ -119,6 +128,8 @@ function ultimoAcceso(id){
         }
     });
 }
+
+
 
 /* function antenas(){
     $.ajax({

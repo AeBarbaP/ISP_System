@@ -527,8 +527,10 @@
                     </div>
 					
 					<div class="col-sm-4">
-                        <label for="colonia" class="form-label">Asignar antena:</label>
-                        <select class="form-select" name="" id="antenaContrato"></select>
+                        <label for="antena" class="form-label">MAC antena asignada:</label>
+						<div class="input-group input-group-sm mb-3">
+                        	<input type="text" class="form-control" name="antena" id="antenaContrato">
+						</div>
                     </div>
 					<div class="col-sm-4">
 						<label for="ipAddress" class="form-label">IP asignada:</label>

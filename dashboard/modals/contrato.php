@@ -68,6 +68,7 @@ echo '
                                 <option selected>Selecciona...</option>
                                 <option value="INE">INE</option>
                                 <option value="INAPAM">INAPAM</option>
+                                <option value="Pasaporte">Pasaporte</option>
                                 <option value="Licencia">Licencia de Manejo</option>
                             </select>
                         </div>
