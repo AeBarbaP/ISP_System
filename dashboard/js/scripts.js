@@ -279,6 +279,7 @@ function guardarContrato(){
             var success = datos.success;
     
             if(success == 1){
+                alert('Contrato guardado');
                 $('#contrato').modal('hide');
                 limpiarModal();
                 //$('#contrato').modal('reset');
