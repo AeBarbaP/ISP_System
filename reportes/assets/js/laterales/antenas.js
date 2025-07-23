@@ -59,8 +59,6 @@ function altaAntena() {
     // Mostrar el modal usando Bootstrap's JavaScript API
     const bootstrapModal = new bootstrap.Modal(modal);
     bootstrapModal.show();
-    fechaRegistroAntena();
-
     _antenas("macAdd_antena").addEventListener('keyup', function() { 
       // remove non digits, break it into chunks of 2 and join with a colon
       this.value = 
@@ -69,6 +67,8 @@ function altaAntena() {
         .match(/.{1,2}/g) || [])
         .join(".")
     });
+    fechaRegistroAntena();
+
   
     // Eliminar el modal del DOM cuando se cierre
     modal.addEventListener('hidden.bs.modal', () => {
@@ -161,8 +161,6 @@ function altaAntena() {
     // Mostrar el modal usando Bootstrap's JavaScript API
     const bootstrapModal = new bootstrap.Modal(modal);
     bootstrapModal.show();
-    
-    datosAntena(id);
     _antenas("macAdd_antenaEditar").addEventListener('keyup', function() { 
       // remove non digits, break it into chunks of 2 and join with a colon
       this.value = 
@@ -171,6 +169,8 @@ function altaAntena() {
         .match(/.{1,2}/g) || [])
         .join(".")
     });
+    
+    datosAntena(id);
   
     // Eliminar el modal del DOM cuando se cierre
     modal.addEventListener('hidden.bs.modal', () => {

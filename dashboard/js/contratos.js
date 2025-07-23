@@ -100,7 +100,6 @@ function cambiarEstatusCont(folio, estatus){
 catalogoPaquetesEdit();
 function editarContratos(folio){
     $('#modalContratosEdit').modal('show');
-    
     //generarFolioEdit();
     $.ajax({
         url: 'query/query_contratos_editar.php',
@@ -112,7 +111,7 @@ function editarContratos(folio){
         success: function(data) {
             let success = data.success;
             if(success = 1){
-                antenasEdit(data.antena);
+                //antenasEdit(data.antena);
                 _('folioLabelContratoEdit').value = data.folio;
                 _('dateContratoEdit').value = data.fecha_contrato;
                 _('nombreCompletoEdit').value = data.nombre;

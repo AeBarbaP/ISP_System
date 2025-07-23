@@ -79,6 +79,7 @@ echo'
 								<option value="">Selecciona...</option>
 								<option value="INE">INE</option>
 								<option value="INAPAM">INAPAM</option>
+								<option value="Pasaporte">Pasaporte</option>
 								<option value="Licencia">Licencia de Manejo</option>
 							</select>
 						</div>
@@ -102,7 +103,9 @@ echo'
 						
 						<div class="col-sm-4">
 							<label for="antenaContratoEdit" class="form-label">Asignar antena:</label>
-							<select class="form-select" name="" id="antenaContratoEdit"></select>
+							<div class="input-group input-group-sm mb-3">
+								<input type="text" class="form-control" name="antena" id="antenaContratoEdit">
+							</div>
 						</div>
 						<div class="col-sm-4">
 							<label for="ipAddressContratoEdit" class="form-label">IP asignada:</label>

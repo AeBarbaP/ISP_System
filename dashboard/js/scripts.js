@@ -244,7 +244,7 @@ function guardarContrato(){
     let siguienteMesInput = _("siguienteMesInput").value;
     let mesMasCincoDiasInput = _("mesMasCincoDiasInput").value;
 
-    if(fechaContrato == "" || folio == "" || nombreCompleto == "" || domicilioContrato == "" || catalogoComunidades == "" || catalogoMunicipios == "" || catalogoEstados == "" || cpContrato == "" || telefonoContrato == "" || referenciasContrato == "" || identificacionContrato == "" || comprobanteContrato == "" || catalogoPaquetes == "" || antenaContrato == "" || ipAddressContrato == "" || inputCosto == "" || siguienteMesInput == "" || mesMasCincoDiasInput == ""){
+    if(fechaContrato == "" || folio == "" || nombreCompleto == "" || domicilioContrato == "" || catalogoComunidades == "" || catalogoMunicipios == "" || catalogoEstados == "" || catalogoPaquetes == "" || ipAddressContrato == "" || inputCosto == "" || siguienteMesInput == "" || mesMasCincoDiasInput == ""){
         alert("Falta llenar campos del contrato");
         return;
     }
