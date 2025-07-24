@@ -26,6 +26,7 @@ $comprobanteContrato = $_POST['comprobanteContrato'];
 $catalogoPaquetes = $_POST['catalogoPaquetes'];
 $antenaContrato = $_POST['antenaContrato'];
 $ipAddressContrato = $_POST['ipAddressContrato'];
+$ipAP = $_POST['ipAP'];
 $inputCosto = $_POST['inputCosto'];
 $siguienteMesInput = $_POST['siguienteMesInput'];
 $mesMasCincoDiasInput = $_POST['mesMasCincoDiasInput'];
@@ -47,6 +48,7 @@ $query = "INSERT INTO clientes (
         servicio,
         antena,
         direccionip,
+        direccion_ip_ap,
         fecha_contrato,
         fecha_limite,
         fecha_corte,
@@ -67,6 +69,7 @@ $query = "INSERT INTO clientes (
         '$catalogoPaquetes',
         '$antenaContrato',
         '$ipAddressContrato',
+        '$ipAP',
         '$fechaActual',
         '$siguienteMesInput',
         '$mesMasCincoDiasInput',

@@ -538,6 +538,12 @@
                         	<input type="text" class="form-control" id="ipAddressContrato" name="ipAddress" placeholder="">
 						</div>
                     </div>
+					<div class="col-sm-4">
+						<label for="ipAP" class="form-label">IP Access Point (AP):</label>
+						<div class="input-group input-group-sm mb-3">
+                        	<input type="text" class="form-control" id="ipAP" name="ipAP" placeholder="">
+						</div>
+                    </div>
 					<div class="col-lg-12">
 						<h2>Cuota Mensual</h2>
 					</div>

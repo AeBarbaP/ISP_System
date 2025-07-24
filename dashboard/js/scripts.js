@@ -239,6 +239,7 @@ function guardarContrato(){
     let catalogoPaquetes = _("catalogoPaquetes").value;
     let antenaContrato = _("antenaContrato").value;
     let ipAddressContrato = _("ipAddressContrato").value;
+    let ipAP = _("ipAP").value;
     let inputCosto = _("inputCosto").value;
     let siguienteMesInput = _("siguienteMesInput").value;
     let mesMasCincoDiasInput = _("mesMasCincoDiasInput").value;
@@ -267,6 +268,7 @@ function guardarContrato(){
             catalogoPaquetes:catalogoPaquetes,
             antenaContrato:antenaContrato,
             ipAddressContrato:ipAddressContrato,
+            ipAP: ipAP,
             inputCosto:inputCosto,
             siguienteMesInput:siguienteMesInput,
             mesMasCincoDiasInput:mesMasCincoDiasInput
