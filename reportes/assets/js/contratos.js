@@ -100,6 +100,13 @@ function cambiarEstatusCont(folio, estatus){
 catalogoPaquetesEdit();
 function editarContratos(folio){
     $('#modalContratosEdit').modal('show');
+    document.getElementById("antenaContratoEdit").addEventListener('keyup', function() { 
+      this.value = 
+        (this.value.toUpperCase()
+        .replace(/[^\d|A-Z]/g, '')
+        .match(/.{1,2}/g) || [])
+        .join(".")
+    });
     
     $.ajax({
         url: 'query/query_contratos_editar.php',
