@@ -36,7 +36,6 @@ function contratoNew() {
     inputMesMasCincoDias.value = mesMasCincoDiasFormateado;
 
     document.getElementById("antenaContrato").addEventListener('keyup', function() { 
-      // remove non digits, break it into chunks of 2 and join with a colon
       this.value = 
         (this.value.toUpperCase()
         .replace(/[^\d|A-Z]/g, '')

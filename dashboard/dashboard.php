@@ -513,8 +513,8 @@
 						<label for="comprobante" class="form-label">Comprobante de Domicilio:</label>
 						<select class="form-select" id="comprobanteContrato" aria-label="Default select example" required>
 							<option selected>Selecciona...</option>
-							<option value="Luz">Recibo de Luz Eléctrica</option>
 							<option value="Agua">Recibo del Agua</option>
+							<option value="Luz">Recibo de Luz Eléctrica</option>
 							<option value="Telefono">Teléfono fijo</option>
 							<option value="Cable">Recibo de Servicio de Televisión</option>
 						</select>
