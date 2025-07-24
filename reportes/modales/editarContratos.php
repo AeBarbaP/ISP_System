@@ -5,7 +5,7 @@ echo'
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-pencil-square"></i> **Editar contrato</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-pencil-square"></i> Editar contrato</h1>
                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="limpiarModal()" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -86,7 +86,7 @@ echo'
 						<div class="col-sm-6">
 							<label for="comprobante" class="form-label">Comprobante de Domicilio:</label>
 							<select class="form-select" id="comprobanteContratoEdit" aria-label="Default select example" required>
-								<option value=""     selected>Selecciona...</option>
+								<option value="" selected>Selecciona...</option>
 								<option value="Luz">Recibo de Luz Eléctrica</option>
 								<option value="Agua">Recibo del Agua</option>
 								<option value="Cable">Recibo de Servicio de Televisión</option>
@@ -102,7 +102,10 @@ echo'
 						
 						<div class="col-sm-4">
 							<label for="colonia" class="form-label">Asignar antena:</label>
-							<select class="form-select" name="" id="antenaContratoEdit"></select>
+							<div class="input-group input-group-sm mb-3">
+								<input type="text" class="form-control" name="antena" id="antenaContratoEdit">
+							</div>
+
 						</div>
 						<div class="col-sm-4">
 							<label for="ipAddress" class="form-label">IP asignada:</label>
