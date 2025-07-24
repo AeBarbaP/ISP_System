@@ -17,6 +17,7 @@ $id = $_REQUEST['id'];
 $row = $conn->query("SELECT * FROM clientes WHERE folio = '$id'")->fetch_assoc();
 
 $fechaContrato = new DateTime($row['fecha_contrato']);
+$fechaLimite = new DateTime($row['fecha_limite']);
 
 $nombre = $row['nombre'];
 $domicilio = $row['domicilio'];
@@ -37,18 +38,21 @@ $estado = $row['estado'];
 $direccionip = $row['direccionip'];
 $antena = $row['antena'];
 $fecha_contrato = $row['fecha_contrato'];
+$fecha_limite = $row['fecha_limite'];
 $servicio = $row['servicio'];
 // $mes = $inicio->format('m');
 $dia_pago = $fechaContrato->format('d');
+$dia_pago2 = $fechaLimite->format('d');
 // $mes_pago = $fechaContrato->format('m');
 $mes_pago = $meses[(int)$fechaContrato->format('m')];
-$mensualidad = '350';
-$meses_pagados = '1';
+//$mensualidad = '350';
+$meses_pagados = '';
 
 $servicio1 = $row['servicio'];
 $rowServicio = $conn->query("SELECT * FROM catalogo_paquetes WHERE id = '$servicio1'")->fetch_assoc();
 $servicio = $rowServicio['paquetes'];
 $servicioV = $rowServicio['velocidad'];
+$mensualidad = $rowServicio['costo'];
 
 class PDF extends FPDF {
     function Header() {
@@ -131,7 +135,7 @@ $pdf->Cell(28,6,utf8_decode(' $ '.$mensualidad),'B',0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
 $pdf->Cell(25,6,utf8_decode('Días de Pago: '),0,0,'L');
 $pdf->Cell(1,6,utf8_decode(''),0,0,'C');
-$pdf->Cell(33,6,utf8_decode(''.$dia_pago.' del mes'),'B',0,'L');
+$pdf->Cell(33,6,utf8_decode(''.$dia_pago2.' del mes'),'B',0,'L');
 $pdf->Ln();
 $pdf->SetFont('Arial','B',10);
 $pdf->Cell(33,6,utf8_decode('Mes(es) Pagados:'),0,0,'L');

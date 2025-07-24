@@ -137,7 +137,7 @@ echo'
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal()">Cancelar</button>
                     <button type="button" class="btn btn-primary" id="guardarbtn" onclick="guardarEditarContrato()" >Editar</button> <!-- Guarda registro de cliente nuevo y manda a modal de pago automáticamente -->
-                    <button type="button" class="btn btn-success" id="imprimircbtn" onclick="contratoNuevo()">Imprimir Contrato</button>
+                    <button type="button" class="btn btn-success" id="imprimircbtn" onclick="contratoNuevo2()">Imprimir Contrato</button>
                 </div>
             </div>
         </div>

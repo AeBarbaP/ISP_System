@@ -316,6 +316,11 @@ function contratoNuevo() {
     const url = `prcd/contrato.php?id=${encodeURIComponent(id)}`;
     window.open(url, '_blank'); // '_blank' abre en nueva pestaña
 }
+function contratoNuevo2() {
+    var id = document.getElementById('folioLabelContratoEdit').value;
+    const url = `prcd/contrato.php?id=${encodeURIComponent(id)}`;
+    window.open(url, '_blank'); // '_blank' abre en nueva pestaña
+}
 
 
 function mostrarPwd1(){

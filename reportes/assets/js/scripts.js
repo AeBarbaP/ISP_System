@@ -126,3 +126,9 @@ function limpiarModal(){
         $(this).find('form').trigger('reset');
     });
 }
+
+function contratoNuevo() {
+    var id = document.getElementById('folioLabelContratoEdit').value;
+    const url = `../dashboard/prcd/contrato.php?id=${encodeURIComponent(id)}`;
+    window.open(url, '_blank'); // '_blank' abre en nueva pestaña
+}
