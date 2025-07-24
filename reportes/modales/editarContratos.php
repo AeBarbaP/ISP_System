@@ -86,7 +86,7 @@ echo'
 						<div class="col-sm-6">
 							<label for="comprobante" class="form-label">Comprobante de Domicilio:</label>
 							<select class="form-select" id="comprobanteContratoEdit" aria-label="Default select example" required>
-								<option value=""     >Selecciona...</option>
+								<option value=""     selected>Selecciona...</option>
 								<option value="Luz">Recibo de Luz Eléctrica</option>
 								<option value="Agua">Recibo del Agua</option>
 								<option value="Cable">Recibo de Servicio de Televisión</option>
