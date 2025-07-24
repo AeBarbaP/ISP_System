@@ -102,7 +102,7 @@ echo'
 						</div>
 						
 						<div class="col-sm-4">
-							<label for="antenaContratoEdit" class="form-label">Asignar antena:</label>
+							<label for="antenaContratoEdit" class="form-label">MAC Antena asignada:</label>
 							<div class="input-group input-group-sm mb-3">
 								<input type="text" class="form-control" name="antena" id="antenaContratoEdit">
 							</div>
