@@ -25,6 +25,7 @@ echo json_encode(array(
     'servicio'=>$row['servicio'],
     'antena'=>$row['antena'],
     'direccionip'=>$row['direccionip'],
+    'direccion_ip_ap'=>$row['direccion_ip_ap'],
     'fecha_contrato'=>$row['fecha_contrato'],
     'fecha_limite'=>$row['fecha_limite'],
     'fecha_corte'=>$row['fecha_corte'],

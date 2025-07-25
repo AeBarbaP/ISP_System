@@ -134,6 +134,7 @@ function editarContratos(folio){
                 _('catalogoPaquetesEdit').value = data.servicio;
                 _('antenaContratoEdit').value = data.antena;
                 _('ipAddressContratoEdit').value = data.direccionip;
+                _('ipAPEdit').value = data.direccion_ip_ap;
                 _('inputCostoEdit').value = data.cuota;
                 _('siguienteMesInputEdit').value = data.fecha_limite;
                 _('mesMasCincoDiasInputEdit').value = data.fecha_corte;
@@ -274,6 +275,7 @@ function guardarEditarContrato() {
     let paquete = _('catalogoPaquetesEdit').value;
     let antena = _('antenaContratoEdit').value;
     let ip = _('ipAddressContratoEdit').value;
+    let ipAP = _('ipAPEdit').value;
     let fechaContrato = _('dateContratoEdit').value;
     let fechaLimite = _('siguienteMesInputEdit').value;
     let fechaCorte =  _('mesMasCincoDiasInputEdit').value;
@@ -297,6 +299,7 @@ function guardarEditarContrato() {
             paquete: paquete,
             antena: antena,
             ip: ip,
+            ipAP: ipAP,
             fechaContrato: fechaContrato,
             fechaLimite: fechaLimite,
             fechaCorte: fechaCorte,

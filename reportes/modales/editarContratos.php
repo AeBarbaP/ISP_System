@@ -112,6 +112,12 @@ echo'
 								<input type="text" class="form-control" id="ipAddressContratoEdit" name="ipAddress" placeholder="">
 							</div>
 						</div>
+						<div class="col-sm-4">
+							<label for="ipAPEdit" class="form-label">IP Access Point (AP):</label>
+							<div class="input-group input-group-sm mb-3">
+								<input type="text" class="form-control" id="ipAPEdit" name="ipAPEdit" placeholder="">
+							</div>
+						</div>
 						<div class="col-lg-12">
 							<h2>Cuota Mensual</h2>
 						</div>
