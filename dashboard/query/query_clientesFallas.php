@@ -1,21 +1,29 @@
 <?php
     require('../../dashboard/prcd/conn.php');
 
-    $sql = "SELECT * FROM clientes ORDER BY id DESC";
-    $resultado = $conn->query($sql);
-    $x = 0;
-    while($row = $resultado->fetch_assoc()){
-        $x++;
-        $nombre = $row['nombre'];
-        $folio = $row['folio'];
-        $servicio = $row['servicio'];
-        $id = $row['id'];
-        $comunidad = $row['comunidad'];
+    $id = $_POST['texto'];
 
-    
-        echo'
-            <option value="'.$folio.'">'.$nombre.' | '.$comunidad.'</option>
-        ';
+    if ($id == ""){ 
+        echo '<option value="" >Escribe en el filtro para buscar el cliente ...</option>';
+    }
+    else{
+
+        $sql = "SELECT * FROM clientes WHERE nombre LIKE '%$id%'";
+        $resultado = $conn->query($sql);
+        $x = 0;
+        while($row = $resultado->fetch_assoc()){
+            $x++;
+            $nombre = $row['nombre'];
+            $folio = $row['folio'];
+            $servicio = $row['servicio'];
+            $id = $row['id'];
+            $comunidad = $row['comunidad'];
+
+        
+            echo'
+                <option value="'.$folio.'">'.$nombre.' | '.$comunidad.'</option>
+            ';
+        }
     }
     
 ?>

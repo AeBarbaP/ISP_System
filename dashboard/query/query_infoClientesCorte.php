@@ -16,9 +16,9 @@
         $comunidad = $comunidad1;
     }
 
-    if ($row1 && (is_null($row['domicilio']) || $row['domicilio'] == "")) {
+    if ($row && (is_null($row['domicilio']) || $row['domicilio'] == "")) {
     $domicilio = "Sin datos";
-    } else if ($row1) {
+    } else if ($row) {
         $domicilio = $row['domicilio'];
     } else {
         $domicilio = "Sin datos";

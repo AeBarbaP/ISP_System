@@ -16,10 +16,11 @@ function consultaContratosRep() {
     });
 }
 
-function consultaClientesRep() {
+function consultaClientesRep(texto) {
     $.ajax({
         url: 'query/query_clientesRep.php',
         type: 'POST',
+        data:{texto:texto},
         dataType: 'html',
         success: function(data) {
             $('#cliente_reporte_individual').html(data);

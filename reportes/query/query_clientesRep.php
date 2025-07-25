@@ -1,32 +1,34 @@
 <?php
     require('../../dashboard/prcd/conn.php');
 
-    $sql = "SELECT * FROM clientes ORDER BY id DESC";
-    $resultado = $conn->query($sql);
-    $x = 0;
-    while($row = $resultado->fetch_assoc()){
-        $x++;
-        $nombre = $row['nombre'];
-        $folio = $row['folio'];
-        $servicio = $row['servicio'];
-        $id = $row['id'];
-        $comunidad1 = $row['comunidad'];
+    $id = $_POST['texto'];
 
-        if ($comunidad1 == 0) {
-            $comunidad = 'Sin comunidad';
-        } else {
-            $comunidad = $comunidad1;
+    if ($id == ""){ 
+        echo '<option value="" >Escribe en el filtro para buscar el cliente ...</option>';
+    }
+    else{
+
+        $sql = "SELECT * FROM clientes WHERE nombre LIKE '%$id%'";
+        $resultado = $conn->query($sql);
+        $x = 0;
+        while($row = $resultado->fetch_assoc()){
+            $x++;
+            $nombre = $row['nombre'];
+            $folio = $row['folio'];
+            $servicio = $row['servicio'];
+            $id = $row['id'];
+            $comunidad1 = $row['comunidad'];
+
+            if ($comunidad1 == 0) {
+                $comunidad = 'Sin comunidad';
+            } else {
+                $comunidad = $comunidad1;
+            }
+        
+            echo'
+                <option value="'.$folio.'">'.$nombre.' | '.$comunidad.'</option>
+            ';
         }
-
-        /* $sql1 = "SELECT * FROM catalogo_comunidades WHERE id = '$comunidad1'";
-        $resultado1 = $conn->query($sql1);
-        $row1 = $resultado1->fetch_assoc(); */
-
-        /* $comunidad = $row['comunidad']; */
-    
-        echo'
-            <option value="'.$folio.'">'.$nombre.' | '.$comunidad.'</option>
-        ';
     }
     
 ?>

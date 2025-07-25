@@ -12,7 +12,7 @@
                         <input name="id" id="idHidden" value="" hidden>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-search" style="font-size: 20px;"></i></span>
-                            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar" aria-describedby="basic-addon1" name="nombre" oninput="queryClientes2(this.value)" required>
+                            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar" aria-describedby="basic-addon1" name="nombre" oninput="consultaClientesRep(this.value)" required>
                         </div>
                         <div class="mb-3">
                             <select class="form-select" id="cliente_reporte_individual" size="4" aria-label="numero de cliente" onchange="datosClienteRepIN(this.value)">

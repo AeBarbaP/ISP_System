@@ -1252,7 +1252,7 @@ function altaIncidencia() {
               <div class="mb-3">
                 <div class="input-group" id="nombresearch">
                   <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                  <input class="form-control" id="buscanombre" oninput="queryClientes1(this.value)">
+                  <input class="form-control" id="buscanombre" oninput="consultaClientesFallas(this.value)">
                 </div>
                 <select class="form-select" size="4" aria-label="clientes" id="nombresClientesIncidencia">
                   <option selected>Selecciona...</option>
@@ -1298,7 +1298,7 @@ function altaIncidencia() {
   bootstrapModal.show();
   fechaRegistroIncidencia();
   generarFolioIncidencia();
-  consultaClientesFallas();
+  // consultaClientesFallas();
   queryTecnicos_Falla()
 
   // Eliminar el modal del DOM cuando se cierre
@@ -1402,10 +1402,11 @@ function guardarIncidencia() {
     });
 }
 
-function consultaClientesFallas() {
+function consultaClientesFallas(texto) {
   $.ajax({
       url: 'query/query_clientesFallas.php',
       type: 'POST',
+      data:{texto:texto},
       dataType: 'html',
       success: function(data) {
           $('#nombresClientesIncidencia').html(data);
@@ -2182,6 +2183,7 @@ function altaCorte() {
                 <label class="form-label" id="basic-addon1"><i class="bi bi-hash me-2"></i>Folio:</label>
                 <input type="text" class="form-control" placeholder="" aria-label="Folio" id="folio_corte" aria-describedby="basic-addon1" disabled>
               </div>
+
               <div class="mb-1">
                 <label for="filtroNombreCortes" class="form-label">Filtro</label>
                 <input type="text" class="form-control" id="filtroNombreCortes" placeholder="Nombre" oninput="filtrarNombreCorte(this.value)">
@@ -2191,6 +2193,7 @@ function altaCorte() {
                   
                 </select>
               </div>
+
               <div class="alert alert-info mb-3" id="datosDomicilioInfo" role="alert">
                 <p>Cliente: <span id="nombreClienteCorte"></span><br>
                 Domicilio: <span id="domicilioClienteCorte"></span><br>							
