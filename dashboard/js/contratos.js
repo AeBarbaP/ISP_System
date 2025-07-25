@@ -136,6 +136,7 @@ function editarContratos(folio){
                 _('catalogoPaquetesEdit').value = data.servicio;
                 _('antenaContratoEdit').value = data.antena;
                 _('ipAddressContratoEdit').value = data.direccionip;
+                _('ipAPEdit').value = data.direccion_ip_ap;
                 _('inputCostoEdit').value = data.cuota;
                 _('siguienteMesInputEdit').value = data.fecha_limite;
                 _('mesMasCincoDiasInputEdit').value = data.fecha_corte;
@@ -329,6 +330,78 @@ function limpiarTabla(){
     _('tablaContratosGRep').innerHTML = "";
 }
 
+function guardarContrato(){ 
+    //Falta el folio
+    let fechaContrato = _("dateContratoNew").value;
+    let folio = _("folioLabelContrato").value;
+    let nombreCompleto = _("nombreCompleto").value;
+    let domicilioContrato = _("domicilioContrato").value;
+    let catalogoComunidades = _("catalogoComunidades").value;
+    let catalogoMunicipios = _("catalogoMunicipios").value;
+    let catalogoEstados = _("catalogoEstados").value;
+    let cpContrato = _("cpContrato").value;
+    let telefonoContrato = _("telefonoContrato").value;
+    let referenciasContrato = _("referenciasContrato").value;
+    let identificacionContrato = _("identificacionContrato").value;
+    let comprobanteContrato = _("comprobanteContrato").value;
+    let catalogoPaquetes = _("catalogoPaquetes").value;
+    let antenaContrato = _("antenaContrato").value;
+    let ipAddressContrato = _("ipAddressContrato").value;
+    let ipAP = _("ipAP").value;
+    let inputCosto = _("inputCosto").value;
+    let siguienteMesInput = _("siguienteMesInput").value;
+    let mesMasCincoDiasInput = _("mesMasCincoDiasInput").value;
+
+    if(fechaContrato == "" || folio == "" || nombreCompleto == "" || domicilioContrato == "" || catalogoComunidades == "" || catalogoMunicipios == "" || catalogoEstados == "" || catalogoPaquetes == "" || ipAddressContrato == "" || inputCosto == "" || siguienteMesInput == "" || mesMasCincoDiasInput == ""){
+        alert("Falta llenar campos del contrato");
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "prcd/guardarContrato.php",
+        data:{
+            fechaContrato:fechaContrato,
+            folio: folio,
+            nombreCompleto:nombreCompleto,
+            domicilioContrato:domicilioContrato,
+            catalogoComunidades:catalogoComunidades,
+            catalogoMunicipios:catalogoMunicipios,
+            catalogoEstados:catalogoEstados,
+            cpContrato:cpContrato,
+            telefonoContrato:telefonoContrato,
+            referenciasContrato:referenciasContrato,
+            identificacionContrato:identificacionContrato,
+            comprobanteContrato:comprobanteContrato,
+            catalogoPaquetes:catalogoPaquetes,
+            antenaContrato:antenaContrato,
+            ipAddressContrato:ipAddressContrato,
+            ipAP: ipAP,
+            inputCosto:inputCosto,
+            siguienteMesInput:siguienteMesInput,
+            mesMasCincoDiasInput:mesMasCincoDiasInput
+        },
+        dataType: "json",
+        success: function(data){
+            var datos = JSON.parse(JSON.stringify(data));
+    
+            var success = datos.success;
+    
+            if(success == 1){
+                alert('Contrato guardado');
+                $('#contrato').modal('hide');
+                limpiarModal();
+                //$('#contrato').modal('reset');
+                // limpiarCampos2();
+            }
+            else{
+                alert("No se guardó");
+                console.log(datos.error)
+            }
+        }
+    });
+}
+
 function guardarEditarContrato() {
     let name = _('nombre_buscarContrato').value;
     let folio = _('folioLabelContratoEdit').value;
@@ -345,6 +418,7 @@ function guardarEditarContrato() {
     let paquete = _('catalogoPaquetesEdit').value;
     let antena = _('antenaContratoEdit').value;
     let ip = _('ipAddressContratoEdit').value;
+    let ipAP = _("ipAPEdit").value;
     let fechaContrato = _('dateContratoEdit').value;
     let fechaLimite = _('siguienteMesInputEdit').value;
     let fechaCorte =  _('mesMasCincoDiasInputEdit').value;
@@ -368,6 +442,7 @@ function guardarEditarContrato() {
             paquete: paquete,
             antena: antena,
             ip: ip,
+            ipAP: ipAP,
             fechaContrato: fechaContrato,
             fechaLimite: fechaLimite,
             fechaCorte: fechaCorte,

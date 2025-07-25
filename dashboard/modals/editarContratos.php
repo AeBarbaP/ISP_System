@@ -88,10 +88,10 @@ echo'
 							<label for="comprobanteContratoEdit" class="form-label">Comprobante de Domicilio:</label>
 							<select class="form-select" id="comprobanteContratoEdit" aria-label="Default select example" required>
 								<option value="">Selecciona...</option>
-								<option value="agua">Recibo del Agua</option>
-								<option value="luz">Recibo de Luz Eléctrica</option>
-								<option value="telefono">Teléfono fijo</option>
-								<option value="cable">Recibo de Servicio de Televisión</option>
+								<option value="Agua">Recibo del Agua</option>
+								<option value="Luz">Recibo de Luz Eléctrica</option>
+								<option value="Telefono">Teléfono fijo</option>
+								<option value="Cable">Recibo de Servicio de Televisión</option>
 							</select>
 						</div>
 					
@@ -111,6 +111,12 @@ echo'
 							<label for="ipAddressContratoEdit" class="form-label">IP asignada:</label>
 							<div class="input-group input-group-sm mb-3">
 								<input type="text" class="form-control" id="ipAddressContratoEdit" name="ipAddress" placeholder="">
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<label for="ipAPEdit" class="form-label">IP Access Point (AP):</label>
+							<div class="input-group input-group-sm mb-3">
+								<input type="text" class="form-control" id="ipAPEdit" name="ipAPEdit" placeholder="">
 							</div>
 						</div>
 						<div class="col-lg-12">

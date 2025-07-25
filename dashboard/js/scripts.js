@@ -222,77 +222,7 @@ function cuotaMensual(select){
 function _(el){
     return document.getElementById(el);
 }
-function guardarContrato(){ 
-    //Falta el folio
-    let fechaContrato = _("dateContratoNew").value;
-    let folio = _("folioLabelContrato").value;
-    let nombreCompleto = _("nombreCompleto").value;
-    let domicilioContrato = _("domicilioContrato").value;
-    let catalogoComunidades = _("catalogoComunidades").value;
-    let catalogoMunicipios = _("catalogoMunicipios").value;
-    let catalogoEstados = _("catalogoEstados").value;
-    let cpContrato = _("cpContrato").value;
-    let telefonoContrato = _("telefonoContrato").value;
-    let referenciasContrato = _("referenciasContrato").value;
-    let identificacionContrato = _("identificacionContrato").value;
-    let comprobanteContrato = _("comprobanteContrato").value;
-    let catalogoPaquetes = _("catalogoPaquetes").value;
-    let antenaContrato = _("antenaContrato").value;
-    let ipAddressContrato = _("ipAddressContrato").value;
-    let ipAP = _("ipAP").value;
-    let inputCosto = _("inputCosto").value;
-    let siguienteMesInput = _("siguienteMesInput").value;
-    let mesMasCincoDiasInput = _("mesMasCincoDiasInput").value;
 
-    if(fechaContrato == "" || folio == "" || nombreCompleto == "" || domicilioContrato == "" || catalogoComunidades == "" || catalogoMunicipios == "" || catalogoEstados == "" || catalogoPaquetes == "" || ipAddressContrato == "" || inputCosto == "" || siguienteMesInput == "" || mesMasCincoDiasInput == ""){
-        alert("Falta llenar campos del contrato");
-        return;
-    }
-
-    $.ajax({
-        type: "POST",
-        url: "prcd/guardarContrato.php",
-        data:{
-            fechaContrato:fechaContrato,
-            folio: folio,
-            nombreCompleto:nombreCompleto,
-            domicilioContrato:domicilioContrato,
-            catalogoComunidades:catalogoComunidades,
-            catalogoMunicipios:catalogoMunicipios,
-            catalogoEstados:catalogoEstados,
-            cpContrato:cpContrato,
-            telefonoContrato:telefonoContrato,
-            referenciasContrato:referenciasContrato,
-            identificacionContrato:identificacionContrato,
-            comprobanteContrato:comprobanteContrato,
-            catalogoPaquetes:catalogoPaquetes,
-            antenaContrato:antenaContrato,
-            ipAddressContrato:ipAddressContrato,
-            ipAP: ipAP,
-            inputCosto:inputCosto,
-            siguienteMesInput:siguienteMesInput,
-            mesMasCincoDiasInput:mesMasCincoDiasInput
-        },
-        dataType: "json",
-        success: function(data){
-            var datos = JSON.parse(JSON.stringify(data));
-    
-            var success = datos.success;
-    
-            if(success == 1){
-                alert('Contrato guardado');
-                $('#contrato').modal('hide');
-                limpiarModal();
-                //$('#contrato').modal('reset');
-                // limpiarCampos2();
-            }
-            else{
-                alert("No se guardó");
-                console.log(datos.error)
-            }
-        }
-    });
-}
 
 function limpiarModal(){
     $(".modal").on('hidden.bs.modal', function () {
