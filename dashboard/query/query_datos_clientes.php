@@ -56,7 +56,8 @@ $sql = "SELECT * FROM clientes WHERE folio = '$folio'"; // Busca coincidencias p
         'paquete' => $row2['paquetes'],
         'ultimopago' => $fecha,
         'total' => $total,
-        'pagos' => $pagos
+        'pagos' => $pagos,
+        'cuota' => $row['cuota']
     );
 
 

@@ -1016,19 +1016,19 @@
 		</div>
 		<div class="modal-body">
 			<div class="alert alert-info" role="alert">
-				<p><strong>Folio contrato:</strong> <span id="folioPagoRealizado"></span></p>
+				<p><strong>Folio pago:</strong> <span id="folioPagoRealizado"></span></p>
 				<p><strong>fecha pago:</strong> <span id="fechaPagoRealizado"></span></p>
 				<p><strong>Nombre:</strong> <span id="nombrePagoRealizado"></span></p>
 				<p><strong>Total: </strong> <span id="totalPagoRealizado"></span></p>
 			</div>
 
 		  <p>
-			<table class="table text-center table-striped table-sm">
+			<table class="table text-center table-striped table-sm" id="reimprimirTabla">
 				<thead class="bg-dark text-light">
 					<tr>
 						<th>#</th>
 						<th>Concepto</th>
-						<th>Folio</th>
+						<!-- <th>Folio</th> -->
 						<th>Total</th>
 					</tr>
 				</thead>
@@ -1037,6 +1037,7 @@
 		  </p>
 		</div>
 		<div class="modal-footer">
+		  <button type="button" class="btn btn-warning" data-bs-dismiss="modal" onclick="reimpirimirPago()">Reimpimir pago</button>
 		  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
 		</div>
 	  </div>

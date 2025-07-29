@@ -58,20 +58,25 @@ if (!empty($folioCliente)) {
         if($filas == 1){
             echo'
             <tr>
-                <td colspan="5" class="table-success">No tiene adeudos</td>
+            <td>0000-00</td>
+                <td>No tiene adeudos</td>
+                <td>N/A</td>
+                <td>0.00</td>
+                <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
             </tr>';
         }
         else{
             echo'
             <tr>
-                <td>'.$annio.'-'.$mesM.'</td>
-                <td>Pago oportuno</td>
-                <td>'.$nombreMesN.'</td>
-                <td>'.$costoMensual.'</td>
-                <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
+            <td>'.$annio.'-'.$mesM.'</td>
+            <td>Pago oportuno</td>
+            <td>'.$nombreMesN.'</td>
+            <td>'.$costoMensual.'</td>
+            <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
             </tr>';
         }
-
+        
+        // <td colspan="5" class="table-success">No tiene adeudos</td>
         
     }
 
