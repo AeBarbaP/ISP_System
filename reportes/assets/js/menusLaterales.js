@@ -2423,3 +2423,110 @@ function datosCorteCaja(){
     }
   });
 }
+
+function queryPagosDiarios() {
+  let fecha = obtenerFechaHoy();
+  let titulo = "Reporte de pagos";
+  // Crear el elemento del modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'modalReportePagos');
+  modal.innerHTML = `
+    <div class="modal-dialog modal-xl">>
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title"><i class="bi bi-journal-text"></i> ${titulo}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <input name="id" id="idHiddenCortes" value="" hidden>
+              <div class="row">
+                <div class="col-6">
+                  <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-check-fill"></i></span>
+                      <input type="date" value="${fecha}" class="form-control" aria-describedby="basic-addon1" id="buscarPagosDFecha" name="buscar" onchange="datosPagosDiarios()">
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+                      <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscarCortesDFiltro" name="buscar">
+                  </div>
+                </div>
+              </div>
+              <div class="table-responsive mt-3">
+                  <table class="table table-hover text-center p-1">
+                      <thead class="table-dark">
+                          <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Folio pago</th>
+                              <th scope="col">Usuario</th>
+                              
+                              <th scope="col">Ver</th>
+                              <th scope="col">Elimiar</th>
+                          </tr>
+                      </thead>
+                      <tbody id="tablaCortesCajaReporte">
+                          
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
+              <!-- <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar Cambios</button> -->
+          </div>
+      </div>
+    </div>
+  `;
+
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
+
+  // Mostrar el modal usando Bootstrap's JavaScript API
+  const bootstrapModal = new bootstrap.Modal(modal);
+  bootstrapModal.show();
+  datosPagosDiarios();
+
+  // Eliminar el modal del DOM cuando se cierre
+  modal.addEventListener('hidden.bs.modal', () => {
+    modal.remove();
+  });
+}
+
+function datosPagosDiarios(){
+  let fecha = _('buscarPagosDFecha').value;
+  $.ajax({
+    url: 'query/query_pagosDiarios.php',
+    type: 'POST',
+    data:{
+      fecha : fecha
+    },
+    dataType: 'html',
+    success: function (response) {
+        $('#tablaCortesCajaReporte').html(response);
+    }
+  });
+}
+
+function eliminarPago(folio){
+  if(confirm('¿Estás seguro de eliminar este pago?')) {
+  $.ajax({
+    url: 'prcd/prcd_eliminarPago.php',
+    type: 'POST',
+    data:{
+      folio : folio
+    },
+    dataType: 'json',
+    success: function (response) {
+        let success = response.success;
+        if(success == 1){
+          alert("El pago ha sido eliminado");
+          $('#modalReportePagos').modal('hide');
+
+        }
+    }
+  });
+}
+}

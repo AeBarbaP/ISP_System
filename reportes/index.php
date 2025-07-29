@@ -419,14 +419,9 @@ else {
                         <i class="bi bi-receipt ms-2" style="font-size: 25px;"></i>
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
-                        <li><a class="dropdown-item" href="#" onclick="queryCortesDiarios()">Imprimir reporte<!-- <img src="assets/img/grafico-de-lineas.png" class="ms-2" style="height: 2em; width: auto;" alt=""> --><i class="bi bi-receipt ms-2" style="font-size: 2em; "></i></a></li>
-                        <!-- <li><a class="dropdown-item" href="#">Reporte General <img src="assets/img/reporte.png"  style="height: 2.5em; width: auto;" alt=""></a>
-                        </li> -->
-                        <!-- <li>
-                            <hr class="dropdown-divider">
-                        </li> -->
-                        <!-- <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#agregar" href="">Agregar Técnico<i class="bi bi-person-plus ms-2" style="font-size: 30px;"></i></a></li> -->
-                        <!-- <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gestionTecnicos" onclick="usuariosQueryG()" href="#">Gestión de Cortes <i class="bi bi-window-x ms-2" style="font-size: 30px;"></i></a></li> -->
+                        <li><a class="dropdown-item" href="#" onclick="queryPagosDiarios()">Reporte de pagos<i class="bi bi-receipt ms-2" style="font-size: 2em; "></i></a></li>
+                        <li><a class="dropdown-item" href="#" onclick="queryCortesDiarios()">Imprimir reporte<i class="bi bi-receipt ms-2" style="font-size: 2em; "></i></a></li>
+                        
                     </ul>
                 </div>
                 <span class="navbar-text ms-auto">
