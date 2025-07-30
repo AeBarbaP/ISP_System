@@ -797,8 +797,14 @@ function imprimirSeleccion(nombre, nombre2) {
                 
                 <div class="footer">
                     ${totalValue ? `<div><strong>TOTAL:</strong> ${totalValue}</div>` : ''}
-                    <div>${fecha} | www.conectwi.com</div>
-                    <div>** CONSERVE ESTE TICKET **</div>
+                    <div>
+                        <br>
+                        <p>${fecha} | www.conectwi.com</p>
+                    </div>
+                    <div>
+                        <p>Número para reportes: 4929427478</p>
+                        <p>** CONSERVE ESTE TICKET **</p>
+                    </div>
                 </div>
             </body>
         </html>
@@ -933,9 +939,15 @@ function imprimirSeleccion2(nombre, nombre2) {
                 ${tablaClonada.outerHTML}
                 
                 <div class="footer">
-                    
-                    <div>${fechaPago} | www.conectwi.com</div>
-                    <div>** CONSERVE ESTE TICKET **</div>
+
+                    <div>
+                        <br>
+                        <p>${fechaPago} | www.conectwi.com</p>
+                    </div>
+                    <div>
+                        <p>Número para reportes: 4929427478</p>
+                        <p>** CONSERVE ESTE TICKET **</p>
+                    </div>
                 </div>
             </body>
         </html>
