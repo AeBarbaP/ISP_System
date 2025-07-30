@@ -403,27 +403,7 @@ function queryRecibo(pagina = 1){
         }
     });
 }
-// function queryRecibo(){
-//     $.ajax({
-//         type: "POST",
-//         url: "query/query_proximos_vencimiento_3.php",
-//         dataType: "html",
-//         success: function(data) {
-//             $('#tablaProximos').html(data);
-//         }
-//     });
-// }
 
-// function queryRecibo2(){
-//     $.ajax({
-//         type: "POST",
-//         url: "query/query_proximos_vencimiento_2.php",
-//         dataType: "html",
-//         success: function(data) {
-//             $('#tablaProximos2').html(data);
-//         }
-//     });
-// }
 function queryRecibo2(pagina = 1){
         $.ajax({
         type: "POST",

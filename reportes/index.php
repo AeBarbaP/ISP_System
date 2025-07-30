@@ -585,6 +585,7 @@ else {
         include("modales/reporteUsuarioInd.php");
         include("modales/reporteUsuarioG.php");
         include("modales/editarContratos.php");
+        include("modales/pagos_individuales.php");
     ?>
 
 </html>

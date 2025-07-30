@@ -598,13 +598,7 @@
                         <label for="datos_usr" class="form-label"><i class="bi bi-person"></i> Fecha:</label>
                         <input type="date" class="form-control" id="fechaSolicitud" name="datos_usr" placeholder="" disabled>
                     </div>
-                    <!-- <div class="col-lg-6" id="foliosearch" hidden>
-						<label for="buscafolio" class="form-label">Buscar Folio</label>
-						<input class="form-control" list="datalistOptions" id="buscafolio" oninput=""placeholder="Type to search...">
-						<datalist id="datalistOptions">
-							falta función para consulta de folios de clientes para llenar este datalist
-						</datalist>
-                    </div> -->
+                    
 					<div class="col-12 mb-2">
 						<label for="buscanombre" class="form-label">Buscar Nombre</label>
 						<div class="input-group">
@@ -612,34 +606,12 @@
 							<input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" id="buscanombre" oninput="queryClientesPago(this.value)" aria-describedby="basic-addon1" id="buscarCortes" name="buscar">
 						</div>
 
-						<!-- <select class="form-select" onchange="queryClientes(this.value);queryConceptoPagos()" id="nombresClientes" size="2" aria-label="folio corte"> -->
 						<select class="form-select" onchange="queryClientes(this.value);catalogoInstalaciones()" id="nombresClientes" size="2" aria-label="folio corte">
 
-
-							<!-- <option selected>Selecciona...</option> -->
-							<!-- Muestra los folios de las ordenes de corte que aún no han sido resueltas para cambiar los datos -->
 						</select>
 					</div>
 					<div class="col-lg-4 ms-5 my-auto">
-						<!-- <div class="form-check m-0">
-							<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="1" checked onclick="hideInput(this.value)">
-							<label class="form-check-label" for="exampleRadios1">
-								Buscar por Folio
-							</label>
-						</div> -->
-						<!-- <div class="form-check m-0" > -->
-							<!-- <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="2" onclick="hideInput(this.value)" checked> -->
-							<!-- <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="2" checked>
-							<label class="form-check-label" for="exampleRadios2">
-								Buscar por Nombre
-							</label>
-						</div> -->
-						<!-- <div class="form-check m-0">
-							<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="3" onclick="hideInput(this.value)">
-							<label class="form-check-label" for="exampleRadios3">
-								Buscar por Domicilio
-							</label>
-						</div> -->
+						
                     </div>
 					<div class="col-lg-12" id="datoscliente" hidden>
 						<div id="datosGenerales">
@@ -654,86 +626,25 @@
 						<div class="col-lg-12 mt-2">
 							<!-- Example single danger button -->
 							<div class="dropdown-center" style="width: 100%;">
-								<!-- <button type="button" class="btn btn-outline-primary text-end"  disabled>Agregar Instalación:</button>
-								<button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-									<span class="visually-hidden">Toggle Dropdown</span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#">Action</a></li>
-									<li><a class="dropdown-item" href="#">Another action</a></li>
-									<li><a class="dropdown-item" href="#">Something else here</a></li>
-									<li><hr class="dropdown-divider"></li>
-									<li><a class="dropdown-item" href="#">Separated link</a></li>
-								</ul> -->
+								
 								<a type="button" class="btn btn-outline-primary dropdown-toggle w-100" data-bs-toggle="dropdown" aria-expanded="false">
 									Agregar costo de Instalación:
 								</a>
 								<ul class="dropdown-menu" id="instalacionesPagos">
 									
-									<!-- <li><a class="dropdown-item" href="#">Another action</a></li>
-									<li><a class="dropdown-item" href="#">Something else here</a></li>
-									<li><hr class="dropdown-divider"></li>
-									<li><a class="dropdown-item" href="#">Separated link</a></li> -->
+									
 
 								</ul>
 							</div>
-							<!-- <div class="col-4 d-flex align-items-end justify-content-end">
-								<div class="form-check form-check-inline ms-3">
-									<input class="form-check-input" type="checkbox" id="instalacion" onclick="instalacion()">
-									<label class="form-check-label" style="margin-left: -.1rem" for="instalacion">Agregar Instalación:</label>
-								</div>
-							</div>
-							<div class="col-4">
-								<div class="input-group mb-3 mt-1" style="margin-left: -.2rem">
-									<select class="form-select" id="instalacionesPagos" onchange="agregarInstalacionTable()" disabled>
-										
-									</select>
-								</div>
-							</div> -->
+							
 						</div>
 						
-						<!-- <hr>
-						<label>Cargos adicionales:</label>
-						<div class="container ms-5">
-							<div class="row">
-								<div class="col-2">
-								</div>
-								<div class="col-4">
-									<div class="form-check form-check-inline">
-										<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-										<label class="form-check-label" for="inlineCheckbox1">Recargo: $<span></span></label>
-									</div>
-								</div>
-								<div class="col-4">
-									<div class="form-check form-check-inline">
-										<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-										<label class="form-check-label" for="inlineCheckbox2">Reconexión: $<span></span></label>
-									</div>
-								</div>
-								<div class="col-2">
-								</div>
-							</div> -->
-							<!-- <div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
-								<label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
-							</div> -->
-							<!-- <div class="input-group mb-1">
-								<span class="input-group-text" id="basic-addon1"><i class="bi bi-bookmarks"></i></span>
-	
-								<select class="form-select" aria-label="Default select example" id="catalogoConceptos">
-									<optgroup label="Mensualidad" id="mensualidad">
-									</optgroup>
-								</select>
-	
-								<button class="btn btn-primary" onclick="tablaGrid()"><i class="bi bi-plus-circle"></i></button>
-							</div>
-							<div class="form-text" id="basic-addon4">Selecciona el concepto.</div> -->
 						</div>
 						<hr>
 					</div>
 					<div class="col-sm-12 mb-2">
 						<label for="datos_usr" class="form-label"><i class="bi bi-person"></i> Descripción:</label>
-						<!-- <div id="NuevaSolicitud"></div> -->
+						
 						<div class="table-responsive" id="tablaSolicitud">
 							<table class="table table-hover text-center" id="tablaPre">
 								<thead class="bg-dark text-light">

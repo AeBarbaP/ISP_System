@@ -1,14 +1,8 @@
-
-// function consultaPagosRep() {
-//     $.ajax({
-//         url: 'query/query_pagos.php',
-//         type: 'POST',
-//         dataType: 'html',
-//         success: function(data) {
-//             $('#tablaPagosG').html(data);
-//         }
-//     });
-// }
+function limpiarModal(){
+    $(".modal").on('hidden.bs.modal', function () {
+        $(this).find('form').trigger('reset');
+    });
+}
 
 function queryClientes(cliente) {
     $.ajax({
@@ -115,20 +109,6 @@ function generarTablaPagos(folio) {
                         </tr>
                     `;
                 } 
-                // else 
-                // Mes con pago
-                // {
-                //     tablaPagos += `
-                //         <tr class="table-success text-dark">
-                //             <td>${mesNumero}</td>
-                //             <td>${mesNombre}</td>
-                //             <td>${pago.concepto || 'Mensualidad'}</td>
-                //             <td>${mesNombre}</td>
-                //             <td>${pago.monto || ''}</td>
-                //             <td><span class="badge bg-danger text-light" style="cursor: pointer;" onclick="eliminarPago('${folioPago}','${nuevoFolio}', ${mesNumero})">Eliminar</span></td>
-                //         </tr>
-                //     `;
-                // }
             });
 
             document.getElementById("NuevaSolicitud").hidden = false;
@@ -206,4 +186,190 @@ function buscarPagosRepFecha(){
             $('#tablaPagosGRep').html(data);
         }
     });
+}
+
+function pagosIndividuales(folio) {
+    const tabla = document.getElementById('tablaPagosBody');
+    tabla.innerHTML = '';
+
+    $('#modalReportePagos').modal('hide');
+    $('#listaPagosInv').modal('show');
+    _('folioPagoRealizado').innerText = "";
+    _('fechaPagoRealizado').innerText = "";
+    _('nombrePagoRealizado').innerText = "";
+    _('totalPagoRealizado').innerText = "";
+
+    $.ajax({
+        type: "POST",
+        url: "query/query_pago_query.php",
+        data:{folio: folio},
+        dataType: "json",
+        success: function(data) {
+            let success = data.success;
+            var listado = data.listado;
+            console.log(listado);
+            if (success == 1){
+                _('folioPagoRealizado').innerText = data.folio_pago;
+                _('fechaPagoRealizado').innerText = data.fechaPago;
+                _('nombrePagoRealizado').innerText = data.nombre;
+                _('totalPagoRealizado').innerText = data.total;
+
+                // listado tabla
+                listado.forEach((pago, index) => {
+                    const fila = document.createElement('tr');
+
+                    fila.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${pago.concepto}</td>
+                        <td>$${parseFloat(pago.monto).toFixed(2)}</td>
+                    `;
+
+                    tabla.appendChild(fila);
+                });
+            }
+        }
+    });
+}
+
+function imprimirSeleccion2(nombre, nombre2) {
+    const ventimp = window.open('', 'popimpr');
+    const fecha = new Date().toLocaleDateString();
+    const rutaLogo = '../images/logo_conectwi_wide-removebg-preview.png';
+    const fechaPago = _('fechaPagoRealizado').innerText;
+    
+    // Estilos optimizados para impresión térmica
+    const estilos = `
+        <style>
+            @page { size: auto; margin: 0; }
+            body { 
+                width: 8cm !important;
+                margin: 0 !important;
+                padding: 0.2cm !important;
+                font-family: Arial, sans-serif;
+                font-size: 10px !important;
+                -webkit-print-color-adjust: exact;
+            }
+            * { 
+                max-width: 100% !important;
+                box-sizing: border-box;
+            }
+            .logo-container {
+                text-align: center;
+                margin-bottom: 5px;
+            }
+            .logo {
+                max-width: 60% !important;
+                height: auto;
+            }
+            table {
+                width: 100% !important;
+                font-size: 9px !important;
+                border-collapse: collapse;
+                margin: 5px 0;
+            }
+            th, td {
+                padding: 2px 3px !important;
+                line-height: 1.2;
+                border: 1px solid #ddd;
+                text-align: center;
+            }
+            /* Ocultar primera y última columna */
+            tr > :first-child
+            {
+                display: none;
+            }
+            /* Excepción para fila de total si es necesario */
+            tr.fila-total > :last-child {
+                display: table-cell !important;
+            }
+            th {
+                background-color: #f2f2f2;
+                font-weight: bold;
+            }
+            .header-text {
+                text-align: center;
+                margin: 3px 0;
+            }
+            .header-text h1 {
+                font-size: 14px !important;
+                margin: 2px 0;
+                font-weight: bold;
+            }
+            .footer {
+                font-size: 10px !important;
+                text-align: center;
+                margin-top: 5px;
+                padding-top: 5px;
+                border-top: 1px dashed #000;
+            }
+            .nombre-cliente {
+                font-weight: bold;
+                margin: 5px 0;
+                text-align: center;
+                font-size: 11px;
+            }
+        </style>
+    `;
+
+    // Clonar y modificar tabla
+    const tablaOriginal = document.getElementById('reimprimirTabla');
+    const tablaClonada = tablaOriginal.cloneNode(true);
+
+    // Ocultar columnas en todas las filas
+    Array.from(tablaClonada.querySelectorAll('tr')).forEach(tr => {
+        if (tr.children.length > 0) {
+            tr.children[0].style.display = 'none'; // Primera columna
+            // if (tr.children.length > 1) {
+            //     tr.lastElementChild.style.display = 'none'; // Última columna
+            // }
+        }
+    });
+
+    // Generar HTML del logo
+    const logoHTML = rutaLogo 
+        ? `<div class="logo-container"><img src="${rutaLogo}" class="logo" alt="Logo"></div>`
+        : '';
+
+    ventimp.document.open();
+    ventimp.document.write(`
+        <html>
+            <head>
+                <title>Ticket</title>
+                ${estilos}
+            </head>
+            <body>
+                ${logoHTML}
+                <div class="header-text">
+                    <h1 hidden>CONECTWi</h1>
+                    <h2>RECIBO DE PAGO</h2>
+                </div>
+                
+                ${nombre2 ? `<div class="nombre-cliente">${nombre2}</div>` : ''}
+                ${tablaClonada.outerHTML}
+                
+                <div class="footer">
+                    
+                    <div>${fechaPago} | www.conectwi.com</div>
+                    <div>** CONSERVE ESTE TICKET **</div>
+                </div>
+            </body>
+        </html>
+    `);
+    ventimp.document.close();
+    limpiarModal();
+    limpiar1modal();
+    $('#pago').modal('hide');
+
+    ventimp.onload = function() {
+        setTimeout(() => {
+            ventimp.print();
+            ventimp.close();
+        }, 50);
+    };
+}
+
+function reimpirimirPago(){
+    let folioPago = _('folioPagoRealizado').innerText;
+    let nombreTicket = _('nombrePagoRealizado').innerText;
+    imprimirSeleccion2(folioPago, nombreTicket);
 }

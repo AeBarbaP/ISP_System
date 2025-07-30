@@ -62,25 +62,27 @@ function ejecutarFuncionConFolio(folio) {
                     // alert('Usuario nuevo, no hay pagos registrados');
                     datosGenerales += `
                     <div class="alert alert-info mb-2" role="alert">
-                    <h3 id="nombrePagoTicket"><b>${item.nombre}</b></h3>
-                    <span>Folio Contrato: </span><span id="folioContratoRegistro">${item.folio}</span><br>
-                    <span>Domicilio: ${item.domicilio}</span>
-                    <br>
-                    <span>Comunidad: ${item.comunidad}</span>
-                    <br>
-                    <span>Teléfono: ${item.telefono}</span>
-                    <br>
-                    <span class="h3"><b>Paquete Contratado: ${item.paquete}</b></span>
-                    <br>
-                    <span class="h3">Último Pago Registrado: ${item.ultimopago} ${item.total}</span>
-                    <input type="text" id="costoAdelantado" value="${item.cuota}" hidden>
+
+                        <span id="nombrePagoTicket" class="fw-bold">${item.nombre}</span><br>
+                        <span>Folio Contrato: </span><span id="folioContratoRegistro">${item.folio}</span><br>
+                        <span>Domicilio: ${item.domicilio}</span>
+                        <br>
+                        <span>Comunidad: ${item.comunidad}</span>
+                        <br>
+                        <span>Teléfono: ${item.telefono}</span>
+                        <br>
+                        <span class="h3"><b>Paquete Contratado: ${item.paquete}</b></span>
+                        <br>
+                        <span class="h3">Último Pago Registrado: ${item.ultimopago} ${item.total}</span>
+                        <input type="text" id="costoAdelantado" value="${item.cuota}" hidden>
+                        
                     </div>
                     `;
                 }
                 else{
                 datosGenerales += `
                 <div class="alert alert-info mb-2" role="alert">
-                    <h3><b>${item.nombre}</b></h3>
+                    <span id="nombrePagoTicket" class="fw-bold">${item.nombre}</span><br>
                     <span>Folio Contrato: </span><span id="folioContratoRegistro">${item.folio}</span><br>
                     <span>Domicilio: ${item.domicilio}</span>
                     <br>

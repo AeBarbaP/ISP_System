@@ -25,8 +25,8 @@ while ($row = $resultado->fetch_assoc()){
         <td>'.$x.'</td>
         <td>'.$folio.'</td>
         <td>'.$nombre.'</td>
+        <td><a href="#" onclick="pagosIndividuales(\''.$folio.'\')"><i class="bi bi-eye-fill"></i></a></td>
         <td><a href="#" onclick="eliminarPago(\''.$folio.'\')"><i class="bi bi-trash3"></i></a></td>
-        <td><a href="prcd/reporte_corte_por_fecha.php?fecha='.$fecha.'&username='.$user.'" target="_blank"><i class="bi bi-eye-fill"></i></a></td>
     </tr>
     ';
 }

@@ -16,6 +16,13 @@ $query = "DELETE FROM pagos_generales
     $resultado = $conn->query($query);
 
     if($resultado){
+
+        $query2 = "DELETE FROM pagos
+        WHERE num_pago = '$folio'
+        ";
+        $resultado2 = $conn->query($query2);
+
+
         echo json_encode(array(
             'success'=>1
         ));
