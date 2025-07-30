@@ -2403,6 +2403,15 @@ function queryCortesDiarios() {
   bootstrapModal.show();
   datosCorteCaja();
 
+  $(document).ready(function () {
+    $("#buscarCortesDFiltro").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#tablaCortesCajaReporte tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+  });
+
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
     modal.remove();
@@ -2451,7 +2460,7 @@ function queryPagosDiarios() {
                 <div class="col-6">
                   <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                      <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscarCortesDFiltro" name="buscar">
+                      <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon1" id="buscarCortesDPagos" name="buscar">
                   </div>
                 </div>
               </div>
@@ -2488,6 +2497,15 @@ function queryPagosDiarios() {
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
   datosPagosDiarios();
+
+    $(document).ready(function () {
+    $("#buscarCortesDPagos").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#tablaCortesCajaReporte tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+  });
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
