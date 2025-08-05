@@ -177,21 +177,25 @@ $pdf->AddPage('P', 'A4');
 $pdf->SetAutoPageBreak(true, 25);
 
 // Información del usuario
-$pdf->SetFont('Arial', '', 10);
+$pdf->SetFont('Arial', '',10);
 $pdf->SetTextColor(80);
 $pdf->Cell(0, 6, utf8_decode('Usuario: ') . utf8_decode($nombre), 0, 1);
 $pdf->Cell(0, 6, utf8_decode('Fecha del corte: ') . utf8_decode($fechaHoy), 0, 1);
 $pdf->Ln(8);
 
 // Tabla 1: Pagos Generales
+$pdf->SetFont('Arial', '',8);
 $headerPagos = ['Folio Contrato', 'Folio Pago', 'Fecha', 'Periodo', 'Total'];
 $dataPagos = [];
 $totalPagos = 0;
 
 $queryPagos = $conn->query("SELECT * FROM pagos_generales WHERE id_ext = '$user' AND fecha_pago = '$fechaHoy'");
 while ($rowPagos = $queryPagos->fetch_assoc()) {
+    $folioContrato = $rowPagos['folio_contrato'];
+    $row2 = $conn->query("SELECT * FROM clientes WHERE folio = '$folioContrato'")->fetch_assoc();
     $dataPagos[] = [
-        $rowPagos['folio_contrato'],
+        //$rowPagos['folio_contrato'],
+        $row2['nombre'],
         $rowPagos['folio_pago'],
         $rowPagos['fecha_pago'],
         $rowPagos['periodo'],
@@ -201,7 +205,8 @@ while ($rowPagos = $queryPagos->fetch_assoc()) {
 }
 
 // Anchos de columnas ajustados al 90% del ancho de página (190mm)
-$pdf->TablaEjecutiva($headerPagos, $dataPagos, [50, 35, 30, 40, 35], $totalPagos, 'PAGOS GENERALES');
+
+$pdf->TablaEjecutiva($headerPagos, $dataPagos, [65, 35, 30, 30, 30], $totalPagos, 'PAGOS GENERALES');
 
 // Tabla 2: Otros Gastos
 $headerGastos = ['Concepto', 'Fecha', 'Cantidad'];
