@@ -52,7 +52,7 @@
 	<script src="js/laterales/paquetes.js"></script>
 	<script src="js/laterales/corteDiario.js"></script>
 	<!-- área de scripts -->
-	<body onload="queryDashboard1();revisarCorte();ultimoAcceso('<?php echo $user; ?>');">
+	<body onload="queryDashboard1();revisarCorte();ultimoAcceso('<?php echo $user; ?>');queryDashboardGastos();">
 		
     <div class="container-scroller">
 		<!-- partial:partials/_horizontal-navbar.html -->
@@ -271,7 +271,7 @@
 				<div class="col-lg-8 grid-margin stretch-card">
 				<div class="card">
 					<div class="card-header pt-4">
-						<h4 class="card-title"><i class="bi bi-calendar-check-fill"></i> Últimos Pagos Registrados en el mes</h4>
+						<h4 class="card-title"><i class="bi bi-calendar-check-fill me-2"></i> Últimos Pagos Registrados en el mes</h4>
 					</div>
 					<div class="card-body overflow-auto">
 						<div class="row">
@@ -296,9 +296,14 @@
 				</div>
 			</div>
 			<div class="col-lg-4 mb-3 mb-lg-0">
-				<div class="card congratulation-bg random-card text-center">
-					<div class="card-body pb-0">
-					
+				<div class="card">
+					<div class="card-header pt-4">
+						<h4 class="card-title"><i class="bi bi-bag-dash me-2"></i>Gastos del día</h4>
+					</div>
+					<div class="card-body overflow-auto">
+						<div class="table-responsive" id="dashboardGastos">
+							
+						</div>
 					</div>
 				</div>
 			</div>

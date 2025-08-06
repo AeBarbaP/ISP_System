@@ -44,6 +44,7 @@ function guardarOtrosGastos(){
                     $('#modalOtrosGastos').modal('hide');
                     modalReporteOtrosGastos();
                     limpiarModal();
+                    queryDashboardGastos();
                     // Aquí puedes agregar una función para actualizar la lista de otros gastos si es necesario
                 });
             } else {
