@@ -5,9 +5,12 @@ $folio = $_POST['folio'];
 $estatus = $_POST['estatus'];
 
 if($estatus == 1){
+    $estatusC = 2;
+}
+else if ($estatus == 2){
     $estatusC = 0;
 }
-else{
+else if ($estatus == 0){
     $estatusC = 1;
 }
 

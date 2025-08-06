@@ -37,8 +37,8 @@
                             <label for="tipoReporteCliente" class="form-label">Tipo Reporte:</label>
                             <select class="form-select" id="tipoReporteCliente" aria-label="Tipo reporte" required>
                                 <option selected>Selecciona...</option>
-                                <option value="1">Global</option>
-                                <option value="2">Detallado</option>
+                                <!-- <option value="1">Global</option> -->
+                                <option value="2" selected>Detallado</option>
                             </select>
                         </div>
                         </form>

@@ -273,8 +273,25 @@
 					<div class="card-header pt-4">
 						<h4 class="card-title"><i class="bi bi-calendar-check-fill me-2"></i> Últimos Pagos Registrados en el mes</h4>
 					</div>
-					<div class="card-body overflow-auto">
+					<div class="card-body">
 						<div class="row">
+							<div class="col-12">
+                                <label class="form-label">Filtrar:</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"><i class="bi bi-search" style="font-size: 20px;"></i></span>
+                                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar_pagoDash" oninput="dashboardFiltro(this.value);" name="nombre_buscar_pagoDash">
+                                </div>
+                            </div>
+							<!-- <div class="col-4">
+								<label class="form-label">Selecciona:</label>
+								<div class="">
+									<input type="radio" class="btn-check btn-lg" name="options-outlined" id="nombreCliente" autocomplete="off">
+									<label class="btn btn-outline-primary" for="nombreCliente">Nombre</label>
+
+									<input type="radio" class="btn-check btn-lg" name="options-outlined" id="comunidadCliente" autocomplete="off">
+									<label class="btn btn-outline-primary" for="comunidadCliente">Comunidad</label>
+								</div>
+                            </div> -->
 							<div class="table-responsive" id="dashboard1">
 								<!-- <table class="table table-striped table-hover">
 									<thead style="background-color: aliceblue;">
@@ -345,7 +362,7 @@
 						</div>
 						<div class="card-body">
 						
-						<div class="table-responsive" id="tablaProximos2">
+						<div class="table-responsive mb-3" id="tablaProximos2">
 							<!-- <table class="table table-hover text-center">
 								<thead style="background-color: aliceblue;" class="text-dark">
 									<tr>

@@ -456,6 +456,27 @@ function queryDashboardGastos(pagina = 1) {
         }
     });
 }
+function dashboardFiltro(texto,pagina = 1) {
+    if (texto == ""){
+        queryDashboard1();
+    }
+    $.ajax({
+        type: "POST",
+        url: "query/dashboardFiltro.php",
+        data: { pagina: pagina, texto: texto },
+        dataType: "HTML",
+        success: function(data) {
+            $('#dashboard1').html(data);
+            
+            // Agregar evento a los botones de paginación
+            $('.paginacion').on('click', function(e) {
+                e.preventDefault();
+                var pagina = $(this).data('pagina');
+                queryDashboardFiltro(texto,pagina);
+            });
+        }
+    });
+}
 
 let contador = 1;
 
