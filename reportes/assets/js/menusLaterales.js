@@ -2336,6 +2336,74 @@ function editarDatosUsr(){
     modal.remove();
   });
 }
+function queryUsr(){
+   $.ajax({
+        type: "POST",
+        url: "query/query_usr.php",
+        dataType: "json",
+        success: function(data){
+            var datos = JSON.parse(JSON.stringify(data));
+            var success = datos.success;
+    
+            if(success == 1){
+                _('idUserM').value = datos.id;
+                _('nombreUserM').value = datos.nombre;
+                _('usrUserM').value = datos.username;
+                _('perfilUserM').value = datos.tipo_usr;
+                if(datos.estatus == 1){
+                  _('btnradio1').checked;
+                }
+                else{
+                  _('btnradio2').checked;
+                }
+                _('passWM').value = datos.pwd;
+            }
+            else{
+                alert("No se guardó");
+                console.log(datos.error)
+            }
+        }
+    });
+}
+
+function mostrarPwdM(){
+  var check = _('mostrarPwdM');
+  if (check.checked){
+    _('passWM').setAttribute('type','text');
+  }
+  else{
+    _('passWM').setAttribute('type','password');
+  }
+}
+function editarUsuarioDash(){
+  var id = _('idUserM').value;
+  var nombre = _('nombreUserM').value;
+  var pass = _('passWM').value;
+  $.ajax({
+    type: "POST",
+    url: "prcd/editar_usuario_dashboard.php",
+    dataType: "json",
+    data:{
+      id : id,
+      nombre : nombre,
+      pass : pass
+    },
+    success: function(data){
+      var datos = JSON.parse(JSON.stringify(data));
+            var success = datos.success;
+    
+            if(success == 1){
+              alert('Usuario editado');
+              $('#modalDatosUser').modal('hide');
+              limpiarModal();
+            }
+            else{
+              alert('Usuario no editado');
+            }
+    }
+  });
+
+}
 // Termina configuración de cuenta usr activo
 
 // query de reporte de cortes diarios de caja

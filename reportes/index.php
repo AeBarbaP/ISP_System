@@ -214,10 +214,10 @@ else {
                         <img src="assets/img/avatar.jpg" alt="" width="35" height="35" class="rounded-circle me-2">
                     </a>
                     <ul class="dropdown-menu dropdown-menu text-small shadow text-end mt-2">
-                        <li><a class="dropdown-item" href="#">Editar mi perfil <i class="bi bi-gear ms-2" style="font-size: 25px;"></i></a></li>
+                        <li><a class="dropdown-item" href="#" onclick="editarDatosUsr()">Editar mi perfil <i class="bi bi-gear ms-2" style="font-size: 25px;"></i></a></li>
                         <!-- <li><a class="dropdown-item" href="#">Profile</a></li> -->
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Cerrar Sesión <i class="bi bi-box-arrow-in-right ms-2" style="font-size: 25px;"></i></a></li>
+                        <li><a class="dropdown-item" href="../dashboard/prcd/sort.php">Cerrar Sesión <i class="bi bi-box-arrow-in-right ms-2" style="font-size: 25px;"></i></a></li>
                     </ul>
                 </div>
                 <div class="vr"></div>
