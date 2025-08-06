@@ -27,11 +27,12 @@ echo '
 <table class="table table-striped table-hover mb-3">
     <thead style="background-color: aliceblue;">
         <tr class="text-center">
-            <th class="scope" style="font-weight: bold;">Contrato</th>
-            <th class="scope" style="font-weight: bold;"># pago</th>
-            <th class="scope" style="font-weight: bold;">Nombre del Cliente</th>
-            <th class="scope" style="font-weight: bold;">Monto</th>
-            <th class="scope" style="font-weight: bold;">Fecha de Pago</th>
+        <th class="scope" style="font-weight: bold;"># pago</th>
+        <th class="scope" style="font-weight: bold;">Nombre del Cliente</th>
+        <th class="scope" style="font-weight: bold;">Comunidad</th>
+        <th class="scope" style="font-weight: bold;">Monto</th>
+        <th class="scope" style="font-weight: bold;">Fecha de Pago</th>
+        <th class="scope" style="font-weight: bold;">Periodo Pagado</th>
         </tr>
     </thead>
     <tbody id="dashboard1">
@@ -46,11 +47,12 @@ while($row = $resultado->fetch_assoc()){
     $row2 = $resultado2->fetch_assoc();
     echo '
     <tr class="text-center" onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\')">
-        <td>' . $row['folio_contrato'] . '</td>
         <td>' . $row['folio_pago'] . '</td>
         <td>' . $row2['nombre'] . '</td>
+        <td>' . $row2['comunidad'] . '</td>
         <td>$' . $row['total'] . '</td>
         <td>' . $row['fecha_pago'] . '</td>
+        <td>' . $row['periodo'] . '</td>
     </tr>
     ';
 }
