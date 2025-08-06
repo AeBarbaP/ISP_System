@@ -39,7 +39,7 @@ $x++;
             <td>'.$row['folio_pago'].'</td>
             <td>'.$rowCliente['nombre'].'</td>
             <td>'.$row['fecha_pago'].'</td>
-            <td>'.$row['tipo_pago'].'</td>
+            <td>'.$comunidad.'</td>
             <td>'.$row['total'].'</td>
             <td><i class="bi bi-clipboard2-check"></i></td>
         </tr>
