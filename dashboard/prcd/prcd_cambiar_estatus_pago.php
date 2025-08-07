@@ -5,7 +5,7 @@ $id = $_POST['id'];
 $estatus = $_POST['estatus'];
 
 if($estatus == 0){
-    $estatusC = "";
+    $estatusC = 0;
 }
 else if ($estatus == 1){
     $estatusC = 1;
@@ -26,6 +26,7 @@ if($resultado){
 }
 else{
     echo json_encode(array(
-        'success'=>0
+        'success'=>0,
+        'error' => $conn->error
     ));
 }

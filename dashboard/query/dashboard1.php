@@ -2,10 +2,12 @@
 
 require('../prcd/conn.php');
 
+date_default_timezone_set('America/Mexico_City');
+setlocale(LC_TIME, 'es_MX.UTF-8');
+
 $fechaHoy = new DateTime();
 $mes = $fechaHoy->format('m');
 $anio = $fechaHoy->format('Y');
-
 
 // Configuración de paginación
 $registrosPorPagina = 18; // Ajusta según necesidad
@@ -48,10 +50,10 @@ while($row = $resultado->fetch_assoc()){
     $row2 = $resultado2->fetch_assoc();
 
     if ($row['estatus'] == 1){
-        $estatus = '<a href="#" onclick="enviarSolicitud('.$row['id'].',0)"><i class="bi bi-exclamation-circle text-warning"></i></a>';
+        $estatus = '<a href="#" onclick="enviarSolicitud('.$row['id'].',0, event)"><i class="bi bi-exclamation-circle text-warning"></i></a>';
     }
     else {
-        $estatus = '<a href="#" onclick="enviarSolicitud('.$row['id'].',1)"><i class="bi bi-exclamation-circle text-secondary"></i></a>';
+        $estatus = '<a href="#" onclick="enviarSolicitud('.$row['id'].',1, event)"><i class="bi bi-exclamation-circle text-secondary"></i></a>';
     }
 
     echo '

@@ -439,21 +439,40 @@ function queryDashboard1(pagina = 1) {
     });
 }
 
-function enviarSolicitud(id,estatus){
+function enviarSolicitud(id, estatus, event) {  // Añade el parámetro 'event'
+    event.preventDefault();  // Previene el comportamiento por defecto del enlace
+    
     $.ajax({
         type: "POST",
         url: "prcd/prcd_cambiar_estatus_pago.php",
         data: { id: id, estatus: estatus },
         dataType: "json",
         success: function(data) {
-            let success = data.success;
-            if (success = 1){
-                // Agregar evento a los botones de paginación
-                data.preventDefault();
+            if (data.success == 1) {  // Corregido: usa == o === para comparación
                 queryDashboard1();
-                /* $('.paginacion').on('click', function(e) {
-                    var pagina = $(this).data('pagina');
-                }); */
+            }
+            else {
+                console.error(data.error);
+            }
+        }
+    });
+}
+
+function enviarSolicitud2(id, estatus, event) {  // Añade el parámetro 'event'
+    event.preventDefault();  // Previene el comportamiento por defecto del enlace
+    
+    $.ajax({
+        type: "POST",
+        url: "prcd/prcd_cambiar_estatus_pago.php",
+        data: { id: id, estatus: estatus },
+        dataType: "json",
+        success: function(data) {
+            if (data.success == 1) {  // Corregido: usa == o === para comparación
+                let texto = _('nombre_buscar_pagoDash').value;
+                dashboardFiltro(texto,pagina = 1);
+            }
+            else {
+                console.error(data.error);
             }
         }
     });
