@@ -38,10 +38,11 @@ $x++;
             <td>'.$x.'</td>
             <td>'.$row['folio_pago'].'</td>
             <td>'.$rowCliente['nombre'].'</td>
-            <td>'.$row['fecha_pago'].'</td>
             <td>'.$comunidad.'</td>
+            <td>'.$row['fecha_pago'].'</td>
+            <td>'.$row['periodo'].'</td>
             <td>'.$row['total'].'</td>
-            <td><i class="bi bi-clipboard2-check"></i></td>
+            <td><a href="#" onclick="pagosIndividuales(\''.$folio.'\')"><i class="bi bi-eye"></i></a></td>
         </tr>
         ';
 }

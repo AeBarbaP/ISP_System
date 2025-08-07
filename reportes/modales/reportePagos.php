@@ -35,8 +35,9 @@
                                         <th scope="col">#</th>
                                         <th scope="col">Folio</th>
                                         <th scope="col">Cliente</th>
-                                        <th scope="col">Fecha Pago</th>
                                         <th scope="col">Comunidad</th>
+                                        <th scope="col">Fecha Pago</th>
+                                        <th scope="col">Periodo Pago</th>
                                         <th scope="col">Total</th>
                                         <th scope="col"><i class="bi bi-eye"></i></th>
                                     </tr>
