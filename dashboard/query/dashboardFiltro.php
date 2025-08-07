@@ -19,7 +19,7 @@ $totalRegistros = $resultadoTotal->fetch_assoc()['total'];
 $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
 
 // Consulta principal con paginación
-$sql =  "SELECT * FROM clientes WHERE nombre LIKE '%$filtro%'";
+$sql = "SELECT * FROM clientes WHERE nombre LIKE '%$filtro%' LIMIT $offset, $registrosPorPagina";
 $resultado = $conn->query($sql);
 
 echo '
@@ -41,20 +41,26 @@ echo '
 
 // Generar HTML de la tabla
 while($row = $resultado->fetch_assoc()){
-    $contrato = $row['folio_contrato'];
-    $sql2 = "SELECT * FROM pagos_generales WHERE MONTH(fecha_pago) = '$mes' AND YEAR(fecha_pago) = '$anio' ORDER BY fecha_pago DESC LIMIT $offset, $registrosPorPagina";
+    $contrato = $row['folio'];
+    $sql2 = "SELECT * FROM pagos_generales WHERE MONTH(fecha_pago) = '$mes' AND YEAR(fecha_pago) = '$anio' AND folio_contrato = '$contrato' ORDER BY fecha_pago DESC";
     $resultado2 = $conn->query($sql2);
     $row2 = $resultado2->fetch_assoc();
-    echo '
-    <tr class="text-center" onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\')">
-        <td>' . $row['folio_pago'] . '</td>
-        <td>' . $row2['nombre'] . '</td>
-        <td>' . $row2['comunidad'] . '</td>
-        <td>$' . $row['total'] . '</td>
-        <td>' . $row['fecha_pago'] . '</td>
-        <td>' . $row['periodo'] . '</td>
-    </tr>
-    ';
+
+    $filas = $resultado2->num_rows;
+    if ($filas > 0) {
+        
+        
+        echo '
+        <tr class="text-center" onclick="abrirModalPagos(\'' . $row['folio'] . '\')">
+        <td>' . $row['folio'] . '</td>
+        <td>' . $row['nombre'] . '</td>
+        <td>' . $row['comunidad'] . '</td>
+        <td>$' . $row['cuota'] . '</td>
+        <td>' . $row2['fecha_pago'] . '</td>
+        <td>' . $row2['periodo'] . '</td>
+        </tr>
+        ';
+    }
 }
 
 echo'
