@@ -188,12 +188,18 @@ function buscarPagosRepFecha(){
     });
 }
 
-function pagosIndividuales(folio) {
+function pagosIndividuales(folio,x) {
     const tabla = document.getElementById('tablaPagosBody');
     tabla.innerHTML = '';
-
-    $('#modalReportePagos').modal('hide');
-    $('#listaPagosInv').modal('show');
+    if (x == 1){
+        $('#modalSolicitudesPagos').modal('hide');
+        $('#listaPagosInv').modal('show');
+        _('btnListaPagosInv').setAttribute('onclick','querySolicitudes()');
+    } else if (x == 2){
+        $('#modalReportePagos').modal('hide');
+        $('#listaPagosInv').modal('show');
+        _('btnListaPagosInv').setAttribute('onclick','queryPagosDiarios()');
+    }
     _('folioPagoRealizado').innerText = "";
     _('fechaPagoRealizado').innerText = "";
     _('nombrePagoRealizado').innerText = "";

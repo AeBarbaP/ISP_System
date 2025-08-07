@@ -33,6 +33,7 @@ echo '
             <th class="scope" style="font-weight: bold;">Monto</th>
             <th class="scope" style="font-weight: bold;">Fecha de Pago</th>
             <th class="scope" style="font-weight: bold;">Periodo Pagado</th>
+            <th class="scope" style="font-weight: bold;"><i class="bi bi-exclamation-circle-fill"></i></th>
             </tr>
         </thead>
         <tbody id="dashboard1">
@@ -45,14 +46,23 @@ while($row = $resultado->fetch_assoc()){
     $sql2 = "SELECT * FROM clientes WHERE folio = '$contrato'";
     $resultado2 = $conn->query($sql2);
     $row2 = $resultado2->fetch_assoc();
+
+    if ($row['estatus'] == 1){
+        $estatus = '<a href="#" onclick="enviarSolicitud('.$row['id'].',0)"><i class="bi bi-exclamation-circle text-warning"></i></a>';
+    }
+    else {
+        $estatus = '<a href="#" onclick="enviarSolicitud('.$row['id'].',1)"><i class="bi bi-exclamation-circle text-secondary"></i></a>';
+    }
+
     echo '
-    <tr class="text-center" onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\')">
-        <td>' . $row['folio_pago'] . '</td>
-        <td>' . $row2['nombre'] . '</td>
-        <td>' . $row2['comunidad'] . '</td>
-        <td>$' . $row['total'] . '</td>
-        <td>' . $row['fecha_pago'] . '</td>
-        <td>' . $row['periodo'] . '</td>
+    <tr class="text-center">
+        <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\')">' . $row['folio_pago'] . '</td>
+        <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\')">' . $row2['nombre'] . '</td>
+        <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\')">' . $row2['comunidad'] . '</td>
+        <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\')">$' . $row['total'] . '</td>
+        <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\')">' . $row['fecha_pago'] . '</td>
+        <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\')">' . $row['periodo'] . '</td>
+        <td>' . $estatus . '</td>
     </tr>
     ';
 }
@@ -72,11 +82,11 @@ if($paginaActual > 1) {
             <a class="page-link paginacion" href="#" data-pagina="'.($paginaActual - 1).'" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
             </a>
-          </li>';
+        </li>';
 } else {
     echo '<li class="page-item disabled">
             <span class="page-link" aria-hidden="true">&laquo;</span>
-          </li>';
+        </li>';
 }
 
 // Números de página

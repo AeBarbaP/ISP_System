@@ -438,6 +438,27 @@ function queryDashboard1(pagina = 1) {
         }
     });
 }
+
+function enviarSolicitud(id,estatus){
+    $.ajax({
+        type: "POST",
+        url: "prcd/prcd_cambiar_estatus_pago.php",
+        data: { id: id, estatus: estatus },
+        dataType: "json",
+        success: function(data) {
+            let success = data.success;
+            if (success = 1){
+                // Agregar evento a los botones de paginación
+                data.preventDefault();
+                queryDashboard1();
+                /* $('.paginacion').on('click', function(e) {
+                    var pagina = $(this).data('pagina');
+                }); */
+            }
+        }
+    });
+}
+
 function queryDashboardGastos(pagina = 1) {
     $.ajax({
         type: "POST",

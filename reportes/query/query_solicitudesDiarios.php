@@ -8,7 +8,7 @@ $fecha = $_POST['fecha'];
 
 $x = 0;
 
-$sql = "SELECT * FROM pagos_generales WHERE DATE(fecha_pago) = '$fecha'";
+$sql = "SELECT * FROM pagos_generales WHERE DATE(fecha_pago) = '$fecha' AND estatus = 1";
 $resultado = $conn->query($sql);
 while ($row = $resultado->fetch_assoc()){
     $x++;
@@ -25,7 +25,7 @@ while ($row = $resultado->fetch_assoc()){
         <td>'.$x.'</td>
         <td>'.$folio.'</td>
         <td>'.$nombre.'</td>
-        <td><a href="#" onclick="pagosIndividuales(\''.$folio.'\',2)"><i class="bi bi-eye-fill"></i></a></td>
+        <td><a href="#" onclick="pagosIndividuales(\''.$folio.'\',1)"><i class="bi bi-eye-fill"></i></a></td>
         <td><a href="#" onclick="eliminarPago(\''.$folio.'\')"><i class="bi bi-trash3"></i></a></td>
     </tr>
     ';

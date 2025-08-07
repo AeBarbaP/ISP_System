@@ -33,7 +33,7 @@ echo'
 		</div>
 		<div class="modal-footer">
 		  <button type="button" class="btn btn-warning" data-bs-dismiss="modal" onclick="reimpirimirPago()">Reimpimir pago</button>
-		  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+		  <button type="button" class="btn btn-danger" id="btnListaPagosInv" data-bs-toggle="modal">Cerrar</button>
 		</div>
 	  </div>
 	</div>
