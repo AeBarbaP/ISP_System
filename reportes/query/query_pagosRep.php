@@ -42,7 +42,7 @@ $x++;
             <td>'.$row['fecha_pago'].'</td>
             <td>'.$row['periodo'].'</td>
             <td>'.$row['total'].'</td>
-            <td><a href="#" onclick="pagosIndividuales(\''.$folio.'\')"><i class="bi bi-eye"></i></a></td>
+            <td><a href="#" onclick="pagosIndividuales(\''.$row['folio_pago'].'\')"><i class="bi bi-eye"></i></a></td>
         </tr>
         ';
 }
