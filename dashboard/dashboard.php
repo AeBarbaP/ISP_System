@@ -273,7 +273,7 @@
 					<div class="card-header pt-4">
 						<h4 class="card-title"><i class="bi bi-calendar-check-fill me-2"></i> Últimos Pagos Registrados en el mes</h4>
 					</div>
-					<div class="card-body">
+					<div class="card-body overflow-auto">
 						<div class="row">
 							<div class="col-12">
                                 <label class="form-label">Filtrar:</label>

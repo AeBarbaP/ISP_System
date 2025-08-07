@@ -44,22 +44,22 @@ while($row = $resultado->fetch_assoc()){
     $contrato = $row['folio'];
     $sql2 = "SELECT * FROM pagos_generales WHERE MONTH(fecha_pago) = '$mes' AND YEAR(fecha_pago) = '$anio' AND folio_contrato = '$contrato' ORDER BY fecha_pago DESC";
     $resultado2 = $conn->query($sql2);
-    $row2 = $resultado2->fetch_assoc();
-
     $filas = $resultado2->num_rows;
     if ($filas > 0) {
-        
-        
-        echo '
-        <tr class="text-center" onclick="abrirModalPagos(\'' . $row['folio'] . '\')">
-        <td>' . $row['folio'] . '</td>
-        <td>' . $row['nombre'] . '</td>
-        <td>' . $row['comunidad'] . '</td>
-        <td>$' . $row['cuota'] . '</td>
-        <td>' . $row2['fecha_pago'] . '</td>
-        <td>' . $row2['periodo'] . '</td>
-        </tr>
-        ';
+    
+        while($row2 = $resultado2->fetch_assoc()){
+
+            echo '
+                <tr class="text-center" onclick="abrirModalPagos(\'' . $row['folio'] . '\')">
+                    <td>' . $row['folio'] . '</td>
+                    <td>' . $row['nombre'] . '</td>
+                    <td>' . $row['comunidad'] . '</td>
+                    <td>$' . $row['cuota'] . '</td>
+                    <td>' . $row2['fecha_pago'] . '</td>
+                    <td>' . $row2['periodo'] . '</td>
+                </tr>
+            ';
+        }
     }
 }
 

@@ -24,18 +24,18 @@ $resultado = $conn->query($sql);
 
 echo '
 
-<table class="table table-striped table-hover mb-3">
-    <thead style="background-color: aliceblue;">
-        <tr class="text-center">
-        <th class="scope" style="font-weight: bold;"># pago</th>
-        <th class="scope" style="font-weight: bold;">Nombre del Cliente</th>
-        <th class="scope" style="font-weight: bold;">Comunidad</th>
-        <th class="scope" style="font-weight: bold;">Monto</th>
-        <th class="scope" style="font-weight: bold;">Fecha de Pago</th>
-        <th class="scope" style="font-weight: bold;">Periodo Pagado</th>
-        </tr>
-    </thead>
-    <tbody id="dashboard1">
+    <table class="table table-striped table-hover mb-3">
+        <thead style="background-color: aliceblue;">
+            <tr class="text-center">
+            <th class="scope" style="font-weight: bold;"># pago</th>
+            <th class="scope" style="font-weight: bold;">Nombre del Cliente</th>
+            <th class="scope" style="font-weight: bold;">Comunidad</th>
+            <th class="scope" style="font-weight: bold;">Monto</th>
+            <th class="scope" style="font-weight: bold;">Fecha de Pago</th>
+            <th class="scope" style="font-weight: bold;">Periodo Pagado</th>
+            </tr>
+        </thead>
+        <tbody id="dashboard1">
 
 ';
 
@@ -58,7 +58,7 @@ while($row = $resultado->fetch_assoc()){
 }
 
 echo'
-</tbody>
+        </tbody>
     </table>
 ';
 
@@ -82,22 +82,28 @@ if($paginaActual > 1) {
 // Números de página
 for($i = 1; $i <= $totalPaginas; $i++) {
     $active = ($i == $paginaActual) ? 'active' : '';
-    echo '<li class="page-item '.$active.'">
+    echo '
+        <li class="page-item '.$active.'">
             <a class="page-link paginacion" href="#" data-pagina="'.$i.'">'.$i.'</a>
-          </li>';
+        </li>
+    ';
 }
 
 // Botón Siguiente
 if($paginaActual < $totalPaginas) {
-    echo '<li class="page-item">
+    echo '
+        <li class="page-item">
             <a class="page-link paginacion" href="#" data-pagina="'.($paginaActual + 1).'" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
             </a>
-          </li>';
+        </li>
+    ';
 } else {
-    echo '<li class="page-item disabled">
+    echo '
+        <li class="page-item disabled">
             <span class="page-link" aria-hidden="true">&raquo;</span>
-          </li>';
+        </li>
+    ';
 }
 
 echo '</ul></nav>';
