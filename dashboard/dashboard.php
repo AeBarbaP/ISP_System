@@ -444,6 +444,7 @@
 	include("modals/reporteContratos.php");
 	include("modals/reporteContratoIndividual.php");
 	include("modals/editarContratos.php");
+	include("modals/editar_otrosPagos.php");
 ?>
 
 <!-- Inicia Modal para contrato nuevo -->
@@ -1043,6 +1044,8 @@
 						<th scope="col">Concepto</th>
 						<th scope="col">Fecha</th>
 						<th scope="col">Cantidad</th>
+						<th scope="col">Editar</th>
+						<th scope="col">Eliminar</th>
 					</tr>
 				</thead>
 				<tbody id="tablaOtrosGastos">

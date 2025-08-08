@@ -20,6 +20,8 @@ while($row = $resultado->fetch_assoc()){
         <td>'.$row['concepto'].'</td>
         <td>'.$row['fecha'].'</td>
         <td>'.$row['cantidad'].'</td>
+        <td><a href="#" onclick="editarOtroGasto('.$row['id'].')"><i class="bi bi-pencil-square"></i></a></td>
+        <td><a href="#" onclick="eliminarOtroGasto('.$row['id'].')"><i class="bi bi-trash"></i></td>
     </tr>
     ';
 }
