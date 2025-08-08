@@ -1,7 +1,7 @@
 function queryContratosNuevos(){
     $.ajax({
         type: "POST",
-        url: "query/query_contratos.php",
+        url: "query/query_contratos2.php",
         dataType: "json",
         success: function(data){
             var datos = JSON.parse(JSON.stringify(data));
