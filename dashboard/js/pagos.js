@@ -433,7 +433,7 @@ function queryDashboard1(pagina = 1) {
             $('.paginacion').on('click', function(e) {
                 e.preventDefault();
                 var pagina = $(this).data('pagina');
-                queryDashboard1(pagina);
+                queryDashboard1();
             });
         }
     });
@@ -491,7 +491,7 @@ function queryDashboardGastos(pagina = 1) {
             $('.paginacion').on('click', function(e) {
                 e.preventDefault();
                 var pagina = $(this).data('pagina');
-                queryDashboardGastos(pagina);
+                queryDashboardGastos();
             });
         }
     });
