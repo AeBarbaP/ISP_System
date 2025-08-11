@@ -35,7 +35,7 @@ echo '
             <th class="scope" style="font-weight: bold;">Monto</th>
             <th class="scope" style="font-weight: bold;">Fecha de Pago</th>
             <th class="scope" style="font-weight: bold;">Periodo Pagado</th>
-            <th class="scope" style="font-weight: bold;"><i class="bi bi-exclamation-circle-fill"></i></th>
+            <th class="scope" style="font-weight: bold;">Solicitar<br>Eliminar</th>
             </tr>
         </thead>
         <tbody id="dashboard1">
