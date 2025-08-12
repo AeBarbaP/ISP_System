@@ -23,20 +23,25 @@ while ($rowPagos = $resultadoPagos->fetch_assoc()) {
     $listado[] = array(
         'num_pago' => $rowPagos['num_pago'],
         'fecha_pago' => $rowPagos['fecha_pago'],
+        'periodo' => $rowPagos['periodo'],
         'monto' => $rowPagos['total'],
         'concepto' => $rowPagos['concepto']
     );
 }
 
 $nombre = $rowNombre['nombre'];
-$fechaPago = $rowNombre['fecha_corte'];
+$fechaPago = $row['fecha_pago'];
 $folio = $rowNombre['folio'];
+$comunidad = $rowNombre['comunidad'];
+$periodo = $row['periodo'];
 $total = $row['total'];
 
 echo json_encode(array(
     'success' => 1,
     'nombre' => $nombre,
     'fechaPago' => $fechaPago,
+    'periodo' => $periodo,
+    'comunidad' => $comunidad,
     'folio' => $folio_contrato,
     'folio_pago' => $folio_pago,
     'total' => $total,

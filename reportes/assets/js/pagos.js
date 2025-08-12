@@ -218,6 +218,8 @@ function pagosIndividuales(folio,x) {
                 _('folioPagoRealizado').innerText = data.folio_pago;
                 _('fechaPagoRealizado').innerText = data.fechaPago;
                 _('nombrePagoRealizado').innerText = data.nombre;
+                _('comunidadPagoRealizado').innerText = data.comunidad;
+                _('periodoPagoRealizado').innerText = data.periodo;
                 _('totalPagoRealizado').innerText = data.total;
 
                 // listado tabla
@@ -242,6 +244,7 @@ function imprimirSeleccion2(nombre, nombre2) {
     const fecha = new Date().toLocaleDateString();
     const rutaLogo = '../images/logo_conectwi_wide-removebg-preview.png';
     const fechaPago = _('fechaPagoRealizado').innerText;
+    const comunidad = _('comunidadPagoRealizado').innerText;
     
     // Estilos optimizados para impresión térmica
     const estilos = `
@@ -346,17 +349,34 @@ function imprimirSeleccion2(nombre, nombre2) {
             <body>
                 ${logoHTML}
                 <div class="header-text">
-                    <h1 hidden>CONECTWi</h1>
+                    <br>
                     <h2>RECIBO DE PAGO</h2>
+                    <h3>REIMPRESION</h3>
                 </div>
                 
-                ${nombre2 ? `<div class="nombre-cliente">${nombre2}</div>` : ''}
+                ${nombre2 ? `<div class="nombre-cliente">
+                                <p class="text-left">Cliente: ${nombre2}
+                                    <br>
+                                   Comunidad: ${comunidad}
+                                    <br>
+                                   Fecha y hora de Pago: ${fechaPago}
+                                   <br>
+                                   <br>
+                                </p>
+                            </div>` : ''}
                 ${tablaClonada.outerHTML}
                 
                 <div class="footer">
                     
-                    <div>${fechaPago} | www.conectwi.com</div>
-                    <div>** CONSERVE ESTE TICKET **</div>
+                    <div>
+                        <p><br>
+                            ${fecha} | www.conectwi.com
+                        </p>
+                    </div>
+                    <div>
+                        <p>Número para reportes: 4929427478</p>
+                        <p>** CONSERVE ESTE TICKET **</p>
+                    </div>
                 </div>
             </body>
         </html>
@@ -377,5 +397,7 @@ function imprimirSeleccion2(nombre, nombre2) {
 function reimpirimirPago(){
     let folioPago = _('folioPagoRealizado').innerText;
     let nombreTicket = _('nombrePagoRealizado').innerText;
-    imprimirSeleccion2(folioPago, nombreTicket);
+    let comunidadTicket = _('comunidadPagoRealizado').innerText;
+    let fechaTicket = _('fechaPagoRealizado').innerText;
+    imprimirSeleccion2(folioPago, nombreTicket,comunidadTicket, fechaTicket);
 }

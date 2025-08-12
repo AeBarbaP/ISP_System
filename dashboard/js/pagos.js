@@ -751,6 +751,8 @@ function imprimirSeleccion(nombre, nombre2) {
     const ventimp = window.open('', 'popimpr');
     const fecha = new Date().toLocaleDateString();
     const rutaLogo = '../images/logo_conectwi_wide-removebg-preview.png';
+    const fechaPago = _('fechaPagoRealizado').innerText;
+    const comunidad = _('comunidadPagoRealizado').innerText;
     
     // Estilos optimizados para impresión térmica
     const estilos = `
@@ -867,11 +869,21 @@ function imprimirSeleccion(nombre, nombre2) {
             <body>
                 ${logoHTML}
                 <div class="header-text">
-                    <h1 hidden>CONECTWi</h1>
+                    <br>
                     <h2>RECIBO DE PAGO</h2>
+                    <h3>ORIGINAL</h3>
                 </div>
                 
-                ${nombre2 ? `<div class="nombre-cliente">${nombre2}</div>` : ''}
+                ${nombre2 ? `<div class="nombre-cliente">
+                                <p class="text-left">Cliente: ${nombre2}
+                                    <br>
+                                   Comunidad: ${comunidad}
+                                    <br>
+                                   Fecha y hora de Pago: ${fechaPago}
+                                   <br>
+                                   <br>
+                                </p>
+                            </div>` : ''}
                 ${tablaClonada.outerHTML}
                 
                 <div class="footer">
@@ -906,6 +918,7 @@ function imprimirSeleccion2(nombre, nombre2) {
     const fecha = new Date().toLocaleDateString();
     const rutaLogo = '../images/logo_conectwi_wide-removebg-preview.png';
     const fechaPago = _('fechaPagoRealizado').innerText;
+    const comunidad = _('comunidadPagoRealizado').innerText;
     
     // Estilos optimizados para impresión térmica
     const estilos = `
@@ -1014,7 +1027,13 @@ function imprimirSeleccion2(nombre, nombre2) {
                     <h2>RECIBO DE PAGO</h2>
                 </div>
                 
-                ${nombre2 ? `<div class="nombre-cliente">${nombre2}</div>` : ''}
+                ${nombre2 ? `<p class="text-left">Cliente: ${nombre2}
+                                    <br>
+                                   Comunidad: ${comunidad}
+                                    <br>
+                                   Fecha y hora de Pago: ${fechaPago}
+                                   <br>
+                                </p>` : ''}
                 ${tablaClonada.outerHTML}
                 
                 <div class="footer">

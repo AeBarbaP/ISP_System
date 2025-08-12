@@ -12,9 +12,15 @@ echo'
 		<div class="modal-body">
 			<div class="alert alert-info" role="alert">
 				<p><strong>Folio pago:</strong> <span id="folioPagoRealizado"></span></p>
-				<p><strong>fecha pago:</strong> <span id="fechaPagoRealizado"></span></p>
-				<p><strong>Nombre:</strong> <span id="nombrePagoRealizado"></span></p>
-				<p><strong>Total: </strong> <span id="totalPagoRealizado"></span></p>
+				<p><strong>Fecha y hora de pago:</strong> <span id="fechaPagoRealizado"></span></p>
+				<p>
+					<strong>Nombre:</strong> <span id="nombrePagoRealizado"></span><br>
+					<strong>Comunidad:</strong> <span id="comunidadPagoRealizado"></span>
+				</p>
+				<p>
+					<strong>Periodo pagado: </strong> <span id="periodoPagoRealizado"></span><br>
+					<strong>Total: </strong> <span id="totalPagoRealizado"></span>
+				</p>
 			</div>
 
 		  <p>

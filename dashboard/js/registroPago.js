@@ -438,6 +438,8 @@ function abrirModalPagos(folio){
     _pagosRealizados('folioPagoRealizado').innerText = "";
     _pagosRealizados('fechaPagoRealizado').innerText = "";
     _pagosRealizados('nombrePagoRealizado').innerText = "";
+    _pagosRealizados('comunidadPagoRealizado').innerText = "";
+    _pagosRealizados('periodoPagoRealizado').innerText = "";
     _pagosRealizados('totalPagoRealizado').innerText = "";
 
     let folioPago = folio;
@@ -457,6 +459,8 @@ function abrirModalPagos(folio){
                 _pagosRealizados('folioPagoRealizado').innerText = datos.folio_pago;
                 _pagosRealizados('fechaPagoRealizado').innerText = datos.fechaPago;
                 _pagosRealizados('nombrePagoRealizado').innerText = datos.nombre;
+                _pagosRealizados('comunidadPagoRealizado').innerText = datos.comunidad;
+                _pagosRealizados('periodoPagoRealizado').innerText = datos.periodo;
                 _pagosRealizados('totalPagoRealizado').innerText = datos.total;
 
                 // listado tabla

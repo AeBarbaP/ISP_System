@@ -2537,9 +2537,11 @@ function queryPagosDiarios() {
                       <thead class="table-dark">
                           <tr>
                               <th scope="col">#</th>
-                              <th scope="col">Folio pago</th>
-                              <th scope="col">Usuario</th>
                               
+                              <th scope="col">Cliente</th>
+                              <th scope="col">Comunidad</th>
+                              <th scope="col">Periodo Pago</th>
+                              <th scope="col">Fecha Pago</th>
                               <th scope="col">Ver</th>
                               <th scope="col">Elimiar</th>
                           </tr>
