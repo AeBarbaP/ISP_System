@@ -1,0 +1,268 @@
+[19-Jul-2025 00:33:18 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/dashboard1.php(3): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:33:18 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_pagos_al_corriente.php(2): require_once('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:33:18 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_proximos_vencimiento_2.php(2): require_once('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:33:18 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_log.php(26): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:33:18 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_logTwitter.php(2): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:33:18 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/corteCaja.php(3): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:34:28 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_proximos_vencimiento_2.php(2): require_once('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:34:28 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_pagos_al_corriente.php(2): require_once('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:34:28 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_log.php(26): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:34:28 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_logTwitter.php(2): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:34:28 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/dashboard1.php(3): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:34:28 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/corteCaja.php(3): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:34:54 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_reporte_cliente_individual3.php(2): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:35:03 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_reporte_cliente_individual3.php(2): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:36:43 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_reporte_cliente_individual2.php(2): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:37:13 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[19-Jul-2025 00:37:13 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[19-Jul-2025 00:37:13 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[19-Jul-2025 00:37:13 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[19-Jul-2025 00:37:17 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/antenasEdit.php(3): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:37:17 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/paquetes.php(3): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:38:04 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/antenasEdit.php(3): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:38:04 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/paquetes.php(3): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:38:12 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/paquetes.php(3): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:38:12 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/antenasEdit.php(3): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:41:53 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_reporte_usuario_individual2.php(2): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:42:00 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_reporte_usuario_individual2.php(2): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:42:01 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_reporte_usuario_individual2.php(2): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:42:14 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_reporte_usuario_individual2.php(2): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:42:15 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_reporte_usuario_individual2.php(2): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:42:15 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_reporte_usuario_individual2.php(2): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:42:52 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:42:52 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:42:52 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:42:52 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:43:11 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_reporte_incidencias.php(2): include('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:44:01 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_reporte_incidencias.php(2): include('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:44:24 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/query_reporte_cortes_gral2.php(2): include('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:44:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_corteDiarioCaja.php on line 15
+[19-Jul-2025 00:44:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_corteDiarioCaja.php on line 16
+[19-Jul-2025 00:44:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_corteDiarioCaja.php on line 15
+[19-Jul-2025 00:44:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_corteDiarioCaja.php on line 16
+[19-Jul-2025 00:45:53 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
+#1 /home3/conectwi/public_html/reportes/query/gestionUsr.php(3): require('/home3/conectwi...')
+#2 {main}
+  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8
+[19-Jul-2025 00:49:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/gestionUsr.php on line 18
+[19-Jul-2025 00:49:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/gestionUsr.php on line 19
+[19-Jul-2025 00:49:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/gestionUsr.php on line 18
+[19-Jul-2025 00:49:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/gestionUsr.php on line 19
+[19-Jul-2025 00:49:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/gestionUsr.php on line 18
+[19-Jul-2025 00:49:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/gestionUsr.php on line 19
+[19-Jul-2025 00:49:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/gestionUsr.php on line 18
+[19-Jul-2025 00:49:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/gestionUsr.php on line 19
+[19-Jul-2025 00:53:06 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:53:06 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:53:06 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:53:06 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:53:23 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:53:23 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:53:23 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:53:23 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:53:26 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:53:26 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:53:26 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:53:26 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:53:32 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:53:32 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:53:32 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:53:32 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 00:55:40 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_reporte_cortes_individual.php on line 15
+[19-Jul-2025 00:55:40 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_reporte_cortes_individual.php on line 16
+[19-Jul-2025 00:55:40 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_reporte_cortes_individual.php on line 17
+[19-Jul-2025 00:55:40 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_reporte_cortes_individual.php on line 18
+[19-Jul-2025 00:55:40 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_reporte_cortes_individual.php on line 19
+[19-Jul-2025 00:55:40 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_reporte_cortes_individual.php on line 44
+[19-Jul-2025 00:55:40 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_reporte_cortes_individual.php on line 46
+[19-Jul-2025 00:55:40 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_reporte_cortes_individual.php on line 48
+[19-Jul-2025 00:55:40 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_reporte_cortes_individual.php on line 50
+[19-Jul-2025 00:55:40 America/Mexico_City] PHP Warning:  Undefined variable $estatusIncidencia in /home3/conectwi/public_html/reportes/query/query_reporte_cortes_individual.php on line 52
+[19-Jul-2025 00:57:15 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_corteDiarioCaja.php on line 15
+[19-Jul-2025 00:57:15 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_corteDiarioCaja.php on line 16
+[19-Jul-2025 00:57:15 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_corteDiarioCaja.php on line 15
+[19-Jul-2025 00:57:15 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_corteDiarioCaja.php on line 16
+[19-Jul-2025 14:31:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_reporte_incidencias_individual.php on line 15
+[19-Jul-2025 14:31:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_reporte_incidencias_individual.php on line 16
+[19-Jul-2025 14:31:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_reporte_incidencias_individual.php on line 17
+[19-Jul-2025 14:31:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_reporte_incidencias_individual.php on line 18
+[19-Jul-2025 14:31:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_reporte_incidencias_individual.php on line 42
+[19-Jul-2025 14:31:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_reporte_incidencias_individual.php on line 44
+[19-Jul-2025 14:31:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_reporte_incidencias_individual.php on line 46
+[19-Jul-2025 14:31:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_reporte_incidencias_individual.php on line 48
+[19-Jul-2025 14:31:20 America/Mexico_City] PHP Warning:  Undefined variable $estatusIncidencia in /home3/conectwi/public_html/reportes/query/query_reporte_incidencias_individual.php on line 50
+[19-Jul-2025 14:31:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_reporte_incidencias_individual.php on line 56
+[19-Jul-2025 14:31:37 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 14:31:37 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 14:31:37 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[19-Jul-2025 14:31:37 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[24-Jul-2025 11:27:00 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[24-Jul-2025 11:27:00 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[24-Jul-2025 11:27:00 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[24-Jul-2025 11:27:00 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[24-Jul-2025 11:27:00 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[24-Jul-2025 11:27:00 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[24-Jul-2025 11:56:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[24-Jul-2025 11:56:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[24-Jul-2025 11:56:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[24-Jul-2025 11:56:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[24-Jul-2025 11:56:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[24-Jul-2025 11:56:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[24-Jul-2025 12:02:15 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[24-Jul-2025 12:02:15 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[24-Jul-2025 12:02:15 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[24-Jul-2025 12:02:15 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[24-Jul-2025 12:02:15 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36
+[24-Jul-2025 12:02:15 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_contratosRep.php on line 36

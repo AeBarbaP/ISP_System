@@ -13,7 +13,7 @@ $sqlNombre = "SELECT * FROM clientes WHERE folio = '$folio_contrato'";
 $resultadoNombre = $conn->query($sqlNombre);
 $rowNombre = $resultadoNombre->fetch_assoc();
 
-$sqlPagos ="SELECT * FROM pagos WHERE num_pago = '$folio_pago'";
+$sqlPagos ="SELECT * FROM pagos WHERE num_pago LIKE '$folio_pago%'";
 $resultadoPagos = $conn->query($sqlPagos);
 // $rowPagos = $resultadoPagos->fetch_assoc();
 

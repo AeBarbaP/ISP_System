@@ -15,12 +15,11 @@ echo'
 				<p><strong>Fecha y hora de pago:</strong> <span id="fechaPagoRealizado"></span></p>
 				<p>
 					<strong>Nombre:</strong> <span id="nombrePagoRealizado"></span><br>
-					<strong>Comunidad:</strong> <span id="comunidadPagoRealizado"></span>
+					<strong>Comunidad:</strong> <span id="comunidadPagoRealizado"></span><br>
 				</p>
 				<p>
 					<strong>Periodo pagado: </strong> <span id="periodoPagoRealizado"></span><br>
-					<strong>Total: </strong> <span id="totalPagoRealizado"></span>
-				</p>
+				<p><strong>Total: </strong> <span id="totalPagoRealizado"></span></p>
 			</div>
 
 		  <p>

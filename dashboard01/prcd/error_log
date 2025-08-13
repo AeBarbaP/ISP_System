@@ -1,0 +1,51 @@
+[18-Jul-2025 23:01:10 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[18-Jul-2025 23:53:45 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[19-Jul-2025 09:00:30 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/prcd_editar_contratosEdicion.php on line 9
+[19-Jul-2025 09:04:42 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/prcd_editar_contratosEdicion.php on line 9
+[19-Jul-2025 09:06:05 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/prcd_editar_contratosEdicion.php on line 9
+[19-Jul-2025 09:06:17 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/prcd_editar_contratosEdicion.php on line 9
+[19-Jul-2025 09:06:29 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/prcd_editar_contratosEdicion.php on line 9
+[19-Jul-2025 09:06:49 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/prcd_editar_contratosEdicion.php on line 9
+[19-Jul-2025 09:12:16 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[24-Jul-2025 11:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 19
+[24-Jul-2025 11:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 21
+[24-Jul-2025 11:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 22
+[24-Jul-2025 11:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 23
+[24-Jul-2025 11:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 25
+[24-Jul-2025 11:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 29
+[24-Jul-2025 11:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 33
+[24-Jul-2025 11:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 37
+[24-Jul-2025 11:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 38
+[24-Jul-2025 11:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 39
+[24-Jul-2025 11:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 40
+[24-Jul-2025 11:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 48
+[24-Jul-2025 11:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 50
+[24-Jul-2025 11:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 51
+[24-Jul-2025 11:27:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 19
+[24-Jul-2025 11:27:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 21
+[24-Jul-2025 11:27:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 22
+[24-Jul-2025 11:27:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 23
+[24-Jul-2025 11:27:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 25
+[24-Jul-2025 11:27:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 29
+[24-Jul-2025 11:27:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 33
+[24-Jul-2025 11:27:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 37
+[24-Jul-2025 11:27:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 38
+[24-Jul-2025 11:27:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 39
+[24-Jul-2025 11:27:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 40
+[24-Jul-2025 11:27:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 48
+[24-Jul-2025 11:27:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 50
+[24-Jul-2025 11:27:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 51
+[24-Jul-2025 11:28:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 19
+[24-Jul-2025 11:28:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 21
+[24-Jul-2025 11:28:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 22
+[24-Jul-2025 11:28:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 23
+[24-Jul-2025 11:28:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 25
+[24-Jul-2025 11:28:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 29
+[24-Jul-2025 11:28:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 33
+[24-Jul-2025 11:28:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 37
+[24-Jul-2025 11:28:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 38
+[24-Jul-2025 11:28:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 39
+[24-Jul-2025 11:28:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 40
+[24-Jul-2025 11:28:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 48
+[24-Jul-2025 11:28:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 50
+[24-Jul-2025 11:28:20 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 51

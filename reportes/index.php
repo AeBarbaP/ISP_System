@@ -420,7 +420,7 @@ else {
                     </a>
                     <ul class="dropdown-menu text-end mt-2">
                         <li><a class="dropdown-item" href="#" onclick="querySolicitudes()">Solicitudes<i class="bi bi-exclamation-circle ms-2" style="font-size: 2em; "></i></a></li>
-                        <li><a class="dropdown-item" href="#" onclick="queryPagosDiarios()">Eliminar pagos<i class="bi bi-file-earmark-x ms-2" style="font-size: 2em; "></i></a></li>
+                        <!-- <li><a class="dropdown-item" href="#" onclick="queryPagosDiarios()">Eliminar pagos<i class="bi bi-file-earmark-x ms-2" style="font-size: 2em; "></i></a></li> -->
                         <li><a class="dropdown-item" href="#" onclick="queryCortesDiarios()">Imprimir reporte<i class="bi bi-receipt ms-2" style="font-size: 2em; "></i></a></li>
                         
                     </ul>

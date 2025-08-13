@@ -433,7 +433,7 @@ function queryDashboard1(pagina = 1) {
             $('.paginacion').on('click', function(e) {
                 e.preventDefault();
                 var pagina = $(this).data('pagina');
-                queryDashboard1();
+                queryDashboard1(pagina);
             });
         }
     });
@@ -491,14 +491,15 @@ function queryDashboardGastos(pagina = 1) {
             $('.paginacion').on('click', function(e) {
                 e.preventDefault();
                 var pagina = $(this).data('pagina');
-                queryDashboardGastos();
+                queryDashboardGastos(pagina);
             });
         }
     });
 }
 function dashboardFiltro(texto,pagina = 1) {
     if (texto == ""){
-        queryDashboard1();
+        let pagina = 1;
+        queryDashboard1(pagina);
     }
     $.ajax({
         type: "POST",
@@ -1023,24 +1024,28 @@ function imprimirSeleccion2(nombre, nombre2) {
             <body>
                 ${logoHTML}
                 <div class="header-text">
-                    <h1 hidden>CONECTWi</h1>
+                    <br>
                     <h2>RECIBO DE PAGO</h2>
+                    <h3>REIMPRESION</h3>
                 </div>
                 
-                ${nombre2 ? `<p class="text-left">Cliente: ${nombre2}
+                ${nombre2 ? `<div class="nombre-cliente">
+                                <p class="text-left">Cliente: ${nombre2}
                                     <br>
                                    Comunidad: ${comunidad}
                                     <br>
                                    Fecha y hora de Pago: ${fechaPago}
                                    <br>
-                                </p>` : ''}
+                                   <br>
+                                </p>
+                            </div>` : ''}
                 ${tablaClonada.outerHTML}
                 
                 <div class="footer">
 
                     <div>
                         <br>
-                        <p>${fechaPago} | www.conectwi.com</p>
+                        <p>${fecha} | www.conectwi.com</p>
                     </div>
                     <div>
                         <p>Número para reportes: 4929427478</p>

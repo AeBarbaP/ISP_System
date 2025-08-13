@@ -1,0 +1,146 @@
+[28-Jul-2025 17:47:00 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[28-Jul-2025 17:47:01 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[28-Jul-2025 21:43:52 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[30-Jul-2025 18:17:47 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[30-Jul-2025 18:17:47 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[30-Jul-2025 18:18:29 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[30-Jul-2025 20:09:06 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[04-Aug-2025 18:14:01 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[04-Aug-2025 18:14:01 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[04-Aug-2025 18:14:24 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[04-Aug-2025 18:14:24 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[04-Aug-2025 18:25:36 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[04-Aug-2025 18:25:36 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[04-Aug-2025 18:31:32 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[04-Aug-2025 18:31:32 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[04-Aug-2025 18:34:07 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[04-Aug-2025 18:34:07 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[04-Aug-2025 18:56:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 19
+[04-Aug-2025 18:56:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 20
+[04-Aug-2025 18:56:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 22
+[04-Aug-2025 18:56:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 23
+[04-Aug-2025 18:56:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 24
+[04-Aug-2025 18:56:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 26
+[04-Aug-2025 18:56:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 30
+[04-Aug-2025 18:56:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 34
+[04-Aug-2025 18:56:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 38
+[04-Aug-2025 18:56:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 39
+[04-Aug-2025 18:56:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 40
+[04-Aug-2025 18:56:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 41
+[04-Aug-2025 18:56:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 42
+[04-Aug-2025 18:56:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 51
+[04-Aug-2025 18:56:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 53
+[04-Aug-2025 18:56:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 54
+[04-Aug-2025 18:56:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/dashboard/prcd/contrato.php on line 55
+[04-Aug-2025 19:01:16 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[05-Aug-2025 09:12:29 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[05-Aug-2025 10:47:33 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[05-Aug-2025 10:47:33 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[05-Aug-2025 10:49:03 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[05-Aug-2025 10:49:03 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[05-Aug-2025 10:54:01 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[05-Aug-2025 10:54:01 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[05-Aug-2025 10:58:27 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[05-Aug-2025 10:58:27 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[05-Aug-2025 10:59:25 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[05-Aug-2025 14:12:36 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[05-Aug-2025 14:51:44 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[05-Aug-2025 15:34:27 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[05-Aug-2025 16:56:45 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/generarCorteCaja.php on line 8
+[05-Aug-2025 16:56:45 America/Mexico_City] PHP Warning:  Undefined array key "idUsr" in /home3/conectwi/public_html/dashboard/prcd/generarCorteCaja.php on line 11
+[05-Aug-2025 16:57:11 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[05-Aug-2025 17:09:15 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[05-Aug-2025 18:15:27 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[05-Aug-2025 18:15:27 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[05-Aug-2025 18:21:44 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[05-Aug-2025 18:21:44 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[05-Aug-2025 18:23:56 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[05-Aug-2025 18:23:56 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[05-Aug-2025 19:00:22 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/generarCorteCaja.php on line 8
+[05-Aug-2025 19:00:22 America/Mexico_City] PHP Warning:  Undefined array key "idUsr" in /home3/conectwi/public_html/dashboard/prcd/generarCorteCaja.php on line 11
+[05-Aug-2025 19:50:28 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[06-Aug-2025 11:10:31 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[06-Aug-2025 12:11:18 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[06-Aug-2025 12:38:24 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[06-Aug-2025 12:47:47 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[06-Aug-2025 12:47:47 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[06-Aug-2025 12:49:34 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[06-Aug-2025 12:49:34 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[06-Aug-2025 12:51:12 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[06-Aug-2025 13:40:48 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[06-Aug-2025 14:59:00 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[06-Aug-2025 14:59:00 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[06-Aug-2025 15:13:51 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[06-Aug-2025 17:07:33 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/generarCorteCaja.php on line 8
+[06-Aug-2025 17:07:33 America/Mexico_City] PHP Warning:  Undefined array key "idUsr" in /home3/conectwi/public_html/dashboard/prcd/generarCorteCaja.php on line 11
+[06-Aug-2025 17:07:37 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[07-Aug-2025 09:42:01 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[07-Aug-2025 11:11:07 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[07-Aug-2025 11:11:07 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[07-Aug-2025 11:17:45 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[07-Aug-2025 11:20:14 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[07-Aug-2025 11:21:38 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[07-Aug-2025 12:45:04 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[07-Aug-2025 15:09:07 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[08-Aug-2025 10:14:08 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[08-Aug-2025 10:14:08 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[08-Aug-2025 10:37:00 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[08-Aug-2025 10:37:00 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[08-Aug-2025 10:37:18 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[08-Aug-2025 10:37:18 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[08-Aug-2025 10:48:33 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[08-Aug-2025 10:48:33 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[08-Aug-2025 10:59:08 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[08-Aug-2025 10:59:08 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[08-Aug-2025 11:11:58 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[08-Aug-2025 11:11:58 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[08-Aug-2025 11:45:01 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[08-Aug-2025 13:25:07 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[08-Aug-2025 13:25:07 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[08-Aug-2025 13:35:48 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[08-Aug-2025 14:31:51 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[08-Aug-2025 15:45:10 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[08-Aug-2025 16:22:49 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[08-Aug-2025 19:05:10 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[08-Aug-2025 19:58:06 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[09-Aug-2025 09:15:29 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[09-Aug-2025 12:08:29 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[09-Aug-2025 12:08:29 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[09-Aug-2025 12:09:50 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[09-Aug-2025 12:09:50 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[09-Aug-2025 12:10:40 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[09-Aug-2025 12:10:40 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[09-Aug-2025 12:38:28 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[11-Aug-2025 10:04:05 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[11-Aug-2025 10:39:04 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[11-Aug-2025 11:29:10 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[11-Aug-2025 13:36:59 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[11-Aug-2025 14:20:09 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[11-Aug-2025 14:21:02 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[11-Aug-2025 14:21:02 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[11-Aug-2025 14:28:23 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[11-Aug-2025 14:28:23 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[11-Aug-2025 14:42:53 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[11-Aug-2025 15:19:13 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[11-Aug-2025 15:19:14 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[11-Aug-2025 15:28:17 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[11-Aug-2025 15:28:17 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[11-Aug-2025 15:58:09 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[11-Aug-2025 16:42:34 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[11-Aug-2025 16:42:34 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[11-Aug-2025 16:43:01 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[12-Aug-2025 10:43:21 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[12-Aug-2025 10:43:21 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[12-Aug-2025 11:32:40 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[12-Aug-2025 13:12:27 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[12-Aug-2025 14:52:36 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[12-Aug-2025 15:17:00 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/prcd_guardar_incidencia.php on line 5
+[12-Aug-2025 15:17:00 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/prcd_guardar_incidencia.php on line 9
+[12-Aug-2025 16:53:58 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_recibo.php on line 8
+[12-Aug-2025 16:53:58 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/guardar_pagos.php on line 5
+[12-Aug-2025 16:56:43 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/generarCorteCaja.php on line 8
+[12-Aug-2025 16:56:43 America/Mexico_City] PHP Warning:  Undefined array key "idUsr" in /home3/conectwi/public_html/dashboard/prcd/generarCorteCaja.php on line 11
+[12-Aug-2025 16:59:24 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[12-Aug-2025 17:54:24 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[12-Aug-2025 21:52:52 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7
+[13-Aug-2025 10:15:52 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home3/conectwi/public_html/dashboard/prcd/sort.php on line 7

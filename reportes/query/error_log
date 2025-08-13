@@ -1,0 +1,354 @@
+[26-Jul-2025 01:10:11 America/Mexico_City] PHP Warning:  Undefined array key "texto" in /home3/conectwi/public_html/reportes/query/query_clientesRep.php on line 4
+[26-Jul-2025 01:12:08 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'conectwi_conectwi.logs_login' doesn't exist in /home3/conectwi/public_html/reportes/query/gestionUsr.php:15
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/query/gestionUsr.php(15): mysqli->query('SELECT * FROM l...')
+#1 {main}
+  thrown in /home3/conectwi/public_html/reportes/query/gestionUsr.php on line 15
+[05-Aug-2025 15:07:53 America/Mexico_City] PHP Warning:  Undefined array key "texto" in /home3/conectwi/public_html/reportes/query/query_clientesRep.php on line 4
+[05-Aug-2025 15:11:00 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:11:00 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:11:00 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:11:00 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:11:00 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:11:00 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:11:00 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:11:00 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:13:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:13:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:13:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:13:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:13:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:13:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:13:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:13:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:13:51 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:13:51 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:13:51 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:13:51 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:13:51 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:13:51 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:13:51 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:13:51 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:14:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:14:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:14:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:14:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:14:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:14:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:14:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:14:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:14:53 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:14:53 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:14:53 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:14:53 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:14:53 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:14:53 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:14:53 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:14:53 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:15:08 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:15:08 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:15:08 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:15:08 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:15:08 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:15:08 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:15:08 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:15:08 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:15:08 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:15:08 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:15:21 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:15:21 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:15:21 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:15:21 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:15:21 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:15:21 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:15:21 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:15:21 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:15:38 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:15:38 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:15:38 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:15:38 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:15:38 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:15:38 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:15:38 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:15:38 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:16:17 America/Mexico_City] PHP Warning:  Undefined array key "texto" in /home3/conectwi/public_html/reportes/query/query_clientesRep.php on line 4
+[05-Aug-2025 15:19:57 America/Mexico_City] PHP Warning:  Undefined array key "texto" in /home3/conectwi/public_html/reportes/query/query_clientesRep.php on line 4
+[05-Aug-2025 15:22:20 America/Mexico_City] PHP Warning:  Undefined array key "texto" in /home3/conectwi/public_html/reportes/query/query_clientesRep.php on line 4
+[05-Aug-2025 15:22:52 America/Mexico_City] PHP Warning:  Undefined array key "texto" in /home3/conectwi/public_html/reportes/query/query_clientesRep.php on line 4
+[05-Aug-2025 15:34:42 America/Mexico_City] PHP Warning:  Undefined array key "texto" in /home3/conectwi/public_html/reportes/query/query_clientesRep.php on line 4
+[05-Aug-2025 15:36:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:36:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:36:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:36:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:36:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:36:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:36:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[05-Aug-2025 15:36:22 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[05-Aug-2025 15:38:34 America/Mexico_City] PHP Warning:  Undefined array key "texto" in /home3/conectwi/public_html/reportes/query/query_clientesRep.php on line 4
+[05-Aug-2025 19:52:19 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_corteDiarioCaja.php on line 15
+[05-Aug-2025 19:52:19 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_corteDiarioCaja.php on line 16
+[05-Aug-2025 19:52:19 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_corteDiarioCaja.php on line 15
+[05-Aug-2025 19:52:19 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_corteDiarioCaja.php on line 16
+[06-Aug-2025 11:14:44 America/Mexico_City] PHP Warning:  Undefined array key "texto" in /home3/conectwi/public_html/reportes/query/query_clientesRep.php on line 4
+[07-Aug-2025 12:47:24 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'conectwi_conectwi.log_registro' doesn't exist in /home3/conectwi/public_html/reportes/query/excel_usuarioslog.php:19
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/query/excel_usuarioslog.php(19): mysqli->query('SELECT users.us...')
+#1 {main}
+  thrown in /home3/conectwi/public_html/reportes/query/excel_usuarioslog.php on line 19
+[07-Aug-2025 12:47:29 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'conectwi_conectwi.log_registro' doesn't exist in /home3/conectwi/public_html/reportes/query/excel_usuarioslog.php:19
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/query/excel_usuarioslog.php(19): mysqli->query('SELECT users.us...')
+#1 {main}
+  thrown in /home3/conectwi/public_html/reportes/query/excel_usuarioslog.php on line 19
+[07-Aug-2025 12:47:39 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'conectwi_conectwi.log_registro' doesn't exist in /home3/conectwi/public_html/reportes/query/excel_usuarioslog.php:19
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/query/excel_usuarioslog.php(19): mysqli->query('SELECT users.us...')
+#1 {main}
+  thrown in /home3/conectwi/public_html/reportes/query/excel_usuarioslog.php on line 19
+[07-Aug-2025 12:49:37 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[07-Aug-2025 12:49:37 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[07-Aug-2025 12:49:43 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[07-Aug-2025 12:49:43 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[07-Aug-2025 13:01:07 America/Mexico_City] PHP Warning:  Undefined array key "texto" in /home3/conectwi/public_html/reportes/query/query_clientesRep.php on line 4
+[07-Aug-2025 13:17:03 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 9
+[07-Aug-2025 13:17:03 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 10
+[07-Aug-2025 13:17:03 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 31
+[07-Aug-2025 13:17:03 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 32
+[07-Aug-2025 13:17:03 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 33
+[07-Aug-2025 13:17:03 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 34
+[07-Aug-2025 13:18:06 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 9
+[07-Aug-2025 13:18:06 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 10
+[07-Aug-2025 13:18:06 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 31
+[07-Aug-2025 13:18:06 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 32
+[07-Aug-2025 13:18:06 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 33
+[07-Aug-2025 13:18:06 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 34
+[07-Aug-2025 13:19:58 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 9
+[07-Aug-2025 13:19:58 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 10
+[07-Aug-2025 13:19:58 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 31
+[07-Aug-2025 13:19:58 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 32
+[07-Aug-2025 13:19:58 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 33
+[07-Aug-2025 13:19:58 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 34
+[07-Aug-2025 13:20:38 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 9
+[07-Aug-2025 13:20:38 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 10
+[07-Aug-2025 13:20:38 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 31
+[07-Aug-2025 13:20:38 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 32
+[07-Aug-2025 13:20:38 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 33
+[07-Aug-2025 13:20:38 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pago_query.php on line 34
+[07-Aug-2025 13:28:35 America/Mexico_City] PHP Warning:  Undefined array key "texto" in /home3/conectwi/public_html/reportes/query/query_clientesRep.php on line 4
+[07-Aug-2025 13:41:42 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[07-Aug-2025 13:41:42 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[07-Aug-2025 13:42:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[07-Aug-2025 13:42:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[07-Aug-2025 14:05:40 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[07-Aug-2025 14:05:40 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:26:58 America/Mexico_City] PHP Warning:  Undefined array key "texto" in /home3/conectwi/public_html/reportes/query/query_clientesRep.php on line 4
+[11-Aug-2025 22:30:09 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'conectwi_conectwi.logs_login' doesn't exist in /home3/conectwi/public_html/reportes/query/gestionUsr.php:15
+Stack trace:
+#0 /home3/conectwi/public_html/reportes/query/gestionUsr.php(15): mysqli->query('SELECT * FROM l...')
+#1 {main}
+  thrown in /home3/conectwi/public_html/reportes/query/gestionUsr.php on line 15
+[11-Aug-2025 22:32:32 America/Mexico_City] PHP Warning:  Undefined array key "texto" in /home3/conectwi/public_html/reportes/query/query_clientesRep.php on line 4
+[11-Aug-2025 22:34:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:34:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:34:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:34:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:34:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:34:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:34:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:34:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:34:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:34:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:35:14 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:35:14 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:35:14 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:35:14 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:35:14 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:35:14 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:35:14 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:35:14 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:35:14 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:35:14 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:36:48 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:36:48 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:36:48 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:36:48 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:36:48 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:36:48 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:36:48 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:36:48 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:36:48 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:36:48 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:37:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:37:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:37:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:37:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:37:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:37:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:37:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:37:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:37:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:37:01 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:37:05 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:37:05 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:37:05 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:37:05 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:37:05 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:37:05 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:37:05 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:37:05 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:37:05 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:37:05 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:37:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:37:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:37:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:37:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:37:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:37:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:37:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:37:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:37:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[11-Aug-2025 22:37:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[11-Aug-2025 22:43:06 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[11-Aug-2025 22:43:06 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[11-Aug-2025 22:47:41 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[11-Aug-2025 22:47:41 America/Mexico_City] PHP Warning:  Undefined array key "tipo_usr" in /home3/conectwi/public_html/reportes/query/query_tecnicosRep.php on line 10
+[12-Aug-2025 13:17:53 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 20
+[12-Aug-2025 13:17:53 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 21
+[12-Aug-2025 13:19:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 25
+[12-Aug-2025 13:19:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:21:49 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 25
+[12-Aug-2025 13:21:49 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:25:50 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 25
+[12-Aug-2025 13:25:50 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:30:49 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 25
+[12-Aug-2025 13:30:49 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:30:56 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 25
+[12-Aug-2025 13:30:56 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:31:14 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 25
+[12-Aug-2025 13:31:14 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:34:05 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 25
+[12-Aug-2025 13:34:05 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:34:19 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 25
+[12-Aug-2025 13:34:19 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:35:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 25
+[12-Aug-2025 13:35:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:39:06 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 25
+[12-Aug-2025 13:39:06 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:39:47 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 25
+[12-Aug-2025 13:39:47 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:41:04 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 25
+[12-Aug-2025 13:41:04 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:42:56 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:42:56 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 13:44:19 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:44:19 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 13:44:38 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:44:38 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 13:44:43 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:44:43 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 13:51:36 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:51:36 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 13:52:44 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:52:44 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 13:52:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 13:52:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 14:52:27 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 14:52:27 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:26:54 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:26:54 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:27:07 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:27:07 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:27:07 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:27:07 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:27:07 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:27:07 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:27:07 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:27:07 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:27:07 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:27:07 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:27:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:27:32 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:27:35 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:27:35 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:27:35 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:27:35 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:27:35 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:27:35 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:27:35 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:27:35 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:27:35 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:27:35 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:29:00 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:29:00 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:29:04 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:29:04 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:29:04 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:29:04 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:29:04 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:29:04 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:29:04 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:29:04 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:29:04 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:29:04 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:29:25 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:29:25 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:29:34 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:29:34 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:29:34 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:29:34 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:29:34 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:29:34 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:29:34 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:29:34 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:29:34 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:29:34 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:29:58 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:29:58 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:30:02 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:30:02 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:30:02 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:30:02 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:30:02 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:30:02 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:30:02 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:30:02 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:30:02 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:30:02 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:30:27 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:30:27 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:30:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:30:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:30:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:30:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:30:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:30:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:30:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:30:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:30:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:30:30 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:30:45 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:30:45 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:30:49 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:30:49 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:30:49 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:30:49 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:30:49 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:30:49 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:30:49 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:30:49 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:30:49 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:30:49 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:31:05 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:31:05 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:31:08 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:31:08 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:31:08 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:31:08 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:31:08 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:31:08 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:31:08 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:31:08 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 15:31:09 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 26
+[12-Aug-2025 15:31:09 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_pagosDiarios.php on line 27
+[12-Aug-2025 18:01:35 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_corteDiarioCaja.php on line 15
+[12-Aug-2025 18:01:35 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home3/conectwi/public_html/reportes/query/query_corteDiarioCaja.php on line 16

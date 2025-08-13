@@ -369,10 +369,9 @@ function imprimirSeleccion2(nombre, nombre2) {
                 <div class="footer">
                     
                     <div>
-                        <p><br>
-                            ${fecha} | www.conectwi.com
-                        </p>
-                    </div>
+                    <p><br>
+                        ${fecha} | www.conectwi.com</div>
+                    </p>
                     <div>
                         <p>Número para reportes: 4929427478</p>
                         <p>** CONSERVE ESTE TICKET **</p>
@@ -397,7 +396,5 @@ function imprimirSeleccion2(nombre, nombre2) {
 function reimpirimirPago(){
     let folioPago = _('folioPagoRealizado').innerText;
     let nombreTicket = _('nombrePagoRealizado').innerText;
-    let comunidadTicket = _('comunidadPagoRealizado').innerText;
-    let fechaTicket = _('fechaPagoRealizado').innerText;
-    imprimirSeleccion2(folioPago, nombreTicket,comunidadTicket, fechaTicket);
+    imprimirSeleccion2(folioPago, nombreTicket);
 }

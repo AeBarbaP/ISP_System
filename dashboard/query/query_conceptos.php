@@ -68,12 +68,13 @@ if (!empty($folioCliente)) {
         else{
             echo'
             <tr>
-            <td>'.$annio.'-'.$mesM.'</td>
-            <td>Pago oportuno</td>
-            <td>'.$nombreMesN.'</td>
-            <td>'.$costoMensual.'</td>
-            <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
-            </tr>';
+                <td>'.$annio.'-'.$mesM.'</td>
+                <td>Pago oportuno</td>
+                <td>'.$nombreMesN.'</td>
+                <td>'.$costoMensual.'</td>
+                <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
+            </tr>
+            ';
         }
         
         // <td colspan="5" class="table-success">No tiene adeudos</td>
@@ -100,17 +101,19 @@ while ($inicio <= $fin) {
 
     $resultado = $conn->query($sql);
     $row = $resultado->fetch_assoc();
+    $filas2 = $resultado->num_rows;
 
     $adeudo = $inicio->format('Y-m');
 
-    if ($row) {
-        echo "
-        <script>
-            console.log('Ya existe un pago para el mes:" . $adeudo . "');
-        </script>";
+    if ($filas2 >= 1) {
+        //echo "
+        //<script>
+        //    console.log('Ya existe un pago para el mes:" . $adeudo . "');
+        //</script>";
     } 
     else {
         $nombreMes = $meses[$mes]; // Obtener el nombre del mes en español
+        
         // echo '<option value="'.$adeudo.'" data-categoria="1" data-costo="'.$rowCorte['cuota'].'" data-concepto="Recargo" data-periodo="'.$adeudo.'">'.$nombreMes.' '.$anio.'</option>';
 
         echo'

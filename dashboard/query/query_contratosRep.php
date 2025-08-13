@@ -13,11 +13,14 @@ while ($row = $resultado->fetch_assoc()){
 
     //$rowComunidad = $conn->query("SELECT * FROM catalogo_comunidades WHERE id = '$comunidad'")->fetch_assoc();
     $rowPaquete = $conn->query("SELECT * FROM catalogo_paquetes WHERE id = '$paquete'")->fetch_assoc();
-    if($row['estatus'] == 1){
-        $estatus = 'Activo <i class="bi bi-check-circle-fill text-success"></i>';
+if($row['estatus'] == 1){
+        $estatus = 'Activo <i class="bi bi-check-circle-fill text-success ms-2"></i>';
     }
-    else{
-        $estatus = 'Inactivo <i class="bi bi-x-circle-fill text-danger"></i>';
+    else if ($row['estatus'] == 2){
+        $estatus = 'Inactivo <i class="bi bi-x-circle-fill text-warning ms-2"></i>';
+    }
+    else if ($row['estatus'] == 0){
+        $estatus = 'Cancelado <i class="bi bi-x-circle-fill text-danger ms-2"></i>';
     }
 
     if ($comunidad && (is_null($comunidad) || $comunidad == "")) {
