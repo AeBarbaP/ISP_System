@@ -10,6 +10,10 @@
     if(empty($user) || empty($nombre)){
         echo "<script type=\"text/javascript\">location.href='prcd/sort.php';</script>";
     }
+
+	if($tipo_usr == 3){
+    echo "<script type=\"text/javascript\">location.href='tecnicos.php';</script>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -51,6 +55,7 @@
 	<script src="js/laterales/promociones.js"></script>
 	<script src="js/laterales/paquetes.js"></script>
 	<script src="js/laterales/corteDiario.js"></script>
+
 	<!-- área de scripts -->
 	<body onload="queryDashboard1();revisarCorte();ultimoAcceso('<?php echo $user; ?>');queryDashboardGastos();">
 		
@@ -445,6 +450,7 @@
 	include("modals/reporteContratoIndividual.php");
 	include("modals/editarContratos.php");
 	include("modals/editar_otrosPagos.php");
+	include("modals/modal_tecnicos.php");
 ?>
 
 <!-- Inicia Modal para contrato nuevo -->
