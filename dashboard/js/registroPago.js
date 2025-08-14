@@ -224,36 +224,7 @@ function revisarPagosAnticipados() {
     
     var i = 0;
     
-    if (filas == 1){
-        filas.each(function() {
-            var concepto = $(this).find('td:eq(1)').text();
-            if (concepto == 'Pago anticipado') { // Solo no pagados
-                i = i +1;
-                var folioPago = folioPago1 +'-FAn-'+ i;
-                $.ajax({
-                    url: 'prcd/guardar_recibo.php',
-                    type: 'POST',
-                    data: { 
-                        folio_pago: folioPago,
-                        fecha_pago: fechaSolicitud,
-                        tarjeta: tarjeta,
-                        tipo_pago: tipo_pago,
-                        folio_contrato: foliContrato,
-                        periodo: $(this).find('td:eq(0)').text(),
-                        concepto: $(this).find('td:eq(1)').text(),
-                        mes: $(this).find('td:eq(2)').text(),
-                        total_pago: $(this).find('td:eq(3)').text()
-                    },
-                    success: function(data) {
-                        console.log('Guardado pagos anticipados');
-                        
-                    }
-                });
-            }
-        
-        });
-    }
-    else {
+    if (filas > 1){
         filas.each(function() {
             var concepto = $(this).find('td:eq(1)').text();
             if (concepto == 'Pago anticipado') { // Solo no pagados
@@ -272,6 +243,35 @@ function revisarPagosAnticipados() {
                         concepto: $(this).find('td:eq(1)').text(),
                         mes: $(this).find('td:eq(2)').text(),
                         total_pago: 0
+                    },
+                    success: function(data) {
+                        console.log('Guardado pagos anticipados');
+                        
+                    }
+                });
+            }
+        
+        });
+    }
+    else if(filas == 1) {
+        filas.each(function() {
+            var concepto = $(this).find('td:eq(1)').text();
+            if (concepto == 'Pago anticipado') { // Solo no pagados
+                i = i +1;
+                var folioPago = folioPago1 +'-FAn-'+ i;
+                $.ajax({
+                    url: 'prcd/guardar_recibo.php',
+                    type: 'POST',
+                    data: { 
+                        folio_pago: folioPago,
+                        fecha_pago: fechaSolicitud,
+                        tarjeta: tarjeta,
+                        tipo_pago: tipo_pago,
+                        folio_contrato: foliContrato,
+                        periodo: $(this).find('td:eq(0)').text(),
+                        concepto: $(this).find('td:eq(1)').text(),
+                        mes: $(this).find('td:eq(2)').text(),
+                        total_pago: $(this).find('td:eq(3)').text()
                     },
                     success: function(data) {
                         console.log('Guardado pagos anticipados');
@@ -298,35 +298,7 @@ function revisarPagosAtrasado() {
     const fechaSolicitud = $('#fechaSolicitud').val();
     var i = 0;
     
-    if (filas == 1){
-        filas.each(function() {
-            var concepto = $(this).find('td:eq(1)').text();
-            if (concepto == 'Adeudo') { // Solo no pagados
-                i = i +1;
-                var folioPago = folioPago1 +'-FAt-'+ i;
-                $.ajax({
-                    url: 'prcd/guardar_recibo.php',
-                    type: 'POST',
-                    data: { 
-                        folio_pago: folioPago,
-                        fecha_pago: fechaSolicitud,
-                        tarjeta: tarjeta,
-                        tipo_pago: tipo_pago,
-                        folio_contrato: foliContrato,
-                        periodo: $(this).find('td:eq(0)').text(),
-                        concepto: $(this).find('td:eq(1)').text(),
-                        mes: $(this).find('td:eq(2)').text(),
-                        total_pago: $(this).find('td:eq(3)').text()
-                     },
-                    success: function(data) {
-                        console.log('Guardado pagos atrasados');
-                        
-                    }
-                });
-            }
-        });
-    }
-    else {
+    if (filas > 1){
         filas.each(function() {
             var concepto = $(this).find('td:eq(1)').text();
             if (concepto == 'Adeudo') { // Solo no pagados
@@ -345,6 +317,34 @@ function revisarPagosAtrasado() {
                         concepto: $(this).find('td:eq(1)').text(),
                         mes: $(this).find('td:eq(2)').text(),
                         total_pago: 0
+                     },
+                    success: function(data) {
+                        console.log('Guardado pagos atrasados');
+                        
+                    }
+                });
+            }
+        });
+    }
+    else if(filas == 1) {
+        filas.each(function() {
+            var concepto = $(this).find('td:eq(1)').text();
+            if (concepto == 'Adeudo') { // Solo no pagados
+                i = i +1;
+                var folioPago = folioPago1 +'-FAt-'+ i;
+                $.ajax({
+                    url: 'prcd/guardar_recibo.php',
+                    type: 'POST',
+                    data: { 
+                        folio_pago: folioPago,
+                        fecha_pago: fechaSolicitud,
+                        tarjeta: tarjeta,
+                        tipo_pago: tipo_pago,
+                        folio_contrato: foliContrato,
+                        periodo: $(this).find('td:eq(0)').text(),
+                        concepto: $(this).find('td:eq(1)').text(),
+                        mes: $(this).find('td:eq(2)').text(),
+                        total_pago: $(this).find('td:eq(3)').text()
                      },
                     success: function(data) {
                         console.log('Guardado pagos atrasados');
@@ -537,6 +537,7 @@ function abrirModalPagos(folio){
                     fila.innerHTML = `
                         <td>${index + 1}</td>
                         <td>${pago.concepto}</td>
+                        <td>${pago.periodo}</td>
                         <td>$${parseFloat(pago.monto).toFixed(2)}</td>
                     `;
 

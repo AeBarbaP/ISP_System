@@ -974,7 +974,7 @@
 					<tr>
 						<th>#</th>
 						<th>Concepto</th>
-						<!-- <th>Folio</th> -->
+						<th>Periodo</th>
 						<th>Total</th>
 					</tr>
 				</thead>

@@ -86,7 +86,7 @@ function ejecutarFuncionConFolio(folio) {
                         <br>
                         <span class="h3">Último Pago Registrado: ${item.ultimopago} ${item.total}</span>
                         <input type="text" id="costoAdelantado" value="${item.cuota}" hidden>
-                        <input type="datetime-local" id="fechaClientepagos" value="${fechaPago}" >
+                        <input type="datetime-local" id="fechaClientepagos" value="${fechaPago}" hidden>
                     </div>
                     `;
                 }
@@ -97,7 +97,7 @@ function ejecutarFuncionConFolio(folio) {
                     <span>Folio Contrato: </span><span id="folioContratoRegistro">${item.folio}</span><br>
                     <span>Domicilio: ${item.domicilio}</span>
                     <br>
-                    <span>Comunidad: ${item.comunidad}</span>
+                    <span id="comunidadClientePago">Comunidad: ${item.comunidad}</span>
                     <br>
                     <span>Teléfono: ${item.telefono}</span>
                     <br>
@@ -105,7 +105,7 @@ function ejecutarFuncionConFolio(folio) {
                     <br>
                     <span class="h3">Último Pago Registrado: ${item.ultimopago} ${item.total}</span>
                     <input type="text" id="costoAdelantado" value="${item.cuota}" hidden>
-                    <input type="datetime-local" id="fechaClientepagos" value="${fechaPago}" >
+                    <input type="datetime-local" id="fechaClientepagos" value="${fechaPago}" hidden>
                     </div>
                     `;}
             });
