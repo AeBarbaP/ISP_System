@@ -42,9 +42,20 @@ $(document).ready(function() {
     });
 });
 
+function FechaHoyHoras() {
+  const hoy = new Date();
+  const anio = hoy.getFullYear();
+  const mes = String(hoy.getMonth() + 1).padStart(2, '0'); // los meses van de 0 a 11
+  const dia = String(hoy.getDate()).padStart(2, '0');
+  const horas = String(hoy.getHours()).padStart(2, '0');
+  const minutos = String(hoy.getMinutes()).padStart(2, '0');
+  return `${anio}-${mes}-${dia} ${horas}:${minutos}`;
+}
+
 function ejecutarFuncionConFolio(folio) {
     console.log("Folio seleccionado:", folio);
     _("datosGenerales").innerHTML = "";
+    const fechaPago = FechaHoyHoras();
 
     // Aquí puedes hacer lo que necesites con el folio
     $.ajax({
@@ -67,7 +78,7 @@ function ejecutarFuncionConFolio(folio) {
                         <span>Folio Contrato: </span><span id="folioContratoRegistro">${item.folio}</span><br>
                         <span>Domicilio: ${item.domicilio}</span>
                         <br>
-                        <span>Comunidad: ${item.comunidad}</span>
+                        <span id="comunidadClientePago">Comunidad: ${item.comunidad}</span>
                         <br>
                         <span>Teléfono: ${item.telefono}</span>
                         <br>
@@ -75,7 +86,7 @@ function ejecutarFuncionConFolio(folio) {
                         <br>
                         <span class="h3">Último Pago Registrado: ${item.ultimopago} ${item.total}</span>
                         <input type="text" id="costoAdelantado" value="${item.cuota}" hidden>
-                        
+                        <input type="datetime-local" id="fechaClientepagos" value="${fechaPago}" >
                     </div>
                     `;
                 }
@@ -94,6 +105,7 @@ function ejecutarFuncionConFolio(folio) {
                     <br>
                     <span class="h3">Último Pago Registrado: ${item.ultimopago} ${item.total}</span>
                     <input type="text" id="costoAdelantado" value="${item.cuota}" hidden>
+                    <input type="datetime-local" id="fechaClientepagos" value="${fechaPago}" >
                     </div>
                     `;}
             });
@@ -752,9 +764,9 @@ function imprimirSeleccion(nombre, nombre2) {
     const ventimp = window.open('', 'popimpr');
     const fecha = new Date().toLocaleDateString();
     const rutaLogo = '../images/logo_conectwi_wide-removebg-preview.png';
-    const fechaPago = _('fechaPagoRealizado').innerText;
-    const comunidad = _('comunidadPagoRealizado').innerText;
-    
+    const comunidad = _('comunidadClientePago').innerText;
+    const fechaPago = _('fechaClientepagos').value;
+
     // Estilos optimizados para impresión térmica
     const estilos = `
         <style>

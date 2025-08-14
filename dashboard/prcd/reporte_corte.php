@@ -30,7 +30,7 @@ class PDF extends FPDF {
         $fechaHoy = (new DateTime())->format('Y-m-d');
         // Logo centrado con margen superior
         $this->Image('../../images/logo_conectwi_wide-removebg-preview.png', ($this->GetPageWidth() - 120) / 2, 12, 120);
-        $this->SetY(45); // Espacio después del logo
+        $this->SetY(40); // Espacio después del logo
         
         // Título principal
         $this->SetFont('Arial', 'B', 16);

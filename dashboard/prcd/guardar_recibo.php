@@ -9,7 +9,7 @@ $userLog = $_SESSION['username'];
 $fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
 
 $folio_pago = $_POST['folio_pago'];
-$fecha_pago = $_POST['fecha_pago'];
+$fecha_pago = $fechaHoy;
 $tipo_pago = $_POST['tipo_pago'];
 $folio_contrato = $_POST['folio_contrato'];
 $total_pago = $_POST['total_pago'];
