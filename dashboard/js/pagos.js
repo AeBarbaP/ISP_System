@@ -78,7 +78,7 @@ function ejecutarFuncionConFolio(folio) {
                         <span>Folio Contrato: </span><span id="folioContratoRegistro">${item.folio}</span><br>
                         <span>Domicilio: ${item.domicilio}</span>
                         <br>
-                        <span id="comunidadClientePago">Comunidad: ${item.comunidad}</span>
+                        <span>Comunidad: ${item.comunidad}</span>
                         <br>
                         <span>Teléfono: ${item.telefono}</span>
                         <br>
@@ -86,28 +86,30 @@ function ejecutarFuncionConFolio(folio) {
                         <br>
                         <span class="h3">Último Pago Registrado: ${item.ultimopago} ${item.total}</span>
                         <input type="text" id="costoAdelantado" value="${item.cuota}" hidden>
-                        <input type="datetime-local" id="fechaClientepagos" value="${fechaPago}" hidden>
+                        <input type="datetime-local" id="fechaClientepagos2" value="${fechaPago}" hidden>
+                        <input type="text" id="comunidadClientePagoInput" value="${item.comunidad}" >
                     </div>
                     `;
                 }
                 else{
-                datosGenerales += `
-                <div class="alert alert-info mb-2" role="alert">
-                    <span id="nombrePagoTicket" class="fw-bold">${item.nombre}</span><br>
-                    <span>Folio Contrato: </span><span id="folioContratoRegistro">${item.folio}</span><br>
-                    <span>Domicilio: ${item.domicilio}</span>
-                    <br>
-                    <span id="comunidadClientePago">Comunidad: ${item.comunidad}</span>
-                    <br>
-                    <span>Teléfono: ${item.telefono}</span>
-                    <br>
-                    <span class="h3"><b>Paquete Contratado: ${item.paquete}</b></span>
-                    <br>
-                    <span class="h3">Último Pago Registrado: ${item.ultimopago} ${item.total}</span>
-                    <input type="text" id="costoAdelantado" value="${item.cuota}" hidden>
-                    <input type="datetime-local" id="fechaClientepagos" value="${fechaPago}" hidden>
+                    datosGenerales += `
+                    <div class="alert alert-info mb-2" role="alert">
+                        <span id="nombrePagoTicket" class="fw-bold">${item.nombre}</span><br>
+                        <span>Folio Contrato: </span><span id="folioContratoRegistro">${item.folio}</span><br>
+                        <span>Domicilio: ${item.domicilio}</span>
+                        <br>
+                        <span>Comunidad: ${item.comunidad}</span>
+                        <br>
+                        <span>Teléfono: ${item.telefono}</span>
+                        <br>
+                        <span class="h3"><b>Paquete Contratado: ${item.paquete}</b></span>
+                        <br>
+                        <span class="h3">Último Pago Registrado: ${item.ultimopago} ${item.total}</span>
+                        <input type="text" id="costoAdelantado" value="${item.cuota}" hidden>
+                        <input type="datetime-local" id="fechaClientepagos2" value="${fechaPago}" hidden>
+                        <input type="text" id="comunidadClientePagoInput" value="${item.comunidad}" >
                     </div>
-                    `;}
+                `;}
             });
             $('#datosGenerales').html(datosGenerales);
 
@@ -764,8 +766,8 @@ function imprimirSeleccion(nombre, nombre2) {
     const ventimp = window.open('', 'popimpr');
     const fecha = new Date().toLocaleDateString();
     const rutaLogo = '../images/logo_conectwi_wide-removebg-preview.png';
-    const comunidad = _('comunidadClientePago').innerText;
-    const fechaPago = _('fechaClientepagos').value;
+    const comunidad = _('comunidadClientePagoInput').value;
+    const fechaPago = _('fechaClientepagos2').value;
 
     // Estilos optimizados para impresión térmica
     const estilos = `

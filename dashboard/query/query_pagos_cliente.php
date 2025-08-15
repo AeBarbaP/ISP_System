@@ -10,6 +10,7 @@ $corte = $resultadoCorte->fetch_assoc();
 $fechaCorte = new DateTime($corte['fecha_corte']);
 
 // Obtener el mes y año de la fecha de corte
+$diaCorte = (int)$fechaCorte->format('d'); // día numérico
 $mesCorte = (int)$fechaCorte->format('n'); // Mes numérico (1-12)
 $anoCorte = (int)$fechaCorte->format('Y'); // Año
 
@@ -18,14 +19,20 @@ $hoy = new DateTime();
 $mesActual = (int)$hoy->format('n');
 $anoActual = (int)$hoy->format('Y');
 
+$concatFecha = $anoActual.'-'.$mesActual;
+$fecha1 = $anoActual.'-'.($mesActual-1);
+$fecha2 = $anoActual.'-'.($mesActual-2);
+
 // Consulta para obtener los pagos del cliente
-$sql = "SELECT * FROM pagos WHERE folio_contrato = '$folio' ORDER BY periodo";
-$resultado = $conn->query($sql);
+//$sql = "SELECT * FROM pagos WHERE folio_contrato = '$folio' ORDER BY periodo";
+//$resultado = $conn->query($sql);
+
+$row = $conn->query("SELECT * FROM pagos WHERE folio_contrato = '$folio' AND periodo BETWEEN '$fecha1' AND '$fecha2' ORDER BY periodo")->num_rows;
 
 $pagos = array();
 
 // Procesar pagos existentes
-while ($row = $resultado->fetch_assoc()) {
+while ($row >= 1) {
     $concepto = $row['concepto'];
     $sqlConcepto2 = "SELECT * FROM conceptos WHERE id = '$concepto'";
     $resultadoConcepto = $conn->query($sqlConcepto2);

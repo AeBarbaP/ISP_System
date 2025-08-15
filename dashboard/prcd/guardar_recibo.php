@@ -9,7 +9,7 @@ $userLog = $_SESSION['username'];
 $fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
 
 $folio_pago = $_POST['folio_pago'];
-$fecha_pago = $fechaHoy;
+$fecha_pago = $_POST['fecha_pago'];
 $tipo_pago = $_POST['tipo_pago'];
 $folio_contrato = $_POST['folio_contrato'];
 $total_pago = $_POST['total_pago'];
@@ -41,7 +41,9 @@ $sql = "INSERT INTO pagos_generales (
         '$periodo',
         '$userLog'
         )";
+
         $resultado = $conn->query($sql);
+        
         if($resultado){
             // --------- log ---------------
             $sqlLOG = "INSERT INTO log_users(
@@ -57,9 +59,11 @@ $sql = "INSERT INTO pagos_generales (
             'NA')
             ";
             $resultadoLOG = $conn->query($sqlLOG);
+            $error = $conn->error;
             // --------- log ---------------
             echo json_encode(array(
-                'success' => 1
+                'success' => 1,
+                'error' => $error
             ));
         }
         else{

@@ -141,7 +141,7 @@ function guardarTodosPagos() {
     const pagos = [];
     const folioPago1 = $('#folioLabelpago').val();
     const foliContrato = document.getElementById('folioContratoRegistro').innerText;
-    const fechaSolicitud = $('#fechaSolicitud').val();
+    const fechaSolicitud = _('fechaClientepagos2').value;
     const nombreTicket = _('nombrePagoTicket').innerText;
 
     if (filas == 0) {
@@ -194,6 +194,7 @@ function guardarTodosPagos() {
                 filas.addClass('table-success');
                 $('.btn-pagar').html('<i class="bi bi-check-circle"></i> Pagado').removeClass('btn-primary').addClass('btn-success');
                 //actualizarTotal();
+                queryDashboard1();
                 guardarRecibo();
                 //alert(response.message);
                 console.log(response.message);
@@ -224,7 +225,7 @@ function revisarPagosAnticipados() {
     
     var i = 0;
     
-    if (filas > 1){
+    if (filas >= 2){
         filas.each(function() {
             var concepto = $(this).find('td:eq(1)').text();
             if (concepto == 'Pago anticipado') { // Solo no pagados
@@ -253,7 +254,7 @@ function revisarPagosAnticipados() {
         
         });
     }
-    else if(filas == 1) {
+    else {
         filas.each(function() {
             var concepto = $(this).find('td:eq(1)').text();
             if (concepto == 'Pago anticipado') { // Solo no pagados
@@ -298,7 +299,7 @@ function revisarPagosAtrasado() {
     const fechaSolicitud = $('#fechaSolicitud').val();
     var i = 0;
     
-    if (filas > 1){
+    if (filas >= 2){
         filas.each(function() {
             var concepto = $(this).find('td:eq(1)').text();
             if (concepto == 'Adeudo') { // Solo no pagados
@@ -317,7 +318,7 @@ function revisarPagosAtrasado() {
                         concepto: $(this).find('td:eq(1)').text(),
                         mes: $(this).find('td:eq(2)').text(),
                         total_pago: 0
-                     },
+                    },
                     success: function(data) {
                         console.log('Guardado pagos atrasados');
                         
@@ -326,7 +327,7 @@ function revisarPagosAtrasado() {
             }
         });
     }
-    else if(filas == 1) {
+    else  {
         filas.each(function() {
             var concepto = $(this).find('td:eq(1)').text();
             if (concepto == 'Adeudo') { // Solo no pagados
@@ -345,7 +346,7 @@ function revisarPagosAtrasado() {
                         concepto: $(this).find('td:eq(1)').text(),
                         mes: $(this).find('td:eq(2)').text(),
                         total_pago: $(this).find('td:eq(3)').text()
-                     },
+                    },
                     success: function(data) {
                         console.log('Guardado pagos atrasados');
                         
@@ -359,7 +360,7 @@ function revisarPagosAtrasado() {
 function guardarRecibo() {
 
     var folio_pago = _grecibos('folioLabelpago').value;
-    var fecha_pago = _grecibos('fechaSolicitud').value;
+    var fecha_pago = _grecibos('fechaClientepagos2').value;
     var tarjeta = _grecibos('tipopagoBaucher').value;
     var tipo_pago = _grecibos('tipopago').value;
     var folio_contrato = _grecibos('folioContratoRegistro').innerText;
@@ -393,7 +394,7 @@ function guardarRecibo() {
 
                         var success = datos.success;
                 
-                        if(success = 1){
+                        if(success == 1){
                             alert("Recibo guardado");
                             document.getElementById('pagoreg').disabled = false;
                             $('#pago').modal('hide');
@@ -508,6 +509,7 @@ function abrirModalPagos(folio){
     _pagosRealizados('comunidadPagoRealizado').innerText = "";
     _pagosRealizados('periodoPagoRealizado').innerText = "";
     _pagosRealizados('totalPagoRealizado').innerText = "";
+    _pagosRealizados('total-costoReimpresion').innerText = "";
 
     let folioPago = folio;
     $.ajax({
@@ -529,6 +531,7 @@ function abrirModalPagos(folio){
                 _pagosRealizados('comunidadPagoRealizado').innerText = datos.comunidad;
                 _pagosRealizados('periodoPagoRealizado').innerText = datos.periodo;
                 _pagosRealizados('totalPagoRealizado').innerText = datos.total;
+                _pagosRealizados('total-costoReimpresion').innerText = datos.total;
 
                 // listado tabla
                 listado.forEach((pago, index) => {

@@ -21,7 +21,7 @@ $totalRegistros = $resultadoTotal->fetch_assoc()['total'];
 $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
 
 // Consulta principal con paginación
-$sql = "SELECT * FROM pagos_generales WHERE MONTH(fecha_pago) = '$mes' AND YEAR(fecha_pago) = '$anio' ORDER BY fecha_pago DESC LIMIT $offset, $registrosPorPagina";
+$sql = "SELECT * FROM pagos_generales WHERE MONTH(fecha_pago) = '$mes' AND YEAR(fecha_pago) = '$anio' ORDER BY folio_pago DESC LIMIT $offset, $registrosPorPagina";
 $resultado = $conn->query($sql);
 
 echo '

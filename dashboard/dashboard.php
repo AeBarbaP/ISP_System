@@ -979,6 +979,20 @@
 					</tr>
 				</thead>
 				<tbody id="tablaPagosBody"></tbody>
+				<tfoot>
+					<tr>
+						<td colspan="5" class="text-end" >&nbsp;</td>
+					</tr>
+					<tr class="table-success" id="totalFilas">
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+						<td><strong>Total:</strong></td>
+						<td>
+							<span id="total-costoReimpresion"></span>
+						</td>
+						
+					</tr>
+				</tfoot>
 			</table>
 		  </p>
 		</div>
