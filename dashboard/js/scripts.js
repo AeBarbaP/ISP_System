@@ -229,16 +229,25 @@ function limpiarModal(){
         $(this).find('form').trigger('reset');
     });
 }
+function limpiarModalX(){
+    $(".modal").on('hidden.bs.modal', function () {
+        $(this).find('form').trigger('reset');
+    });
+    const button = document.getElementById('pagoreg');
+    button.disabled = false;
+}
 
 function limpiar1modal(){
     //$(".modal").on('hidden.bs.modal', function () {
     //    $(this).find('form').trigger('reset');
     //});
+      const button = document.getElementById('pagoreg');
+
     _('NuevaSolicitud').innerHTML = "";
     _('buscanombre').value = "";
     //$("#nombresClientes option[value='option1']").remove();
     _('nombresClientes').innerHTML = "";
-    _('pagoreg').disabled = false;
+   button.disabled = false;
     _('datosGenerales').innerHTML = "";
     _('nombresClientes').value = "";
     _('total-costo').innerText = "0.00";

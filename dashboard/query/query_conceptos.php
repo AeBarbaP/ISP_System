@@ -1,148 +1,87 @@
 <?php
 require('../prcd/conn.php');
 
-if (!is_null($_POST['folio'])){
+if (!empty($_POST['folio'])) {
+    $folio = $_POST['folio'];
+    $recargo = 50.00;
 
-// Obtener el folio del cliente
-$folioCliente = $_POST['folio'];
-$recargo = '50.00'; // Valor del recargo
+    // 1. Obtener datos del cliente y fecha de corte
+    $cliente = $conn->query("SELECT *, DATE(fecha_corte) as fecha_corte FROM clientes WHERE folio = '$folio'")->fetch_assoc();
+    $cuota = $cliente['cuota'];
+    $fecha_corte = new DateTime($cliente['fecha_corte']);
+    $dia_corte = $fecha_corte->format('d');
 
-// Array para almacenar los meses adeudados
-$adeudos = array();
-
-if (!empty($folioCliente)) {
-    // 1. Obtener fecha de corte del cliente
-    $sqlCorte = "SELECT * FROM clientes WHERE folio = '$folioCliente'";
-    $resultadoCorte = $conn->query($sqlCorte);
-    $rowCorte = $resultadoCorte->fetch_assoc();
-
-    $inicio = new DateTime($rowCorte['fecha_corte']);
-    $fin = new DateTime();
-
-    $diaN = '01';
-    $mesN = $fin->format('m');
-    $anioN = $inicio->format('Y');
-    
-    $diaM = $inicio->format('d');
-    $mesM = $fin->format('m');
-    $anioM = $inicio->format('Y');
-
-    $annio = $fin->format('Y');
-
-    $fechaNuevaCorte1 = new DateTime("$anioN-$mesN-$diaN");
-    $fechaNuevaCorte2 = new DateTime("$anioM-$mesM-$diaM");
-
-
-    $folioContrato = $rowCorte['folio'];
-    $costoMensual = $rowCorte['cuota'];
-
+    // 2. Configuración de meses
     $meses = [
-        '01' => 'Enero', '02' => 'Febrero', '03' => 'Marzo',
-        '04' => 'Abril', '05' => 'Mayo', '06' => 'Junio',
-        '07' => 'Julio', '08' => 'Agosto', '09' => 'Septiembre',
-        '10' => 'Octubre', '11' => 'Noviembre', '12' => 'Diciembre'
+        '01'=>'Enero', '02'=>'Febrero', '03'=>'Marzo', '04'=>'Abril',
+        '05'=>'Mayo', '06'=>'Junio', '07'=>'Julio', '08'=>'Agosto',
+        '09'=>'Septiembre', '10'=>'Octubre', '11'=>'Noviembre', '12'=>'Diciembre'
     ];
 
-    if(($fin > $fechaNuevaCorte1) && ($fin < $fechaNuevaCorte2)){
-        
-        $nombreMesN = $meses[$mesM];
+    // 3. Fechas clave
+    $hoy = new DateTime();
+    $mes_actual = $hoy->format('Y-m');
+    $mes_anterior1 = (clone $hoy)->modify('-1 month')->format('Y-m');
+    $mes_anterior2 = (clone $hoy)->modify('-1 month')->format('Y-m');
 
-        $concat = "$annio-$mesM";
-        $sql = "SELECT * FROM pagos_generales 
-                WHERE folio_contrato = '$folioContrato' 
-                AND periodo = '$concat'";
+    // 4. Determinar si es pago oportuno
+    $pago_actual = $conn->query("SELECT 1 FROM pagos_generales WHERE folio_contrato = '$folio' AND periodo = '$mes_actual'");
+    $pago_oportuno = ($hoy <= $fecha_corte);
 
-        $resultado = $conn->query($sql);
-        // $row = $resultado->fetch_assoc();
-        $filas = $resultado->num_rows;
-        if($filas == 1){
-            echo'
-            <tr>
-            <td>0000-00</td>
-                <td>No tiene adeudos</td>
-                <td>N/A</td>
-                <td>0.00</td>
-                <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
-            </tr>';
-        }
-        else{
-            echo'
-            <tr>
-                <td>'.$annio.'-'.$mesM.'</td>
-                <td>Pago oportuno</td>
-                <td>'.$nombreMesN.'</td>
-                <td>'.$costoMensual.'</td>
-                <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
-            </tr>
-            ';
-        }
+    // 5. Procesar meses
+    $resultados = [];
+    $adeudos = [];
+    
+    foreach ([$mes_anterior2, $mes_anterior1, $mes_actual] as $periodo) {
+        $pago = $conn->query("SELECT 1 FROM pagos_generales WHERE folio_contrato = '$folio' AND periodo = '$periodo'");
         
-        // <td colspan="5" class="table-success">No tiene adeudos</td>
-        
+        if ($pago->num_rows == 0) {
+            $es_actual = ($periodo == $mes_actual);
+            $concepto = $es_actual && $pago_oportuno ? 'Pago oportuno' : 'Adeudo';
+            
+            $mes_num = explode('-', $periodo)[1];
+            $resultados[$periodo] = [
+                'periodo' => $periodo,
+                'concepto' => $concepto,
+                'mes' => $meses[$mes_num],
+                'monto' => $cuota
+            ];
+
+            if ($concepto == 'Adeudo') {
+                $adeudos[] = $periodo;
+            }
+        }
     }
 
-while ($inicio <= $fin) {
-    // $dia = $inicio->format('d');
-    $dia = '01';
-    $mes = $inicio->format('m');
-    $anio = $inicio->format('Y');
-
-    // $fechaNuevaCorte = new DateTime($anio'-'$mes'-'$dia);
-
-    // Consulta por mes y año en MySQL
-    // $sql = "SELECT * FROM pagos_generales 
-    //         WHERE folio_contrato = '$folioContrato' 
-    //         AND MONTH(fecha_pago) = '$mes' 
-    //         AND YEAR(fecha_pago) = '$anio'";
-    $concat = "$anio-$mes";
-    $sql = "SELECT * FROM pagos_generales 
-            WHERE folio_contrato = '$folioContrato' 
-            AND periodo = '$concat'";
-
-    $resultado = $conn->query($sql);
-    $row = $resultado->fetch_assoc();
-    $filas2 = $resultado->num_rows;
-
-    $adeudo = $inicio->format('Y-m');
-
-    if ($filas2 >= 1) {
-        //echo "
-        //<script>
-        //    console.log('Ya existe un pago para el mes:" . $adeudo . "');
-        //</script>";
-    } 
-    else {
-        $nombreMes = $meses[$mes]; // Obtener el nombre del mes en español
+    // 6. Generar salida
+    if (empty($resultados)) {
+        echo '<tr><td>0000-00</td><td>No tiene adeudos</td><td>N/A</td><td>0.00</td><td><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i></span></td></tr>';
+    } else {
+        // Ordenar por fecha (más antiguo primero)
+        ksort($resultados);
         
-        // echo '<option value="'.$adeudo.'" data-categoria="1" data-costo="'.$rowCorte['cuota'].'" data-concepto="Recargo" data-periodo="'.$adeudo.'">'.$nombreMes.' '.$anio.'</option>';
+        foreach ($resultados as $item) {
+            echo "<tr>
+                <td>{$item['periodo']}</td>
+                <td>{$item['concepto']}</td>
+                <td>{$item['mes']}</td>
+                <td>{$item['monto']}</td>
+                <td><span class='badge bg-danger' onclick='eliminarTr(this)'><i class='bi bi-trash'></i></span></td>
+            </tr>";
+        }
 
-        echo'
-        <tr>
-            <td>'.$adeudo.'</td>
-            <td>Adeudo</td>
-            <td>'.$nombreMes.'</td>
-            <td>'.$costoMensual.'</td>
-            <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
-        </tr>
-        <tr>
-            <td>'.$adeudo.'</td>
-            <td>Recargo</td>
-            <td>'.$nombreMes.'</td>
-            <td>'.$recargo.'</td>
-            <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
-        </tr>
-        ';
+        // Mostrar recargo solo si hay adeudos reales (no pagos oportunos)
+        if (!empty($adeudos)) {
+            $ultimo_adeudo = end($adeudos);
+            $mes_num = explode('-', $ultimo_adeudo)[1];
+            echo "<tr class='table-warning'>
+                <td>$ultimo_adeudo</td>
+                <td>Recargo</td>
+                <td>{$meses[$mes_num]}</td>
+                <td>$recargo</td>
+                <td><span class='badge bg-danger' onclick='eliminarTr(this)'><i class='bi bi-trash'></i></span></td>
+            </tr>";
+        }
     }
-
-    $inicio->modify('+1 month');
 }
-
-}
-
-} //fin if
-else{
-    return;
-}
-
-
 ?>

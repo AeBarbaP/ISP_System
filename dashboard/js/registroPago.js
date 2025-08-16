@@ -130,9 +130,10 @@ function swalpago(){
 		timer: 1500
 	});
     document.getElementById('pagoreg').disabled = true;
+    // guardarRecibo()
     guardarTodosPagos();
-    revisarPagosAnticipados();
-    revisarPagosAtrasado();
+    // revisarPagosAnticipados();
+    // revisarPagosAtrasado();
     limpiarModal();
 }
 
@@ -149,24 +150,12 @@ function guardarTodosPagos() {
         return;
     }
 
-    var i = 0;
     filas.each(function() {
-        var concepto = $(this).find('td:eq(1)').text();
-        if (concepto == 'Pago anticipado') {
-            i = i +1;
-            var folioPago = folioPago1 +'-FAn-'+ i;
-        }
-        else if (concepto == 'Adeudo' || concepto == 'Recargo' || concepto == 'Reconexión'){
-            i = i;
-            var folioPago = folioPago1 +'-FAt-'+ i;
-        }
-        else{
-            i = i +1;
-            var folioPago = folioPago1;
-        }
+        // var concepto = $(this).find('td:eq(1)').text();
+        
         if (!$(this).hasClass('table-success')) { // Solo no pagados
             pagos.push({
-                folio_pago: folioPago,
+                folio_pago: folioPago1,
                 fechaSolicitud: fechaSolicitud,
                 folio_contrato: foliContrato,
                 periodo: $(this).find('td:eq(0)').text(),
@@ -186,9 +175,7 @@ function guardarTodosPagos() {
         url: 'prcd/guardar_pagos.php',
         type: 'POST',
         data: { pagos: pagos },
-        beforeSend: function() {
-            $('#btnGuardarTodos').html('<i class="bi bi-hourglass"></i> Guardando...').prop('disabled', true);
-        },
+        dataType:'json',
         success: function(response) {
             if (response.success) {
                 filas.addClass('table-success');
@@ -251,6 +238,9 @@ function revisarPagosAnticipados() {
                     }
                 });
             }
+            else{
+                console.log('No se registró');
+            }
         
         });
     }
@@ -285,8 +275,6 @@ function revisarPagosAnticipados() {
     }
 }
     
-    
-
 function revisarPagosAtrasado() {
 
     var tarjeta = _grecibos('tipopagoBaucher').value;
@@ -324,6 +312,9 @@ function revisarPagosAtrasado() {
                         
                     }
                 });
+            }
+            else{
+                console.log('No se registró');
             }
         });
     }
@@ -374,7 +365,7 @@ function guardarRecibo() {
 
     filas.each(function() {
         var concepto = $(this).find('td:eq(1)').text();
-        if (concepto == 'Pago oportuno') { // Solo no pagados
+        if (concepto == 'Pago oportuno' || concepto == 'Adeudo') { // Solo no pagados
                 $.ajax({
                     url: 'prcd/guardar_recibo.php',
                     type: 'POST',
@@ -389,26 +380,30 @@ function guardarRecibo() {
                         mes: $(this).find('td:eq(2)').text(),
                         total_pago: total_pago
                     },
-                    success: function(response) {
-                        var datos = JSON.parse(JSON.stringify(response));
+                    success: function(datos) {
+                        // var datos = JSON.parse(JSON.stringify(response));
 
                         var success = datos.success;
-                
+                        console.log(success);
                         if(success == 1){
                             alert("Recibo guardado");
                             document.getElementById('pagoreg').disabled = false;
                             $('#pago').modal('hide');
-                            queryDashboard1(pagina = 1);
-                            limpiarModal();
+                            // queryDashboard1(pagina = 1);
+                            limpiarModalX();
                             document.getElementById("datoscliente").hidden = true;
-
+                            queryDashboard1(pagina = 1);
                         }
                         else{
-                            alert("No se guardó");
+                            alert("No se guardó recibo normal 1");
                             console.log(datos.error)
                         }
                     }
                 });
+            }
+            else{
+                console.log('No se registró el pago 234');
+                return;
             }
     });
 }
