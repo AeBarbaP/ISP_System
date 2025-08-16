@@ -5,11 +5,13 @@ if (!empty($_POST['folio'])) {
     $folio = $_POST['folio'];
     $recargo = 50.00;
 
-    // 1. Obtener datos del cliente y fecha de corte
-    $cliente = $conn->query("SELECT *, DATE(fecha_corte) as fecha_corte FROM clientes WHERE folio = '$folio'")->fetch_assoc();
+    // 1. Obtener datos del cliente - CORRECCIÓN IMPORTANTE
+    $cliente = $conn->query("SELECT * FROM clientes WHERE folio = '$folio'")->fetch_assoc();
     $cuota = $cliente['cuota'];
+    
+    // CORRECCIÓN: Crear objeto DateTime desde la fecha_corte
     $fecha_corte = new DateTime($cliente['fecha_corte']);
-    $dia_corte = $fecha_corte->format('d');
+    $dia_corte = $fecha_corte->format('d'); // Día de corte del cliente (ej. 15)
 
     // 2. Configuración de meses
     $meses = [
@@ -24,9 +26,9 @@ if (!empty($_POST['folio'])) {
     $mes_anterior1 = (clone $hoy)->modify('-1 month')->format('Y-m');
     $mes_anterior2 = (clone $hoy)->modify('-1 month')->format('Y-m');
 
-    // 4. Determinar si es pago oportuno
-    $pago_actual = $conn->query("SELECT 1 FROM pagos_generales WHERE folio_contrato = '$folio' AND periodo = '$mes_actual'");
-    $pago_oportuno = ($hoy <= $fecha_corte);
+    // 4. Calcular fecha de corte del mes actual - CORRECCIÓN
+    $fecha_corte_mes_actual = new DateTime($hoy->format('Y-m-').$dia_corte);
+    $pago_oportuno = ($hoy <= $fecha_corte_mes_actual);
 
     // 5. Procesar meses
     $resultados = [];
@@ -55,18 +57,27 @@ if (!empty($_POST['folio'])) {
 
     // 6. Generar salida
     if (empty($resultados)) {
-        echo '<tr><td>0000-00</td><td>No tiene adeudos</td><td>N/A</td><td>0.00</td><td><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i></span></td></tr>';
+        echo '<tr><td>0000-00</td><td>No tiene adeudos</td><td>N/A</td><td>0.00</td><td><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></td></tr>';
     } else {
         // Ordenar por fecha (más antiguo primero)
         ksort($resultados);
         
         foreach ($resultados as $item) {
-            echo "<tr>
+
+            $clase_fila = '';
+            if ($item['concepto'] == 'Adeudo') {
+                $clase_fila = 'table-danger'; // Rojo para adeudos
+            } elseif ($item['concepto'] == 'Pago oportuno') {
+                $clase_fila = 'table-success'; // Verde para pagos oportunos
+            } elseif ($item['concepto'] == 'Pago anticipado') {
+                $clase_fila = 'table-info'; // Azul claro para pagos adelantados
+            }
+            echo "<tr class='$clase_fila'>
                 <td>{$item['periodo']}</td>
                 <td>{$item['concepto']}</td>
                 <td>{$item['mes']}</td>
                 <td>{$item['monto']}</td>
-                <td><span class='badge bg-danger' onclick='eliminarTr(this)'><i class='bi bi-trash'></i></span></td>
+                <td><span class='badge bg-danger' onclick='eliminarTr(this)'><i class='bi bi-trash'></i> Eliminar</span></td>
             </tr>";
         }
 
@@ -79,7 +90,7 @@ if (!empty($_POST['folio'])) {
                 <td>Recargo</td>
                 <td>{$meses[$mes_num]}</td>
                 <td>$recargo</td>
-                <td><span class='badge bg-danger' onclick='eliminarTr(this)'><i class='bi bi-trash'></i></span></td>
+                <td><span class='badge bg-danger' onclick='eliminarTr(this)'><i class='bi bi-trash'></i> Eliminar</span></td>
             </tr>";
         }
     }

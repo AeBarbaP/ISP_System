@@ -382,7 +382,7 @@ function guardarRecibo() {
         var periodoPago = $(this).find('td:eq(0)').text();
         var montoActual = parseFloat($(this).find('td:eq(3)').text()) || 0;
 
-        if (concepto == 'Pago oportuno' || concepto == 'Adeudo') { // Solo no pagados
+        if (concepto == 'Pago oportuno' || concepto == 'Adeudo' || concepto == 'Pago anticipado') { // Solo no pagados
             
             
                 $.ajax({
