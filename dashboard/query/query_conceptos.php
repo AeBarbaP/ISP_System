@@ -66,9 +66,9 @@ if (!empty($_POST['folio'])) {
 
             $clase_fila = '';
             if ($item['concepto'] == 'Adeudo') {
-                $clase_fila = 'table-danger'; // Rojo para adeudos
+                $clase_fila = 'table-warning'; // Rojo para adeudos
             } elseif ($item['concepto'] == 'Pago oportuno') {
-                $clase_fila = 'table-success'; // Verde para pagos oportunos
+                $clase_fila = 'table-primary'; // Verde para pagos oportunos
             } elseif ($item['concepto'] == 'Pago anticipado') {
                 $clase_fila = 'table-info'; // Azul claro para pagos adelantados
             }
