@@ -2,8 +2,9 @@
 require('../prcd/conn.php');
 
 $folio = $_POST['folio'];
+$periodoTabla = $_POST['periodo'];
 
-$sql = "SELECT * FROM pagos_generales WHERE folio_pago = '$folio'";
+$sql = "SELECT * FROM pagos_generales WHERE folio_pago = '$folio' AND periodo = '$periodoTabla'";
 $resultado = $conn->query($sql);
 $row = $resultado->fetch_assoc();
 $folio_contrato = $row['folio_contrato'];
@@ -13,7 +14,7 @@ $sqlNombre = "SELECT * FROM clientes WHERE folio = '$folio_contrato'";
 $resultadoNombre = $conn->query($sqlNombre);
 $rowNombre = $resultadoNombre->fetch_assoc();
 
-$sqlPagos ="SELECT * FROM pagos WHERE num_pago LIKE '$folio_pago%'";
+$sqlPagos ="SELECT * FROM pagos WHERE num_pago LIKE '$folio_pago%' AND periodo = '$periodoTabla'";
 $resultadoPagos = $conn->query($sqlPagos);
 // $rowPagos = $resultadoPagos->fetch_assoc();
 
