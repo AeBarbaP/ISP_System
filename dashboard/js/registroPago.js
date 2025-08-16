@@ -434,10 +434,12 @@ function guardarRecibo999(){
             total_pago:total_pago,
             periodo : periodo
         },
+        dataType:'json',
         success: function(response) {
-            var datos = JSON.parse(JSON.stringify(response));
+            // var datos = JSON.parse(JSON.stringify(response));
 
-            var success = datos.success;
+            var success = response.success;
+            console.log(response);
     
             if(success == 1){
                 alert("Recibo guardado");
@@ -450,6 +452,10 @@ function guardarRecibo999(){
             }
           
         },
+        error: function(xhr, status, error) {
+        alert("Error en la petición: " + error);
+        console.error(xhr.responseText);
+}
     });
 }
 

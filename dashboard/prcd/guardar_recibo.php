@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json');
 session_start();
 
 require('conn.php');
@@ -61,9 +62,9 @@ $sql = "INSERT INTO pagos_generales (
             $resultadoLOG = $conn->query($sqlLOG);
             $error = $conn->error;
             // --------- log ---------------
+
             echo json_encode(array(
-                'success' => 1,
-                'error' => $error
+                'success' => 1
             ));
         }
         else{

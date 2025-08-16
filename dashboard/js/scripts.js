@@ -238,6 +238,7 @@ function limpiar1modal(){
     _('buscanombre').value = "";
     //$("#nombresClientes option[value='option1']").remove();
     _('nombresClientes').innerHTML = "";
+    _('pagoreg').disabled = false;
     _('datosGenerales').innerHTML = "";
     _('nombresClientes').value = "";
     _('total-costo').innerText = "0.00";
