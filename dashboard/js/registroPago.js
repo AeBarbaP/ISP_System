@@ -363,9 +363,28 @@ function guardarRecibo() {
     const filas = $('#NuevaSolicitud tr');
     const pagos = [];
 
+    // Objeto para acumular los totales por período
+    var totalesPorPeriodo = {};
+
+    // Primero recorremos para sumar
+    filas.each(function() {
+        var periodo = $(this).find('td:eq(0)').text();
+        var monto = parseFloat($(this).find('td:eq(3)').text()) || 0;
+        
+        if (!totalesPorPeriodo[periodo]) {
+            totalesPorPeriodo[periodo] = 0;
+        }
+        totalesPorPeriodo[periodo] += monto;
+    });
+
     filas.each(function() {
         var concepto = $(this).find('td:eq(1)').text();
+        var periodoPago = $(this).find('td:eq(0)').text();
+        var montoActual = parseFloat($(this).find('td:eq(3)').text()) || 0;
+
         if (concepto == 'Pago oportuno' || concepto == 'Adeudo') { // Solo no pagados
+            
+            
                 $.ajax({
                     url: 'prcd/guardar_recibo.php',
                     type: 'POST',
@@ -378,7 +397,8 @@ function guardarRecibo() {
                         periodo: $(this).find('td:eq(0)').text(),
                         concepto: $(this).find('td:eq(1)').text(),
                         mes: $(this).find('td:eq(2)').text(),
-                        total_pago: total_pago
+                        total_pago: totalesPorPeriodo[periodoPago]
+                        // total_pago: total_pago
                     },
                     success: function(datos) {
                         // var datos = JSON.parse(JSON.stringify(response));
@@ -499,7 +519,7 @@ function _pagosRealizados(el){
     return document.getElementById(el);
 }
 
-function abrirModalPagos(folio){
+function abrirModalPagos(folio,periodo){
     const tabla = document.getElementById('tablaPagosBody');
     tabla.innerHTML = '';
     
@@ -517,7 +537,8 @@ function abrirModalPagos(folio){
         type: "POST",
         url: "query/query_pago_query.php",
         data: {
-            folio: folioPago
+            folio: folioPago,
+            periodo: periodo
         },
         dataType: "json",
         success: function(data){

@@ -59,12 +59,12 @@ while($row = $resultado->fetch_assoc()){
 
     echo '
     <tr class="text-center">
-        <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\', \'' . $row['folio_pago'] . '\')">' . $row['periodo'] . '</td>
-        <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\', \'' . $row['folio_pago'] . '\')">' . $row2['nombre'] . '</td>
-        <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\', \'' . $row['folio_pago'] . '\')">' . $row2['comunidad'] . '</td>
-        <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\', \'' . $row['folio_pago'] . '\')">$' . $row['total'] . '</td>
-        <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\', \'' . $row['folio_pago'] . '\')">' . $row['fecha_pago'] . '</td>
-        <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\', \'' . $row['folio_pago'] . '\')">' . $row['periodo'] . '</td>
+        <td onclick="abrirModalPagos(\'' . $row['periodo'] . '\', \'' . $row['folio_pago'] . '\')">' . $row['periodo'] . '</td>
+        <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\', \'' . $row['periodo'] . '\')">' . $row2['nombre'] . '</td>
+        <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\', \'' . $row['periodo'] . '\')">' . $row2['comunidad'] . '</td>
+        <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\', \'' . $row['periodo'] . '\')">$' . $row['total'] . '</td>
+        <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\', \'' . $row['periodo'] . '\')">' . $row['fecha_pago'] . '</td>
+        <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\', \'' . $row['periodo'] . '\')">' . $row['periodo'] . '</td>
         <td>' . $estatus . '</td>
     </tr>
     ';
