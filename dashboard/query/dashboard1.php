@@ -59,7 +59,7 @@ while($row = $resultado->fetch_assoc()){
 
     echo '
     <tr class="text-center">
-        <td onclick="abrirModalPagos(\'' . $row['periodo'] . '\', \'' . $row['folio_pago'] . '\')">' . $row['periodo'] . '</td>
+        <td onclick="abrirModalPagos(\'' . $row['periodo'] . '\', \'' . $row['folio_pago'] . '\')">' . $row['folio_pago'] . '</td>
         <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\', \'' . $row['periodo'] . '\')">' . $row2['nombre'] . '</td>
         <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\', \'' . $row['periodo'] . '\')">' . $row2['comunidad'] . '</td>
         <td onclick="abrirModalPagos(\'' . $row['folio_pago'] . '\', \'' . $row['periodo'] . '\')">$' . $row['total'] . '</td>
