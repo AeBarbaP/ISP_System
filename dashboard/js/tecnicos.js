@@ -4,17 +4,25 @@ function datosTecnicosModalB(){
     type: 'POST',
     dataType: 'html',
     success: function (response) {
-        $('#incidenciasModalB').html(response);
+        $('#accordionCortes').html(response);
     }
   });
+}
 
-//   $.ajax({
-//     url: 'query/query_cortes_tecnicos.php',
-//     type: 'POST',
-//     dataType: 'html',
-//     success: function (response) {
-//         $('#cortesModalB').html(response);
-//     }
-//   });
+function datosTecnicoCortes(){
+    $.ajax({
+    url: 'query/query_cortes_tecnicos.php',
+    type: 'POST',
+    dataType: 'html',
+    success: function (response) {
+        $('#tecnicosCortes').html(response);
+    }
+  });
+}
 
+function modalIndicenciasTecnico(){
+    $('#modalIncidencias').modal('show');
+}
+function modalCortesTecnico(){
+    $('#modalCortes').modal('show');
 }

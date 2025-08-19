@@ -11,9 +11,9 @@
         echo "<script type=\"text/javascript\">location.href='prcd/sort.php';</script>";
     }
 
-// 	if($tipo_usr == 3){
-//     echo "<script type=\"text/javascript\">location.href='tecnicos.php';</script>";
-// }
+	if($tipo_usr == 3){
+    echo "<script type=\"text/javascript\">location.href='tecnicos.php';</script>";
+}
 ?>
 
 <!DOCTYPE html>
