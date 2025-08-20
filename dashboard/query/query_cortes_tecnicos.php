@@ -44,7 +44,7 @@ while($row = $resultado->fetch_assoc()){
                 <strong>Descripción:</strong> '.$descripcion.'
             </div>
             <div class="accordion-footer text-end p-3">
-                <button class="btn btn-primary" onclick="modalCortesTecnico()"><i class="bi bi-calendar-check"></i> Cerrar ticket</button>
+                <button class="btn btn-primary" onclick="modalCortesTecnico('.$id.')"><i class="bi bi-calendar-check"></i> Cerrar ticket</button>
             </div>
         </div>
     </div>

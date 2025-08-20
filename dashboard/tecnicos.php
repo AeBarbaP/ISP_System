@@ -155,11 +155,15 @@ session_start();
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <input type="text" id="idIncidenciaTecnico" hidden>
+        <div class="mb-3">
+            <label for="comentariosTecnicos" class="form-label">Comentario técnicos (opcional)</label>
+            <input type="email" class="form-control" id="comentariosTecnicos" placeholder="Redactar comentario ...">
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Cerrar ticket</button>
+        <button type="button" class="btn btn-primary" onclick="cerrarIncidenciaTecnico()">Cerrar ticket</button>
       </div>
     </div>
   </div>
@@ -174,11 +178,15 @@ session_start();
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <input type="text" id="idCorteTecnico" hidden>
+        <div class="mb-3">
+            <label for="comentariosTecnicosCorte" class="form-label">Comentario técnicos (opcional)</label>
+            <input type="email" class="form-control" id="comentariosTecnicosCorte" placeholder="Redactar comentario ...">
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Cerrar ticket</button>
+        <button type="button" class="btn btn-primary" onclick="cerrarCorteTecnico()">Cerrar ticket</button>
       </div>
     </div>
   </div>
