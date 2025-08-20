@@ -186,7 +186,7 @@ $headerPagos = ['Folio Contrato', 'Folio Pago', 'Fecha', 'Periodo', 'Total'];
 $dataPagos = [];
 $totalPagos = 0;
 
-$queryPagos = $conn->query("SELECT * FROM pagos_generales WHERE id_ext = '$user' AND fecha_pago = '$fechaHoy'");
+$queryPagos = $conn->query("SELECT * FROM pagos_generales WHERE id_ext = '$user' AND DATE(fecha_pago) = '$fechaHoy'");
 while ($rowPagos = $queryPagos->fetch_assoc()) {
     $dataPagos[] = [
         $rowPagos['folio_contrato'],
