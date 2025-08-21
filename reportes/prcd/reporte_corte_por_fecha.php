@@ -27,31 +27,30 @@ class PDF extends FPDF {
     }
     
     function Header() {
-        // Solo mostrar encabezado en la primera página
         if ($this->PageNo() == 1) {
-            $this->Image('../../images/logo_conectwi_wide-removebg-preview.png', ($this->GetPageWidth() - 120) / 2, 12, 120);
-            $this->SetY(45);
-            
-            $this->SetFont('Arial', 'B', 16);
+            // Logo más compacto
+            $this->Image('../../images/logo_conectwi_wide-removebg-preview.png', ($this->GetPageWidth() - 100) / 2, 8, 100);
+            $this->SetY(32); // POSICIÓN MÁS ALTA
+            $this->Ln(5);
+            $this->SetFont('Arial', 'B', 14);
             $primaryColor = $this->getPrimaryColor();
             $this->SetTextColor($primaryColor[0], $primaryColor[1], $primaryColor[2]);
-            $this->Cell(0, 10, utf8_decode('REPORTE DE CORTE DE CAJA'), 0, 1, 'C');
+            $this->Cell(0, 6, utf8_decode('REPORTE DE CORTE DE CAJA'), 0, 1, 'C');
             
-            $this->SetFont('Arial', '', 10);
+            $this->SetFont('Arial', '', 8);
             $this->SetTextColor(100, 100, 100);
-            $this->Cell(0, 6, 'Generado el ' . date('d/m/Y'), 0, 1, 'C');
-            $this->Ln(8);
+            $this->Cell(0, 4, 'Generado el ' . date('d/m/Y'), 0, 1, 'C');
+            // ELIMINADO: $this->Ln(8);
         }
     }
 
     function Footer() {
-        // Solo mostrar pie de página si hay contenido
         if ($this->GetY() > 250) return;
         
-        $this->SetY(-15);
-        $this->SetFont('Arial', 'I', 8);
+        $this->SetY(-10); // MÁS CERCA DEL BORDE
+        $this->SetFont('Arial', 'I', 7);
         $this->SetTextColor(100, 100, 100);
-        $this->Cell(0, 6, utf8_decode('Página ') . $this->PageNo(), 0, 0, 'C');
+        $this->Cell(0, 3, utf8_decode('Página ') . $this->PageNo(), 0, 0, 'C');
     }
 
     function TablaEjecutiva($header, $data, $widths, $subtotal, $title) {
@@ -59,72 +58,66 @@ class PDF extends FPDF {
         $margen = ($this->GetPageWidth() - $anchoTotal) / 2;
         $this->SetX($margen);
         
-        // Verificar espacio disponible antes de dibujar
-        $alturaNecesaria = 30 + (count($data) * 12);
-        if ($this->GetY() + $alturaNecesaria > 250) {
-            $this->AddPage();
-        }
-        
-        $this->SetFont('Arial', 'B', 12);
+        // Título de la tabla (más compacto)
+        $this->SetFont('Arial', 'B', 10);
         $primaryColor = $this->getPrimaryColor();
         $this->SetTextColor($primaryColor[0], $primaryColor[1], $primaryColor[2]);
-        $this->Cell($anchoTotal, 8, utf8_decode($title), 0, 1, 'L');
-        $this->Ln(2);
+        $this->Cell($anchoTotal, 5, utf8_decode($title), 0, 1, 'L');
+        // ELIMINADO: $this->Ln(2);
         
         // Cabecera
         $this->SetFillColor($primaryColor[0], $primaryColor[1], $primaryColor[2]);
         $this->SetTextColor(255);
-        $this->SetFont('Arial', 'B', 10);
+        $this->SetFont('Arial', 'B', 8);
         
         foreach ($header as $i => $col) {
-            $this->Cell($widths[$i], 8, utf8_decode($col), 1, 0, 'C', true);
+            $this->Cell($widths[$i], 5, utf8_decode($col), 1, 0, 'C', true);
         }
         $this->Ln();
         
-        // Datos (versión simplificada sin MultiCell para evitar saltos)
-        $this->SetFont('Arial', '', 9);
+        // Datos
+        $this->SetFont('Arial', '', 7);
         $this->SetTextColor(50);
         
         foreach ($data as $row) {
-            // Verificar si necesita nueva página
             if ($this->GetY() > 250) {
                 $this->AddPage();
             }
             
             foreach ($row as $i => $col) {
-                // Acortar texto muy largo
-                if (strlen($col) > 30) {
-                    $col = substr($col, 0, 27) . '...';
+                if (strlen($col) > 25) {
+                    $col = substr($col, 0, 22) . '...';
                 }
-                $this->Cell($widths[$i], 5, utf8_decode($col), 1, 0, 'C');
+                $this->Cell($widths[$i], 4, utf8_decode($col), 1, 0, 'C');
             }
             $this->Ln();
         }
         
         // Subtotales
-        $this->SetFont('Arial', 'B', 10);
+        $this->SetFont('Arial', 'B', 8);
         $this->SetFillColor(230);
-        $this->Cell($anchoTotal - $widths[count($widths)-1], 8, 'SUBTOTAL', 1, 0, 'R', true);
-        $this->Cell($widths[count($widths)-1], 8, '$' . number_format($subtotal, 2), 1, 1, 'C', true);
-        $this->Ln(8);
+        $this->Cell($anchoTotal - $widths[count($widths)-1], 5, 'SUBTOTAL', 1, 0, 'L', true);
+        $this->Cell($widths[count($widths)-1], 5, '$' . number_format($subtotal, 2), 1, 1, 'C', true);
+        $this->Ln(3); // REDUCIDO de 12 a 3
     }
 }
 
-// Crear PDF con márgenes optimizados
+// Crear PDF SUPER compacto
 $pdf = new PDF();
-$pdf->SetMargins(15, 15, 15); // Márgenes reducidos
+$pdf->SetMargins(20, 8, 8); // Márgenes mínimos
 $pdf->AddPage('P', 'A4');
-$pdf->SetAutoPageBreak(true, 15); // Margen inferior reducido a 15mm
-
-// Información del usuario
-$pdf->SetFont('Arial', '', 10);
+$pdf->SetAutoPageBreak(true, 8); // Margen inferior mínimo
+$pdf->Ln(5);
+// Información del usuario (COMPACTA)
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetTextColor(80);
-$pdf->Cell(0, 6, utf8_decode('Usuario: ') . utf8_decode($nombre), 0, 1);
-$pdf->Cell(0, 6, utf8_decode('Fecha del corte: ') . $fechaFormateada, 0, 1);
+$pdf->Cell(0, 4, utf8_decode('Usuario: ') . utf8_decode($nombre), 0, 1);
+$pdf->Cell(0, 4, utf8_decode('Fecha: ') . $fechaFormateada, 0, 1);
+// ELIMINADO: $pdf->Ln(5);
 $pdf->Ln(5);
 
 // Tabla 1: Pagos Generales
-$headerPagos = ['Cliente', 'Folio Pago', 'Fecha', 'Periodo', 'Total'];
+$headerPagos = ['Cliente', 'Folio', 'Fecha', 'Periodo', 'Total'];
 $dataPagos = [];
 $totalPagos = 0;
 
@@ -134,9 +127,8 @@ while ($rowPagos = $queryPagos->fetch_assoc()) {
     $row2 = $conn->query("SELECT * FROM clientes WHERE folio = '$folioContrato'")->fetch_assoc();
     $nombreCliente = $row2['nombre'] ?? 'N/A';
     
-    // Acortar nombre muy largo
-    if (strlen($nombreCliente) > 25) {
-        $nombreCliente = substr($nombreCliente, 0, 22) . '...';
+    if (strlen($nombreCliente) > 1000) {
+        $nombreCliente = substr($nombreCliente, 0, 17) . '...';
     }
     
     $dataPagos[] = [
@@ -149,19 +141,18 @@ while ($rowPagos = $queryPagos->fetch_assoc()) {
     $totalPagos += $rowPagos['total'];
 }
 
-$pdf->TablaEjecutiva($headerPagos, $dataPagos, [70, 35, 35, 20, 23], $totalPagos, 'PAGOS GENERALES');
+$pdf->TablaEjecutiva($headerPagos, $dataPagos, [72, 30, 35, 15, 20], $totalPagos, 'PAGOS GENERALES');
 
 // Tabla 2: Otros Gastos
-$headerGastos = ['Concepto', 'Fecha', 'Cantidad'];
+$headerGastos = ['Concepto', 'Fecha', 'Monto'];
 $dataGastos = [];
 $totalGastos = 0;
 
 $queryGastos = $conn->query("SELECT * FROM otros_gastos WHERE id_ext = '$user' AND fecha = '$fechaHoy'");
 while ($rowGastos = $queryGastos->fetch_assoc()) {
     $concepto = $rowGastos['concepto'];
-    // Acortar concepto muy largo
-    if (strlen($concepto) > 25) {
-        $concepto = substr($concepto, 0, 22) . '...';
+    if (strlen($concepto) > 20) {
+        $concepto = substr($concepto, 0, 17) . '...';
     }
     
     $dataGastos[] = [
@@ -172,46 +163,42 @@ while ($rowGastos = $queryGastos->fetch_assoc()) {
     $totalGastos += $rowGastos['cantidad'];
 }
 
-$pdf->TablaEjecutiva($headerGastos, $dataGastos, [70, 30, 30], $totalGastos, 'OTROS GASTOS');
+$pdf->TablaEjecutiva($headerGastos, $dataGastos, [50, 25, 20], $totalGastos, 'OTROS GASTOS');
 
-// Resumen Final (solo si hay espacio)
-if ($pdf->GetY() > 200) {
-    $pdf->AddPage();
-}
-
+// Resumen Final (COMPACTO)
 $primaryColor = $pdf->getPrimaryColor();
 $secondaryColor = $pdf->getSecondaryColor();
 
-$pdf->SetX(($pdf->GetPageWidth() - 130) / 2);
-$pdf->SetFont('Arial', 'B', 12);
+// $pdf->SetX(($pdf->GetPageWidth() - 100) / 2);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetTextColor($primaryColor[0], $primaryColor[1], $primaryColor[2]);
-$pdf->Cell(130, 8, 'RESUMEN FINAL', 0, 1, 'C');
-$pdf->Ln(2);
+$pdf->Cell(100, 5, 'RESUMEN FINAL', 0, 1, 'L');
+// ELIMINADO: $pdf->Ln(2);
 
-$pdf->SetFont('Arial', '', 11);
+$pdf->SetFont('Arial', '', 8);
 $pdf->SetFillColor($secondaryColor[0], $secondaryColor[1], $secondaryColor[2]);
 $pdf->SetTextColor(50);
 
-$pdf->Cell(90, 10, 'Ingresos (Pagos Generales):', 1, 0, 'R', true);
-$pdf->Cell(40, 10, '$' . number_format($totalPagos, 2), 1, 1, 'C', true);
+$pdf->Cell(70, 5, 'Ingresos:', 1, 0, 'R', true);
+$pdf->Cell(30, 5, '$' . number_format($totalPagos, 2), 1, 1, 'C', true);
 
-$pdf->Cell(90, 10, 'Egresos (Otros Gastos):', 1, 0, 'R', true);
-$pdf->Cell(40, 10, '$' . number_format($totalGastos, 2), 1, 1, 'C', true);
+$pdf->Cell(70, 5, 'Egresos:', 1, 0, 'R', true);
+$pdf->Cell(30, 5, '$' . number_format($totalGastos, 2), 1, 1, 'C', true);
 
-$pdf->SetFont('Arial', 'B', 12);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(230, 240, 255);
-$pdf->Cell(90, 12, 'TOTAL:', 1, 0, 'R', true);
-$pdf->Cell(40, 12, '$' . number_format($totalPagos - $totalGastos, 2), 1, 1, 'C', true);
+$pdf->Cell(70, 6, 'TOTAL:', 1, 0, 'R', true);
+$pdf->Cell(30, 6, '$' . number_format($totalPagos - $totalGastos, 2), 1, 1, 'C', true);
 
-// Firma (solo si hay espacio)
-if ($pdf->GetY() < 230) {
-    $pdf->Ln(15);
-    $pdf->SetX(($pdf->GetPageWidth() - 100) / 2);
-    $pdf->Cell(100, 0, '', 'T');
-    $pdf->Ln(5);
-    $pdf->SetFont('Arial', 'I', 10);
-    $pdf->Cell(0, 6, utf8_decode('Firma del responsable'), 0, 1, 'C');
-    $pdf->Cell(0, 6, $nombre, 0, 1, 'C');
+// Firma (COMPACTA)
+if ($pdf->GetY() < 260) {
+    $pdf->Ln(36);
+    $pdf->SetX(($pdf->GetPageWidth() - 60) / 2);
+    $pdf->Cell(60, 0, '', 'T');
+    $pdf->Ln(2);
+    $pdf->SetFont('Arial', 'I', 7);
+    $pdf->Cell(0, 3, utf8_decode('Firma del responsable'), 0, 1, 'C');
+    $pdf->Cell(0, 3, $nombre, 0, 1, 'C');
 }
 
 // Salida
