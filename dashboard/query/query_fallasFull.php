@@ -21,12 +21,18 @@
 
         $tecnico = $row1['nombre'];
 
+        $sql2 = "SELECT * FROM clientes WHERE folio = '$folio_cliente'";
+        $resultado2 = $conn->query($sql2);
+        $row2 = $resultado2->fetch_assoc();
+
+        $cliente = $row2['nombre'];
+
         echo'
         <tr>
             <td>'.$x.'</td>
             <td>'.$folio.'</td>
             <td>'.$fecha_reporte.'</td>
-            <td>'.$folio_cliente.'</td>
+            <td>'.$cliente.'</td>
             <td>'.$tecnico.'</td>
             ';
             if($estatus == 1){
