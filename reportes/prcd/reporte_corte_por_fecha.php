@@ -192,7 +192,7 @@ $pdf->Cell(30, 6, '$' . number_format($totalPagos - $totalGastos, 2), 1, 1, 'C',
 
 // Firma (COMPACTA)
 if ($pdf->GetY() < 260) {
-    $pdf->Ln(36);
+    $pdf->Ln(18);
     $pdf->SetX(($pdf->GetPageWidth() - 60) / 2);
     $pdf->Cell(60, 0, '', 'T');
     $pdf->Ln(2);
