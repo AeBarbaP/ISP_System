@@ -10,10 +10,18 @@
     if(empty($user) || empty($nombre)){
         echo "<script type=\"text/javascript\">location.href='prcd/sort.php';</script>";
     }
-
-	if($tipo_usr == 3){
-    echo "<script type=\"text/javascript\">location.href='tecnicos.php';</script>";
-}
+	if (isset($_REQUEST['tipo'])) {
+		echo "
+			<script>
+				console.log('acceso tecnicos');
+			</script>
+		";
+	}
+	else { 
+		if($tipo_usr == 3){
+			echo "<script type=\"text/javascript\">location.href='tecnicos.php';</script>";
+		}
+	}
 ?>
 
 <!DOCTYPE html>

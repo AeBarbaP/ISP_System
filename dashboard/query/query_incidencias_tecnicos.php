@@ -7,7 +7,7 @@ $usuario = $_SESSION['username'];
 echo '
 <div class="accordion accordion-flush" id="accordionFlushExample">';
 $x = 0;
-$sql = "SELECT * FROM incidencias WHERE estatus = 0";
+$sql = "SELECT * FROM incidencias WHERE estatus = 0 OR estatus = 1";
 $resultado = $conn->query($sql);
 while($row = $resultado->fetch_assoc()){
     $x++;
@@ -18,6 +18,7 @@ while($row = $resultado->fetch_assoc()){
     $estatus = $row['estatus'];
     $tecnico = $row['tecnico'];
     $fecha_resolucion = $row['fecha_resolucion'];
+    $fecha_reporte = $row['fecha_reporte'];
     
     // Obtener datos del cliente
     $cliente = $conn->query("SELECT * FROM clientes WHERE folio = '$folio'")->fetch_assoc();
@@ -25,6 +26,7 @@ while($row = $resultado->fetch_assoc()){
     $telefono = $cliente['telefono'];
     $comunidad = $cliente['comunidad'];
     $direccion = $cliente['domicilio'];
+
 
     // Formatear fecha
     $fecha_formateada = date('d-m-Y', strtotime($fecha));
@@ -41,7 +43,8 @@ while($row = $resultado->fetch_assoc()){
                 <strong>Teléfono:</strong> '.$telefono.'<br>
                 <strong>Dirección:</strong> '.$direccion.'<br>
                 <strong>Comunidad:</strong> '.$comunidad.'<br>
-                <strong>Descripción:</strong> '.$descripcion.'
+                <strong>Descripción:</strong> '.$descripcion.'<br>
+                <strong>Fecha:</strong> '.$fecha_reporte.'<br>
             </div>
             <div class="accordion-footer text-end p-3">
                 <button class="btn btn-primary" onclick="modalIndicenciasTecnico('.$id.')"><i class="bi bi-calendar-check"></i> Cerrar ticket</button>

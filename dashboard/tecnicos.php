@@ -89,7 +89,7 @@ session_start();
         <div class="container position-relative">
             <!-- Logo a la izquierda -->
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png" alt="Logo" width="32" height="32" class="d-inline-block align-text-top me-2">
+                <img src="../images/logoantenaISP.ico" alt="Logo" width="32" height="32" class="d-inline-block align-text-top me-2">
                 ConectWi
             </a>
             <!-- Botón hamburguesa para móviles -->
@@ -107,7 +107,7 @@ session_start();
                     </li>
                 </ul>
                 <div class="d-flex ms-lg-auto justify-content-lg-end justify-content-center mt-3 mt-lg-0">
-                    <a href="#" class="btn btn-primary">Dashboard</a>
+                    <a href="dashboard.php?tipo=3" class="btn btn-primary">CONECTWI Inicio</a>
                 </div>
             </div>
         </div>
