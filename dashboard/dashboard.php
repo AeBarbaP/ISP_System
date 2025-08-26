@@ -218,6 +218,7 @@
 							<div>
 								<h1 class="font-weight-bold mb-2" style="color:#0ddbb9">Bienvenid@ <small class="text-body-secondary"><?php echo $nombre ?>!</small></h1>
 								<h6 class="font-weight-normal mb-2">Su último login fue <strong><span id="ultimoAcceso"></span></strong></h6>
+								<h6 class="font-weight-normal mb-2"><span id="onlinetag"></span></h6>
 							</div>
 						</div>
 						<!-- <div class="d-lg-flex align-items-center" hidden>
@@ -1138,6 +1139,33 @@
 			<a href="query/excel_query_otros_gastos.php?usr=<?php echo $user ?>" target="_blank" type="button" class="btn btn-primary" id="btnReporteCortesCaja">Excel</a>
 			
 		</div>
-	  </div>
+		</div>
 	</div>
-  </div>
+</div>
+<script>
+	/* document.addEventListener('DOMContentLoaded', function() {
+    window.addEventListener("offline", () => alert("¡Sin conexión!"));
+    window.addEventListener("online", () => alert("¡Conexión restaurada!"));
+	}); */
+	if (!navigator.onLine) {
+		alert("⚠️ Sin conexión a internet - Página cargada sin conexión");
+	}
+
+	// Detectar cuando se PIERDE la conexión
+	window.addEventListener("offline", function() {
+		alert("❌ ¡Se perdió la conexión a internet!");
+		console.log("Sin conexión:", new Date().toLocaleTimeString());
+	});
+
+	// Detectar cuando se RECUPERA la conexión  
+	window.addEventListener("online", function() {
+		alert("✅ ¡Conexión a internet restaurada!");
+		console.log("Conexión restaurada:", new Date().toLocaleTimeString());
+	});
+
+	// Verificación adicional cada 5 segundos (por si acaso)
+	setInterval(function() {
+		console.log("Estado actual de conexión:", navigator.onLine ? "✅ Conectado" : "❌ Desconectado");
+	}, 5000);
+	
+</script>
