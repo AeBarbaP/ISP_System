@@ -44,7 +44,7 @@ while($row = $resultado->fetch_assoc()){
                 <strong>Dirección:</strong> '.$direccion.'<br>
                 <strong>Comunidad:</strong> '.$comunidad.'<br>
                 <strong>Descripción:</strong> '.$descripcion.'<br>
-                <strong>Fecha:</strong> '.$fecha_reporte.'<br>
+                <strong>Fecha:</strong> '.$fecha_reporte.'
             </div>
             <div class="accordion-footer text-end p-3">
                 <button class="btn btn-primary" onclick="modalIndicenciasTecnico('.$id.')"><i class="bi bi-calendar-check"></i> Cerrar ticket</button>

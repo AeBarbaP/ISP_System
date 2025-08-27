@@ -416,7 +416,8 @@ function guardarRecibo() {
                         }
                         else{
                             alert("No se guardó recibo normal 1");
-                            console.log(datos.error)
+                            //console.log(datos.error);
+                            alert(datos.error);
                         }
                     }
                 });

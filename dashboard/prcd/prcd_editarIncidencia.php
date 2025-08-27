@@ -33,7 +33,7 @@ $query = "UPDATE incidencias SET
         )
         VALUES(
         '$userLog',
-        16,
+        18,
         '$fechaHoy',
         'NA')
         ";

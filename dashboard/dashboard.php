@@ -1148,7 +1148,7 @@
     window.addEventListener("online", () => alert("¡Conexión restaurada!"));
 	}); */
 	if (!navigator.onLine) {
-		document.getElementById('onlinetag').innerText= "⚠️ Sin conexión a internet - Página cargada sin conexión";
+		alert("⚠️ Sin conexión a internet - Página cargada sin conexión");
 	}
 
 	// Detectar cuando se PIERDE la conexión

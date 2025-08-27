@@ -73,7 +73,7 @@ if ($resultado) {
         )
         VALUES(
         '$userLog',
-        33,
+        47,
         '$fechaHoy',
         'NA')
         ";
