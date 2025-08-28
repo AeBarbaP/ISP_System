@@ -183,6 +183,7 @@ function buscarPagosRepFecha(){
         },
         dataType: 'html',
         success: function(data) {
+            _('btnReportePagosRep').setAttribute('href','query/excel_query_pagos.php?fechaI='+fechaInicial+'&fechaF='+fechaFinal);
             $('#tablaPagosGRep').html(data);
         }
     });

@@ -1,5 +1,15 @@
 <?php
-    session_start();
+	// Configurar tiempo de vida de la sesión
+	ini_set('session.gc_maxlifetime', 86400); // 24 horas
+	ini_set('session.cookie_lifetime', 86400); // 24 horas
+
+	// Iniciar sesión
+	session_start();
+
+	// Renovar el tiempo de vida de la cookie de sesión
+	if (isset($_COOKIE[session_name()])) {
+		setcookie(session_name(), $_COOKIE[session_name()], time() + 86400, "/");
+	}
 
     $idUsr = $_SESSION['idUsr'];
     $user = $_SESSION['username'];

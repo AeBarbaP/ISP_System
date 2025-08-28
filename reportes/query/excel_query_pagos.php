@@ -12,6 +12,9 @@ header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 $hoy = new DateTime();
 $hoy->setTime(0, 0, 0);
 
+$fechaIni = $_REQUEST['fechaI'];
+$fechaFin = $_REQUEST['fechaF'];
+
 $diaHoy = $hoy->format('d');
 $mesHoy = $hoy->format('m');
 $anioHoy = $hoy->format('Y');
@@ -31,7 +34,7 @@ echo'
     <tbody>
 ';
 
-$sql = "SELECT * FROM pagos_generales WHERE MONTH(fecha_pago) = $mesHoy AND YEAR(fecha_pago) = $anioHoy ORDER BY id DESC";
+$sql = "SELECT * FROM pagos_generales WHERE DATE(fecha_pago) BETWEEN '$fechaIni' AND '$fechaFin' ORDER BY fecha_pago DESC";
 $resultado = $conn->query($sql);
 $x = 0;
 while($row = $resultado->fetch_assoc()){

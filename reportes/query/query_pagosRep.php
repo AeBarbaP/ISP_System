@@ -4,7 +4,7 @@ require('../../dashboard/prcd/conn.php');
 $fechaInicial = $_POST['fechaInicial'];
 $fechaFinal = $_POST['fechaFinal'];
 
-$sql = "SELECT * FROM pagos_generales WHERE fecha_pago BETWEEN '$fechaInicial' AND '$fechaFinal'";
+$sql = "SELECT * FROM pagos_generales WHERE DATE(fecha_pago) BETWEEN '$fechaInicial' AND '$fechaFinal'";
 $resultado = $conn->query($sql);
 $x=0;
 while ($row = $resultado->fetch_assoc()){
