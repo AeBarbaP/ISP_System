@@ -17,9 +17,6 @@
     $estatusCorte = $_SESSION['estatusCorte'];
 	$tipo_usr = $_SESSION['tipo_usr'];
 
-    if(empty($user) || empty($nombre)){
-        echo "<script type=\"text/javascript\">location.href='prcd/sort.php';</script>";
-    }
 	if (isset($_REQUEST['tipo'])) {
 		echo "
 			<script>
@@ -1163,7 +1160,8 @@
 
 	// Detectar cuando se PIERDE la conexión
 	window.addEventListener("offline", function() {
-		alert("❌ ¡Se perdió la conexión a internet!");
+		//alert("❌ ¡Se perdió la conexión a internet!");
+		window.location.href ="prcd/sort.php";
 		console.log("Sin conexión:", new Date().toLocaleTimeString());
 	});
 

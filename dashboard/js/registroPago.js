@@ -358,7 +358,7 @@ function guardarRecibo() {
     var total_pago = _grecibos('total-costo').innerText;
 
     var tarjeta = _grecibos('tipopagoBaucher').value;
-    var tipo_pago = 1;
+    //var tipo_pago = 1;
 
     const filas = $('#NuevaSolicitud tr');
     const pagos = [];
