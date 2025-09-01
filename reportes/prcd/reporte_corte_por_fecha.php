@@ -44,14 +44,14 @@ class PDF extends FPDF {
         }
     }
 
-    function Footer() {
-        if ($this->GetY() > 250) return;
-        
-        $this->SetY(-10); // MÁS CERCA DEL BORDE
-        $this->SetFont('Arial', 'I', 7);
-        $this->SetTextColor(100, 100, 100);
-        $this->Cell(0, 3, utf8_decode('Página ') . $this->PageNo(), 0, 0, 'C');
-    }
+    //function Footer() {
+    //    if ($this->GetY() > 250) return;
+    //    
+    //    $this->SetY(-10); // MÁS CERCA DEL BORDE
+    //    $this->SetFont('Arial', 'I', 7);
+    //    $this->SetTextColor(100, 100, 100);
+    //    $this->Cell(0, 3, utf8_decode('Página ') . $this->PageNo(), 0, 0, 'C');
+    //}
 
     function TablaEjecutiva($header, $data, $widths, $subtotal, $title) {
         $anchoTotal = array_sum($widths);
