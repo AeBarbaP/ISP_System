@@ -44,14 +44,14 @@ class PDF extends FPDF {
         }
     }
 
-    function Footer() {
-        if ($this->GetY() > 250) return;
-        
-        $this->SetY(-10); // MÁS CERCA DEL BORDE
-        $this->SetFont('Arial', 'I', 7);
-        $this->SetTextColor(100, 100, 100);
-        $this->Cell(0, 3, utf8_decode('Página ') . $this->PageNo(), 0, 0, 'C');
-    }
+    //function Footer() {
+    //    if ($this->GetY() > 250) return;
+    //    
+    //    $this->SetY(-10); // MÁS CERCA DEL BORDE
+    //    $this->SetFont('Arial', 'I', 7);
+    //    $this->SetTextColor(100, 100, 100);
+    //    $this->Cell(0, 3, utf8_decode('Página ') . $this->PageNo(), 0, 0, 'C');
+    //}
 
     function TablaEjecutiva($header, $data, $widths, $subtotal, $title) {
         $anchoTotal = array_sum($widths);
@@ -121,7 +121,7 @@ $headerPagos = ['Cliente', 'Folio', 'Fecha', 'Periodo', 'Total'];
 $dataPagos = [];
 $totalPagos = 0;
 
-$queryPagos = $conn->query("SELECT * FROM pagos_generales WHERE id_ext = '$user' AND DATE(fecha_pago) = '$fechaHoy'");
+$queryPagos = $conn->query("SELECT * FROM pagos_generales WHERE id_ext = '$user' AND DATE(fecha_pago) = '$fechaHoy' AND tipo_pago = 1");
 while ($rowPagos = $queryPagos->fetch_assoc()) {
     $folioContrato = $rowPagos['folio_contrato'];
     $row2 = $conn->query("SELECT * FROM clientes WHERE folio = '$folioContrato'")->fetch_assoc();
@@ -141,9 +141,36 @@ while ($rowPagos = $queryPagos->fetch_assoc()) {
     $totalPagos += $rowPagos['total'];
 }
 
-$pdf->TablaEjecutiva($headerPagos, $dataPagos, [72, 30, 35, 15, 20], $totalPagos, 'PAGOS GENERALES');
+$pdf->TablaEjecutiva($headerPagos, $dataPagos, [72, 30, 35, 15, 20], $totalPagos, 'PAGOS EN EFECTIVO');
 
-// Tabla 2: Otros Gastos
+// Tabla 2: Pagos Generales en Transferencia o Tarjeta
+    $headerPagos2 = ['Cliente', 'Folio', 'Fecha', 'Periodo', 'Total'];
+    $dataPagos2 = [];
+    $totalPagosT = 0;
+
+    $queryPagos2 = $conn->query("SELECT * FROM pagos_generales WHERE id_ext = '$user' AND DATE(fecha_pago) = '$fechaHoy' AND tipo_pago IN (2,3,4)");
+    while ($rowPagos2 = $queryPagos2->fetch_assoc()) {
+        $folioContrato2 = $rowPagos2['folio_contrato'];
+        $row3 = $conn->query("SELECT * FROM clientes WHERE folio = '$folioContrato2'")->fetch_assoc();
+        $nombreCliente2 = $row3['nombre'] ?? 'N/A';
+        
+        if (strlen($nombreCliente) > 1000) {
+            $nombreCliente2 = substr($nombreCliente2, 0, 17) . '...';
+        }
+        
+        $dataPagos2[] = [
+            $nombreCliente2,
+            $rowPagos2['folio_pago'],
+            $rowPagos2['fecha_pago'],
+            $rowPagos2['periodo'],
+            '$' . number_format($rowPagos2['total'], 2)
+        ];
+        $totalPagosT += $rowPagos2['total'];
+    }
+
+    $pdf->TablaEjecutiva($headerPagos2, $dataPagos2, [72, 30, 35, 15, 20], $totalPagosT, 'PAGOS POR TRANSFERENCIA/TARJETA');
+
+// Tabla 3: Otros Gastos
 $headerGastos = ['Concepto', 'Fecha', 'Monto'];
 $dataGastos = [];
 $totalGastos = 0;
@@ -179,16 +206,19 @@ $pdf->SetFont('Arial', '', 8);
 $pdf->SetFillColor($secondaryColor[0], $secondaryColor[1], $secondaryColor[2]);
 $pdf->SetTextColor(50);
 
-$pdf->Cell(70, 5, 'Ingresos:', 1, 0, 'R', true);
-$pdf->Cell(30, 5, '$' . number_format($totalPagos, 2), 1, 1, 'C', true);
+$pdf->Cell(70, 5, 'Ingresos en Efectivo:', 1, 0, 'R', true);
+$pdf->Cell(20, 5, '$' . number_format($totalPagos, 2), 1, 1, 'R', true);
+
+$pdf->Cell(70, 5, 'Ingresos por Transferencia/Tarjeta:', 1, 0, 'R', true);
+$pdf->Cell(20, 5, '$' . number_format($totalPagosT, 2), 1, 1, 'R', true);
 
 $pdf->Cell(70, 5, 'Egresos:', 1, 0, 'R', true);
-$pdf->Cell(30, 5, '$' . number_format($totalGastos, 2), 1, 1, 'C', true);
+$pdf->Cell(20, 5, '$' . number_format($totalGastos, 2), 1, 1, 'R', true);
 
 $pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(230, 240, 255);
 $pdf->Cell(70, 6, 'TOTAL:', 1, 0, 'R', true);
-$pdf->Cell(30, 6, '$' . number_format($totalPagos - $totalGastos, 2), 1, 1, 'C', true);
+$pdf->Cell(20, 6, '$' . number_format(($totalPagos + $totalPagosT) - $totalGastos, 2), 1, 1, 'R', true);
 
 // Firma (COMPACTA)
 if ($pdf->GetY() < 260) {

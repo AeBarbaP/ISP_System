@@ -2,15 +2,6 @@
     session_start();
     require('conn.php');
 
-    if (isset($_SESSION['username']) || isset($_SESSION['idUsr'])){
-        $error = $conn->error;
-        echo json_encode(array(
-            'success'=>0,
-            'error' => $error
-        ));
-        break;
-    }
-
     date_default_timezone_set('America/Mexico_City');
     setlocale(LC_TIME, 'es_MX.UTF-8');
     $fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");

@@ -4,14 +4,6 @@ session_start();
 
 require('conn.php');
 
-    if (isset($_SESSION['username']) || isset($_SESSION['idUsr'])){
-        $error = $conn->error;
-        echo json_encode(array(
-            'success'=>0,
-            'error' => $error
-        ));
-        break;
-    }
 
 date_default_timezone_set('America/Mexico_City');
 setlocale(LC_TIME, 'es_MX.UTF-8');
@@ -25,11 +17,11 @@ $folio_contrato = $_POST['folio_contrato'];
 $total_pago = $_POST['total_pago'];
 $periodo = $_POST['periodo'];
 
-if ($tipo_pago == 1){
-    $tarjeta = "";
+if ($tipo_pago != 1){
+    $tarjeta =  $_POST['tarjeta'];
 }
 else {
-    $tarjeta =  $_POST['tarjeta'];
+    $tarjeta = "";
 }
 
 $sql = "INSERT INTO pagos_generales (
