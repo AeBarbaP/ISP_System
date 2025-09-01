@@ -1,15 +1,6 @@
 <?php
-	// Configurar tiempo de vida de la sesión
-	ini_set('session.gc_maxlifetime', 86400); // 24 horas
-	ini_set('session.cookie_lifetime', 86400); // 24 horas
-
 	// Iniciar sesión
 	session_start();
-
-	// Renovar el tiempo de vida de la cookie de sesión
-	if (isset($_COOKIE[session_name()])) {
-		setcookie(session_name(), $_COOKIE[session_name()], time() + 86400, "/");
-	}
 
     $idUsr = $_SESSION['idUsr'];
     $user = $_SESSION['username'];
@@ -74,6 +65,24 @@
 	<script src="js/laterales/paquetes.js"></script>
 	<script src="js/laterales/corteDiario.js"></script>
 
+	<script>
+		// let user = localStorage.getItem("username");
+		 let user = sessionStorage.getItem("username");
+		 let nombre = sessionStorage.getItem("nombre");
+		 let tipo_usr = sessionStorage.getItem("tipo_usr");
+
+		 if (user == "" || user == null) {
+			 window.location.href = "prcd/sort.php?username="+user; // Redirigir al login si no hay usuario
+			}
+		else {
+			console.log("Usuario en sesión: " + user);
+			 document.addEventListener("DOMContentLoaded", () => {
+				document.getElementById("nombreUsername").innerText = nombre;
+			});
+		}
+
+	</script>
+
 	<!-- área de scripts -->
 	<body onload="queryDashboard1();revisarCorte();ultimoAcceso('<?php echo $user; ?>');queryDashboardGastos();">
 		
@@ -96,7 +105,11 @@
 					<ul class="navbar-nav navbar-nav-right">
 						<li class="nav-item nav-profile dropdown">
 							<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-								<span class="nav-profile-name"><?php echo $nombre ?></span>
+								
+							<span class="nav-profile-name">
+									
+								</span>
+
 								<span class="online-status"></span>
 								<img src="images/faces/face28.png" alt="profile"/>
 							</a>
@@ -226,7 +239,7 @@
 					<div class="col-sm-12 ">
 						<div class="alert alert-light border border-success" role="alert">
 							<div>
-								<h1 class="font-weight-bold mb-2" style="color:#0ddbb9">Bienvenid@ <small class="text-body-secondary"><?php echo $nombre ?>!</small></h1>
+								<h1 class="font-weight-bold mb-2" style="color:#0ddbb9">Bienvenid@ <small class="text-body-secondary" id="nombreUsername"></small></h1>
 								<h6 class="font-weight-normal mb-2">Su último login fue <strong><span id="ultimoAcceso"></span></strong></h6>
 								<h6 class="font-weight-normal mb-2"><span id="onlinetag"></span></h6>
 							</div>

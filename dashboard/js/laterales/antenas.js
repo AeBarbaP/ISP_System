@@ -286,6 +286,9 @@ function altaAntena() {
     let modelo = _antenas('modelo_antena').value;
     let serie = _antenas('numSerie_antena').value;
     let mac = _antenas('macAdd_antena').value;
+
+    let user = sessionStorage.getItem("username");
+
     console.log(serie);
     if (fecha_alta === "" || marca === "" || modelo === "" || serie === "" || mac === "") {
       alert("Por favor, completa todos los campos de la antena.");
@@ -299,7 +302,8 @@ function altaAntena() {
           marca: marca,
           modelo: modelo,
           serie: serie,
-          mac: mac
+          mac: mac,
+          user: user
       },
       success: function (response) {
           let data = JSON.parse(JSON.stringify(response));
@@ -357,6 +361,7 @@ function altaAntena() {
   }
 
 function eliminarAntena(id){
+let user = sessionStorage.getItem("username");
 $.ajax({
         type: "POST",
         url: "../reportes/prcd/prcd_eliminar_antena.php", 

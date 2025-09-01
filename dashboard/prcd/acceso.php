@@ -23,6 +23,11 @@ if($filas == 1){
     
     $_SESSION['idUsr'] = $row['id'];
     $_SESSION['username'] = $row['username'];
+
+    $username = $row['username'];
+    $nombre = $row['nombre'];
+    $tipo_usr = $row['tipo_usr'];
+    
     $_SESSION['nombre'] = $row['nombre'];
     $_SESSION['tipo_usr'] = $row['tipo_usr'];
     $_SESSION['estatusCorte'] = revisarCorte($id);
@@ -46,7 +51,10 @@ if($filas == 1){
         // --------- log ---------------
 
     echo json_encode(array(
-        'success'=>1
+        'success'=>1,
+        'username'=>$username,
+        'nombre'=>$nombre,
+        'tipo_usr'=>$tipo_usr
     ));
 }
 else{

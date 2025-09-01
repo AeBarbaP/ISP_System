@@ -19,6 +19,19 @@ function accesos(){
         var datos = JSON.parse(JSON.stringify(data));
         
         var success = datos.success;
+        var username = datos.username;
+        var nombre = datos.nombre;
+        var tipo_usr = datos.tipo_usr;
+        
+        console.log("Datos recibidos: ", datos);
+        
+        // localStorage.setItem("username", username);
+
+        // Guardar en sessionStorage (solo dura mientras la pestaña está abierta)
+        sessionStorage.setItem("username", username);
+        sessionStorage.setItem("nombre", nombre);
+        sessionStorage.setItem("tipo_usr", tipo_usr);
+        
         if(success == 1){
           Swal.fire({
             icon: 'success',

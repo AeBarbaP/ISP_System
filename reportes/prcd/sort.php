@@ -27,6 +27,12 @@ $resultadoLOG = $conn->query($sqlLOG);
 session_destroy();
 $_SESSION = [];
 
+echo ' <script>
+    // Limpiar todo el sessionStorage
+    sessionStorage.removeItem("username");
+    sessionStorage.clear();
+</script> ';
+
 echo "<script type=\"text/javascript\">location.href='../index.html';</script>";
 
 ?>

@@ -4,7 +4,7 @@ require('conn.php');
 
 date_default_timezone_set('America/Mexico_City');
 setlocale(LC_TIME, 'es_MX.UTF-8');
-$userLog = $_SESSION['username'];
+$userLog = $_REQUEST['username'];
 $fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
 
 if (isset($_SESSION['username'])){
@@ -28,6 +28,12 @@ if (isset($_SESSION['username'])){
 // echo $error;
 session_destroy();
 $_SESSION = [];
+
+echo ' <script>
+    // Limpiar todo el sessionStorage
+    sessionStorage.removeItem("username");
+    sessionStorage.clear();
+</script> ';
 
 echo "<script type=\"text/javascript\">location.href='../index.html';</script>";
 
