@@ -15,13 +15,13 @@ $paginaActual = isset($_POST['pagina']) ? intval($_POST['pagina']) : 1;
 $offset = ($paginaActual - 1) * $registrosPorPagina;
 
 // Consulta para obtener el total de registros
-$sqlTotal = "SELECT COUNT(*) as total FROM pagos_generales";
+$sqlTotal = "SELECT COUNT(*) as total FROM pagos_generales WHERE MONTH(fecha_pago) = MONTH(CURRENT_DATE()) AND YEAR(fecha_pago) = YEAR(CURRENT_DATE())";
 $resultadoTotal = $conn->query($sqlTotal);
 $totalRegistros = $resultadoTotal->fetch_assoc()['total'];
 $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
 
 // Consulta principal con paginación
-$sql = "SELECT * FROM pagos_generales WHERE MONTH(fecha_pago) = '$mes' AND YEAR(fecha_pago) = '$anio' ORDER BY folio_pago DESC LIMIT $offset, $registrosPorPagina";
+$sql = "SELECT * FROM pagos_generales WHERE MONTH(fecha_pago) = MONTH(CURRENT_DATE()) AND YEAR(fecha_pago) = YEAR(CURRENT_DATE()) ORDER BY folio_pago DESC LIMIT $offset, $registrosPorPagina";
 $resultado = $conn->query($sql);
 
 echo '
