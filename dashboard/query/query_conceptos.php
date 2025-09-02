@@ -35,7 +35,7 @@ if (!empty($_POST['folio'])) {
     $adeudos = [];
     
     foreach ([$mes_anterior2, $mes_anterior1, $mes_actual] as $periodo) {
-        $pago = $conn->query("SELECT 1 FROM pagos_generales WHERE folio_contrato = '$folio' AND periodo = '$periodo'");
+        $pago = $conn->query("SELECT 1 FROM pagos WHERE folio_contrato = '$folio' AND periodo = '$periodo'");
         
         if ($pago->num_rows == 0) {
             $es_actual = ($periodo == $mes_actual);

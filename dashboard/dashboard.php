@@ -64,16 +64,16 @@
 
 	<script>
 		// let user = localStorage.getItem("username");
-		 let user = sessionStorage.getItem("username");
-		 let nombre = sessionStorage.getItem("nombre");
-		 let tipo_usr = sessionStorage.getItem("tipo_usr");
+		let user = sessionStorage.getItem("username");
+		let nombre = sessionStorage.getItem("nombre");
+		let tipo_usr = sessionStorage.getItem("tipo_usr");
 
-		 if (user == "" || user == null) {
+		if (user == "" || user == null) {
 			 window.location.href = "prcd/sort.php?username="+user; // Redirigir al login si no hay usuario
 			}
 		else {
 			console.log("Usuario en sesión: " + user);
-			 document.addEventListener("DOMContentLoaded", () => {
+			document.addEventListener("DOMContentLoaded", () => {
 				document.getElementById("nombreUsername").innerText = nombre;
 			});
 		}
@@ -1116,18 +1116,18 @@
 			<a href="query/excel_query_otros_gastos.php?usr=<?php echo $user ?>" target="_blank" type="button" class="btn btn-primary" id="btnReporteTablaOtrosGastos">Excel</a>
 			
 		</div>
-	  </div>
+		</div>
 	</div>
-  </div>
+</div>
 
 <!-- Modal reporte corte caja -->
 <div class="modal fade" id="modalCorteDiario" tabindex="-1" aria-labelledby="modalOtrosGastosLabel" aria-hidden="true">
 	<div class="modal-dialog modal-xl">
-	  <div class="modal-content">
-		<div class="modal-header bg-secondary text-light">
-		  <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-cash-coin"></i> Listado de cortes de caja del mes</h1>
-		  <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
-		</div>
+		<div class="modal-content">
+			<div class="modal-header bg-secondary text-light">
+				<h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-cash-coin"></i> Listado de cortes de caja del mes</h1>
+				<button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
 		<div class="modal-body">
 			<h3>Capturado por: <?php echo $user ?></h3>
 
