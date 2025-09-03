@@ -55,25 +55,13 @@ if (!empty($_POST['folio'])) {
         }
     }
 
-
     // 6. Generar salida
     if (empty($resultados)) {
         echo '<tr><td>0000-00</td><td>No tiene adeudos</td><td>N/A</td><td>0.00</td><td><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></td></tr>';
     } else {
         // Ordenar por fecha (más antiguo primero)
         ksort($resultados);
-        // Mostrar recargo solo si hay adeudos reales (no pagos oportunos)
-        if (!empty($adeudos)) {
-            $ultimo_adeudo = end($adeudos);
-            $mes_num = explode('-', $ultimo_adeudo)[1];
-            echo "<tr class='table-warning'>
-                <td>$ultimo_adeudo</td>
-                <td>Reconexión</td>
-                <td>{$meses[$mes_num]}</td>
-                <td>$recargo</td>
-                <td><span class='badge bg-danger' onclick='eliminarTr(this)'><i class='bi bi-trash'></i> Eliminar</span></td>
-            </tr>";
-        }
+        
         foreach ($resultados as $item) {
 
             $clase_fila = '';
@@ -93,7 +81,18 @@ if (!empty($_POST['folio'])) {
             </tr>";
         }
 
-        
+        // Mostrar recargo solo si hay adeudos reales (no pagos oportunos)
+        if (!empty($adeudos)) {
+            $ultimo_adeudo = end($adeudos);
+            $mes_num = explode('-', $ultimo_adeudo)[1];
+            echo "<tr class='table-warning'>
+                <td>$ultimo_adeudo</td>
+                <td>Reconexión</td>
+                <td>{$meses[$mes_num]}</td>
+                <td>$recargo</td>
+                <td><span class='badge bg-danger' onclick='eliminarTr(this)'><i class='bi bi-trash'></i> Eliminar</span></td>
+            </tr>";
+        }
     }
 }
 ?>

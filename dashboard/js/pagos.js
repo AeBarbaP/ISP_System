@@ -338,6 +338,63 @@ function cargo_adicional() {
   });
 }
 
+function descuentoModal() {
+
+  let titulo = "Agregar Descuento";
+  // Crear el elemento del modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('id', 'addDescuentoModal');
+  modal.innerHTML = `
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="bi bi-person-fill-add"> </i>${titulo}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="descuento_form">
+                    <div class="mb-3">
+                    <label class="form-label" id="basic-addon1">Selecciona el Periodo en el que se aplicará el descuento:</label>
+                        <div class="input-group mb-3 mt-1" style="margin-left: -.2rem">
+                            <select class="form-select" id="periodo_desc">
+                                
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" id="basic-addon1">Monto:</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">$</span>
+                            <input type="text" class="form-control" placeholder="" id="monto_desc" aria-label="Monto" aria-describedby="basic-addon1">
+                            <span class="input-group-text" id="basic-addon1">.00</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="agregarDescuento()">Agregar</button>
+            </div>
+        </div>
+    </div>
+  `;
+
+  // Agregar el modal al body del documento
+  document.body.appendChild(modal);
+
+  // Mostrar el modal usando Bootstrap's JavaScript API
+  const bootstrapModal = new bootstrap.Modal(modal);
+  bootstrapModal.show();
+
+  // Eliminar el modal del DOM cuando se cierre
+  modal.addEventListener('hidden.bs.modal', () => {
+    modal.remove();
+    limpiarModal();
+  });
+}
+
 function generarTablaPagos(folio) {
     $.ajax({
         type: "POST",
@@ -575,10 +632,14 @@ function eliminarTr(elemento) {
 function agregarDescuento(){
     let descuento = _('monto_desc').value;
     let fechaMesAnnio = obtenerFechaHoyMesAnnio();
-    let periodo = "Pago actual";
+    let periodo = _('periodo_desc').value;
     let concepto = "Descuento";
     if(descuento == null || descuento == ""){
         alert('Agrega la cantidad a descontar');
+        return;
+    }
+    if(periodo == null || periodo == ""){
+        alert('Selecciona el periodo');
         return;
     }
     

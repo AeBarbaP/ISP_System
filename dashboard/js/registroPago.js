@@ -44,8 +44,24 @@ function queryConcepto(folio){
             
             calcularTotal();
         }
-        });
+    });
+}
 
+function queryPeriodoDesc(folio){
+    $.ajax({
+        type: "POST",
+        url: "query/query_periodosdesc.php",
+        data:{
+            folio:folio
+        },
+        dataType: "html",
+        success: function(data) {
+            // $('#catalogoConceptos').html(data);
+            $('#periodo_desc').html(data);
+            
+            calcularTotal();
+        }
+    });
 }
 
 function revisarMeses(){
@@ -377,57 +393,60 @@ function guardarRecibo() {
         totalesPorPeriodo[periodo] += monto;
     });
 
-    $.ajax({
-        url: 'prcd/guardar_recibo.php',
-        type: 'POST',
-        data: { 
-            folio_pago: folio_pago,
-            fecha_pago: fecha_pago,
-            tarjeta: tarjeta,
-            tipo_pago: tipo_pago,
-            folio_contrato: folio_contrato,
-            periodo: $(this).find('td:eq(0)').text(),
-            concepto: $(this).find('td:eq(1)').text(),
-            mes: $(this).find('td:eq(2)').text(),
-            //total_pago: totalesPorPeriodo[periodoPago]
-            total_pago: total_pago
-        },
-        success: function(datos) {
-            // var datos = JSON.parse(JSON.stringify(response));
+    const ultimaFila = $('#NuevaSolicitud').find('tr').last(); // O $('#miTabla').find('tr').last();
+    let periodop = ultimaFila.find('td:eq(0)').text();
+    /* filas.each(function() {
+        var montoActual = parseFloat($(this).find('td:eq(3)').text()) || 0; 
+    }); */
+    
+    var concepto = 'Pago Mensual';
+    var periodoPago = $(this).find('td:eq(0)').text();
 
-            var success = datos.success;
-            console.log(success);
-            if(success == 1){
-                alert("Recibo guardado");
-                document.getElementById('pagoreg').disabled = false;
-                $('#pago').modal('hide');
-                // queryDashboard1(pagina = 1);
-                limpiarModalX();
-                document.getElementById("datoscliente").hidden = true;
-                queryDashboard1(pagina = 1);
-            }
-            else{
-                alert("No se guardó recibo normal 1");
-                //console.log(datos.error);
-                alert(datos.error);
-            }
-        }
-    });
-
-    filas.each(function() {
-        var concepto = $(this).find('td:eq(1)').text();
-        var periodoPago = $(this).find('td:eq(0)').text();
-        var montoActual = parseFloat($(this).find('td:eq(3)').text()) || 0;
-
-        if (concepto == 'Pago oportuno' || concepto == 'Adeudo' || concepto == 'Pago anticipado') { // Solo no pagados
+    //if (concepto == 'Pago oportuno' || concepto == 'Adeudo' || concepto == 'Pago anticipado') { // Solo no pagados
             
+            
+        $.ajax({
+            url: 'prcd/guardar_recibo.php',
+            type: 'POST',
+            data: { 
+                folio_pago: folio_pago,
+                fecha_pago: fecha_pago,
+                tarjeta: tarjeta,
+                tipo_pago: tipo_pago,
+                folio_contrato: folio_contrato,
+                periodop: periodop,
+                concepto: concepto,
+                mes: periodop,
+                //total_pago: totalesPorPeriodo[periodoPago]
+                total_pago: total_pago
+            },
+            success: function(datos) {
+                // var datos = JSON.parse(JSON.stringify(response));
+
+                var success = datos.success;
+                console.log(success);
+                if(success == 1){
+                    alert("Recibo guardado");
+                    document.getElementById('pagoreg').disabled = false;
+                    $('#pago').modal('hide');
+                    // queryDashboard1(pagina = 1);
+                    limpiarModalX();
+                    document.getElementById("datoscliente").hidden = true;
+                    queryDashboard1(pagina = 1);
+                }
+                else{
+                    alert("No se guardó recibo normal 1");
+                    console.log(datos.error)
+                }
             }
-            else{
-                console.log('No se registró el pago 234');
-                return;
-            }
-    });
+        });
+    //}
+    //else{
+    //    console.log('No se registró el pago general');
+    //    return;
+    //}
 }
+
 
 function guardarRecibo999(){
     var folio_pago = _grecibos('folioLabelpago').value;

@@ -15,7 +15,7 @@ $fecha_pago = $_POST['fecha_pago'];
 $tipo_pago = $_POST['tipo_pago'];
 $folio_contrato = $_POST['folio_contrato'];
 $total_pago = $_POST['total_pago'];
-$periodo = $_POST['periodo'];
+$periodo = $_POST['periodop'];
 
 if ($tipo_pago != 1){
     $tarjeta =  $_POST['tarjeta'];

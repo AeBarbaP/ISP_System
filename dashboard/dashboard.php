@@ -731,10 +731,10 @@
 					</div>
 					<hr>
 					<label>Aplicar Descuentos y Promociones</label>
-					<div class="container mt-2 ms-3">
+					<div class="container mt-2 ">
 						<div class="row">
-							<div class="col-2">
-								<div class="form-check form-check-inline">
+							<div class="col-6">
+							<!-- 	<div class="form-check form-check-inline">
 									<input class="form-check-input" type="checkbox" onclick="descuento_promo()" id="descuento">
 									<label class="form-check-label" style="margin-left: -.1rem" for="descuento">Descuento:</label>
 								</div>
@@ -745,10 +745,18 @@
 									<input type="text" class="form-control input-number" placeholder="" aria-label="Monto" id="monto_desc" aria-describedby="basic-addon1" disabled>
 									<span class="input-group-text" id="basic-addon1">.00</span>
 									<button class="btn btn-outline-secondary" type="button" id="addbtndesc" onclick="agregarDescuento()" disabled><i class="bi bi-plus-circle"></i></button>
+								</div> -->
+								<div class="d-grid gap-2">
+									<button class="btn btn-primary" type="button" onclick="descuentoModal()">Agregar Descuento</button>
+									<!-- <button class="btn btn-primary" type="button">Agregar Promoción</button> -->
 								</div>
 							</div>
-							<div class="col-2">
-								<div class="form-check form-check-inline ms-3">
+							<div class="col-6">
+								<div class="d-grid gap-2">
+									<!-- <button class="btn btn-primary" type="button">Agregar Descuento</button> -->
+									<button class="btn btn-primary" type="button">Agregar Promoción</button>
+								</div>
+								<!-- <div class="form-check form-check-inline ms-3">
 									<input class="form-check-input" type="checkbox" id="promocion" onclick="descuento_promo()">
 									<label class="form-check-label" style="margin-left: -.1rem" for="promocion">Promoción:</label>
 								</div>
@@ -758,7 +766,7 @@
 									<select class="form-select" id="promocionesPagos" onchange="agregarPromoTable()" disabled>
 										
 									</select>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
