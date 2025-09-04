@@ -748,12 +748,10 @@
 								</div> -->
 								<div class="d-grid gap-2">
 									<button class="btn btn-primary" type="button" onclick="descuentoModal()">Agregar Descuento</button>
-									<!-- <button class="btn btn-primary" type="button">Agregar Promoción</button> -->
 								</div>
 							</div>
 							<div class="col-6">
 								<div class="d-grid gap-2">
-									<!-- <button class="btn btn-primary" type="button">Agregar Descuento</button> -->
 									<button class="btn btn-primary" type="button">Agregar Promoción</button>
 								</div>
 								<!-- <div class="form-check form-check-inline ms-3">
