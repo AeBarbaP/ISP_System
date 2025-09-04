@@ -730,7 +730,7 @@
 						</div>
 					</div>
 					<hr>
-					<label>Aplicar Descuentos y Promociones</label>
+					<label><i class="bi bi-window-plus"></i> Aplicar Descuentos y Promociones</label>
 					<div class="container mt-2 ">
 						<div class="row">
 							<div class="col-6">

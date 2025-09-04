@@ -387,6 +387,7 @@ function descuentoModal() {
   // Mostrar el modal usando Bootstrap's JavaScript API
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
+  agregarDescuento2();
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
@@ -394,6 +395,36 @@ function descuentoModal() {
     limpiarModal();
   });
 }
+
+function agregarDescuento2() {
+    const filas = $('#NuevaSolicitud tr');
+    const valoresUnicos = new Set();
+    
+    // Recorrer todas las filas de la tabla
+    filas.each(function() {
+        const periodo = $(this).find('td').eq(0).text().trim();
+        
+        // Solo agregar si no está vacío y no existe en el Set
+        if (periodo && !valoresUnicos.has(periodo)) {
+            valoresUnicos.add(periodo);
+        }
+    });
+    
+    // Obtener el select (ajusta el selector según tu HTML)
+    const select = $('#periodo_desc');
+    
+    // Limpiar select existente excepto la primera opción si existe
+    select.find('option:not(:first)').remove();
+    
+    // Agregar los valores únicos al select
+    valoresUnicos.forEach(valor => {
+        select.append($('<option>', {
+            value: valor,
+            text: valor
+        }));
+    });
+}
+
 
 function generarTablaPagos(folio) {
     $.ajax({
@@ -805,7 +836,8 @@ function agregarPA(){
     });
 
     contador += checkboxes.length;  // Actualizar contador con la cantidad de meses
-    $('#cargoAdicionalModal').modal('hide');
+    alert('Pago anticipado agregado');
+    $('#pagoAnticipadoModal').modal('hide');
     calcularTotal();
 }
 // función para los meses
