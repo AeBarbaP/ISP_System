@@ -388,6 +388,7 @@ function descuentoModal() {
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
   agregarDescuento2();
+  ordenarTablaPorPrimeraColumna('asc');
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
@@ -678,7 +679,7 @@ function agregarDescuento(){
         const fila = document.createElement("tr");
 
         fila.innerHTML = `
-            <td>${fechaMesAnnio}</td>
+            <td>${periodo}</td>
             <td>${concepto}</td>
             <td>${periodo}</td>
             <td>-${descuento}</td>
@@ -688,9 +689,57 @@ function agregarDescuento(){
 
         cuerpo.appendChild(fila);
         contador++;
+        alert('Descuento agregado');
+        $('#addDescuentoModal').modal('hide');
+        ordenarTablaPorPrimeraColumna();
         calcularTotal();
     
 }
+
+// ordenar tabla
+function ordenarTablaPorPrimeraColumna(orden = 'asc') {
+    const tabla = document.getElementById('tablaSolicitud');
+    const tbody = tabla.querySelector('tbody');
+    const filas = Array.from(tbody.querySelectorAll('tr'));
+    
+    // Determinar si la primera columna contiene números
+    const esNumerica = filas.length > 0 && !isNaN(parseFloat(filas[0].cells[0].textContent));
+    
+    // Ordenar las filas
+    filas.sort((filaA, filaB) => {
+        let valorA, valorB;
+        
+        if (esNumerica) {
+            // Para valores numéricos
+            valorA = parseFloat(filaA.cells[0].textContent);
+            valorB = parseFloat(filaB.cells[0].textContent);
+        } else {
+            // Para texto
+            valorA = filaA.cells[0].textContent.trim().toLowerCase();
+            valorB = filaB.cells[0].textContent.trim().toLowerCase();
+        }
+        
+        if (orden === 'asc') {
+            return valorA > valorB ? 1 : -1;
+        } else {
+            return valorA < valorB ? 1 : -1;
+        }
+    });
+    
+    // Eliminar filas existentes
+    while (tbody.firstChild) {
+        tbody.removeChild(tbody.firstChild);
+    }
+    
+    // Volver a agregar las filas ordenadas
+    filas.forEach(fila => tbody.appendChild(fila));
+}
+
+// Uso:
+// ordenarPorSegundaColumna('asc');  // Orden ascendente
+// ordenarPorSegundaColumna('desc'); // Orden descendente
+
+
 // función para agregar descuento
 // función para agregar promoción
 function agregarPromoTable(){
