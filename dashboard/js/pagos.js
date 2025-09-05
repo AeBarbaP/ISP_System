@@ -388,7 +388,7 @@ function descuentoModal() {
   const bootstrapModal = new bootstrap.Modal(modal);
   bootstrapModal.show();
   agregarDescuento2();
-  ordenarTablaPorPrimeraColumna('asc');
+  //ordenarTablaPorPrimeraColumna('asc');
 
   // Eliminar el modal del DOM cuando se cierre
   modal.addEventListener('hidden.bs.modal', () => {
@@ -659,85 +659,80 @@ function eliminarTr(elemento) {
         calcularTotal(); // Recalcula todo desde cero
     }
 }
+// La función `obtenerFechaHoyMesAnnio()` se asume que ya existe en tu código.
+// La función `_()` se asume que es un atajo para `document.getElementById()`.
+// La función `eliminarTr()` se asume que ya existe en tu código.
+// Las funciones `ordenarTablaPorPrimeraColumna()` y `calcularTotal()` se asumen que ya existen.
 
-// función para agregar descuento
+// Esta función busca la última fila de la tabla que contiene el texto de la fecha.
+// Asume que el ID de tu tabla es 'NuevaSolicitud'.
+function buscarUltimoElementoConFecha(fechaBuscada) {
+  const tabla = document.getElementById('NuevaSolicitud');
+  if (!tabla) {
+    console.error("No se encontró la tabla con el ID 'NuevaSolicitud'.");
+    return null;
+  }
+  
+  // Selecciona todas las celdas de la primera columna (se asume que ahí está el periodo).
+  const celdasPeriodo = tabla.querySelectorAll('tr td:first-child');
+
+  // Itera en reversa para encontrar el último elemento
+  for (let i = celdasPeriodo.length - 1; i >= 0; i--) {
+    const celda = celdasPeriodo[i];
+    if (celda.textContent.trim().includes(fechaBuscada)) {
+      // Devuelve la fila completa (<tr>)
+      return celda.closest('tr');
+    }
+  }
+  return null;
+}
+
+// Tu función `agregarDescuento` actualizada con la nueva lógica de inserción
 function agregarDescuento(){
-    let descuento = _('monto_desc').value;
-    let fechaMesAnnio = obtenerFechaHoyMesAnnio();
-    let periodo = _('periodo_desc').value;
-    let concepto = "Descuento";
-    if(descuento == null || descuento == ""){
-        alert('Agrega la cantidad a descontar');
-        return;
-    }
-    if(periodo == null || periodo == ""){
-        alert('Selecciona el periodo');
-        return;
-    }
-    
-        const cuerpo = document.getElementById("NuevaSolicitud");
-        const fila = document.createElement("tr");
+  let descuento = _('monto_desc').value;
+  let fechaMesAnnio = obtenerFechaHoyMesAnnio();
+  let periodo = _('periodo_desc').value;
+  let concepto = "Descuento";
 
-        fila.innerHTML = `
-            <td>${periodo}</td>
-            <td>${concepto}</td>
-            <td>${periodo}</td>
-            <td>-${descuento}</td>
-            
-            <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
-        `;
+  if(descuento == null || descuento == ""){
+    alert('Agrega la cantidad a descontar');
+    return;
+  }
+  if(periodo == null || periodo == ""){
+    alert('Selecciona el periodo');
+    return;
+  }
 
-        cuerpo.appendChild(fila);
-        contador++;
-        alert('Descuento agregado');
-        $('#addDescuentoModal').modal('hide');
-        ordenarTablaPorPrimeraColumna('desc');
-        calcularTotal();
-    
+  // Crea la nueva fila para el descuento
+  const cuerpo = document.getElementById("NuevaSolicitud");
+  const fila = document.createElement("tr");
+  fila.innerHTML = `
+    <td>${periodo}</td>
+    <td>${concepto}</td>
+    <td>${periodo}</td>
+    <td>-${descuento}</td>
+    <td><a href="#"><span class="badge bg-danger" onclick="eliminarTr(this)"><i class="bi bi-trash"></i> Eliminar</span></a></td>
+  `;
+  
+  // Busca la última fila que coincida con el periodo
+  const ultimaFilaEncontrada = buscarUltimoElementoConFecha(periodo);
+
+  if (ultimaFilaEncontrada) {
+    // Si se encuentra una fila, inserta la nueva fila justo después de ella.
+    ultimaFilaEncontrada.insertAdjacentElement('afterend', fila);
+  } else {
+    // Si no se encuentra ninguna fila con ese periodo, la agrega al final de la tabla.
+    cuerpo.appendChild(fila);
+  }
+
+  // Lógica que se ejecuta sin importar dónde se insertó la fila
+  contador++;
+  alert('Descuento agregado');
+  $('#addDescuentoModal').modal('hide');
+  ordenarTablaPorPrimeraColumna();
+  calcularTotal();
+
 }
-
-// ordenar tabla
-function ordenarTablaPorPrimeraColumna(orden = 'desc') {
-    const tabla = document.getElementById('tablaPre');
-    const tbody = tabla.querySelector('tbody');
-    const filas = Array.from(tbody.querySelectorAll('tr'));
-    
-    // Determinar si la primera columna contiene números
-    const esNumerica = filas.length > 0 && !isNaN(parseFloat(filas[0].cells[0].textContent));
-    
-    // Ordenar las filas
-    filas.sort((filaA, filaB) => {
-        let valorA, valorB;
-        
-        if (esNumerica) {
-            // Para valores numéricos
-            valorA = parseFloat(filaA.cells[0].textContent);
-            valorB = parseFloat(filaB.cells[0].textContent);
-        } else {
-            // Para texto
-            valorA = filaA.cells[0].textContent.trim().toLowerCase();
-            valorB = filaB.cells[0].textContent.trim().toLowerCase();
-        }
-        
-        if (orden === 'asc') {
-            return valorA > valorB ? 1 : -1;
-        } else {
-            return valorA < valorB ? 1 : -1;
-        }
-    });
-    
-    // Eliminar filas existentes
-    while (tbody.firstChild) {
-        tbody.removeChild(tbody.firstChild);
-    }
-    
-    // Volver a agregar las filas ordenadas
-    filas.forEach(fila => tbody.appendChild(fila));
-}
-
-// Uso:
-// ordenarPorSegundaColumna('asc');  // Orden ascendente
-// ordenarPorSegundaColumna('desc'); // Orden descendente
 
 
 // función para agregar descuento
