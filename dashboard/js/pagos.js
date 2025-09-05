@@ -691,14 +691,14 @@ function agregarDescuento(){
         contador++;
         alert('Descuento agregado');
         $('#addDescuentoModal').modal('hide');
-        ordenarTablaPorPrimeraColumna();
+        ordenarTablaPorPrimeraColumna('desc');
         calcularTotal();
     
 }
 
 // ordenar tabla
-function ordenarTablaPorPrimeraColumna(orden = 'asc') {
-    const tabla = document.getElementById('tablaSolicitud');
+function ordenarTablaPorPrimeraColumna(orden = 'desc') {
+    const tabla = document.getElementById('tablaPre');
     const tbody = tabla.querySelector('tbody');
     const filas = Array.from(tbody.querySelectorAll('tr'));
     
