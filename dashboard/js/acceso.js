@@ -22,6 +22,7 @@ function accesos(){
         var username = datos.username;
         var nombre = datos.nombre;
         var tipo_usr = datos.tipo_usr;
+        var idUsr = datos.idUsr;
         
         console.log("Datos recibidos: ", datos);
         

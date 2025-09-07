@@ -81,6 +81,30 @@
 			ultimoAcceso(user);
 		}
 
+		// cerrar session si se cierra el navegador
+  // evento que se dispara al intentar cerrar la ventana
+  window.addEventListener('beforeunload', function(e) {
+      // Mostrar mensaje de confirmación
+      const mensaje = "¿Estás seguro de que quieres salir? Se cerrará la sesión.";
+      
+      // Mostrar confirmación nativa
+      if (!confirm(mensaje)) {
+          // Si el usuario cancela, prevenir el cierre
+          e.preventDefault();
+          e.returnValue = ""; // Necesario para algunos navegadores
+      } else {
+          // Si el usuario acepta, ejecutar la función
+          // miFuncionPersonalizada();
+          this.sessionStorage.removeItem("username");
+          this.sessionStorage.removeItem("nombre");
+          this.sessionStorage.removeItem("tipo_usr");
+          this.sessionStorage.removeItem("idUsr");
+          this.sessionStorage.clear();
+          // Redirigir a la página de logout o cerrar sesión
+          location.href='prcd/sort2.php';
+      }
+  });
+
 	</script>
 
 	<!-- área de scripts -->
