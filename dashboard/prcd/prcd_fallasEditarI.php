@@ -2,11 +2,13 @@
 session_start();
 require_once ('conn.php');
 
-$username = $_SESSION['username'];
+// $username = $_SESSION['username'];
+$username = $_POST['username'];
 
 date_default_timezone_set('America/Mexico_City');
 setlocale(LC_TIME, 'es_MX.UTF-8');
-$userLog = $_SESSION['username'];
+// $userLog = $_SESSION['username'];
+$userLog = $_POST['username'];
 $fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
 
 $folio = $_POST['folio'];

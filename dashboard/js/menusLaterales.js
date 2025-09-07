@@ -109,6 +109,7 @@ function nuevoUsuario() {
 }
 
 function guardarUsr(){
+  let idUsr = sessionStorage.getItem("idUsr");
   let usrNew = _("usrNew").value;
   let pwdNew = _("pwdNew1").value;
   let nombreNew = _("nombreNew").value;
@@ -122,6 +123,7 @@ function guardarUsr(){
     url: 'prcd/guardarUsr.php',
     type: 'POST',
     data:{
+      username: idUsr,
       usrNew:usrNew,
       pwdNew:pwdNew,
       nombreNew,nombreNew,
@@ -403,6 +405,7 @@ function datosEdicionUsr(id) {
 }
 
 function editarUsuarioFinal(){
+  let idUsr = sessionStorage.getItem("idUsr");
   let id = _("editarId").value;
   let username = _("editarUsr").value;
   let nombre = _("editarnombreUsr").value;
@@ -421,6 +424,7 @@ function editarUsuarioFinal(){
     url: 'prcd/prcd_editar_usuario.php',
     type: 'POST',
     data: {
+      username2: idUsr,
       id: id,
       username: username,
       nombre: nombre,
@@ -561,6 +565,7 @@ function fechaTecnicoE(){
 }
 
 function guardarTecnico(){
+  let idUsr = sessionStorage.getItem("idUsr");
   let fecha = document.getElementById('fecha_creacion_tecnico').value;
   let nombre = document.getElementById('nombre_tecnico').value;
   let estatus_tecnico = document.getElementById('estatus_tecnico').value;
@@ -569,6 +574,7 @@ function guardarTecnico(){
     url: 'prcd/guardarTecnico.php',
     type: 'POST',
     data:{
+      username:idUsr,
       fecha:fecha,
       nombre:nombre,
       estatus_tecnico,estatus_tecnico
@@ -678,13 +684,15 @@ function queryTecnicos(){
 }
 
 function cambioEstatus(i,id){
+  let user = sessionStorage.getItem("username");
   if (confirm("¿Desea cambiar el estatus?")){
     $.ajax({
       url: 'prcd/cambioEstatus.php',
       type: 'POST',
       data:{
         i:i,
-        id:id
+        id:id,
+        username:user
       },
       dataType: 'json',
       success: function(data) {
@@ -803,6 +811,7 @@ function datosTecnico(id){
 }
 
 function editarDatosTecnico(){
+  let idUsr = sessionStorage.getItem("idUsr");
   let id = _('idEditarTecnico').value;
   let fecha = _('fecha_creacion_tecnicoEditar').value;
   let nombre = _('nombre_tecnico_editar').value;
@@ -825,6 +834,7 @@ function editarDatosTecnico(){
     url: 'prcd/prcd_editar_tecnico.php',
     type: 'POST',
     data:{
+      username:idUsr,
       id:id,
       fecha:fecha,
       nombre:nombre,
@@ -1359,6 +1369,7 @@ function queryClientes(valor) {
 
 // guardar incidencia
 function guardarIncidencia() {
+  let idUsr = sessionStorage.getItem("idUsr");
   let fecha = _('fecha_incidencia').value;
   let folio = _('folio_incidencia').value;
   // let cliente = _('buscanombre').value;
@@ -1376,6 +1387,7 @@ function guardarIncidencia() {
       url: 'prcd/prcd_guardar_incidencia.php',
       type: 'POST',
       data:{
+        username:idUsr,
         fecha:fecha,
         folio:folio,
         descripcion:descripcion,
@@ -1533,6 +1545,7 @@ function editarIncidencia() {
 
 // update reporte falla
 function updateReporteFalla(){
+  let idUsr = sessionStorage.getItem("idUsr");
   let folio = folio_incidencia_editar.value;
   let fecha_alta = fecha_incidenciaU.value;
   let cliente = foliocliente_incidenciaU.value;
@@ -1545,6 +1558,7 @@ function updateReporteFalla(){
     type: 'POST',
     dataType: 'JSON',
     data: {
+      username : idUsr,
       fecha_alta : fecha_alta,
       folio : folio,
       cliente : cliente,
@@ -1736,6 +1750,7 @@ function querySelectCliente(){
 }
 
 function cambiarComentario(){
+  let idUsr = sessionStorage.getItem("idUsr");
   let select = document.getElementById('clientes_corteIncidencia');
   let opcionSeleccionada = select.selectedOptions[0]; 
   let usuario = opcionSeleccionada.dataset.folioincidencia;
@@ -1747,6 +1762,7 @@ function cambiarComentario(){
   $.ajax({
     url: 'prcd/prcd_editar_TecnicoIncidencia.php',
     data:{
+      username : idUsr,
       usuario : usuario,
       estatus : estatus,
       fechaAtencion : fechaAtencion,
@@ -2013,6 +2029,7 @@ function actualizarEstatusQuery(){
 }
 
 function editarEstatusFalla(){
+  let idUsr = sessionStorage.getItem("idUsr");
   var folio = document.getElementById('folio_incidenciaUI').value;
   var estatus = document.getElementById('estatus_incidenciaI').value;
   $.ajax({
@@ -2020,6 +2037,7 @@ function editarEstatusFalla(){
     type: 'POST',
     dataType: 'JSON',
     data: {
+      username : idUsr,
       folio:folio,
       estatus:estatus
     },
@@ -2297,6 +2315,7 @@ function generarFolioCorte(){
 }
 
 function guardarCorte() {
+  let idUsr = sessionStorage.getItem("idUsr");
   var fecha_orden = _('fecha_orden_corte').value;
   // falta agregar el username
   var folio_cliente = _('clientes_corte').value;
@@ -2312,6 +2331,7 @@ function guardarCorte() {
     url: 'prcd/guardarCorte.php',
     type: 'POST',
     data: {
+      username: idUsr,
       fecha_orden: fecha_orden,
       folio_cliente:folio_cliente,
       folio:folio,
@@ -2632,12 +2652,14 @@ function filtradoTabla(){
 }
 
 function eliminarCorte(id){
+  let idUsr = sessionStorage.getItem("idUsr");
   if(confirm('¿Desea eliminar el registro de corte?')){
       $.ajax({
           url: 'prcd/prcd_eliminar_corte.php',
           type: 'POST',
           dataType: 'json',
           data:{
+            username: idUsr,
             id:id
           },
           success: function(data) {
@@ -2877,6 +2899,7 @@ function mostrarPwdM(){
 }
 
 function editarUsuarioDash(){
+  let user = sessionStorage.getItem("username");
   var id = _('idUserM').value;
   var nombre = _('nombreUserM').value;
   var pass = _('passWM').value;
@@ -2887,7 +2910,8 @@ function editarUsuarioDash(){
     data:{
       id : id,
       nombre : nombre,
-      pass : pass
+      pass : pass,
+      username : user
     },
     success: function(data){
       var datos = JSON.parse(JSON.stringify(data));

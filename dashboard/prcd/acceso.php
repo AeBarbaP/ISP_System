@@ -54,7 +54,8 @@ if($filas == 1){
         'success'=>1,
         'username'=>$username,
         'nombre'=>$nombre,
-        'tipo_usr'=>$tipo_usr
+        'tipo_usr'=>$tipo_usr,
+        'idUsr'=>$idUsr
     ));
 }
 else{

@@ -162,6 +162,7 @@
   }
 
   function editarPromo2(){
+    let idUsr = sessionStorage.getItem("idUsr");
     let id = document.getElementById("idPromoHidden").value;
     let fecha_inicio = document.getElementById("fecha_inicioEditar").value;
     let fecha_fin = document.getElementById("fecha_finEditar").value;
@@ -173,6 +174,7 @@
             type: "POST",
             url: "prcd/prcd_editar_promocion.php", // Archivo PHP que registrará el pago
             data: { 
+                username: idUsr,
                 id: id,
                 fecha_inicio: fecha_inicio,
                 fecha_fin: fecha_fin,
@@ -285,6 +287,7 @@
   }
 
   function registrarPromocion() {
+    let idUsr = sessionStorage.getItem("idUsr");
     let fecha_inicio = document.getElementById("fecha_inicio").value;
     let fecha_fin = document.getElementById("fecha_fin").value;
     let nombre_promocion = document.getElementById("nombre_promocion").value;
@@ -295,6 +298,7 @@
             type: "POST",
             url: "prcd/registrar_promocion.php", // Archivo PHP que registrará el pago
             data: { 
+                username: idUsr,
                 fecha_inicio: fecha_inicio,
                 fecha_fin: fecha_fin,
                 nombre_promocion: nombre_promocion,

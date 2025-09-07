@@ -3,6 +3,7 @@ function _(el){
 }
 
 function guardarOtrosGastos(){
+    let idUsr = sessionStorage.getItem("idUsr");
     let concepto = document.getElementById("conceptoOtrosGastos").value;
     let cantidad = document.getElementById("cantidadOtrosGastos").value;
     let fecha = document.getElementById("fechaOtrosGastos").value;
@@ -32,7 +33,7 @@ function guardarOtrosGastos(){
             concepto: concepto,
             cantidad: cantidad,
             fecha: fecha,
-            idUsuario: idUsuario
+            idUsuario: idUsr
         },
         success: function(data) {
             
@@ -135,6 +136,7 @@ function editarOtroGasto(id){
 }
 
 function guardarEditarOtrosGastos(){
+    let user = sessionStorage.getItem("username");
     let concepto = document.getElementById("conceptoEditarOtrosGastos").value;
     let cantidad = document.getElementById("cantidadEditarOtrosGastos").value;
     let fecha = document.getElementById("fechaEditarOtrosGastos").value;
@@ -164,7 +166,8 @@ function guardarEditarOtrosGastos(){
             concepto: concepto,
             cantidad: cantidad,
             fecha: fecha,
-            id: id
+            id: id,
+            username: user
         },
         success: function(data) {
             
@@ -195,11 +198,13 @@ function guardarEditarOtrosGastos(){
 }
 
 function eliminarOtroGasto(id){
+    let user = sessionStorage.getItem("username");
     if(confirm('¿Desea eliminar otro pago')){
         $.ajax({
         type: "POST",
         url: "prcd/prcd_eliminar_otros_gastos.php",
         data: {
+            username: user,
             id: id
         },
         success: function(data) {

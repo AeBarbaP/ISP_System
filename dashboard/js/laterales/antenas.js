@@ -303,7 +303,7 @@ function altaAntena() {
           modelo: modelo,
           serie: serie,
           mac: mac,
-          user: user
+          username: user
       },
       success: function (response) {
           let data = JSON.parse(JSON.stringify(response));
@@ -385,6 +385,7 @@ $.ajax({
 }
 
   function edicionAntena(id){
+    let user = sessionStorage.getItem("username");
     let fecha_alta = _antenas('fecha_alta_antenaEditar').value;
     let marca = _antenas('marca_antenaEditar').value;
     let modelo = _antenas('modelo_antenaEditar').value;
@@ -401,6 +402,7 @@ $.ajax({
       url: 'prcd/prcd_editar_antena.php',
       type: 'POST',
       data: {
+          username: user,
           id: id,
           fecha_alta: fecha_alta,
           marca: marca,

@@ -64,6 +64,7 @@
 
 	<script>
 		// let user = localStorage.getItem("username");
+		let idUsr = sessionStorage.getItem("idUsr");
 		let user = sessionStorage.getItem("username");
 		let nombre = sessionStorage.getItem("nombre");
 		let tipo_usr = sessionStorage.getItem("tipo_usr");
@@ -76,12 +77,14 @@
 			document.addEventListener("DOMContentLoaded", () => {
 				document.getElementById("nombreUsername").innerText = nombre;
 			});
+
+			ultimoAcceso(user);
 		}
 
 	</script>
 
 	<!-- área de scripts -->
-	<body onload="queryDashboard1();revisarCorte();ultimoAcceso('<?php echo $user; ?>');queryDashboardGastos();">
+	<body onload="queryDashboard1();revisarCorte();queryDashboardGastos();">
 		
     <div class="container-scroller">
 		<!-- partial:partials/_horizontal-navbar.html -->

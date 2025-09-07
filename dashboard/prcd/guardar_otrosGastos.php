@@ -11,6 +11,7 @@ require('conn.php');
 $concepto = $_POST['concepto'];
 $cantidad = $_POST['cantidad'];
 $fecha = $_POST['fecha'];
+// venía de session
 $idUsuario = $_POST['idUsuario'];
 
 $sql = "INSERT INTO otros_gastos(

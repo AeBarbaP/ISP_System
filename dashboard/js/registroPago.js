@@ -1,3 +1,5 @@
+const { use } = require("react");
+
 function _grecibos(el){
     return document.getElementById(el);
 }
@@ -154,6 +156,7 @@ function swalpago(){
 }
 
 function guardarTodosPagos() {
+    let idUsr = sessionStorage.getItem("idUsr");
     const filas = $('#NuevaSolicitud tr');
     const pagos = [];
     const folioPago1 = $('#folioLabelpago').val();
@@ -190,7 +193,9 @@ function guardarTodosPagos() {
     $.ajax({
         url: 'prcd/guardar_pagos.php',
         type: 'POST',
-        data: { pagos: pagos },
+        data: { pagos: pagos,
+                username: idUsr
+         },
         dataType:'json',
         success: function(response) {
             if (response.success) {
@@ -216,7 +221,7 @@ function guardarTodosPagos() {
     });
 }
 function revisarPagosAnticipados() {
-
+    let idUsr = sessionStorage.getItem("idUsr");
     var tarjeta = _grecibos('tipopagoBaucher').value;
     var tipo_pago = 4;
 
@@ -238,6 +243,7 @@ function revisarPagosAnticipados() {
                     url: 'prcd/guardar_recibo.php',
                     type: 'POST',
                     data: { 
+                        username: idUsr,
                         folio_pago: folioPago,
                         fecha_pago: fechaSolicitud,
                         tarjeta: tarjeta,
@@ -270,6 +276,7 @@ function revisarPagosAnticipados() {
                     url: 'prcd/guardar_recibo.php',
                     type: 'POST',
                     data: { 
+                        username: idUsr,
                         folio_pago: folioPago,
                         fecha_pago: fechaSolicitud,
                         tarjeta: tarjeta,
@@ -292,7 +299,7 @@ function revisarPagosAnticipados() {
 }
     
 function revisarPagosAtrasado() {
-
+    let idUsr = sessionStorage.getItem("idUsr");
     var tarjeta = _grecibos('tipopagoBaucher').value;
     var tipo_pago = 1;
 
@@ -313,6 +320,7 @@ function revisarPagosAtrasado() {
                     url: 'prcd/guardar_recibo.php',
                     type: 'POST',
                     data: { 
+                        username: idUsr,
                         folio_pago: folioPago,
                         fecha_pago: fechaSolicitud,
                         tarjeta: tarjeta,
@@ -344,6 +352,7 @@ function revisarPagosAtrasado() {
                     url: 'prcd/guardar_recibo.php',
                     type: 'POST',
                     data: { 
+                        username: idUsr,
                         folio_pago: folioPago,
                         fecha_pago: fechaSolicitud,
                         tarjeta: tarjeta,
@@ -365,7 +374,7 @@ function revisarPagosAtrasado() {
 }
 
 function guardarRecibo() {
-
+    let idUsr = sessionStorage.getItem("idUsr");
     var folio_pago = _grecibos('folioLabelpago').value;
     var fecha_pago = _grecibos('fechaClientepagos2').value;
     var tarjeta = _grecibos('tipopagoBaucher').value;
@@ -409,6 +418,7 @@ function guardarRecibo() {
             url: 'prcd/guardar_recibo.php',
             type: 'POST',
             data: { 
+                username: idUsr,
                 folio_pago: folio_pago,
                 fecha_pago: fecha_pago,
                 tarjeta: tarjeta,
@@ -449,6 +459,7 @@ function guardarRecibo() {
 
 
 function guardarRecibo999(){
+    let idUsr = sessionStorage.getItem("idUsr");
     var folio_pago = _grecibos('folioLabelpago').value;
     var fecha_pago = _grecibos('fechaSolicitud').value;
     var tarjeta = _grecibos('tipopagoBaucher').value;
@@ -461,6 +472,7 @@ function guardarRecibo999(){
         url: 'prcd/guardar_recibo.php',
         type: 'POST',
         data: { 
+            username: idUsr,
             folio_pago:folio_pago,
             fecha_pago:fecha_pago,
             tipo_pago:tipo_pago,

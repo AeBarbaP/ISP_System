@@ -5,7 +5,8 @@ require('conn.php');
 
 date_default_timezone_set('America/Mexico_City');
 setlocale(LC_TIME, 'es_MX.UTF-8');
-$userLog = $_SESSION['username'];
+// $userLog = $_SESSION['username'];
+$userLog = $_POST['username'];
 $fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
 
 $fecha = $_POST['fecha'];
@@ -20,7 +21,6 @@ $query = "INSERT INTO tecnicos (
         '$nombre', 
         '$estatus_tecnico', 
         '$fechaHoy'
-        
         )";
 
     $resultado = $conn->query($query);

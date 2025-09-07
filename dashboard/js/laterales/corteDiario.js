@@ -62,9 +62,11 @@ function revisarCorte(){
 }
 
 function generarCorteCaja(){
+  let idUsr = sessionStorage.getItem("idUsr");
   $.ajax({
     url: 'prcd/generarCorteCaja.php',
     type: 'POST',
+    data: { idUsr: idUsr },
     dataType: 'json',
     success: function(data) {
       var datos = JSON.parse(JSON.stringify(data));

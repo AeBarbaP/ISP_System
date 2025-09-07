@@ -238,6 +238,7 @@ function nuevoPaquete() {
   }
 
 function guardarPaquete() {
+    let idUsr = sessionStorage.getItem("idUsr");
     let nombre = document.getElementById('nombre_paquete').value;
     let velocidad = document.getElementById('velocidad_paquete').value;
     let precio = document.getElementById('precio_paquete').value;
@@ -254,6 +255,7 @@ function guardarPaquete() {
         url: 'prcd/guardarPaquete.php',
         type: 'POST',
         data: {
+            username: idUsr,
             nombre: nombre,
             velocidad: velocidad,
             precio: precio,
@@ -327,6 +329,7 @@ function datosPaquete(id){
   }
   
   function editarDatosPaquete(id){
+    let idUsr = sessionStorage.getItem("idUsr");
     // let id = _('idEditarTecnico').value;
     let nombre = _('nombre_paqueteEditar').value;
     let velocidad = _('velocidad_paqueteEditar').value;
@@ -350,6 +353,7 @@ function datosPaquete(id){
       url: 'prcd/prcd_editar_paquete.php',
       type: 'POST',
       data:{
+        username: idUsr,
         id:id,
         nombre:nombre,
         velocidad:velocidad,

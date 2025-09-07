@@ -6,9 +6,11 @@
     setlocale(LC_TIME, 'es_MX.UTF-8');
     $fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
     $userLog = $_SESSION['username'];
+    
+    // $id = $_SESSION['idUsr'];
+    $id = $_POST['idUsr'];
 
     $estatus = 1;
-    $id = $_SESSION['idUsr'];
 
     $query = "INSERT INTO corte_caja (
         usr,

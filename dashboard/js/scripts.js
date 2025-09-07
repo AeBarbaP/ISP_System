@@ -1,3 +1,7 @@
+function _(el){
+    return document.getElementById(el);
+}
+
 function contratoNew() {
     $("#contrato").modal("show");
 
@@ -96,13 +100,6 @@ function cambiarFecha() {
     generarFolio();
 }
 
-// function cambiarFecha(){
-//     const inputFechaActual = document.getElementById('dateContratoNew');
-
-//     var fechaCambio = new Date(inputFechaActual.value);
-
-// }
-
 function ultimoAcceso(id){
     $.ajax({
         type: "POST",
@@ -127,29 +124,6 @@ function ultimoAcceso(id){
         }
     });
 }
-
-
-
-/* function antenas(){
-    $.ajax({
-        type: "POST",
-        url: "query/antenas.php",
-        dataType: "html",
-        success: function(data){
-            $('#antenaContrato').html(data);  
-        }
-    });
-}
-function antenasEdit(){
-    $.ajax({
-        type: "POST",
-        url: "query/antenas.php",
-        dataType: "html",
-        success: function(data){
-            $('#antenaContratoEdit').html(data);  
-        }
-    });
-} */
 
 function comunidad(){
     $.ajax({
@@ -181,26 +155,6 @@ function estado(){
         }
     });
 }
-/* function catalogoPaquetes(){
-    $.ajax({
-        type: "POST",
-        url: "query/paquetes.php",
-        dataType: "html",
-        success: function(data){
-            $('#catalogoPaquetes').html(data);  
-        }
-    });
-}
-function catalogoPaquetesEdit(){
-    $.ajax({
-        type: "POST",
-        url: "query/paquetes.php",
-        dataType: "html",
-        success: function(data){
-            $('#catalogoPaquetesEdit').html(data);  
-        }
-    });
-} */
 
 function cuotaMensual(select){
     // Obtener el option seleccionado
@@ -219,10 +173,6 @@ function cuotaMensual(select){
         inputCosto.value = ''; // Limpiar el input si no hay costo
     }
 }
-function _(el){
-    return document.getElementById(el);
-}
-
 
 function limpiarModal(){
     $(".modal").on('hidden.bs.modal', function () {
@@ -238,9 +188,6 @@ function limpiarModalX(){
 }
 
 function limpiar1modal(){
-    //$(".modal").on('hidden.bs.modal', function () {
-    //    $(this).find('form').trigger('reset');
-    //});
       const button = document.getElementById('pagoreg');
 
     _('NuevaSolicitud').innerHTML = "";

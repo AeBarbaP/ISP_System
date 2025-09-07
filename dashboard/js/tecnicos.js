@@ -30,6 +30,7 @@ function modalCortesTecnico(id){
 }
 
 function cerrarIncidenciaTecnico(){
+    let idUsr = sessionStorage.getItem("idUsr");
     let id = $('#idIncidenciaTecnico').val();
     let comentario = $('#comentariosTecnicos').val();
 
@@ -37,6 +38,7 @@ function cerrarIncidenciaTecnico(){
         url: 'prcd/prcd_cerrar_incidencia_tecnico.php',
         type: 'POST',
         data: {
+            username: idUsr,
             id: id,
             comentario: comentario
         },
@@ -58,6 +60,7 @@ function cerrarIncidenciaTecnico(){
 }
 
 function cerrarCorteTecnico(){
+    let idUsr = sessionStorage.getItem("idUsr");
     let id = $('#idCorteTecnico').val();
     let comentario = $('#comentariosTecnicosCorte').val();
 
@@ -65,6 +68,7 @@ function cerrarCorteTecnico(){
         url: 'prcd/prcd_cerrar_corte_tecnico.php',
         type: 'POST',
         data: {
+            username: idUsr,
             id: id,
             comentario: comentario
         },

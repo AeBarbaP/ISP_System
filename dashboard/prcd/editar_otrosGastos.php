@@ -7,7 +7,8 @@ setlocale(LC_TIME, 'es_MX.UTF-8');
 
 $fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
 
-$usr = $_SESSION['username'];
+// $usr = $_SESSION['username'];
+$usr = $_POST['username'];
 
 $concepto = $_POST['concepto'];
 $cantidad = $_POST['cantidad'];

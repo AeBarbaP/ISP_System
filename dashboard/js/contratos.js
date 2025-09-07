@@ -332,6 +332,7 @@ function limpiarTabla(){
 
 function guardarContrato(){ 
     //Falta el folio
+    let idUsr = sessionStorage.getItem("idUsr");
     let fechaContrato = _("dateContratoNew").value;
     let folio = _("folioLabelContrato").value;
     let nombreCompleto = _("nombreCompleto").value;
@@ -361,6 +362,7 @@ function guardarContrato(){
         type: "POST",
         url: "prcd/guardarContrato.php",
         data:{
+            username: idUsr,
             fechaContrato:fechaContrato,
             folio: folio,
             nombreCompleto:nombreCompleto,
@@ -403,6 +405,7 @@ function guardarContrato(){
 }
 
 function guardarEditarContrato() {
+    let idUsr = sessionStorage.getItem("idUsr");
     let name = _('nombre_buscarContrato').value;
     let folio = _('folioLabelContratoEdit').value;
     let nombre = _('nombreCompletoEdit').value;
@@ -428,6 +431,7 @@ function guardarEditarContrato() {
         url: 'prcd/prcd_editar_contratosEdicion.php',
         type: 'POST',
         data: {
+            username: idUsr,
             folio: folio,
             nombre: nombre,
             domicilio: domicilio,
