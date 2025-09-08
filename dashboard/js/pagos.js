@@ -729,7 +729,7 @@ function agregarDescuento(){
   contador++;
   alert('Descuento agregado');
   $('#addDescuentoModal').modal('hide');
-  ordenarTablaPorPrimeraColumna();
+  //ordenarTablaPorPrimeraColumna();
   calcularTotal();
 
 }
