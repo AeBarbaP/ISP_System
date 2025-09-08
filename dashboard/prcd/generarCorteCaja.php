@@ -8,7 +8,7 @@
     $userLog = $_SESSION['username'];
     
     // $id = $_SESSION['idUsr'];
-    $id = $_POST['idUsr'];
+    $id = $_POST['id'];
 
     $estatus = 1;
 

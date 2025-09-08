@@ -25,10 +25,11 @@ function corteCajaDiario() {
 }
 
 function revisarCorte(){
-
+let id = sessionStorage.getItem("id");
   $.ajax({
     url: 'query/corteCaja.php',
     type: 'POST',
+    data: { id: id },
     dataType: 'json',
     success: function(data) {
       var datos = JSON.parse(JSON.stringify(data));
@@ -62,11 +63,14 @@ function revisarCorte(){
 }
 
 function generarCorteCaja(){
+  let id = sessionStorage.getItem("id");
   let idUsr = sessionStorage.getItem("idUsr");
   $.ajax({
     url: 'prcd/generarCorteCaja.php',
     type: 'POST',
-    data: { idUsr: idUsr },
+    data: { id: id,
+            username: idUsr
+     },
     dataType: 'json',
     success: function(data) {
       var datos = JSON.parse(JSON.stringify(data));

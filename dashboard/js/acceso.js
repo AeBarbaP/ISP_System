@@ -23,6 +23,7 @@ function accesos(){
         var nombre = datos.nombre;
         var tipo_usr = datos.tipo_usr;
         var idUsr = datos.idUsr;
+        var id = datos.id;
         
         console.log("Datos recibidos: ", datos);
         
@@ -33,6 +34,7 @@ function accesos(){
         sessionStorage.setItem("nombre", nombre);
         sessionStorage.setItem("tipo_usr", tipo_usr);
         sessionStorage.setItem("idUsr", idUsr);
+        sessionStorage.setItem("id", id);
         
         if(success == 1){
           Swal.fire({

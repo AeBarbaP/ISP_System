@@ -2515,12 +2515,14 @@ function queryClientesCorteInfoEditar(){
 }
 
 function actualizarCorte(){
+  let idUsr = sessionStorage.getItem("idUsr");
   var folio = _('folio_corte_editar').value;
   var fecha_corte = _('fecha_corteAsignacion_editar').value;
   $.ajax({
     url: 'prcd/editarCorte.php',
     type: 'POST',
     data: {
+      username: idUsr,
       folio:folio,
       fecha_corte:fecha_corte
     },

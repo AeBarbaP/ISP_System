@@ -68,6 +68,7 @@
 		let user = sessionStorage.getItem("username");
 		let nombre = sessionStorage.getItem("nombre");
 		let tipo_usr = sessionStorage.getItem("tipo_usr");
+		let id = sessionStorage.getItem("id");
 
 		if (user == "" || user == null) {
 			 window.location.href = "prcd/sort.php?username="+user; // Redirigir al login si no hay usuario
@@ -79,36 +80,80 @@
 			});
 
 			ultimoAcceso(user);
+			revisarCorte();
 		}
 
 		// cerrar session si se cierra el navegador
-  // evento que se dispara al intentar cerrar la ventana
-  window.addEventListener('beforeunload', function(e) {
-      // Mostrar mensaje de confirmación
-      const mensaje = "¿Estás seguro de que quieres salir? Se cerrará la sesión.";
-      
-      // Mostrar confirmación nativa
-      if (!confirm(mensaje)) {
-          // Si el usuario cancela, prevenir el cierre
-          e.preventDefault();
-          e.returnValue = ""; // Necesario para algunos navegadores
-      } else {
-          // Si el usuario acepta, ejecutar la función
-          // miFuncionPersonalizada();
-          this.sessionStorage.removeItem("username");
-          this.sessionStorage.removeItem("nombre");
-          this.sessionStorage.removeItem("tipo_usr");
-          this.sessionStorage.removeItem("idUsr");
-          this.sessionStorage.clear();
-          // Redirigir a la página de logout o cerrar sesión
-          location.href='prcd/sort2.php';
-      }
-  });
+  // Variables de control
+let esNavegacionInterna = false;
+let esRefresh = false;
+
+// Detectar clicks en enlaces internos
+document.addEventListener('click', function(e) {
+    const target = e.target.closest('a');
+    if (target && target.href) {
+        const href = target.href;
+        const currentOrigin = window.location.origin;
+        
+        if (href.startsWith(currentOrigin) || href.startsWith('/') || 
+            href.startsWith('./') || href.startsWith('../')) {
+            esNavegacionInterna = true;
+            setTimeout(() => { esNavegacionInterna = false; }, 100);
+        }
+    }
+});
+
+// Detectar envíos de formularios
+document.addEventListener('submit', function() {
+    esNavegacionInterna = true;
+    setTimeout(() => { esNavegacionInterna = false; }, 100);
+});
+
+// Detectar refresh (F5, Ctrl+R, etc.)
+document.addEventListener('keydown', function(e) {
+    // Detectar F5 o Ctrl+R
+    if (e.key === 'F5' || (e.ctrlKey && e.key === 'r')) {
+        esRefresh = true;
+        setTimeout(() => { esRefresh = false; }, 100);
+    }
+});
+
+// También detectar el clic en el botón de refresh del navegador
+	window.addEventListener('beforeunload', function() {
+		// Si es un refresh, no marcar como navegación interna
+		if (esRefresh) {
+			esNavegacionInterna = true;
+		}
+	});
+
+	// Evento principal
+	window.addEventListener('beforeunload', function(e) {
+		// Si es navegación interna O refresh, no hacer nada
+		if (esNavegacionInterna || esRefresh) {
+			return;
+		}
+		
+		// Mostrar mensaje de confirmación solo para cierre real
+		const mensaje = "¿Estás seguro de que quieres salir? Se cerrará la sesión.";
+		
+		if (!confirm(mensaje)) {
+			e.preventDefault();
+			e.returnValue = "";
+		} else {
+			navigator.sendBeacon('prcd/sort2.php?id='+username);
+			sessionStorage.removeItem("username");
+			sessionStorage.removeItem("nombre");
+			sessionStorage.removeItem("tipo_usr");
+			sessionStorage.removeItem("idUsr");
+			sessionStorage.clear();
+		}
+	});
+
 
 	</script>
 
 	<!-- área de scripts -->
-	<body onload="queryDashboard1();revisarCorte();queryDashboardGastos();">
+	<body onload="queryDashboard1();queryDashboardGastos();">
 		
     <div class="container-scroller">
 		<!-- partial:partials/_horizontal-navbar.html -->
