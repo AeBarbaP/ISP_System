@@ -9,12 +9,12 @@
                     </div>
                     <div class="modal-body">
                         <form>
-                        <div class="alert alert-info" role="alert">
-                            <h6><strong>Nombre del cliente:</strong> <span id="nombrePG"></span></h6>
+                        <div class="alert alert-info" role="alert" hidden>
+                            <h6><strong>Nombre del cliente: xx</strong> <span id="nombrePG"></span></h6>
                             <h6><strong>Número de Contrato:</strong> <span id="ncontratoPG"></span></h6>
                             <h6><strong>Domicilio:</strong> <span id="domicilioPG"></span></h6>
                         </div>
-                        <div class="row">
+                        <div class="row" hidden>
                             <div class="col-6">
                                 <label class="form-label" id="basic-addon1">Folio:</label>
                                 <div class="input-group mb-3">
@@ -33,10 +33,8 @@
                             <table class="table p-1 text-center table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Concepto</th>
-                                        <th scope="col">Periodo</th>
-                                        <th scope="col">Monto</th>                 
+                                        <th colspan="4 scope="col">Datos generales</th>
+                                                      
                                     </tr>
                                 </thead>
                                 <tbody id="tablaPagoIndividualG">
