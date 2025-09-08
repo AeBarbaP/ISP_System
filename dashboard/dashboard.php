@@ -824,7 +824,7 @@ document.addEventListener('keydown', function(e) {
 							</div>
 							<div class="col-6">
 								<div class="d-grid gap-2">
-									<button class="btn btn-primary" type="button">Agregar Promoción</button>
+									<button class="btn btn-primary" type="button" disabled>Agregar Promoción</button>
 								</div>
 								<!-- <div class="form-check form-check-inline ms-3">
 									<input class="form-check-input" type="checkbox" id="promocion" onclick="descuento_promo()">
