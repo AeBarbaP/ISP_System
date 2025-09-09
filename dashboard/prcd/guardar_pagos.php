@@ -48,7 +48,7 @@ foreach($pagos as $pago) {
             )
             VALUES(
             '$userLog',
-            49,
+            5,
             '$fechaHoy',
             'NA')
             ";

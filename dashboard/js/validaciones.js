@@ -42,17 +42,17 @@ function baucher(){
 }
 
 function descuento_promo(){
-    var descuento = document.getElementById('descuento');
+    //var descuento = document.getElementById('descuento');
     var promo = document.getElementById('promocion');
 
-    if (descuento.checked){
+    /* if (descuento.checked){
         document.getElementById('monto_desc').disabled = false;
         document.getElementById('addbtndesc').disabled = false;
     }
     else{
         document.getElementById('monto_desc').disabled = true;
         document.getElementById('addbtndesc').disabled = true;
-    }
+    } */
 
     if (promo.checked){
         document.getElementById('promocionesPagos').disabled = false;

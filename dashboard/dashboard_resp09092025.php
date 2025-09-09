@@ -84,70 +84,70 @@
 		}
 
 		// cerrar session si se cierra el navegador
-          // Variables de control
-        let esNavegacionInterna = false;
-        let esRefresh = false;
+		// Variables de control
+		let esNavegacionInterna = false;
+		let esRefresh = false;
+
+// Detectar clicks en enlaces internos
+document.addEventListener('click', function(e) {
+    const target = e.target.closest('a');
+    if (target && target.href) {
+        const href = target.href;
+        const currentOrigin = window.location.origin;
         
-        // Detectar clicks en enlaces internos
-        document.addEventListener('click', function(e) {
-            const target = e.target.closest('a');
-            if (target && target.href) {
-                const href = target.href;
-                const currentOrigin = window.location.origin;
-                
-                if (href.startsWith(currentOrigin) || href.startsWith('/') || 
-                    href.startsWith('./') || href.startsWith('../')) {
-                    esNavegacionInterna = true;
-                    setTimeout(() => { esNavegacionInterna = false; }, 100);
-                }
-            }
-        });
-        
-        // Detectar envíos de formularios
-        document.addEventListener('submit', function() {
+        if (href.startsWith(currentOrigin) || href.startsWith('/') || 
+            href.startsWith('./') || href.startsWith('../')) {
             esNavegacionInterna = true;
             setTimeout(() => { esNavegacionInterna = false; }, 100);
-    });
-    
-    // Detectar refresh (F5, Ctrl+R, etc.)
-    document.addEventListener('keydown', function(e) {
-        // Detectar F5 o Ctrl+R
-        if (e.key === 'F5' || (e.ctrlKey && e.key === 'r')) {
-            esRefresh = true;
-            setTimeout(() => { esRefresh = false; }, 100);
         }
-    });
-    
-    // También detectar el clic en el botón de refresh del navegador
-    	window.addEventListener('beforeunload', function() {
-    		// Si es un refresh, no marcar como navegación interna
-    		if (esRefresh) {
-    			esNavegacionInterna = true;
-    		}
-    	});
-    
-    	// Evento principal
-    	window.addEventListener('beforeunload', function(e) {
-    		// Si es navegación interna O refresh, no hacer nada
-    		if (esNavegacionInterna || esRefresh) {
-    			return;
-    		}
-    		
-    		// Mostrar mensaje de confirmación solo para cierre real
-    		const mensaje = "¿Estás seguro de que quieres salir? Se cerrará la sesión.";
-    		
-    		if (!confirm(mensaje)) {
-    			e.preventDefault();
-    			e.returnValue = "";
-    		} else {
-    			navigator.sendBeacon('prcd/sort2.php?id='+username);
-    			sessionStorage.removeItem("username");
-    			sessionStorage.removeItem("nombre");
-    			sessionStorage.removeItem("tipo_usr");
-    			sessionStorage.removeItem("idUsr");
-    			sessionStorage.clear();
-    		}
-    	});
+    }
+});
+
+// Detectar envíos de formularios
+document.addEventListener('submit', function() {
+    esNavegacionInterna = true;
+    setTimeout(() => { esNavegacionInterna = false; }, 100);
+});
+
+// Detectar refresh (F5, Ctrl+R, etc.)
+document.addEventListener('keydown', function(e) {
+    // Detectar F5 o Ctrl+R
+    if (e.key === 'F5' || (e.ctrlKey && e.key === 'r')) {
+        esRefresh = true;
+        setTimeout(() => { esRefresh = false; }, 100);
+    }
+});
+
+// También detectar el clic en el botón de refresh del navegador
+	window.addEventListener('beforeunload', function() {
+		// Si es un refresh, no marcar como navegación interna
+		if (esRefresh) {
+			esNavegacionInterna = true;
+		}
+	});
+
+	// Evento principal
+	window.addEventListener('beforeunload', function(e) {
+		// Si es navegación interna O refresh, no hacer nada
+		if (esNavegacionInterna || esRefresh) {
+			return;
+		}
+		
+		// Mostrar mensaje de confirmación solo para cierre real
+		const mensaje = "¿Estás seguro de que quieres salir? Se cerrará la sesión.";
+		
+		if (!confirm(mensaje)) {
+			e.preventDefault();
+			e.returnValue = "";
+		} else {
+			navigator.sendBeacon('prcd/sort2.php?id='+username);
+			sessionStorage.removeItem("username");
+			sessionStorage.removeItem("nombre");
+			sessionStorage.removeItem("tipo_usr");
+			sessionStorage.removeItem("idUsr");
+			sessionStorage.clear();
+		}
+	});
 
 
 	</script>
@@ -275,12 +275,12 @@
 					<?php 
 						if($tipo_usr == 1){
 							echo'
-							<li class="nav-item">
+							<li class="nav-item" id="reporteHidden">
 							';
 						}
 						else{
 							echo'
-							<li class="nav-item" hidden>
+							<li class="nav-item" hidden id="reporteHidden">
 							';
 						}
 					?>
@@ -633,6 +633,7 @@
 						<select class="form-select" id="identificacionContrato" aria-label="comprobante" required>
 							<option selected>Selecciona...</option>
 							<option value="INE">INE</option>
+							<option value="INAPAM">INAPAM</option>
 							<option value="Pasaporte">Pasaporte</option>
 							<option value="Licencia">Licencia de Manejo</option>
 						</select>
@@ -642,8 +643,10 @@
 						<label for="comprobante" class="form-label">Comprobante de Domicilio:</label>
 						<select class="form-select" id="comprobanteContrato" aria-label="Default select example" required>
 							<option selected>Selecciona...</option>
-							<option value="Luz">Recibo de Luz Eléctrica</option>
 							<option value="Agua">Recibo del Agua</option>
+							<option value="Luz">Recibo de Luz Eléctrica</option>
+							<option value="Telefono">Teléfono fijo</option>
+							<option value="Cable">Recibo de Servicio de Televisión</option>
 						</select>
                     </div>
 					
@@ -679,13 +682,13 @@
 						<input type="text" class="form-control" id="inputCosto" disabled>
 					</div>
 					<div class="col-lg-6 mb-3" id="fechalimite">
-						<h3>Fecha Inicial de Pago</h3>
+						<h3>Fecha Límite de Pago</h3>
 						<!-- <h3>DD/MMM</h3> -->
 						<input type="date" class="form-control" id="siguienteMesInput">
 						<!-- Carga los datos de la cuota mensual -->
 					</div>
 					<div class="col-lg-6 mb-3" id="fechacorte">
-						<h3>Fecha Límite de Pago</h3>
+						<h3>Fecha de Corte</h3>
 						<!-- <h3>DD/MMM</h3> -->
 						<input type="date" class="form-control" id="mesMasCincoDiasInput">
 						<!-- Carga los datos de la cuota mensual -->
@@ -815,15 +818,15 @@
 									<span class="input-group-text" id="basic-addon1">.00</span>
 									<button class="btn btn-outline-secondary" type="button" id="addbtndesc" onclick="agregarDescuento()" disabled><i class="bi bi-plus-circle"></i></button>
 								</div> -->
-								<div class="d-grid gap-2 mt-1">
+								<div class="d-grid gap-2">
 									<button class="btn btn-primary" type="button" onclick="descuentoModal()">Agregar Descuento</button>
 								</div>
 							</div>
-							<div class="col-2">
-								<!-- <div class="d-grid gap-2">
+							<div class="col-6">
+								<div class="d-grid gap-2">
 									<button class="btn btn-primary" type="button" disabled>Agregar Promoción</button>
-								</div> -->
-								<div class="form-check form-check-inline ms-3">
+								</div>
+								<!-- <div class="form-check form-check-inline ms-3">
 									<input class="form-check-input" type="checkbox" id="promocion" onclick="descuento_promo()">
 									<label class="form-check-label" style="margin-left: -.1rem" for="promocion">Promoción:</label>
 								</div>
@@ -833,7 +836,7 @@
 									<select class="form-select" id="promocionesPagos" onchange="agregarPromoTable()" disabled>
 										
 									</select>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>

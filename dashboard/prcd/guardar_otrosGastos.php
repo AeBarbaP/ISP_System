@@ -32,6 +32,24 @@ if ($resultado) {
     echo json_encode(array(
         'success' => 1
     ));
+
+    // --------- log ---------------
+    $sqlLOG = "INSERT INTO log_users(
+    username,
+    accion,
+    hora,
+    folio_cliente
+    )
+    VALUES(
+    '$userLog',
+    49,
+    '$fechaHoy',
+    'NA')
+    ";
+    $resultadoLOG = $conn->query($sqlLOG);
+    $error = $conn->error;
+    // --------- log ---------------
+
 } else {
     echo json_encode(array(
         'success' => 0,
