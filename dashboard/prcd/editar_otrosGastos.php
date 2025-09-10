@@ -34,7 +34,7 @@ if ($resultado) {
         )
         VALUES(
         '$usr',
-        48,
+        49,
         '$fechaHoy',
         'NA')
         ";
