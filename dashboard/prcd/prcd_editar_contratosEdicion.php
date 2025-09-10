@@ -6,9 +6,15 @@ require('conn.php');
 // Log the action
 date_default_timezone_set('America/Mexico_City');
 setlocale(LC_TIME, 'es_MX.UTF-8');
-// $userLog = $_SESSION['username'];
-$userLog = $_POST['username'];
+$userLog = $_SESSION['username'];
+//$userLog = $_POST['username'];
 $fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
+
+if (isset($_SESSION['username'])){
+    $userLog = $_SESSION['username'];
+} else {
+    $userLog =  $_POST['username'];
+}
 
 $folio = $_POST['folio'];
 $nombre = $_POST['nombre'];
