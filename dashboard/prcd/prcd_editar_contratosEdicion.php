@@ -6,15 +6,15 @@ require('conn.php');
 // Log the action
 date_default_timezone_set('America/Mexico_City');
 setlocale(LC_TIME, 'es_MX.UTF-8');
-$userLog = $_SESSION['username'];
-//$userLog = $_POST['username'];
+//$userLog = $_SESSION['username'];
+$userLog = $_POST['username'];
 $fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
 
-if (isset($_SESSION['username'])){
+/* if (isset($_SESSION['username'])){
     $userLog = $_SESSION['username'];
 } else {
     $userLog =  $_POST['username'];
-}
+} */
 
 $folio = $_POST['folio'];
 $nombre = $_POST['nombre'];
@@ -61,16 +61,16 @@ $resultado = $conn->query($query);
 
 if ($resultado) {
 
-    $sqlAntena = "UPDATE antenas SET
+/*     $sqlAntena = "UPDATE antenas SET
         estatus = 0
         WHERE
         id = '$antena'
         ";
         $resultadoAntena = $conn->query($sqlAntena);
-
+*/
     echo json_encode(array(
         'success' => 1
-    ));
+    )); 
 
     $sqlLOG = "INSERT INTO log_users(
         username,

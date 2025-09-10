@@ -1,4 +1,4 @@
-const { use } = require("react");
+//const { use } = require("react");
 
 function _grecibos(el){
     return document.getElementById(el);
