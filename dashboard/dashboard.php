@@ -81,6 +81,7 @@
 
 		if (detectarMicrosoftEdge()) {
 			console.log("El usuario está usando Microsoft Edge.");
+			alert("Navegador NO Compatible, utiliza Firefox o Chrome");
 			window.location.href = "prcd/sort2.php?username="+user; // Redirigir al login si no hay usuario
 		} else {
 			console.log("El usuario no está usando Microsoft Edge.");

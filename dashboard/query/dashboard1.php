@@ -106,7 +106,7 @@ for($i = 1; $i <= $totalPaginas; $i++) {
 if($paginaActual < $totalPaginas) {
     echo '
         <li class="page-item">
-            <a class="page-link paginacion" href="#" data-pagina="'.($paginaActual + 1).'" aria-label="Next">
+            <a class="page-link paginacion" href="#" data-pagina="'.($paginaActual + 5).'" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
             </a>
         </li>
