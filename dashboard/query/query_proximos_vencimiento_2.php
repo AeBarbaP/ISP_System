@@ -33,10 +33,10 @@
 //         $diferencia = $hoy->diff($fecha_corte)->days;
 
 //         if ($diferencia > 5) {
-                   
+            
 //             $dias_restantes = 100;
 //             $color = '#ee5b5b';
-      
+    
 //         echo "
 //         <tr>
 //             <td style='padding:8px;'>{$cliente['folio']}</td>
@@ -69,25 +69,25 @@ $hoy->setTime(0, 0, 0);
 
 // Primero contamos los registros totales
 $sql_count = "SELECT COUNT(*) as total FROM clientes c 
-              WHERE NOT EXISTS (
-                  SELECT 1 FROM pagos_generales p 
-                  WHERE p.folio_contrato = c.folio 
-                  AND MONTH(p.fecha_pago) = MONTH(c.fecha_corte) 
-                  AND YEAR(p.fecha_pago) = YEAR(CURDATE())
-              )";
+            WHERE NOT EXISTS (
+                SELECT 1 FROM pagos_generales p 
+                WHERE p.folio_contrato = c.folio 
+                AND MONTH(p.fecha_pago) = MONTH(c.fecha_corte) 
+                AND YEAR(p.fecha_pago) = YEAR(CURDATE())
+            )";
 $resultado_count = $conn->query($sql_count);
 $totalRegistros = $resultado_count->fetch_assoc()['total'];
 $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
 
 // Consulta principal con paginación
 $sql_clientes = "SELECT * FROM clientes c 
-                 WHERE NOT EXISTS (
-                     SELECT 1 FROM pagos_generales p 
-                     WHERE p.folio_contrato = c.folio 
-                     AND MONTH(p.fecha_pago) = MONTH(c.fecha_corte) 
-                     AND YEAR(p.fecha_pago) = YEAR(CURDATE())
-                 )
-                 LIMIT $offset, $registrosPorPagina";
+                WHERE NOT EXISTS (
+                    SELECT 1 FROM pagos_generales p 
+                    WHERE p.folio_contrato = c.folio 
+                    AND MONTH(p.fecha_pago) = MONTH(c.fecha_corte) 
+                    AND YEAR(p.fecha_pago) = YEAR(CURDATE())
+                )
+                LIMIT $offset, $registrosPorPagina";
 $resultado_clientes = $conn->query($sql_clientes);
 
 echo'

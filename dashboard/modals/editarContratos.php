@@ -78,7 +78,6 @@ echo'
 							<select class="form-select" id="identificacionContratoEdit" aria-label="comprobante" required>
 								<option value="">Selecciona...</option>
 								<option value="INE">INE</option>
-								<option value="INAPAM">INAPAM</option>
 								<option value="Pasaporte">Pasaporte</option>
 								<option value="Licencia">Licencia de Manejo</option>
 							</select>
@@ -88,10 +87,8 @@ echo'
 							<label for="comprobanteContratoEdit" class="form-label">Comprobante de Domicilio:</label>
 							<select class="form-select" id="comprobanteContratoEdit" aria-label="Default select example" required>
 								<option value="">Selecciona...</option>
-								<option value="Agua">Recibo del Agua</option>
 								<option value="Luz">Recibo de Luz Eléctrica</option>
-								<option value="Telefono">Teléfono fijo</option>
-								<option value="Cable">Recibo de Servicio de Televisión</option>
+								<option value="Agua">Recibo del Agua</option>
 							</select>
 						</div>
 					
@@ -127,13 +124,13 @@ echo'
 							<input type="text" class="form-control" id="inputCostoEdit" disabled>
 						</div>
 						<div class="col-lg-6 mb-3" id="fechalimiteEdit">
-							<h3>Fecha Límite de Pago</h3>
+							<h3>Fecha Inicial de Pago</h3>
 							<!-- <h3>DD/MMM</h3> -->
 							<input type="date" class="form-control" id="siguienteMesInputEdit">
 							<!-- Carga los datos de la cuota mensual -->
 						</div>
 						<div class="col-lg-6 mb-3" id="fechacorteEdit">
-							<h3>Fecha de Corte</h3>
+							<h3>Fecha Límite de Pago</h3>
 							<!-- <h3>DD/MMM</h3> -->
 							<input type="date" class="form-control" id="mesMasCincoDiasInputEdit">
 							<!-- Carga los datos de la cuota mensual -->

@@ -298,7 +298,7 @@ function cambiarFecha() {
     // 2. Calcular un mes más cinco días
     const mesMasCincoDias = new Date(fechaActual);
     mesMasCincoDias.setMonth(fechaActual.getMonth() + 1); // Sumar un mes
-    mesMasCincoDias.setDate(fechaActual.getDate() + 5);   // Sumar cinco días
+    mesMasCincoDias.setDate(fechaActual.getDate() + 6);   // Sumar cinco días
 
     // Función para formatear la fecha en YYYY-MM-DD
     function formatearFecha(fecha) {

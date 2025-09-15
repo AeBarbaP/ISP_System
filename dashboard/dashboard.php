@@ -70,9 +70,9 @@
 		let tipo_usr = sessionStorage.getItem("tipo_usr");
 		let id = sessionStorage.getItem("id");
 
-		if (user == "" || user == null) {
+		if (user == "" || user == null || user == 0 || idUsr == 0 || idUsr == "" || idUsr == null || id == 0 || id == "" || id == null) {
 			 window.location.href = "prcd/sort.php?username="+user; // Redirigir al login si no hay usuario
-			}
+		}
 		else {
 			console.log("Usuario en sesión: " + user);
 			document.addEventListener("DOMContentLoaded", () => {
