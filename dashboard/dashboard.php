@@ -169,6 +169,22 @@
 
 	</script>
 
+	<style>
+.pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+.pagination .page-link {
+    color: #007bff;
+    margin: 0 2px;
+    border-radius: 4px;
+}
+.pagination .page-link:hover {
+    background-color: #e9ecef;
+}
+</style>
+
 	<!-- área de scripts -->
 	<body onload="queryDashboard1();queryDashboardGastos();">
 		
