@@ -49,7 +49,7 @@
 <!-- 	<script src="../scripts/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 -->
 	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bowser/1.9.4/bowser.min.js"></script>
 	<script src="js/filtros.js"></script>
 	<script src="js/scripts.js"></script>
 	<script src="js/otrosGastos.js"></script>
@@ -63,12 +63,28 @@
 	<script src="js/laterales/corteDiario.js"></script>
 
 	<script>
+		//console.log(bowser.name, bowser.version);
+		
+		/* const parser = Bowser.getParser(window.navigator.userAgent);
+    	console.log("Navegador:", parser.getBrowserName()); */
 		// let user = localStorage.getItem("username");
 		let idUsr = sessionStorage.getItem("idUsr");
 		let user = sessionStorage.getItem("username");
 		let nombre = sessionStorage.getItem("nombre");
 		let tipo_usr = sessionStorage.getItem("tipo_usr");
 		let id = sessionStorage.getItem("id");
+
+		function detectarMicrosoftEdge() {
+			const userAgent = navigator.userAgent;
+			return userAgent.includes("Edg") || userAgent.includes("Edge");
+		}
+
+		if (detectarMicrosoftEdge()) {
+			console.log("El usuario está usando Microsoft Edge.");
+			window.location.href = "prcd/sort2.php?username="+user; // Redirigir al login si no hay usuario
+		} else {
+			console.log("El usuario no está usando Microsoft Edge.");
+		}
 
 		if (user == "" || user == null || user == 0 || idUsr == 0 || idUsr == "" || idUsr == null || id == 0 || id == "" || id == null) {
 			 window.location.href = "prcd/sort.php?username="+user; // Redirigir al login si no hay usuario

@@ -6,12 +6,13 @@ date_default_timezone_set('America/Mexico_City');
 setlocale(LC_TIME, 'es_MX.UTF-8');
 if (isset($_SESSION['username'])){
     $userLog = $_SESSION['username'];
-} else {
+}
+else if (isset($_REQUEST['username'])) {
     $userLog =  $_REQUEST['username'];
 }
 $fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
 
-if (isset($_SESSION['username'])){
+if (isset($userLog)){
     // --------- log ---------------
     $sqlLOG = "INSERT INTO log_users(
     username,
@@ -37,5 +38,7 @@ echo ' <script>
     // Limpiar todo el sessionStorage
     sessionStorage.removeItem("username");
     sessionStorage.clear();
+    window.location.href = "../index.html";
+    alert("Navegador NO Compatible, utiliza Firefox o Chrome");
 </script> ';
 ?>
