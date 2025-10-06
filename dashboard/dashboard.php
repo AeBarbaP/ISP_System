@@ -416,10 +416,43 @@
 						<div class="row">
 							<div class="col-12">
                                 <label class="form-label">Filtrar:</label>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text"><i class="bi bi-search" style="font-size: 20px;"></i></span>
-                                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar_pagoDash" oninput="dashboardFiltro(this.value);" name="nombre_buscar_pagoDash">
-                                </div>
+								<div class="row">
+									<div class="col-6">
+										
+											
+											<select class="form-select mb-3" aria-label="Filtro" id="tipo_filtro" onchange="filtroDashboard();">
+												<option value="" selected>Tipo de filtro</option>
+												<option value="1">Por nombre</option>
+												<option value="2">Por Fecha</option>
+											</select>
+										
+									</div>
+										<div class="col-6">
+											
+											<div class="input-group mb-3" id="nombre_buscar_pagoDash2" hidden>
+												<span class="input-group-text"><i class="bi bi-search"></i></span>
+												<input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar_pagoDash" oninput="dashboardFiltro(this.value);" name="nombre_buscar_pagoDash">
+											</div>
+
+											<select class="form-select mb-3" aria-label="Filtro fecha" id="filtroFechaDash" onchange="dashboardFiltroFecha(this.value);" hidden>
+												<option selected>Seleccione el mes</option>
+												<option value="01">Enero</option>
+												<option value="02">Febrero</option>
+												<option value="03">Marzo</option>
+												<option value="04">Abril</option>
+												<option value="05">Mayo</option>
+												<option value="06">Junio</option>
+												<option value="07">Julio</option>
+												<option value="08">Agosto</option>
+												<option value="09">Septiembre</option>
+												<option value="10">Octubre</option>
+												<option value="11">Noviembre</option>
+												<option value="12">Diciembre</option>
+											</select>
+
+									</div>
+								</div>
+
                             </div>
 							<!-- <div class="col-4">
 								<label class="form-label">Selecciona:</label>

@@ -61,3 +61,15 @@ function descuento_promo(){
         document.getElementById('promocionesPagos').disabled = true;
     }
 }
+
+function filtroDashboard(){
+    var filtro = document.getElementById('tipo_filtro').value;
+    if (filtro == 1){
+        document.getElementById('nombre_buscar_pagoDash2').hidden = false;
+        document.getElementById('filtroFechaDash').hidden = true;
+    }
+    else if (filtro == 2){
+        document.getElementById('nombre_buscar_pagoDash2').hidden = true;
+        document.getElementById('filtroFechaDash').hidden = false;
+    }
+}

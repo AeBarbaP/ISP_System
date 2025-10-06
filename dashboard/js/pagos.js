@@ -621,6 +621,28 @@ function dashboardFiltro(texto,pagina = 1) {
         }
     });
 }
+function dashboardFiltroFecha(texto,pagina = 1) {
+    if (texto == ""){
+        let pagina = 1;
+        queryDashboard1(pagina);
+    }
+    $.ajax({
+        type: "POST",
+        url: "query/dashboardFiltroFecha.php",
+        data: { pagina: pagina, texto: texto },
+        dataType: "HTML",
+        success: function(data) {
+            $('#dashboard1').html(data);
+            
+            // Agregar evento a los botones de paginación
+            $('.paginacion').on('click', function(e) {
+                e.preventDefault();
+                var pagina = $(this).data('pagina');
+                dashboardFiltroFecha(texto,pagina);
+            });
+        }
+    });
+}
 
 let contador = 1;
 
