@@ -39,6 +39,5 @@ echo ' <script>
     sessionStorage.removeItem("username");
     sessionStorage.clear();
     window.location.href = "../index.html";
-    alert("Navegador NO Compatible, utiliza Firefox o Chrome");
 </script> ';
 ?>
