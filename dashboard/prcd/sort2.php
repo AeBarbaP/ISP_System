@@ -6,13 +6,12 @@ date_default_timezone_set('America/Mexico_City');
 setlocale(LC_TIME, 'es_MX.UTF-8');
 if (isset($_SESSION['username'])){
     $userLog = $_SESSION['username'];
-}
-else if (isset($_REQUEST['username'])) {
+} else {
     $userLog =  $_REQUEST['username'];
 }
 $fechaHoy = strftime("%Y-%m-%d,%H:%M:%S");
 
-if (isset($userLog)){
+if (isset($_SESSION['username'])){
     // --------- log ---------------
     $sqlLOG = "INSERT INTO log_users(
     username,

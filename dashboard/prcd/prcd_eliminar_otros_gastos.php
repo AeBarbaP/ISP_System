@@ -24,7 +24,7 @@ $resultado = $conn->query($query);
         )
         VALUES(
         '$userLog',
-        48,
+        49,
         '$fechaHoy',
         'NA')
         ";

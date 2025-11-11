@@ -1,55 +1,47 @@
 <?php
-    require_once("../prcd/conn.php");
-    $x = 0;
+require_once("../prcd/conn.php");
+$x = 0;
 
-    $hoy = new DateTime();
-    $hoy->setTime(0, 0, 0);
+$hoy = new DateTime();
+$hoy->setTime(0, 0, 0);
 
-    $diaHoy = $hoy->format('d');
-    $mesHoy = $hoy->format('m');
-    $anioHoy = $hoy->format('Y');
+$diaHoy = $hoy->format('d');
+$mesHoy = $hoy->format('m');
+$anioHoy = $hoy->format('Y');
 
-    $sql_clientes = "SELECT * FROM clientes";
-    $resultado_clientes = $conn->query($sql_clientes);
+$sql_clientes = "SELECT * FROM clientes";
+$resultado_clientes = $conn->query($sql_clientes);
 
-    while ($cliente = $resultado_clientes->fetch_assoc()) {
-        $fecha_corte = new DateTime($cliente['fecha_corte']);
-        $fecha_corte->setTime(0, 0, 0); // Normalizar
+while ($cliente = $resultado_clientes->fetch_assoc()) {
+    $fecha_corte = new DateTime($cliente['fecha_corte']);
+    $fecha_corte->setTime(0, 0, 0); // Normalizar
 
-        $folio = $cliente['folio'];
-        $diaCorte = $fecha_corte->format('d');
-        $mesCorte = $fecha_corte->format('m');
-        $anioCorte = $fecha_corte->format('Y');
+    $folio = $cliente['folio'];
+    $diaCorte = $fecha_corte->format('d');
+    $mesCorte = $fecha_corte->format('m');
+    $anioCorte = $fecha_corte->format('Y');
 
-        // Evita sobreescribir el resultado de clientes
-        $sqlPagos = "SELECT * FROM pagos_generales 
-                    WHERE folio_contrato = '$folio' 
-                    AND MONTH(fecha_pago) = '$mesCorte' 
-                    AND YEAR(fecha_pago) = '$anioHoy'";
+    // Evita sobreescribir el resultado de clientes
+    $sqlPagos = "SELECT * FROM pagos_generales 
+                 WHERE folio_contrato = '$folio' 
+                 AND MONTH(fecha_pago) = '$mesCorte' 
+                 AND YEAR(fecha_pago) = '$anioHoy'";
 
-        $resultado_pagos = $conn->query($sqlPagos);
-        $filas = $resultado_pagos->num_rows;
+    $resultado_pagos = $conn->query($sqlPagos);
+    $filas = $resultado_pagos->num_rows;
 
-        if ($filas == 0) {
-            $diferenciaVencidos = $hoy->diff($fecha_corte)->days;
+    if ($filas == 0) {
+        $diferencia = $hoy->diff($fecha_corte)->days;
 
-            if ($diferenciaVencidos > 6) {
-                $x++;
-            
-            } 
-        }
+        if ($diferencia > 6) {
+            $x++;
         
-        $sqlCortes = "SELECT * FROM clientes 
-                    WHERE estatus = 3 OR estatus = 2";
-
-        $resultado_Cortes = $conn->query($sqlCortes);
-        $filas2 = $resultado_Cortes->num_rows;
-
-        $z = $x - $filas2;
+        } 
     }
+}
 
-    echo json_encode(array(
-        'success' => 1,
-        'vencimiento' => $z
-    ));
+echo json_encode(array(
+    'success' => 1,
+    'vencimiento' => $x
+));
 ?>

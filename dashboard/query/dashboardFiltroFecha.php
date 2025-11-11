@@ -16,74 +16,70 @@ $paginaActual = isset($_POST['pagina']) ? intval($_POST['pagina']) : 1;
 $offset = ($paginaActual - 1) * $registrosPorPagina;
 
 // Consulta para obtener el total de registros
-//$sqlTotal = "SELECT COUNT(*) as total FROM pagos_generales"; // FALTA AGREGAR FILTRO
-
-// Consulta principal con paginación
-$sql = "SELECT * FROM clientes WHERE nombre LIKE '%$filtro%'";
-$resultado = $conn->query($sql);
-
-//if
-if($resultado->num_rows > 0){
-    // El cliente existe
-
-$rowNom = $resultado->fetch_assoc();
-$nombreCliente = $rowNom['folio'];
-
-
-$sqlTotal = "SELECT COUNT(*) as total FROM pagos_generales WHERE folio_contrato = '$nombreCliente' AND MONTH(fecha_pago) = '$mes' AND YEAR(fecha_pago) = '$anio'";
+$sqlTotal = "SELECT COUNT(*) as total FROM pagos_generales WHERE MONTH(fecha_pago) = '$filtro' AND YEAR(fecha_pago) = YEAR(CURRENT_DATE())";
 $resultadoTotal = $conn->query($sqlTotal);
 $totalRegistros = $resultadoTotal->fetch_assoc()['total'];
 $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
+
+$sql = "SELECT * FROM pagos_generales WHERE MONTH(fecha_pago) = '$filtro' AND YEAR(fecha_pago) = YEAR(CURRENT_DATE()) ORDER BY fecha_pago DESC LIMIT $offset, $registrosPorPagina";
+$resultado = $conn->query($sql);
+
+// Consulta principal con paginación
+//$sql = "SELECT * FROM clientes WHERE nombre LIKE '%$filtro%'";
+//$resultado = $conn->query($sql);
 
 
 echo '
 
 <table class="table table-striped table-hover mb-3">
-    <thead style="background-color: aliceblue;">
-        <tr class="text-center">
-            <th class="scope" style="font-weight: bold;"># pago</th>
-            <th class="scope" style="font-weight: bold;">Nombre del Cliente</th>
-            <th class="scope" style="font-weight: bold;">Comunidad</th>
-            <th class="scope" style="font-weight: bold;">Monto</th>
-            <th class="scope" style="font-weight: bold;">Fecha de Pago</th>
-            <th class="scope" style="font-weight: bold;">Periodo Pagado</th>
-            <th class="scope" style="font-weight: bold;">Solicitar<br>Eliminar</th>
-        </tr>
-    </thead>
-    <tbody id="dashboard1">
+<thead style="background-color: aliceblue;">
+<tr class="text-center">
+<th class="scope" style="font-weight: bold;"># pago</th>
+<th class="scope" style="font-weight: bold;">Nombre del Cliente</th>
+<th class="scope" style="font-weight: bold;">Comunidad</th>
+<th class="scope" style="font-weight: bold;">Monto</th>
+<th class="scope" style="font-weight: bold;">Fecha de Pago</th>
+<th class="scope" style="font-weight: bold;">Periodo Pagado</th>
+<th class="scope" style="font-weight: bold;">Solicitar<br>Eliminar</th>
+</tr>
+</thead>
+<tbody id="dashboard1">
 
 ';
 
 // Generar HTML de la tabla
-while($row = $resultado->fetch_assoc()){
-    $contrato = $row['folio'];
-    $sql2 = "SELECT * FROM pagos_generales WHERE MONTH(fecha_pago) = '$mes' AND YEAR(fecha_pago) = '$anio' AND folio_contrato = '$contrato' ORDER BY fecha_pago DESC";
-    $resultado2 = $conn->query($sql2);
-    $filas = $resultado2->num_rows;
-    if ($filas > 0) {
+while($row1 = $resultado->fetch_assoc()){
+    $contrato = $row1['folio_contrato'];
     
-        while($row2 = $resultado2->fetch_assoc()){
+    $row2 = $conn->query("SELECT * FROM clientes WHERE folio = '$contrato'")->fetch_assoc();
 
-            if ($row2['estatus'] == 1){
-                $estatus = '<a href="#" onclick="enviarSolicitud2('.$row2['id'].',0, event)"><i class="bi bi-exclamation-circle text-warning"></i></a>';
+    //$sql2 = "SELECT * FROM pagos_generales WHERE MONTH(fecha_pago) = '$mes' AND YEAR(fecha_pago) = '$anio' AND folio_contrato = '$contrato' ORDER BY fecha_pago DESC";
+    //$resultado2 = $conn->query($sql2);
+    //$filas = $resultado2->num_rows;
+    //if ($filas > 0) {
+    
+        //while($row2 = $resultado2->fetch_assoc()){
+
+            if ($row1['estatus'] == 1){
+                $estatus = '<a href="#" onclick="enviarSolicitud2('.$row1['id'].',0, event)"><i class="bi bi-exclamation-circle text-warning"></i></a>';
             }
             else {
-                $estatus = '<a href="#" onclick="enviarSolicitud2('.$row2['id'].',1, event)"><i class="bi bi-exclamation-circle text-secondary"></i></a>';
+                $estatus = '<a href="#" onclick="enviarSolicitud2('.$row1['id'].',1, event)"><i class="bi bi-exclamation-circle text-secondary"></i></a>';
             }
 
             echo '
                 <tr class="text-center">
-                    <td onclick="abrirModalPagos(\'' . $row2['folio_pago'] . '\', \'' . $row2['periodo'] . '\')">' . $row2['folio_pago'] . '</td>
-                    <td onclick="abrirModalPagos(\'' . $row2['folio_pago'] . '\', \'' . $row2['periodo'] . '\')">' . $row['nombre'] . '</td>
-                    <td onclick="abrirModalPagos(\'' . $row2['folio_pago'] . '\', \'' . $row2['periodo'] . '\')">' . $row['comunidad'] . '</td>
-                    <td onclick="abrirModalPagos(\'' . $row2['folio_pago'] . '\', \'' . $row2['periodo'] . '\')">$' . $row2['total'] . '</td>
-                    <td onclick="abrirModalPagos(\'' . $row2['folio_pago'] . '\', \'' . $row2['periodo'] . '\')">' . $row2['fecha_pago'] . '</td>
-                    <td onclick="abrirModalPagos(\'' . $row2['folio_pago'] . '\', \'' . $row2['periodo'] . '\')">' . $row2['periodo'] . '</td>
+                    <td onclick="abrirModalPagos(\'' . $row1['folio_pago'] . '\', \'' . $row1['periodo'] . '\')">' . $row1['folio_pago'] . '</td>
+                    <td onclick="abrirModalPagos(\'' . $row1['folio_pago'] . '\', \'' . $row1['periodo'] . '\')">' . $row2['nombre'] . '</td>
+                    <td onclick="abrirModalPagos(\'' . $row1['folio_pago'] . '\', \'' . $row1['periodo'] . '\')">' . $row2['comunidad'] . '</td>
+                    <td onclick="abrirModalPagos(\'' . $row1['folio_pago'] . '\', \'' . $row1['periodo'] . '\')">$' . $row1['total'] . '</td>
+                    <td onclick="abrirModalPagos(\'' . $row1['folio_pago'] . '\', \'' . $row1['periodo'] . '\')">' . $row1['fecha_pago'] . '</td>
+                    <td onclick="abrirModalPagos(\'' . $row1['folio_pago'] . '\', \'' . $row1['periodo'] . '\')">' . $row1['periodo'] . '</td>
                     <td>' . $estatus . '</td>
                 </tr>
             ';
-        }
-    }
+       // }
+    //}
 }
 
 echo'
@@ -168,12 +164,5 @@ if($paginaActual < $totalPaginas) {
 }
 
 echo '</ul></nav>';
-
-} else {
-    // El cliente no existe
-    echo '<div class="alert alert-warning" role="alert">
-            <i class="bi bi-exclamation-circle-fill"></i> No se encontraron resultados para el filtro aplicado.
-          </div>';
-}
 
 ?>

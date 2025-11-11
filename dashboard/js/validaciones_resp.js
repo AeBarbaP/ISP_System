@@ -45,31 +45,19 @@ function descuento_promo(){
     //var descuento = document.getElementById('descuento');
     var promo = document.getElementById('promocion');
 
-    /* if (descuento.checked){
-        document.getElementById('monto_desc').disabled = false;
-        document.getElementById('addbtndesc').disabled = false;
-    }
-    else{
-        document.getElementById('monto_desc').disabled = true;
-        document.getElementById('addbtndesc').disabled = true;
-    } */
+    // if (descuento.checked){
+       // document.getElementById('monto_desc').disabled = false;
+        //document.getElementById('addbtndesc').disabled = false;
+   // }
+   // else{
+      //  document.getElementById('monto_desc').disabled = true;
+      //  document.getElementById('addbtndesc').disabled = true;
+   // }
 
     if (promo.checked){
         document.getElementById('promocionesPagos').disabled = false;
     }
     else {
         document.getElementById('promocionesPagos').disabled = true;
-    }
-}
-
-function filtroDashboard(){
-    var filtro = document.getElementById('tipo_filtro').value;
-    if (filtro == 1){
-        document.getElementById('nombre_buscar_pagoDash2').hidden = false;
-        document.getElementById('filtroFechaDash').hidden = true;
-    }
-    else if (filtro == 2){
-        document.getElementById('nombre_buscar_pagoDash2').hidden = true;
-        document.getElementById('filtroFechaDash').hidden = false;
     }
 }

@@ -16,25 +16,14 @@ $paginaActual = isset($_POST['pagina']) ? intval($_POST['pagina']) : 1;
 $offset = ($paginaActual - 1) * $registrosPorPagina;
 
 // Consulta para obtener el total de registros
-//$sqlTotal = "SELECT COUNT(*) as total FROM pagos_generales"; // FALTA AGREGAR FILTRO
-
-// Consulta principal con paginación
-$sql = "SELECT * FROM clientes WHERE nombre LIKE '%$filtro%'";
-$resultado = $conn->query($sql);
-
-//if
-if($resultado->num_rows > 0){
-    // El cliente existe
-
-$rowNom = $resultado->fetch_assoc();
-$nombreCliente = $rowNom['folio'];
-
-
-$sqlTotal = "SELECT COUNT(*) as total FROM pagos_generales WHERE folio_contrato = '$nombreCliente' AND MONTH(fecha_pago) = '$mes' AND YEAR(fecha_pago) = '$anio'";
+$sqlTotal = "SELECT COUNT(*) as total FROM pagos_generales";
 $resultadoTotal = $conn->query($sqlTotal);
 $totalRegistros = $resultadoTotal->fetch_assoc()['total'];
 $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
 
+// Consulta principal con paginación
+$sql = "SELECT * FROM clientes WHERE nombre LIKE '%$filtro%'";
+$resultado = $conn->query($sql);
 
 echo '
 
@@ -95,85 +84,40 @@ echo'
 echo '<nav aria-label="Page navigation">
 <ul class="pagination justify-content-end">';
 
-// Botón Primera Página
-if($paginaActual > 1) {
-    echo '<li class="page-item">
-            <a class="page-link paginacion" href="#" data-pagina="1" aria-label="First">
-                <span aria-hidden="true">&laquo;&laquo;</span>
-            </a>
-        </li>';
-} else {
-    echo '<li class="page-item disabled">
-            <span class="page-link" aria-hidden="true">&laquo;&laquo;</span>
-        </li>';
-}
-
 // Botón Anterior
 if($paginaActual > 1) {
     echo '<li class="page-item">
             <a class="page-link paginacion" href="#" data-pagina="'.($paginaActual - 1).'" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
             </a>
-        </li>';
+          </li>';
 } else {
     echo '<li class="page-item disabled">
             <span class="page-link" aria-hidden="true">&laquo;</span>
-        </li>';
+          </li>';
 }
 
-// Calcular rango de páginas a mostrar (grupos de 5)
-$paginasPorGrupo = 5;
-$grupoActual = ceil($paginaActual / $paginasPorGrupo);
-$paginaInicio = (($grupoActual - 1) * $paginasPorGrupo) + 1;
-$paginaFin = min($paginaInicio + $paginasPorGrupo - 1, $totalPaginas);
-
-// Números de página (solo 5 por grupo)
-for($i = $paginaInicio; $i <= $paginaFin; $i++) {
+// Números de página
+for($i = 1; $i <= $totalPaginas; $i++) {
     $active = ($i == $paginaActual) ? 'active' : '';
-    echo '
-        <li class="page-item '.$active.'">
+    echo '<li class="page-item '.$active.'">
             <a class="page-link paginacion" href="#" data-pagina="'.$i.'">'.$i.'</a>
-        </li>
-    ';
+          </li>';
 }
 
 // Botón Siguiente
 if($paginaActual < $totalPaginas) {
-    echo '
-        <li class="page-item">
+    echo '<li class="page-item">
             <a class="page-link paginacion" href="#" data-pagina="'.($paginaActual + 1).'" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
             </a>
-        </li>
-    ';
-} else {
-    echo '
-        <li class="page-item disabled">
-            <span class="page-link" aria-hidden="true">&raquo;</span>
-        </li>
-    ';
-}
-
-// Botón Última Página
-if($paginaActual < $totalPaginas) {
-    echo '<li class="page-item">
-            <a class="page-link paginacion" href="#" data-pagina="'.$totalPaginas.'" aria-label="Last">
-                <span aria-hidden="true">&raquo;&raquo;</span>
-            </a>
-        </li>';
+          </li>';
 } else {
     echo '<li class="page-item disabled">
-            <span class="page-link" aria-hidden="true">&raquo;&raquo;</span>
-        </li>';
+            <span class="page-link" aria-hidden="true">&raquo;</span>
+          </li>';
 }
 
 echo '</ul></nav>';
-
-} else {
-    // El cliente no existe
-    echo '<div class="alert alert-warning" role="alert">
-            <i class="bi bi-exclamation-circle-fill"></i> No se encontraron resultados para el filtro aplicado.
-          </div>';
-}
 
 ?>

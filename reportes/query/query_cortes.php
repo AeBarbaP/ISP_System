@@ -1,5 +1,5 @@
 <?php
-/* require('../../dashboard/prcd/conn.php');
+/*require('../../dashboard/prcd/conn.php');
 
 $sql = "SELECT COUNT(*) AS cortes FROM cortes WHERE MONTH(fecha) = MONTH(CURRENT_DATE()) AND YEAR(fecha) = YEAR(CURRENT_DATE())";
 $resultado = $conn->query($sql);
@@ -17,7 +17,7 @@ else{
 echo json_encode(array(
     'success'=>1,
     'cortes'=>$cortes
-)); */
+));*/
 
 require_once("../prcd/conn.php");
     $x = 0;
@@ -42,15 +42,20 @@ require_once("../prcd/conn.php");
         $anioCorte = $fecha_corte->format('Y');
 
         // Evita sobreescribir el resultado de clientes
-        $sqlCortes = "SELECT * FROM clientes WHERE estatus = 3 OR estatus = 2";
+        $sqlCortes = "SELECT * FROM clientes 
+                    WHERE estatus = 3 OR estatus = 2";
 ;
 
         $resultado_Cortes = $conn->query($sqlCortes);
         $filas = $resultado_Cortes->num_rows;
 
-        
-        $x++;
-        
+        //if ($filas == 0) {
+            //$diferencia = $hoy->diff($fecha_corte)->days;
+            //$x = 0;
+        //}
+        //else{
+            //$x++;
+        //}
     }
 
     echo json_encode(array(

@@ -70,7 +70,7 @@ function generarCorteCaja(){
     type: 'POST',
     data: { id: id,
             username: idUsr
-    },
+     },
     dataType: 'json',
     success: function(data) {
       var datos = JSON.parse(JSON.stringify(data));

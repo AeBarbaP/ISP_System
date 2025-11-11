@@ -55,34 +55,31 @@ echo '
 
 foreach ($registrosPagina as $cliente) {
     $fecha_corte = new DateTime($cliente['fecha_corte']);
+    $diferencia = $hoy->diff($fecha_corte)->days;
     
-    if ($hoy <= $fecha_corte){
-        $diferencia = $hoy->diff($fecha_corte)->days;
-        
-        // Asignación de colores y porcentajes
-        if ($diferencia == 1) {
-            $dias_restantes = 90;
-            $color = '#ee5b5b';
-        } elseif ($diferencia == 2) {
-            $dias_restantes = 80;
-            $color = '#ee5b5b';
-        } elseif ($diferencia == 3) {
-            $dias_restantes = 60;
-            $color = '#fcd53b';
-        } elseif ($diferencia == 4) {
-            $dias_restantes = 40;
-            $color = '#fcd53b';
-        } elseif ($diferencia == 5) {
-            $dias_restantes = 20;
-            $color = '#0ddbb9';
-        } elseif ($diferencia == 6) {
-            $dias_restantes = 10;
-            $color = '#0ddbb9';
-        } elseif ($diferencia == 0) {
-            $dias_restantes = 100;
-            $color = '#ee5b5b';
-        }
-    
+    // Asignación de colores y porcentajes
+    if ($diferencia == 1) {
+        $dias_restantes = 90;
+        $color = '#ee5b5b';
+    } elseif ($diferencia == 2) {
+        $dias_restantes = 80;
+        $color = '#ee5b5b';
+    } elseif ($diferencia == 3) {
+        $dias_restantes = 60;
+        $color = '#fcd53b';
+    } elseif ($diferencia == 4) {
+        $dias_restantes = 40;
+        $color = '#fcd53b';
+    } elseif ($diferencia == 5) {
+        $dias_restantes = 20;
+        $color = '#0ddbb9';
+    } elseif ($diferencia == 6) {
+        $dias_restantes = 10;
+        $color = '#0ddbb9';
+    } elseif ($diferencia == 0) {
+        $dias_restantes = 100;
+        $color = '#ee5b5b';
+    }
 
     $telefono = $cliente['telefono'];
 
@@ -102,7 +99,6 @@ foreach ($registrosPagina as $cliente) {
         <td style='padding:8px;'>{$fecha_corte->format('d/m/Y')}</td>
         <td><a href='https://wa.me/".$telefono."' target='_blank'><i class='bi bi-whatsapp'></i></td>
     </tr>";
-    }
 }
 
 echo '</tbody></table>';

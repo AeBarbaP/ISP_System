@@ -1,6 +1,0 @@
-[19-Jul-2025 00:45:01 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home3/conectwi/public_html/reportes/prcd/conn.php:8
-Stack trace:
-#0 /home3/conectwi/public_html/reportes/prcd/conn.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'conectwi')
-#1 /home3/conectwi/public_html/reportes/prcd/reporte_corte_por_fecha.php(4): require('/home3/conectwi...')
-#2 {main}
-  thrown in /home3/conectwi/public_html/reportes/prcd/conn.php on line 8

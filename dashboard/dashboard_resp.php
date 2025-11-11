@@ -49,7 +49,7 @@
 <!-- 	<script src="../scripts/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 -->
 	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bowser/1.9.4/bowser.min.js"></script>
+
 	<script src="js/filtros.js"></script>
 	<script src="js/scripts.js"></script>
 	<script src="js/otrosGastos.js"></script>
@@ -63,17 +63,13 @@
 	<script src="js/laterales/corteDiario.js"></script>
 
 	<script>
-		//console.log(bowser.name, bowser.version);
-		
-		/* const parser = Bowser.getParser(window.navigator.userAgent);
-    	console.log("Navegador:", parser.getBrowserName()); */
 		// let user = localStorage.getItem("username");
 		let idUsr = sessionStorage.getItem("idUsr");
 		let user = sessionStorage.getItem("username");
 		let nombre = sessionStorage.getItem("nombre");
 		let tipo_usr = sessionStorage.getItem("tipo_usr");
 		let id = sessionStorage.getItem("id");
-
+		
 		function detectarMicrosoftEdge() {
 			const userAgent = navigator.userAgent;
 			return userAgent.includes("Edg") || userAgent.includes("Edge");
@@ -89,7 +85,7 @@
 
 		if (user == "" || user == null || user == 0 || idUsr == 0 || idUsr == "" || idUsr == null || id == 0 || id == "" || id == null) {
 			 window.location.href = "prcd/sort.php?username="+user; // Redirigir al login si no hay usuario
-		}
+			}
 		else {
 			console.log("Usuario en sesión: " + user);
 			document.addEventListener("DOMContentLoaded", () => {
@@ -168,22 +164,6 @@
 
 
 	</script>
-
-	<style>
-.pagination .page-item.active .page-link {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: white;
-}
-.pagination .page-link {
-    color: #007bff;
-    margin: 0 2px;
-    border-radius: 4px;
-}
-.pagination .page-link:hover {
-    background-color: #e9ecef;
-}
-</style>
 
 	<!-- área de scripts -->
 	<body onload="queryDashboard1();queryDashboardGastos();">
@@ -416,43 +396,10 @@
 						<div class="row">
 							<div class="col-12">
                                 <label class="form-label">Filtrar:</label>
-								<div class="row">
-									<div class="col-6">
-										
-											
-											<select class="form-select mb-3" aria-label="Filtro" id="tipo_filtro" onchange="filtroDashboard();">
-												<option value="" selected>Tipo de filtro</option>
-												<option value="1">Por nombre</option>
-												<option value="2">Por Fecha</option>
-											</select>
-										
-									</div>
-										<div class="col-6">
-											
-											<div class="input-group mb-3" id="nombre_buscar_pagoDash2" hidden>
-												<span class="input-group-text"><i class="bi bi-search"></i></span>
-												<input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar_pagoDash" oninput="dashboardFiltro(this.value);" name="nombre_buscar_pagoDash">
-											</div>
-
-											<select class="form-select mb-3" aria-label="Filtro fecha" id="filtroFechaDash" onchange="dashboardFiltroFecha(this.value);" hidden>
-												<option selected>Seleccione el mes</option>
-												<option value="01">Enero</option>
-												<option value="02">Febrero</option>
-												<option value="03">Marzo</option>
-												<option value="04">Abril</option>
-												<option value="05">Mayo</option>
-												<option value="06">Junio</option>
-												<option value="07">Julio</option>
-												<option value="08">Agosto</option>
-												<option value="09">Septiembre</option>
-												<option value="10">Octubre</option>
-												<option value="11">Noviembre</option>
-												<option value="12">Diciembre</option>
-											</select>
-
-									</div>
-								</div>
-
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"><i class="bi bi-search" style="font-size: 20px;"></i></span>
+                                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar_pagoDash" oninput="dashboardFiltro(this.value);" name="nombre_buscar_pagoDash">
+                                </div>
                             </div>
 							<!-- <div class="col-4">
 								<label class="form-label">Selecciona:</label>

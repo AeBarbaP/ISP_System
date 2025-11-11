@@ -456,7 +456,7 @@ function guardarEditarContrato() {
         success: function(data) {
             let success = data.success;
             
-            if(success = 1){
+            if(success == 1){
                 alert('Contrato editado correctamente');
                 $('#modalContratosEdit').modal('hide');
                 //consultaContratosRep();
