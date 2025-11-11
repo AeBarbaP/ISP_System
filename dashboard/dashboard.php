@@ -1039,6 +1039,8 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reporteContratos" onclick="consultaContratosRep()">Editar Contrato</a></li>
+							<li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reporteClientes" onclick="consultaClientesRep() ">Reportes de Clientes</a></li>
+							<li><a class="dropdown-item bloquearNav" href="#" data-bs-toggle="modal" data-bs-target="#reportePagos" onclick="">Reporte de Pagos</a></li>
 						</ul>
 					</li>
 					<li class="nav-item dropdown">
