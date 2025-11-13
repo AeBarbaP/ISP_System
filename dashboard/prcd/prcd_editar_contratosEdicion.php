@@ -35,6 +35,7 @@ $fechaContrato = $_POST['fechaContrato'];
 $fechaLimite = $_POST['fechaLimite'];
 $fechaCorte = $_POST['fechaCorte'];
 $cuota = $_POST['cuota'];
+$equipo = $_POST['equipo'];
 
 $query = "UPDATE clientes SET 
     nombre = '$nombre', 
@@ -54,7 +55,8 @@ $query = "UPDATE clientes SET
     fecha_contrato = '$fechaContrato',
     fecha_limite = '$fechaLimite',
     fecha_corte = '$fechaCorte',
-    cuota = '$cuota'
+    cuota = '$cuota',
+    equipo = '$equipo'
 WHERE folio = '$folio'";
 
 $resultado = $conn->query($query);

@@ -715,7 +715,7 @@
 					
 					<h3>Servicio Contratado</h3>
 					<div class="col-sm-4">
-						<label for="velocidad" class="form-label">Velocidad de Internet:</label>
+						<label for="velocidad" class="form-label">Paquete de Internet:</label>
 						<select class="form-select" id="catalogoPaquetes" aria-label="velocidad" onclick="cuotaMensual(this)" required></select>
                     </div>
 					
@@ -735,6 +735,19 @@
 						<label for="ipAP" class="form-label">IP Access Point (AP):</label>
 						<div class="input-group input-group-sm mb-3">
                         	<input type="text" class="form-control" id="ipAP" name="ipAP" placeholder="">
+						</div>
+                    </div>
+					<div class="col-sm-8">
+						<label class="form-label">Equipo instalado al cliente:</label>
+						<div class="input-group mb-3 ms-5">
+                        	<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="eqComprado" value="1">
+								<label class="form-check-label" for="eqComprado">Comprado</label>
+							</div>
+							<div class="form-check form-check-inline ms-5">
+								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="eqPrestado" value="0">
+								<label class="form-check-label" for="eqPrestado">Rentado</label>
+							</div>
 						</div>
                     </div>
 					<div class="col-lg-12">

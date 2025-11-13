@@ -92,9 +92,9 @@ echo '
                         </div>
                         <h3>Servicio Contratado</h3>
                         <div class="col-sm-8">
-                            <label for="velocidad" class="form-label">Velocidad de Internet:</label>
+                            <label for="velocidad" class="form-label">Paquete de Internet:</label>
                             <select class="form-select" id="velocidad" aria-label="velocidad" required>
-                                <option selected>Selecciona...</option>
+                                <option value="" selected>Selecciona...</option>
                                 <option value="80">80 GB</option>
                                 <option value="160">160 GB</option>
                                 <option value="320">320 GB</option>
