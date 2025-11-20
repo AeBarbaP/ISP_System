@@ -1,0 +1,160 @@
+<?php
+echo'
+
+<div class="modal fade" id="listasPago" data-bs-backdrop="static" data-bs-keyboard="false"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-pencil-square"></i> Listas de Pago</h1>
+                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" onclick="limpiarModal()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="generarListas">   
+					<div class="row g-3">   
+						<div class="col-sm-4">
+							<label for="" class="form-label"><h2>Folio:</h2></label>
+						<div>
+							<input type="text" class="form-control" name="foliocontrato" id="folioLabelContratoEdit" disabled></input>
+						</div>
+						</div>
+						<div class="col-sm-4">
+						</div>
+						<div class="col-sm-4">
+							<label for="date" class="form-label mt-3">Fecha de Contratación:</label>
+							<input type="date" class="form-control" name="date" id="dateContratoEdit" onchange="cambiarFechaEdit()" placeholder="">
+						</div>
+						<h2>Datos del Cliente</h2>
+						<div class="col-sm-12">
+							<label for="name" class="form-label">Nombre Completo:</label>
+							<input type="text" class="form-control" id="nombreCompletoEdit" name="name" placeholder="">
+						</div>
+						<div class="col-sm-4">
+							<label for="calle" class="form-label">Domicilio:</label>
+							<div class="input-group input-group-sm mb-3">
+								<input type="text" class="form-control" id="domicilioContratoEdit" name="calle" placeholder="">
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<label for="colonia" class="form-label">Comunidad:</label>
+							<div class="input-group input-group-sm mb-3">
+								<input type="text" class="form-control" id="catalogoComunidadesEdit" name="comunidad" placeholder="">
+							</div>
+							
+						</div>
+                    
+						<div class="col-sm-4">
+							<label for="municipio" class="form-label">Municipio:</label>
+							<div class="input-group input-group-sm mb-3">
+								<input type="text" class="form-control" id="catalogoMunicipiosEdit" name="municipio" placeholder="">
+							</div>
+							
+						</div>
+						<div class="col-sm-4">
+							<label for="estado" class="form-label">Estado:</label>
+							<div class="input-group input-group-sm mb-3">
+								<input type="text" class="form-control" id="catalogoEstadosEdit" name="estado" placeholder="">
+							</div>
+							
+						</div>
+						<div class="col-sm-4">
+							<label for="cp" class="form-label">C.P.:</label>
+							<div class="input-group input-group-sm mb-3">
+								<input type="text" class="form-control" id="cpContratoEdit" name="cp" placeholder="">
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<label for="telefono" class="form-label">Teléfono:</label>
+							<div class="input-group input-group-sm mb-3">
+								<input type="text" class="form-control" id="telefonoContratoEdit" name="telefono" placeholder="">
+							</div>
+						</div>
+						<div class="col-sm-12">
+							<label for="referencias" class="form-label">Referencias de la vivienda:</label>
+							<textarea type="text" class="form-control" rows="2" id="referenciasContratoEdit" name="referencias" placeholder=""></textarea>
+						</div>
+						
+						<div class="col-sm-6">
+							<label for="comprobante" class="form-label">Identificación:</label>
+							<select class="form-select" id="identificacionContratoEdit" aria-label="comprobante" required>
+								<option value="INE">INE</option>
+								<option value="Pasaporte">Pasaporte</option>
+								<option value="Licencia">Licencia de Manejo</option>
+							</select>
+						</div>
+						
+						<div class="col-sm-6">
+							<label for="comprobanteContratoEdit" class="form-label">Comprobante de Domicilio:</label>
+							<select class="form-select" id="comprobanteContratoEdit" aria-label="Default select example" required>
+								<option value="Agua">Recibo del Agua</option>
+								<option value="Luz">Recibo de Luz Eléctrica</option>
+							</select>
+						</div>
+					
+						<h3>Servicio Contratado</h3>
+						<div class="col-sm-4">
+							<label for="catalogoPaquetesEdit" class="form-label">Paquete de Internet:</label>
+							<select class="form-select" id="catalogoPaquetesEdit" aria-label="velocidad" onclick="cuotaMensualEdit(this)" required></select>
+						</div>
+						
+						<div class="col-sm-4">
+							<label for="antenaContratoEdit" class="form-label">MAC Antena asignada:</label>
+							<div class="input-group input-group-sm mb-3">
+								<input type="text" class="form-control" name="antena" id="antenaContratoEdit">
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<label for="ipAddressContratoEdit" class="form-label">IP asignada:</label>
+							<div class="input-group input-group-sm mb-3">
+								<input type="text" class="form-control" id="ipAddressContratoEdit" name="ipAddress" placeholder="">
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<label for="ipAPEdit" class="form-label">IP Access Point (AP):</label>
+							<div class="input-group input-group-sm mb-3">
+								<input type="text" class="form-control" id="ipAPEdit" name="ipAPEdit" placeholder="">
+							</div>
+						</div>
+						<div class="col-sm-8">
+							<label class="form-label">Equipo instalado al cliente:</label>
+							<div class="input-group mb-3 ms-5">
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="inlineRadioOptions" id="eqComprado" value="1">
+									<label class="form-check-label" for="eqComprado">Comprado</label>
+								</div>
+								<div class="form-check form-check-inline ms-5">
+									<input class="form-check-input" type="radio" name="inlineRadioOptions" id="eqPrestado" value="0">
+									<label class="form-check-label" for="eqPrestado">Rentado</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12">
+							<h2>Cuota Mensual</h2>
+						</div>
+						<div class="col-lg-12" id="mensualidadEdit">
+							<!-- <h2>$</h2>Carga los datos de la cuota mensual -->
+							<input type="text" class="form-control" id="inputCostoEdit" disabled>
+						</div>
+						<div class="col-lg-6 mb-3" id="fechalimiteEdit">
+							<h3>Fecha Inicial de Pago</h3>
+							<!-- <h3>DD/MMM</h3> -->
+							<input type="date" class="form-control" id="siguienteMesInputEdit">
+							<!-- Carga los datos de la cuota mensual -->
+						</div>
+						<div class="col-lg-6 mb-3" id="fechacorteEdit">
+							<h3>Fecha Límite de Pago</h3>
+							<!-- <h3>DD/MMM</h3> -->
+							<input type="date" class="form-control" id="mesMasCincoDiasInputEdit">
+							<!-- Carga los datos de la cuota mensual -->
+						</div>
+					</div>
+				</form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal()">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="guardarbtn" onclick="guardarEditarContrato()" >Editar</button> <!-- Guarda registro de cliente nuevo y manda a modal de pago automáticamente -->
+                    <button type="button" class="btn btn-success" id="imprimircbtn" onclick="contratoNuevo2()">Imprimir Contrato</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>';
+?>
