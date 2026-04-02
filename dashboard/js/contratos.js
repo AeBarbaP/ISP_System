@@ -352,19 +352,6 @@ function guardarContrato(){
     let inputCosto = _("inputCosto").value;
     let siguienteMesInput = _("siguienteMesInput").value;
     let mesMasCincoDiasInput = _("mesMasCincoDiasInput").value;
-    let equipoComprado = _("eqComprado");
-    let equipoRentado = _("eqPrestado");
-    let equipo = "";
-
-    if (equipoComprado.checked) {
-        equipo = 1;
-    }
-    else if (equipoRentado.checked){
-        equipo = 0;
-    }
-    else {
-        equipo = "";
-    }
 
     if(fechaContrato == "" || folio == "" || nombreCompleto == "" || domicilioContrato == "" || catalogoComunidades == "" || catalogoMunicipios == "" || catalogoEstados == "" || catalogoPaquetes == "" || ipAddressContrato == "" || inputCosto == "" || siguienteMesInput == "" || mesMasCincoDiasInput == ""){
         alert("Falta llenar campos del contrato");
@@ -394,8 +381,7 @@ function guardarContrato(){
             ipAP: ipAP,
             inputCosto:inputCosto,
             siguienteMesInput:siguienteMesInput,
-            mesMasCincoDiasInput:mesMasCincoDiasInput,
-            equipo:equipo
+            mesMasCincoDiasInput:mesMasCincoDiasInput
         },
         dataType: "json",
         success: function(data){
@@ -440,19 +426,6 @@ function guardarEditarContrato() {
     let fechaLimite = _('siguienteMesInputEdit').value;
     let fechaCorte =  _('mesMasCincoDiasInputEdit').value;
     let cuota = _('inputCostoEdit').value;
-    let equipoComprado = _("eqComprado");
-    let equipoRentado = _("eqPrestado");
-    let equipo = "";
-
-    if (equipoComprado.checked) {
-        equipo = 1;
-    }
-    else if (equipoRentado.checked){
-        equipo = 0;
-    }
-    else {
-        equipo = "";
-    }
     
     $.ajax({
         url: 'prcd/prcd_editar_contratosEdicion.php',
@@ -477,8 +450,7 @@ function guardarEditarContrato() {
             fechaContrato: fechaContrato,
             fechaLimite: fechaLimite,
             fechaCorte: fechaCorte,
-            cuota: cuota,
-            equipo:equipo
+            cuota: cuota
         },
         dataType: 'json',
         success: function(data) {

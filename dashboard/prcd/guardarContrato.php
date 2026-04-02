@@ -32,7 +32,6 @@ $ipAP = $_POST['ipAP'];
 $inputCosto = $_POST['inputCosto'];
 $siguienteMesInput = $_POST['siguienteMesInput'];
 $mesMasCincoDiasInput = $_POST['mesMasCincoDiasInput'];
-$equipo = $_POST['equipo'];
 
 $estatus = 1;
 
@@ -40,7 +39,6 @@ $query = "INSERT INTO clientes (
         folio, 
         nombre, 
         domicilio,
-        equipo,
         comunidad,
         municipio,
         estado,
@@ -61,7 +59,6 @@ $query = "INSERT INTO clientes (
         ) VALUES (
         '$identificadorUnico', 
         '$nombreCompleto', 
-        '$equipo', 
         '$domicilioContrato',
         '$catalogoComunidades',
         '$catalogoMunicipios',
