@@ -380,7 +380,19 @@
 							</div>
 						</div>
 						<div class="row mt-2">
-							<div class="col-lg-8 grid-margin stretch-card">
+							<?php 
+								if($tipo_usr == 4){
+									echo'
+									<div class="col-lg-12 grid-margin stretch-card">
+									';
+								}
+								else{
+									echo'
+									<div class="col-lg-8 grid-margin stretch-card">
+									';
+								}
+							?>
+							
 								<div class="card">
 									<div class="card-header pt-4">
 										<h4 class="card-title"><i class="bi bi-calendar-check-fill me-2"></i> Últimos Pagos Registrados en el mes</h4>
@@ -431,27 +443,24 @@
 												</div>
 											</div> -->
 											<div class="table-responsive" id="dashboard1">
-												<!-- <table class="table table-striped table-hover">
-													<thead style="background-color: aliceblue;">
-														<tr class="text-center">
-															<th class="scope" style="font-weight: bold;">Contrato</th>
-															<th class="scope" style="font-weight: bold;"># pago</th>
-															<th class="scope" style="font-weight: bold;">Nombre del Cliente</th>
-															<th class="scope" style="font-weight: bold;">Monto</th>
-															<th class="scope" style="font-weight: bold;">Fecha de Pago</th>
-														</tr>
-													</thead>
-													<tbody id="dashboard1"> -->
-														<!-- Los datos se cargarán aquí via AJAX -->
-													<!-- </tbody>
-												</table> -->
+												
 											</div>
 										</div><!-- La paginación se insertará aquí automáticamente -->
 									</div>
 								</div>
 							</div>
-					
-							<div class="col-lg-4 mb-3 mb-lg-0">
+							<?php 
+								if($tipo_usr == 4){
+									echo'
+									<div class="col-lg-4 mb-3 mb-lg-0" hidden>
+									';
+								}
+								else{
+									echo'
+									<div class="col-lg-4 mb-3 mb-lg-0">
+									';
+								}
+							?>
 								<div class="card">
 									<div class="card-header pt-4">
 										<h4 class="card-title"><i class="bi bi-bag-dash me-2"></i>Gastos del día</h4>
@@ -465,7 +474,18 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-lg-6 grid-margin stretch-card">
+							<?php 
+								if($tipo_usr == 4){
+									echo'
+									<div class="col-lg-6 grid-margin stretch-card" hidden>
+									';
+								}
+								else{
+									echo'
+									<div class="col-lg-6 grid-margin stretch-card">
+									';
+								}
+							?>
 								<div class="card">
 									<div class="card overflow-auto">
 										<div class="card-header pt-4">
@@ -493,7 +513,18 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-6 grid-margin stretch-card">
+							<?php 
+								if($tipo_usr == 4){
+									echo'
+									<div class="col-lg-6 grid-margin stretch-card" hidden>
+									';
+								}
+								else{
+									echo'
+									<div class="col-lg-6 grid-margin stretch-card">
+									';
+								}
+							?>
 								<!-- <div class="card"> -->
 								<div class="card overflow-auto">
 									<div class="card-header pt-4">
@@ -501,33 +532,7 @@
 									</div>
 									<div class="card-body">
 										<div class="table-responsive mb-3" id="tablaProximos2">
-											<!-- <table class="table table-hover text-center">
-												<thead style="background-color: aliceblue;" class="text-dark">
-													<tr>
-														<th class="scope" style="font-weight: bold;">
-															Contrato
-														</th>
-														<th class="scope" style="font-weight: bold;">
-															Nombre
-														</th>
-														<th class="scope" style="font-weight: bold;">
-															Monto
-														</th>
-														<th class="scope" style="font-weight: bold;">
-															Fecha límite de pago
-														</th>
-														<th class="scope" style="font-weight: bold;">
-															Estatus
-														</th>
-														<th class="scope" style="font-weight: bold;">
-															Actualizar
-														</th>
-													</tr>
-												</thead>
-												<tbody >
-
-												</tbody>
-											</table> -->
+											
 										</div>
 									</div>
 									<!-- </div> -->
@@ -994,7 +999,18 @@
 					<li>
 						<hr>
 					</li>
-					<li class="nav-item dropdown">
+					<?php 
+						if($tipo_usr == 4){
+							echo'
+							<li class="nav-item dropdown" hidden>
+							';
+						}
+						else{
+							echo'
+							<li class="nav-item dropdown">
+							';
+						}
+					?>
 						<a class="nav-link dropdown-toggle bloquearNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							<i class="bi bi-clipboard2-check me-2" style="font-size: 22px"></i>
 							Contratos
@@ -1011,11 +1027,35 @@
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="#" onclick="altaIncidencia()">Agregar Reporte de Falla</a></li>
 							<li><a class="dropdown-item" href="#" onclick="editarIncidencia()">Editar Reporte de Falla</a></li>
-							<li><a class="dropdown-item" href="#" onclick="gestionIncidencias()">Estatus de Fallas</a></li>
-							<li><a class="dropdown-item" href="#" onclick="resolverIncidencia()">Reporte Técnico</a></li>
+							<?php 
+								if($tipo_usr == 4){
+									echo'
+									<li hidden><a class="dropdown-item" href="#" onclick="gestionIncidencias()">Estatus de Fallas</a></li>
+									<li hidden><a class="dropdown-item" href="#" onclick="resolverIncidencia()">Reporte Técnico</a></li>
+									';
+								}
+								else{
+									echo'
+									<li><a class="dropdown-item" href="#" onclick="gestionIncidencias()">Estatus de Fallas</a></li>
+									<li><a class="dropdown-item" href="#" onclick="resolverIncidencia()">Reporte Técnico</a></li>
+									';
+								}
+							?>
+							
 						</ul>
 					</li>
-					<li class="nav-item dropdown">
+					<?php 
+						if($tipo_usr == 4){
+							echo'
+							<li class="nav-item dropdown" hidden>
+							';
+						}
+						else{
+							echo'
+							<li class="nav-item dropdown">
+							';
+						}
+					?>
 						<a class="nav-link dropdown-toggle bloquearMenus" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							<i class="bi bi-wifi-off me-2" style="font-size: 22px"></i>
 							Orden de Corte de Servicio
@@ -1027,7 +1067,18 @@
 							<!-- <li><a class="dropdown-item" href="#" onclick="resolverCorte()">Reporte Técnico</a></li> -->
 						</ul>
 					</li>
-					<li class="nav-item dropdown">
+					<?php 
+						if($tipo_usr == 4){
+							echo'
+							<li class="nav-item dropdown" hidden>
+							';
+						}
+						else{
+							echo'
+							<li class="nav-item dropdown">
+							';
+						}
+					?>
 						<a class="nav-link dropdown-toggle bloquearNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							<i class="bi bi-broadcast-pin me-2" style="font-size: 22px"></i>
 							Inventario de Antenas
@@ -1046,9 +1097,23 @@
 							Corte de Caja
 						</a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item corteCaja" href="#" id="menuOtrosGastos" onclick="modalOtrosGastos()">Agregar otros gastos</a></li>
-							<li><a class="dropdown-item corteCaja" href="#" id="reporteOtrosGastos" onclick="modalReporteOtrosGastos()">Reporte otros gastos</a></li>
-							<hr class="">
+							<?php 
+								if($tipo_usr == 4){
+									echo'
+									<li hidden><a class="dropdown-item corteCaja" href="#" id="menuOtrosGastos" onclick="modalOtrosGastos()">Agregar otros gastos</a></li>
+									<li hidden><a class="dropdown-item corteCaja" href="#" id="reporteOtrosGastos" onclick="modalReporteOtrosGastos()">Reporte otros gastos</a></li>
+									<hr class="" hidden>
+									';
+								}
+								else{
+									echo'
+									<li><a class="dropdown-item corteCaja" href="#" id="menuOtrosGastos" onclick="modalOtrosGastos()">Agregar otros gastos</a></li>
+									<li><a class="dropdown-item corteCaja" href="#" id="reporteOtrosGastos" onclick="modalReporteOtrosGastos()">Reporte otros gastos</a></li>
+									<hr class="">
+									';
+								}
+							?>
+							
 							<li><a class="dropdown-item corteCaja" href="#" id="menuCorteCaja" onclick="corteCajaDiario()">Generar Corte de Caja</a></li>
 							<li><a class="dropdown-item" href="prcd/reporte_corte.php" target="_blank">Imprimir Corte de Caja</a></li>
 							<li><a class="dropdown-item" href="#" onclick="queryListadoCorte()">Listado de Corte de Caja</a></li>
