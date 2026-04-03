@@ -561,6 +561,44 @@ function enviarSolicitud(id, estatus, event) {  // Añade el parámetro 'event'
     });
 }
 
+function queryDashboard2(pagina = 1, user) {
+    $.ajax({
+        type: "POST",
+        url: "query/dashboard2.php",
+        data: { pagina: pagina, user: user },
+        dataType: "HTML",
+        success: function(data) {
+            $('#dashboard1').html(data);
+            
+            // Agregar evento a los botones de paginación
+            $('.paginacion').on('click', function(e) {
+                e.preventDefault();
+                var pagina = $(this).data('pagina');
+                queryDashboard2(pagina);
+            });
+        }
+    });
+}
+
+function enviarSolicitud(id, estatus, event) {  // Añade el parámetro 'event'
+    event.preventDefault();  // Previene el comportamiento por defecto del enlace
+    
+    $.ajax({
+        type: "POST",
+        url: "prcd/prcd_cambiar_estatus_pago.php",
+        data: { id: id, estatus: estatus },
+        dataType: "json",
+        success: function(data) {
+            if (data.success == 1) {  // Corregido: usa == o === para comparación
+                queryDashboard2();
+            }
+            else {
+                console.error(data.error);
+            }
+        }
+    });
+}
+
 function enviarSolicitud2(id, estatus, event) {  // Añade el parámetro 'event'
     event.preventDefault();  // Previene el comportamiento por defecto del enlace
     

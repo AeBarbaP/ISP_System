@@ -187,12 +187,12 @@
 	<!-- área de scripts -->
 	<?php 
 		if($tipo_usr == 4){
-			echo'
-				<body onload="queryDashboard2();">
+			echo '
+				<body onload="queryDashboard2(1,\''.$user.'\');">
 			';
 		}
 		else{
-			echo'
+			echo '
 				<body onload="queryDashboard1();queryDashboardGastos();">
 			';
 		}
@@ -554,7 +554,7 @@
 		</div><!-- container-scroller -->
 		
 		<!-- base:js -->
-		<script src="vendors/base/vendor.bundle.base.js"></script>
+		<!-- <script src="vendors/base/vendor.bundle.base.js"></script> -->
 		<!-- endinject -->
 		<!-- Plugin js for this page-->
 		<!-- End plugin js for this page-->
