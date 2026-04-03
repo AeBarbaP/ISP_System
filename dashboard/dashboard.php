@@ -170,20 +170,20 @@
 	</script>
 
 	<style>
-.pagination .page-item.active .page-link {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: white;
-}
-.pagination .page-link {
-    color: #007bff;
-    margin: 0 2px;
-    border-radius: 4px;
-}
-.pagination .page-link:hover {
-    background-color: #e9ecef;
-}
-</style>
+		.pagination .page-item.active .page-link {
+			background-color: #007bff;
+			border-color: #007bff;
+			color: white;
+		}
+		.pagination .page-link {
+			color: #007bff;
+			margin: 0 2px;
+			border-radius: 4px;
+		}
+		.pagination .page-link:hover {
+			background-color: #e9ecef;
+		}
+	</style>
 
 	<!-- área de scripts -->
 	<body onload="queryDashboard1();queryDashboardGastos();">
@@ -195,27 +195,24 @@
 				<div class="container-fluid">
 					<div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
 						<ul class="navbar-nav navbar-nav-left">
-						<li class="nav-item ms-0 me-3 d-lg-flex d-none">
-							<a href="#" class="nav-link horizontal-nav-left-menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class="mdi mdi-format-list-bulleted rounded pt-2 pe-2 ps-2" style="color:blue; border: 1px solid blue;"></i></a>
-						</li>
-						
-					</ul>
-					<div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-						<a class="navbar-brand brand-logo" href="dashboard.php"><img src="../images/logo_conectwi_wide-removebg-preview.png" height="30px" alt="logo"/></a>
-						<a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
-					</div>
-					<ul class="navbar-nav navbar-nav-right">
-						<li class="nav-item nav-profile dropdown">
-							<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-								
-							<span class="nav-profile-name">
-									
-								</span>
-
-								<span class="online-status"></span>
-								<img src="images/faces/face28.png" alt="profile"/>
-							</a>
-							<div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+							<li class="nav-item ms-0 me-3 d-lg-flex d-none">
+								<a href="#" class="nav-link horizontal-nav-left-menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class="mdi mdi-format-list-bulleted rounded pt-2 pe-2 ps-2" style="color:blue; border: 1px solid blue;"></i></a>
+							</li>	
+						</ul>
+						<div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+							<a class="navbar-brand brand-logo" href="dashboard.php"><img src="../images/logo_conectwi_wide-removebg-preview.png" height="30px" alt="logo"/></a>
+							<a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
+						</div>
+						<ul class="navbar-nav navbar-nav-right">
+							<li class="nav-item nav-profile dropdown">
+								<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
+									<span class="nav-profile-name">
+										
+									</span>
+									<span class="online-status"></span>
+									<img src="images/faces/face28.png" alt="profile"/>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
 									<p class="mb-0 font-weight-medium float-left dropdown-header">Mi cuenta</p>
 									<a class="dropdown-item" href="#" onclick="editarDatosUsr()">
 										<i class="mdi mdi-settings text-primary"></i>
@@ -225,84 +222,107 @@
 										<i class="mdi mdi-logout text-primary" ></i>
 										Cerrar Sesión
 									</a>
-							</div>
-						</li>
-					</ul>
-					<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
-						<span class="mdi mdi-menu"></span>
-					</button>
+								</div>
+							</li>
+						</ul>
+						<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
+							<span class="mdi mdi-menu"></span>
+						</button>
+					</div>
 				</div>
-			</div>
-		</nav>
+			</nav>
 		<nav class="bottom-navbar">
 			<div class="container">
 				<script src="../scripts/lordicon.js"></script>
 				<ul class="nav page-navigation">
 					<li class="nav-item">
 						<a class="nav-link" href="dashboard.php">
-						<!-- <i class="mdi mdi-file-document-box menu-icon"></i> -->
-						<lord-icon
-							src="https://cdn.lordicon.com/cnpvyndp.json"
-							trigger="hover"
-							colors="primary:#0ddbb9"
-							style="width:40px;height:40px"
-							class="menu-icon coloresNav">
-						</lord-icon>
-						<span class="menu-title">Inicio</span>
+							<!-- <i class="mdi mdi-file-document-box menu-icon"></i> -->
+							<lord-icon
+								src="https://cdn.lordicon.com/cnpvyndp.json"
+								trigger="hover"
+								colors="primary:#0ddbb9"
+								style="width:40px;height:40px"
+								class="menu-icon coloresNav">
+							</lord-icon>
+							<span class="menu-title">Inicio</span>
 						</a>
 					</li>
-					<li class="nav-item" disabled>
+					<?php 
+						if($tipo_usr == 4){
+							echo'
+							<li class="nav-item" hidden>
+							';
+						}
+						else{
+							echo'
+							<li class="nav-item">
+							';
+						}
+					?>
 						<a onclick="contratoNew()" class="nav-link bloquearNav" disabled>
 							<!-- <i class="mdi mdi-file-document-box-outline menu-icon"></i> -->
 							<lord-icon
-							src="https://cdn.lordicon.com/rbbnmpcf.json"
-							trigger="hover"
-							colors="primary:#0ddbb9"
-							style="width:40px;height:40px"
-							class="menu-icon2 mb-2 coloresNav">
-						</lord-icon>
-						<span class="menu-title">Contrato Nuevo</span></a>
+								src="https://cdn.lordicon.com/rbbnmpcf.json"
+								trigger="hover"
+								colors="primary:#0ddbb9"
+								style="width:40px;height:40px"
+								class="menu-icon2 mb-2 coloresNav">
+							</lord-icon>
+							<span class="menu-title">Contrato Nuevo</span>
+						</a>
 					</li>
 					<li class="nav-item">
 						<a onclick="pagoNew()" class="nav-link bloquearNav">
-						<!-- <i class="mdi mdi-square-inc-cash menu-icon"></i> -->
-						<lord-icon
-							src="https://cdn.lordicon.com/ciawvzjk.json"
-							trigger="hover"
-							colors="primary:#0ddbb9"
-							style="width:40px;height:40px"
-							class="menu-icon2 mb-2 coloresNav">
-						</lord-icon>
-						<span class="menu-title">Registrar Pago</span>
-						<i class="menu-arrow"></i>
+							<!-- <i class="mdi mdi-square-inc-cash menu-icon"></i> -->
+							<lord-icon
+								src="https://cdn.lordicon.com/ciawvzjk.json"
+								trigger="hover"
+								colors="primary:#0ddbb9"
+								style="width:40px;height:40px"
+								class="menu-icon2 mb-2 coloresNav">
+							</lord-icon>
+							<span class="menu-title">Registrar Pago</span>
+							<i class="menu-arrow"></i>
 						</a>
 					</li>
 					<li class="nav-item">
 						<a onclick="altaIncidencia()" class="nav-link bloquearNav">
-						<lord-icon
-							src="https://cdn.lordicon.com/ygvjgdmk.json"
-							trigger="hover"
-							colors="primary:#0ddbb9"
-							style="width:40px;height:40px;"
-							class="menu-icon2 mb-2 coloresNav">
-						</lord-icon>
-						<!-- <i class="mdi mdi-finance menu-icon"></i> -->
-						<span class="menu-title">Reportar Falla</span>
-						<i class="menu-arrow"></i>
+							<lord-icon
+								src="https://cdn.lordicon.com/ygvjgdmk.json"
+								trigger="hover"
+								colors="primary:#0ddbb9"
+								style="width:40px;height:40px;"
+								class="menu-icon2 mb-2 coloresNav">
+							</lord-icon>
+							<!-- <i class="mdi mdi-finance menu-icon"></i> -->
+							<span class="menu-title">Reportar Falla</span>
+							<i class="menu-arrow"></i>
 						</a>
 					</li>
-					<li class="nav-item">
+					<?php 
+						if($tipo_usr == 4){
+							echo'
+							<li class="nav-item" hidden>
+							';
+						}
+						else{
+							echo'
+							<li class="nav-item">
+							';
+						}
+					?>
 						<a onclick="altaCorte()" class="nav-link bloquearNav">
 							<lord-icon
-							src="https://cdn.lordicon.com/xmuplryc.json"
-							trigger="hover"
-							colors="primary:#0ddbb9"
-							style="width:40px;height:40px"
-							class="menu-icon2 mb-2 coloresNav">
-						</lord-icon>
-						<!-- <i class="mdi mdi-finance menu-icon"></i> -->
-						<span class="menu-title">Orden de Corte</span>
-						<i class="menu-arrow"></i>
+								src="https://cdn.lordicon.com/xmuplryc.json"
+								trigger="hover"
+								colors="primary:#0ddbb9"
+								style="width:40px;height:40px"
+								class="menu-icon2 mb-2 coloresNav">
+							</lord-icon>
+							<!-- <i class="mdi mdi-finance menu-icon"></i> -->
+							<span class="menu-title">Orden de Corte</span>
+							<i class="menu-arrow"></i>
 						</a>
 					</li>
 					<?php 
