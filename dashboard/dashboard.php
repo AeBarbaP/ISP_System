@@ -46,8 +46,7 @@
 	<!-- área de scripts -->
 	<!-- <script src="../scripts/sweetalert2@11"></script> -->
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<!-- 	<script src="../scripts/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
--->
+	<!-- 	<script src="../scripts/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> -->
 	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bowser/1.9.4/bowser.min.js"></script>
 	<script src="js/filtros.js"></script>
@@ -124,18 +123,18 @@
         document.addEventListener('submit', function() {
             esNavegacionInterna = true;
             setTimeout(() => { esNavegacionInterna = false; }, 100);
-    });
+    	});
     
-    // Detectar refresh (F5, Ctrl+R, etc.)
-    document.addEventListener('keydown', function(e) {
-        // Detectar F5 o Ctrl+R
-        if (e.key === 'F5' || (e.ctrlKey && e.key === 'r')) {
-            esRefresh = true;
-            setTimeout(() => { esRefresh = false; }, 100);
-        }
-    });
+		// Detectar refresh (F5, Ctrl+R, etc.)
+		document.addEventListener('keydown', function(e) {
+			// Detectar F5 o Ctrl+R
+			if (e.key === 'F5' || (e.ctrlKey && e.key === 'r')) {
+				esRefresh = true;
+				setTimeout(() => { esRefresh = false; }, 100);
+			}
+		});
     
-    // También detectar el clic en el botón de refresh del navegador
+    	// También detectar el clic en el botón de refresh del navegador
     	window.addEventListener('beforeunload', function() {
     		// Si es un refresh, no marcar como navegación interna
     		if (esRefresh) {
@@ -186,450 +185,393 @@
 	</style>
 
 	<!-- área de scripts -->
-	<body onload="queryDashboard1();queryDashboardGastos();">
+	<?php 
+		if($tipo_usr == 4){
+			echo'
+				<body onload="queryDashboard2();">
+			';
+		}
+		else{
+			echo'
+				<body onload="queryDashboard1();queryDashboardGastos();">
+			';
+		}
+	?>
+	
 		
-    <div class="container-scroller">
-		<!-- partial:partials/_horizontal-navbar.html -->
-		<div class="horizontal-menu">
-			<nav class="navbar top-navbar col-lg-12 col-12 p-0">
-				<div class="container-fluid">
-					<div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
-						<ul class="navbar-nav navbar-nav-left">
-							<li class="nav-item ms-0 me-3 d-lg-flex d-none">
-								<a href="#" class="nav-link horizontal-nav-left-menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class="mdi mdi-format-list-bulleted rounded pt-2 pe-2 ps-2" style="color:blue; border: 1px solid blue;"></i></a>
-							</li>	
-						</ul>
-						<div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-							<a class="navbar-brand brand-logo" href="dashboard.php"><img src="../images/logo_conectwi_wide-removebg-preview.png" height="30px" alt="logo"/></a>
-							<a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
+		<div class="container-scroller">
+			<!-- partial:partials/_horizontal-navbar.html -->
+			<div class="horizontal-menu">
+				<nav class="navbar top-navbar col-lg-12 col-12 p-0">
+					<div class="container-fluid">
+						<div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
+							<ul class="navbar-nav navbar-nav-left">
+								<li class="nav-item ms-0 me-3 d-lg-flex d-none">
+									<a href="#" class="nav-link horizontal-nav-left-menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class="mdi mdi-format-list-bulleted rounded pt-2 pe-2 ps-2" style="color:blue; border: 1px solid blue;"></i></a>
+								</li>	
+							</ul>
+							<div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+								<a class="navbar-brand brand-logo" href="dashboard.php"><img src="../images/logo_conectwi_wide-removebg-preview.png" height="30px" alt="logo"/></a>
+								<a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
+							</div>
+							<ul class="navbar-nav navbar-nav-right">
+								<li class="nav-item nav-profile dropdown">
+									<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
+										<span class="nav-profile-name">
+											
+										</span>
+										<span class="online-status"></span>
+										<img src="images/faces/face28.png" alt="profile"/>
+									</a>
+									<div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+										<p class="mb-0 font-weight-medium float-left dropdown-header">Mi cuenta</p>
+										<a class="dropdown-item" href="#" onclick="editarDatosUsr()">
+											<i class="mdi mdi-settings text-primary"></i>
+											Editar mis datos
+										</a>
+										<a href="prcd/sort.php" class="dropdown-item">
+											<i class="mdi mdi-logout text-primary" ></i>
+											Cerrar Sesión
+										</a>
+									</div>
+								</li>
+							</ul>
+							<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
+								<span class="mdi mdi-menu"></span>
+							</button>
 						</div>
-						<ul class="navbar-nav navbar-nav-right">
-							<li class="nav-item nav-profile dropdown">
-								<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-									<span class="nav-profile-name">
-										
-									</span>
-									<span class="online-status"></span>
-									<img src="images/faces/face28.png" alt="profile"/>
+					</div>
+				</nav>
+				<nav class="bottom-navbar">
+					<div class="container">
+						<script src="../scripts/lordicon.js"></script>
+						<ul class="nav page-navigation">
+							<li class="nav-item">
+								<a class="nav-link" href="dashboard.php">
+									<!-- <i class="mdi mdi-file-document-box menu-icon"></i> -->
+									<lord-icon
+										src="https://cdn.lordicon.com/cnpvyndp.json"
+										trigger="hover"
+										colors="primary:#0ddbb9"
+										style="width:40px;height:40px"
+										class="menu-icon coloresNav">
+									</lord-icon>
+									<span class="menu-title">Inicio</span>
 								</a>
-								<div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-									<p class="mb-0 font-weight-medium float-left dropdown-header">Mi cuenta</p>
-									<a class="dropdown-item" href="#" onclick="editarDatosUsr()">
-										<i class="mdi mdi-settings text-primary"></i>
-										Editar mis datos
-									</a>
-									<a href="prcd/sort.php" class="dropdown-item">
-										<i class="mdi mdi-logout text-primary" ></i>
-										Cerrar Sesión
-									</a>
-								</div>
+							</li>
+							<?php 
+								if($tipo_usr == 4){
+									echo'
+									<li class="nav-item" hidden>
+									';
+								}
+								else{
+									echo'
+									<li class="nav-item">
+									';
+								}
+							?>
+								<a onclick="contratoNew()" class="nav-link bloquearNav" disabled>
+									<!-- <i class="mdi mdi-file-document-box-outline menu-icon"></i> -->
+									<lord-icon
+										src="https://cdn.lordicon.com/rbbnmpcf.json"
+										trigger="hover"
+										colors="primary:#0ddbb9"
+										style="width:40px;height:40px"
+										class="menu-icon2 mb-2 coloresNav">
+									</lord-icon>
+									<span class="menu-title">Contrato Nuevo</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a onclick="pagoNew()" class="nav-link bloquearNav">
+									<!-- <i class="mdi mdi-square-inc-cash menu-icon"></i> -->
+									<lord-icon
+										src="https://cdn.lordicon.com/ciawvzjk.json"
+										trigger="hover"
+										colors="primary:#0ddbb9"
+										style="width:40px;height:40px"
+										class="menu-icon2 mb-2 coloresNav">
+									</lord-icon>
+									<span class="menu-title">Registrar Pago</span>
+									<i class="menu-arrow"></i>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a onclick="altaIncidencia()" class="nav-link bloquearNav">
+									<lord-icon
+										src="https://cdn.lordicon.com/ygvjgdmk.json"
+										trigger="hover"
+										colors="primary:#0ddbb9"
+										style="width:40px;height:40px;"
+										class="menu-icon2 mb-2 coloresNav">
+									</lord-icon>
+									<!-- <i class="mdi mdi-finance menu-icon"></i> -->
+									<span class="menu-title">Reportar Falla</span>
+									<i class="menu-arrow"></i>
+								</a>
+							</li>
+							<?php 
+								if($tipo_usr == 4){
+									echo'
+									<li class="nav-item" hidden>
+									';
+								}
+								else{
+									echo'
+									<li class="nav-item">
+									';
+								}
+							?>
+								<a onclick="altaCorte()" class="nav-link bloquearNav">
+									<lord-icon
+										src="https://cdn.lordicon.com/xmuplryc.json"
+										trigger="hover"
+										colors="primary:#0ddbb9"
+										style="width:40px;height:40px"
+										class="menu-icon2 mb-2 coloresNav">
+									</lord-icon>
+									<!-- <i class="mdi mdi-finance menu-icon"></i> -->
+									<span class="menu-title">Orden de Corte</span>
+									<i class="menu-arrow"></i>
+								</a>
+							</li>
+							<?php 
+								if($tipo_usr == 1){
+									echo'
+									<li class="nav-item">
+									';
+								}
+								else{
+									echo'
+									<li class="nav-item" hidden>
+									';
+								}
+							?>
+								<a href="../reportes/index.php" class="nav-link bloquearNav">
+									<lord-icon
+										src="https://cdn.lordicon.com/zrtfxghu.json"
+										trigger="hover"
+										colors="primary:#16c79e"
+										style="width:40px;height:40px"
+										class="menu-icon2 mb-2 coloresNav">
+									</lord-icon>
+									<span class="menu-title">Reportes</span>
+									<i class="menu-arrow"></i>
+								</a>
 							</li>
 						</ul>
-						<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
-							<span class="mdi mdi-menu"></span>
-						</button>
 					</div>
-				</div>
-			</nav>
-		<nav class="bottom-navbar">
-			<div class="container">
-				<script src="../scripts/lordicon.js"></script>
-				<ul class="nav page-navigation">
-					<li class="nav-item">
-						<a class="nav-link" href="dashboard.php">
-							<!-- <i class="mdi mdi-file-document-box menu-icon"></i> -->
-							<lord-icon
-								src="https://cdn.lordicon.com/cnpvyndp.json"
-								trigger="hover"
-								colors="primary:#0ddbb9"
-								style="width:40px;height:40px"
-								class="menu-icon coloresNav">
-							</lord-icon>
-							<span class="menu-title">Inicio</span>
-						</a>
-					</li>
-					<?php 
-						if($tipo_usr == 4){
-							echo'
-							<li class="nav-item" hidden>
-							';
-						}
-						else{
-							echo'
-							<li class="nav-item">
-							';
-						}
-					?>
-						<a onclick="contratoNew()" class="nav-link bloquearNav" disabled>
-							<!-- <i class="mdi mdi-file-document-box-outline menu-icon"></i> -->
-							<lord-icon
-								src="https://cdn.lordicon.com/rbbnmpcf.json"
-								trigger="hover"
-								colors="primary:#0ddbb9"
-								style="width:40px;height:40px"
-								class="menu-icon2 mb-2 coloresNav">
-							</lord-icon>
-							<span class="menu-title">Contrato Nuevo</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a onclick="pagoNew()" class="nav-link bloquearNav">
-							<!-- <i class="mdi mdi-square-inc-cash menu-icon"></i> -->
-							<lord-icon
-								src="https://cdn.lordicon.com/ciawvzjk.json"
-								trigger="hover"
-								colors="primary:#0ddbb9"
-								style="width:40px;height:40px"
-								class="menu-icon2 mb-2 coloresNav">
-							</lord-icon>
-							<span class="menu-title">Registrar Pago</span>
-							<i class="menu-arrow"></i>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a onclick="altaIncidencia()" class="nav-link bloquearNav">
-							<lord-icon
-								src="https://cdn.lordicon.com/ygvjgdmk.json"
-								trigger="hover"
-								colors="primary:#0ddbb9"
-								style="width:40px;height:40px;"
-								class="menu-icon2 mb-2 coloresNav">
-							</lord-icon>
-							<!-- <i class="mdi mdi-finance menu-icon"></i> -->
-							<span class="menu-title">Reportar Falla</span>
-							<i class="menu-arrow"></i>
-						</a>
-					</li>
-					<?php 
-						if($tipo_usr == 4){
-							echo'
-							<li class="nav-item" hidden>
-							';
-						}
-						else{
-							echo'
-							<li class="nav-item">
-							';
-						}
-					?>
-						<a onclick="altaCorte()" class="nav-link bloquearNav">
-							<lord-icon
-								src="https://cdn.lordicon.com/xmuplryc.json"
-								trigger="hover"
-								colors="primary:#0ddbb9"
-								style="width:40px;height:40px"
-								class="menu-icon2 mb-2 coloresNav">
-							</lord-icon>
-							<!-- <i class="mdi mdi-finance menu-icon"></i> -->
-							<span class="menu-title">Orden de Corte</span>
-							<i class="menu-arrow"></i>
-						</a>
-					</li>
-					<?php 
-						if($tipo_usr == 1){
-							echo'
-							<li class="nav-item">
-							';
-						}
-						else{
-							echo'
-							<li class="nav-item" hidden>
-							';
-						}
-					?>
-						<a href="../reportes/index.php" class="nav-link bloquearNav">
-							<lord-icon
-								src="https://cdn.lordicon.com/zrtfxghu.json"
-								trigger="hover"
-								colors="primary:#16c79e"
-								style="width:40px;height:40px"
-								class="menu-icon2 mb-2 coloresNav">
-							</lord-icon>
-							<span class="menu-title">Reportes</span>
-							<i class="menu-arrow"></i>
-						</a>
-					</li>
-				</ul>
+				</nav>
 			</div>
-		</nav>
-	</div>
-    <!-- partial -->
-	<div class="container-fluid page-body-wrapper">
-		<div class="main-panel">
-			<div class="content-wrapper">
-				<div class="row">
-					<div class="col-sm-12 ">
-						<div class="alert alert-light border border-success" role="alert">
-							<div>
-								<h1 class="font-weight-bold mb-2" style="color:#0ddbb9">Bienvenid@ <small class="text-body-secondary" id="nombreUsername"></small></h1>
-								<h6 class="font-weight-normal mb-2">Su último login fue <strong><span id="ultimoAcceso"></span></strong></h6>
-								<h6 class="font-weight-normal mb-2"><span id="onlinetag"></span></h6>
-							</div>
-						</div>
-						<!-- <div class="d-lg-flex align-items-center" hidden>
-							<div>
-								<h1 class="text-secondary font-weight-bold mb-2">Bienvenid@ <small class="text-body-secondary">(<?php echo $nombre ?>)!</small></h1>
-								<h6 class="font-weight-normal mb-2">Su último login fue hace 8 horas.</h6>
-							</div>
-							<div class="ms-lg-5 d-lg-flex d-none">
-							</div>
-						</div> -->
-					</div>
-					<!-- <div class="col-sm-6">
-						<div class="d-flex align-items-center justify-content-md-end">
-							<div class="pe-1 mb-3 mb-xl-0">
-								<button type="button" class="btn bg-white btn-icon">
-									<i class="mdi mdi-view-grid text-success"></i>
-								</button>
-								<button type="button" class="btn bg-white btn-icon ms-2">
-									<i class="mdi mdi-format-list-bulleted font-weight-bold text-primary"></i>
-								</button>
-							</div>
-						</div>
-					</div> -->
-				</div>
-				<div class="row mt-2">
-					<!-- <div class="col-lg-8 grid-margin stretch-card">
-						<div class="card">
-							<div class="card-header pt-4">
-								<h4 class="card-title">Últimos Pagos Registrados</h4>
-							</div>
-							<div class="card-body overflow-auto">
-								<div class="row">
-									<div class="table-responsive">
-										<table class="table table-striped table-hover">
-											
-											<thead style="background-color: aliceblue;">
-												<tr class="text-center">
-													<th class="scope" style="font-weight: bold;">
-														Contrato
-													</th>
-													<th class="scope" style="font-weight: bold;">
-														# pago
-													</th>
-													<th class="scope" style="font-weight: bold;">
-														Nombre del Cliente
-													</th>
-													<th class="scope" style="font-weight: bold;">
-														Monto
-													</th>
-													<th class="scope" style="font-weight: bold;">
-														Fecha de Pago
-													</th>
-												</tr>
-											</thead>
-											<tbody id="dashboard1">
-												
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div> -->
-				<div class="col-lg-8 grid-margin stretch-card">
-				<div class="card">
-					<div class="card-header pt-4">
-						<h4 class="card-title"><i class="bi bi-calendar-check-fill me-2"></i> Últimos Pagos Registrados en el mes</h4>
-					</div>
-					<div class="card-body overflow-auto">
+			<!-- partial -->
+			<div class="container-fluid page-body-wrapper">
+				<div class="main-panel">
+					<div class="content-wrapper">
 						<div class="row">
-							<div class="col-12">
-                                <label class="form-label">Filtrar:</label>
-								<div class="row">
-									<div class="col-6">
-										
-											
-											<select class="form-select mb-3" aria-label="Filtro" id="tipo_filtro" onchange="filtroDashboard();">
-												<option value="" selected>Tipo de filtro</option>
-												<option value="1">Por nombre</option>
-												<option value="2">Por Fecha</option>
-											</select>
-										
+							<div class="col-sm-12 ">
+								<div class="alert alert-light border border-success" role="alert">
+									<div>
+										<h1 class="font-weight-bold mb-2" style="color:#0ddbb9">Bienvenid@ <small class="text-body-secondary" id="nombreUsername"></small></h1>
+										<h6 class="font-weight-normal mb-2">Su último login fue <strong><span id="ultimoAcceso"></span></strong></h6>
+										<h6 class="font-weight-normal mb-2"><span id="onlinetag"></span></h6>
 									</div>
-										<div class="col-6">
-											
-											<div class="input-group mb-3" id="nombre_buscar_pagoDash2" hidden>
-												<span class="input-group-text"><i class="bi bi-search"></i></span>
-												<input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar_pagoDash" oninput="dashboardFiltro(this.value);" name="nombre_buscar_pagoDash">
+								</div>
+							</div>
+						</div>
+						<div class="row mt-2">
+							<div class="col-lg-8 grid-margin stretch-card">
+								<div class="card">
+									<div class="card-header pt-4">
+										<h4 class="card-title"><i class="bi bi-calendar-check-fill me-2"></i> Últimos Pagos Registrados en el mes</h4>
+									</div>
+									<div class="card-body overflow-auto">
+										<div class="row">
+											<div class="col-12">
+												<label class="form-label">Filtrar:</label>
+												<div class="row">
+													<div class="col-6">
+														<select class="form-select mb-3" aria-label="Filtro" id="tipo_filtro" onchange="filtroDashboard();">
+															<option value="" selected>Tipo de filtro</option>
+															<option value="1">Por nombre</option>
+															<option value="2">Por Fecha</option>
+														</select>
+													</div>
+													<div class="col-6">
+														<div class="input-group mb-3" id="nombre_buscar_pagoDash2" hidden>
+															<span class="input-group-text"><i class="bi bi-search"></i></span>
+															<input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre_buscar_pagoDash" oninput="dashboardFiltro(this.value);" name="nombre_buscar_pagoDash">
+														</div>
+														<select class="form-select mb-3" aria-label="Filtro fecha" id="filtroFechaDash" onchange="dashboardFiltroFecha(this.value);" hidden>
+															<option selected>Seleccione el mes</option>
+															<option value="01">Enero</option>
+															<option value="02">Febrero</option>
+															<option value="03">Marzo</option>
+															<option value="04">Abril</option>
+															<option value="05">Mayo</option>
+															<option value="06">Junio</option>
+															<option value="07">Julio</option>
+															<option value="08">Agosto</option>
+															<option value="09">Septiembre</option>
+															<option value="10">Octubre</option>
+															<option value="11">Noviembre</option>
+															<option value="12">Diciembre</option>
+														</select>
+													</div>
+												</div>
 											</div>
+											<!-- <div class="col-4">
+												<label class="form-label">Selecciona:</label>
+												<div class="">
+													<input type="radio" class="btn-check btn-lg" name="options-outlined" id="nombreCliente" autocomplete="off">
+													<label class="btn btn-outline-primary" for="nombreCliente">Nombre</label>
 
-											<select class="form-select mb-3" aria-label="Filtro fecha" id="filtroFechaDash" onchange="dashboardFiltroFecha(this.value);" hidden>
-												<option selected>Seleccione el mes</option>
-												<option value="01">Enero</option>
-												<option value="02">Febrero</option>
-												<option value="03">Marzo</option>
-												<option value="04">Abril</option>
-												<option value="05">Mayo</option>
-												<option value="06">Junio</option>
-												<option value="07">Julio</option>
-												<option value="08">Agosto</option>
-												<option value="09">Septiembre</option>
-												<option value="10">Octubre</option>
-												<option value="11">Noviembre</option>
-												<option value="12">Diciembre</option>
-											</select>
-
+													<input type="radio" class="btn-check btn-lg" name="options-outlined" id="comunidadCliente" autocomplete="off">
+													<label class="btn btn-outline-primary" for="comunidadCliente">Comunidad</label>
+												</div>
+											</div> -->
+											<div class="table-responsive" id="dashboard1">
+												<!-- <table class="table table-striped table-hover">
+													<thead style="background-color: aliceblue;">
+														<tr class="text-center">
+															<th class="scope" style="font-weight: bold;">Contrato</th>
+															<th class="scope" style="font-weight: bold;"># pago</th>
+															<th class="scope" style="font-weight: bold;">Nombre del Cliente</th>
+															<th class="scope" style="font-weight: bold;">Monto</th>
+															<th class="scope" style="font-weight: bold;">Fecha de Pago</th>
+														</tr>
+													</thead>
+													<tbody id="dashboard1"> -->
+														<!-- Los datos se cargarán aquí via AJAX -->
+													<!-- </tbody>
+												</table> -->
+											</div>
+										</div><!-- La paginación se insertará aquí automáticamente -->
 									</div>
 								</div>
-
-                            </div>
-							<!-- <div class="col-4">
-								<label class="form-label">Selecciona:</label>
-								<div class="">
-									<input type="radio" class="btn-check btn-lg" name="options-outlined" id="nombreCliente" autocomplete="off">
-									<label class="btn btn-outline-primary" for="nombreCliente">Nombre</label>
-
-									<input type="radio" class="btn-check btn-lg" name="options-outlined" id="comunidadCliente" autocomplete="off">
-									<label class="btn btn-outline-primary" for="comunidadCliente">Comunidad</label>
-								</div>
-                            </div> -->
-							<div class="table-responsive" id="dashboard1">
-								<!-- <table class="table table-striped table-hover">
-									<thead style="background-color: aliceblue;">
-										<tr class="text-center">
-											<th class="scope" style="font-weight: bold;">Contrato</th>
-											<th class="scope" style="font-weight: bold;"># pago</th>
-											<th class="scope" style="font-weight: bold;">Nombre del Cliente</th>
-											<th class="scope" style="font-weight: bold;">Monto</th>
-											<th class="scope" style="font-weight: bold;">Fecha de Pago</th>
-										</tr>
-									</thead>
-									<tbody id="dashboard1"> -->
-										<!-- Los datos se cargarán aquí via AJAX -->
-									<!-- </tbody>
-								</table> -->
 							</div>
-						</div><!-- La paginación se insertará aquí automáticamente -->
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 mb-3 mb-lg-0">
-				<div class="card">
-					<div class="card-header pt-4">
-						<h4 class="card-title"><i class="bi bi-bag-dash me-2"></i>Gastos del día</h4>
-					</div>
-					<div class="card-body overflow-auto">
-						<div class="table-responsive" id="dashboardGastos">
-							
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-			<div class="row">
-				<div class="col-lg-6 grid-margin stretch-card">
-					<div class="card">
-						<div class="card overflow-auto">
-							<div class="card-header pt-4">
-								<h4 class="card-title">Próximos a Vencer</h4>
-							</div>
-							<div class="card-body">
-								<ul class="list-group list-group-horizontal mb-4">
-									<li class="list-group-item">
-										1 - 2 días para vencer
-										<div class="btn btn-sm btn-danger btn-rounded ms-2"></div>
-									</li>
-									<li class="list-group-item">
-										3 - 4 días para vencer
-										<div class="btn btn-sm btn-warning btn-rounded ms-2"></div>
-									</li>
-									<li class="list-group-item">
-										5 - 6 días para vencer
-										<div class="btn btn-sm btn-success btn-rounded ms-2"></div>
-									</li>
-								</ul>
-								<div class="table-responsive" id="tablaProximos">
-									
+					
+							<div class="col-lg-4 mb-3 mb-lg-0">
+								<div class="card">
+									<div class="card-header pt-4">
+										<h4 class="card-title"><i class="bi bi-bag-dash me-2"></i>Gastos del día</h4>
+									</div>
+									<div class="card-body overflow-auto">
+										<div class="table-responsive" id="dashboardGastos">
+											
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 grid-margin stretch-card">
-					<!-- <div class="card"> -->
-					<div class="card overflow-auto">
-						<div class="card-header pt-4">
-							<h4 class="card-title">Servicios Vencidos</h4>
-						</div>
-						<div class="card-body">
-						
-						<div class="table-responsive mb-3" id="tablaProximos2">
-							<!-- <table class="table table-hover text-center">
-								<thead style="background-color: aliceblue;" class="text-dark">
-									<tr>
-										<th class="scope" style="font-weight: bold;">
-											Contrato
-										</th>
-										<th class="scope" style="font-weight: bold;">
-											Nombre
-										</th>
-										<th class="scope" style="font-weight: bold;">
-											Monto
-										</th>
-										<th class="scope" style="font-weight: bold;">
-											Fecha límite de pago
-										</th>
-										<th class="scope" style="font-weight: bold;">
-											Estatus
-										</th>
-										<th class="scope" style="font-weight: bold;">
-											Actualizar
-										</th>
-									</tr>
-								</thead>
-								<tbody >
-									
-								</tbody>
-							</table> -->
-						</div>
-					</div>
-					<!-- </div> -->
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- content-wrapper ends -->
-	<!-- partial:partials/_footer.html -->
-	<footer class="footer">
-        <div class="footer-wrap">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-				<span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="http://www.smartevent.com.mx" target="_blank">SmartEvent </a>2025</span>
-				<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Desarrollo de sistemas <a href="https://www.bootstrapdash.com/" target="_blank"> SmartEvent </a> templates</span>
-            </div>
-        </div>
-    </footer>
-	<!-- partial -->
-	</div>
-	<!-- main-panel ends -->
-	</div>
-		<!-- page-body-wrapper ends -->
-    </div>
-		<!-- container-scroller -->
-    <!-- base:js -->
-    <script src="vendors/base/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page-->
-    <!-- End plugin js for this page-->
-    <!-- inject:js -->
-    <script src="js/template.js"></script>
-    <!-- endinject -->
-    <!-- plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <script src="vendors/chart.js/Chart.min.js"></script>
-    <script src="vendors/progressbar.js/progressbar.min.js"></script>
-	<script src="vendors/chartjs-plugin-datalabels/chartjs-plugin-datalabels.js"></script>
-	<script src="vendors/justgage/raphael-2.1.4.min.js"></script>
-	<script src="vendors/justgage/justgage.js"></script>
-    <!-- <script src="js/jquery.cookie.js" type="text/javascript"></script> -->
-    <!-- Custom js for this page-->
-    <script src="js/dashboard.js"></script>
-    <!-- End custom js for this page-->
-	<script src="js/validaciones.js"></script>
-	<script src="js/laterales/antenas.js"></script>
-	<script src="js/contratos.js"></script>
+						<div class="row">
+							<div class="col-lg-6 grid-margin stretch-card">
+								<div class="card">
+									<div class="card overflow-auto">
+										<div class="card-header pt-4">
+											<h4 class="card-title">Próximos a Vencer</h4>
+										</div>
+										<div class="card-body">
+											<ul class="list-group list-group-horizontal mb-4">
+												<li class="list-group-item">
+													1 - 2 días para vencer
+													<div class="btn btn-sm btn-danger btn-rounded ms-2"></div>
+												</li>
+												<li class="list-group-item">
+													3 - 4 días para vencer
+													<div class="btn btn-sm btn-warning btn-rounded ms-2"></div>
+												</li>
+												<li class="list-group-item">
+													5 - 6 días para vencer
+													<div class="btn btn-sm btn-success btn-rounded ms-2"></div>
+												</li>
+											</ul>
+											<div class="table-responsive" id="tablaProximos">
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 grid-margin stretch-card">
+								<!-- <div class="card"> -->
+								<div class="card overflow-auto">
+									<div class="card-header pt-4">
+										<h4 class="card-title">Servicios Vencidos</h4>
+									</div>
+									<div class="card-body">
+										<div class="table-responsive mb-3" id="tablaProximos2">
+											<!-- <table class="table table-hover text-center">
+												<thead style="background-color: aliceblue;" class="text-dark">
+													<tr>
+														<th class="scope" style="font-weight: bold;">
+															Contrato
+														</th>
+														<th class="scope" style="font-weight: bold;">
+															Nombre
+														</th>
+														<th class="scope" style="font-weight: bold;">
+															Monto
+														</th>
+														<th class="scope" style="font-weight: bold;">
+															Fecha límite de pago
+														</th>
+														<th class="scope" style="font-weight: bold;">
+															Estatus
+														</th>
+														<th class="scope" style="font-weight: bold;">
+															Actualizar
+														</th>
+													</tr>
+												</thead>
+												<tbody >
 
-</body>
+												</tbody>
+											</table> -->
+										</div>
+									</div>
+									<!-- </div> -->
+								</div>
+							</div>
+						</div>
+					</div><!-- content-wrapper ends -->
+					<!-- partial:partials/_footer.html -->
+					<footer class="footer">
+						<div class="footer-wrap">
+							<div class="d-sm-flex justify-content-center justify-content-sm-between">
+								<span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="http://www.smartevent.com.mx" target="_blank">SmartEvent </a>2025</span>
+								<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Desarrollo de sistemas <a href="https://www.bootstrapdash.com/" target="_blank"> SmartEvent </a> templates</span>
+							</div>
+						</div>
+					</footer><!-- partial -->
+				</div> <!-- main-panel ends -->
+			</div> <!-- page-body-wrapper ends -->
+		</div><!-- container-scroller -->
+		
+		<!-- base:js -->
+		<script src="vendors/base/vendor.bundle.base.js"></script>
+		<!-- endinject -->
+		<!-- Plugin js for this page-->
+		<!-- End plugin js for this page-->
+		<!-- inject:js -->
+		<script src="js/template.js"></script>
+		<!-- endinject -->
+		<!-- plugin js for this page -->
+		<!-- End plugin js for this page -->
+		<script src="vendors/chart.js/Chart.min.js"></script>
+		<script src="vendors/progressbar.js/progressbar.min.js"></script>
+		<script src="vendors/chartjs-plugin-datalabels/chartjs-plugin-datalabels.js"></script>
+		<script src="vendors/justgage/raphael-2.1.4.min.js"></script>
+		<script src="vendors/justgage/justgage.js"></script>
+		<!-- <script src="js/jquery.cookie.js" type="text/javascript"></script> -->
+		<!-- Custom js for this page-->
+		<script src="js/dashboard.js"></script>
+		<!-- End custom js for this page-->
+		<script src="js/validaciones.js"></script>
+		<script src="js/laterales/antenas.js"></script>
+		<script src="js/contratos.js"></script>
+
+	</body>
 </html>
 
 <?php
