@@ -23,9 +23,9 @@ while ($cliente = $resultado_clientes->fetch_assoc()) {
 
     // Evita sobreescribir el resultado de clientes
     $sqlPagos = "SELECT * FROM pagos_generales 
-                 WHERE folio_contrato = '$folio' 
-                 AND MONTH(fecha_pago) = '$mesCorte' 
-                 AND YEAR(fecha_pago) = '$anioHoy'";
+                WHERE folio_contrato = '$folio' 
+                AND MONTH(fecha_pago) = '$mesCorte' 
+                AND YEAR(fecha_pago) = '$anioHoy'";
 
     $resultado_pagos = $conn->query($sqlPagos);
     $filas = $resultado_pagos->num_rows;

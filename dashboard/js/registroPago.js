@@ -193,9 +193,10 @@ function guardarTodosPagos() {
     $.ajax({
         url: 'prcd/guardar_pagos.php',
         type: 'POST',
-        data: { pagos: pagos,
-                username: idUsr
-         },
+        data: { 
+            pagos: pagos,
+            username: idUsr
+        },
         dataType:'json',
         success: function(response) {
             if (response.success) {
@@ -497,7 +498,7 @@ function guardarRecibo999(){
                 alert("No se guardó");
                 console.log(datos.error)
             }
-          
+        
         },
         error: function(xhr, status, error) {
         alert("Error en la petición: " + error);
@@ -519,7 +520,7 @@ function queryRecibo(pagina = 1){
             $('.paginacion-vencimientos').on('click', function(e) {
                 e.preventDefault();
                 var pagina = $(this).data('pagina');
-                queryRecibo(pagina);
+                queryRecibo(pagina = 1);
             });
         }
     });
@@ -538,7 +539,7 @@ function queryRecibo2(pagina = 1){
             $('.paginacion-proximos').on('click', function(e) {
                 e.preventDefault();
                 var pagina = $(this).data('pagina');
-                queryRecibo2(pagina);
+                queryRecibo2(pagina = 1);
             });
         }
     });

@@ -11,13 +11,13 @@ $hoy->setTime(0, 0, 0);
 // Primero obtenemos TODOS los IDs que cumplen con el rango de días
 $clientesValidos = [];
 $sql_todos = "SELECT c.id, c.folio, c.nombre, c.cuota, c.fecha_corte, c.telefono 
-              FROM clientes c 
-              WHERE NOT EXISTS (
-                  SELECT 1 FROM pagos_generales p 
-                  WHERE p.folio_contrato = c.folio 
-                  AND MONTH(p.fecha_pago) = MONTH(c.fecha_corte) 
-                  AND YEAR(p.fecha_pago) = YEAR(CURDATE())
-              )";
+                FROM clientes c 
+                WHERE NOT EXISTS (
+                    SELECT 1 FROM pagos_generales p 
+                    WHERE p.folio_contrato = c.folio 
+                    AND MONTH(p.fecha_pago) = MONTH(c.fecha_corte) 
+                    AND YEAR(p.fecha_pago) = YEAR(CURDATE())
+                )";
 $resultado_todos = $conn->query($sql_todos);
 
 while ($cliente = $resultado_todos->fetch_assoc()) {
@@ -76,6 +76,9 @@ foreach ($registrosPagina as $cliente) {
     } elseif ($diferencia == 6) {
         $dias_restantes = 10;
         $color = '#0ddbb9';
+    } elseif ($diferencia > 6 && $diferencia <= 10) {
+        $dias_restantes = 5;
+        $color = '#0db9db';
     } elseif ($diferencia == 0) {
         $dias_restantes = 100;
         $color = '#ee5b5b';
@@ -114,11 +117,11 @@ if ($totalRegistros > 0) {
                 <a class="page-link paginacion-vencimientos" href="#" data-pagina="'.($paginaActual - 1).'" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
-              </li>';
+            </li>';
     } else {
         echo '<li class="page-item disabled">
                 <span class="page-link" aria-hidden="true">&laquo;</span>
-              </li>';
+            </li>';
     }
 
     // Números de página
@@ -130,7 +133,7 @@ if ($totalRegistros > 0) {
         $active = ($i == $paginaActual) ? 'active' : '';
         echo '<li class="page-item '.$active.'">
                 <a class="page-link paginacion-vencimientos" href="#" data-pagina="'.$i.'">'.$i.'</a>
-              </li>';
+            </li>';
     }
 
     // Botón Siguiente
@@ -139,11 +142,11 @@ if ($totalRegistros > 0) {
                 <a class="page-link paginacion-vencimientos" href="#" data-pagina="'.($paginaActual + 1).'" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
-              </li>';
+            </li>';
     } else {
         echo '<li class="page-item disabled">
                 <span class="page-link" aria-hidden="true">&raquo;</span>
-              </li>';
+            </li>';
     }
 
     echo '</ul></nav>';
