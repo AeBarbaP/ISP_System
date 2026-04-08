@@ -574,7 +574,7 @@ function queryDashboard2(pagina = 1, user) {
             $('.paginacion').on('click', function(e) {
                 e.preventDefault();
                 var pagina = $(this).data('pagina');
-                queryDashboard2(pagina = 1);
+                queryDashboard2(pagina);
             });
         }
     });
