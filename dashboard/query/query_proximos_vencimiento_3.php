@@ -2,40 +2,74 @@
 require_once("../prcd/conn.php");
 
 // Configuración de paginación
-$registrosPorPagina = 12; // Ajustado a 12 como mencionaste
+$registrosPorPagina = 10; // Ajustado a 12 como mencionaste
 $paginaActual = isset($_POST['pagina']) ? intval($_POST['pagina']) : 1;
+
+// QUERY PARA CONTAR REGISTROS
+$sql_count = "SELECT COUNT(*) as total
+            FROM clientes c
+            WHERE 
+                DATEDIFF(
+                    DATE(CONCAT(YEAR(CURDATE()), '-', MONTH(CURDATE()), '-', DAY(c.fecha_corte))),
+                    CURDATE()
+                ) BETWEEN 0 AND 6
+                AND NOT EXISTS (
+                    SELECT 1 FROM pagos_generales p 
+                    WHERE p.folio_contrato = c.folio 
+                    AND MONTH(p.fecha_pago) = MONTH(CURDATE())
+                    AND YEAR(p.fecha_pago) = YEAR(CURDATE())
+                )
+            ";
+
+$resultado_count = $conn->query($sql_count);
+$totalRegistros = $resultado_count->fetch_assoc()['total'];
+$totalPaginas = ceil($totalRegistros / $registrosPorPagina);
 
 $hoy = new DateTime();
 $hoy->setTime(0, 0, 0);
 
 // Primero obtenemos TODOS los IDs que cumplen con el rango de días
-$clientesValidos = [];
-$sql_todos = "SELECT c.id, c.folio, c.nombre, c.cuota, c.fecha_corte, c.telefono 
-                FROM clientes c 
-                WHERE NOT EXISTS (
-                    SELECT 1 FROM pagos_generales p 
-                    WHERE p.folio_contrato = c.folio 
-                    AND MONTH(p.fecha_pago) = MONTH(c.fecha_corte) 
-                    AND YEAR(p.fecha_pago) = YEAR(CURDATE())
-                )";
-$resultado_todos = $conn->query($sql_todos);
-
-while ($cliente = $resultado_todos->fetch_assoc()) {
-    $fecha_corte = new DateTime($cliente['fecha_corte']);
-    $diferencia = $hoy->diff($fecha_corte)->days;
-    
-    if ($diferencia >= 0 && $diferencia <= 6) {
-        $clientesValidos[] = $cliente;
-    }
-}
-
-// Calculamos paginación sobre los registros válidos
-$totalRegistros = count($clientesValidos);
-$totalPaginas = ceil($totalRegistros / $registrosPorPagina);
-
-// Obtenemos solo los registros de la página actual
 $inicio = ($paginaActual - 1) * $registrosPorPagina;
-$registrosPagina = array_slice($clientesValidos, $inicio, $registrosPorPagina);
+
+$sql_todos = "SELECT 
+                c.id, 
+                c.folio, 
+                c.nombre, 
+                c.cuota, 
+                c.fecha_corte, 
+                c.telefono,
+                DATEDIFF(
+                    DATE_ADD(
+                        DATE_FORMAT(CURDATE(), '%Y-%m-01'),
+                        INTERVAL DAY(c.fecha_corte)-1 DAY
+                    ),
+                    CURDATE()
+                ) AS diferencia,
+                DATE_ADD(
+                    DATE_FORMAT(CURDATE(), '%Y-%m-01'),
+                    INTERVAL DAY(c.fecha_corte)-1 DAY
+                ) AS fecha_corte_actual
+            FROM clientes c
+            WHERE 
+                DATEDIFF(
+                    DATE_ADD(
+                        DATE_FORMAT(CURDATE(), '%Y-%m-01'),
+                        INTERVAL DAY(c.fecha_corte)-1 DAY
+                    ),
+                    CURDATE()
+                ) BETWEEN 0 AND 6
+                AND NOT EXISTS (
+                    SELECT 1 
+                    FROM pagos_generales p 
+                    WHERE p.folio_contrato = c.folio 
+                    AND MONTH(p.fecha_pago) = MONTH(CURDATE())
+                    AND YEAR(p.fecha_pago) = YEAR(CURDATE())
+                )
+            ORDER BY diferencia ASC
+            LIMIT $inicio, $registrosPorPagina
+";
+
+$resultado_todos = $conn->query($sql_todos);
 
 echo '
 <div class="table-responsive">
@@ -53,9 +87,10 @@ echo '
         </thead>
         <tbody>';
 
-foreach ($registrosPagina as $cliente) {
-    $fecha_corte = new DateTime($cliente['fecha_corte']);
-    $diferencia = $hoy->diff($fecha_corte)->days;
+while ($cliente = $resultado_todos->fetch_assoc()) {
+    $fecha_corte = new DateTime($cliente['fecha_corte_actual']);
+
+    $diferencia = $cliente['diferencia'];
     
     // Asignación de colores y porcentajes
     if ($diferencia == 1) {
@@ -84,7 +119,7 @@ foreach ($registrosPagina as $cliente) {
         $color = '#ee5b5b';
     }
 
-    $telefono = $cliente['telefono'];
+    $telefono = preg_replace('/\D/', '', $cliente['telefono']);
 
     echo "
     <tr>
@@ -94,7 +129,7 @@ foreach ($registrosPagina as $cliente) {
             <div class='progress'>
                 <div class='progress-bar' role='progressbar' style='width: {$dias_restantes}%; background-color: {$color};' 
                     aria-valuenow='{$dias_restantes}' aria-valuemin='0' aria-valuemax='100'>
-                    {$diferencia} día" . ($diferencia != 1 ? 's' : '') . "
+                    " . abs($diferencia) . " día" . (abs($diferencia) != 1 ? 's' : '') . "
                 </div>
             </div>
         </td>
@@ -107,7 +142,7 @@ foreach ($registrosPagina as $cliente) {
 echo '</tbody></table>';
 
 // Generar HTML de la paginación solo si hay registros
-if ($totalRegistros > 0) {
+if ($totalPaginas > 1) {
     echo '<nav aria-label="Page navigation">
     <ul class="pagination justify-content-end mt-3">';
 
@@ -125,7 +160,7 @@ if ($totalRegistros > 0) {
     }
 
     // Números de página
-    $paginasAMostrar = 5;
+    $paginasAMostrar = 6;
     $inicio = max(1, $paginaActual - floor($paginasAMostrar/2));
     $fin = min($totalPaginas, $inicio + $paginasAMostrar - 1);
 

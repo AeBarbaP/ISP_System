@@ -443,7 +443,7 @@ function guardarRecibo() {
                     // queryDashboard1(pagina = 1);
                     limpiarModalX();
                     document.getElementById("datoscliente").hidden = true;
-                    queryDashboard1(pagina = 1);
+                    queryDashboard1(pagina);
                 }
                 else{
                     alert("No se guardó recibo normal 1");
@@ -513,18 +513,37 @@ function queryRecibo(pagina = 1){
         url: "query/query_proximos_vencimiento_3.php",
         data: { pagina: pagina },
         dataType: "html",
+        /* beforeSend: function() {
+            $('#tablaProximos').html(`
+                <div class="text-center p-3">
+                    <div class="spinner-border text-primary" role="status"></div>
+                    <div>Cargando datos...</div>
+                </div>
+            `);
+        },
         success: function(data) {
             $('#tablaProximos').html(data);
-            
-            // Agregar evento a los botones de paginación específicos
-            $('.paginacion-vencimientos').on('click', function(e) {
-                e.preventDefault();
-                var pagina = $(this).data('pagina');
-                queryRecibo(pagina = 1);
-            });
+        } */
+        beforeSend: function() {
+            $('#tablaProximos').css('opacity', '0.5');
+        },
+        success: function(data) {
+            $('#tablaProximos').css('opacity', '1');
+            $('#tablaProximos').html(data);
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+            $('#tablaProximos').html('Error al cargar datos');
         }
     });
 }
+
+// Evento global (FUERA de la función queryRecibo para manejar la paginación
+$(document).on('click', '.paginacion-vencimientos', function(e) {
+    e.preventDefault();
+    var pagina = $(this).data('pagina');
+    queryRecibo(pagina);
+});
 
 function queryRecibo2(pagina = 1){
         $.ajax({
@@ -532,18 +551,26 @@ function queryRecibo2(pagina = 1){
         url: "query/query_proximos_vencimiento_2.php",
         data: { pagina: pagina },
         dataType: "html",
+        beforeSend: function() {
+            $('#tablaProximos2').css('opacity', '0.5');
+        },
         success: function(data) {
+            $('#tablaProximos2').css('opacity', '1');
             $('#tablaProximos2').html(data);
-            
-            // Agregar evento a los botones de paginación
-            $('.paginacion-proximos').on('click', function(e) {
-                e.preventDefault();
-                var pagina = $(this).data('pagina');
-                queryRecibo2(pagina = 1);
-            });
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+            $('#tablaProximos2').html('Error al cargar datos');
         }
     });
 }
+
+// Evento global (FUERA de la función queryRecibo para manejar la paginación
+$(document).on('click', '.paginacion-proximos', function(e) {
+    e.preventDefault();
+    var pagina = $(this).data('pagina');
+    queryRecibo2(pagina);
+});
 
 queryRecibo();
 queryRecibo2();
